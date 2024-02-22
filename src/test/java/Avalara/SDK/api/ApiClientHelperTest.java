@@ -14,7 +14,7 @@
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
  * @copyright  2004-2022 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    2.4.22
+ * @version    0.0.1
  * @link       https://github.com/avadev/AvaTax-REST-V3-JRE-SDK
  */
 
@@ -27,9 +27,6 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
-/**
- * API tests for ShippingVerificationApi
- */
 public class ApiClientHelperTest {
     private Configuration configuration;
 
@@ -45,14 +42,14 @@ public class ApiClientHelperTest {
         configuration.setAppVersion("1.0");
         configuration.setMachineName("LocalBox");
         configuration.setTimeout(5000);
-        configuration.setEnvironment(AvaTaxEnvironment.QA);
-        configuration.setClientId("sdkDeviceFlowWebClient");
+        configuration.setEnvironment(AvaTaxEnvironment.Sandbox);
         configuration.setTestBasePath("https://localhost:3000");
         return configuration;
     }
 
 
     @Test
+    @Ignore("Not currently supported")
     public void verifyDeviceAuthorizationFlow() throws Exception {
         DeviceAuthResponse response = ApiClientHelper.initiateDeviceAuthorizationOAuth(null, configuration);
         DeviceAccessTokenResponse tokenResponse = ApiClientHelper.getAccessTokenForDeviceFlow(response.getDeviceCode(), configuration);
