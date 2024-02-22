@@ -26,6 +26,6 @@ lazy val root = (project in file(".")).
       "javax.ws.rs" % "javax.ws.rs-api" % "2.1.1" % "compile",
       "junit" % "junit" % "4.13.1" % "test",
       "com.novocode" % "junit-interface" % "0.10" % "test",
-      "io.github.cdimascio" % "dotenv-java" % "2.2.3" % "test"
+      "io.github.cdimascio" % "dotenv-java" % "3.0.0" % "test"
     )
   )

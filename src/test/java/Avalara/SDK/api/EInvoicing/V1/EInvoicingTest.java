@@ -46,7 +46,7 @@ public class EInvoicingTest {
         configuration.setMachineName("LocalBox");
         configuration.setTimeout(5000);
         configuration.setEnvironment(AvaTaxEnvironment.Sandbox);
-        configuration.setBearerToken(dotenv.get("token"));
+        configuration.setBearerToken(dotenv.get("BEARER_TOKEN"));
         return configuration;
     }
 
