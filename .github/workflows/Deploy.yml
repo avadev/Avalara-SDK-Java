@@ -58,7 +58,8 @@ jobs:
           mvn --no-transfer-progress --batch-mode clean verify deploy -X \
             -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }} \
             -DskipTests \
-            -Prelease
+            -Prelease \
+            -Psign-artifacts
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
