@@ -44,7 +44,7 @@ jobs:
           echo "BEARER_TOKEN=${token}" >> $GITHUB_ENV
 
       - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots package
+        run: mvn --batch-mode --update-snapshots verify
 
       - name: Update resources
         uses: test-room-7/action-update-file@v1
@@ -53,15 +53,11 @@ jobs:
           commit-msg: Commit Pom updated version
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Directly invoke GPG signing
-        run: mvn gpg:sign -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}
-
       - name: Publish to Maven Central
         run: |
           mvn --no-transfer-progress --batch-mode deploy -X \
             -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }} \
             -DskipTests \
-            -Prelease \
             -Psign-artifacts
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
