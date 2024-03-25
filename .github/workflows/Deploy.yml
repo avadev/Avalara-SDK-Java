@@ -32,7 +32,7 @@ jobs:
         run: mvn versions:set -DnewVersion=${{ env.VERSION }}
 
       - name: Install GPG secret key
-        run: cat <(echo -e "${{ secrets.OSSRH_GPG_SECRET_KEY }}") | gpg --batch --import
+        run: echo "${{ secrets.OSSRH_GPG_SECRET_KEY }}" | gpg --batch --import
 
       - name: Retrieve bearer token
         id: get_bearer_token
