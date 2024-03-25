@@ -53,6 +53,9 @@ jobs:
           commit-msg: Commit Pom updated version
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Directly invoke GPG signing
+        run: mvn gpg:sign -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}
+
       - name: Publish to Maven Central
         run: |
           mvn --no-transfer-progress --batch-mode deploy -X \
