@@ -250,9 +250,6 @@
                     </goals>
                 </execution>
                 </executions>
-                <configuration>
-                    <keyname>8AAE46129BEFBBBB</keyname>
-                </configuration>
             </plugin>
         </plugins>
     </build>
