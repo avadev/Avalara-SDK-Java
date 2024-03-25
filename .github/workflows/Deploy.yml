@@ -32,7 +32,7 @@ jobs:
         run: mvn versions:set -DnewVersion=${{ env.VERSION }}
 
       - name: Install GPG secret key
-        run: echo "${{ secrets.OSSRH_GPG_SECRET_KEY }}" | gpg --batch --import
+        run: echo "${{ secrets.OSSRH_GPG_SECRET_KEY }}" | gpg --batch --passphrase "${{ secrets.OSSRH_GPG_PASSPHRASE }}" --import
 
       - name: Check Imported GPG Keys
         run: gpg --list-secret-keys --keyid-format LONG
