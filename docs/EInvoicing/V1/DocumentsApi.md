@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ## fetchDocuments
 
-> DocumentFetch fetchDocuments(avalaraVersion, fetchDocumentsRequest, xAvalaraClient)
+> DocumentFetch fetchDocuments(avalaraVersion, documentFetchRequest, xAvalaraClient)
 
 Fetch the inbound document from a tax authority
 
@@ -137,10 +137,10 @@ public class Example {
 
         DocumentsApi apiInstance = new DocumentsApi(apiClient);
         String avalaraVersion = "1.2"; // String | The HTTP Header meant to specify the version of the API intended to be used
-        FetchDocumentsRequest fetchDocumentsRequest = new FetchDocumentsRequest(); // FetchDocumentsRequest | 
+        DocumentFetchRequest documentFetchRequest = new DocumentFetchRequest(); // DocumentFetchRequest | 
         String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
         try {
-            DocumentFetch result = apiInstance.fetchDocuments(avalaraVersion, fetchDocumentsRequest, xAvalaraClient);
+            DocumentFetch result = apiInstance.fetchDocuments(avalaraVersion, documentFetchRequest, xAvalaraClient);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DocumentsApi#fetchDocuments");
@@ -159,7 +159,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **avalaraVersion** | **String**| The HTTP Header meant to specify the version of the API intended to be used |
- **fetchDocumentsRequest** | [**FetchDocumentsRequest**](FetchDocumentsRequest.md)|  |
+ **documentFetchRequest** | [**DocumentFetchRequest**](DocumentFetchRequest.md)|  |
  **xAvalaraClient** | **String**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. | [optional]
 
 ### Return type
@@ -407,7 +407,7 @@ public class Example {
         DocumentsApi apiInstance = new DocumentsApi(apiClient);
         String avalaraVersion = "1.2"; // String | The HTTP Header meant to specify the version of the API intended to be used
         SubmitDocumentMetadata metadata = new SubmitDocumentMetadata(); // SubmitDocumentMetadata | 
-        Object data = null; // Object | The document to be submitted, as indicated by the metadata fields 'dataFormat' and 'dataFormatVersion'
+        String data = "data_example"; // String | The document to be submitted, as indicated by the metadata fields 'dataFormat' and 'dataFormatVersion'
         String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
         try {
             DocumentSubmitResponse result = apiInstance.submitDocument(avalaraVersion, metadata, data, xAvalaraClient);
@@ -430,7 +430,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **avalaraVersion** | **String**| The HTTP Header meant to specify the version of the API intended to be used |
  **metadata** | [**SubmitDocumentMetadata**](SubmitDocumentMetadata.md)|  |
- **data** | [**Object**](Object.md)| The document to be submitted, as indicated by the metadata fields &#39;dataFormat&#39; and &#39;dataFormatVersion&#39; |
+ **data** | **String**| The document to be submitted, as indicated by the metadata fields &#39;dataFormat&#39; and &#39;dataFormatVersion&#39; |
  **xAvalaraClient** | **String**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. | [optional]
 
 ### Return type

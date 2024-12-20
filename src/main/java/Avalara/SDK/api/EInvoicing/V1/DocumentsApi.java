@@ -41,11 +41,11 @@ import Avalara.SDK.model.EInvoicing.V1.BadDownloadRequest;
 import Avalara.SDK.model.EInvoicing.V1.BadRequest;
 import java.math.BigDecimal;
 import Avalara.SDK.model.EInvoicing.V1.DocumentFetch;
+import Avalara.SDK.model.EInvoicing.V1.DocumentFetchRequest;
 import Avalara.SDK.model.EInvoicing.V1.DocumentListResponse;
 import Avalara.SDK.model.EInvoicing.V1.DocumentStatusResponse;
 import Avalara.SDK.model.EInvoicing.V1.DocumentSubmissionError;
 import Avalara.SDK.model.EInvoicing.V1.DocumentSubmitResponse;
-import Avalara.SDK.model.EInvoicing.V1.FetchDocumentsRequest;
 import java.io.File;
 import Avalara.SDK.model.EInvoicing.V1.ForbiddenError;
 import Avalara.SDK.model.EInvoicing.V1.InternalServerError;
@@ -328,7 +328,7 @@ public class DocumentsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = requestParameters.getFetchDocumentsRequest();
+        Object localVarPostBody = requestParameters.getDocumentFetchRequest();
 
         // create path and map variables
         String localVarPath = "/documents/$fetch";
@@ -377,9 +377,9 @@ public class DocumentsApi {
             throw new ApiException("Missing the required parameter 'requestParameters.avalaraVersion' when calling fetchDocuments(Async)");
         }
         
-        // verify the required parameter 'requestParameters.fetchDocumentsRequest' is set
-        if (requestParameters.getFetchDocumentsRequest() == null) {
-            throw new ApiException("Missing the required parameter 'requestParameters.fetchDocumentsRequest' when calling fetchDocuments(Async)");
+        // verify the required parameter 'requestParameters.documentFetchRequest' is set
+        if (requestParameters.getDocumentFetchRequest() == null) {
+            throw new ApiException("Missing the required parameter 'requestParameters.documentFetchRequest' when calling fetchDocuments(Async)");
         }
         
 
@@ -456,12 +456,12 @@ public class DocumentsApi {
     * Represents the Request object for the FetchDocuments API
     *
     * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used</param>
-    * @param fetchDocumentsRequest </param>
+    * @param documentFetchRequest </param>
     * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)</param>
     */
     public class FetchDocumentsRequest {
         private String avalaraVersion;
-        private FetchDocumentsRequest fetchDocumentsRequest;
+        private DocumentFetchRequest documentFetchRequest;
         private String xAvalaraClient;
 
         public FetchDocumentsRequest () {
@@ -469,8 +469,8 @@ public class DocumentsApi {
 
         public String getAvalaraVersion() { return avalaraVersion; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
-        public FetchDocumentsRequest getFetchDocumentsRequest() { return fetchDocumentsRequest; }
-        public void setFetchDocumentsRequest(FetchDocumentsRequest fetchDocumentsRequest) { this.fetchDocumentsRequest = fetchDocumentsRequest; }
+        public DocumentFetchRequest getDocumentFetchRequest() { return documentFetchRequest; }
+        public void setDocumentFetchRequest(DocumentFetchRequest documentFetchRequest) { this.documentFetchRequest = documentFetchRequest; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
     }
@@ -1096,7 +1096,7 @@ public class DocumentsApi {
     public class SubmitDocumentRequest {
         private String avalaraVersion;
         private SubmitDocumentMetadata metadata;
-        private Object data;
+        private String data;
         private String xAvalaraClient;
 
         public SubmitDocumentRequest () {
@@ -1106,8 +1106,8 @@ public class DocumentsApi {
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public SubmitDocumentMetadata getMetadata() { return metadata; }
         public void setMetadata(SubmitDocumentMetadata metadata) { this.metadata = metadata; }
-        public Object getData() { return data; }
-        public void setData(Object data) { this.data = data; }
+        public String getData() { return data; }
+        public void setData(String data) { this.data = data; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
     }
