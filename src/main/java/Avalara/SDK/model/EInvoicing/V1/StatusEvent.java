@@ -28,6 +28,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -56,7 +57,7 @@ import Avalara.SDK.JSON;
 /**
  * Displays when a status event occurred
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class StatusEvent {
   public static final String SERIALIZED_NAME_EVENT_DATE_TIME = "eventDateTime";
   @SerializedName(SERIALIZED_NAME_EVENT_DATE_TIME)
@@ -66,6 +67,14 @@ public class StatusEvent {
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
 
+  public static final String SERIALIZED_NAME_RESPONSE_KEY = "responseKey";
+  @SerializedName(SERIALIZED_NAME_RESPONSE_KEY)
+  private String responseKey;
+
+  public static final String SERIALIZED_NAME_RESPONSE_VALUE = "responseValue";
+  @SerializedName(SERIALIZED_NAME_RESPONSE_VALUE)
+  private String responseValue;
+
   public StatusEvent() {
   }
 
@@ -74,10 +83,10 @@ public class StatusEvent {
     return this;
   }
 
-   /**
+  /**
    * The date and time when the status event occured, displayed in the format YYYY-MM-DDThh:mm:ss
    * @return eventDateTime
-  **/
+   */
   @javax.annotation.Nullable
   public String getEventDateTime() {
     return eventDateTime;
@@ -93,10 +102,10 @@ public class StatusEvent {
     return this;
   }
 
-   /**
+  /**
    * A message describing the status event
    * @return message
-  **/
+   */
   @javax.annotation.Nullable
   public String getMessage() {
     return message;
@@ -104,6 +113,44 @@ public class StatusEvent {
 
   public void setMessage(String message) {
     this.message = message;
+  }
+
+
+  public StatusEvent responseKey(String responseKey) {
+    this.responseKey = responseKey;
+    return this;
+  }
+
+  /**
+   *  The type of number or acknowledgement returned by the tax authority (if applicable). For example, it could be an identification key, acknowledgement code, or any other relevant identifier.
+   * @return responseKey
+   */
+  @javax.annotation.Nullable
+  public String getResponseKey() {
+    return responseKey;
+  }
+
+  public void setResponseKey(String responseKey) {
+    this.responseKey = responseKey;
+  }
+
+
+  public StatusEvent responseValue(String responseValue) {
+    this.responseValue = responseValue;
+    return this;
+  }
+
+  /**
+   * The corresponding value associated with the response key. This value is provided by the tax authority in response to the event.
+   * @return responseValue
+   */
+  @javax.annotation.Nullable
+  public String getResponseValue() {
+    return responseValue;
+  }
+
+  public void setResponseValue(String responseValue) {
+    this.responseValue = responseValue;
   }
 
 
@@ -118,12 +165,25 @@ public class StatusEvent {
     }
     StatusEvent statusEvent = (StatusEvent) o;
     return Objects.equals(this.eventDateTime, statusEvent.eventDateTime) &&
-        Objects.equals(this.message, statusEvent.message);
+        Objects.equals(this.message, statusEvent.message) &&
+        Objects.equals(this.responseKey, statusEvent.responseKey) &&
+        Objects.equals(this.responseValue, statusEvent.responseValue);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eventDateTime, message);
+    return Objects.hash(eventDateTime, message, responseKey, responseValue);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -132,6 +192,8 @@ public class StatusEvent {
     sb.append("class StatusEvent {\n");
     sb.append("    eventDateTime: ").append(toIndentedString(eventDateTime)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    responseKey: ").append(toIndentedString(responseKey)).append("\n");
+    sb.append("    responseValue: ").append(toIndentedString(responseValue)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -156,17 +218,19 @@ public class StatusEvent {
     openapiFields = new HashSet<String>();
     openapiFields.add("eventDateTime");
     openapiFields.add("message");
+    openapiFields.add("responseKey");
+    openapiFields.add("responseValue");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to StatusEvent
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to StatusEvent
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!StatusEvent.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -187,6 +251,12 @@ public class StatusEvent {
       }
       if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
+      }
+      if ((jsonObj.get("responseKey") != null && !jsonObj.get("responseKey").isJsonNull()) && !jsonObj.get("responseKey").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `responseKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("responseKey").toString()));
+      }
+      if ((jsonObj.get("responseValue") != null && !jsonObj.get("responseValue").isJsonNull()) && !jsonObj.get("responseValue").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `responseValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("responseValue").toString()));
       }
   }
 
@@ -219,22 +289,22 @@ public class StatusEvent {
     }
   }
 
- /**
-  * Create an instance of StatusEvent given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of StatusEvent
-  * @throws IOException if the JSON string is invalid with respect to StatusEvent
-  */
+  /**
+   * Create an instance of StatusEvent given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of StatusEvent
+   * @throws IOException if the JSON string is invalid with respect to StatusEvent
+   */
   public static StatusEvent fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, StatusEvent.class);
   }
 
- /**
-  * Convert an instance of StatusEvent to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of StatusEvent to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -56,7 +56,7 @@ import Avalara.SDK.JSON;
 /**
  * Returns the unique ID of a successful document submission
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class DocumentSubmitResponse {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -70,10 +70,10 @@ public class DocumentSubmitResponse {
     return this;
   }
 
-   /**
+  /**
    * Unique ID for this document that can be used for status checking and file downloads. This is a UID created by the Avalara E-Invoicing platform.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   public String getId() {
     return id;
@@ -135,12 +135,12 @@ public class DocumentSubmitResponse {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to DocumentSubmitResponse
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to DocumentSubmitResponse
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!DocumentSubmitResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -190,22 +190,22 @@ public class DocumentSubmitResponse {
     }
   }
 
- /**
-  * Create an instance of DocumentSubmitResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of DocumentSubmitResponse
-  * @throws IOException if the JSON string is invalid with respect to DocumentSubmitResponse
-  */
+  /**
+   * Create an instance of DocumentSubmitResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of DocumentSubmitResponse
+   * @throws IOException if the JSON string is invalid with respect to DocumentSubmitResponse
+   */
   public static DocumentSubmitResponse fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, DocumentSubmitResponse.class);
   }
 
- /**
-  * Convert an instance of DocumentSubmitResponse to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of DocumentSubmitResponse to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

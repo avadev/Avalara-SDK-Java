@@ -62,7 +62,7 @@ import Avalara.SDK.JSON;
 /**
  * The Data Input Field
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class DataInputField {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -74,15 +74,15 @@ public class DataInputField {
 
   public static final String SERIALIZED_NAME_APPLICABLE_DOCUMENT_ROOTS = "applicableDocumentRoots";
   @SerializedName(SERIALIZED_NAME_APPLICABLE_DOCUMENT_ROOTS)
-  private List<Object> applicableDocumentRoots;
+  private List<Object> applicableDocumentRoots = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
 
-  public static final String SERIALIZED_NAME_NAME_SPACE = "nameSpace";
-  @SerializedName(SERIALIZED_NAME_NAME_SPACE)
-  private String nameSpace;
+  public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
+  @SerializedName(SERIALIZED_NAME_NAMESPACE)
+  private String namespace;
 
   public static final String SERIALIZED_NAME_FIELD_NAME = "fieldName";
   @SerializedName(SERIALIZED_NAME_FIELD_NAME)
@@ -114,7 +114,7 @@ public class DataInputField {
 
   public static final String SERIALIZED_NAME_CONDITIONAL_FOR = "conditionalFor";
   @SerializedName(SERIALIZED_NAME_CONDITIONAL_FOR)
-  private List<ConditionalForField> conditionalFor;
+  private List<ConditionalForField> conditionalFor = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NOT_USED_FOR = "notUsedFor";
   @SerializedName(SERIALIZED_NAME_NOT_USED_FOR)
@@ -132,10 +132,10 @@ public class DataInputField {
     return this;
   }
 
-   /**
+  /**
    * Field UUID
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   public String getId() {
     return id;
@@ -151,10 +151,10 @@ public class DataInputField {
     return this;
   }
 
-   /**
+  /**
    * Field ID
    * @return fieldId
-  **/
+   */
   @javax.annotation.Nullable
   public String getFieldId() {
     return fieldId;
@@ -178,10 +178,10 @@ public class DataInputField {
     return this;
   }
 
-   /**
+  /**
    * Get applicableDocumentRoots
    * @return applicableDocumentRoots
-  **/
+   */
   @javax.annotation.Nullable
   public List<Object> getApplicableDocumentRoots() {
     return applicableDocumentRoots;
@@ -197,10 +197,10 @@ public class DataInputField {
     return this;
   }
 
-   /**
+  /**
    * Path to this field
    * @return path
-  **/
+   */
   @javax.annotation.Nullable
   public String getPath() {
     return path;
@@ -211,22 +211,22 @@ public class DataInputField {
   }
 
 
-  public DataInputField nameSpace(String nameSpace) {
-    this.nameSpace = nameSpace;
+  public DataInputField namespace(String namespace) {
+    this.namespace = namespace;
     return this;
   }
 
-   /**
+  /**
    * Namespace of this field
-   * @return nameSpace
-  **/
+   * @return namespace
+   */
   @javax.annotation.Nullable
-  public String getNameSpace() {
-    return nameSpace;
+  public String getNamespace() {
+    return namespace;
   }
 
-  public void setNameSpace(String nameSpace) {
-    this.nameSpace = nameSpace;
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
   }
 
 
@@ -235,10 +235,10 @@ public class DataInputField {
     return this;
   }
 
-   /**
+  /**
    * Field name
    * @return fieldName
-  **/
+   */
   @javax.annotation.Nullable
   public String getFieldName() {
     return fieldName;
@@ -254,10 +254,10 @@ public class DataInputField {
     return this;
   }
 
-   /**
+  /**
    * An example of the content for this field
    * @return exampleOrFixedValue
-  **/
+   */
   @javax.annotation.Nullable
   public String getExampleOrFixedValue() {
     return exampleOrFixedValue;
@@ -273,10 +273,10 @@ public class DataInputField {
     return this;
   }
 
-   /**
+  /**
    * An object representing the acceptable values for this field
    * @return acceptedValues
-  **/
+   */
   @javax.annotation.Nullable
   public Object getAcceptedValues() {
     return acceptedValues;
@@ -292,10 +292,10 @@ public class DataInputField {
     return this;
   }
 
-   /**
+  /**
    * An example of the content for this field
    * @return documentationLink
-  **/
+   */
   @javax.annotation.Nullable
   public String getDocumentationLink() {
     return documentationLink;
@@ -311,10 +311,10 @@ public class DataInputField {
     return this;
   }
 
-   /**
+  /**
    * A description of this field
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   public String getDescription() {
     return description;
@@ -330,10 +330,10 @@ public class DataInputField {
     return this;
   }
 
-   /**
+  /**
    * Is this a segment of the schema
    * @return isSegment
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsSegment() {
     return isSegment;
@@ -349,10 +349,10 @@ public class DataInputField {
     return this;
   }
 
-   /**
+  /**
    * Get requiredFor
    * @return requiredFor
-  **/
+   */
   @javax.annotation.Nullable
   public DataInputFieldRequiredFor getRequiredFor() {
     return requiredFor;
@@ -376,10 +376,10 @@ public class DataInputField {
     return this;
   }
 
-   /**
+  /**
    * Get conditionalFor
    * @return conditionalFor
-  **/
+   */
   @javax.annotation.Nullable
   public List<ConditionalForField> getConditionalFor() {
     return conditionalFor;
@@ -395,10 +395,10 @@ public class DataInputField {
     return this;
   }
 
-   /**
+  /**
    * Get notUsedFor
    * @return notUsedFor
-  **/
+   */
   @javax.annotation.Nullable
   public DataInputFieldNotUsedFor getNotUsedFor() {
     return notUsedFor;
@@ -414,10 +414,10 @@ public class DataInputField {
     return this;
   }
 
-   /**
+  /**
    * Get optionalFor
    * @return optionalFor
-  **/
+   */
   @javax.annotation.Nullable
   public DataInputFieldOptionalFor getOptionalFor() {
     return optionalFor;
@@ -442,7 +442,7 @@ public class DataInputField {
         Objects.equals(this.fieldId, dataInputField.fieldId) &&
         Objects.equals(this.applicableDocumentRoots, dataInputField.applicableDocumentRoots) &&
         Objects.equals(this.path, dataInputField.path) &&
-        Objects.equals(this.nameSpace, dataInputField.nameSpace) &&
+        Objects.equals(this.namespace, dataInputField.namespace) &&
         Objects.equals(this.fieldName, dataInputField.fieldName) &&
         Objects.equals(this.exampleOrFixedValue, dataInputField.exampleOrFixedValue) &&
         Objects.equals(this.acceptedValues, dataInputField.acceptedValues) &&
@@ -457,7 +457,7 @@ public class DataInputField {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, fieldId, applicableDocumentRoots, path, nameSpace, fieldName, exampleOrFixedValue, acceptedValues, documentationLink, description, isSegment, requiredFor, conditionalFor, notUsedFor, optionalFor);
+    return Objects.hash(id, fieldId, applicableDocumentRoots, path, namespace, fieldName, exampleOrFixedValue, acceptedValues, documentationLink, description, isSegment, requiredFor, conditionalFor, notUsedFor, optionalFor);
   }
 
   @Override
@@ -468,7 +468,7 @@ public class DataInputField {
     sb.append("    fieldId: ").append(toIndentedString(fieldId)).append("\n");
     sb.append("    applicableDocumentRoots: ").append(toIndentedString(applicableDocumentRoots)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
-    sb.append("    nameSpace: ").append(toIndentedString(nameSpace)).append("\n");
+    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    fieldName: ").append(toIndentedString(fieldName)).append("\n");
     sb.append("    exampleOrFixedValue: ").append(toIndentedString(exampleOrFixedValue)).append("\n");
     sb.append("    acceptedValues: ").append(toIndentedString(acceptedValues)).append("\n");
@@ -505,7 +505,7 @@ public class DataInputField {
     openapiFields.add("fieldId");
     openapiFields.add("applicableDocumentRoots");
     openapiFields.add("path");
-    openapiFields.add("nameSpace");
+    openapiFields.add("namespace");
     openapiFields.add("fieldName");
     openapiFields.add("exampleOrFixedValue");
     openapiFields.add("acceptedValues");
@@ -521,12 +521,12 @@ public class DataInputField {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to DataInputField
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to DataInputField
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!DataInputField.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -555,8 +555,8 @@ public class DataInputField {
       if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull()) && !jsonObj.get("path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
       }
-      if ((jsonObj.get("nameSpace") != null && !jsonObj.get("nameSpace").isJsonNull()) && !jsonObj.get("nameSpace").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `nameSpace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nameSpace").toString()));
+      if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));
       }
       if ((jsonObj.get("fieldName") != null && !jsonObj.get("fieldName").isJsonNull()) && !jsonObj.get("fieldName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fieldName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fieldName").toString()));
@@ -627,22 +627,22 @@ public class DataInputField {
     }
   }
 
- /**
-  * Create an instance of DataInputField given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of DataInputField
-  * @throws IOException if the JSON string is invalid with respect to DataInputField
-  */
+  /**
+   * Create an instance of DataInputField given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of DataInputField
+   * @throws IOException if the JSON string is invalid with respect to DataInputField
+   */
   public static DataInputField fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, DataInputField.class);
   }
 
- /**
-  * Convert an instance of DataInputField to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of DataInputField to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

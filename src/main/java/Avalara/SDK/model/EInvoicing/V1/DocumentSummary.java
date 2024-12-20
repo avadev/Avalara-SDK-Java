@@ -56,7 +56,7 @@ import Avalara.SDK.JSON;
 /**
  * Displays a summary of information about the document
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class DocumentSummary {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -77,6 +77,14 @@ public class DocumentSummary {
   public static final String SERIALIZED_NAME_CUSTOMER_NAME = "customerName";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_NAME)
   private String customerName;
+
+  public static final String SERIALIZED_NAME_DOCUMENT_TYPE = "documentType";
+  @SerializedName(SERIALIZED_NAME_DOCUMENT_TYPE)
+  private String documentType;
+
+  public static final String SERIALIZED_NAME_DOCUMENT_VERSION = "documentVersion";
+  @SerializedName(SERIALIZED_NAME_DOCUMENT_VERSION)
+  private String documentVersion;
 
   public static final String SERIALIZED_NAME_DOCUMENT_NUMBER = "documentNumber";
   @SerializedName(SERIALIZED_NAME_DOCUMENT_NUMBER)
@@ -114,10 +122,10 @@ public class DocumentSummary {
     return this;
   }
 
-   /**
+  /**
    * The unique ID for this document
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   public String getId() {
     return id;
@@ -133,10 +141,10 @@ public class DocumentSummary {
     return this;
   }
 
-   /**
+  /**
    * The date and time when the document was processed, displayed in the format YYYY-MM-DDThh:mm:ss
    * @return processDateTime
-  **/
+   */
   @javax.annotation.Nullable
   public String getProcessDateTime() {
     return processDateTime;
@@ -152,10 +160,10 @@ public class DocumentSummary {
     return this;
   }
 
-   /**
-   * The transaction status: &lt;br&gt; &#39;Pending&#39; &lt;br&gt; &#39;Failed&#39; &lt;br&gt; &#39;Complete&#39;
+  /**
+   * The Document status
    * @return status
-  **/
+   */
   @javax.annotation.Nullable
   public String getStatus() {
     return status;
@@ -171,10 +179,10 @@ public class DocumentSummary {
     return this;
   }
 
-   /**
+  /**
    * The name of the supplier in the transaction
    * @return supplierName
-  **/
+   */
   @javax.annotation.Nullable
   public String getSupplierName() {
     return supplierName;
@@ -190,10 +198,10 @@ public class DocumentSummary {
     return this;
   }
 
-   /**
+  /**
    * The name of the customer in the transaction
    * @return customerName
-  **/
+   */
   @javax.annotation.Nullable
   public String getCustomerName() {
     return customerName;
@@ -204,15 +212,53 @@ public class DocumentSummary {
   }
 
 
+  public DocumentSummary documentType(String documentType) {
+    this.documentType = documentType;
+    return this;
+  }
+
+  /**
+   * The document type
+   * @return documentType
+   */
+  @javax.annotation.Nullable
+  public String getDocumentType() {
+    return documentType;
+  }
+
+  public void setDocumentType(String documentType) {
+    this.documentType = documentType;
+  }
+
+
+  public DocumentSummary documentVersion(String documentVersion) {
+    this.documentVersion = documentVersion;
+    return this;
+  }
+
+  /**
+   * The document version
+   * @return documentVersion
+   */
+  @javax.annotation.Nullable
+  public String getDocumentVersion() {
+    return documentVersion;
+  }
+
+  public void setDocumentVersion(String documentVersion) {
+    this.documentVersion = documentVersion;
+  }
+
+
   public DocumentSummary documentNumber(String documentNumber) {
     this.documentNumber = documentNumber;
     return this;
   }
 
-   /**
-   * The invoice document number
+  /**
+   * The document number
    * @return documentNumber
-  **/
+   */
   @javax.annotation.Nullable
   public String getDocumentNumber() {
     return documentNumber;
@@ -228,10 +274,10 @@ public class DocumentSummary {
     return this;
   }
 
-   /**
-   * The invoice issue date
+  /**
+   * The document issue date
    * @return documentDate
-  **/
+   */
   @javax.annotation.Nullable
   public String getDocumentDate() {
     return documentDate;
@@ -247,10 +293,10 @@ public class DocumentSummary {
     return this;
   }
 
-   /**
-   * The invoice direction, where issued &#x3D; &#x60;out&#x60; and received &#x3D; &#x60;in&#x60;
+  /**
+   * The document direction, where issued &#x3D; &#x60;out&#x60; and received &#x3D; &#x60;in&#x60;
    * @return flow
-  **/
+   */
   @javax.annotation.Nullable
   public String getFlow() {
     return flow;
@@ -266,10 +312,10 @@ public class DocumentSummary {
     return this;
   }
 
-   /**
-   * The two-letter ISO-3166 country code for the country where the e-invoice is being submitted
+  /**
+   * The two-letter ISO-3166 country code for the country where the document is being submitted
    * @return countryCode
-  **/
+   */
   @javax.annotation.Nullable
   public String getCountryCode() {
     return countryCode;
@@ -285,10 +331,10 @@ public class DocumentSummary {
     return this;
   }
 
-   /**
+  /**
    * The e-invoicing mandate for the specified country
    * @return countryMandate
-  **/
+   */
   @javax.annotation.Nullable
   public String getCountryMandate() {
     return countryMandate;
@@ -304,10 +350,10 @@ public class DocumentSummary {
     return this;
   }
 
-   /**
-   * The interface where the invoice data is sent
+  /**
+   * The interface where the document is sent
    * @return _interface
-  **/
+   */
   @javax.annotation.Nullable
   public String getInterface() {
     return _interface;
@@ -323,10 +369,10 @@ public class DocumentSummary {
     return this;
   }
 
-   /**
-   * The invoice recipient based on the interface
+  /**
+   * The document recipient based on the interface
    * @return receiver
-  **/
+   */
   @javax.annotation.Nullable
   public String getReceiver() {
     return receiver;
@@ -352,6 +398,8 @@ public class DocumentSummary {
         Objects.equals(this.status, documentSummary.status) &&
         Objects.equals(this.supplierName, documentSummary.supplierName) &&
         Objects.equals(this.customerName, documentSummary.customerName) &&
+        Objects.equals(this.documentType, documentSummary.documentType) &&
+        Objects.equals(this.documentVersion, documentSummary.documentVersion) &&
         Objects.equals(this.documentNumber, documentSummary.documentNumber) &&
         Objects.equals(this.documentDate, documentSummary.documentDate) &&
         Objects.equals(this.flow, documentSummary.flow) &&
@@ -363,7 +411,7 @@ public class DocumentSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, processDateTime, status, supplierName, customerName, documentNumber, documentDate, flow, countryCode, countryMandate, _interface, receiver);
+    return Objects.hash(id, processDateTime, status, supplierName, customerName, documentType, documentVersion, documentNumber, documentDate, flow, countryCode, countryMandate, _interface, receiver);
   }
 
   @Override
@@ -375,6 +423,8 @@ public class DocumentSummary {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    supplierName: ").append(toIndentedString(supplierName)).append("\n");
     sb.append("    customerName: ").append(toIndentedString(customerName)).append("\n");
+    sb.append("    documentType: ").append(toIndentedString(documentType)).append("\n");
+    sb.append("    documentVersion: ").append(toIndentedString(documentVersion)).append("\n");
     sb.append("    documentNumber: ").append(toIndentedString(documentNumber)).append("\n");
     sb.append("    documentDate: ").append(toIndentedString(documentDate)).append("\n");
     sb.append("    flow: ").append(toIndentedString(flow)).append("\n");
@@ -409,6 +459,8 @@ public class DocumentSummary {
     openapiFields.add("status");
     openapiFields.add("supplierName");
     openapiFields.add("customerName");
+    openapiFields.add("documentType");
+    openapiFields.add("documentVersion");
     openapiFields.add("documentNumber");
     openapiFields.add("documentDate");
     openapiFields.add("flow");
@@ -421,12 +473,12 @@ public class DocumentSummary {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to DocumentSummary
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to DocumentSummary
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!DocumentSummary.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -456,6 +508,12 @@ public class DocumentSummary {
       }
       if ((jsonObj.get("customerName") != null && !jsonObj.get("customerName").isJsonNull()) && !jsonObj.get("customerName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `customerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customerName").toString()));
+      }
+      if ((jsonObj.get("documentType") != null && !jsonObj.get("documentType").isJsonNull()) && !jsonObj.get("documentType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `documentType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("documentType").toString()));
+      }
+      if ((jsonObj.get("documentVersion") != null && !jsonObj.get("documentVersion").isJsonNull()) && !jsonObj.get("documentVersion").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `documentVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("documentVersion").toString()));
       }
       if ((jsonObj.get("documentNumber") != null && !jsonObj.get("documentNumber").isJsonNull()) && !jsonObj.get("documentNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `documentNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("documentNumber").toString()));
@@ -509,22 +567,22 @@ public class DocumentSummary {
     }
   }
 
- /**
-  * Create an instance of DocumentSummary given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of DocumentSummary
-  * @throws IOException if the JSON string is invalid with respect to DocumentSummary
-  */
+  /**
+   * Create an instance of DocumentSummary given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of DocumentSummary
+   * @throws IOException if the JSON string is invalid with respect to DocumentSummary
+   */
   public static DocumentSummary fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, DocumentSummary.class);
   }
 
- /**
-  * Convert an instance of DocumentSummary to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of DocumentSummary to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

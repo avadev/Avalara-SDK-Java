@@ -60,11 +60,11 @@ import Avalara.SDK.JSON;
 /**
  * Returns the requested list of documents
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class DocumentListResponse {
-  public static final String SERIALIZED_NAME_AT_RECORD_SET_COUNT = "@recordSetCount";
-  @SerializedName(SERIALIZED_NAME_AT_RECORD_SET_COUNT)
-  private String atRecordSetCount;
+  public static final String SERIALIZED_NAME_AT_RECORDSET_COUNT = "@recordsetCount";
+  @SerializedName(SERIALIZED_NAME_AT_RECORDSET_COUNT)
+  private String atRecordsetCount;
 
   public static final String SERIALIZED_NAME_AT_NEXT_LINK = "@nextLink";
   @SerializedName(SERIALIZED_NAME_AT_NEXT_LINK)
@@ -77,22 +77,22 @@ public class DocumentListResponse {
   public DocumentListResponse() {
   }
 
-  public DocumentListResponse atRecordSetCount(String atRecordSetCount) {
-    this.atRecordSetCount = atRecordSetCount;
+  public DocumentListResponse atRecordsetCount(String atRecordsetCount) {
+    this.atRecordsetCount = atRecordsetCount;
     return this;
   }
 
-   /**
+  /**
    * Count of collections for the given date range
-   * @return atRecordSetCount
-  **/
+   * @return atRecordsetCount
+   */
   @javax.annotation.Nullable
-  public String getAtRecordSetCount() {
-    return atRecordSetCount;
+  public String getAtRecordsetCount() {
+    return atRecordsetCount;
   }
 
-  public void setAtRecordSetCount(String atRecordSetCount) {
-    this.atRecordSetCount = atRecordSetCount;
+  public void setAtRecordsetCount(String atRecordsetCount) {
+    this.atRecordsetCount = atRecordsetCount;
   }
 
 
@@ -101,10 +101,10 @@ public class DocumentListResponse {
     return this;
   }
 
-   /**
+  /**
    * Get atNextLink
    * @return atNextLink
-  **/
+   */
   @javax.annotation.Nullable
   public String getAtNextLink() {
     return atNextLink;
@@ -128,10 +128,10 @@ public class DocumentListResponse {
     return this;
   }
 
-   /**
-   * Array of invoices matching query parameters
+  /**
+   * Array of documents matching query parameters
    * @return value
-  **/
+   */
   @javax.annotation.Nonnull
   public List<DocumentSummary> getValue() {
     return value;
@@ -152,7 +152,7 @@ public class DocumentListResponse {
       return false;
     }
     DocumentListResponse documentListResponse = (DocumentListResponse) o;
-    return Objects.equals(this.atRecordSetCount, documentListResponse.atRecordSetCount) &&
+    return Objects.equals(this.atRecordsetCount, documentListResponse.atRecordsetCount) &&
         Objects.equals(this.atNextLink, documentListResponse.atNextLink) &&
         Objects.equals(this.value, documentListResponse.value);
   }
@@ -163,7 +163,7 @@ public class DocumentListResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(atRecordSetCount, atNextLink, value);
+    return Objects.hash(atRecordsetCount, atNextLink, value);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -177,7 +177,7 @@ public class DocumentListResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentListResponse {\n");
-    sb.append("    atRecordSetCount: ").append(toIndentedString(atRecordSetCount)).append("\n");
+    sb.append("    atRecordsetCount: ").append(toIndentedString(atRecordsetCount)).append("\n");
     sb.append("    atNextLink: ").append(toIndentedString(atNextLink)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
@@ -202,7 +202,7 @@ public class DocumentListResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("@recordSetCount");
+    openapiFields.add("@recordsetCount");
     openapiFields.add("@nextLink");
     openapiFields.add("value");
 
@@ -211,12 +211,12 @@ public class DocumentListResponse {
     openapiRequiredFields.add("value");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to DocumentListResponse
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to DocumentListResponse
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!DocumentListResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -239,8 +239,8 @@ public class DocumentListResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("@recordSetCount") != null && !jsonObj.get("@recordSetCount").isJsonNull()) && !jsonObj.get("@recordSetCount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `@recordSetCount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("@recordSetCount").toString()));
+      if ((jsonObj.get("@recordsetCount") != null && !jsonObj.get("@recordsetCount").isJsonNull()) && !jsonObj.get("@recordsetCount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `@recordsetCount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("@recordsetCount").toString()));
       }
       if ((jsonObj.get("@nextLink") != null && !jsonObj.get("@nextLink").isJsonNull()) && !jsonObj.get("@nextLink").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `@nextLink` to be a primitive type in the JSON string but got `%s`", jsonObj.get("@nextLink").toString()));
@@ -286,22 +286,22 @@ public class DocumentListResponse {
     }
   }
 
- /**
-  * Create an instance of DocumentListResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of DocumentListResponse
-  * @throws IOException if the JSON string is invalid with respect to DocumentListResponse
-  */
+  /**
+   * Create an instance of DocumentListResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of DocumentListResponse
+   * @throws IOException if the JSON string is invalid with respect to DocumentListResponse
+   */
   public static DocumentListResponse fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, DocumentListResponse.class);
   }
 
- /**
-  * Convert an instance of DocumentListResponse to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of DocumentListResponse to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -56,7 +56,7 @@ import Avalara.SDK.JSON;
 /**
  * Returns an HTTP status code and message for a &#39;bad request&#39;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class BadDownloadRequest {
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
@@ -78,10 +78,10 @@ public class BadDownloadRequest {
     return this;
   }
 
-   /**
+  /**
    * The three-digit HTTP error code for the bad request
    * @return error
-  **/
+   */
   @javax.annotation.Nullable
   public String getError() {
     return error;
@@ -97,10 +97,10 @@ public class BadDownloadRequest {
     return this;
   }
 
-   /**
+  /**
    * A message explaining the bad request
    * @return message
-  **/
+   */
   @javax.annotation.Nullable
   public String getMessage() {
     return message;
@@ -116,10 +116,10 @@ public class BadDownloadRequest {
     return this;
   }
 
-   /**
+  /**
    * A message explaining the bad request
    * @return supportedAcceptHeaders
-  **/
+   */
   @javax.annotation.Nullable
   public Object getSupportedAcceptHeaders() {
     return supportedAcceptHeaders;
@@ -187,12 +187,12 @@ public class BadDownloadRequest {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to BadDownloadRequest
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to BadDownloadRequest
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!BadDownloadRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -245,22 +245,22 @@ public class BadDownloadRequest {
     }
   }
 
- /**
-  * Create an instance of BadDownloadRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of BadDownloadRequest
-  * @throws IOException if the JSON string is invalid with respect to BadDownloadRequest
-  */
+  /**
+   * Create an instance of BadDownloadRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of BadDownloadRequest
+   * @throws IOException if the JSON string is invalid with respect to BadDownloadRequest
+   */
   public static BadDownloadRequest fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, BadDownloadRequest.class);
   }
 
- /**
-  * Convert an instance of BadDownloadRequest to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of BadDownloadRequest to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

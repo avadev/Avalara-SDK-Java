@@ -56,7 +56,7 @@ import Avalara.SDK.JSON;
 /**
  * Workflow ID list
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class WorkflowIds {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -74,10 +74,10 @@ public class WorkflowIds {
     return this;
   }
 
-   /**
+  /**
    * The name of this workflow
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   public String getName() {
     return name;
@@ -93,10 +93,10 @@ public class WorkflowIds {
     return this;
   }
 
-   /**
+  /**
    * Workflow description
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   public String getDescription() {
     return description;
@@ -161,12 +161,12 @@ public class WorkflowIds {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to WorkflowIds
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to WorkflowIds
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!WorkflowIds.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -219,22 +219,22 @@ public class WorkflowIds {
     }
   }
 
- /**
-  * Create an instance of WorkflowIds given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of WorkflowIds
-  * @throws IOException if the JSON string is invalid with respect to WorkflowIds
-  */
+  /**
+   * Create an instance of WorkflowIds given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of WorkflowIds
+   * @throws IOException if the JSON string is invalid with respect to WorkflowIds
+   */
   public static WorkflowIds fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, WorkflowIds.class);
   }
 
- /**
-  * Convert an instance of WorkflowIds to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of WorkflowIds to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

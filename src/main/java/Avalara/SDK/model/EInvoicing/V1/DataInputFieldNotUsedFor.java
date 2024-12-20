@@ -56,7 +56,7 @@ import Avalara.SDK.JSON;
 /**
  * Array of CountryMandate names for which this field is not used.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class DataInputFieldNotUsedFor {
   public static final String SERIALIZED_NAME_COUNTRY_MANDATE = "countryMandate";
   @SerializedName(SERIALIZED_NAME_COUNTRY_MANDATE)
@@ -70,10 +70,10 @@ public class DataInputFieldNotUsedFor {
     return this;
   }
 
-   /**
+  /**
    * Get countryMandate
    * @return countryMandate
-  **/
+   */
   @javax.annotation.Nullable
   public String getCountryMandate() {
     return countryMandate;
@@ -135,12 +135,12 @@ public class DataInputFieldNotUsedFor {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to DataInputFieldNotUsedFor
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to DataInputFieldNotUsedFor
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!DataInputFieldNotUsedFor.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -190,22 +190,22 @@ public class DataInputFieldNotUsedFor {
     }
   }
 
- /**
-  * Create an instance of DataInputFieldNotUsedFor given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of DataInputFieldNotUsedFor
-  * @throws IOException if the JSON string is invalid with respect to DataInputFieldNotUsedFor
-  */
+  /**
+   * Create an instance of DataInputFieldNotUsedFor given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of DataInputFieldNotUsedFor
+   * @throws IOException if the JSON string is invalid with respect to DataInputFieldNotUsedFor
+   */
   public static DataInputFieldNotUsedFor fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, DataInputFieldNotUsedFor.class);
   }
 
- /**
-  * Convert an instance of DataInputFieldNotUsedFor to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of DataInputFieldNotUsedFor to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

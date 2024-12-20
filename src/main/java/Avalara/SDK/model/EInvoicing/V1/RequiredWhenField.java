@@ -56,7 +56,7 @@ import Avalara.SDK.JSON;
 /**
  * RequiredWhenField
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class RequiredWhenField {
   public static final String SERIALIZED_NAME_SCENARIO = "scenario";
   @SerializedName(SERIALIZED_NAME_SCENARIO)
@@ -70,10 +70,10 @@ public class RequiredWhenField {
     return this;
   }
 
-   /**
+  /**
    * Get scenario
    * @return scenario
-  **/
+   */
   @javax.annotation.Nullable
   public String getScenario() {
     return scenario;
@@ -135,12 +135,12 @@ public class RequiredWhenField {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to RequiredWhenField
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to RequiredWhenField
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!RequiredWhenField.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -190,22 +190,22 @@ public class RequiredWhenField {
     }
   }
 
- /**
-  * Create an instance of RequiredWhenField given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of RequiredWhenField
-  * @throws IOException if the JSON string is invalid with respect to RequiredWhenField
-  */
+  /**
+   * Create an instance of RequiredWhenField given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of RequiredWhenField
+   * @throws IOException if the JSON string is invalid with respect to RequiredWhenField
+   */
   public static RequiredWhenField fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, RequiredWhenField.class);
   }
 
- /**
-  * Convert an instance of RequiredWhenField to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of RequiredWhenField to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

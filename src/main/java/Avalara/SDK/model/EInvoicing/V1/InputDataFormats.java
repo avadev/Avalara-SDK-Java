@@ -58,7 +58,7 @@ import Avalara.SDK.JSON;
 /**
  * Format and version used when inputting the data
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class InputDataFormats {
   public static final String SERIALIZED_NAME_FORMAT = "format";
   @SerializedName(SERIALIZED_NAME_FORMAT)
@@ -66,7 +66,7 @@ public class InputDataFormats {
 
   public static final String SERIALIZED_NAME_VERSIONS = "versions";
   @SerializedName(SERIALIZED_NAME_VERSIONS)
-  private List<String> versions;
+  private List<String> versions = new ArrayList<>();
 
   public InputDataFormats() {
   }
@@ -76,10 +76,10 @@ public class InputDataFormats {
     return this;
   }
 
-   /**
-   * Invoice format
+  /**
+   * Document format
    * @return format
-  **/
+   */
   @javax.annotation.Nullable
   public String getFormat() {
     return format;
@@ -103,10 +103,10 @@ public class InputDataFormats {
     return this;
   }
 
-   /**
+  /**
    * Get versions
    * @return versions
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getVersions() {
     return versions;
@@ -171,12 +171,12 @@ public class InputDataFormats {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to InputDataFormats
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to InputDataFormats
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!InputDataFormats.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -230,22 +230,22 @@ public class InputDataFormats {
     }
   }
 
- /**
-  * Create an instance of InputDataFormats given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of InputDataFormats
-  * @throws IOException if the JSON string is invalid with respect to InputDataFormats
-  */
+  /**
+   * Create an instance of InputDataFormats given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of InputDataFormats
+   * @throws IOException if the JSON string is invalid with respect to InputDataFormats
+   */
   public static InputDataFormats fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, InputDataFormats.class);
   }
 
- /**
-  * Convert an instance of InputDataFormats to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of InputDataFormats to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

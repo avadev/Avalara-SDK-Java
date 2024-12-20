@@ -56,7 +56,7 @@ import Avalara.SDK.JSON;
 /**
  * Mandates for which this field is not used
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class NotUsedForField {
   public static final String SERIALIZED_NAME_COUNTRY_MANDATE = "countryMandate";
   @SerializedName(SERIALIZED_NAME_COUNTRY_MANDATE)
@@ -70,10 +70,10 @@ public class NotUsedForField {
     return this;
   }
 
-   /**
+  /**
    * Get countryMandate
    * @return countryMandate
-  **/
+   */
   @javax.annotation.Nullable
   public String getCountryMandate() {
     return countryMandate;
@@ -135,12 +135,12 @@ public class NotUsedForField {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to NotUsedForField
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to NotUsedForField
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!NotUsedForField.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -190,22 +190,22 @@ public class NotUsedForField {
     }
   }
 
- /**
-  * Create an instance of NotUsedForField given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of NotUsedForField
-  * @throws IOException if the JSON string is invalid with respect to NotUsedForField
-  */
+  /**
+   * Create an instance of NotUsedForField given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of NotUsedForField
+   * @throws IOException if the JSON string is invalid with respect to NotUsedForField
+   */
   public static NotUsedForField fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, NotUsedForField.class);
   }
 
- /**
-  * Convert an instance of NotUsedForField to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of NotUsedForField to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

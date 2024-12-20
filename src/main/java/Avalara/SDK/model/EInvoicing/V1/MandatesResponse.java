@@ -61,11 +61,11 @@ import Avalara.SDK.JSON;
 /**
  * Mandate list response schema
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class MandatesResponse {
-  public static final String SERIALIZED_NAME_AT_RECORD_SET_COUNT = "@recordSetCount";
-  @SerializedName(SERIALIZED_NAME_AT_RECORD_SET_COUNT)
-  private BigDecimal atRecordSetCount;
+  public static final String SERIALIZED_NAME_AT_RECORDSET_COUNT = "@recordsetCount";
+  @SerializedName(SERIALIZED_NAME_AT_RECORDSET_COUNT)
+  private BigDecimal atRecordsetCount;
 
   public static final String SERIALIZED_NAME_AT_NEXT_LINK = "@nextLink";
   @SerializedName(SERIALIZED_NAME_AT_NEXT_LINK)
@@ -73,27 +73,27 @@ public class MandatesResponse {
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  private List<Mandate> value;
+  private List<Mandate> value = new ArrayList<>();
 
   public MandatesResponse() {
   }
 
-  public MandatesResponse atRecordSetCount(BigDecimal atRecordSetCount) {
-    this.atRecordSetCount = atRecordSetCount;
+  public MandatesResponse atRecordsetCount(BigDecimal atRecordsetCount) {
+    this.atRecordsetCount = atRecordsetCount;
     return this;
   }
 
-   /**
+  /**
    * Total count of results
-   * @return atRecordSetCount
-  **/
+   * @return atRecordsetCount
+   */
   @javax.annotation.Nullable
-  public BigDecimal getAtRecordSetCount() {
-    return atRecordSetCount;
+  public BigDecimal getAtRecordsetCount() {
+    return atRecordsetCount;
   }
 
-  public void setAtRecordSetCount(BigDecimal atRecordSetCount) {
-    this.atRecordSetCount = atRecordSetCount;
+  public void setAtRecordsetCount(BigDecimal atRecordsetCount) {
+    this.atRecordsetCount = atRecordsetCount;
   }
 
 
@@ -102,10 +102,10 @@ public class MandatesResponse {
     return this;
   }
 
-   /**
+  /**
    * Get atNextLink
    * @return atNextLink
-  **/
+   */
   @javax.annotation.Nullable
   public String getAtNextLink() {
     return atNextLink;
@@ -129,10 +129,10 @@ public class MandatesResponse {
     return this;
   }
 
-   /**
+  /**
    * Mandates schema
    * @return value
-  **/
+   */
   @javax.annotation.Nullable
   public List<Mandate> getValue() {
     return value;
@@ -153,7 +153,7 @@ public class MandatesResponse {
       return false;
     }
     MandatesResponse mandatesResponse = (MandatesResponse) o;
-    return Objects.equals(this.atRecordSetCount, mandatesResponse.atRecordSetCount) &&
+    return Objects.equals(this.atRecordsetCount, mandatesResponse.atRecordsetCount) &&
         Objects.equals(this.atNextLink, mandatesResponse.atNextLink) &&
         Objects.equals(this.value, mandatesResponse.value);
   }
@@ -164,7 +164,7 @@ public class MandatesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(atRecordSetCount, atNextLink, value);
+    return Objects.hash(atRecordsetCount, atNextLink, value);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -178,7 +178,7 @@ public class MandatesResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MandatesResponse {\n");
-    sb.append("    atRecordSetCount: ").append(toIndentedString(atRecordSetCount)).append("\n");
+    sb.append("    atRecordsetCount: ").append(toIndentedString(atRecordsetCount)).append("\n");
     sb.append("    atNextLink: ").append(toIndentedString(atNextLink)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
@@ -203,7 +203,7 @@ public class MandatesResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("@recordSetCount");
+    openapiFields.add("@recordsetCount");
     openapiFields.add("@nextLink");
     openapiFields.add("value");
 
@@ -211,12 +211,12 @@ public class MandatesResponse {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to MandatesResponse
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to MandatesResponse
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!MandatesResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -235,19 +235,9 @@ public class MandatesResponse {
       if ((jsonObj.get("@nextLink") != null && !jsonObj.get("@nextLink").isJsonNull()) && !jsonObj.get("@nextLink").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `@nextLink` to be a primitive type in the JSON string but got `%s`", jsonObj.get("@nextLink").toString()));
       }
-      if (jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) {
-        JsonArray jsonArrayvalue = jsonObj.getAsJsonArray("value");
-        if (jsonArrayvalue != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("value").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `value` to be an array in the JSON string but got `%s`", jsonObj.get("value").toString()));
-          }
-
-          // validate the optional field `value` (array)
-          for (int i = 0; i < jsonArrayvalue.size(); i++) {
-            Mandate.validateJsonElement(jsonArrayvalue.get(i));
-          };
-        }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull() && !jsonObj.get("value").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `value` to be an array in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
   }
 
@@ -280,22 +270,22 @@ public class MandatesResponse {
     }
   }
 
- /**
-  * Create an instance of MandatesResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of MandatesResponse
-  * @throws IOException if the JSON string is invalid with respect to MandatesResponse
-  */
+  /**
+   * Create an instance of MandatesResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of MandatesResponse
+   * @throws IOException if the JSON string is invalid with respect to MandatesResponse
+   */
   public static MandatesResponse fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, MandatesResponse.class);
   }
 
- /**
-  * Convert an instance of MandatesResponse to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of MandatesResponse to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }
