@@ -12,7 +12,7 @@ The Data Input Field
 |**fieldId** | **String** | Field ID |  [optional] |
 |**applicableDocumentRoots** | **List&lt;Object&gt;** |  |  [optional] |
 |**path** | **String** | Path to this field |  [optional] |
-|**nameSpace** | **String** | Namespace of this field |  [optional] |
+|**namespace** | **String** | Namespace of this field |  [optional] |
 |**fieldName** | **String** | Field name |  [optional] |
 |**exampleOrFixedValue** | **String** | An example of the content for this field |  [optional] |
 |**acceptedValues** | **Object** | An object representing the acceptable values for this field |  [optional] |

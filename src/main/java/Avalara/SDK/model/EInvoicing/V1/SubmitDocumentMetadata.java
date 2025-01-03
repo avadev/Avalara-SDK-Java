@@ -1,7 +1,7 @@
 /*
  * AvaTax Software Development Kit for Java (JRE)
  *
- * (c) 2004-2022 Avalara, Inc.
+ * (c) 2004-2025 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,10 +12,9 @@
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
+ * @copyright  2004-2025 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    
- * @link       https://github.com/avadev/AvaTax-REST-V3-JRE-SDK
+ * @link       https://github.com/avadev/Avalara-SDK-Java
  */
 
 package Avalara.SDK.model.EInvoicing.V1;
@@ -54,9 +53,9 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * Key value pairs of metadata for a document submission. dataFormat can be ubl-invoice or ubl-creditnote:  &lt;br&gt;&lt;pre&gt;{  \&quot;workflowId\&quot;: \&quot;partner-einvoicing\&quot;, \&quot;dataFormat\&quot;: \&quot;ubl-invoice\&quot;, \&quot;dataFormatVersion\&quot;: \&quot;2.1\&quot;, \&quot;countryCode\&quot;: \&quot;SA\&quot;, \&quot;countryMandate\&quot;: \&quot;SA-Phase1-B2B\&quot; }&lt;/pre&gt; &lt;br&gt; 
+ * Key value pairs of metadata for a document submission &lt;br&gt;&lt;pre&gt;{  \&quot;workflowId\&quot;: \&quot;partner-einvoicing\&quot;, \&quot;dataFormat\&quot;: \&quot;ubl-invoice\&quot;, \&quot;dataFormatVersion\&quot;: \&quot;2.1\&quot;, \&quot;countryCode\&quot;: \&quot;SA\&quot;, \&quot;countryMandate\&quot;: \&quot;SA-Phase1-B2B\&quot; }&lt;/pre&gt; &lt;br&gt; 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class SubmitDocumentMetadata {
   public static final String SERIALIZED_NAME_WORKFLOW_ID = "workflowId";
   @SerializedName(SERIALIZED_NAME_WORKFLOW_ID)
@@ -86,10 +85,10 @@ public class SubmitDocumentMetadata {
     return this;
   }
 
-   /**
+  /**
    * Specifies a unique ID for this workflow.
    * @return workflowId
-  **/
+   */
   @javax.annotation.Nonnull
   public String getWorkflowId() {
     return workflowId;
@@ -105,10 +104,10 @@ public class SubmitDocumentMetadata {
     return this;
   }
 
-   /**
+  /**
    * Specifies the data format for this workflow.
    * @return dataFormat
-  **/
+   */
   @javax.annotation.Nonnull
   public String getDataFormat() {
     return dataFormat;
@@ -124,10 +123,10 @@ public class SubmitDocumentMetadata {
     return this;
   }
 
-   /**
+  /**
    * Specifies the data format version number.
    * @return dataFormatVersion
-  **/
+   */
   @javax.annotation.Nonnull
   public String getDataFormatVersion() {
     return dataFormatVersion;
@@ -143,10 +142,10 @@ public class SubmitDocumentMetadata {
     return this;
   }
 
-   /**
-   * The two-letter ISO-3166 country code for the country where the e-invoice is being submitted
+  /**
+   * The two-letter ISO-3166 country code for the country where the document is being submitted
    * @return countryCode
-  **/
+   */
   @javax.annotation.Nonnull
   public String getCountryCode() {
     return countryCode;
@@ -162,10 +161,10 @@ public class SubmitDocumentMetadata {
     return this;
   }
 
-   /**
+  /**
    * The e-invoicing mandate for the specified country.
    * @return countryMandate
-  **/
+   */
   @javax.annotation.Nonnull
   public String getCountryMandate() {
     return countryMandate;
@@ -244,12 +243,12 @@ public class SubmitDocumentMetadata {
     openapiRequiredFields.add("countryMandate");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SubmitDocumentMetadata
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SubmitDocumentMetadata
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SubmitDocumentMetadata.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -318,22 +317,22 @@ public class SubmitDocumentMetadata {
     }
   }
 
- /**
-  * Create an instance of SubmitDocumentMetadata given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SubmitDocumentMetadata
-  * @throws IOException if the JSON string is invalid with respect to SubmitDocumentMetadata
-  */
+  /**
+   * Create an instance of SubmitDocumentMetadata given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SubmitDocumentMetadata
+   * @throws IOException if the JSON string is invalid with respect to SubmitDocumentMetadata
+   */
   public static SubmitDocumentMetadata fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SubmitDocumentMetadata.class);
   }
 
- /**
-  * Convert an instance of SubmitDocumentMetadata to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SubmitDocumentMetadata to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

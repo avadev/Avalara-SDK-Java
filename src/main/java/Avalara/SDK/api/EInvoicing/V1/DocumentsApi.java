@@ -1,7 +1,7 @@
 /*
  * AvaTax Software Development Kit for Java (JRE)
  *
- * (c) 2004-2022 Avalara, Inc.
+ * (c) 2004-2025 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,10 +12,9 @@
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
+ * @copyright  2004-2025 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    
- * @link       https://github.com/avadev/AvaTax-REST-V3-JRE-SDK
+ * @link       https://github.com/avadev/Avalara-SDK-Java
  */
 
 package Avalara.SDK.api.EInvoicing.V1;
@@ -28,6 +27,8 @@ import Avalara.SDK.Configuration;
 import Avalara.SDK.Pair;
 import Avalara.SDK.ProgressRequestBody;
 import Avalara.SDK.ProgressResponseBody;
+import Avalara.SDK.AvalaraMicroservice;
+
 
 import com.google.gson.reflect.TypeToken;
 
@@ -38,15 +39,17 @@ import java.util.*;
 import Avalara.SDK.model.EInvoicing.V1.BadDownloadRequest;
 import Avalara.SDK.model.EInvoicing.V1.BadRequest;
 import java.math.BigDecimal;
+import Avalara.SDK.model.EInvoicing.V1.DocumentFetch;
+import Avalara.SDK.model.EInvoicing.V1.DocumentFetchRequest;
 import Avalara.SDK.model.EInvoicing.V1.DocumentListResponse;
 import Avalara.SDK.model.EInvoicing.V1.DocumentStatusResponse;
 import Avalara.SDK.model.EInvoicing.V1.DocumentSubmissionError;
 import Avalara.SDK.model.EInvoicing.V1.DocumentSubmitResponse;
 import java.io.File;
 import Avalara.SDK.model.EInvoicing.V1.ForbiddenError;
+import Avalara.SDK.model.EInvoicing.V1.InternalServerError;
 import Avalara.SDK.model.EInvoicing.V1.NotFoundError;
 import java.time.OffsetDateTime;
-import Avalara.SDK.model.EInvoicing.V1.SubmitDocumentData;
 import Avalara.SDK.model.EInvoicing.V1.SubmitDocumentMetadata;
 
 import java.lang.reflect.Type;
@@ -131,9 +134,6 @@ public class DocumentsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        // Set avalara-version header from swagger.json version number
-        localVarHeaderParams.put("avalara-version", "1.0");
-
         if (requestParameters.getAvalaraVersion() != null) {
             localVarHeaderParams.put("avalara-version", localVarApiClient.parameterToString(requestParameters.getAvalaraVersion()));
         }
@@ -161,7 +161,7 @@ public class DocumentsApi {
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
-        String[] localVarAuthNames = new String[] { "Bearer" };
+        String[] localVarAuthNames = new String[] { "OAuth", "Bearer" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes);
     }
 
@@ -191,7 +191,7 @@ public class DocumentsApi {
 
     /**
      * Returns a copy of the document
-     * When the document is available, use this endpoint to download it as text, XML, or PDF. The output format needs to be specified in the Accept header and it will vary depending on the mandate. If the file has not yet been created, then status code 404 (not found) is returned.
+     * When the document is available, use this endpoint to download it as text, XML, or PDF. The output format needs to be specified in the Accept header, and it will vary depending on the mandate. If the file has not yet been created, then status code 404 (not found) is returned.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -212,7 +212,7 @@ public class DocumentsApi {
 
     /**
      * Returns a copy of the document
-     * When the document is available, use this endpoint to download it as text, XML, or PDF. The output format needs to be specified in the Accept header and it will vary depending on the mandate. If the file has not yet been created, then status code 404 (not found) is returned.
+     * When the document is available, use this endpoint to download it as text, XML, or PDF. The output format needs to be specified in the Accept header, and it will vary depending on the mandate. If the file has not yet been created, then status code 404 (not found) is returned.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -234,7 +234,7 @@ public class DocumentsApi {
 
     /**
      * Returns a copy of the document (asynchronously)
-     * When the document is available, use this endpoint to download it as text, XML, or PDF. The output format needs to be specified in the Accept header and it will vary depending on the mandate. If the file has not yet been created, then status code 404 (not found) is returned.
+     * When the document is available, use this endpoint to download it as text, XML, or PDF. The output format needs to be specified in the Accept header, and it will vary depending on the mandate. If the file has not yet been created, then status code 404 (not found) is returned.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -262,7 +262,7 @@ public class DocumentsApi {
     * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used</param>
     * @param accept This header indicates the MIME type of the document</param>
     * @param documentId The unique ID for this document that was returned in the POST /einvoicing/document response body</param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\" (optional)</param>
+    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)</param>
     */
     public class DownloadDocumentRequest {
         private String avalaraVersion;
@@ -273,7 +273,7 @@ public class DocumentsApi {
         public DownloadDocumentRequest () {
         }
 
-        public String getAvalaraVersion() { return avalaraVersion; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getAccept() { return accept; }
         public void setAccept(String accept) { this.accept = accept; }
@@ -289,6 +289,191 @@ public class DocumentsApi {
     */
     public DownloadDocumentRequest getDownloadDocumentRequest() {
         return this.new DownloadDocumentRequest();
+    }
+
+    /**
+     * Build call for fetchDocuments
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Accepted DocumentFetch Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchDocumentsCall(FetchDocumentsRequest requestParameters, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        //OAuth2 Scopes
+        String requiredScopes = "";
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = requestParameters.getDocumentFetchRequest();
+
+        // create path and map variables
+        String localVarPath = "/einvoicing/documents/$fetch";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (requestParameters.getAvalaraVersion() != null) {
+            localVarHeaderParams.put("avalara-version", localVarApiClient.parameterToString(requestParameters.getAvalaraVersion()));
+        }
+
+        if (requestParameters.getXAvalaraClient() != null) {
+            localVarHeaderParams.put("X-Avalara-Client", localVarApiClient.parameterToString(requestParameters.getXAvalaraClient()));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+        String[] localVarAuthNames = new String[] { "OAuth", "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call fetchDocumentsValidateBeforeCall(FetchDocumentsRequest requestParameters, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'requestParameters.avalaraVersion' is set
+        if (requestParameters.getAvalaraVersion() == null) {
+            throw new ApiException("Missing the required parameter 'requestParameters.avalaraVersion' when calling fetchDocuments(Async)");
+        }
+        
+        // verify the required parameter 'requestParameters.documentFetchRequest' is set
+        if (requestParameters.getDocumentFetchRequest() == null) {
+            throw new ApiException("Missing the required parameter 'requestParameters.documentFetchRequest' when calling fetchDocuments(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = fetchDocumentsCall(requestParameters, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Fetch the inbound document from a tax authority
+     * This API allows you to retrieve an inbound document. Pass key-value pairs as parameters in the request, such as the confirmation number, supplier number, and buyer VAT number.
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @return DocumentFetch
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Accepted DocumentFetch Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public DocumentFetch fetchDocuments(FetchDocumentsRequest requestParameters) throws ApiException {
+        ApiResponse<DocumentFetch> localVarResp = fetchDocumentsWithHttpInfo(requestParameters);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Fetch the inbound document from a tax authority
+     * This API allows you to retrieve an inbound document. Pass key-value pairs as parameters in the request, such as the confirmation number, supplier number, and buyer VAT number.
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @return ApiResponse&lt;DocumentFetch&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Accepted DocumentFetch Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DocumentFetch> fetchDocumentsWithHttpInfo(FetchDocumentsRequest requestParameters) throws ApiException {
+        okhttp3.Call localVarCall = fetchDocumentsValidateBeforeCall(requestParameters, null);
+        Type localVarReturnType = new TypeToken<DocumentFetch>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Fetch the inbound document from a tax authority (asynchronously)
+     * This API allows you to retrieve an inbound document. Pass key-value pairs as parameters in the request, such as the confirmation number, supplier number, and buyer VAT number.
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Accepted DocumentFetch Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchDocumentsAsync(FetchDocumentsRequest requestParameters, final ApiCallback<DocumentFetch> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = fetchDocumentsValidateBeforeCall(requestParameters, _callback);
+        Type localVarReturnType = new TypeToken<DocumentFetch>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+    * Represents the Request object for the FetchDocuments API
+    *
+    * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used</param>
+    * @param documentFetchRequest </param>
+    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)</param>
+    */
+    public class FetchDocumentsRequest {
+        private String avalaraVersion;
+        private DocumentFetchRequest documentFetchRequest;
+        private String xAvalaraClient;
+
+        public FetchDocumentsRequest () {
+        }
+
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
+        public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
+        public DocumentFetchRequest getDocumentFetchRequest() { return documentFetchRequest; }
+        public void setDocumentFetchRequest(DocumentFetchRequest documentFetchRequest) { this.documentFetchRequest = documentFetchRequest; }
+        public String getXAvalaraClient() { return xAvalaraClient; }
+        public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
+    }
+
+    /**
+    * Getter function to instantiate Request class
+    * @returns FetchDocumentsRequest
+    */
+    public FetchDocumentsRequest getFetchDocumentsRequest() {
+        return this.new FetchDocumentsRequest();
     }
 
     /**
@@ -334,9 +519,6 @@ public class DocumentsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        // Set avalara-version header from swagger.json version number
-        localVarHeaderParams.put("avalara-version", "1.0");
 
         if (requestParameters.getStartDate() != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("startDate", requestParameters.getStartDate()));
@@ -393,7 +575,7 @@ public class DocumentsApi {
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
-        String[] localVarAuthNames = new String[] { "Bearer" };
+        String[] localVarAuthNames = new String[] { "OAuth", "Bearer" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes);
     }
 
@@ -479,7 +661,7 @@ public class DocumentsApi {
     * Represents the Request object for the GetDocumentList API
     *
     * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used</param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\" (optional)</param>
+    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)</param>
     * @param startDate Start date of documents to return. This defaults to the previous month. (optional)</param>
     * @param endDate End date of documents to return. This defaults to the current date. (optional)</param>
     * @param flow Optionally filter by document direction, where issued = `out` and received = `in` (optional)</param>
@@ -504,7 +686,7 @@ public class DocumentsApi {
         public GetDocumentListRequest () {
         }
 
-        public String getAvalaraVersion() { return avalaraVersion; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
@@ -570,7 +752,7 @@ public class DocumentsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/einvoicing/document/{documentId}/status"
+        String localVarPath = "/einvoicing/documents/{documentId}/status"
             .replaceAll("\\{" + "documentId" + "\\}", localVarApiClient.escapeString(requestParameters.documentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -578,9 +760,6 @@ public class DocumentsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        // Set avalara-version header from swagger.json version number
-        localVarHeaderParams.put("avalara-version", "1.0");
 
         if (requestParameters.getAvalaraVersion() != null) {
             localVarHeaderParams.put("avalara-version", localVarApiClient.parameterToString(requestParameters.getAvalaraVersion()));
@@ -605,7 +784,7 @@ public class DocumentsApi {
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
-        String[] localVarAuthNames = new String[] { "Bearer" };
+        String[] localVarAuthNames = new String[] { "OAuth", "Bearer" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes);
     }
 
@@ -697,7 +876,7 @@ public class DocumentsApi {
     *
     * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used</param>
     * @param documentId The unique ID for this document that was returned in the POST /einvoicing/documents response body</param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\" (optional)</param>
+    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)</param>
     */
     public class GetDocumentStatusRequest {
         private String avalaraVersion;
@@ -707,7 +886,7 @@ public class DocumentsApi {
         public GetDocumentStatusRequest () {
         }
 
-        public String getAvalaraVersion() { return avalaraVersion; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getDocumentId() { return documentId; }
         public void setDocumentId(String documentId) { this.documentId = documentId; }
@@ -767,9 +946,6 @@ public class DocumentsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        // Set avalara-version header from swagger.json version number
-        localVarHeaderParams.put("avalara-version", "1.0");
-
         if (requestParameters.getMetadata() != null) {
             localVarFormParams.put("metadata", requestParameters.getMetadata());
         }
@@ -801,7 +977,7 @@ public class DocumentsApi {
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
-        String[] localVarAuthNames = new String[] { "Bearer" };
+        String[] localVarAuthNames = new String[] { "OAuth", "Bearer" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes);
     }
 
@@ -831,7 +1007,7 @@ public class DocumentsApi {
 
     /**
      * Submits a document to Avalara E-Invoicing API
-     * For both e-invoices and credit notes, when a document is sent to this endpoint, it generates an invoice or credit note in the required format as mandated by the specified country. Additionally, it initiates the workflow to transmit the generated document to the relevant tax authority, if necessary.&lt;br&gt;&lt;br&gt;The response from the endpoint contains a unique document ID, which can be used to request the status of the document and verify if it was successfully accepted at the destination.&lt;br&gt;&lt;br&gt;Furthermore, the unique ID enables the download of a copy of the e-invoice or credit note for reference purposes.
+     * When a UBL document is sent to this endpoint, it generates a document in the required format as mandated by the specified country. Additionally, it initiates the workflow to transmit the generated document to the relevant tax authority, if necessary.&lt;br&gt;&lt;br&gt;The response from the endpoint contains a unique document ID, which can be used to request the status of the document and verify if it was successfully accepted at the destination.&lt;br&gt;&lt;br&gt;Furthermore, the unique ID enables the download of a copy of the generated document for reference purposes.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return DocumentSubmitResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -851,7 +1027,7 @@ public class DocumentsApi {
 
     /**
      * Submits a document to Avalara E-Invoicing API
-     * For both e-invoices and credit notes, when a document is sent to this endpoint, it generates an invoice or credit note in the required format as mandated by the specified country. Additionally, it initiates the workflow to transmit the generated document to the relevant tax authority, if necessary.&lt;br&gt;&lt;br&gt;The response from the endpoint contains a unique document ID, which can be used to request the status of the document and verify if it was successfully accepted at the destination.&lt;br&gt;&lt;br&gt;Furthermore, the unique ID enables the download of a copy of the e-invoice or credit note for reference purposes.
+     * When a UBL document is sent to this endpoint, it generates a document in the required format as mandated by the specified country. Additionally, it initiates the workflow to transmit the generated document to the relevant tax authority, if necessary.&lt;br&gt;&lt;br&gt;The response from the endpoint contains a unique document ID, which can be used to request the status of the document and verify if it was successfully accepted at the destination.&lt;br&gt;&lt;br&gt;Furthermore, the unique ID enables the download of a copy of the generated document for reference purposes.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;DocumentSubmitResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -872,7 +1048,7 @@ public class DocumentsApi {
 
     /**
      * Submits a document to Avalara E-Invoicing API (asynchronously)
-     * For both e-invoices and credit notes, when a document is sent to this endpoint, it generates an invoice or credit note in the required format as mandated by the specified country. Additionally, it initiates the workflow to transmit the generated document to the relevant tax authority, if necessary.&lt;br&gt;&lt;br&gt;The response from the endpoint contains a unique document ID, which can be used to request the status of the document and verify if it was successfully accepted at the destination.&lt;br&gt;&lt;br&gt;Furthermore, the unique ID enables the download of a copy of the e-invoice or credit note for reference purposes.
+     * When a UBL document is sent to this endpoint, it generates a document in the required format as mandated by the specified country. Additionally, it initiates the workflow to transmit the generated document to the relevant tax authority, if necessary.&lt;br&gt;&lt;br&gt;The response from the endpoint contains a unique document ID, which can be used to request the status of the document and verify if it was successfully accepted at the destination.&lt;br&gt;&lt;br&gt;Furthermore, the unique ID enables the download of a copy of the generated document for reference purposes.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -898,24 +1074,24 @@ public class DocumentsApi {
     *
     * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used</param>
     * @param metadata </param>
-    * @param data </param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\" (optional)</param>
+    * @param data The document to be submitted, as indicated by the metadata fields 'dataFormat' and 'dataFormatVersion'</param>
+    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)</param>
     */
     public class SubmitDocumentRequest {
         private String avalaraVersion;
         private SubmitDocumentMetadata metadata;
-        private SubmitDocumentData data;
+        private String data;
         private String xAvalaraClient;
 
         public SubmitDocumentRequest () {
         }
 
-        public String getAvalaraVersion() { return avalaraVersion; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public SubmitDocumentMetadata getMetadata() { return metadata; }
         public void setMetadata(SubmitDocumentMetadata metadata) { this.metadata = metadata; }
-        public SubmitDocumentData getData() { return data; }
-        public void setData(SubmitDocumentData data) { this.data = data; }
+        public String getData() { return data; }
+        public void setData(String data) { this.data = data; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
     }
@@ -930,7 +1106,7 @@ public class DocumentsApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("");
+        this.localVarApiClient.setSdkVersion("24.12.1");
     }
 }
 

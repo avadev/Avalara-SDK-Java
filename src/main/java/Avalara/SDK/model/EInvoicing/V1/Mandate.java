@@ -1,7 +1,7 @@
 /*
  * AvaTax Software Development Kit for Java (JRE)
  *
- * (c) 2004-2022 Avalara, Inc.
+ * (c) 2004-2025 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,10 +12,9 @@
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
+ * @copyright  2004-2025 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    
- * @link       https://github.com/avadev/AvaTax-REST-V3-JRE-SDK
+ * @link       https://github.com/avadev/Avalara-SDK-Java
  */
 
 package Avalara.SDK.model.EInvoicing.V1;
@@ -60,7 +59,7 @@ import Avalara.SDK.JSON;
 /**
  * Mandate
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Mandate {
   public static final String SERIALIZED_NAME_MANDATE_ID = "mandateId";
   @SerializedName(SERIALIZED_NAME_MANDATE_ID)
@@ -88,11 +87,11 @@ public class Mandate {
 
   public static final String SERIALIZED_NAME_INPUT_DATA_FORMATS = "inputDataFormats";
   @SerializedName(SERIALIZED_NAME_INPUT_DATA_FORMATS)
-  private List<InputDataFormats> inputDataFormats;
+  private List<InputDataFormats> inputDataFormats = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_WORKFLOW_IDS = "workflowIds";
   @SerializedName(SERIALIZED_NAME_WORKFLOW_IDS)
-  private List<WorkflowIds> workflowIds;
+  private List<WorkflowIds> workflowIds = new ArrayList<>();
 
   public Mandate() {
   }
@@ -102,10 +101,10 @@ public class Mandate {
     return this;
   }
 
-   /**
-   * Mandate UUID
+  /**
+   * The &#x60;mandateId&#x60; is comprised of the country code, mandate type, and the network or regulation type (for example, AU-B2G-PEPPOL). Keep in mind the following when specifying a &#x60;mandateId&#x60;. - A country can have multiple mandate types (B2C, B2B, B2G). - A entity/company can opt in for multiple mandates. - A &#x60;mandateId&#x60; is the combination of country + mandate type + network/regulation.
    * @return mandateId
-  **/
+   */
   @javax.annotation.Nullable
   public String getMandateId() {
     return mandateId;
@@ -121,10 +120,10 @@ public class Mandate {
     return this;
   }
 
-   /**
-   * Country mandate name
+  /**
+   * **[LEGACY]** This field is retained for backward compatibility. It is recommended to use &#x60;mandateId&#x60; instead. The &#x60;countryMandate&#x60; similar to the &#x60;mandateId&#x60; is comprised of the country code, mandate type, and the network or regulation type (for example, AU-B2G-PEPPOL). 
    * @return countryMandate
-  **/
+   */
   @javax.annotation.Nullable
   public String getCountryMandate() {
     return countryMandate;
@@ -140,10 +139,10 @@ public class Mandate {
     return this;
   }
 
-   /**
+  /**
    * Country code
    * @return countryCode
-  **/
+   */
   @javax.annotation.Nullable
   public String getCountryCode() {
     return countryCode;
@@ -159,10 +158,10 @@ public class Mandate {
     return this;
   }
 
-   /**
+  /**
    * Mandate description
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   public String getDescription() {
     return description;
@@ -178,10 +177,10 @@ public class Mandate {
     return this;
   }
 
-   /**
+  /**
    * Indicates whether this mandate supported by the partner API
    * @return supportedByPartnerAPI
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getSupportedByPartnerAPI() {
     return supportedByPartnerAPI;
@@ -197,10 +196,10 @@ public class Mandate {
     return this;
   }
 
-   /**
+  /**
    * Mandate format
    * @return mandateFormat
-  **/
+   */
   @javax.annotation.Nullable
   public String getMandateFormat() {
     return mandateFormat;
@@ -224,10 +223,10 @@ public class Mandate {
     return this;
   }
 
-   /**
+  /**
    * Format and version used when inputting the data
    * @return inputDataFormats
-  **/
+   */
   @javax.annotation.Nullable
   public List<InputDataFormats> getInputDataFormats() {
     return inputDataFormats;
@@ -251,10 +250,10 @@ public class Mandate {
     return this;
   }
 
-   /**
+  /**
    * Workflow ID list
    * @return workflowIds
-  **/
+   */
   @javax.annotation.Nullable
   public List<WorkflowIds> getWorkflowIds() {
     return workflowIds;
@@ -337,12 +336,12 @@ public class Mandate {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to Mandate
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Mandate
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!Mandate.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -432,22 +431,22 @@ public class Mandate {
     }
   }
 
- /**
-  * Create an instance of Mandate given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Mandate
-  * @throws IOException if the JSON string is invalid with respect to Mandate
-  */
+  /**
+   * Create an instance of Mandate given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Mandate
+   * @throws IOException if the JSON string is invalid with respect to Mandate
+   */
   public static Mandate fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Mandate.class);
   }
 
- /**
-  * Convert an instance of Mandate to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Mandate to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

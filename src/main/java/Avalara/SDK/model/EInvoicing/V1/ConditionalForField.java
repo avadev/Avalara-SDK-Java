@@ -1,7 +1,7 @@
 /*
  * AvaTax Software Development Kit for Java (JRE)
  *
- * (c) 2004-2022 Avalara, Inc.
+ * (c) 2004-2025 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,10 +12,9 @@
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
+ * @copyright  2004-2025 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    
- * @link       https://github.com/avadev/AvaTax-REST-V3-JRE-SDK
+ * @link       https://github.com/avadev/Avalara-SDK-Java
  */
 
 package Avalara.SDK.model.EInvoicing.V1;
@@ -59,7 +58,7 @@ import Avalara.SDK.JSON;
 /**
  * Mandates for which this field is conditional
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class ConditionalForField {
   public static final String SERIALIZED_NAME_COUNTRY_MANDATE = "countryMandate";
   @SerializedName(SERIALIZED_NAME_COUNTRY_MANDATE)
@@ -67,7 +66,7 @@ public class ConditionalForField {
 
   public static final String SERIALIZED_NAME_REQUIRED_WHEN = "requiredWhen";
   @SerializedName(SERIALIZED_NAME_REQUIRED_WHEN)
-  private List<RequiredWhenField> requiredWhen;
+  private List<RequiredWhenField> requiredWhen = new ArrayList<>();
 
   public ConditionalForField() {
   }
@@ -77,10 +76,10 @@ public class ConditionalForField {
     return this;
   }
 
-   /**
+  /**
    * Get countryMandate
    * @return countryMandate
-  **/
+   */
   @javax.annotation.Nullable
   public String getCountryMandate() {
     return countryMandate;
@@ -104,10 +103,10 @@ public class ConditionalForField {
     return this;
   }
 
-   /**
+  /**
    * Array of scenarios which describe when a particular field is conditional for a country mandate
    * @return requiredWhen
-  **/
+   */
   @javax.annotation.Nullable
   public List<RequiredWhenField> getRequiredWhen() {
     return requiredWhen;
@@ -172,12 +171,12 @@ public class ConditionalForField {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ConditionalForField
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ConditionalForField
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ConditionalForField.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -196,19 +195,9 @@ public class ConditionalForField {
       if ((jsonObj.get("countryMandate") != null && !jsonObj.get("countryMandate").isJsonNull()) && !jsonObj.get("countryMandate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryMandate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryMandate").toString()));
       }
-      if (jsonObj.get("requiredWhen") != null && !jsonObj.get("requiredWhen").isJsonNull()) {
-        JsonArray jsonArrayrequiredWhen = jsonObj.getAsJsonArray("requiredWhen");
-        if (jsonArrayrequiredWhen != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("requiredWhen").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `requiredWhen` to be an array in the JSON string but got `%s`", jsonObj.get("requiredWhen").toString()));
-          }
-
-          // validate the optional field `requiredWhen` (array)
-          for (int i = 0; i < jsonArrayrequiredWhen.size(); i++) {
-            RequiredWhenField.validateJsonElement(jsonArrayrequiredWhen.get(i));
-          };
-        }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("requiredWhen") != null && !jsonObj.get("requiredWhen").isJsonNull() && !jsonObj.get("requiredWhen").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `requiredWhen` to be an array in the JSON string but got `%s`", jsonObj.get("requiredWhen").toString()));
       }
   }
 
@@ -241,22 +230,22 @@ public class ConditionalForField {
     }
   }
 
- /**
-  * Create an instance of ConditionalForField given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ConditionalForField
-  * @throws IOException if the JSON string is invalid with respect to ConditionalForField
-  */
+  /**
+   * Create an instance of ConditionalForField given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ConditionalForField
+   * @throws IOException if the JSON string is invalid with respect to ConditionalForField
+   */
   public static ConditionalForField fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ConditionalForField.class);
   }
 
- /**
-  * Convert an instance of ConditionalForField to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ConditionalForField to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -8,9 +8,9 @@ Mandate list response schema
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**atRecordSetCount** | **BigDecimal** | Total count of results |  [optional] |
+|**atRecordsetCount** | **BigDecimal** | Total count of results |  [optional] |
 |**atNextLink** | **String** |  |  [optional] |
-|**value** | [**List&lt;Mandate&gt;**](Mandate.md) | Mandates schema |  [optional] |
+|**value** | **List&lt;Mandate&gt;** | Mandates schema |  [optional] |
 
 
 

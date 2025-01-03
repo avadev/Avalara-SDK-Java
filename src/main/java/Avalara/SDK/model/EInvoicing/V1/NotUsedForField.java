@@ -1,7 +1,7 @@
 /*
  * AvaTax Software Development Kit for Java (JRE)
  *
- * (c) 2004-2022 Avalara, Inc.
+ * (c) 2004-2025 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,10 +12,9 @@
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
+ * @copyright  2004-2025 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    
- * @link       https://github.com/avadev/AvaTax-REST-V3-JRE-SDK
+ * @link       https://github.com/avadev/Avalara-SDK-Java
  */
 
 package Avalara.SDK.model.EInvoicing.V1;
@@ -56,7 +55,7 @@ import Avalara.SDK.JSON;
 /**
  * Mandates for which this field is not used
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class NotUsedForField {
   public static final String SERIALIZED_NAME_COUNTRY_MANDATE = "countryMandate";
   @SerializedName(SERIALIZED_NAME_COUNTRY_MANDATE)
@@ -70,10 +69,10 @@ public class NotUsedForField {
     return this;
   }
 
-   /**
+  /**
    * Get countryMandate
    * @return countryMandate
-  **/
+   */
   @javax.annotation.Nullable
   public String getCountryMandate() {
     return countryMandate;
@@ -135,12 +134,12 @@ public class NotUsedForField {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to NotUsedForField
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to NotUsedForField
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!NotUsedForField.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -190,22 +189,22 @@ public class NotUsedForField {
     }
   }
 
- /**
-  * Create an instance of NotUsedForField given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of NotUsedForField
-  * @throws IOException if the JSON string is invalid with respect to NotUsedForField
-  */
+  /**
+   * Create an instance of NotUsedForField given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of NotUsedForField
+   * @throws IOException if the JSON string is invalid with respect to NotUsedForField
+   */
   public static NotUsedForField fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, NotUsedForField.class);
   }
 
- /**
-  * Convert an instance of NotUsedForField to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of NotUsedForField to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

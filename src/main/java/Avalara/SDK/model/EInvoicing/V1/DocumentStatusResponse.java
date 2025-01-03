@@ -1,7 +1,7 @@
 /*
  * AvaTax Software Development Kit for Java (JRE)
  *
- * (c) 2004-2022 Avalara, Inc.
+ * (c) 2004-2025 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,10 +12,9 @@
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
+ * @copyright  2004-2025 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    
- * @link       https://github.com/avadev/AvaTax-REST-V3-JRE-SDK
+ * @link       https://github.com/avadev/Avalara-SDK-Java
  */
 
 package Avalara.SDK.model.EInvoicing.V1;
@@ -59,7 +58,7 @@ import Avalara.SDK.JSON;
 /**
  * Returns the current document ID and status
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class DocumentStatusResponse {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -71,7 +70,7 @@ public class DocumentStatusResponse {
 
   public static final String SERIALIZED_NAME_EVENTS = "events";
   @SerializedName(SERIALIZED_NAME_EVENTS)
-  private List<StatusEvent> events;
+  private List<StatusEvent> events = new ArrayList<>();
 
   public DocumentStatusResponse() {
   }
@@ -81,10 +80,10 @@ public class DocumentStatusResponse {
     return this;
   }
 
-   /**
+  /**
    * The unique ID for this document
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   public String getId() {
     return id;
@@ -100,10 +99,10 @@ public class DocumentStatusResponse {
     return this;
   }
 
-   /**
-   * Status of the transaction: &lt;br&gt; &#39;Pending&#39; &lt;br&gt; &#39;Failed&#39; &lt;br&gt; &#39;Complete&#39;
+  /**
+   * Status of the document
    * @return status
-  **/
+   */
   @javax.annotation.Nullable
   public String getStatus() {
     return status;
@@ -127,10 +126,10 @@ public class DocumentStatusResponse {
     return this;
   }
 
-   /**
+  /**
    * Get events
    * @return events
-  **/
+   */
   @javax.annotation.Nullable
   public List<StatusEvent> getEvents() {
     return events;
@@ -198,12 +197,12 @@ public class DocumentStatusResponse {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to DocumentStatusResponse
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to DocumentStatusResponse
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!DocumentStatusResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -270,22 +269,22 @@ public class DocumentStatusResponse {
     }
   }
 
- /**
-  * Create an instance of DocumentStatusResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of DocumentStatusResponse
-  * @throws IOException if the JSON string is invalid with respect to DocumentStatusResponse
-  */
+  /**
+   * Create an instance of DocumentStatusResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of DocumentStatusResponse
+   * @throws IOException if the JSON string is invalid with respect to DocumentStatusResponse
+   */
   public static DocumentStatusResponse fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, DocumentStatusResponse.class);
   }
 
- /**
-  * Convert an instance of DocumentStatusResponse to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of DocumentStatusResponse to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

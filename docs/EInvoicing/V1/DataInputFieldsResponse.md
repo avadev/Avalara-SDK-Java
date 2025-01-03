@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**atRecordSetCount** | **BigDecimal** | Total count of results |  [optional] |
+|**atRecordsetCount** | **BigDecimal** | Total count of results |  [optional] |
 |**atNextLink** | **String** |  |  [optional] |
-|**value** | [**List&lt;DataInputField&gt;**](DataInputField.md) | Array of Data Input Fields |  [optional] |
+|**value** | **List&lt;DataInputField&gt;** | Array of Data Input Fields |  [optional] |
 
 
 

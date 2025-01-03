@@ -22,6 +22,7 @@ package Avalara.SDK.api.EInvoicing.V1;
 
 import Avalara.SDK.*;
 import Avalara.SDK.model.EInvoicing.V1.DocumentListResponse;
+import Avalara.SDK.model.EInvoicing.V1.MandatesResponse;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.jetbrains.annotations.NotNull;
 import org.junit.Assert;
@@ -55,8 +56,16 @@ public class EInvoicingTest {
         ApiClient apiClient = new ApiClient(configuration);
         Avalara.SDK.api.EInvoicing.V1.DocumentsApi apiInstance = new DocumentsApi(apiClient);
         DocumentsApi.GetDocumentListRequest request = apiInstance.getGetDocumentListRequest();
-        request.setAvalaraVersion("1.0");
         DocumentListResponse result = apiInstance.getDocumentList(request);
         Assert.assertNotNull(result);
+    }
+
+    @Test
+    public void testGetMandates() throws Exception {
+        ApiClient apiClient = new ApiClient(configuration);
+        Avalara.SDK.api.EInvoicing.V1.MandatesApi apiInstance = new MandatesApi(apiClient);
+        MandatesApi.GetMandatesRequest request = apiInstance.getGetMandatesRequest();
+        MandatesResponse result = apiInstance.getMandates(request);
+        Assert.assertNotNull(result.getValue());
     }
 }

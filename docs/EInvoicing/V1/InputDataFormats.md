@@ -8,7 +8,7 @@ Format and version used when inputting the data
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**format** | **String** | Invoice format |  [optional] |
+|**format** | **String** | Document format |  [optional] |
 |**versions** | **List&lt;String&gt;** |  |  [optional] |
 
 

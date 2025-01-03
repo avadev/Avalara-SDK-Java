@@ -1,7 +1,7 @@
 /*
  * AvaTax Software Development Kit for Java (JRE)
  *
- * (c) 2004-2022 Avalara, Inc.
+ * (c) 2004-2025 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,10 +12,9 @@
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
+ * @copyright  2004-2025 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    
- * @link       https://github.com/avadev/AvaTax-REST-V3-JRE-SDK
+ * @link       https://github.com/avadev/Avalara-SDK-Java
  */
 
 package Avalara.SDK.model.EInvoicing.V1;
@@ -61,11 +60,11 @@ import Avalara.SDK.JSON;
 /**
  * DataInputFieldsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class DataInputFieldsResponse {
-  public static final String SERIALIZED_NAME_AT_RECORD_SET_COUNT = "@recordSetCount";
-  @SerializedName(SERIALIZED_NAME_AT_RECORD_SET_COUNT)
-  private BigDecimal atRecordSetCount;
+  public static final String SERIALIZED_NAME_AT_RECORDSET_COUNT = "@recordsetCount";
+  @SerializedName(SERIALIZED_NAME_AT_RECORDSET_COUNT)
+  private BigDecimal atRecordsetCount;
 
   public static final String SERIALIZED_NAME_AT_NEXT_LINK = "@nextLink";
   @SerializedName(SERIALIZED_NAME_AT_NEXT_LINK)
@@ -73,27 +72,27 @@ public class DataInputFieldsResponse {
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  private List<DataInputField> value;
+  private List<DataInputField> value = new ArrayList<>();
 
   public DataInputFieldsResponse() {
   }
 
-  public DataInputFieldsResponse atRecordSetCount(BigDecimal atRecordSetCount) {
-    this.atRecordSetCount = atRecordSetCount;
+  public DataInputFieldsResponse atRecordsetCount(BigDecimal atRecordsetCount) {
+    this.atRecordsetCount = atRecordsetCount;
     return this;
   }
 
-   /**
+  /**
    * Total count of results
-   * @return atRecordSetCount
-  **/
+   * @return atRecordsetCount
+   */
   @javax.annotation.Nullable
-  public BigDecimal getAtRecordSetCount() {
-    return atRecordSetCount;
+  public BigDecimal getAtRecordsetCount() {
+    return atRecordsetCount;
   }
 
-  public void setAtRecordSetCount(BigDecimal atRecordSetCount) {
-    this.atRecordSetCount = atRecordSetCount;
+  public void setAtRecordsetCount(BigDecimal atRecordsetCount) {
+    this.atRecordsetCount = atRecordsetCount;
   }
 
 
@@ -102,10 +101,10 @@ public class DataInputFieldsResponse {
     return this;
   }
 
-   /**
+  /**
    * Get atNextLink
    * @return atNextLink
-  **/
+   */
   @javax.annotation.Nullable
   public String getAtNextLink() {
     return atNextLink;
@@ -129,10 +128,10 @@ public class DataInputFieldsResponse {
     return this;
   }
 
-   /**
+  /**
    * Array of Data Input Fields
    * @return value
-  **/
+   */
   @javax.annotation.Nullable
   public List<DataInputField> getValue() {
     return value;
@@ -153,7 +152,7 @@ public class DataInputFieldsResponse {
       return false;
     }
     DataInputFieldsResponse dataInputFieldsResponse = (DataInputFieldsResponse) o;
-    return Objects.equals(this.atRecordSetCount, dataInputFieldsResponse.atRecordSetCount) &&
+    return Objects.equals(this.atRecordsetCount, dataInputFieldsResponse.atRecordsetCount) &&
         Objects.equals(this.atNextLink, dataInputFieldsResponse.atNextLink) &&
         Objects.equals(this.value, dataInputFieldsResponse.value);
   }
@@ -164,7 +163,7 @@ public class DataInputFieldsResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(atRecordSetCount, atNextLink, value);
+    return Objects.hash(atRecordsetCount, atNextLink, value);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -178,7 +177,7 @@ public class DataInputFieldsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataInputFieldsResponse {\n");
-    sb.append("    atRecordSetCount: ").append(toIndentedString(atRecordSetCount)).append("\n");
+    sb.append("    atRecordsetCount: ").append(toIndentedString(atRecordsetCount)).append("\n");
     sb.append("    atNextLink: ").append(toIndentedString(atNextLink)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
@@ -203,7 +202,7 @@ public class DataInputFieldsResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("@recordSetCount");
+    openapiFields.add("@recordsetCount");
     openapiFields.add("@nextLink");
     openapiFields.add("value");
 
@@ -211,12 +210,12 @@ public class DataInputFieldsResponse {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to DataInputFieldsResponse
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to DataInputFieldsResponse
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!DataInputFieldsResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -235,19 +234,9 @@ public class DataInputFieldsResponse {
       if ((jsonObj.get("@nextLink") != null && !jsonObj.get("@nextLink").isJsonNull()) && !jsonObj.get("@nextLink").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `@nextLink` to be a primitive type in the JSON string but got `%s`", jsonObj.get("@nextLink").toString()));
       }
-      if (jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) {
-        JsonArray jsonArrayvalue = jsonObj.getAsJsonArray("value");
-        if (jsonArrayvalue != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("value").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `value` to be an array in the JSON string but got `%s`", jsonObj.get("value").toString()));
-          }
-
-          // validate the optional field `value` (array)
-          for (int i = 0; i < jsonArrayvalue.size(); i++) {
-            DataInputField.validateJsonElement(jsonArrayvalue.get(i));
-          };
-        }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull() && !jsonObj.get("value").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `value` to be an array in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
   }
 
@@ -280,22 +269,22 @@ public class DataInputFieldsResponse {
     }
   }
 
- /**
-  * Create an instance of DataInputFieldsResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of DataInputFieldsResponse
-  * @throws IOException if the JSON string is invalid with respect to DataInputFieldsResponse
-  */
+  /**
+   * Create an instance of DataInputFieldsResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of DataInputFieldsResponse
+   * @throws IOException if the JSON string is invalid with respect to DataInputFieldsResponse
+   */
   public static DataInputFieldsResponse fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, DataInputFieldsResponse.class);
   }
 
- /**
-  * Convert an instance of DataInputFieldsResponse to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of DataInputFieldsResponse to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

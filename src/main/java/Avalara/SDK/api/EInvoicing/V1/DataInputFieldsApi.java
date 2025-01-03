@@ -1,7 +1,7 @@
 /*
  * AvaTax Software Development Kit for Java (JRE)
  *
- * (c) 2004-2022 Avalara, Inc.
+ * (c) 2004-2025 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,10 +12,9 @@
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
+ * @copyright  2004-2025 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    
- * @link       https://github.com/avadev/AvaTax-REST-V3-JRE-SDK
+ * @link       https://github.com/avadev/Avalara-SDK-Java
  */
 
 package Avalara.SDK.api.EInvoicing.V1;
@@ -28,6 +27,8 @@ import Avalara.SDK.Configuration;
 import Avalara.SDK.Pair;
 import Avalara.SDK.ProgressRequestBody;
 import Avalara.SDK.ProgressResponseBody;
+import Avalara.SDK.AvalaraMicroservice;
+
 
 import com.google.gson.reflect.TypeToken;
 
@@ -120,9 +121,6 @@ public class DataInputFieldsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        // Set avalara-version header from swagger.json version number
-        localVarHeaderParams.put("avalara-version", "1.0");
-
         if (requestParameters.get$filter() != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("$filter", requestParameters.get$filter()));
         }
@@ -166,7 +164,7 @@ public class DataInputFieldsApi {
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
-        String[] localVarAuthNames = new String[] { "Bearer" };
+        String[] localVarAuthNames = new String[] { "OAuth", "Bearer" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes);
     }
 
@@ -185,7 +183,7 @@ public class DataInputFieldsApi {
     }
 
     /**
-     * Returns the mandatory and conditional invoice or creditnote input fields for different country mandates
+     * Returns the optionality of document fields for different country mandates
      * This endpoint provides a list of required, conditional, and optional fields for each country mandate. You can use the &lt;code&gt;mandates&lt;/code&gt; endpoint to retrieve all available country mandates. You can use the $filter query parameter to retrieve fields for a particular mandate
      * @param requestOptions Object which represents the options available for a given API/request
      * @return DataInputFieldsResponse
@@ -205,7 +203,7 @@ public class DataInputFieldsApi {
     }
 
     /**
-     * Returns the mandatory and conditional invoice or creditnote input fields for different country mandates
+     * Returns the optionality of document fields for different country mandates
      * This endpoint provides a list of required, conditional, and optional fields for each country mandate. You can use the &lt;code&gt;mandates&lt;/code&gt; endpoint to retrieve all available country mandates. You can use the $filter query parameter to retrieve fields for a particular mandate
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;DataInputFieldsResponse&gt;
@@ -226,7 +224,7 @@ public class DataInputFieldsApi {
     }
 
     /**
-     * Returns the mandatory and conditional invoice or creditnote input fields for different country mandates (asynchronously)
+     * Returns the optionality of document fields for different country mandates (asynchronously)
      * This endpoint provides a list of required, conditional, and optional fields for each country mandate. You can use the &lt;code&gt;mandates&lt;/code&gt; endpoint to retrieve all available country mandates. You can use the $filter query parameter to retrieve fields for a particular mandate
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
@@ -252,7 +250,7 @@ public class DataInputFieldsApi {
     * Represents the Request object for the GetDataInputFields API
     *
     * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used</param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\" (optional)</param>
+    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)</param>
     * @param $filter Filter by field name and value. This filter only supports <code>eq</code> and <code>contains</code>. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. (optional)</param>
     * @param $top If nonzero, return no more than this number of results. Used with <code>$skip</code> to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. (optional)</param>
     * @param $skip If nonzero, skip this number of results before returning data. Used with <code>$top</code> to provide pagination for large datasets. (optional)</param>
@@ -271,7 +269,7 @@ public class DataInputFieldsApi {
         public GetDataInputFieldsRequest () {
         }
 
-        public String getAvalaraVersion() { return avalaraVersion; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
@@ -297,7 +295,7 @@ public class DataInputFieldsApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("");
+        this.localVarApiClient.setSdkVersion("24.12.1");
     }
 }
 
