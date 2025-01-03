@@ -1160,7 +1160,7 @@ public class TradingPartnersApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("24.12.1");
+        this.localVarApiClient.setSdkVersion("24.12.0");
     }
 }
 
