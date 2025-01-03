@@ -6,12 +6,12 @@
     <packaging>jar</packaging>
     <name>Avalara.SDK</name>
     <version>24.12.0</version>
-    <url>https://github.com/avasachinbaijal/AvaTax-REST-V3-JRE-SDK</url>
+    <url>https://github.com/avadev/Avalara-SDK-Java</url>
     <description>OpenAPI Java</description>
     <scm>
-        <connection>git@github.com:avasachinbaijal/AvaTax-REST-V3-JRE-SDK.git</connection>
-        <developerConnection>git@github.com:avasachinbaijal/AvaTax-REST-V3-JRE-SDK.git</developerConnection>
-        <url>https://github.com/avasachinbaijal/AvaTax-REST-V3-JRE-SDK</url>
+        <connection>git@github.com:avadev/Avalara-SDK-Java.git</connection>
+        <developerConnection>git@github.com:avadev/Avalara-SDK-Java.git</developerConnection>
+        <url>https://github.com/avadev/Avalara-SDK-Java</url>
     </scm>
 
     <licenses>
@@ -35,6 +35,17 @@
       <name>Avalara</name>
       <url>https://developer.avalara.com/</url>
     </organization>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
     <build>
         <plugins>
