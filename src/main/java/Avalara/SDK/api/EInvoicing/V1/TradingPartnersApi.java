@@ -1,7 +1,7 @@
 /*
  * AvaTax Software Development Kit for Java (JRE)
  *
- * (c) 2004-2022 Avalara, Inc.
+ * (c) 2004-2025 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,10 +12,9 @@
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
+ * @copyright  2004-2025 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    
- * @link       https://github.com/avadev/AvaTax-REST-V3-JRE-SDK
+ * @link       https://github.com/avadev/Avalara-SDK-Java
  */
 
 package Avalara.SDK.api.EInvoicing.V1;
@@ -116,16 +115,13 @@ public class TradingPartnersApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/trading-partners/batch-searches";
+        String localVarPath = "/einvoicing/trading-partners/batch-searches";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        // Set avalara-version header from swagger.json version number
-        localVarHeaderParams.put("avalara-version", "1.2");
 
         if (requestParameters.get_file() != null) {
             localVarFormParams.put("file", requestParameters.get_file());
@@ -283,7 +279,7 @@ public class TradingPartnersApi {
         public BatchSearchParticipantsRequest () {
         }
 
-        public String getAvalaraVersion() { return avalaraVersion; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getName() { return name; }
         public void setName(String name) { this.name = name; }
@@ -342,7 +338,7 @@ public class TradingPartnersApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/trading-partners/batch-searches/{id}/$download-results"
+        String localVarPath = "/einvoicing/trading-partners/batch-searches/{id}/$download-results"
             .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(requestParameters.id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -350,9 +346,6 @@ public class TradingPartnersApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        // Set avalara-version header from swagger.json version number
-        localVarHeaderParams.put("avalara-version", "1.2");
 
         if (requestParameters.getAvalaraVersion() != null) {
             localVarHeaderParams.put("avalara-version", localVarApiClient.parameterToString(requestParameters.getAvalaraVersion()));
@@ -488,7 +481,7 @@ public class TradingPartnersApi {
         public DownloadBatchSearchReportRequest () {
         }
 
-        public String getAvalaraVersion() { return avalaraVersion; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getId() { return id; }
         public void setId(String id) { this.id = id; }
@@ -542,7 +535,7 @@ public class TradingPartnersApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/trading-partners/batch-searches/{id}"
+        String localVarPath = "/einvoicing/trading-partners/batch-searches/{id}"
             .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(requestParameters.id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -550,9 +543,6 @@ public class TradingPartnersApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        // Set avalara-version header from swagger.json version number
-        localVarHeaderParams.put("avalara-version", "1.2");
 
         if (requestParameters.getAvalaraVersion() != null) {
             localVarHeaderParams.put("avalara-version", localVarApiClient.parameterToString(requestParameters.getAvalaraVersion()));
@@ -685,7 +675,7 @@ public class TradingPartnersApi {
         public GetBatchSearchDetailRequest () {
         }
 
-        public String getAvalaraVersion() { return avalaraVersion; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getId() { return id; }
         public void setId(String id) { this.id = id; }
@@ -739,16 +729,13 @@ public class TradingPartnersApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/trading-partners/batch-searches";
+        String localVarPath = "/einvoicing/trading-partners/batch-searches";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        // Set avalara-version header from swagger.json version number
-        localVarHeaderParams.put("avalara-version", "1.2");
 
         if (requestParameters.get$filter() != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("$filter", requestParameters.get$filter()));
@@ -904,7 +891,7 @@ public class TradingPartnersApi {
         public ListBatchSearchesRequest () {
         }
 
-        public String getAvalaraVersion() { return avalaraVersion; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
@@ -967,16 +954,13 @@ public class TradingPartnersApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/trading-partners";
+        String localVarPath = "/einvoicing/trading-partners";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        // Set avalara-version header from swagger.json version number
-        localVarHeaderParams.put("avalara-version", "1.2");
 
         if (requestParameters.getCount() != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("count", requestParameters.getCount()));
@@ -1146,7 +1130,7 @@ public class TradingPartnersApi {
         public SearchParticipantsRequest () {
         }
 
-        public String getAvalaraVersion() { return avalaraVersion; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String get$search() { return $search; }
         public void set$search(String $search) { this.$search = $search; }
@@ -1176,7 +1160,7 @@ public class TradingPartnersApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("");
+        this.localVarApiClient.setSdkVersion("24.12.1");
     }
 }
 

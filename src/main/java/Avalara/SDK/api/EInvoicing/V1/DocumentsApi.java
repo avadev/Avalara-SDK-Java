@@ -1,7 +1,7 @@
 /*
  * AvaTax Software Development Kit for Java (JRE)
  *
- * (c) 2004-2022 Avalara, Inc.
+ * (c) 2004-2025 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,10 +12,9 @@
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
+ * @copyright  2004-2025 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    
- * @link       https://github.com/avadev/AvaTax-REST-V3-JRE-SDK
+ * @link       https://github.com/avadev/Avalara-SDK-Java
  */
 
 package Avalara.SDK.api.EInvoicing.V1;
@@ -126,7 +125,7 @@ public class DocumentsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/documents/{documentId}/$download"
+        String localVarPath = "/einvoicing/documents/{documentId}/$download"
             .replaceAll("\\{" + "documentId" + "\\}", localVarApiClient.escapeString(requestParameters.documentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -134,9 +133,6 @@ public class DocumentsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        // Set avalara-version header from swagger.json version number
-        localVarHeaderParams.put("avalara-version", "1.2");
 
         if (requestParameters.getAvalaraVersion() != null) {
             localVarHeaderParams.put("avalara-version", localVarApiClient.parameterToString(requestParameters.getAvalaraVersion()));
@@ -277,7 +273,7 @@ public class DocumentsApi {
         public DownloadDocumentRequest () {
         }
 
-        public String getAvalaraVersion() { return avalaraVersion; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getAccept() { return accept; }
         public void setAccept(String accept) { this.accept = accept; }
@@ -331,16 +327,13 @@ public class DocumentsApi {
         Object localVarPostBody = requestParameters.getDocumentFetchRequest();
 
         // create path and map variables
-        String localVarPath = "/documents/$fetch";
+        String localVarPath = "/einvoicing/documents/$fetch";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        // Set avalara-version header from swagger.json version number
-        localVarHeaderParams.put("avalara-version", "1.2");
 
         if (requestParameters.getAvalaraVersion() != null) {
             localVarHeaderParams.put("avalara-version", localVarApiClient.parameterToString(requestParameters.getAvalaraVersion()));
@@ -467,7 +460,7 @@ public class DocumentsApi {
         public FetchDocumentsRequest () {
         }
 
-        public String getAvalaraVersion() { return avalaraVersion; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public DocumentFetchRequest getDocumentFetchRequest() { return documentFetchRequest; }
         public void setDocumentFetchRequest(DocumentFetchRequest documentFetchRequest) { this.documentFetchRequest = documentFetchRequest; }
@@ -519,16 +512,13 @@ public class DocumentsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/documents";
+        String localVarPath = "/einvoicing/documents";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        // Set avalara-version header from swagger.json version number
-        localVarHeaderParams.put("avalara-version", "1.2");
 
         if (requestParameters.getStartDate() != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("startDate", requestParameters.getStartDate()));
@@ -696,7 +686,7 @@ public class DocumentsApi {
         public GetDocumentListRequest () {
         }
 
-        public String getAvalaraVersion() { return avalaraVersion; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
@@ -762,7 +752,7 @@ public class DocumentsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/documents/{documentId}/status"
+        String localVarPath = "/einvoicing/documents/{documentId}/status"
             .replaceAll("\\{" + "documentId" + "\\}", localVarApiClient.escapeString(requestParameters.documentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -770,9 +760,6 @@ public class DocumentsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        // Set avalara-version header from swagger.json version number
-        localVarHeaderParams.put("avalara-version", "1.2");
 
         if (requestParameters.getAvalaraVersion() != null) {
             localVarHeaderParams.put("avalara-version", localVarApiClient.parameterToString(requestParameters.getAvalaraVersion()));
@@ -899,7 +886,7 @@ public class DocumentsApi {
         public GetDocumentStatusRequest () {
         }
 
-        public String getAvalaraVersion() { return avalaraVersion; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getDocumentId() { return documentId; }
         public void setDocumentId(String documentId) { this.documentId = documentId; }
@@ -951,16 +938,13 @@ public class DocumentsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/documents";
+        String localVarPath = "/einvoicing/documents";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        // Set avalara-version header from swagger.json version number
-        localVarHeaderParams.put("avalara-version", "1.2");
 
         if (requestParameters.getMetadata() != null) {
             localVarFormParams.put("metadata", requestParameters.getMetadata());
@@ -1102,7 +1086,7 @@ public class DocumentsApi {
         public SubmitDocumentRequest () {
         }
 
-        public String getAvalaraVersion() { return avalaraVersion; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public SubmitDocumentMetadata getMetadata() { return metadata; }
         public void setMetadata(SubmitDocumentMetadata metadata) { this.metadata = metadata; }
@@ -1122,7 +1106,7 @@ public class DocumentsApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("");
+        this.localVarApiClient.setSdkVersion("24.12.1");
     }
 }
 

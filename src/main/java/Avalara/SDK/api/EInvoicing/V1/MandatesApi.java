@@ -1,7 +1,7 @@
 /*
  * AvaTax Software Development Kit for Java (JRE)
  *
- * (c) 2004-2022 Avalara, Inc.
+ * (c) 2004-2025 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,10 +12,9 @@
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
+ * @copyright  2004-2025 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    
- * @link       https://github.com/avadev/AvaTax-REST-V3-JRE-SDK
+ * @link       https://github.com/avadev/Avalara-SDK-Java
  */
 
 package Avalara.SDK.api.EInvoicing.V1;
@@ -119,7 +118,7 @@ public class MandatesApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/mandates/{mandateId}/data-input-fields"
+        String localVarPath = "/einvoicing/mandates/{mandateId}/data-input-fields"
             .replaceAll("\\{" + "mandateId" + "\\}", localVarApiClient.escapeString(requestParameters.mandateId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -127,9 +126,6 @@ public class MandatesApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        // Set avalara-version header from swagger.json version number
-        localVarHeaderParams.put("avalara-version", "1.2");
 
         if (requestParameters.getDocumentType() != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("documentType", requestParameters.getDocumentType()));
@@ -284,7 +280,7 @@ public class MandatesApi {
         public GetMandateDataInputFieldsRequest () {
         }
 
-        public String getAvalaraVersion() { return avalaraVersion; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getMandateId() { return mandateId; }
         public void setMandateId(String mandateId) { this.mandateId = mandateId; }
@@ -341,16 +337,13 @@ public class MandatesApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/mandates";
+        String localVarPath = "/einvoicing/mandates";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        // Set avalara-version header from swagger.json version number
-        localVarHeaderParams.put("avalara-version", "1.2");
 
         if (requestParameters.get$filter() != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("$filter", requestParameters.get$filter()));
@@ -503,7 +496,7 @@ public class MandatesApi {
         public GetMandatesRequest () {
         }
 
-        public String getAvalaraVersion() { return avalaraVersion; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
@@ -529,7 +522,7 @@ public class MandatesApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("");
+        this.localVarApiClient.setSdkVersion("24.12.1");
     }
 }
 
