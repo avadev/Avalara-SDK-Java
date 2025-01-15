@@ -61,7 +61,7 @@ jobs:
 
       - name: Publish to Maven Central
         run: |
-          mvn --no-transfer-progress --batch-mode deploy -DskipTests
+          mvn --no-transfer-progress --batch-mode deploy -Psign-artifacts -DskipTests
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
