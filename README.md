@@ -31,8 +31,8 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>Avalara.SDK</groupId>
-  <artifactId>Avalara.SDK</artifactId>
+  <groupId>net.avalara</groupId>
+  <artifactId>avalara-sdk</artifactId>
   <version>24.12.0</version>
   <scope>compile</scope>
 </dependency>
