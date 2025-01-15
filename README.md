@@ -44,27 +44,14 @@ Add this dependency to your project's build file:
 
 ```groovy
   repositories {
-  mavenCentral()     // Needed if the 'Avalara.SDK' jar has been published to maven central.
-  mavenLocal()       // Needed if the 'Avalara.SDK' jar has been published to the local maven repo.
+  mavenCentral()
+  mavenLocal()
 }
 
 dependencies {
-  implementation "Avalara.SDK:Avalara.SDK:24.12.0"
+  implementation 'net.avalara:avalara-sdk:24.12.0'
 }
 ```
-
-### Others
-
-At first generate the JAR by executing:
-
-```shell
-mvn clean package
-```
-
-Then manually install the following JARs:
-
-- `target/Avalara.SDK-2.4.29.jar`
-- `target/lib/*.jar`
 
 ## Getting Started
 
@@ -108,111 +95,9 @@ public class MandatesApiExample {
 
 ```
 
-## Documentation for Authorization
-
-Authentication schemes defined for the API:
-<a name="OAuth Client Credentials Flow"></a>
-
-### OAuth Client Credentials
-
-- **Type**: OAuth
-- **Flow**: client_credentials
-- **Scopes**:
-  - avatax_api: avatax_api scope.
-
-```java
-import Avalara.SDK.*;
-import Avalara.SDK.auth.*;
-import Avalara.SDK.model.Avatax.*;
-import Avalara.SDK.api.Avatax.AddressesApi;
-
-public class AddressesApiExample {
-
-  public static void main(String[] args) {
-    Configuration configuration = new Configuration();
-    configuration.setAppName("Test");
-    configuration.setAppVersion("1.0");
-    configuration.setMachineName("LocalBox");
-    configuration.setTimeout(5000);
-    configuration.setEnvironment(AvaTaxEnvironment.Sandbox);
-    // Configure OAUTH2 Client Credentials flow
-    configuration.setClientId("YOUR CLIENT_ID");
-    configuration.setClientSecret("YOUR CLIENT_SECRET");
-
-    ApiClient apiClient = new ApiClient(configuration);
-    AddressesApi apiInstance = new AddressesApi(apiClient);
-    String xAvalaraClient = "Swagger UI; 22.7.0; Custom; 1.0"; // String | Identifies the software you are using to call this API.  For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-    AddressValidationInfo body = new AddressValidationInfo(); // AddressValidationInfo | The address to resolve
-    try {
-      // SDK will fetch OAuth token using client creds flow with Avalara Identity and append Authorization header to the request with the access token.
-      AddressResolutionModel result = apiInstance.resolveAddressPost(xAvalaraClient, body);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AddressesApi#resolveAddressPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-<a name="OAuth Device Code Flow"></a>
-
-### OAuth Device Code Flow
-
-- **Type**: OAuth
-- **Flow**: device_code
-- **Scopes**:
-  - avatax_api: avatax_api scope.
-
-```java
-import Avalara.SDK.*;
-import Avalara.SDK.auth.*;
-import Avalara.SDK.model.Avatax.*;
-import Avalara.SDK.api.Avatax.AddressesApi;
-
-public class AddressesApiExample {
-
-  public static void main(String[] args) {
-    Configuration configuration = new Configuration();
-    configuration.setAppName("Test");
-    configuration.setAppVersion("1.0");
-    configuration.setMachineName("LocalBox");
-    configuration.setTimeout(5000);
-    configuration.setEnvironment(AvaTaxEnvironment.Sandbox);
-    // Configure OAUTH2 Device code flow
-    configuration.setClientId("YOUR CLIENT_ID");
-
-    DeviceAuthResponse response = ApiClientHelper.initiateDeviceAuthorizationOAuth(null, configuration);
-    DeviceAccessTokenResponse tokenResponse = ApiClientHelper.getAccessTokenForDeviceFlow(response.getDeviceCode(), configuration);
-    configuration.setBearerToken(tokenResponse.getAccessToken());
-
-    ApiClient apiClient = new ApiClient(configuration);
-    AddressesApi apiInstance = new AddressesApi(apiClient);
-    String xAvalaraClient = "Swagger UI; 22.7.0; Custom; 1.0"; // String | Identifies the software you are using to call this API.  For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-    AddressValidationInfo body = new AddressValidationInfo(); // AddressValidationInfo | The address to resolve
-    try {
-      // SDK will fetch OAuth token using client creds flow with Avalara Identity and append Authorization header to the request with the access token.
-      AddressResolutionModel result = apiInstance.resolveAddressPost(xAvalaraClient, body);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AddressesApi#resolveAddressPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
 ## Recommendation
 
 It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
-
-## Author
 
 <a name="documentation-for-api-endpoints"></a>
 
