@@ -66,30 +66,32 @@ import Avalara.SDK.model.EInvoicing.V1.*;
 public class MandatesApiExample {
 
   public static void main(String[] args) {
-    Configuration configuration = new Configuration();
-    configuration.setAppName("Test");
-    configuration.setAppVersion("1.0");
-    configuration.setMachineName("LocalBox");
-    configuration.setTimeout(5000);
-    configuration.setEnvironment(AvaTaxEnvironment.Sandbox);
-    // Configure OAuth2 access token for authorization
-    configuration.setBearerToken("YOUR ACCESS TOKEN");
+      Configuration configuration = new Configuration();
+      configuration.setAppName("Test");
+      configuration.setAppVersion("1.0");
+      configuration.setMachineName("LocalBox");
+      configuration.setTimeout(5000);
+      configuration.setEnvironment(AvaTaxEnvironment.Sandbox);
+      // Configure OAuth2 access token for authorization
+      configuration.setBearerToken("YOUR ACCESS TOKEN");
 
-    ApiClient apiClient = new ApiClient(configuration);
-    Avalara.SDK.api.EInvoicing.V1.MandatesApi apiInstance = new MandatesApi(apiClient);
-    String xAvalaraClient = "Swagger UI; 22.7.0; Custom; 1.0"; // String | Identifies the software you are using to call this API.  For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-    MandatesApi.GetMandatesRequest request = apiInstance.getGetMandatesRequest();
-    request.setXAvalaraClient(xAvalaraClient);
-    try {
-      MandatesResponse result = apiInstance.getMandates(request);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AddressesApi#resolveAddressPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
+      try {
+          ApiClient apiClient = new ApiClient(configuration);
+          Avalara.SDK.api.EInvoicing.V1.MandatesApi apiInstance = new MandatesApi(apiClient);
+          String xAvalaraClient = "Swagger UI; 22.7.0; Custom; 1.0"; // String | Identifies the software you are using to call this API.  For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
+          MandatesApi.GetMandatesRequest request = apiInstance.getGetMandatesRequest();
+          request.setXAvalaraClient(xAvalaraClient);
+          MandatesResponse result = apiInstance.getMandates(request);
+          System.out.println(result);
+      } catch (ApiException e) {
+          System.err.println("Exception when calling MandatesAPI#getMandates");
+          System.err.println("Status code: " + e.getCode());
+          System.err.println("Reason: " + e.getResponseBody());
+          System.err.println("Response headers: " + e.getResponseHeaders());
+          e.printStackTrace();
+      } catch (Exception e) {
+          e.printStackTrace();
+      }
   }
 }
 
