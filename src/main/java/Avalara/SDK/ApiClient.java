@@ -102,17 +102,18 @@ public class ApiClient {
         init();
         initHttpClient();
 
+        // TODO: Add back when client creds flow is available through AI.
         // Setup authentications (key: authentication name, value: authentication).
-        if (StringUtils.isNotEmpty(config.getClientId()) && StringUtils.isEmpty(config.getBearerToken())) {
-            OpenIdHelper.populateConfigWithOpenIdDetails(config);
-            RetryingOAuth retryingOAuth = new RetryingOAuth(config.getTokenUrl(), config.getClientId(),
-                    config.getClientSecret(), new ClientCredentialsGrant(), null);
-            authentications.put(
-                    "OAuth",
-                    retryingOAuth
-            );
-            initHttpClient(Collections.<Interceptor>singletonList(retryingOAuth));
-        }
+//        if (StringUtils.isNotEmpty(config.getClientId()) && StringUtils.isEmpty(config.getBearerToken())) {
+//            OpenIdHelper.populateConfigWithOpenIdDetails(config);
+//            RetryingOAuth retryingOAuth = new RetryingOAuth(config.getTokenUrl(), config.getClientId(),
+//                    config.getClientSecret(), new ClientCredentialsGrant(), null);
+//            authentications.put(
+//                    "OAuth",
+//                    retryingOAuth
+//            );
+//            initHttpClient(Collections.<Interceptor>singletonList(retryingOAuth));
+//        }
 
         // Set Authentication type based on Configuration passed into the ApiClient
         if (config.getUsername() != null && config.getPassword() != null) {
@@ -603,25 +604,45 @@ public class ApiClient {
      * @param param Parameter
      * @return String representation of the parameter
      */
+    /**
+     * Format the given parameter object into string.
+     *
+     * @param param Parameter
+     * @return String representation of the parameter
+     */
     public String parameterToString(Object param) {
         if (param == null) {
             return "";
-        } else if (param instanceof Date || param instanceof OffsetDateTime || param instanceof LocalDate) {
-            //Serialize to json string and remove the " enclosing characters
-            String jsonStr = json.serialize(param);
-            return jsonStr.substring(1, jsonStr.length() - 1);
-        } else if (param instanceof Collection) {
-            StringBuilder b = new StringBuilder();
-            for (Object o : (Collection) param) {
-                if (b.length() > 0) {
-                    b.append(",");
-                }
-                b.append(String.valueOf(o));
-            }
-            return b.toString();
-        } else {
+        }
+        // 1) Primitive wrappers and Strings → plain text
+        if (param instanceof String) {
+            return (String) param;
+        }
+        if (param instanceof Number || param instanceof Boolean) {
             return String.valueOf(param);
         }
+        if (param instanceof OffsetDateTime odt) {
+            // Convert to LocalDateTime and format as ISO_LOCAL_DATE_TIME
+            return odt
+                    .toLocalDateTime()
+                    .format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        }
+        if (param instanceof Date || param instanceof LocalDate) {
+            String jsonStr = json.serialize(param);
+            // e.g. "\"2025-05-06T12:00:00Z\"" → "2025-05-06T12:00:00Z"
+            return jsonStr.substring(1, jsonStr.length() - 1);
+        }
+        if (param instanceof Collection) {
+            StringBuilder b = new StringBuilder();
+            for (Object o : (Collection<?>) param) {
+                if (!b.isEmpty()) {
+                    b.append(",");
+                }
+                b.append(parameterToString(o));
+            }
+            return b.toString();
+        }
+        return json.serialize(param);
     }
 
     /**
@@ -997,8 +1018,7 @@ public class ApiClient {
      * @throws Avalara.SDK.ApiException If fail to execute the call
      */
     public <T> ApiResponse<T> execute(Call call, Type returnType) throws ApiException {
-        try {
-            Response response = call.execute();
+        try (Response response = call.execute()) {
             T data = handleResponse(response, returnType);
             return new ApiResponse<T>(response.code(), response.headers().toMultimap(), data);
         } catch (IOException e) {
@@ -1037,16 +1057,14 @@ public class ApiClient {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 T result;
-                try {
-                    result = (T) handleResponse(response, returnType);
+                try (Response r = response) {
+                    result = (T) handleResponse(r, returnType);
+                    callback.onSuccess(result, r.code(), r.headers().toMultimap());
                 } catch (ApiException e) {
                     callback.onFailure(e, response.code(), response.headers().toMultimap());
-                    return;
                 } catch (Exception e) {
                     callback.onFailure(new ApiException(e), response.code(), response.headers().toMultimap());
-                    return;
                 }
-                callback.onSuccess(result, response.code(), response.headers().toMultimap());
             }
         });
     }
