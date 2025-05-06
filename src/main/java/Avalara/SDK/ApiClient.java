@@ -604,25 +604,39 @@ public class ApiClient {
      * @param param Parameter
      * @return String representation of the parameter
      */
+    /**
+     * Format the given parameter object into string.
+     *
+     * @param param Parameter
+     * @return String representation of the parameter
+     */
     public String parameterToString(Object param) {
         if (param == null) {
             return "";
-        } else if (param instanceof Date || param instanceof OffsetDateTime || param instanceof LocalDate) {
-            //Serialize to json string and remove the " enclosing characters
-            String jsonStr = json.serialize(param);
-            return jsonStr.substring(1, jsonStr.length() - 1);
-        } else if (param instanceof Collection) {
-            StringBuilder b = new StringBuilder();
-            for (Object o : (Collection) param) {
-                if (b.length() > 0) {
-                    b.append(",");
-                }
-                b.append(String.valueOf(o));
-            }
-            return b.toString();
-        } else {
+        }
+        // 1) Primitive wrappers and Strings → plain text
+        if (param instanceof String) {
+            return (String) param;
+        }
+        if (param instanceof Number || param instanceof Boolean) {
             return String.valueOf(param);
         }
+        if (param instanceof Date || param instanceof OffsetDateTime || param instanceof LocalDate) {
+            String jsonStr = json.serialize(param);
+            // e.g. "\"2025-05-06T12:00:00Z\"" → "2025-05-06T12:00:00Z"
+            return jsonStr.substring(1, jsonStr.length() - 1);
+        }
+        if (param instanceof Collection) {
+            StringBuilder b = new StringBuilder();
+            for (Object o : (Collection<?>) param) {
+                if (!b.isEmpty()) {
+                    b.append(",");
+                }
+                b.append(parameterToString(o));
+            }
+            return b.toString();
+        }
+        return json.serialize(param);
     }
 
     /**
