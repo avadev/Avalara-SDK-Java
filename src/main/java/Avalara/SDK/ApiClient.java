@@ -621,11 +621,12 @@ public class ApiClient {
         if (param instanceof Number || param instanceof Boolean) {
             return String.valueOf(param);
         }
-        if (param instanceof OffsetDateTime odt) {
+        if (param instanceof OffsetDateTime) {
+            OffsetDateTime odt = (OffsetDateTime) param;
             // Convert to LocalDateTime and format as ISO_LOCAL_DATE_TIME
             return odt
-                    .toLocalDateTime()
-                    .format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+                .toLocalDateTime()
+                .format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
         }
         if (param instanceof Date || param instanceof LocalDate) {
             String jsonStr = json.serialize(param);
