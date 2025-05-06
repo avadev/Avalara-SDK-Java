@@ -1018,8 +1018,7 @@ public class ApiClient {
      * @throws Avalara.SDK.ApiException If fail to execute the call
      */
     public <T> ApiResponse<T> execute(Call call, Type returnType) throws ApiException {
-        try {
-            Response response = call.execute();
+        try (Response response = call.execute()) {
             T data = handleResponse(response, returnType);
             return new ApiResponse<T>(response.code(), response.headers().toMultimap(), data);
         } catch (IOException e) {
@@ -1058,16 +1057,14 @@ public class ApiClient {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 T result;
-                try {
-                    result = (T) handleResponse(response, returnType);
+                try (Response r = response) {
+                    result = (T) handleResponse(r, returnType);
+                    callback.onSuccess(result, r.code(), r.headers().toMultimap());
                 } catch (ApiException e) {
                     callback.onFailure(e, response.code(), response.headers().toMultimap());
-                    return;
                 } catch (Exception e) {
                     callback.onFailure(new ApiException(e), response.code(), response.headers().toMultimap());
-                    return;
                 }
-                callback.onSuccess(result, response.code(), response.headers().toMultimap());
             }
         });
     }
