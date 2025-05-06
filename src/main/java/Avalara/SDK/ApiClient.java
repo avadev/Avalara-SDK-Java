@@ -621,7 +621,13 @@ public class ApiClient {
         if (param instanceof Number || param instanceof Boolean) {
             return String.valueOf(param);
         }
-        if (param instanceof Date || param instanceof OffsetDateTime || param instanceof LocalDate) {
+        if (param instanceof OffsetDateTime odt) {
+            // Convert to LocalDateTime and format as ISO_LOCAL_DATE_TIME
+            return odt
+                    .toLocalDateTime()
+                    .format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        }
+        if (param instanceof Date || param instanceof LocalDate) {
             String jsonStr = json.serialize(param);
             // e.g. "\"2025-05-06T12:00:00Z\"" → "2025-05-06T12:00:00Z"
             return jsonStr.substring(1, jsonStr.length() - 1);
