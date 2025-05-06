@@ -636,7 +636,7 @@ public class ApiClient {
         if (param instanceof Collection) {
             StringBuilder b = new StringBuilder();
             for (Object o : (Collection<?>) param) {
-                if (!b.isEmpty()) {
+                if (b.length() > 0) {
                     b.append(",");
                 }
                 b.append(parameterToString(o));
