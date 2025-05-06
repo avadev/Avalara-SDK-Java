@@ -102,17 +102,18 @@ public class ApiClient {
         init();
         initHttpClient();
 
+        // TODO: Add back when client creds flow is available through AI.
         // Setup authentications (key: authentication name, value: authentication).
-        if (StringUtils.isNotEmpty(config.getClientId()) && StringUtils.isEmpty(config.getBearerToken())) {
-            OpenIdHelper.populateConfigWithOpenIdDetails(config);
-            RetryingOAuth retryingOAuth = new RetryingOAuth(config.getTokenUrl(), config.getClientId(),
-                    config.getClientSecret(), new ClientCredentialsGrant(), null);
-            authentications.put(
-                    "OAuth",
-                    retryingOAuth
-            );
-            initHttpClient(Collections.<Interceptor>singletonList(retryingOAuth));
-        }
+//        if (StringUtils.isNotEmpty(config.getClientId()) && StringUtils.isEmpty(config.getBearerToken())) {
+//            OpenIdHelper.populateConfigWithOpenIdDetails(config);
+//            RetryingOAuth retryingOAuth = new RetryingOAuth(config.getTokenUrl(), config.getClientId(),
+//                    config.getClientSecret(), new ClientCredentialsGrant(), null);
+//            authentications.put(
+//                    "OAuth",
+//                    retryingOAuth
+//            );
+//            initHttpClient(Collections.<Interceptor>singletonList(retryingOAuth));
+//        }
 
         // Set Authentication type based on Configuration passed into the ApiClient
         if (config.getUsername() != null && config.getPassword() != null) {

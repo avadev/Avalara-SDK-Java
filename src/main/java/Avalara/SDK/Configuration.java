@@ -202,19 +202,6 @@ public class Configuration {
     }
 
     /**
-     * Gets or sets the ClientSecret Used for OAuth2 Client Credentials flow.
-     */
-    private String ClientSecret;
-
-    public String getClientSecret() {
-        return ClientSecret;
-    }
-
-    public void setClientSecret(String clientSecret) {
-        ClientSecret = clientSecret;
-    }
-
-    /**
      * Gets the Base Path.
      */
     public String getBasePath() {
