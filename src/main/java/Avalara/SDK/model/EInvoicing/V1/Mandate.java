@@ -21,6 +21,7 @@ package Avalara.SDK.model.EInvoicing.V1;
 
 import java.util.Objects;
 import Avalara.SDK.model.EInvoicing.V1.InputDataFormats;
+import Avalara.SDK.model.EInvoicing.V1.OutputDataFormats;
 import Avalara.SDK.model.EInvoicing.V1.WorkflowIds;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -57,7 +58,7 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * Mandate
+ * An object representing the country mandate
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Mandate {
@@ -77,17 +78,37 @@ public class Mandate {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
-  public static final String SERIALIZED_NAME_SUPPORTED_BY_PARTNER_A_P_I = "supportedByPartnerAPI";
-  @SerializedName(SERIALIZED_NAME_SUPPORTED_BY_PARTNER_A_P_I)
-  private Boolean supportedByPartnerAPI;
+  public static final String SERIALIZED_NAME_SUPPORTED_BY_E_L_R_A_P_I = "supportedByELRAPI";
+  @SerializedName(SERIALIZED_NAME_SUPPORTED_BY_E_L_R_A_P_I)
+  private Boolean supportedByELRAPI;
 
   public static final String SERIALIZED_NAME_MANDATE_FORMAT = "mandateFormat";
   @SerializedName(SERIALIZED_NAME_MANDATE_FORMAT)
   private String mandateFormat;
 
+  public static final String SERIALIZED_NAME_E_INVOICING_FLOW = "eInvoicingFlow";
+  @SerializedName(SERIALIZED_NAME_E_INVOICING_FLOW)
+  private String eInvoicingFlow;
+
+  public static final String SERIALIZED_NAME_E_INVOICING_FLOW_DOCUMENTATION_LINK = "eInvoicingFlowDocumentationLink";
+  @SerializedName(SERIALIZED_NAME_E_INVOICING_FLOW_DOCUMENTATION_LINK)
+  private String eInvoicingFlowDocumentationLink;
+
+  public static final String SERIALIZED_NAME_GET_INVOICE_AVAILABLE_MEDIA_TYPE = "getInvoiceAvailableMediaType";
+  @SerializedName(SERIALIZED_NAME_GET_INVOICE_AVAILABLE_MEDIA_TYPE)
+  private List<String> getInvoiceAvailableMediaType = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_SUPPORTS_INBOUND_DIGITAL_DOCUMENT = "supportsInboundDigitalDocument";
+  @SerializedName(SERIALIZED_NAME_SUPPORTS_INBOUND_DIGITAL_DOCUMENT)
+  private String supportsInboundDigitalDocument;
+
   public static final String SERIALIZED_NAME_INPUT_DATA_FORMATS = "inputDataFormats";
   @SerializedName(SERIALIZED_NAME_INPUT_DATA_FORMATS)
   private List<InputDataFormats> inputDataFormats = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_OUTPUT_DATA_FORMATS = "outputDataFormats";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_DATA_FORMATS)
+  private List<OutputDataFormats> outputDataFormats = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_WORKFLOW_IDS = "workflowIds";
   @SerializedName(SERIALIZED_NAME_WORKFLOW_IDS)
@@ -172,22 +193,22 @@ public class Mandate {
   }
 
 
-  public Mandate supportedByPartnerAPI(Boolean supportedByPartnerAPI) {
-    this.supportedByPartnerAPI = supportedByPartnerAPI;
+  public Mandate supportedByELRAPI(Boolean supportedByELRAPI) {
+    this.supportedByELRAPI = supportedByELRAPI;
     return this;
   }
 
   /**
-   * Indicates whether this mandate supported by the partner API
-   * @return supportedByPartnerAPI
+   * Indicates whether this mandate supported by the ELR API
+   * @return supportedByELRAPI
    */
   @javax.annotation.Nullable
-  public Boolean getSupportedByPartnerAPI() {
-    return supportedByPartnerAPI;
+  public Boolean getSupportedByELRAPI() {
+    return supportedByELRAPI;
   }
 
-  public void setSupportedByPartnerAPI(Boolean supportedByPartnerAPI) {
-    this.supportedByPartnerAPI = supportedByPartnerAPI;
+  public void setSupportedByELRAPI(Boolean supportedByELRAPI) {
+    this.supportedByELRAPI = supportedByELRAPI;
   }
 
 
@@ -207,6 +228,90 @@ public class Mandate {
 
   public void setMandateFormat(String mandateFormat) {
     this.mandateFormat = mandateFormat;
+  }
+
+
+  public Mandate eInvoicingFlow(String eInvoicingFlow) {
+    this.eInvoicingFlow = eInvoicingFlow;
+    return this;
+  }
+
+  /**
+   * The type of e-invoicing flow for this mandate
+   * @return eInvoicingFlow
+   */
+  @javax.annotation.Nullable
+  public String geteInvoicingFlow() {
+    return eInvoicingFlow;
+  }
+
+  public void seteInvoicingFlow(String eInvoicingFlow) {
+    this.eInvoicingFlow = eInvoicingFlow;
+  }
+
+
+  public Mandate eInvoicingFlowDocumentationLink(String eInvoicingFlowDocumentationLink) {
+    this.eInvoicingFlowDocumentationLink = eInvoicingFlowDocumentationLink;
+    return this;
+  }
+
+  /**
+   * Link to the documentation for this mandate&#39;s e-invoicing flow
+   * @return eInvoicingFlowDocumentationLink
+   */
+  @javax.annotation.Nullable
+  public String geteInvoicingFlowDocumentationLink() {
+    return eInvoicingFlowDocumentationLink;
+  }
+
+  public void seteInvoicingFlowDocumentationLink(String eInvoicingFlowDocumentationLink) {
+    this.eInvoicingFlowDocumentationLink = eInvoicingFlowDocumentationLink;
+  }
+
+
+  public Mandate getInvoiceAvailableMediaType(List<String> getInvoiceAvailableMediaType) {
+    this.getInvoiceAvailableMediaType = getInvoiceAvailableMediaType;
+    return this;
+  }
+
+  public Mandate addGetInvoiceAvailableMediaTypeItem(String getInvoiceAvailableMediaTypeItem) {
+    if (this.getInvoiceAvailableMediaType == null) {
+      this.getInvoiceAvailableMediaType = new ArrayList<>();
+    }
+    this.getInvoiceAvailableMediaType.add(getInvoiceAvailableMediaTypeItem);
+    return this;
+  }
+
+  /**
+   * List of available media types for downloading invoices for this mandate
+   * @return getInvoiceAvailableMediaType
+   */
+  @javax.annotation.Nullable
+  public List<String> getGetInvoiceAvailableMediaType() {
+    return getInvoiceAvailableMediaType;
+  }
+
+  public void setGetInvoiceAvailableMediaType(List<String> getInvoiceAvailableMediaType) {
+    this.getInvoiceAvailableMediaType = getInvoiceAvailableMediaType;
+  }
+
+
+  public Mandate supportsInboundDigitalDocument(String supportsInboundDigitalDocument) {
+    this.supportsInboundDigitalDocument = supportsInboundDigitalDocument;
+    return this;
+  }
+
+  /**
+   * Indicates whether this mandate supports inbound digital documents
+   * @return supportsInboundDigitalDocument
+   */
+  @javax.annotation.Nullable
+  public String getSupportsInboundDigitalDocument() {
+    return supportsInboundDigitalDocument;
+  }
+
+  public void setSupportsInboundDigitalDocument(String supportsInboundDigitalDocument) {
+    this.supportsInboundDigitalDocument = supportsInboundDigitalDocument;
   }
 
 
@@ -234,6 +339,33 @@ public class Mandate {
 
   public void setInputDataFormats(List<InputDataFormats> inputDataFormats) {
     this.inputDataFormats = inputDataFormats;
+  }
+
+
+  public Mandate outputDataFormats(List<OutputDataFormats> outputDataFormats) {
+    this.outputDataFormats = outputDataFormats;
+    return this;
+  }
+
+  public Mandate addOutputDataFormatsItem(OutputDataFormats outputDataFormatsItem) {
+    if (this.outputDataFormats == null) {
+      this.outputDataFormats = new ArrayList<>();
+    }
+    this.outputDataFormats.add(outputDataFormatsItem);
+    return this;
+  }
+
+  /**
+   * Lists the supported output document formats for the country mandate. For countries where specifying an output document format is required (e.g., France), this array will contain the applicable formats. For other countries where output format selection is not necessary, the array will be empty.
+   * @return outputDataFormats
+   */
+  @javax.annotation.Nullable
+  public List<OutputDataFormats> getOutputDataFormats() {
+    return outputDataFormats;
+  }
+
+  public void setOutputDataFormats(List<OutputDataFormats> outputDataFormats) {
+    this.outputDataFormats = outputDataFormats;
   }
 
 
@@ -278,15 +410,20 @@ public class Mandate {
         Objects.equals(this.countryMandate, mandate.countryMandate) &&
         Objects.equals(this.countryCode, mandate.countryCode) &&
         Objects.equals(this.description, mandate.description) &&
-        Objects.equals(this.supportedByPartnerAPI, mandate.supportedByPartnerAPI) &&
+        Objects.equals(this.supportedByELRAPI, mandate.supportedByELRAPI) &&
         Objects.equals(this.mandateFormat, mandate.mandateFormat) &&
+        Objects.equals(this.eInvoicingFlow, mandate.eInvoicingFlow) &&
+        Objects.equals(this.eInvoicingFlowDocumentationLink, mandate.eInvoicingFlowDocumentationLink) &&
+        Objects.equals(this.getInvoiceAvailableMediaType, mandate.getInvoiceAvailableMediaType) &&
+        Objects.equals(this.supportsInboundDigitalDocument, mandate.supportsInboundDigitalDocument) &&
         Objects.equals(this.inputDataFormats, mandate.inputDataFormats) &&
+        Objects.equals(this.outputDataFormats, mandate.outputDataFormats) &&
         Objects.equals(this.workflowIds, mandate.workflowIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mandateId, countryMandate, countryCode, description, supportedByPartnerAPI, mandateFormat, inputDataFormats, workflowIds);
+    return Objects.hash(mandateId, countryMandate, countryCode, description, supportedByELRAPI, mandateFormat, eInvoicingFlow, eInvoicingFlowDocumentationLink, getInvoiceAvailableMediaType, supportsInboundDigitalDocument, inputDataFormats, outputDataFormats, workflowIds);
   }
 
   @Override
@@ -297,9 +434,14 @@ public class Mandate {
     sb.append("    countryMandate: ").append(toIndentedString(countryMandate)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    supportedByPartnerAPI: ").append(toIndentedString(supportedByPartnerAPI)).append("\n");
+    sb.append("    supportedByELRAPI: ").append(toIndentedString(supportedByELRAPI)).append("\n");
     sb.append("    mandateFormat: ").append(toIndentedString(mandateFormat)).append("\n");
+    sb.append("    eInvoicingFlow: ").append(toIndentedString(eInvoicingFlow)).append("\n");
+    sb.append("    eInvoicingFlowDocumentationLink: ").append(toIndentedString(eInvoicingFlowDocumentationLink)).append("\n");
+    sb.append("    getInvoiceAvailableMediaType: ").append(toIndentedString(getInvoiceAvailableMediaType)).append("\n");
+    sb.append("    supportsInboundDigitalDocument: ").append(toIndentedString(supportsInboundDigitalDocument)).append("\n");
     sb.append("    inputDataFormats: ").append(toIndentedString(inputDataFormats)).append("\n");
+    sb.append("    outputDataFormats: ").append(toIndentedString(outputDataFormats)).append("\n");
     sb.append("    workflowIds: ").append(toIndentedString(workflowIds)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -327,9 +469,14 @@ public class Mandate {
     openapiFields.add("countryMandate");
     openapiFields.add("countryCode");
     openapiFields.add("description");
-    openapiFields.add("supportedByPartnerAPI");
+    openapiFields.add("supportedByELRAPI");
     openapiFields.add("mandateFormat");
+    openapiFields.add("eInvoicingFlow");
+    openapiFields.add("eInvoicingFlowDocumentationLink");
+    openapiFields.add("getInvoiceAvailableMediaType");
+    openapiFields.add("supportsInboundDigitalDocument");
     openapiFields.add("inputDataFormats");
+    openapiFields.add("outputDataFormats");
     openapiFields.add("workflowIds");
 
     // a set of required properties/fields (JSON key names)
@@ -372,6 +519,19 @@ public class Mandate {
       if ((jsonObj.get("mandateFormat") != null && !jsonObj.get("mandateFormat").isJsonNull()) && !jsonObj.get("mandateFormat").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mandateFormat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mandateFormat").toString()));
       }
+      if ((jsonObj.get("eInvoicingFlow") != null && !jsonObj.get("eInvoicingFlow").isJsonNull()) && !jsonObj.get("eInvoicingFlow").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `eInvoicingFlow` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eInvoicingFlow").toString()));
+      }
+      if ((jsonObj.get("eInvoicingFlowDocumentationLink") != null && !jsonObj.get("eInvoicingFlowDocumentationLink").isJsonNull()) && !jsonObj.get("eInvoicingFlowDocumentationLink").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `eInvoicingFlowDocumentationLink` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eInvoicingFlowDocumentationLink").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("getInvoiceAvailableMediaType") != null && !jsonObj.get("getInvoiceAvailableMediaType").isJsonNull() && !jsonObj.get("getInvoiceAvailableMediaType").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `getInvoiceAvailableMediaType` to be an array in the JSON string but got `%s`", jsonObj.get("getInvoiceAvailableMediaType").toString()));
+      }
+      if ((jsonObj.get("supportsInboundDigitalDocument") != null && !jsonObj.get("supportsInboundDigitalDocument").isJsonNull()) && !jsonObj.get("supportsInboundDigitalDocument").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `supportsInboundDigitalDocument` to be a primitive type in the JSON string but got `%s`", jsonObj.get("supportsInboundDigitalDocument").toString()));
+      }
       if (jsonObj.get("inputDataFormats") != null && !jsonObj.get("inputDataFormats").isJsonNull()) {
         JsonArray jsonArrayinputDataFormats = jsonObj.getAsJsonArray("inputDataFormats");
         if (jsonArrayinputDataFormats != null) {
@@ -383,6 +543,20 @@ public class Mandate {
           // validate the optional field `inputDataFormats` (array)
           for (int i = 0; i < jsonArrayinputDataFormats.size(); i++) {
             InputDataFormats.validateJsonElement(jsonArrayinputDataFormats.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("outputDataFormats") != null && !jsonObj.get("outputDataFormats").isJsonNull()) {
+        JsonArray jsonArrayoutputDataFormats = jsonObj.getAsJsonArray("outputDataFormats");
+        if (jsonArrayoutputDataFormats != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("outputDataFormats").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `outputDataFormats` to be an array in the JSON string but got `%s`", jsonObj.get("outputDataFormats").toString()));
+          }
+
+          // validate the optional field `outputDataFormats` (array)
+          for (int i = 0; i < jsonArrayoutputDataFormats.size(); i++) {
+            OutputDataFormats.validateJsonElement(jsonArrayoutputDataFormats.get(i));
           };
         }
       }

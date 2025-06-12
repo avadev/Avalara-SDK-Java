@@ -38,6 +38,7 @@ import java.util.*;
 
 import Avalara.SDK.model.EInvoicing.V1.BatchSearch;
 import Avalara.SDK.model.EInvoicing.V1.BatchSearchListResponse;
+import Avalara.SDK.model.EInvoicing.V1.BatchSearchParticipants202Response;
 import Avalara.SDK.model.EInvoicing.V1.DirectorySearchResponse;
 import Avalara.SDK.model.EInvoicing.V1.ErrorResponse;
 import java.io.File;
@@ -163,7 +164,7 @@ public class TradingPartnersApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
         String[] localVarAuthNames = new String[] { "OAuth", "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes, AvalaraMicroservice.EInvoicing);
     }
 
     @SuppressWarnings("rawtypes")
@@ -199,6 +200,7 @@ public class TradingPartnersApi {
      * Creates a batch search and performs a batch search in the directory for participants in the background.
      * Handles batch search requests by uploading a file containing search parameters.
      * @param requestOptions Object which represents the options available for a given API/request
+     * @return BatchSearchParticipants202Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -210,15 +212,16 @@ public class TradingPartnersApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
      </table>
      */
-    public void batchSearchParticipants(BatchSearchParticipantsRequest requestParameters) throws ApiException {
-        batchSearchParticipantsWithHttpInfo(requestParameters);
+    public BatchSearchParticipants202Response batchSearchParticipants(BatchSearchParticipantsRequest requestParameters) throws ApiException {
+        ApiResponse<BatchSearchParticipants202Response> localVarResp = batchSearchParticipantsWithHttpInfo(requestParameters);
+        return localVarResp.getData();
     }
 
     /**
      * Creates a batch search and performs a batch search in the directory for participants in the background.
      * Handles batch search requests by uploading a file containing search parameters.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;BatchSearchParticipants202Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -230,9 +233,10 @@ public class TradingPartnersApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
      </table>
      */
-    public ApiResponse<Void> batchSearchParticipantsWithHttpInfo(BatchSearchParticipantsRequest requestParameters) throws ApiException {
+    public ApiResponse<BatchSearchParticipants202Response> batchSearchParticipantsWithHttpInfo(BatchSearchParticipantsRequest requestParameters) throws ApiException {
         okhttp3.Call localVarCall = batchSearchParticipantsValidateBeforeCall(requestParameters, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<BatchSearchParticipants202Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -252,10 +256,11 @@ public class TradingPartnersApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call batchSearchParticipantsAsync(BatchSearchParticipantsRequest requestParameters, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call batchSearchParticipantsAsync(BatchSearchParticipantsRequest requestParameters, final ApiCallback<BatchSearchParticipants202Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = batchSearchParticipantsValidateBeforeCall(requestParameters, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<BatchSearchParticipants202Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -279,7 +284,7 @@ public class TradingPartnersApi {
         public BatchSearchParticipantsRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getName() { return name; }
         public void setName(String name) { this.name = name; }
@@ -375,7 +380,7 @@ public class TradingPartnersApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
         String[] localVarAuthNames = new String[] { "OAuth", "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes, AvalaraMicroservice.EInvoicing);
     }
 
     @SuppressWarnings("rawtypes")
@@ -481,7 +486,7 @@ public class TradingPartnersApi {
         public DownloadBatchSearchReportRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getId() { return id; }
         public void setId(String id) { this.id = id; }
@@ -510,6 +515,7 @@ public class TradingPartnersApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Get the batch search details for a given id. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
      </table>
@@ -572,7 +578,7 @@ public class TradingPartnersApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
         String[] localVarAuthNames = new String[] { "OAuth", "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes, AvalaraMicroservice.EInvoicing);
     }
 
     @SuppressWarnings("rawtypes")
@@ -596,7 +602,7 @@ public class TradingPartnersApi {
 
     /**
      * Get the batch search details for a given id.
-     * Get the batch search details for a given id.
+     * This endpoint provides a detailed information for a specific batch search based on a given ID. It is ideal for tracking the progress of a previously initiated batch search operation.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return BatchSearch
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -605,6 +611,7 @@ public class TradingPartnersApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Get the batch search details for a given id. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
      </table>
@@ -616,7 +623,7 @@ public class TradingPartnersApi {
 
     /**
      * Get the batch search details for a given id.
-     * Get the batch search details for a given id.
+     * This endpoint provides a detailed information for a specific batch search based on a given ID. It is ideal for tracking the progress of a previously initiated batch search operation.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;BatchSearch&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -625,6 +632,7 @@ public class TradingPartnersApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Get the batch search details for a given id. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
      </table>
@@ -637,7 +645,7 @@ public class TradingPartnersApi {
 
     /**
      * Get the batch search details for a given id. (asynchronously)
-     * Get the batch search details for a given id.
+     * This endpoint provides a detailed information for a specific batch search based on a given ID. It is ideal for tracking the progress of a previously initiated batch search operation.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -647,6 +655,7 @@ public class TradingPartnersApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Get the batch search details for a given id. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
      </table>
@@ -675,7 +684,7 @@ public class TradingPartnersApi {
         public GetBatchSearchDetailRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getId() { return id; }
         public void setId(String id) { this.id = id; }
@@ -703,6 +712,7 @@ public class TradingPartnersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> List of batch searches </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
@@ -785,7 +795,7 @@ public class TradingPartnersApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
         String[] localVarAuthNames = new String[] { "OAuth", "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes, AvalaraMicroservice.EInvoicing);
     }
 
     @SuppressWarnings("rawtypes")
@@ -804,7 +814,7 @@ public class TradingPartnersApi {
 
     /**
      * List all batch searches that were previously submitted.
-     * Retrieves all batch searches performed by the user.
+     * This endpoint provides a way to retrieve a comprehensive list of all batch search operations that have been previously submitted. This endpoint returns details about each batch search, such as their id, status, created date and associated metadata, allowing users to easily view past batch search requests. It&#39;s particularly useful for tracking the progress of a previously initiated batch search operations.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return BatchSearchListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -812,6 +822,7 @@ public class TradingPartnersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> List of batch searches </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
@@ -824,7 +835,7 @@ public class TradingPartnersApi {
 
     /**
      * List all batch searches that were previously submitted.
-     * Retrieves all batch searches performed by the user.
+     * This endpoint provides a way to retrieve a comprehensive list of all batch search operations that have been previously submitted. This endpoint returns details about each batch search, such as their id, status, created date and associated metadata, allowing users to easily view past batch search requests. It&#39;s particularly useful for tracking the progress of a previously initiated batch search operations.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;BatchSearchListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -832,6 +843,7 @@ public class TradingPartnersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> List of batch searches </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
@@ -845,7 +857,7 @@ public class TradingPartnersApi {
 
     /**
      * List all batch searches that were previously submitted. (asynchronously)
-     * Retrieves all batch searches performed by the user.
+     * This endpoint provides a way to retrieve a comprehensive list of all batch search operations that have been previously submitted. This endpoint returns details about each batch search, such as their id, status, created date and associated metadata, allowing users to easily view past batch search requests. It&#39;s particularly useful for tracking the progress of a previously initiated batch search operations.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -854,6 +866,7 @@ public class TradingPartnersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> List of batch searches </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
@@ -891,7 +904,7 @@ public class TradingPartnersApi {
         public ListBatchSearchesRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
@@ -1014,7 +1027,7 @@ public class TradingPartnersApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
         String[] localVarAuthNames = new String[] { "OAuth", "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes, AvalaraMicroservice.EInvoicing);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1038,7 +1051,7 @@ public class TradingPartnersApi {
 
     /**
      * Returns a list of participants matching the input query.
-     * Returns a list of participants matching the input query.
+     * This endpoint provides a list of trading partners that match a specified input query. The search is performed based on various filters, search text, and other relevant parameters.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return DirectorySearchResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1059,7 +1072,7 @@ public class TradingPartnersApi {
 
     /**
      * Returns a list of participants matching the input query.
-     * Returns a list of participants matching the input query.
+     * This endpoint provides a list of trading partners that match a specified input query. The search is performed based on various filters, search text, and other relevant parameters.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;DirectorySearchResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1081,7 +1094,7 @@ public class TradingPartnersApi {
 
     /**
      * Returns a list of participants matching the input query. (asynchronously)
-     * Returns a list of participants matching the input query.
+     * This endpoint provides a list of trading partners that match a specified input query. The search is performed based on various filters, search text, and other relevant parameters.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1130,7 +1143,7 @@ public class TradingPartnersApi {
         public SearchParticipantsRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String get$search() { return $search; }
         public void set$search(String $search) { this.$search = $search; }
@@ -1160,7 +1173,7 @@ public class TradingPartnersApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("24.12.0");
+        this.localVarApiClient.setSdkVersion("25.6.0");
     }
 }
 

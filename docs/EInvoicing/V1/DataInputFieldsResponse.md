@@ -2,6 +2,7 @@
 
 # DataInputFieldsResponse
 
+Response model providing a list of input fields required, optional, or conditional for different country mandates.
 
 ## Properties
 

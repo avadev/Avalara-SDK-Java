@@ -9,6 +9,7 @@ Displays a summary of information about the document
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** | The unique ID for this document |  [optional] |
+|**companyId** | **String** | Unique identifier that represents the company within the system. |  [optional] |
 |**processDateTime** | **String** | The date and time when the document was processed, displayed in the format YYYY-MM-DDThh:mm:ss |  [optional] |
 |**status** | **String** | The Document status |  [optional] |
 |**supplierName** | **String** | The name of the supplier in the transaction |  [optional] |

@@ -61,6 +61,10 @@ public class DocumentSummary {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
+  public static final String SERIALIZED_NAME_COMPANY_ID = "companyId";
+  @SerializedName(SERIALIZED_NAME_COMPANY_ID)
+  private String companyId;
+
   public static final String SERIALIZED_NAME_PROCESS_DATE_TIME = "processDateTime";
   @SerializedName(SERIALIZED_NAME_PROCESS_DATE_TIME)
   private String processDateTime;
@@ -132,6 +136,25 @@ public class DocumentSummary {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public DocumentSummary companyId(String companyId) {
+    this.companyId = companyId;
+    return this;
+  }
+
+  /**
+   * Unique identifier that represents the company within the system.
+   * @return companyId
+   */
+  @javax.annotation.Nullable
+  public String getCompanyId() {
+    return companyId;
+  }
+
+  public void setCompanyId(String companyId) {
+    this.companyId = companyId;
   }
 
 
@@ -393,6 +416,7 @@ public class DocumentSummary {
     }
     DocumentSummary documentSummary = (DocumentSummary) o;
     return Objects.equals(this.id, documentSummary.id) &&
+        Objects.equals(this.companyId, documentSummary.companyId) &&
         Objects.equals(this.processDateTime, documentSummary.processDateTime) &&
         Objects.equals(this.status, documentSummary.status) &&
         Objects.equals(this.supplierName, documentSummary.supplierName) &&
@@ -410,7 +434,7 @@ public class DocumentSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, processDateTime, status, supplierName, customerName, documentType, documentVersion, documentNumber, documentDate, flow, countryCode, countryMandate, _interface, receiver);
+    return Objects.hash(id, companyId, processDateTime, status, supplierName, customerName, documentType, documentVersion, documentNumber, documentDate, flow, countryCode, countryMandate, _interface, receiver);
   }
 
   @Override
@@ -418,6 +442,7 @@ public class DocumentSummary {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentSummary {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
     sb.append("    processDateTime: ").append(toIndentedString(processDateTime)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    supplierName: ").append(toIndentedString(supplierName)).append("\n");
@@ -454,6 +479,7 @@ public class DocumentSummary {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
+    openapiFields.add("companyId");
     openapiFields.add("processDateTime");
     openapiFields.add("status");
     openapiFields.add("supplierName");
@@ -495,6 +521,9 @@ public class DocumentSummary {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("companyId") != null && !jsonObj.get("companyId").isJsonNull()) && !jsonObj.get("companyId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `companyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyId").toString()));
       }
       if ((jsonObj.get("processDateTime") != null && !jsonObj.get("processDateTime").isJsonNull()) && !jsonObj.get("processDateTime").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `processDateTime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("processDateTime").toString()));

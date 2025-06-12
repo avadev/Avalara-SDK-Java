@@ -1,7 +1,7 @@
 /*
  * AvaTax Software Development Kit for Java (JRE)
  *
- * (c) 2004-2022 Avalara, Inc.
+ * (c) 2004-2025 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,10 +12,9 @@
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
+ * @copyright  2004-2025 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    
- * @link       https://github.com/avadev/AvaTax-REST-V3-JRE-SDK
+ * @link       https://github.com/avadev/Avalara-SDK-Java
  */
 
 package Avalara.SDK.model.EInvoicing.V1;
@@ -70,6 +69,14 @@ public class FetchDocumentsRequestMetadata {
   public static final String SERIALIZED_NAME_DATA_FORMAT_VERSION = "dataFormatVersion";
   @SerializedName(SERIALIZED_NAME_DATA_FORMAT_VERSION)
   private BigDecimal dataFormatVersion;
+
+  public static final String SERIALIZED_NAME_OUTPUT_DATA_FORMAT = "outputDataFormat";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_DATA_FORMAT)
+  private String outputDataFormat;
+
+  public static final String SERIALIZED_NAME_OUTPUT_DATA_FORMAT_VERSION = "outputDataFormatVersion";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_DATA_FORMAT_VERSION)
+  private BigDecimal outputDataFormatVersion;
 
   public static final String SERIALIZED_NAME_COUNTRY_CODE = "countryCode";
   @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
@@ -139,6 +146,44 @@ public class FetchDocumentsRequestMetadata {
   }
 
 
+  public FetchDocumentsRequestMetadata outputDataFormat(String outputDataFormat) {
+    this.outputDataFormat = outputDataFormat;
+    return this;
+  }
+
+  /**
+   * Specifies the format of the output document to be generated for the recipient. This format should be chosen based on the recipient&#39;s preferences or requirements as defined by applicable e-invoicing regulations. When not specified for mandates that don&#39;t require a specific output format, the system will use the default format defined for that mandate.
+   * @return outputDataFormat
+   */
+  @javax.annotation.Nonnull
+  public String getOutputDataFormat() {
+    return outputDataFormat;
+  }
+
+  public void setOutputDataFormat(String outputDataFormat) {
+    this.outputDataFormat = outputDataFormat;
+  }
+
+
+  public FetchDocumentsRequestMetadata outputDataFormatVersion(BigDecimal outputDataFormatVersion) {
+    this.outputDataFormatVersion = outputDataFormatVersion;
+    return this;
+  }
+
+  /**
+   * Specifies the version of the selected output document format
+   * @return outputDataFormatVersion
+   */
+  @javax.annotation.Nonnull
+  public BigDecimal getOutputDataFormatVersion() {
+    return outputDataFormatVersion;
+  }
+
+  public void setOutputDataFormatVersion(BigDecimal outputDataFormatVersion) {
+    this.outputDataFormatVersion = outputDataFormatVersion;
+  }
+
+
   public FetchDocumentsRequestMetadata countryCode(String countryCode) {
     this.countryCode = countryCode;
     return this;
@@ -190,13 +235,15 @@ public class FetchDocumentsRequestMetadata {
     return Objects.equals(this.workflowId, fetchDocumentsRequestMetadata.workflowId) &&
         Objects.equals(this.dataFormat, fetchDocumentsRequestMetadata.dataFormat) &&
         Objects.equals(this.dataFormatVersion, fetchDocumentsRequestMetadata.dataFormatVersion) &&
+        Objects.equals(this.outputDataFormat, fetchDocumentsRequestMetadata.outputDataFormat) &&
+        Objects.equals(this.outputDataFormatVersion, fetchDocumentsRequestMetadata.outputDataFormatVersion) &&
         Objects.equals(this.countryCode, fetchDocumentsRequestMetadata.countryCode) &&
         Objects.equals(this.countryMandate, fetchDocumentsRequestMetadata.countryMandate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(workflowId, dataFormat, dataFormatVersion, countryCode, countryMandate);
+    return Objects.hash(workflowId, dataFormat, dataFormatVersion, outputDataFormat, outputDataFormatVersion, countryCode, countryMandate);
   }
 
   @Override
@@ -206,6 +253,8 @@ public class FetchDocumentsRequestMetadata {
     sb.append("    workflowId: ").append(toIndentedString(workflowId)).append("\n");
     sb.append("    dataFormat: ").append(toIndentedString(dataFormat)).append("\n");
     sb.append("    dataFormatVersion: ").append(toIndentedString(dataFormatVersion)).append("\n");
+    sb.append("    outputDataFormat: ").append(toIndentedString(outputDataFormat)).append("\n");
+    sb.append("    outputDataFormatVersion: ").append(toIndentedString(outputDataFormatVersion)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    countryMandate: ").append(toIndentedString(countryMandate)).append("\n");
     sb.append("}");
@@ -233,6 +282,8 @@ public class FetchDocumentsRequestMetadata {
     openapiFields.add("workflowId");
     openapiFields.add("dataFormat");
     openapiFields.add("dataFormatVersion");
+    openapiFields.add("outputDataFormat");
+    openapiFields.add("outputDataFormatVersion");
     openapiFields.add("countryCode");
     openapiFields.add("countryMandate");
 
@@ -241,6 +292,8 @@ public class FetchDocumentsRequestMetadata {
     openapiRequiredFields.add("workflowId");
     openapiRequiredFields.add("dataFormat");
     openapiRequiredFields.add("dataFormatVersion");
+    openapiRequiredFields.add("outputDataFormat");
+    openapiRequiredFields.add("outputDataFormatVersion");
     openapiRequiredFields.add("countryCode");
     openapiRequiredFields.add("countryMandate");
   }
@@ -278,6 +331,9 @@ public class FetchDocumentsRequestMetadata {
       }
       if (!jsonObj.get("dataFormat").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `dataFormat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dataFormat").toString()));
+      }
+      if (!jsonObj.get("outputDataFormat").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `outputDataFormat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("outputDataFormat").toString()));
       }
       if (!jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));

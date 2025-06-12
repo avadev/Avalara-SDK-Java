@@ -45,7 +45,7 @@ public class Example {
 
         InteropApi apiInstance = new InteropApi(apiClient);
         String documentType = "ubl-invoice-2.1"; // String | Type of the document being uploaded. Partners will be configured in Avalara system to send only certain types of documents.
-        String interchangeType = "FI-B2B"; // String | Type of interchange (codes in Avalara system that uniquely identifies a type of interchange). Partners will be configured in Avalara system to send documents belonging to certain types of interchanges.
+        String interchangeType = "FI-B2B-TIEKE"; // String | Type of interchange (codes in Avalara system that uniquely identifies a type of interchange). Partners will be configured in Avalara system to send documents belonging to certain types of interchanges.
         String avalaraVersion = "1.2"; // String | The HTTP Header meant to specify the version of the API intended to be used
         String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\"
         String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | The caller can use this as an identifier to use as a correlation id to trace the call.
@@ -70,7 +70,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **documentType** | **String**| Type of the document being uploaded. Partners will be configured in Avalara system to send only certain types of documents. | [enum: ubl-invoice-2.1, ubl-creditnote-2.1, ubl-applicationresponse-2.1]
- **interchangeType** | **String**| Type of interchange (codes in Avalara system that uniquely identifies a type of interchange). Partners will be configured in Avalara system to send documents belonging to certain types of interchanges. | [enum: FI-B2B, FI-B2C, FI-B2G]
+ **interchangeType** | **String**| Type of interchange (codes in Avalara system that uniquely identifies a type of interchange). Partners will be configured in Avalara system to send documents belonging to certain types of interchanges. | [enum: FI-B2B-TIEKE, FI-B2G-TIEKE]
  **avalaraVersion** | **String**| The HTTP Header meant to specify the version of the API intended to be used |
  **xAvalaraClient** | **String**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot; | [optional]
  **xCorrelationID** | **String**| The caller can use this as an identifier to use as a correlation id to trace the call. | [optional]

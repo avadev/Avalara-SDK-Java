@@ -165,7 +165,7 @@ public class DataInputFieldsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
         String[] localVarAuthNames = new String[] { "OAuth", "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes, AvalaraMicroservice.EInvoicing);
     }
 
     @SuppressWarnings("rawtypes")
@@ -269,7 +269,7 @@ public class DataInputFieldsApi {
         public GetDataInputFieldsRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
@@ -295,7 +295,7 @@ public class DataInputFieldsApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("24.12.0");
+        this.localVarApiClient.setSdkVersion("25.6.0");
     }
 }
 
