@@ -35,11 +35,11 @@ jobs:
 
       - name: Clean and Compile with Maven
         run: mvn clean compile
-      
+
       - name: Compile the tests
         run: mvn test-compile
 
       - name: Test With Maven
-        run mvn -Dtest=EInvoicingTest test
+        run: mvn -Dtest=EInvoicingTest test
         env:
           BEARER_TOKEN_EINVOICING: ${{ env.BEARER_TOKEN_EINVOICING }}
