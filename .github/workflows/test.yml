@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up Maven Central Repository
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           java-version: "11"
           distribution: "adopt"
@@ -24,14 +24,23 @@ jobs:
       - name: Install GPG secret key
         run: cat <(echo -e "${{ secrets.OSSRH_GPG_SECRET_KEY }}") | gpg --batch --import
 
-      - name: Retrieve bearer token
-        id: get_bearer_token
+      - name: Retrieve bearer token for EInvoicing
+        id: get_bearer_token_einvoicing
         run: |
           response=$(curl -X POST ${{secrets.OKTA_ACCESS_TOKEN_URL}}/connect/token \
             -H "Content-Type: application/x-www-form-urlencoded" \
             -d "grant_type=client_credentials&client_id=${{secrets.OKTA_CLIENT_ID}}&client_secret=${{secrets.OKTA_CLIENT_SECRET}}")
           token=$(echo $response | jq -r '.access_token')
           echo "BEARER_TOKEN_EINVOICING=${token}" >> $GITHUB_ENV
+
+      - name: Retrieve bearer token for A1099
+        id: get_bearer_token_a1099
+        run: |
+          response=$(curl -X POST ${{secrets.AI_SBX_URL}}/connect/token \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+            -d "grant_type=client_credentials&client_id=${{secrets.AI_CLIENT_ID_A1099}}&client_secret=${{secrets.AI_CLIENT_SECRET_A1099}}")
+          token=$(echo $response | jq -r '.access_token')
+          echo "BEARER_TOKEN_A1099=${token}" >> $GITHUB_ENV
 
       - name: Clean and Compile with Maven
         run: mvn clean compile
@@ -40,6 +49,7 @@ jobs:
         run: mvn test-compile
 
       - name: Test With Maven
-        run: mvn -Dtest=EInvoicingTest test
+        run: mvn test
         env:
           BEARER_TOKEN_EINVOICING: ${{ env.BEARER_TOKEN_EINVOICING }}
+          BEARER_TOKEN_A1099: ${{ env.BEARER_TOKEN_A1099 }}

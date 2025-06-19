@@ -29,8 +29,8 @@ public class A1099Test {
         configuration.setAppName("Test");
         configuration.setAppVersion("1.0");
         configuration.setMachineName("LocalBox");
-        configuration.setBearerToken(dotenv.get("A1099_BEARER_TOKEN"));
-        configuration.setEnvironment(AvaTaxEnvironment.QA);
+        configuration.setBearerToken(dotenv.get("BEARER_TOKEN_A1099"));
+        configuration.setEnvironment(AvaTaxEnvironment.Sandbox);
         // Override base URL if needed:
         // configuration.setTestBasePath(dotenv.get("A1099_BASE_URL"));
 
