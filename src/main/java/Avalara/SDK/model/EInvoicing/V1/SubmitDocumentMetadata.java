@@ -69,6 +69,14 @@ public class SubmitDocumentMetadata {
   @SerializedName(SERIALIZED_NAME_DATA_FORMAT_VERSION)
   private String dataFormatVersion;
 
+  public static final String SERIALIZED_NAME_OUTPUT_DATA_FORMAT = "outputDataFormat";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_DATA_FORMAT)
+  private String outputDataFormat;
+
+  public static final String SERIALIZED_NAME_OUTPUT_DATA_FORMAT_VERSION = "outputDataFormatVersion";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_DATA_FORMAT_VERSION)
+  private String outputDataFormatVersion;
+
   public static final String SERIALIZED_NAME_COUNTRY_CODE = "countryCode";
   @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
   private String countryCode;
@@ -137,6 +145,44 @@ public class SubmitDocumentMetadata {
   }
 
 
+  public SubmitDocumentMetadata outputDataFormat(String outputDataFormat) {
+    this.outputDataFormat = outputDataFormat;
+    return this;
+  }
+
+  /**
+   * Specifies the format of the output document to be generated for the recipient. This format should be chosen based on the recipient&#39;s preferences or requirements as defined by applicable e-invoicing regulations. When not specified for mandates that don&#39;t require a specific output format, the system will use the default format defined for that mandate.
+   * @return outputDataFormat
+   */
+  @javax.annotation.Nullable
+  public String getOutputDataFormat() {
+    return outputDataFormat;
+  }
+
+  public void setOutputDataFormat(String outputDataFormat) {
+    this.outputDataFormat = outputDataFormat;
+  }
+
+
+  public SubmitDocumentMetadata outputDataFormatVersion(String outputDataFormatVersion) {
+    this.outputDataFormatVersion = outputDataFormatVersion;
+    return this;
+  }
+
+  /**
+   * Specifies the version of the selected output document format
+   * @return outputDataFormatVersion
+   */
+  @javax.annotation.Nullable
+  public String getOutputDataFormatVersion() {
+    return outputDataFormatVersion;
+  }
+
+  public void setOutputDataFormatVersion(String outputDataFormatVersion) {
+    this.outputDataFormatVersion = outputDataFormatVersion;
+  }
+
+
   public SubmitDocumentMetadata countryCode(String countryCode) {
     this.countryCode = countryCode;
     return this;
@@ -188,13 +234,15 @@ public class SubmitDocumentMetadata {
     return Objects.equals(this.workflowId, submitDocumentMetadata.workflowId) &&
         Objects.equals(this.dataFormat, submitDocumentMetadata.dataFormat) &&
         Objects.equals(this.dataFormatVersion, submitDocumentMetadata.dataFormatVersion) &&
+        Objects.equals(this.outputDataFormat, submitDocumentMetadata.outputDataFormat) &&
+        Objects.equals(this.outputDataFormatVersion, submitDocumentMetadata.outputDataFormatVersion) &&
         Objects.equals(this.countryCode, submitDocumentMetadata.countryCode) &&
         Objects.equals(this.countryMandate, submitDocumentMetadata.countryMandate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(workflowId, dataFormat, dataFormatVersion, countryCode, countryMandate);
+    return Objects.hash(workflowId, dataFormat, dataFormatVersion, outputDataFormat, outputDataFormatVersion, countryCode, countryMandate);
   }
 
   @Override
@@ -204,6 +252,8 @@ public class SubmitDocumentMetadata {
     sb.append("    workflowId: ").append(toIndentedString(workflowId)).append("\n");
     sb.append("    dataFormat: ").append(toIndentedString(dataFormat)).append("\n");
     sb.append("    dataFormatVersion: ").append(toIndentedString(dataFormatVersion)).append("\n");
+    sb.append("    outputDataFormat: ").append(toIndentedString(outputDataFormat)).append("\n");
+    sb.append("    outputDataFormatVersion: ").append(toIndentedString(outputDataFormatVersion)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    countryMandate: ").append(toIndentedString(countryMandate)).append("\n");
     sb.append("}");
@@ -231,6 +281,8 @@ public class SubmitDocumentMetadata {
     openapiFields.add("workflowId");
     openapiFields.add("dataFormat");
     openapiFields.add("dataFormatVersion");
+    openapiFields.add("outputDataFormat");
+    openapiFields.add("outputDataFormatVersion");
     openapiFields.add("countryCode");
     openapiFields.add("countryMandate");
 
@@ -279,6 +331,12 @@ public class SubmitDocumentMetadata {
       }
       if (!jsonObj.get("dataFormatVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `dataFormatVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dataFormatVersion").toString()));
+      }
+      if ((jsonObj.get("outputDataFormat") != null && !jsonObj.get("outputDataFormat").isJsonNull()) && !jsonObj.get("outputDataFormat").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `outputDataFormat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("outputDataFormat").toString()));
+      }
+      if ((jsonObj.get("outputDataFormatVersion") != null && !jsonObj.get("outputDataFormatVersion").isJsonNull()) && !jsonObj.get("outputDataFormatVersion").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `outputDataFormatVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("outputDataFormatVersion").toString()));
       }
       if (!jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));

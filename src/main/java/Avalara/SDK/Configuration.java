@@ -28,19 +28,29 @@ public class Configuration {
     }
 
     /**
+     * Official URL of AvaTax (Dev)
+     */
+    private static final String AVALARA_DEV_URL = "https://superapi.dev.avalara.io";
+
+    /**
      * Official URL of AvaTax (QA)
      */
-    private static final String AVATAX_QA_URL = "https://superapi.qa.avalara.io";
+    private static final String AVALARA_QA_URL = "https://superapi.qa.avalara.io";
 
     /**
      * Official URL of AvaTax (Sandbox)
      */
-    private static final String AVATAX_SANDBOX_URL = "https://api.sbx.avalara.com";
+    private static final String AVALARA_SANDBOX_URL = "https://api.sbx.avalara.com";
 
     /**
      * Official URL of AvaTax (Production)
      */
-    private static final String AVATAX_PRODUCTION_URL = "https://api.avalara.com";
+    private static final String AVALARA_PRODUCTION_URL = "https://api.avalara.com";
+
+    private static final String TRACK1099_SERVICE_DEV_URL = "https://api-ava1099.gamma.dev.us-west-2.aws.avalara.io";
+    private static final String TRACK1099_SERVICE_QA_URL = "https://api-ava1099.gamma.qa.us-west-2.aws.avalara.io";
+    private static final String TRACK1099_SERVICE_SBX_URL = "https://api.sbx.avalara.com/avalara1099";
+    private static final String TRACK1099_SERVICE_PRD_URL = "https://api.avalara.com/avalara1099";
 
     /**
      * Gets or sets the Username (HTTP basic authentication).
@@ -95,7 +105,8 @@ public class Configuration {
     }
 
     /**
-     * Gets or sets the HTTP timeout (milliseconds) of ApiClient. Default to 100000 milliseconds.
+     * Gets or sets the HTTP timeout (milliseconds) of ApiClient. Default to 100000
+     * milliseconds.
      */
     private int Timeout;
 
@@ -160,7 +171,8 @@ public class Configuration {
     }
 
     /**
-     * Gets or sets the  Token URL. Used for local developer testing for retrieving OAuth tokens.
+     * Gets or sets the Token URL. Used for local developer testing for retrieving
+     * OAuth tokens.
      */
     private String tokenUrl;
 
@@ -172,9 +184,9 @@ public class Configuration {
         this.tokenUrl = tokenUrl;
     }
 
-
     /**
-     * Gets or sets the  Token URL. Used for local developer testing for retrieving OAuth tokens.
+     * Gets or sets the Token URL. Used for local developer testing for retrieving
+     * OAuth tokens.
      */
     private String deviceAuthorizationUrl;
 
@@ -185,8 +197,6 @@ public class Configuration {
     public void setDeviceAuthorizationUrl(String deviceAuthorizationUrl) {
         this.deviceAuthorizationUrl = deviceAuthorizationUrl;
     }
-
-
 
     /**
      * Gets or sets the ClientId Used for OAuth2 Client Credentials flow.
@@ -204,19 +214,47 @@ public class Configuration {
     /**
      * Gets the Base Path.
      */
-    public String getBasePath() {
-        switch (this.getEnvironment()) {
-            case Production:
-                return AVATAX_PRODUCTION_URL;
-            case Sandbox:
-                return AVATAX_SANDBOX_URL;
-            case QA:
-                return AVATAX_QA_URL;
-            case Test:
-                if (this.getTestBasePath() == null)
-                    throw new NullPointerException("When Environment is set to 'Test', the Test URL is a required parameter.");
-                return this.getTestBasePath();
+    public String getBasePath(AvalaraMicroservice microservice) {
+        switch (microservice) {
+            case EInvoicing:
+                switch (this.getEnvironment()) {
+                    case Production:
+                        return AVALARA_PRODUCTION_URL;
+                    case Sandbox:
+                        return AVALARA_SANDBOX_URL;
+                    case QA:
+                        return AVALARA_QA_URL;
+                    case DEV:
+                        return AVALARA_DEV_URL;
+                    case Test:
+                        if (this.getTestBasePath() == null)
+                            throw new NullPointerException(
+                                    "When Environment is set to 'Test', the Test URL is a required parameter.");
+                        return this.getTestBasePath();
+                    default:
+                        throw new Error("Environment does not match any base path.");
+                }
+            case A1099:
+                switch (this.getEnvironment()) {
+                    case Production:
+                        return TRACK1099_SERVICE_PRD_URL;
+                    case Sandbox:
+                        return TRACK1099_SERVICE_SBX_URL;
+                    case QA:
+                        return TRACK1099_SERVICE_QA_URL;
+                    case DEV:
+                        return TRACK1099_SERVICE_DEV_URL;
+                    case Test:
+                        if (this.getTestBasePath() == null)
+                            throw new NullPointerException(
+                                    "When Environment is set to 'Test', the Test URL is a required parameter.");
+                        return this.getTestBasePath();
+                    default:
+                        throw new Error("Environment does not match any base path.");
+                }
+            default:
+                throw new Error("Microservice does not match any base path.");
+
         }
-        throw new Error("Environment does not match any base path.");
     }
 }

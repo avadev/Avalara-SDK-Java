@@ -40,11 +40,11 @@ import Avalara.SDK.model.EInvoicing.V1.BadDownloadRequest;
 import Avalara.SDK.model.EInvoicing.V1.BadRequest;
 import java.math.BigDecimal;
 import Avalara.SDK.model.EInvoicing.V1.DocumentFetch;
-import Avalara.SDK.model.EInvoicing.V1.DocumentFetchRequest;
 import Avalara.SDK.model.EInvoicing.V1.DocumentListResponse;
 import Avalara.SDK.model.EInvoicing.V1.DocumentStatusResponse;
 import Avalara.SDK.model.EInvoicing.V1.DocumentSubmissionError;
 import Avalara.SDK.model.EInvoicing.V1.DocumentSubmitResponse;
+import Avalara.SDK.model.EInvoicing.V1.FetchDocumentsRequest;
 import java.io.File;
 import Avalara.SDK.model.EInvoicing.V1.ForbiddenError;
 import Avalara.SDK.model.EInvoicing.V1.InternalServerError;
@@ -162,7 +162,7 @@ public class DocumentsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
         String[] localVarAuthNames = new String[] { "OAuth", "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes, AvalaraMicroservice.EInvoicing);
     }
 
     @SuppressWarnings("rawtypes")
@@ -273,7 +273,7 @@ public class DocumentsApi {
         public DownloadDocumentRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getAccept() { return accept; }
         public void setAccept(String accept) { this.accept = accept; }
@@ -324,7 +324,7 @@ public class DocumentsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = requestParameters.getDocumentFetchRequest();
+        Object localVarPostBody = requestParameters.getFetchDocumentsRequest();
 
         // create path and map variables
         String localVarPath = "/einvoicing/documents/$fetch";
@@ -359,7 +359,7 @@ public class DocumentsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
         String[] localVarAuthNames = new String[] { "OAuth", "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes, AvalaraMicroservice.EInvoicing);
     }
 
     @SuppressWarnings("rawtypes")
@@ -370,9 +370,9 @@ public class DocumentsApi {
             throw new ApiException("Missing the required parameter 'requestParameters.avalaraVersion' when calling fetchDocuments(Async)");
         }
         
-        // verify the required parameter 'requestParameters.documentFetchRequest' is set
-        if (requestParameters.getDocumentFetchRequest() == null) {
-            throw new ApiException("Missing the required parameter 'requestParameters.documentFetchRequest' when calling fetchDocuments(Async)");
+        // verify the required parameter 'requestParameters.fetchDocumentsRequest' is set
+        if (requestParameters.getFetchDocumentsRequest() == null) {
+            throw new ApiException("Missing the required parameter 'requestParameters.fetchDocumentsRequest' when calling fetchDocuments(Async)");
         }
         
 
@@ -449,21 +449,21 @@ public class DocumentsApi {
     * Represents the Request object for the FetchDocuments API
     *
     * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used</param>
-    * @param documentFetchRequest </param>
+    * @param fetchDocumentsRequest </param>
     * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)</param>
     */
     public class FetchDocumentsRequest {
         private String avalaraVersion;
-        private DocumentFetchRequest documentFetchRequest;
+        private FetchDocumentsRequest fetchDocumentsRequest;
         private String xAvalaraClient;
 
         public FetchDocumentsRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
-        public DocumentFetchRequest getDocumentFetchRequest() { return documentFetchRequest; }
-        public void setDocumentFetchRequest(DocumentFetchRequest documentFetchRequest) { this.documentFetchRequest = documentFetchRequest; }
+        public FetchDocumentsRequest getFetchDocumentsRequest() { return fetchDocumentsRequest; }
+        public void setFetchDocumentsRequest(FetchDocumentsRequest fetchDocumentsRequest) { this.fetchDocumentsRequest = fetchDocumentsRequest; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
     }
@@ -576,7 +576,7 @@ public class DocumentsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
         String[] localVarAuthNames = new String[] { "OAuth", "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes, AvalaraMicroservice.EInvoicing);
     }
 
     @SuppressWarnings("rawtypes")
@@ -686,7 +686,7 @@ public class DocumentsApi {
         public GetDocumentListRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
@@ -785,7 +785,7 @@ public class DocumentsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
         String[] localVarAuthNames = new String[] { "OAuth", "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes, AvalaraMicroservice.EInvoicing);
     }
 
     @SuppressWarnings("rawtypes")
@@ -886,7 +886,7 @@ public class DocumentsApi {
         public GetDocumentStatusRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getDocumentId() { return documentId; }
         public void setDocumentId(String documentId) { this.documentId = documentId; }
@@ -978,7 +978,7 @@ public class DocumentsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
         String[] localVarAuthNames = new String[] { "OAuth", "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes, AvalaraMicroservice.EInvoicing);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1080,18 +1080,18 @@ public class DocumentsApi {
     public class SubmitDocumentRequest {
         private String avalaraVersion;
         private SubmitDocumentMetadata metadata;
-        private String data;
+        private Object data;
         private String xAvalaraClient;
 
         public SubmitDocumentRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public SubmitDocumentMetadata getMetadata() { return metadata; }
         public void setMetadata(SubmitDocumentMetadata metadata) { this.metadata = metadata; }
-        public String getData() { return data; }
-        public void setData(String data) { this.data = data; }
+        public Object getData() { return data; }
+        public void setData(Object data) { this.data = data; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
     }
@@ -1106,7 +1106,7 @@ public class DocumentsApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("24.12.0");
+        this.localVarApiClient.setSdkVersion("25.6.0");
     }
 }
 

@@ -58,7 +58,7 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * DataInputFieldsResponse
+ * Response model providing a list of input fields required, optional, or conditional for different country mandates.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class DataInputFieldsResponse {

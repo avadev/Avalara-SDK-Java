@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## batchSearchParticipants
 
-> batchSearchParticipants(avalaraVersion, name, notificationEmail, _file, xAvalaraClient, xCorrelationID)
+> BatchSearchParticipants202Response batchSearchParticipants(avalaraVersion, name, notificationEmail, _file, xAvalaraClient, xCorrelationID)
 
 Creates a batch search and performs a batch search in the directory for participants in the background.
 
@@ -55,7 +55,8 @@ public class Example {
         String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\"
         String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | The caller can use this as an identifier to use as a correlation id to trace the call.
         try {
-            apiInstance.batchSearchParticipants(avalaraVersion, name, notificationEmail, _file, xAvalaraClient, xCorrelationID);
+            BatchSearchParticipants202Response result = apiInstance.batchSearchParticipants(avalaraVersion, name, notificationEmail, _file, xAvalaraClient, xCorrelationID);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling TradingPartnersApi#batchSearchParticipants");
             System.err.println("Status code: " + e.getCode());
@@ -81,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**BatchSearchParticipants202Response**](BatchSearchParticipants202Response.md)
 
 ### Authorization
 
@@ -197,7 +198,7 @@ Name | Type | Description  | Notes
 
 Get the batch search details for a given id.
 
-Get the batch search details for a given id.
+This endpoint provides a detailed information for a specific batch search based on a given ID. It is ideal for tracking the progress of a previously initiated batch search operation.
 
 ### Example
 
@@ -274,6 +275,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Get the batch search details for a given id. |  * X-Correlation-Id -  <br>  |
 | **401** | Unauthorized |  * X-Correlation-Id -  <br>  |
+| **404** | Report not found |  * X-Correlation-Id -  <br>  |
 | **403** | Forbidden |  * X-Correlation-Id -  <br>  |
 | **500** | Internal server error |  * X-Correlation-Id -  <br>  |
 
@@ -284,7 +286,7 @@ Name | Type | Description  | Notes
 
 List all batch searches that were previously submitted.
 
-Retrieves all batch searches performed by the user.
+This endpoint provides a way to retrieve a comprehensive list of all batch search operations that have been previously submitted. This endpoint returns details about each batch search, such as their id, status, created date and associated metadata, allowing users to easily view past batch search requests. It&#39;s particularly useful for tracking the progress of a previously initiated batch search operations.
 
 ### Example
 
@@ -368,6 +370,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of batch searches |  * X-Correlation-Id -  <br>  |
+| **400** | Bad request |  * X-Correlation-Id -  <br>  |
 | **401** | Unauthorized |  * X-Correlation-Id -  <br>  |
 | **403** | Forbidden |  * X-Correlation-Id -  <br>  |
 | **500** | Internal server error |  * X-Correlation-Id -  <br>  |
@@ -379,7 +382,7 @@ Name | Type | Description  | Notes
 
 Returns a list of participants matching the input query.
 
-Returns a list of participants matching the input query.
+This endpoint provides a list of trading partners that match a specified input query. The search is performed based on various filters, search text, and other relevant parameters.
 
 ### Example
 

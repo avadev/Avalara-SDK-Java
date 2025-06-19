@@ -2,6 +2,7 @@
 
 # BatchSearch
 
+Provides details about a batch search operation, including status, timestamps, and potential errors.
 
 ## Properties
 

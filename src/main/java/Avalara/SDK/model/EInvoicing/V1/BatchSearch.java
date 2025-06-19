@@ -55,7 +55,7 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * BatchSearch
+ * Provides details about a batch search operation, including status, timestamps, and potential errors.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class BatchSearch {

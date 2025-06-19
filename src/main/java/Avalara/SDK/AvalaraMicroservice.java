@@ -1,5 +1,7 @@
 package Avalara.SDK;
 
-public class AvalaraMicroservice {
-    
+public enum AvalaraMicroservice {
+    EInvoicing,
+    A1099,
+    None
 }

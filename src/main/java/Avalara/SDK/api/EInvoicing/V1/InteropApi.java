@@ -161,7 +161,7 @@ public class InteropApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
         String[] localVarAuthNames = new String[] { "OAuth", "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes, AvalaraMicroservice.EInvoicing);
     }
 
     @SuppressWarnings("rawtypes")
@@ -280,7 +280,7 @@ public class InteropApi {
         public void setDocumentType(String documentType) { this.documentType = documentType; }
         public String getInterchangeType() { return interchangeType; }
         public void setInterchangeType(String interchangeType) { this.interchangeType = interchangeType; }
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.2"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
@@ -300,7 +300,7 @@ public class InteropApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("24.12.0");
+        this.localVarApiClient.setSdkVersion("25.6.0");
     }
 }
 

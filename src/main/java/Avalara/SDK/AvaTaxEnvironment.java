@@ -10,11 +10,16 @@ public enum AvaTaxEnvironment {
      */
     Production,
     /**
-     * Represents a test environment, where the URL is passed in as part of the Configuration class.
+     * Represents a test environment, where the URL is passed in as part of the
+     * Configuration class.
      */
     Test,
     /**
      * Represents QA environment
      */
-    QA
+    QA,
+    /**
+     * Represents DEV environment
+     */
+    DEV
 }
