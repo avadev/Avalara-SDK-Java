@@ -45,12 +45,13 @@ jobs:
             -H "Content-Type: application/x-www-form-urlencoded" \
             -d "grant_type=client_credentials&client_id=${{secrets.OKTA_CLIENT_ID}}&client_secret=${{secrets.OKTA_CLIENT_SECRET}}")
           token=$(echo $response | jq -r '.access_token')
-          echo "BEARER_TOKEN=${token}" >> $GITHUB_ENV
+          echo "BEARER_TOKEN_EINVOICING=${token}" >> $GITHUB_ENV
 
       - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots verify -DprofileIdEnabled=true -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }} -Psign-artifacts
+        run: mvn --batch-mode --update-snapshots verify -DprofileIdEnabled=true -Dtest=EInvoicingTest -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }} -Psign-artifacts
         env:
           MAVEN_GPG_PASSPHRASE: ${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}
+          BEARER_TOKEN_EINVOICING: ${{ env.BEARER_TOKEN_EINVOICING }}
 
       - name: Update resources
         uses: test-room-7/action-update-file@v1
