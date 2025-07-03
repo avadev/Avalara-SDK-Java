@@ -125,7 +125,7 @@ if(hasProperty('target') && target == 'android') {
                  repositories {
              maven {
                  name = "Central"
-                 url = uri("https://central.sonatype.com/api/v1/publisher/deployments/")
+                 url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
                  credentials {
                      username = project.findProperty("centralUsername") ?: System.getenv("CENTRAL_USERNAME")
                      password = project.findProperty("centralPassword") ?: System.getenv("CENTRAL_PASSWORD")
@@ -135,7 +135,7 @@ if(hasProperty('target') && target == 'android') {
      }
      
      signing {
-         required = { gradle.taskGraph.hasTask("publish") }
+         required = false  // Temporarily disabled for testing
          sign publishing.publications.maven
      }
 
