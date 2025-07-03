@@ -21,7 +21,6 @@ package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
 import Avalara.SDK.model.A1099.V2.StateAndLocalWithholding;
-import Avalara.SDK.model.A1099.V2.StateAndLocalWithholdingRequest;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -56,81 +55,21 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * Form1099MiscRequest
+ * FormRequestCsvBase
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
-public class Form1099MiscRequest {
-  public static final String SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING = "stateAndLocalWithholding";
-  @SerializedName(SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING)
-  private StateAndLocalWithholdingRequest stateAndLocalWithholding;
+public class FormRequestCsvBase {
+  public static final String SERIALIZED_NAME_ISSUER_REFERENCE_ID = "issuerReferenceId";
+  @SerializedName(SERIALIZED_NAME_ISSUER_REFERENCE_ID)
+  private String issuerReferenceId;
 
-  public static final String SERIALIZED_NAME_SECOND_TIN_NOTICE = "secondTinNotice";
-  @SerializedName(SERIALIZED_NAME_SECOND_TIN_NOTICE)
-  private Boolean secondTinNotice;
+  public static final String SERIALIZED_NAME_ISSUER_TIN = "issuerTin";
+  @SerializedName(SERIALIZED_NAME_ISSUER_TIN)
+  private String issuerTin;
 
-  public static final String SERIALIZED_NAME_RENTS = "rents";
-  @SerializedName(SERIALIZED_NAME_RENTS)
-  private Double rents;
-
-  public static final String SERIALIZED_NAME_ROYALTIES = "royalties";
-  @SerializedName(SERIALIZED_NAME_ROYALTIES)
-  private Double royalties;
-
-  public static final String SERIALIZED_NAME_OTHER_INCOME = "otherIncome";
-  @SerializedName(SERIALIZED_NAME_OTHER_INCOME)
-  private Double otherIncome;
-
-  public static final String SERIALIZED_NAME_FED_INCOME_TAX_WITHHELD = "fedIncomeTaxWithheld";
-  @SerializedName(SERIALIZED_NAME_FED_INCOME_TAX_WITHHELD)
-  private Double fedIncomeTaxWithheld;
-
-  public static final String SERIALIZED_NAME_FISHING_BOAT_PROCEEDS = "fishingBoatProceeds";
-  @SerializedName(SERIALIZED_NAME_FISHING_BOAT_PROCEEDS)
-  private Double fishingBoatProceeds;
-
-  public static final String SERIALIZED_NAME_MEDICAL_HEALTH_CARE_PAYMENTS = "medicalHealthCarePayments";
-  @SerializedName(SERIALIZED_NAME_MEDICAL_HEALTH_CARE_PAYMENTS)
-  private Double medicalHealthCarePayments;
-
-  public static final String SERIALIZED_NAME_PAYER_MADE_DIRECT_SALES = "payerMadeDirectSales";
-  @SerializedName(SERIALIZED_NAME_PAYER_MADE_DIRECT_SALES)
-  private Boolean payerMadeDirectSales;
-
-  public static final String SERIALIZED_NAME_SUBSTITUTE_PAYMENTS = "substitutePayments";
-  @SerializedName(SERIALIZED_NAME_SUBSTITUTE_PAYMENTS)
-  private Double substitutePayments;
-
-  public static final String SERIALIZED_NAME_CROP_INSURANCE_PROCEEDS = "cropInsuranceProceeds";
-  @SerializedName(SERIALIZED_NAME_CROP_INSURANCE_PROCEEDS)
-  private Double cropInsuranceProceeds;
-
-  public static final String SERIALIZED_NAME_GROSS_PROCEEDS_PAID_TO_ATTORNEY = "grossProceedsPaidToAttorney";
-  @SerializedName(SERIALIZED_NAME_GROSS_PROCEEDS_PAID_TO_ATTORNEY)
-  private Double grossProceedsPaidToAttorney;
-
-  public static final String SERIALIZED_NAME_FISH_PURCHASED_FOR_RESALE = "fishPurchasedForResale";
-  @SerializedName(SERIALIZED_NAME_FISH_PURCHASED_FOR_RESALE)
-  private Double fishPurchasedForResale;
-
-  public static final String SERIALIZED_NAME_SECTION409_A_DEFERRALS = "section409ADeferrals";
-  @SerializedName(SERIALIZED_NAME_SECTION409_A_DEFERRALS)
-  private Double section409ADeferrals;
-
-  public static final String SERIALIZED_NAME_FATCA_FILING_REQUIREMENT = "fatcaFilingRequirement";
-  @SerializedName(SERIALIZED_NAME_FATCA_FILING_REQUIREMENT)
-  private Boolean fatcaFilingRequirement;
-
-  public static final String SERIALIZED_NAME_EXCESS_GOLDEN_PARACHUTE_PAYMENTS = "excessGoldenParachutePayments";
-  @SerializedName(SERIALIZED_NAME_EXCESS_GOLDEN_PARACHUTE_PAYMENTS)
-  private Double excessGoldenParachutePayments;
-
-  public static final String SERIALIZED_NAME_NONQUALIFIED_DEFERRED_COMPENSATION = "nonqualifiedDeferredCompensation";
-  @SerializedName(SERIALIZED_NAME_NONQUALIFIED_DEFERRED_COMPENSATION)
-  private Double nonqualifiedDeferredCompensation;
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  public static final String SERIALIZED_NAME_TAX_YEAR = "taxYear";
+  @SerializedName(SERIALIZED_NAME_TAX_YEAR)
+  private Integer taxYear;
 
   public static final String SERIALIZED_NAME_ISSUER_ID = "issuerId";
   @SerializedName(SERIALIZED_NAME_ISSUER_ID)
@@ -216,352 +155,71 @@ public class Form1099MiscRequest {
   @SerializedName(SERIALIZED_NAME_ADDRESS_VERIFICATION)
   private Boolean addressVerification;
 
-  public Form1099MiscRequest() {
+  public static final String SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING = "stateAndLocalWithholding";
+  @SerializedName(SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING)
+  private StateAndLocalWithholding stateAndLocalWithholding;
+
+  public FormRequestCsvBase() {
   }
 
-  public Form1099MiscRequest stateAndLocalWithholding(StateAndLocalWithholdingRequest stateAndLocalWithholding) {
-    this.stateAndLocalWithholding = stateAndLocalWithholding;
+  public FormRequestCsvBase issuerReferenceId(String issuerReferenceId) {
+    this.issuerReferenceId = issuerReferenceId;
     return this;
   }
 
   /**
-   * Get stateAndLocalWithholding
-   * @return stateAndLocalWithholding
+   * Get issuerReferenceId
+   * @return issuerReferenceId
    */
   @javax.annotation.Nullable
-  public StateAndLocalWithholdingRequest getStateAndLocalWithholding() {
-    return stateAndLocalWithholding;
+  public String getIssuerReferenceId() {
+    return issuerReferenceId;
   }
 
-  public void setStateAndLocalWithholding(StateAndLocalWithholdingRequest stateAndLocalWithholding) {
-    this.stateAndLocalWithholding = stateAndLocalWithholding;
+  public void setIssuerReferenceId(String issuerReferenceId) {
+    this.issuerReferenceId = issuerReferenceId;
   }
 
 
-  public Form1099MiscRequest secondTinNotice(Boolean secondTinNotice) {
-    this.secondTinNotice = secondTinNotice;
+  public FormRequestCsvBase issuerTin(String issuerTin) {
+    this.issuerTin = issuerTin;
     return this;
   }
 
   /**
-   * Get secondTinNotice
-   * @return secondTinNotice
+   * Get issuerTin
+   * @return issuerTin
    */
   @javax.annotation.Nullable
-  public Boolean getSecondTinNotice() {
-    return secondTinNotice;
+  public String getIssuerTin() {
+    return issuerTin;
   }
 
-  public void setSecondTinNotice(Boolean secondTinNotice) {
-    this.secondTinNotice = secondTinNotice;
+  public void setIssuerTin(String issuerTin) {
+    this.issuerTin = issuerTin;
   }
 
 
-  public Form1099MiscRequest rents(Double rents) {
-    this.rents = rents;
+  public FormRequestCsvBase taxYear(Integer taxYear) {
+    this.taxYear = taxYear;
     return this;
   }
 
   /**
-   * Get rents
-   * @return rents
+   * Get taxYear
+   * @return taxYear
    */
   @javax.annotation.Nullable
-  public Double getRents() {
-    return rents;
+  public Integer getTaxYear() {
+    return taxYear;
   }
 
-  public void setRents(Double rents) {
-    this.rents = rents;
-  }
-
-
-  public Form1099MiscRequest royalties(Double royalties) {
-    this.royalties = royalties;
-    return this;
-  }
-
-  /**
-   * Get royalties
-   * @return royalties
-   */
-  @javax.annotation.Nullable
-  public Double getRoyalties() {
-    return royalties;
-  }
-
-  public void setRoyalties(Double royalties) {
-    this.royalties = royalties;
+  public void setTaxYear(Integer taxYear) {
+    this.taxYear = taxYear;
   }
 
 
-  public Form1099MiscRequest otherIncome(Double otherIncome) {
-    this.otherIncome = otherIncome;
-    return this;
-  }
-
-  /**
-   * Get otherIncome
-   * @return otherIncome
-   */
-  @javax.annotation.Nullable
-  public Double getOtherIncome() {
-    return otherIncome;
-  }
-
-  public void setOtherIncome(Double otherIncome) {
-    this.otherIncome = otherIncome;
-  }
-
-
-  public Form1099MiscRequest fedIncomeTaxWithheld(Double fedIncomeTaxWithheld) {
-    this.fedIncomeTaxWithheld = fedIncomeTaxWithheld;
-    return this;
-  }
-
-  /**
-   * Get fedIncomeTaxWithheld
-   * @return fedIncomeTaxWithheld
-   */
-  @javax.annotation.Nullable
-  public Double getFedIncomeTaxWithheld() {
-    return fedIncomeTaxWithheld;
-  }
-
-  public void setFedIncomeTaxWithheld(Double fedIncomeTaxWithheld) {
-    this.fedIncomeTaxWithheld = fedIncomeTaxWithheld;
-  }
-
-
-  public Form1099MiscRequest fishingBoatProceeds(Double fishingBoatProceeds) {
-    this.fishingBoatProceeds = fishingBoatProceeds;
-    return this;
-  }
-
-  /**
-   * Get fishingBoatProceeds
-   * @return fishingBoatProceeds
-   */
-  @javax.annotation.Nullable
-  public Double getFishingBoatProceeds() {
-    return fishingBoatProceeds;
-  }
-
-  public void setFishingBoatProceeds(Double fishingBoatProceeds) {
-    this.fishingBoatProceeds = fishingBoatProceeds;
-  }
-
-
-  public Form1099MiscRequest medicalHealthCarePayments(Double medicalHealthCarePayments) {
-    this.medicalHealthCarePayments = medicalHealthCarePayments;
-    return this;
-  }
-
-  /**
-   * Get medicalHealthCarePayments
-   * @return medicalHealthCarePayments
-   */
-  @javax.annotation.Nullable
-  public Double getMedicalHealthCarePayments() {
-    return medicalHealthCarePayments;
-  }
-
-  public void setMedicalHealthCarePayments(Double medicalHealthCarePayments) {
-    this.medicalHealthCarePayments = medicalHealthCarePayments;
-  }
-
-
-  public Form1099MiscRequest payerMadeDirectSales(Boolean payerMadeDirectSales) {
-    this.payerMadeDirectSales = payerMadeDirectSales;
-    return this;
-  }
-
-  /**
-   * Get payerMadeDirectSales
-   * @return payerMadeDirectSales
-   */
-  @javax.annotation.Nullable
-  public Boolean getPayerMadeDirectSales() {
-    return payerMadeDirectSales;
-  }
-
-  public void setPayerMadeDirectSales(Boolean payerMadeDirectSales) {
-    this.payerMadeDirectSales = payerMadeDirectSales;
-  }
-
-
-  public Form1099MiscRequest substitutePayments(Double substitutePayments) {
-    this.substitutePayments = substitutePayments;
-    return this;
-  }
-
-  /**
-   * Get substitutePayments
-   * @return substitutePayments
-   */
-  @javax.annotation.Nullable
-  public Double getSubstitutePayments() {
-    return substitutePayments;
-  }
-
-  public void setSubstitutePayments(Double substitutePayments) {
-    this.substitutePayments = substitutePayments;
-  }
-
-
-  public Form1099MiscRequest cropInsuranceProceeds(Double cropInsuranceProceeds) {
-    this.cropInsuranceProceeds = cropInsuranceProceeds;
-    return this;
-  }
-
-  /**
-   * Get cropInsuranceProceeds
-   * @return cropInsuranceProceeds
-   */
-  @javax.annotation.Nullable
-  public Double getCropInsuranceProceeds() {
-    return cropInsuranceProceeds;
-  }
-
-  public void setCropInsuranceProceeds(Double cropInsuranceProceeds) {
-    this.cropInsuranceProceeds = cropInsuranceProceeds;
-  }
-
-
-  public Form1099MiscRequest grossProceedsPaidToAttorney(Double grossProceedsPaidToAttorney) {
-    this.grossProceedsPaidToAttorney = grossProceedsPaidToAttorney;
-    return this;
-  }
-
-  /**
-   * Get grossProceedsPaidToAttorney
-   * @return grossProceedsPaidToAttorney
-   */
-  @javax.annotation.Nullable
-  public Double getGrossProceedsPaidToAttorney() {
-    return grossProceedsPaidToAttorney;
-  }
-
-  public void setGrossProceedsPaidToAttorney(Double grossProceedsPaidToAttorney) {
-    this.grossProceedsPaidToAttorney = grossProceedsPaidToAttorney;
-  }
-
-
-  public Form1099MiscRequest fishPurchasedForResale(Double fishPurchasedForResale) {
-    this.fishPurchasedForResale = fishPurchasedForResale;
-    return this;
-  }
-
-  /**
-   * Get fishPurchasedForResale
-   * @return fishPurchasedForResale
-   */
-  @javax.annotation.Nullable
-  public Double getFishPurchasedForResale() {
-    return fishPurchasedForResale;
-  }
-
-  public void setFishPurchasedForResale(Double fishPurchasedForResale) {
-    this.fishPurchasedForResale = fishPurchasedForResale;
-  }
-
-
-  public Form1099MiscRequest section409ADeferrals(Double section409ADeferrals) {
-    this.section409ADeferrals = section409ADeferrals;
-    return this;
-  }
-
-  /**
-   * Get section409ADeferrals
-   * @return section409ADeferrals
-   */
-  @javax.annotation.Nullable
-  public Double getSection409ADeferrals() {
-    return section409ADeferrals;
-  }
-
-  public void setSection409ADeferrals(Double section409ADeferrals) {
-    this.section409ADeferrals = section409ADeferrals;
-  }
-
-
-  public Form1099MiscRequest fatcaFilingRequirement(Boolean fatcaFilingRequirement) {
-    this.fatcaFilingRequirement = fatcaFilingRequirement;
-    return this;
-  }
-
-  /**
-   * Get fatcaFilingRequirement
-   * @return fatcaFilingRequirement
-   */
-  @javax.annotation.Nullable
-  public Boolean getFatcaFilingRequirement() {
-    return fatcaFilingRequirement;
-  }
-
-  public void setFatcaFilingRequirement(Boolean fatcaFilingRequirement) {
-    this.fatcaFilingRequirement = fatcaFilingRequirement;
-  }
-
-
-  public Form1099MiscRequest excessGoldenParachutePayments(Double excessGoldenParachutePayments) {
-    this.excessGoldenParachutePayments = excessGoldenParachutePayments;
-    return this;
-  }
-
-  /**
-   * Get excessGoldenParachutePayments
-   * @return excessGoldenParachutePayments
-   */
-  @javax.annotation.Nullable
-  public Double getExcessGoldenParachutePayments() {
-    return excessGoldenParachutePayments;
-  }
-
-  public void setExcessGoldenParachutePayments(Double excessGoldenParachutePayments) {
-    this.excessGoldenParachutePayments = excessGoldenParachutePayments;
-  }
-
-
-  public Form1099MiscRequest nonqualifiedDeferredCompensation(Double nonqualifiedDeferredCompensation) {
-    this.nonqualifiedDeferredCompensation = nonqualifiedDeferredCompensation;
-    return this;
-  }
-
-  /**
-   * Get nonqualifiedDeferredCompensation
-   * @return nonqualifiedDeferredCompensation
-   */
-  @javax.annotation.Nullable
-  public Double getNonqualifiedDeferredCompensation() {
-    return nonqualifiedDeferredCompensation;
-  }
-
-  public void setNonqualifiedDeferredCompensation(Double nonqualifiedDeferredCompensation) {
-    this.nonqualifiedDeferredCompensation = nonqualifiedDeferredCompensation;
-  }
-
-
-  public Form1099MiscRequest type(String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Get type
-   * @return type
-   */
-  @javax.annotation.Nullable
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-
-  public Form1099MiscRequest issuerId(String issuerId) {
+  public FormRequestCsvBase issuerId(String issuerId) {
     this.issuerId = issuerId;
     return this;
   }
@@ -580,7 +238,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest referenceId(String referenceId) {
+  public FormRequestCsvBase referenceId(String referenceId) {
     this.referenceId = referenceId;
     return this;
   }
@@ -599,7 +257,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest recipientName(String recipientName) {
+  public FormRequestCsvBase recipientName(String recipientName) {
     this.recipientName = recipientName;
     return this;
   }
@@ -618,7 +276,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest recipientTin(String recipientTin) {
+  public FormRequestCsvBase recipientTin(String recipientTin) {
     this.recipientTin = recipientTin;
     return this;
   }
@@ -637,7 +295,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest tinType(String tinType) {
+  public FormRequestCsvBase tinType(String tinType) {
     this.tinType = tinType;
     return this;
   }
@@ -656,7 +314,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest recipientSecondName(String recipientSecondName) {
+  public FormRequestCsvBase recipientSecondName(String recipientSecondName) {
     this.recipientSecondName = recipientSecondName;
     return this;
   }
@@ -675,7 +333,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest streetAddress(String streetAddress) {
+  public FormRequestCsvBase streetAddress(String streetAddress) {
     this.streetAddress = streetAddress;
     return this;
   }
@@ -694,7 +352,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest streetAddressLine2(String streetAddressLine2) {
+  public FormRequestCsvBase streetAddressLine2(String streetAddressLine2) {
     this.streetAddressLine2 = streetAddressLine2;
     return this;
   }
@@ -713,7 +371,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest city(String city) {
+  public FormRequestCsvBase city(String city) {
     this.city = city;
     return this;
   }
@@ -732,7 +390,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest state(String state) {
+  public FormRequestCsvBase state(String state) {
     this.state = state;
     return this;
   }
@@ -751,7 +409,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest zip(String zip) {
+  public FormRequestCsvBase zip(String zip) {
     this.zip = zip;
     return this;
   }
@@ -770,7 +428,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest recipientEmail(String recipientEmail) {
+  public FormRequestCsvBase recipientEmail(String recipientEmail) {
     this.recipientEmail = recipientEmail;
     return this;
   }
@@ -789,7 +447,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest accountNumber(String accountNumber) {
+  public FormRequestCsvBase accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
@@ -808,7 +466,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest officeCode(String officeCode) {
+  public FormRequestCsvBase officeCode(String officeCode) {
     this.officeCode = officeCode;
     return this;
   }
@@ -827,7 +485,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest recipientNonUsProvince(String recipientNonUsProvince) {
+  public FormRequestCsvBase recipientNonUsProvince(String recipientNonUsProvince) {
     this.recipientNonUsProvince = recipientNonUsProvince;
     return this;
   }
@@ -846,7 +504,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest countryCode(String countryCode) {
+  public FormRequestCsvBase countryCode(String countryCode) {
     this.countryCode = countryCode;
     return this;
   }
@@ -865,7 +523,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest federalEFile(Boolean federalEFile) {
+  public FormRequestCsvBase federalEFile(Boolean federalEFile) {
     this.federalEFile = federalEFile;
     return this;
   }
@@ -884,7 +542,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest postalMail(Boolean postalMail) {
+  public FormRequestCsvBase postalMail(Boolean postalMail) {
     this.postalMail = postalMail;
     return this;
   }
@@ -903,7 +561,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest stateEFile(Boolean stateEFile) {
+  public FormRequestCsvBase stateEFile(Boolean stateEFile) {
     this.stateEFile = stateEFile;
     return this;
   }
@@ -922,7 +580,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest tinMatch(Boolean tinMatch) {
+  public FormRequestCsvBase tinMatch(Boolean tinMatch) {
     this.tinMatch = tinMatch;
     return this;
   }
@@ -941,7 +599,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest addressVerification(Boolean addressVerification) {
+  public FormRequestCsvBase addressVerification(Boolean addressVerification) {
     this.addressVerification = addressVerification;
     return this;
   }
@@ -960,6 +618,25 @@ public class Form1099MiscRequest {
   }
 
 
+  public FormRequestCsvBase stateAndLocalWithholding(StateAndLocalWithholding stateAndLocalWithholding) {
+    this.stateAndLocalWithholding = stateAndLocalWithholding;
+    return this;
+  }
+
+  /**
+   * Get stateAndLocalWithholding
+   * @return stateAndLocalWithholding
+   */
+  @javax.annotation.Nullable
+  public StateAndLocalWithholding getStateAndLocalWithholding() {
+    return stateAndLocalWithholding;
+  }
+
+  public void setStateAndLocalWithholding(StateAndLocalWithholding stateAndLocalWithholding) {
+    this.stateAndLocalWithholding = stateAndLocalWithholding;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -969,46 +646,32 @@ public class Form1099MiscRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Form1099MiscRequest form1099MiscRequest = (Form1099MiscRequest) o;
-    return Objects.equals(this.stateAndLocalWithholding, form1099MiscRequest.stateAndLocalWithholding) &&
-        Objects.equals(this.secondTinNotice, form1099MiscRequest.secondTinNotice) &&
-        Objects.equals(this.rents, form1099MiscRequest.rents) &&
-        Objects.equals(this.royalties, form1099MiscRequest.royalties) &&
-        Objects.equals(this.otherIncome, form1099MiscRequest.otherIncome) &&
-        Objects.equals(this.fedIncomeTaxWithheld, form1099MiscRequest.fedIncomeTaxWithheld) &&
-        Objects.equals(this.fishingBoatProceeds, form1099MiscRequest.fishingBoatProceeds) &&
-        Objects.equals(this.medicalHealthCarePayments, form1099MiscRequest.medicalHealthCarePayments) &&
-        Objects.equals(this.payerMadeDirectSales, form1099MiscRequest.payerMadeDirectSales) &&
-        Objects.equals(this.substitutePayments, form1099MiscRequest.substitutePayments) &&
-        Objects.equals(this.cropInsuranceProceeds, form1099MiscRequest.cropInsuranceProceeds) &&
-        Objects.equals(this.grossProceedsPaidToAttorney, form1099MiscRequest.grossProceedsPaidToAttorney) &&
-        Objects.equals(this.fishPurchasedForResale, form1099MiscRequest.fishPurchasedForResale) &&
-        Objects.equals(this.section409ADeferrals, form1099MiscRequest.section409ADeferrals) &&
-        Objects.equals(this.fatcaFilingRequirement, form1099MiscRequest.fatcaFilingRequirement) &&
-        Objects.equals(this.excessGoldenParachutePayments, form1099MiscRequest.excessGoldenParachutePayments) &&
-        Objects.equals(this.nonqualifiedDeferredCompensation, form1099MiscRequest.nonqualifiedDeferredCompensation) &&
-        Objects.equals(this.type, form1099MiscRequest.type) &&
-        Objects.equals(this.issuerId, form1099MiscRequest.issuerId) &&
-        Objects.equals(this.referenceId, form1099MiscRequest.referenceId) &&
-        Objects.equals(this.recipientName, form1099MiscRequest.recipientName) &&
-        Objects.equals(this.recipientTin, form1099MiscRequest.recipientTin) &&
-        Objects.equals(this.tinType, form1099MiscRequest.tinType) &&
-        Objects.equals(this.recipientSecondName, form1099MiscRequest.recipientSecondName) &&
-        Objects.equals(this.streetAddress, form1099MiscRequest.streetAddress) &&
-        Objects.equals(this.streetAddressLine2, form1099MiscRequest.streetAddressLine2) &&
-        Objects.equals(this.city, form1099MiscRequest.city) &&
-        Objects.equals(this.state, form1099MiscRequest.state) &&
-        Objects.equals(this.zip, form1099MiscRequest.zip) &&
-        Objects.equals(this.recipientEmail, form1099MiscRequest.recipientEmail) &&
-        Objects.equals(this.accountNumber, form1099MiscRequest.accountNumber) &&
-        Objects.equals(this.officeCode, form1099MiscRequest.officeCode) &&
-        Objects.equals(this.recipientNonUsProvince, form1099MiscRequest.recipientNonUsProvince) &&
-        Objects.equals(this.countryCode, form1099MiscRequest.countryCode) &&
-        Objects.equals(this.federalEFile, form1099MiscRequest.federalEFile) &&
-        Objects.equals(this.postalMail, form1099MiscRequest.postalMail) &&
-        Objects.equals(this.stateEFile, form1099MiscRequest.stateEFile) &&
-        Objects.equals(this.tinMatch, form1099MiscRequest.tinMatch) &&
-        Objects.equals(this.addressVerification, form1099MiscRequest.addressVerification);
+    FormRequestCsvBase formRequestCsvBase = (FormRequestCsvBase) o;
+    return Objects.equals(this.issuerReferenceId, formRequestCsvBase.issuerReferenceId) &&
+        Objects.equals(this.issuerTin, formRequestCsvBase.issuerTin) &&
+        Objects.equals(this.taxYear, formRequestCsvBase.taxYear) &&
+        Objects.equals(this.issuerId, formRequestCsvBase.issuerId) &&
+        Objects.equals(this.referenceId, formRequestCsvBase.referenceId) &&
+        Objects.equals(this.recipientName, formRequestCsvBase.recipientName) &&
+        Objects.equals(this.recipientTin, formRequestCsvBase.recipientTin) &&
+        Objects.equals(this.tinType, formRequestCsvBase.tinType) &&
+        Objects.equals(this.recipientSecondName, formRequestCsvBase.recipientSecondName) &&
+        Objects.equals(this.streetAddress, formRequestCsvBase.streetAddress) &&
+        Objects.equals(this.streetAddressLine2, formRequestCsvBase.streetAddressLine2) &&
+        Objects.equals(this.city, formRequestCsvBase.city) &&
+        Objects.equals(this.state, formRequestCsvBase.state) &&
+        Objects.equals(this.zip, formRequestCsvBase.zip) &&
+        Objects.equals(this.recipientEmail, formRequestCsvBase.recipientEmail) &&
+        Objects.equals(this.accountNumber, formRequestCsvBase.accountNumber) &&
+        Objects.equals(this.officeCode, formRequestCsvBase.officeCode) &&
+        Objects.equals(this.recipientNonUsProvince, formRequestCsvBase.recipientNonUsProvince) &&
+        Objects.equals(this.countryCode, formRequestCsvBase.countryCode) &&
+        Objects.equals(this.federalEFile, formRequestCsvBase.federalEFile) &&
+        Objects.equals(this.postalMail, formRequestCsvBase.postalMail) &&
+        Objects.equals(this.stateEFile, formRequestCsvBase.stateEFile) &&
+        Objects.equals(this.tinMatch, formRequestCsvBase.tinMatch) &&
+        Objects.equals(this.addressVerification, formRequestCsvBase.addressVerification) &&
+        Objects.equals(this.stateAndLocalWithholding, formRequestCsvBase.stateAndLocalWithholding);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1017,7 +680,7 @@ public class Form1099MiscRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(stateAndLocalWithholding, secondTinNotice, rents, royalties, otherIncome, fedIncomeTaxWithheld, fishingBoatProceeds, medicalHealthCarePayments, payerMadeDirectSales, substitutePayments, cropInsuranceProceeds, grossProceedsPaidToAttorney, fishPurchasedForResale, section409ADeferrals, fatcaFilingRequirement, excessGoldenParachutePayments, nonqualifiedDeferredCompensation, type, issuerId, referenceId, recipientName, recipientTin, tinType, recipientSecondName, streetAddress, streetAddressLine2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification);
+    return Objects.hash(issuerReferenceId, issuerTin, taxYear, issuerId, referenceId, recipientName, recipientTin, tinType, recipientSecondName, streetAddress, streetAddressLine2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification, stateAndLocalWithholding);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1030,25 +693,10 @@ public class Form1099MiscRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Form1099MiscRequest {\n");
-    sb.append("    stateAndLocalWithholding: ").append(toIndentedString(stateAndLocalWithholding)).append("\n");
-    sb.append("    secondTinNotice: ").append(toIndentedString(secondTinNotice)).append("\n");
-    sb.append("    rents: ").append(toIndentedString(rents)).append("\n");
-    sb.append("    royalties: ").append(toIndentedString(royalties)).append("\n");
-    sb.append("    otherIncome: ").append(toIndentedString(otherIncome)).append("\n");
-    sb.append("    fedIncomeTaxWithheld: ").append(toIndentedString(fedIncomeTaxWithheld)).append("\n");
-    sb.append("    fishingBoatProceeds: ").append(toIndentedString(fishingBoatProceeds)).append("\n");
-    sb.append("    medicalHealthCarePayments: ").append(toIndentedString(medicalHealthCarePayments)).append("\n");
-    sb.append("    payerMadeDirectSales: ").append(toIndentedString(payerMadeDirectSales)).append("\n");
-    sb.append("    substitutePayments: ").append(toIndentedString(substitutePayments)).append("\n");
-    sb.append("    cropInsuranceProceeds: ").append(toIndentedString(cropInsuranceProceeds)).append("\n");
-    sb.append("    grossProceedsPaidToAttorney: ").append(toIndentedString(grossProceedsPaidToAttorney)).append("\n");
-    sb.append("    fishPurchasedForResale: ").append(toIndentedString(fishPurchasedForResale)).append("\n");
-    sb.append("    section409ADeferrals: ").append(toIndentedString(section409ADeferrals)).append("\n");
-    sb.append("    fatcaFilingRequirement: ").append(toIndentedString(fatcaFilingRequirement)).append("\n");
-    sb.append("    excessGoldenParachutePayments: ").append(toIndentedString(excessGoldenParachutePayments)).append("\n");
-    sb.append("    nonqualifiedDeferredCompensation: ").append(toIndentedString(nonqualifiedDeferredCompensation)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class FormRequestCsvBase {\n");
+    sb.append("    issuerReferenceId: ").append(toIndentedString(issuerReferenceId)).append("\n");
+    sb.append("    issuerTin: ").append(toIndentedString(issuerTin)).append("\n");
+    sb.append("    taxYear: ").append(toIndentedString(taxYear)).append("\n");
     sb.append("    issuerId: ").append(toIndentedString(issuerId)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    recipientName: ").append(toIndentedString(recipientName)).append("\n");
@@ -1070,6 +718,7 @@ public class Form1099MiscRequest {
     sb.append("    stateEFile: ").append(toIndentedString(stateEFile)).append("\n");
     sb.append("    tinMatch: ").append(toIndentedString(tinMatch)).append("\n");
     sb.append("    addressVerification: ").append(toIndentedString(addressVerification)).append("\n");
+    sb.append("    stateAndLocalWithholding: ").append(toIndentedString(stateAndLocalWithholding)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1092,7 +741,6 @@ public class Form1099MiscRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("type");
     openapiFields.add("issuerId");
     openapiFields.add("referenceId");
     openapiFields.add("recipientName");
@@ -1124,29 +772,28 @@ public class Form1099MiscRequest {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Form1099MiscRequest
+   * @throws IOException if the JSON Element is invalid with respect to FormRequestCsvBase
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!Form1099MiscRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Form1099MiscRequest is not found in the empty JSON string", Form1099MiscRequest.openapiRequiredFields.toString()));
+        if (!FormRequestCsvBase.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in FormRequestCsvBase is not found in the empty JSON string", FormRequestCsvBase.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!Form1099MiscRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Form1099MiscRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!FormRequestCsvBase.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FormRequestCsvBase` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `stateAndLocalWithholding`
-      if (jsonObj.get("stateAndLocalWithholding") != null && !jsonObj.get("stateAndLocalWithholding").isJsonNull()) {
-        StateAndLocalWithholdingRequest.validateJsonElement(jsonObj.get("stateAndLocalWithholding"));
+      if ((jsonObj.get("issuerReferenceId") != null && !jsonObj.get("issuerReferenceId").isJsonNull()) && !jsonObj.get("issuerReferenceId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `issuerReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerReferenceId").toString()));
       }
-      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      if ((jsonObj.get("issuerTin") != null && !jsonObj.get("issuerTin").isJsonNull()) && !jsonObj.get("issuerTin").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `issuerTin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerTin").toString()));
       }
       if ((jsonObj.get("issuerId") != null && !jsonObj.get("issuerId").isJsonNull()) && !jsonObj.get("issuerId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `issuerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerId").toString()));
@@ -1196,28 +843,32 @@ public class Form1099MiscRequest {
       if ((jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonNull()) && !jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
       }
+      // validate the optional field `stateAndLocalWithholding`
+      if (jsonObj.get("stateAndLocalWithholding") != null && !jsonObj.get("stateAndLocalWithholding").isJsonNull()) {
+        StateAndLocalWithholding.validateJsonElement(jsonObj.get("stateAndLocalWithholding"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Form1099MiscRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Form1099MiscRequest' and its subtypes
+       if (!FormRequestCsvBase.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'FormRequestCsvBase' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Form1099MiscRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Form1099MiscRequest.class));
+       final TypeAdapter<FormRequestCsvBase> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(FormRequestCsvBase.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Form1099MiscRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<FormRequestCsvBase>() {
            @Override
-           public void write(JsonWriter out, Form1099MiscRequest value) throws IOException {
+           public void write(JsonWriter out, FormRequestCsvBase value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public Form1099MiscRequest read(JsonReader in) throws IOException {
+           public FormRequestCsvBase read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -1228,18 +879,18 @@ public class Form1099MiscRequest {
   }
 
   /**
-   * Create an instance of Form1099MiscRequest given an JSON string
+   * Create an instance of FormRequestCsvBase given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Form1099MiscRequest
-   * @throws IOException if the JSON string is invalid with respect to Form1099MiscRequest
+   * @return An instance of FormRequestCsvBase
+   * @throws IOException if the JSON string is invalid with respect to FormRequestCsvBase
    */
-  public static Form1099MiscRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Form1099MiscRequest.class);
+  public static FormRequestCsvBase fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, FormRequestCsvBase.class);
   }
 
   /**
-   * Convert an instance of Form1099MiscRequest to an JSON string
+   * Convert an instance of FormRequestCsvBase to an JSON string
    *
    * @return JSON string
    */

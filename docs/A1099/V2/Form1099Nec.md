@@ -28,10 +28,10 @@
 |**addressVerificationStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) |  |  [optional] |
 |**referenceId** | **String** |  |  [optional] |
 |**email** | **String** |  |  [optional] |
-|**typeOfTin** | **String** |  |  [optional] |
+|**tinType** | **String** |  |  [optional] |
 |**tin** | **String** |  |  [optional] |
-|**firstPayeeName** | **String** |  |  [optional] |
-|**secondPayeeName** | **String** |  |  [optional] |
+|**recipientName** | **String** |  |  [optional] |
+|**recipientSecondName** | **String** |  |  [optional] |
 |**address** | **String** |  |  [optional] |
 |**addressRecipientSecond** | **String** |  |  [optional] |
 |**city** | **String** |  |  [optional] |

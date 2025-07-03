@@ -49,7 +49,7 @@ public class Example {
 
         Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "e82d457d-bada-4d09-8cdc-e83b239e0ae0"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "ac3bb1f6-353e-4933-afb5-07862797f03e"; // String | Unique correlation Id in a GUID format
         IssuerCommand issuerCommand = new IssuerCommand(); // IssuerCommand | The issuer to create
         try {
             IssuerResponse result = apiInstance.createIssuer(avalaraVersion, xCorrelationId, issuerCommand);
@@ -134,7 +134,7 @@ public class Example {
         Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
         String id = "id_example"; // String | Id of the issuer to delete
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "d13718cf-b660-4e88-aa39-318bd5f7359c"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "840d88dc-1469-4611-9df8-a9e787a04b50"; // String | Unique correlation Id in a GUID format
         try {
             apiInstance.deleteIssuer(id, avalaraVersion, xCorrelationId);
         } catch (ApiException e) {
@@ -217,7 +217,7 @@ public class Example {
         Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
         String id = "id_example"; // String | 
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "645c7800-cdd1-4081-886e-9e9c340f8a39"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "c3619be9-6530-492d-a172-da05364e3793"; // String | Unique correlation Id in a GUID format
         try {
             IssuerResponse result = apiInstance.getIssuer(id, avalaraVersion, xCorrelationId);
             System.out.println(result);
@@ -300,7 +300,7 @@ public class Example {
 
         Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "25a850b0-d06f-441d-abbc-b41280bfa518"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "422ed89a-1974-4c86-91b6-4dcbe876b7f7"; // String | Unique correlation Id in a GUID format
         String $filter = "$filter_example"; // String | A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>.
         Integer $top = 56; // Integer | If zero or greater than 1000, return at most 1000 results.  Otherwise, return this number of results.  Used with skip to provide pagination for large datasets.
         Integer $skip = 56; // Integer | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets.
@@ -397,7 +397,7 @@ public class Example {
         Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
         String id = "id_example"; // String | Id of the issuer to Update
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "abc8ac67-c704-4e8b-b56e-1c92f0e220ac"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "37e09615-e73c-4348-9ab3-fa6718b2cf60"; // String | Unique correlation Id in a GUID format
         IssuerCommand issuerCommand = new IssuerCommand(); // IssuerCommand | The issuer to update
         try {
             apiInstance.updateIssuer(id, avalaraVersion, xCorrelationId, issuerCommand);

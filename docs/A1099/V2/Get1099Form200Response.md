@@ -1,6 +1,6 @@
 
 
-# Form1099ListDataInner
+# Get1099Form200Response
 
 
 ## Properties

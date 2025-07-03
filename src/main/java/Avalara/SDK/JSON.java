@@ -40,7 +40,8 @@ public class JSON {
 
     @SuppressWarnings("unchecked")
     public static GsonBuilder createGson() {
-        GsonFireBuilder fireBuilder = new GsonFireBuilder();
+        GsonFireBuilder fireBuilder = new GsonFireBuilder()
+        ;
         GsonBuilder builder = fireBuilder.createGsonBuilder();
         return builder;
     }
@@ -54,13 +55,10 @@ public class JSON {
     }
 
     /**
-     * Returns the Java class that implements the OpenAPI schema for the specified
-     * discriminator value.
+     * Returns the Java class that implements the OpenAPI schema for the specified discriminator value.
      *
-     * @param classByDiscriminatorValue The map of discriminator values to Java
-     *                                  classes.
-     * @param discriminatorValue        The value of the OpenAPI discriminator in
-     *                                  the input data.
+     * @param classByDiscriminatorValue The map of discriminator values to Java classes.
+     * @param discriminatorValue The value of the OpenAPI discriminator in the input data.
      * @return The Java class that implements the OpenAPI schema
      */
     private static Class getClassByDiscriminator(Map classByDiscriminatorValue, String discriminatorValue) {
@@ -73,12 +71,12 @@ public class JSON {
 
     public JSON() {
         gson = createGson()
-                .registerTypeAdapter(Date.class, dateTypeAdapter)
-                .registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter)
-                .registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter)
-                .registerTypeAdapter(LocalDate.class, localDateTypeAdapter)
-                .registerTypeAdapter(byte[].class, byteArrayAdapter)
-                .create();
+            .registerTypeAdapter(Date.class, dateTypeAdapter)
+            .registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter)
+            .registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter)
+            .registerTypeAdapter(LocalDate.class, localDateTypeAdapter)
+            .registerTypeAdapter(byte[].class, byteArrayAdapter)
+            .create();
     }
 
     /**
@@ -106,8 +104,7 @@ public class JSON {
      *
      * @param lenientOnJson Set it to true to ignore some syntax errors
      * @return JSON
-     * @see <a href=
-     *      "https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5/com/google/gson/stream/JsonReader.html">https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5/com/google/gson/stream/JsonReader.html</a>
+     * @see <a href="https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5/com/google/gson/stream/JsonReader.html">https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5/com/google/gson/stream/JsonReader.html</a>
      */
     public JSON setLenientOnJson(boolean lenientOnJson) {
         isLenientOnJson = lenientOnJson;
@@ -137,8 +134,7 @@ public class JSON {
         try {
             if (isLenientOnJson) {
                 JsonReader jsonReader = new JsonReader(new StringReader(body));
-                // see
-                // https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5/com/google/gson/stream/JsonReader.html
+                // see https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5/com/google/gson/stream/JsonReader.html
                 jsonReader.setLenient(true);
                 return gson.fromJson(jsonReader, returnType);
             } else {
@@ -220,7 +216,7 @@ public class JSON {
                 default:
                     String date = in.nextString();
                     if (date.endsWith("+0000")) {
-                        date = date.substring(0, date.length() - 5) + "Z";
+                        date = date.substring(0, date.length()-5) + "Z";
                     }
                     // Handle datetime strings without timezone information by appending 'Z'
                     // This addresses A1099 API responses that return local datetime strings
@@ -293,8 +289,7 @@ public class JSON {
 
         private DateFormat dateFormat;
 
-        public SqlDateTypeAdapter() {
-        }
+        public SqlDateTypeAdapter() {}
 
         public SqlDateTypeAdapter(DateFormat dateFormat) {
             this.dateFormat = dateFormat;
@@ -347,8 +342,7 @@ public class JSON {
 
         private DateFormat dateFormat;
 
-        public DateTypeAdapter() {
-        }
+        public DateTypeAdapter() {}
 
         public DateTypeAdapter(DateFormat dateFormat) {
             this.dateFormat = dateFormat;

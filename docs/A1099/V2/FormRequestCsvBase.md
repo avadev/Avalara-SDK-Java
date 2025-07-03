@@ -1,31 +1,12 @@
 
 
-# Form1099DivListItem
+# FormRequestCsvBase
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**totalOrdinaryDividends** | **String** |  |  [optional] |
-|**qualifiedDividends** | **String** |  |  [optional] |
-|**totalCapitalGainDistr** | **String** |  |  [optional] |
-|**unrecapSec1250Gain** | **String** |  |  [optional] |
-|**section1202Gain** | **String** |  |  [optional] |
-|**collectiblesGain** | **String** |  |  [optional] |
-|**section897OrdinaryDividends** | **String** |  |  [optional] |
-|**section897CapitalGain** | **String** |  |  [optional] |
-|**nondividendDistributions** | **String** |  |  [optional] |
-|**federalIncomeTaxWithheld** | **String** |  |  [optional] |
-|**section199ADividends** | **String** |  |  [optional] |
-|**investmentExpenses** | **String** |  |  [optional] |
-|**foreignTaxPaid** | **String** |  |  [optional] |
-|**foreignCountryOrUSPossession** | **String** |  |  [optional] |
-|**cashLiquidationDistributions** | **String** |  |  [optional] |
-|**noncashLiquidationDistributions** | **String** |  |  [optional] |
-|**exemptInterestDividends** | **String** |  |  [optional] |
-|**specifiedPrivateActivityBondInterestDividends** | **String** |  |  [optional] |
-|**fatcaFilingRequirement** | **String** |  |  [optional] |
 |**issuerReferenceId** | **String** |  |  [optional] |
 |**issuerTin** | **String** |  |  [optional] |
 |**taxYear** | **Integer** |  |  [optional] |

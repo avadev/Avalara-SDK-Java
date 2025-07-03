@@ -7,7 +7,6 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**stateAndLocalWithholding** | [**StateAndLocalWithholding**](StateAndLocalWithholding.md) |  |  [optional] |
 |**secondTinNotice** | **Boolean** |  |  [optional] |
 |**rents** | **Double** |  |  [optional] |
 |**royalties** | **Double** |  |  [optional] |
@@ -24,14 +23,14 @@
 |**fatcaFilingRequirement** | **Boolean** |  |  [optional] |
 |**excessGoldenParachutePayments** | **Double** |  |  [optional] |
 |**nonqualifiedDeferredCompensation** | **Double** |  |  [optional] |
-|**issuerId** | **String** |  |  [optional] |
 |**issuerReferenceId** | **String** |  |  [optional] |
 |**issuerTin** | **String** |  |  [optional] |
 |**taxYear** | **Integer** |  |  [optional] |
+|**issuerId** | **String** |  |  [optional] |
 |**referenceId** | **String** |  |  [optional] |
 |**recipientName** | **String** |  |  [optional] |
 |**recipientTin** | **String** |  |  [optional] |
-|**tinType** | **Integer** |  |  [optional] |
+|**tinType** | **String** |  |  [optional] |
 |**recipientSecondName** | **String** |  |  [optional] |
 |**streetAddress** | **String** |  |  [optional] |
 |**streetAddressLine2** | **String** |  |  [optional] |
@@ -48,6 +47,7 @@
 |**stateEFile** | **Boolean** |  |  [optional] |
 |**tinMatch** | **Boolean** |  |  [optional] |
 |**addressVerification** | **Boolean** |  |  [optional] |
+|**stateAndLocalWithholding** | [**StateAndLocalWithholding**](StateAndLocalWithholding.md) |  |  [optional] |
 
 
 

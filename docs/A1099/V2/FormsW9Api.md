@@ -50,7 +50,7 @@ public class Example {
 
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "4c62a018-b60d-4266-af40-54221888c8bb"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "930372e6-89dc-4377-b4e8-bc47b458a2a1"; // String | Unique correlation Id in a GUID format
         IW9FormDataModelsOneOf iw9FormDataModelsOneOf = new IW9FormDataModelsOneOf(); // IW9FormDataModelsOneOf | Form to be created
         try {
             IW9FormDataModelsOneOf result = apiInstance.createW9Form(avalaraVersion, xCorrelationId, iw9FormDataModelsOneOf);
@@ -135,7 +135,7 @@ public class Example {
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String id = "id_example"; // String | Id of the form to delete
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "5347679d-9e75-4b74-a6cd-30eea3eb1b90"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "8daad659-c292-429b-b764-a39131820ab8"; // String | Unique correlation Id in a GUID format
         try {
             apiInstance.deleteW9Form(id, avalaraVersion, xCorrelationId);
         } catch (ApiException e) {
@@ -218,7 +218,7 @@ public class Example {
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String id = "id_example"; // String | Id of the form
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "943d9ac8-8680-4892-bf08-272226b4acfe"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "0656e3eb-9869-41f6-ae27-735196c2fb2d"; // String | Unique correlation Id in a GUID format
         try {
             IW9FormDataModelsOneOf result = apiInstance.getW9Form(id, avalaraVersion, xCorrelationId);
             System.out.println(result);
@@ -302,7 +302,7 @@ public class Example {
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String formRequestId = "formRequestId_example"; // String | 
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "77151343-a674-4587-84a6-fd81b8cbcf62"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "3426808c-14f1-48ac-98e9-8667542f0f2b"; // String | Unique correlation Id in a GUID format
         try {
             FormRequestModel result = apiInstance.getW9FormRequest(formRequestId, avalaraVersion, xCorrelationId);
             System.out.println(result);
@@ -385,7 +385,7 @@ public class Example {
 
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "ee9f95c9-4d79-497a-91aa-11c718538051"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "a83c29f6-d738-448e-a010-45ee2eabff01"; // String | Unique correlation Id in a GUID format
         String $filter = "$filter_example"; // String | A filter statement to identify specific records to retrieve. For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>.
         Integer $top = 10; // Integer | If nonzero, return no more than this number of results. Used with skip to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records.
         Integer $skip = 0; // Integer | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets.
@@ -476,7 +476,7 @@ public class Example {
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String id = "id_example"; // String | The ID of the W9/W4/W8 form.
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "d64d213b-b294-494f-b95f-c2cf7087521a"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "09fd99a8-0697-43f0-8fd1-c28d6d5aff86"; // String | Unique correlation Id in a GUID format
         try {
             IW9FormDataModelsOneOf result = apiInstance.sendW9FormEmail(id, avalaraVersion, xCorrelationId);
             System.out.println(result);
@@ -558,7 +558,7 @@ public class Example {
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String id = "id_example"; // String | Id of the form to update
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "71799e43-36d2-42da-9546-586ee7600571"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "2602c89e-fe6c-449a-956d-d61dee240fe8"; // String | Unique correlation Id in a GUID format
         IW9FormDataModelsOneOf iw9FormDataModelsOneOf = new IW9FormDataModelsOneOf(); // IW9FormDataModelsOneOf | Form to be updated
         try {
             IW9FormDataModelsOneOf result = apiInstance.updateW9Form(id, avalaraVersion, xCorrelationId, iw9FormDataModelsOneOf);
@@ -644,7 +644,7 @@ public class Example {
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String id = "id_example"; // String | Id of the form
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "1a58f6a2-ea39-405f-9005-058dd5d2d66d"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "71d9eea7-1758-45d8-ab6f-039ce267caf7"; // String | Unique correlation Id in a GUID format
         File _file = new File("/path/to/file"); // File | 
         try {
             String result = apiInstance.uploadW9Files(id, avalaraVersion, xCorrelationId, _file);

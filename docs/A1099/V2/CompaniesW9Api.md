@@ -49,7 +49,7 @@ public class Example {
 
         CompaniesW9Api apiInstance = new CompaniesW9Api(apiClient);
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "17aedf55-161e-4906-8dab-d2d31d76ff5f"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "01fb70f8-7352-472b-9e88-f8d107fade54"; // String | Unique correlation Id in a GUID format
         CompanyCreateUpdateRequestModel companyCreateUpdateRequestModel = new CompanyCreateUpdateRequestModel(); // CompanyCreateUpdateRequestModel | The company to create
         try {
             CompanyResponseModel result = apiInstance.createCompany(avalaraVersion, xCorrelationId, companyCreateUpdateRequestModel);
@@ -134,7 +134,7 @@ public class Example {
         CompaniesW9Api apiInstance = new CompaniesW9Api(apiClient);
         String id = "id_example"; // String | The company to delete
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "485cbb8a-410b-4452-ba05-2e13f062534c"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "e85e414d-08be-4790-a67d-37c3f2691e91"; // String | Unique correlation Id in a GUID format
         try {
             apiInstance.deleteCompany(id, avalaraVersion, xCorrelationId);
         } catch (ApiException e) {
@@ -218,7 +218,7 @@ public class Example {
 
         CompaniesW9Api apiInstance = new CompaniesW9Api(apiClient);
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "6568feaa-ad1a-4ba5-a374-f57501013a66"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "c42a4194-0a8c-49c0-a2dd-9c8900120ebd"; // String | Unique correlation Id in a GUID format
         String $filter = "$filter_example"; // String | A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>.
         Integer $top = 56; // Integer | If zero or greater than 1000, return at most 1000 results.  Otherwise, return this number of results.  Used with skip to provide pagination for large datasets.
         Integer $skip = 56; // Integer | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets.
@@ -315,7 +315,7 @@ public class Example {
         CompaniesW9Api apiInstance = new CompaniesW9Api(apiClient);
         String id = "id_example"; // String | Id of the company
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "6a958572-faea-499c-b09b-d8743c190ef0"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "e64e0372-8932-49ec-b942-665b20e3a34c"; // String | Unique correlation Id in a GUID format
         try {
             CompanyResponse result = apiInstance.getCompany(id, avalaraVersion, xCorrelationId);
             System.out.println(result);
@@ -401,7 +401,7 @@ public class Example {
         CompaniesW9Api apiInstance = new CompaniesW9Api(apiClient);
         String id = "id_example"; // String | The ID of the company to update
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "8e0a7807-d0bb-419e-8272-ee585d7b5476"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "b1ebc708-145c-4dd6-afb1-cc15c49219f6"; // String | Unique correlation Id in a GUID format
         CompanyCreateUpdateRequestModel companyCreateUpdateRequestModel = new CompanyCreateUpdateRequestModel(); // CompanyCreateUpdateRequestModel | The updated company data
         try {
             CompanyResponseModel result = apiInstance.updateCompany(id, avalaraVersion, xCorrelationId, companyCreateUpdateRequestModel);

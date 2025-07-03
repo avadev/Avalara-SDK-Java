@@ -60,10 +60,6 @@ import Avalara.SDK.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Form1099RListItem {
-  public static final String SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING = "stateAndLocalWithholding";
-  @SerializedName(SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING)
-  private StateAndLocalWithholding stateAndLocalWithholding;
-
   public static final String SERIALIZED_NAME_GROSS_DISTRIBUTION = "grossDistribution";
   @SerializedName(SERIALIZED_NAME_GROSS_DISTRIBUTION)
   private Double grossDistribution;
@@ -356,10 +352,6 @@ public class Form1099RListItem {
   @SerializedName(SERIALIZED_NAME_DATE_OF_PAYMENT)
   private OffsetDateTime dateOfPayment;
 
-  public static final String SERIALIZED_NAME_ISSUER_ID = "issuerId";
-  @SerializedName(SERIALIZED_NAME_ISSUER_ID)
-  private String issuerId;
-
   public static final String SERIALIZED_NAME_ISSUER_REFERENCE_ID = "issuerReferenceId";
   @SerializedName(SERIALIZED_NAME_ISSUER_REFERENCE_ID)
   private String issuerReferenceId;
@@ -371,6 +363,10 @@ public class Form1099RListItem {
   public static final String SERIALIZED_NAME_TAX_YEAR = "taxYear";
   @SerializedName(SERIALIZED_NAME_TAX_YEAR)
   private Integer taxYear;
+
+  public static final String SERIALIZED_NAME_ISSUER_ID = "issuerId";
+  @SerializedName(SERIALIZED_NAME_ISSUER_ID)
+  private String issuerId;
 
   public static final String SERIALIZED_NAME_REFERENCE_ID = "referenceId";
   @SerializedName(SERIALIZED_NAME_REFERENCE_ID)
@@ -386,7 +382,7 @@ public class Form1099RListItem {
 
   public static final String SERIALIZED_NAME_TIN_TYPE = "tinType";
   @SerializedName(SERIALIZED_NAME_TIN_TYPE)
-  private Integer tinType;
+  private String tinType;
 
   public static final String SERIALIZED_NAME_RECIPIENT_SECOND_NAME = "recipientSecondName";
   @SerializedName(SERIALIZED_NAME_RECIPIENT_SECOND_NAME)
@@ -452,27 +448,12 @@ public class Form1099RListItem {
   @SerializedName(SERIALIZED_NAME_ADDRESS_VERIFICATION)
   private Boolean addressVerification;
 
+  public static final String SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING = "stateAndLocalWithholding";
+  @SerializedName(SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING)
+  private StateAndLocalWithholding stateAndLocalWithholding;
+
   public Form1099RListItem() {
   }
-
-  public Form1099RListItem stateAndLocalWithholding(StateAndLocalWithholding stateAndLocalWithholding) {
-    this.stateAndLocalWithholding = stateAndLocalWithholding;
-    return this;
-  }
-
-  /**
-   * Get stateAndLocalWithholding
-   * @return stateAndLocalWithholding
-   */
-  @javax.annotation.Nullable
-  public StateAndLocalWithholding getStateAndLocalWithholding() {
-    return stateAndLocalWithholding;
-  }
-
-  public void setStateAndLocalWithholding(StateAndLocalWithholding stateAndLocalWithholding) {
-    this.stateAndLocalWithholding = stateAndLocalWithholding;
-  }
-
 
   public Form1099RListItem grossDistribution(Double grossDistribution) {
     this.grossDistribution = grossDistribution;
@@ -854,25 +835,6 @@ public class Form1099RListItem {
   }
 
 
-  public Form1099RListItem issuerId(String issuerId) {
-    this.issuerId = issuerId;
-    return this;
-  }
-
-  /**
-   * Get issuerId
-   * @return issuerId
-   */
-  @javax.annotation.Nullable
-  public String getIssuerId() {
-    return issuerId;
-  }
-
-  public void setIssuerId(String issuerId) {
-    this.issuerId = issuerId;
-  }
-
-
   public Form1099RListItem issuerReferenceId(String issuerReferenceId) {
     this.issuerReferenceId = issuerReferenceId;
     return this;
@@ -927,6 +889,25 @@ public class Form1099RListItem {
 
   public void setTaxYear(Integer taxYear) {
     this.taxYear = taxYear;
+  }
+
+
+  public Form1099RListItem issuerId(String issuerId) {
+    this.issuerId = issuerId;
+    return this;
+  }
+
+  /**
+   * Get issuerId
+   * @return issuerId
+   */
+  @javax.annotation.Nullable
+  public String getIssuerId() {
+    return issuerId;
+  }
+
+  public void setIssuerId(String issuerId) {
+    this.issuerId = issuerId;
   }
 
 
@@ -987,7 +968,7 @@ public class Form1099RListItem {
   }
 
 
-  public Form1099RListItem tinType(Integer tinType) {
+  public Form1099RListItem tinType(String tinType) {
     this.tinType = tinType;
     return this;
   }
@@ -997,11 +978,11 @@ public class Form1099RListItem {
    * @return tinType
    */
   @javax.annotation.Nullable
-  public Integer getTinType() {
+  public String getTinType() {
     return tinType;
   }
 
-  public void setTinType(Integer tinType) {
+  public void setTinType(String tinType) {
     this.tinType = tinType;
   }
 
@@ -1310,6 +1291,25 @@ public class Form1099RListItem {
   }
 
 
+  public Form1099RListItem stateAndLocalWithholding(StateAndLocalWithholding stateAndLocalWithholding) {
+    this.stateAndLocalWithholding = stateAndLocalWithholding;
+    return this;
+  }
+
+  /**
+   * Get stateAndLocalWithholding
+   * @return stateAndLocalWithholding
+   */
+  @javax.annotation.Nullable
+  public StateAndLocalWithholding getStateAndLocalWithholding() {
+    return stateAndLocalWithholding;
+  }
+
+  public void setStateAndLocalWithholding(StateAndLocalWithholding stateAndLocalWithholding) {
+    this.stateAndLocalWithholding = stateAndLocalWithholding;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1320,8 +1320,7 @@ public class Form1099RListItem {
       return false;
     }
     Form1099RListItem form1099RListItem = (Form1099RListItem) o;
-    return Objects.equals(this.stateAndLocalWithholding, form1099RListItem.stateAndLocalWithholding) &&
-        Objects.equals(this.grossDistribution, form1099RListItem.grossDistribution) &&
+    return Objects.equals(this.grossDistribution, form1099RListItem.grossDistribution) &&
         Objects.equals(this.taxableAmount, form1099RListItem.taxableAmount) &&
         Objects.equals(this.taxableAmountNotDetermined, form1099RListItem.taxableAmountNotDetermined) &&
         Objects.equals(this.totalDistributionDetermined, form1099RListItem.totalDistributionDetermined) &&
@@ -1341,10 +1340,10 @@ public class Form1099RListItem {
         Objects.equals(this.firstYearOfDesignatedRothContribution, form1099RListItem.firstYearOfDesignatedRothContribution) &&
         Objects.equals(this.fatcaFilingRequirement, form1099RListItem.fatcaFilingRequirement) &&
         Objects.equals(this.dateOfPayment, form1099RListItem.dateOfPayment) &&
-        Objects.equals(this.issuerId, form1099RListItem.issuerId) &&
         Objects.equals(this.issuerReferenceId, form1099RListItem.issuerReferenceId) &&
         Objects.equals(this.issuerTin, form1099RListItem.issuerTin) &&
         Objects.equals(this.taxYear, form1099RListItem.taxYear) &&
+        Objects.equals(this.issuerId, form1099RListItem.issuerId) &&
         Objects.equals(this.referenceId, form1099RListItem.referenceId) &&
         Objects.equals(this.recipientName, form1099RListItem.recipientName) &&
         Objects.equals(this.recipientTin, form1099RListItem.recipientTin) &&
@@ -1364,7 +1363,8 @@ public class Form1099RListItem {
         Objects.equals(this.postalMail, form1099RListItem.postalMail) &&
         Objects.equals(this.stateEFile, form1099RListItem.stateEFile) &&
         Objects.equals(this.tinMatch, form1099RListItem.tinMatch) &&
-        Objects.equals(this.addressVerification, form1099RListItem.addressVerification);
+        Objects.equals(this.addressVerification, form1099RListItem.addressVerification) &&
+        Objects.equals(this.stateAndLocalWithholding, form1099RListItem.stateAndLocalWithholding);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1373,7 +1373,7 @@ public class Form1099RListItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(stateAndLocalWithholding, grossDistribution, taxableAmount, taxableAmountNotDetermined, totalDistributionDetermined, capitalGain, federalIncomeTaxWithheld, employeeContributionsOrDesignatedRothOrInsurancePremiums, netUnrealizedAppreciationInEmployerSecurities, distributionCode, secondDistributionCode, iraSepSimple, traditionalIraSepSimpleOrRothConversionAmount, otherAmount, otherPercentage, totalDistributionPercentage, totalEmployeeContributions, amountAllocableToIrrWithin5Years, firstYearOfDesignatedRothContribution, fatcaFilingRequirement, dateOfPayment, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, recipientName, recipientTin, tinType, recipientSecondName, streetAddress, streetAddressLine2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification);
+    return Objects.hash(grossDistribution, taxableAmount, taxableAmountNotDetermined, totalDistributionDetermined, capitalGain, federalIncomeTaxWithheld, employeeContributionsOrDesignatedRothOrInsurancePremiums, netUnrealizedAppreciationInEmployerSecurities, distributionCode, secondDistributionCode, iraSepSimple, traditionalIraSepSimpleOrRothConversionAmount, otherAmount, otherPercentage, totalDistributionPercentage, totalEmployeeContributions, amountAllocableToIrrWithin5Years, firstYearOfDesignatedRothContribution, fatcaFilingRequirement, dateOfPayment, issuerReferenceId, issuerTin, taxYear, issuerId, referenceId, recipientName, recipientTin, tinType, recipientSecondName, streetAddress, streetAddressLine2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification, stateAndLocalWithholding);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1387,7 +1387,6 @@ public class Form1099RListItem {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Form1099RListItem {\n");
-    sb.append("    stateAndLocalWithholding: ").append(toIndentedString(stateAndLocalWithholding)).append("\n");
     sb.append("    grossDistribution: ").append(toIndentedString(grossDistribution)).append("\n");
     sb.append("    taxableAmount: ").append(toIndentedString(taxableAmount)).append("\n");
     sb.append("    taxableAmountNotDetermined: ").append(toIndentedString(taxableAmountNotDetermined)).append("\n");
@@ -1408,10 +1407,10 @@ public class Form1099RListItem {
     sb.append("    firstYearOfDesignatedRothContribution: ").append(toIndentedString(firstYearOfDesignatedRothContribution)).append("\n");
     sb.append("    fatcaFilingRequirement: ").append(toIndentedString(fatcaFilingRequirement)).append("\n");
     sb.append("    dateOfPayment: ").append(toIndentedString(dateOfPayment)).append("\n");
-    sb.append("    issuerId: ").append(toIndentedString(issuerId)).append("\n");
     sb.append("    issuerReferenceId: ").append(toIndentedString(issuerReferenceId)).append("\n");
     sb.append("    issuerTin: ").append(toIndentedString(issuerTin)).append("\n");
     sb.append("    taxYear: ").append(toIndentedString(taxYear)).append("\n");
+    sb.append("    issuerId: ").append(toIndentedString(issuerId)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    recipientName: ").append(toIndentedString(recipientName)).append("\n");
     sb.append("    recipientTin: ").append(toIndentedString(recipientTin)).append("\n");
@@ -1432,6 +1431,7 @@ public class Form1099RListItem {
     sb.append("    stateEFile: ").append(toIndentedString(stateEFile)).append("\n");
     sb.append("    tinMatch: ").append(toIndentedString(tinMatch)).append("\n");
     sb.append("    addressVerification: ").append(toIndentedString(addressVerification)).append("\n");
+    sb.append("    stateAndLocalWithholding: ").append(toIndentedString(stateAndLocalWithholding)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1454,10 +1454,10 @@ public class Form1099RListItem {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("issuerId");
     openapiFields.add("issuerReferenceId");
     openapiFields.add("issuerTin");
     openapiFields.add("taxYear");
+    openapiFields.add("issuerId");
     openapiFields.add("referenceId");
     openapiFields.add("recipientName");
     openapiFields.add("recipientTin");
@@ -1478,6 +1478,7 @@ public class Form1099RListItem {
     openapiFields.add("stateEFile");
     openapiFields.add("tinMatch");
     openapiFields.add("addressVerification");
+    openapiFields.add("stateAndLocalWithholding");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1504,10 +1505,6 @@ public class Form1099RListItem {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `stateAndLocalWithholding`
-      if (jsonObj.get("stateAndLocalWithholding") != null && !jsonObj.get("stateAndLocalWithholding").isJsonNull()) {
-        StateAndLocalWithholding.validateJsonElement(jsonObj.get("stateAndLocalWithholding"));
-      }
       if ((jsonObj.get("distributionCode") != null && !jsonObj.get("distributionCode").isJsonNull()) && !jsonObj.get("distributionCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `distributionCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("distributionCode").toString()));
       }
@@ -1528,14 +1525,14 @@ public class Form1099RListItem {
       if ((jsonObj.get("totalDistributionPercentage") != null && !jsonObj.get("totalDistributionPercentage").isJsonNull()) && !jsonObj.get("totalDistributionPercentage").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `totalDistributionPercentage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalDistributionPercentage").toString()));
       }
-      if ((jsonObj.get("issuerId") != null && !jsonObj.get("issuerId").isJsonNull()) && !jsonObj.get("issuerId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `issuerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerId").toString()));
-      }
       if ((jsonObj.get("issuerReferenceId") != null && !jsonObj.get("issuerReferenceId").isJsonNull()) && !jsonObj.get("issuerReferenceId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `issuerReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerReferenceId").toString()));
       }
       if ((jsonObj.get("issuerTin") != null && !jsonObj.get("issuerTin").isJsonNull()) && !jsonObj.get("issuerTin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `issuerTin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerTin").toString()));
+      }
+      if ((jsonObj.get("issuerId") != null && !jsonObj.get("issuerId").isJsonNull()) && !jsonObj.get("issuerId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `issuerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerId").toString()));
       }
       if ((jsonObj.get("referenceId") != null && !jsonObj.get("referenceId").isJsonNull()) && !jsonObj.get("referenceId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `referenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referenceId").toString()));
@@ -1545,6 +1542,9 @@ public class Form1099RListItem {
       }
       if ((jsonObj.get("recipientTin") != null && !jsonObj.get("recipientTin").isJsonNull()) && !jsonObj.get("recipientTin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientTin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientTin").toString()));
+      }
+      if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tinType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tinType").toString()));
       }
       if ((jsonObj.get("recipientSecondName") != null && !jsonObj.get("recipientSecondName").isJsonNull()) && !jsonObj.get("recipientSecondName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientSecondName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientSecondName").toString()));
@@ -1578,6 +1578,10 @@ public class Form1099RListItem {
       }
       if ((jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonNull()) && !jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
+      }
+      // validate the optional field `stateAndLocalWithholding`
+      if (jsonObj.get("stateAndLocalWithholding") != null && !jsonObj.get("stateAndLocalWithholding").isJsonNull()) {
+        StateAndLocalWithholding.validateJsonElement(jsonObj.get("stateAndLocalWithholding"));
       }
   }
 
