@@ -2,6 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'java'
 apply plugin: 'com.diffplug.spotless'
+apply plugin: 'signing'
 
 group = 'Avalara.SDK'
 version = '24.12.10'
@@ -91,9 +92,52 @@ if(hasProperty('target') && target == 'android') {
             maven(MavenPublication) {
                artifactId = 'Avalara.SDK'
                from components.java
+               
+               pom {
+                   name = 'Avalara SDK Java'
+                   description = 'Official Java SDK for Avalara\'s suite of APIs'
+                   url = 'https://github.com/avadev/Avalara-SDK-Java'
+                   
+                   licenses {
+                       license {
+                           name = 'Unlicense'
+                           url = 'https://www.apache.org/licenses/LICENSE-2.0.html'
+                       }
+                   }
+                   
+                   developers {
+                       developer {
+                           id = 'SachinBaijal'
+                           name = 'SachinBaijal'
+                           email = 'sachin.baijal@avalara.com'
+                       }
+                   }
+                   
+                   scm {
+                       connection = 'scm:git:git://github.com/avadev/Avalara-SDK-Java.git'
+                       developerConnection = 'scm:git:ssh://github.com/avadev/Avalara-SDK-Java.git'
+                       url = 'https://github.com/avadev/Avalara-SDK-Java'
+                   }
+               }
             }
         }
-    }
+        
+                 repositories {
+             maven {
+                 name = "Central"
+                 url = uri("https://central.sonatype.com/api/v1/publisher/deployments/")
+                 credentials {
+                     username = project.findProperty("centralUsername") ?: System.getenv("CENTRAL_USERNAME")
+                     password = project.findProperty("centralPassword") ?: System.getenv("CENTRAL_PASSWORD")
+                 }
+             }
+         }
+     }
+     
+     signing {
+         required = { gradle.taskGraph.hasTask("publish") }
+         sign publishing.publications.maven
+     }
 
     task execute(type:JavaExec) {
        main = System.getProperty('mainClass')
