@@ -218,6 +218,12 @@ public class JSON {
                     if (date.endsWith("+0000")) {
                         date = date.substring(0, date.length()-5) + "Z";
                     }
+                    // Handle datetime strings without timezone information by appending 'Z'
+                    // This addresses A1099 API responses that return local datetime strings
+                    // like '2025-05-06T23:33:25.358690' without timezone indicators
+                    else if (!date.endsWith("Z") && !date.matches(".*[+-]\\d{2}:?\\d{2}$")) {
+                        date = date + "Z";
+                    }
                     return OffsetDateTime.parse(date, formatter);
             }
         }
