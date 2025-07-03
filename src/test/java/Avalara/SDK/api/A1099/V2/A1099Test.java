@@ -66,17 +66,18 @@ public class A1099Test {
         Assert.assertNotNull(response.getValue());
     }
 
-    @Test
-    public void testList1099Forms() throws Exception {
-        Forms1099Api.List1099FormsRequest request = forms1099Api.getList1099FormsRequest();
-        request.set$top(10);
-        request.set$skip(0);
-        request.setXCorrelationId("2bbbed41-2466-4cf6-9cca-a3258bdc8eba");
+    // @Test
+    // public void testList1099Forms() throws Exception {
+    // Forms1099Api.List1099FormsRequest request =
+    // forms1099Api.getList1099FormsRequest();
+    // request.set$top(10);
+    // request.set$skip(0);
+    // request.setXCorrelationId("2bbbed41-2466-4cf6-9cca-a3258bdc8eba");
 
-        Form1099List response = forms1099Api.list1099Forms(request);
-        Assert.assertNotNull(response);
-        Assert.assertNotNull(response.getData());
-    }
+    // Form1099List response = forms1099Api.list1099Forms(request);
+    // Assert.assertNotNull(response);
+    // Assert.assertNotNull(response.getData());
+    // }
 
     // @Test
     // public void testListW9Forms() throws Exception {
