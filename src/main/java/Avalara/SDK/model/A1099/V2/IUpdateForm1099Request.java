@@ -23,7 +23,7 @@ import java.util.Objects;
 import Avalara.SDK.model.A1099.V2.Form1099DivRequest;
 import Avalara.SDK.model.A1099.V2.Form1099MiscRequest;
 import Avalara.SDK.model.A1099.V2.Form1099NecRequest;
-import Avalara.SDK.model.A1099.V2.StateAndLocalWithholding;
+import Avalara.SDK.model.A1099.V2.StateAndLocalWithholdingRequest;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

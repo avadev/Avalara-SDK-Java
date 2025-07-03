@@ -20,7 +20,6 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
-import Avalara.SDK.model.A1099.V2.StateAndLocalWithholding;
 import Avalara.SDK.model.A1099.V2.StateAndLocalWithholdingRequest;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -60,10 +59,6 @@ import Avalara.SDK.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Form1099MiscRequest {
-  public static final String SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING = "stateAndLocalWithholding";
-  @SerializedName(SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING)
-  private StateAndLocalWithholdingRequest stateAndLocalWithholding;
-
   public static final String SERIALIZED_NAME_SECOND_TIN_NOTICE = "secondTinNotice";
   @SerializedName(SERIALIZED_NAME_SECOND_TIN_NOTICE)
   private Boolean secondTinNotice;
@@ -128,9 +123,69 @@ public class Form1099MiscRequest {
   @SerializedName(SERIALIZED_NAME_NONQUALIFIED_DEFERRED_COMPENSATION)
   private Double nonqualifiedDeferredCompensation;
 
+  /**
+   * Gets or Sets type
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    FORM1099_NEC("Form1099Nec"),
+    
+    FORM1099_MISC("Form1099Misc"),
+    
+    FORM1099_DIV("Form1099Div"),
+    
+    FORM1099_R("Form1099R"),
+    
+    FORM1099_K("Form1099K"),
+    
+    FORM1095_B("Form1095B");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      TypeEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  private TypeEnum type;
 
   public static final String SERIALIZED_NAME_ISSUER_ID = "issuerId";
   @SerializedName(SERIALIZED_NAME_ISSUER_ID)
@@ -148,21 +203,77 @@ public class Form1099MiscRequest {
   @SerializedName(SERIALIZED_NAME_RECIPIENT_TIN)
   private String recipientTin;
 
+  /**
+   * Gets or Sets tinType
+   */
+  @JsonAdapter(TinTypeEnum.Adapter.class)
+  public enum TinTypeEnum {
+    EIN("EIN"),
+    
+    SSN("SSN"),
+    
+    ITIN("ITIN"),
+    
+    ATIN("ATIN");
+
+    private String value;
+
+    TinTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TinTypeEnum fromValue(String value) {
+      for (TinTypeEnum b : TinTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TinTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TinTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TinTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TinTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      TinTypeEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_TIN_TYPE = "tinType";
   @SerializedName(SERIALIZED_NAME_TIN_TYPE)
-  private String tinType;
+  private TinTypeEnum tinType;
 
   public static final String SERIALIZED_NAME_RECIPIENT_SECOND_NAME = "recipientSecondName";
   @SerializedName(SERIALIZED_NAME_RECIPIENT_SECOND_NAME)
   private String recipientSecondName;
 
-  public static final String SERIALIZED_NAME_STREET_ADDRESS = "streetAddress";
-  @SerializedName(SERIALIZED_NAME_STREET_ADDRESS)
-  private String streetAddress;
+  public static final String SERIALIZED_NAME_ADDRESS = "address";
+  @SerializedName(SERIALIZED_NAME_ADDRESS)
+  private String address;
 
-  public static final String SERIALIZED_NAME_STREET_ADDRESS_LINE2 = "streetAddressLine2";
-  @SerializedName(SERIALIZED_NAME_STREET_ADDRESS_LINE2)
-  private String streetAddressLine2;
+  public static final String SERIALIZED_NAME_ADDRESS2 = "address2";
+  @SerializedName(SERIALIZED_NAME_ADDRESS2)
+  private String address2;
 
   public static final String SERIALIZED_NAME_CITY = "city";
   @SerializedName(SERIALIZED_NAME_CITY)
@@ -216,27 +327,19 @@ public class Form1099MiscRequest {
   @SerializedName(SERIALIZED_NAME_ADDRESS_VERIFICATION)
   private Boolean addressVerification;
 
+  public static final String SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING = "stateAndLocalWithholding";
+  @SerializedName(SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING)
+  private StateAndLocalWithholdingRequest stateAndLocalWithholding;
+
   public Form1099MiscRequest() {
   }
 
-  public Form1099MiscRequest stateAndLocalWithholding(StateAndLocalWithholdingRequest stateAndLocalWithholding) {
-    this.stateAndLocalWithholding = stateAndLocalWithholding;
-    return this;
+  public Form1099MiscRequest(
+     TypeEnum type
+  ) {
+    this();
+    this.type = type;
   }
-
-  /**
-   * Get stateAndLocalWithholding
-   * @return stateAndLocalWithholding
-   */
-  @javax.annotation.Nullable
-  public StateAndLocalWithholdingRequest getStateAndLocalWithholding() {
-    return stateAndLocalWithholding;
-  }
-
-  public void setStateAndLocalWithholding(StateAndLocalWithholdingRequest stateAndLocalWithholding) {
-    this.stateAndLocalWithholding = stateAndLocalWithholding;
-  }
-
 
   public Form1099MiscRequest secondTinNotice(Boolean secondTinNotice) {
     this.secondTinNotice = secondTinNotice;
@@ -542,23 +645,15 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest type(String type) {
-    this.type = type;
-    return this;
-  }
-
   /**
    * Get type
    * @return type
    */
   @javax.annotation.Nullable
-  public String getType() {
+  public TypeEnum getType() {
     return type;
   }
 
-  public void setType(String type) {
-    this.type = type;
-  }
 
 
   public Form1099MiscRequest issuerId(String issuerId) {
@@ -637,7 +732,7 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest tinType(String tinType) {
+  public Form1099MiscRequest tinType(TinTypeEnum tinType) {
     this.tinType = tinType;
     return this;
   }
@@ -647,11 +742,11 @@ public class Form1099MiscRequest {
    * @return tinType
    */
   @javax.annotation.Nullable
-  public String getTinType() {
+  public TinTypeEnum getTinType() {
     return tinType;
   }
 
-  public void setTinType(String tinType) {
+  public void setTinType(TinTypeEnum tinType) {
     this.tinType = tinType;
   }
 
@@ -675,41 +770,41 @@ public class Form1099MiscRequest {
   }
 
 
-  public Form1099MiscRequest streetAddress(String streetAddress) {
-    this.streetAddress = streetAddress;
+  public Form1099MiscRequest address(String address) {
+    this.address = address;
     return this;
   }
 
   /**
-   * Get streetAddress
-   * @return streetAddress
+   * Get address
+   * @return address
    */
   @javax.annotation.Nullable
-  public String getStreetAddress() {
-    return streetAddress;
+  public String getAddress() {
+    return address;
   }
 
-  public void setStreetAddress(String streetAddress) {
-    this.streetAddress = streetAddress;
+  public void setAddress(String address) {
+    this.address = address;
   }
 
 
-  public Form1099MiscRequest streetAddressLine2(String streetAddressLine2) {
-    this.streetAddressLine2 = streetAddressLine2;
+  public Form1099MiscRequest address2(String address2) {
+    this.address2 = address2;
     return this;
   }
 
   /**
-   * Get streetAddressLine2
-   * @return streetAddressLine2
+   * Get address2
+   * @return address2
    */
   @javax.annotation.Nullable
-  public String getStreetAddressLine2() {
-    return streetAddressLine2;
+  public String getAddress2() {
+    return address2;
   }
 
-  public void setStreetAddressLine2(String streetAddressLine2) {
-    this.streetAddressLine2 = streetAddressLine2;
+  public void setAddress2(String address2) {
+    this.address2 = address2;
   }
 
 
@@ -960,6 +1055,25 @@ public class Form1099MiscRequest {
   }
 
 
+  public Form1099MiscRequest stateAndLocalWithholding(StateAndLocalWithholdingRequest stateAndLocalWithholding) {
+    this.stateAndLocalWithholding = stateAndLocalWithholding;
+    return this;
+  }
+
+  /**
+   * Get stateAndLocalWithholding
+   * @return stateAndLocalWithholding
+   */
+  @javax.annotation.Nullable
+  public StateAndLocalWithholdingRequest getStateAndLocalWithholding() {
+    return stateAndLocalWithholding;
+  }
+
+  public void setStateAndLocalWithholding(StateAndLocalWithholdingRequest stateAndLocalWithholding) {
+    this.stateAndLocalWithholding = stateAndLocalWithholding;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -970,8 +1084,7 @@ public class Form1099MiscRequest {
       return false;
     }
     Form1099MiscRequest form1099MiscRequest = (Form1099MiscRequest) o;
-    return Objects.equals(this.stateAndLocalWithholding, form1099MiscRequest.stateAndLocalWithholding) &&
-        Objects.equals(this.secondTinNotice, form1099MiscRequest.secondTinNotice) &&
+    return Objects.equals(this.secondTinNotice, form1099MiscRequest.secondTinNotice) &&
         Objects.equals(this.rents, form1099MiscRequest.rents) &&
         Objects.equals(this.royalties, form1099MiscRequest.royalties) &&
         Objects.equals(this.otherIncome, form1099MiscRequest.otherIncome) &&
@@ -994,8 +1107,8 @@ public class Form1099MiscRequest {
         Objects.equals(this.recipientTin, form1099MiscRequest.recipientTin) &&
         Objects.equals(this.tinType, form1099MiscRequest.tinType) &&
         Objects.equals(this.recipientSecondName, form1099MiscRequest.recipientSecondName) &&
-        Objects.equals(this.streetAddress, form1099MiscRequest.streetAddress) &&
-        Objects.equals(this.streetAddressLine2, form1099MiscRequest.streetAddressLine2) &&
+        Objects.equals(this.address, form1099MiscRequest.address) &&
+        Objects.equals(this.address2, form1099MiscRequest.address2) &&
         Objects.equals(this.city, form1099MiscRequest.city) &&
         Objects.equals(this.state, form1099MiscRequest.state) &&
         Objects.equals(this.zip, form1099MiscRequest.zip) &&
@@ -1008,7 +1121,8 @@ public class Form1099MiscRequest {
         Objects.equals(this.postalMail, form1099MiscRequest.postalMail) &&
         Objects.equals(this.stateEFile, form1099MiscRequest.stateEFile) &&
         Objects.equals(this.tinMatch, form1099MiscRequest.tinMatch) &&
-        Objects.equals(this.addressVerification, form1099MiscRequest.addressVerification);
+        Objects.equals(this.addressVerification, form1099MiscRequest.addressVerification) &&
+        Objects.equals(this.stateAndLocalWithholding, form1099MiscRequest.stateAndLocalWithholding);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1017,7 +1131,7 @@ public class Form1099MiscRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(stateAndLocalWithholding, secondTinNotice, rents, royalties, otherIncome, fedIncomeTaxWithheld, fishingBoatProceeds, medicalHealthCarePayments, payerMadeDirectSales, substitutePayments, cropInsuranceProceeds, grossProceedsPaidToAttorney, fishPurchasedForResale, section409ADeferrals, fatcaFilingRequirement, excessGoldenParachutePayments, nonqualifiedDeferredCompensation, type, issuerId, referenceId, recipientName, recipientTin, tinType, recipientSecondName, streetAddress, streetAddressLine2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification);
+    return Objects.hash(secondTinNotice, rents, royalties, otherIncome, fedIncomeTaxWithheld, fishingBoatProceeds, medicalHealthCarePayments, payerMadeDirectSales, substitutePayments, cropInsuranceProceeds, grossProceedsPaidToAttorney, fishPurchasedForResale, section409ADeferrals, fatcaFilingRequirement, excessGoldenParachutePayments, nonqualifiedDeferredCompensation, type, issuerId, referenceId, recipientName, recipientTin, tinType, recipientSecondName, address, address2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification, stateAndLocalWithholding);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1031,7 +1145,6 @@ public class Form1099MiscRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Form1099MiscRequest {\n");
-    sb.append("    stateAndLocalWithholding: ").append(toIndentedString(stateAndLocalWithholding)).append("\n");
     sb.append("    secondTinNotice: ").append(toIndentedString(secondTinNotice)).append("\n");
     sb.append("    rents: ").append(toIndentedString(rents)).append("\n");
     sb.append("    royalties: ").append(toIndentedString(royalties)).append("\n");
@@ -1055,8 +1168,8 @@ public class Form1099MiscRequest {
     sb.append("    recipientTin: ").append(toIndentedString(recipientTin)).append("\n");
     sb.append("    tinType: ").append(toIndentedString(tinType)).append("\n");
     sb.append("    recipientSecondName: ").append(toIndentedString(recipientSecondName)).append("\n");
-    sb.append("    streetAddress: ").append(toIndentedString(streetAddress)).append("\n");
-    sb.append("    streetAddressLine2: ").append(toIndentedString(streetAddressLine2)).append("\n");
+    sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    address2: ").append(toIndentedString(address2)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    zip: ").append(toIndentedString(zip)).append("\n");
@@ -1070,6 +1183,7 @@ public class Form1099MiscRequest {
     sb.append("    stateEFile: ").append(toIndentedString(stateEFile)).append("\n");
     sb.append("    tinMatch: ").append(toIndentedString(tinMatch)).append("\n");
     sb.append("    addressVerification: ").append(toIndentedString(addressVerification)).append("\n");
+    sb.append("    stateAndLocalWithholding: ").append(toIndentedString(stateAndLocalWithholding)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1099,8 +1213,8 @@ public class Form1099MiscRequest {
     openapiFields.add("recipientTin");
     openapiFields.add("tinType");
     openapiFields.add("recipientSecondName");
-    openapiFields.add("streetAddress");
-    openapiFields.add("streetAddressLine2");
+    openapiFields.add("address");
+    openapiFields.add("address2");
     openapiFields.add("city");
     openapiFields.add("state");
     openapiFields.add("zip");
@@ -1141,12 +1255,12 @@ public class Form1099MiscRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `stateAndLocalWithholding`
-      if (jsonObj.get("stateAndLocalWithholding") != null && !jsonObj.get("stateAndLocalWithholding").isJsonNull()) {
-        StateAndLocalWithholdingRequest.validateJsonElement(jsonObj.get("stateAndLocalWithholding"));
-      }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      // validate the optional field `type`
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
+        TypeEnum.validateJsonElement(jsonObj.get("type"));
       }
       if ((jsonObj.get("issuerId") != null && !jsonObj.get("issuerId").isJsonNull()) && !jsonObj.get("issuerId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `issuerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerId").toString()));
@@ -1163,14 +1277,18 @@ public class Form1099MiscRequest {
       if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tinType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tinType").toString()));
       }
+      // validate the optional field `tinType`
+      if (jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) {
+        TinTypeEnum.validateJsonElement(jsonObj.get("tinType"));
+      }
       if ((jsonObj.get("recipientSecondName") != null && !jsonObj.get("recipientSecondName").isJsonNull()) && !jsonObj.get("recipientSecondName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientSecondName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientSecondName").toString()));
       }
-      if ((jsonObj.get("streetAddress") != null && !jsonObj.get("streetAddress").isJsonNull()) && !jsonObj.get("streetAddress").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `streetAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("streetAddress").toString()));
+      if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
       }
-      if ((jsonObj.get("streetAddressLine2") != null && !jsonObj.get("streetAddressLine2").isJsonNull()) && !jsonObj.get("streetAddressLine2").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `streetAddressLine2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("streetAddressLine2").toString()));
+      if ((jsonObj.get("address2") != null && !jsonObj.get("address2").isJsonNull()) && !jsonObj.get("address2").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `address2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address2").toString()));
       }
       if ((jsonObj.get("city") != null && !jsonObj.get("city").isJsonNull()) && !jsonObj.get("city").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
@@ -1195,6 +1313,10 @@ public class Form1099MiscRequest {
       }
       if ((jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonNull()) && !jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
+      }
+      // validate the optional field `stateAndLocalWithholding`
+      if (jsonObj.get("stateAndLocalWithholding") != null && !jsonObj.get("stateAndLocalWithholding").isJsonNull()) {
+        StateAndLocalWithholdingRequest.validateJsonElement(jsonObj.get("stateAndLocalWithholding"));
       }
   }
 

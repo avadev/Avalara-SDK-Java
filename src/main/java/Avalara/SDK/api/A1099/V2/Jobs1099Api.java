@@ -129,6 +129,10 @@ public class Jobs1099Api {
             localVarHeaderParams.put("X-Correlation-Id", localVarApiClient.parameterToString(requestParameters.getXCorrelationId()));
         }
 
+        if (requestParameters.getXAvalaraClient() != null) {
+            localVarHeaderParams.put("X-Avalara-Client", localVarApiClient.parameterToString(requestParameters.getXAvalaraClient()));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -159,11 +163,6 @@ public class Jobs1099Api {
         // verify the required parameter 'requestParameters.avalaraVersion' is set
         if (requestParameters.getAvalaraVersion() == null) {
             throw new ApiException("Missing the required parameter 'requestParameters.avalaraVersion' when calling getJob(Async)");
-        }
-        
-        // verify the required parameter 'requestParameters.xCorrelationId' is set
-        if (requestParameters.getXCorrelationId() == null) {
-            throw new ApiException("Missing the required parameter 'requestParameters.xCorrelationId' when calling getJob(Async)");
         }
         
 
@@ -244,12 +243,14 @@ public class Jobs1099Api {
     *
     * @param id Job id obtained from other API responses, like `/1099/bulk-upsert`.</param>
     * @param avalaraVersion API version</param>
-    * @param xCorrelationId Unique correlation Id in a GUID format</param>
+    * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
+    * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
     */
     public class GetJobRequest {
         private String id;
         private String avalaraVersion;
         private String xCorrelationId;
+        private String xAvalaraClient;
 
         public GetJobRequest () {
         }
@@ -260,6 +261,8 @@ public class Jobs1099Api {
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXCorrelationId() { return xCorrelationId; }
         public void setXCorrelationId(String xCorrelationId) { this.xCorrelationId = xCorrelationId; }
+        public String getXAvalaraClient() { return xAvalaraClient; }
+        public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
     }
 
     /**

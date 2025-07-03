@@ -128,6 +128,10 @@ public class Issuers1099Api {
             localVarHeaderParams.put("X-Correlation-Id", localVarApiClient.parameterToString(requestParameters.getXCorrelationId()));
         }
 
+        if (requestParameters.getXAvalaraClient() != null) {
+            localVarHeaderParams.put("X-Avalara-Client", localVarApiClient.parameterToString(requestParameters.getXAvalaraClient()));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -153,11 +157,6 @@ public class Issuers1099Api {
         // verify the required parameter 'requestParameters.avalaraVersion' is set
         if (requestParameters.getAvalaraVersion() == null) {
             throw new ApiException("Missing the required parameter 'requestParameters.avalaraVersion' when calling createIssuer(Async)");
-        }
-        
-        // verify the required parameter 'requestParameters.xCorrelationId' is set
-        if (requestParameters.getXCorrelationId() == null) {
-            throw new ApiException("Missing the required parameter 'requestParameters.xCorrelationId' when calling createIssuer(Async)");
         }
         
 
@@ -231,12 +230,14 @@ public class Issuers1099Api {
     * Represents the Request object for the CreateIssuer API
     *
     * @param avalaraVersion API version</param>
-    * @param xCorrelationId Unique correlation Id in a GUID format</param>
+    * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
+    * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
     * @param issuerCommand The issuer to create (optional)</param>
     */
     public class CreateIssuerRequest {
         private String avalaraVersion;
         private String xCorrelationId;
+        private String xAvalaraClient;
         private IssuerCommand issuerCommand;
 
         public CreateIssuerRequest () {
@@ -246,6 +247,8 @@ public class Issuers1099Api {
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXCorrelationId() { return xCorrelationId; }
         public void setXCorrelationId(String xCorrelationId) { this.xCorrelationId = xCorrelationId; }
+        public String getXAvalaraClient() { return xAvalaraClient; }
+        public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
         public IssuerCommand getIssuerCommand() { return issuerCommand; }
         public void setIssuerCommand(IssuerCommand issuerCommand) { this.issuerCommand = issuerCommand; }
     }
@@ -310,6 +313,10 @@ public class Issuers1099Api {
             localVarHeaderParams.put("X-Correlation-Id", localVarApiClient.parameterToString(requestParameters.getXCorrelationId()));
         }
 
+        if (requestParameters.getXAvalaraClient() != null) {
+            localVarHeaderParams.put("X-Avalara-Client", localVarApiClient.parameterToString(requestParameters.getXAvalaraClient()));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -340,11 +347,6 @@ public class Issuers1099Api {
         // verify the required parameter 'requestParameters.avalaraVersion' is set
         if (requestParameters.getAvalaraVersion() == null) {
             throw new ApiException("Missing the required parameter 'requestParameters.avalaraVersion' when calling deleteIssuer(Async)");
-        }
-        
-        // verify the required parameter 'requestParameters.xCorrelationId' is set
-        if (requestParameters.getXCorrelationId() == null) {
-            throw new ApiException("Missing the required parameter 'requestParameters.xCorrelationId' when calling deleteIssuer(Async)");
         }
         
 
@@ -415,12 +417,14 @@ public class Issuers1099Api {
     *
     * @param id Id of the issuer to delete</param>
     * @param avalaraVersion API version</param>
-    * @param xCorrelationId Unique correlation Id in a GUID format</param>
+    * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
+    * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
     */
     public class DeleteIssuerRequest {
         private String id;
         private String avalaraVersion;
         private String xCorrelationId;
+        private String xAvalaraClient;
 
         public DeleteIssuerRequest () {
         }
@@ -431,6 +435,8 @@ public class Issuers1099Api {
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXCorrelationId() { return xCorrelationId; }
         public void setXCorrelationId(String xCorrelationId) { this.xCorrelationId = xCorrelationId; }
+        public String getXAvalaraClient() { return xAvalaraClient; }
+        public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
     }
 
     /**
@@ -493,6 +499,10 @@ public class Issuers1099Api {
             localVarHeaderParams.put("X-Correlation-Id", localVarApiClient.parameterToString(requestParameters.getXCorrelationId()));
         }
 
+        if (requestParameters.getXAvalaraClient() != null) {
+            localVarHeaderParams.put("X-Avalara-Client", localVarApiClient.parameterToString(requestParameters.getXAvalaraClient()));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -523,11 +533,6 @@ public class Issuers1099Api {
         // verify the required parameter 'requestParameters.avalaraVersion' is set
         if (requestParameters.getAvalaraVersion() == null) {
             throw new ApiException("Missing the required parameter 'requestParameters.avalaraVersion' when calling getIssuer(Async)");
-        }
-        
-        // verify the required parameter 'requestParameters.xCorrelationId' is set
-        if (requestParameters.getXCorrelationId() == null) {
-            throw new ApiException("Missing the required parameter 'requestParameters.xCorrelationId' when calling getIssuer(Async)");
         }
         
 
@@ -602,12 +607,14 @@ public class Issuers1099Api {
     *
     * @param id </param>
     * @param avalaraVersion API version</param>
-    * @param xCorrelationId Unique correlation Id in a GUID format</param>
+    * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
+    * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
     */
     public class GetIssuerRequest {
         private String id;
         private String avalaraVersion;
         private String xCorrelationId;
+        private String xAvalaraClient;
 
         public GetIssuerRequest () {
         }
@@ -618,6 +625,8 @@ public class Issuers1099Api {
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXCorrelationId() { return xCorrelationId; }
         public void setXCorrelationId(String xCorrelationId) { this.xCorrelationId = xCorrelationId; }
+        public String getXAvalaraClient() { return xAvalaraClient; }
+        public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
     }
 
     /**
@@ -705,6 +714,10 @@ public class Issuers1099Api {
             localVarHeaderParams.put("X-Correlation-Id", localVarApiClient.parameterToString(requestParameters.getXCorrelationId()));
         }
 
+        if (requestParameters.getXAvalaraClient() != null) {
+            localVarHeaderParams.put("X-Avalara-Client", localVarApiClient.parameterToString(requestParameters.getXAvalaraClient()));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -730,11 +743,6 @@ public class Issuers1099Api {
         // verify the required parameter 'requestParameters.avalaraVersion' is set
         if (requestParameters.getAvalaraVersion() == null) {
             throw new ApiException("Missing the required parameter 'requestParameters.avalaraVersion' when calling getIssuers(Async)");
-        }
-        
-        // verify the required parameter 'requestParameters.xCorrelationId' is set
-        if (requestParameters.getXCorrelationId() == null) {
-            throw new ApiException("Missing the required parameter 'requestParameters.xCorrelationId' when calling getIssuers(Async)");
         }
         
 
@@ -814,31 +822,31 @@ public class Issuers1099Api {
     * Represents the Request object for the GetIssuers API
     *
     * @param avalaraVersion API version</param>
-    * @param xCorrelationId Unique correlation Id in a GUID format</param>
     * @param $filter A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>. (optional)</param>
     * @param $top If zero or greater than 1000, return at most 1000 results.  Otherwise, return this number of results.  Used with skip to provide pagination for large datasets. (optional)</param>
     * @param $skip If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional)</param>
     * @param $orderBy A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC. (optional)</param>
     * @param count If true, return the global count of elements in the collection. (optional)</param>
     * @param countOnly If true, return ONLY the global count of elements in the collection.  It only applies when count=true. (optional)</param>
+    * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
+    * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
     */
     public class GetIssuersRequest {
         private String avalaraVersion;
-        private String xCorrelationId;
         private String $filter;
         private Integer $top;
         private Integer $skip;
         private String $orderBy;
         private Boolean count;
         private Boolean countOnly;
+        private String xCorrelationId;
+        private String xAvalaraClient;
 
         public GetIssuersRequest () {
         }
 
         public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "2.0"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
-        public String getXCorrelationId() { return xCorrelationId; }
-        public void setXCorrelationId(String xCorrelationId) { this.xCorrelationId = xCorrelationId; }
         public String get$filter() { return $filter; }
         public void set$filter(String $filter) { this.$filter = $filter; }
         public Integer get$top() { return $top; }
@@ -851,6 +859,10 @@ public class Issuers1099Api {
         public void setCount(Boolean count) { this.count = count; }
         public Boolean getCountOnly() { return countOnly; }
         public void setCountOnly(Boolean countOnly) { this.countOnly = countOnly; }
+        public String getXCorrelationId() { return xCorrelationId; }
+        public void setXCorrelationId(String xCorrelationId) { this.xCorrelationId = xCorrelationId; }
+        public String getXAvalaraClient() { return xAvalaraClient; }
+        public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
     }
 
     /**
@@ -914,6 +926,10 @@ public class Issuers1099Api {
             localVarHeaderParams.put("X-Correlation-Id", localVarApiClient.parameterToString(requestParameters.getXCorrelationId()));
         }
 
+        if (requestParameters.getXAvalaraClient() != null) {
+            localVarHeaderParams.put("X-Avalara-Client", localVarApiClient.parameterToString(requestParameters.getXAvalaraClient()));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -944,11 +960,6 @@ public class Issuers1099Api {
         // verify the required parameter 'requestParameters.avalaraVersion' is set
         if (requestParameters.getAvalaraVersion() == null) {
             throw new ApiException("Missing the required parameter 'requestParameters.avalaraVersion' when calling updateIssuer(Async)");
-        }
-        
-        // verify the required parameter 'requestParameters.xCorrelationId' is set
-        if (requestParameters.getXCorrelationId() == null) {
-            throw new ApiException("Missing the required parameter 'requestParameters.xCorrelationId' when calling updateIssuer(Async)");
         }
         
 
@@ -1022,13 +1033,15 @@ public class Issuers1099Api {
     *
     * @param id Id of the issuer to Update</param>
     * @param avalaraVersion API version</param>
-    * @param xCorrelationId Unique correlation Id in a GUID format</param>
+    * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
+    * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
     * @param issuerCommand The issuer to update (optional)</param>
     */
     public class UpdateIssuerRequest {
         private String id;
         private String avalaraVersion;
         private String xCorrelationId;
+        private String xAvalaraClient;
         private IssuerCommand issuerCommand;
 
         public UpdateIssuerRequest () {
@@ -1040,6 +1053,8 @@ public class Issuers1099Api {
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXCorrelationId() { return xCorrelationId; }
         public void setXCorrelationId(String xCorrelationId) { this.xCorrelationId = xCorrelationId; }
+        public String getXAvalaraClient() { return xAvalaraClient; }
+        public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
         public IssuerCommand getIssuerCommand() { return issuerCommand; }
         public void setIssuerCommand(IssuerCommand issuerCommand) { this.issuerCommand = issuerCommand; }
     }

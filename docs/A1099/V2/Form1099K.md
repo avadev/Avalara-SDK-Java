@@ -50,7 +50,7 @@
 |**recipientName** | **String** |  |  [optional] |
 |**recipientSecondName** | **String** |  |  [optional] |
 |**address** | **String** |  |  [optional] |
-|**addressRecipientSecond** | **String** |  |  [optional] |
+|**address2** | **String** |  |  [optional] |
 |**city** | **String** |  |  [optional] |
 |**state** | **String** |  |  [optional] |
 |**zip** | **String** |  |  [optional] |

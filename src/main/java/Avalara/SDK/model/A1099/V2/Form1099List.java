@@ -20,7 +20,7 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
-import Avalara.SDK.model.A1099.V2.Form1099ListDataInner;
+import Avalara.SDK.model.A1099.V2.Get1099Form200Response;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -63,17 +63,17 @@ import Avalara.SDK.JSON;
 public class Form1099List {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private List<Form1099ListDataInner> data;
+  private List<Get1099Form200Response> data;
 
   public Form1099List() {
   }
 
-  public Form1099List data(List<Form1099ListDataInner> data) {
+  public Form1099List data(List<Get1099Form200Response> data) {
     this.data = data;
     return this;
   }
 
-  public Form1099List addDataItem(Form1099ListDataInner dataItem) {
+  public Form1099List addDataItem(Get1099Form200Response dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -86,11 +86,11 @@ public class Form1099List {
    * @return data
    */
   @javax.annotation.Nullable
-  public List<Form1099ListDataInner> getData() {
+  public List<Get1099Form200Response> getData() {
     return data;
   }
 
-  public void setData(List<Form1099ListDataInner> data) {
+  public void setData(List<Get1099Form200Response> data) {
     this.data = data;
   }
 
@@ -188,7 +188,7 @@ public class Form1099List {
 
           // validate the optional field `data` (array)
           for (int i = 0; i < jsonArraydata.size(); i++) {
-            Form1099ListDataInner.validateJsonElement(jsonArraydata.get(i));
+            Get1099Form200Response.validateJsonElement(jsonArraydata.get(i));
           };
         }
       }

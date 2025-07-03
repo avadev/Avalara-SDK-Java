@@ -20,7 +20,7 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
-import Avalara.SDK.model.A1099.V2.StateAndLocalWithholding;
+import Avalara.SDK.model.A1099.V2.StateAndLocalWithholdingRequest;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -75,21 +75,77 @@ public class FormRequestBase {
   @SerializedName(SERIALIZED_NAME_RECIPIENT_TIN)
   private String recipientTin;
 
+  /**
+   * Gets or Sets tinType
+   */
+  @JsonAdapter(TinTypeEnum.Adapter.class)
+  public enum TinTypeEnum {
+    EIN("EIN"),
+    
+    SSN("SSN"),
+    
+    ITIN("ITIN"),
+    
+    ATIN("ATIN");
+
+    private String value;
+
+    TinTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TinTypeEnum fromValue(String value) {
+      for (TinTypeEnum b : TinTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TinTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TinTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TinTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TinTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      TinTypeEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_TIN_TYPE = "tinType";
   @SerializedName(SERIALIZED_NAME_TIN_TYPE)
-  private String tinType;
+  private TinTypeEnum tinType;
 
   public static final String SERIALIZED_NAME_RECIPIENT_SECOND_NAME = "recipientSecondName";
   @SerializedName(SERIALIZED_NAME_RECIPIENT_SECOND_NAME)
   private String recipientSecondName;
 
-  public static final String SERIALIZED_NAME_STREET_ADDRESS = "streetAddress";
-  @SerializedName(SERIALIZED_NAME_STREET_ADDRESS)
-  private String streetAddress;
+  public static final String SERIALIZED_NAME_ADDRESS = "address";
+  @SerializedName(SERIALIZED_NAME_ADDRESS)
+  private String address;
 
-  public static final String SERIALIZED_NAME_STREET_ADDRESS_LINE2 = "streetAddressLine2";
-  @SerializedName(SERIALIZED_NAME_STREET_ADDRESS_LINE2)
-  private String streetAddressLine2;
+  public static final String SERIALIZED_NAME_ADDRESS2 = "address2";
+  @SerializedName(SERIALIZED_NAME_ADDRESS2)
+  private String address2;
 
   public static final String SERIALIZED_NAME_CITY = "city";
   @SerializedName(SERIALIZED_NAME_CITY)
@@ -145,7 +201,7 @@ public class FormRequestBase {
 
   public static final String SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING = "stateAndLocalWithholding";
   @SerializedName(SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING)
-  private StateAndLocalWithholding stateAndLocalWithholding;
+  private StateAndLocalWithholdingRequest stateAndLocalWithholding;
 
   public FormRequestBase() {
   }
@@ -226,7 +282,7 @@ public class FormRequestBase {
   }
 
 
-  public FormRequestBase tinType(String tinType) {
+  public FormRequestBase tinType(TinTypeEnum tinType) {
     this.tinType = tinType;
     return this;
   }
@@ -236,11 +292,11 @@ public class FormRequestBase {
    * @return tinType
    */
   @javax.annotation.Nullable
-  public String getTinType() {
+  public TinTypeEnum getTinType() {
     return tinType;
   }
 
-  public void setTinType(String tinType) {
+  public void setTinType(TinTypeEnum tinType) {
     this.tinType = tinType;
   }
 
@@ -264,41 +320,41 @@ public class FormRequestBase {
   }
 
 
-  public FormRequestBase streetAddress(String streetAddress) {
-    this.streetAddress = streetAddress;
+  public FormRequestBase address(String address) {
+    this.address = address;
     return this;
   }
 
   /**
-   * Get streetAddress
-   * @return streetAddress
+   * Get address
+   * @return address
    */
   @javax.annotation.Nullable
-  public String getStreetAddress() {
-    return streetAddress;
+  public String getAddress() {
+    return address;
   }
 
-  public void setStreetAddress(String streetAddress) {
-    this.streetAddress = streetAddress;
+  public void setAddress(String address) {
+    this.address = address;
   }
 
 
-  public FormRequestBase streetAddressLine2(String streetAddressLine2) {
-    this.streetAddressLine2 = streetAddressLine2;
+  public FormRequestBase address2(String address2) {
+    this.address2 = address2;
     return this;
   }
 
   /**
-   * Get streetAddressLine2
-   * @return streetAddressLine2
+   * Get address2
+   * @return address2
    */
   @javax.annotation.Nullable
-  public String getStreetAddressLine2() {
-    return streetAddressLine2;
+  public String getAddress2() {
+    return address2;
   }
 
-  public void setStreetAddressLine2(String streetAddressLine2) {
-    this.streetAddressLine2 = streetAddressLine2;
+  public void setAddress2(String address2) {
+    this.address2 = address2;
   }
 
 
@@ -549,7 +605,7 @@ public class FormRequestBase {
   }
 
 
-  public FormRequestBase stateAndLocalWithholding(StateAndLocalWithholding stateAndLocalWithholding) {
+  public FormRequestBase stateAndLocalWithholding(StateAndLocalWithholdingRequest stateAndLocalWithholding) {
     this.stateAndLocalWithholding = stateAndLocalWithholding;
     return this;
   }
@@ -559,11 +615,11 @@ public class FormRequestBase {
    * @return stateAndLocalWithholding
    */
   @javax.annotation.Nullable
-  public StateAndLocalWithholding getStateAndLocalWithholding() {
+  public StateAndLocalWithholdingRequest getStateAndLocalWithholding() {
     return stateAndLocalWithholding;
   }
 
-  public void setStateAndLocalWithholding(StateAndLocalWithholding stateAndLocalWithholding) {
+  public void setStateAndLocalWithholding(StateAndLocalWithholdingRequest stateAndLocalWithholding) {
     this.stateAndLocalWithholding = stateAndLocalWithholding;
   }
 
@@ -584,8 +640,8 @@ public class FormRequestBase {
         Objects.equals(this.recipientTin, formRequestBase.recipientTin) &&
         Objects.equals(this.tinType, formRequestBase.tinType) &&
         Objects.equals(this.recipientSecondName, formRequestBase.recipientSecondName) &&
-        Objects.equals(this.streetAddress, formRequestBase.streetAddress) &&
-        Objects.equals(this.streetAddressLine2, formRequestBase.streetAddressLine2) &&
+        Objects.equals(this.address, formRequestBase.address) &&
+        Objects.equals(this.address2, formRequestBase.address2) &&
         Objects.equals(this.city, formRequestBase.city) &&
         Objects.equals(this.state, formRequestBase.state) &&
         Objects.equals(this.zip, formRequestBase.zip) &&
@@ -608,7 +664,7 @@ public class FormRequestBase {
 
   @Override
   public int hashCode() {
-    return Objects.hash(issuerId, referenceId, recipientName, recipientTin, tinType, recipientSecondName, streetAddress, streetAddressLine2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification, stateAndLocalWithholding);
+    return Objects.hash(issuerId, referenceId, recipientName, recipientTin, tinType, recipientSecondName, address, address2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification, stateAndLocalWithholding);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -628,8 +684,8 @@ public class FormRequestBase {
     sb.append("    recipientTin: ").append(toIndentedString(recipientTin)).append("\n");
     sb.append("    tinType: ").append(toIndentedString(tinType)).append("\n");
     sb.append("    recipientSecondName: ").append(toIndentedString(recipientSecondName)).append("\n");
-    sb.append("    streetAddress: ").append(toIndentedString(streetAddress)).append("\n");
-    sb.append("    streetAddressLine2: ").append(toIndentedString(streetAddressLine2)).append("\n");
+    sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    address2: ").append(toIndentedString(address2)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    zip: ").append(toIndentedString(zip)).append("\n");
@@ -672,8 +728,8 @@ public class FormRequestBase {
     openapiFields.add("recipientTin");
     openapiFields.add("tinType");
     openapiFields.add("recipientSecondName");
-    openapiFields.add("streetAddress");
-    openapiFields.add("streetAddressLine2");
+    openapiFields.add("address");
+    openapiFields.add("address2");
     openapiFields.add("city");
     openapiFields.add("state");
     openapiFields.add("zip");
@@ -729,14 +785,18 @@ public class FormRequestBase {
       if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tinType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tinType").toString()));
       }
+      // validate the optional field `tinType`
+      if (jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) {
+        TinTypeEnum.validateJsonElement(jsonObj.get("tinType"));
+      }
       if ((jsonObj.get("recipientSecondName") != null && !jsonObj.get("recipientSecondName").isJsonNull()) && !jsonObj.get("recipientSecondName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientSecondName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientSecondName").toString()));
       }
-      if ((jsonObj.get("streetAddress") != null && !jsonObj.get("streetAddress").isJsonNull()) && !jsonObj.get("streetAddress").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `streetAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("streetAddress").toString()));
+      if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
       }
-      if ((jsonObj.get("streetAddressLine2") != null && !jsonObj.get("streetAddressLine2").isJsonNull()) && !jsonObj.get("streetAddressLine2").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `streetAddressLine2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("streetAddressLine2").toString()));
+      if ((jsonObj.get("address2") != null && !jsonObj.get("address2").isJsonNull()) && !jsonObj.get("address2").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `address2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address2").toString()));
       }
       if ((jsonObj.get("city") != null && !jsonObj.get("city").isJsonNull()) && !jsonObj.get("city").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
@@ -764,7 +824,7 @@ public class FormRequestBase {
       }
       // validate the optional field `stateAndLocalWithholding`
       if (jsonObj.get("stateAndLocalWithholding") != null && !jsonObj.get("stateAndLocalWithholding").isJsonNull()) {
-        StateAndLocalWithholding.validateJsonElement(jsonObj.get("stateAndLocalWithholding"));
+        StateAndLocalWithholdingRequest.validateJsonElement(jsonObj.get("stateAndLocalWithholding"));
       }
   }
 
