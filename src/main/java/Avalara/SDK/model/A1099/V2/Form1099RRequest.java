@@ -20,6 +20,7 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
+import Avalara.SDK.model.A1099.V2.StateAndLocalWithholding;
 import Avalara.SDK.model.A1099.V2.StateAndLocalWithholdingRequest;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -29,6 +30,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -151,18 +153,6 @@ public class Form1099RRequest {
   @SerializedName(SERIALIZED_NAME_ISSUER_ID)
   private String issuerId;
 
-  public static final String SERIALIZED_NAME_ISSUER_REFERENCE_ID = "issuerReferenceId";
-  @SerializedName(SERIALIZED_NAME_ISSUER_REFERENCE_ID)
-  private String issuerReferenceId;
-
-  public static final String SERIALIZED_NAME_ISSUER_TIN = "issuerTin";
-  @SerializedName(SERIALIZED_NAME_ISSUER_TIN)
-  private String issuerTin;
-
-  public static final String SERIALIZED_NAME_TAX_YEAR = "taxYear";
-  @SerializedName(SERIALIZED_NAME_TAX_YEAR)
-  private Integer taxYear;
-
   public static final String SERIALIZED_NAME_REFERENCE_ID = "referenceId";
   @SerializedName(SERIALIZED_NAME_REFERENCE_ID)
   private String referenceId;
@@ -177,7 +167,7 @@ public class Form1099RRequest {
 
   public static final String SERIALIZED_NAME_TIN_TYPE = "tinType";
   @SerializedName(SERIALIZED_NAME_TIN_TYPE)
-  private Integer tinType;
+  private String tinType;
 
   public static final String SERIALIZED_NAME_RECIPIENT_SECOND_NAME = "recipientSecondName";
   @SerializedName(SERIALIZED_NAME_RECIPIENT_SECOND_NAME)
@@ -683,63 +673,6 @@ public class Form1099RRequest {
   }
 
 
-  public Form1099RRequest issuerReferenceId(String issuerReferenceId) {
-    this.issuerReferenceId = issuerReferenceId;
-    return this;
-  }
-
-  /**
-   * Get issuerReferenceId
-   * @return issuerReferenceId
-   */
-  @javax.annotation.Nullable
-  public String getIssuerReferenceId() {
-    return issuerReferenceId;
-  }
-
-  public void setIssuerReferenceId(String issuerReferenceId) {
-    this.issuerReferenceId = issuerReferenceId;
-  }
-
-
-  public Form1099RRequest issuerTin(String issuerTin) {
-    this.issuerTin = issuerTin;
-    return this;
-  }
-
-  /**
-   * Get issuerTin
-   * @return issuerTin
-   */
-  @javax.annotation.Nullable
-  public String getIssuerTin() {
-    return issuerTin;
-  }
-
-  public void setIssuerTin(String issuerTin) {
-    this.issuerTin = issuerTin;
-  }
-
-
-  public Form1099RRequest taxYear(Integer taxYear) {
-    this.taxYear = taxYear;
-    return this;
-  }
-
-  /**
-   * Get taxYear
-   * @return taxYear
-   */
-  @javax.annotation.Nullable
-  public Integer getTaxYear() {
-    return taxYear;
-  }
-
-  public void setTaxYear(Integer taxYear) {
-    this.taxYear = taxYear;
-  }
-
-
   public Form1099RRequest referenceId(String referenceId) {
     this.referenceId = referenceId;
     return this;
@@ -797,7 +730,7 @@ public class Form1099RRequest {
   }
 
 
-  public Form1099RRequest tinType(Integer tinType) {
+  public Form1099RRequest tinType(String tinType) {
     this.tinType = tinType;
     return this;
   }
@@ -807,11 +740,11 @@ public class Form1099RRequest {
    * @return tinType
    */
   @javax.annotation.Nullable
-  public Integer getTinType() {
+  public String getTinType() {
     return tinType;
   }
 
-  public void setTinType(Integer tinType) {
+  public void setTinType(String tinType) {
     this.tinType = tinType;
   }
 
@@ -1153,9 +1086,6 @@ public class Form1099RRequest {
         Objects.equals(this.dateOfPayment, form1099RRequest.dateOfPayment) &&
         Objects.equals(this.type, form1099RRequest.type) &&
         Objects.equals(this.issuerId, form1099RRequest.issuerId) &&
-        Objects.equals(this.issuerReferenceId, form1099RRequest.issuerReferenceId) &&
-        Objects.equals(this.issuerTin, form1099RRequest.issuerTin) &&
-        Objects.equals(this.taxYear, form1099RRequest.taxYear) &&
         Objects.equals(this.referenceId, form1099RRequest.referenceId) &&
         Objects.equals(this.recipientName, form1099RRequest.recipientName) &&
         Objects.equals(this.recipientTin, form1099RRequest.recipientTin) &&
@@ -1178,9 +1108,20 @@ public class Form1099RRequest {
         Objects.equals(this.addressVerification, form1099RRequest.addressVerification);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(stateAndLocalWithholding, grossDistribution, taxableAmount, taxableAmountNotDetermined, totalDistributionDetermined, capitalGain, federalIncomeTaxWithheld, employeeContributionsOrDesignatedRothOrInsurancePremiums, netUnrealizedAppreciationInEmployerSecurities, distributionCode, secondDistributionCode, iraSepSimple, traditionalIraSepSimpleOrRothConversionAmount, otherAmount, otherPercentage, totalDistributionPercentage, totalEmployeeContributions, amountAllocableToIrrWithin5Years, firstYearOfDesignatedRothContribution, fatcaFilingRequirement, dateOfPayment, type, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, recipientName, recipientTin, tinType, recipientSecondName, streetAddress, streetAddressLine2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification);
+    return Objects.hash(stateAndLocalWithholding, grossDistribution, taxableAmount, taxableAmountNotDetermined, totalDistributionDetermined, capitalGain, federalIncomeTaxWithheld, employeeContributionsOrDesignatedRothOrInsurancePremiums, netUnrealizedAppreciationInEmployerSecurities, distributionCode, secondDistributionCode, iraSepSimple, traditionalIraSepSimpleOrRothConversionAmount, otherAmount, otherPercentage, totalDistributionPercentage, totalEmployeeContributions, amountAllocableToIrrWithin5Years, firstYearOfDesignatedRothContribution, fatcaFilingRequirement, dateOfPayment, type, issuerId, referenceId, recipientName, recipientTin, tinType, recipientSecondName, streetAddress, streetAddressLine2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -1210,9 +1151,6 @@ public class Form1099RRequest {
     sb.append("    dateOfPayment: ").append(toIndentedString(dateOfPayment)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    issuerId: ").append(toIndentedString(issuerId)).append("\n");
-    sb.append("    issuerReferenceId: ").append(toIndentedString(issuerReferenceId)).append("\n");
-    sb.append("    issuerTin: ").append(toIndentedString(issuerTin)).append("\n");
-    sb.append("    taxYear: ").append(toIndentedString(taxYear)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    recipientName: ").append(toIndentedString(recipientName)).append("\n");
     sb.append("    recipientTin: ").append(toIndentedString(recipientTin)).append("\n");
@@ -1257,9 +1195,6 @@ public class Form1099RRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("type");
     openapiFields.add("issuerId");
-    openapiFields.add("issuerReferenceId");
-    openapiFields.add("issuerTin");
-    openapiFields.add("taxYear");
     openapiFields.add("referenceId");
     openapiFields.add("recipientName");
     openapiFields.add("recipientTin");
@@ -1280,6 +1215,7 @@ public class Form1099RRequest {
     openapiFields.add("stateEFile");
     openapiFields.add("tinMatch");
     openapiFields.add("addressVerification");
+    openapiFields.add("stateAndLocalWithholding");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1331,12 +1267,6 @@ public class Form1099RRequest {
       if ((jsonObj.get("issuerId") != null && !jsonObj.get("issuerId").isJsonNull()) && !jsonObj.get("issuerId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `issuerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerId").toString()));
       }
-      if ((jsonObj.get("issuerReferenceId") != null && !jsonObj.get("issuerReferenceId").isJsonNull()) && !jsonObj.get("issuerReferenceId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `issuerReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerReferenceId").toString()));
-      }
-      if ((jsonObj.get("issuerTin") != null && !jsonObj.get("issuerTin").isJsonNull()) && !jsonObj.get("issuerTin").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `issuerTin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerTin").toString()));
-      }
       if ((jsonObj.get("referenceId") != null && !jsonObj.get("referenceId").isJsonNull()) && !jsonObj.get("referenceId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `referenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referenceId").toString()));
       }
@@ -1345,6 +1275,9 @@ public class Form1099RRequest {
       }
       if ((jsonObj.get("recipientTin") != null && !jsonObj.get("recipientTin").isJsonNull()) && !jsonObj.get("recipientTin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientTin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientTin").toString()));
+      }
+      if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tinType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tinType").toString()));
       }
       if ((jsonObj.get("recipientSecondName") != null && !jsonObj.get("recipientSecondName").isJsonNull()) && !jsonObj.get("recipientSecondName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientSecondName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientSecondName").toString()));

@@ -8,13 +8,10 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**issuerId** | **String** |  |  [optional] |
-|**issuerReferenceId** | **String** |  |  [optional] |
-|**issuerTin** | **String** |  |  [optional] |
-|**taxYear** | **Integer** |  |  [optional] |
 |**referenceId** | **String** |  |  [optional] |
 |**recipientName** | **String** |  |  [optional] |
 |**recipientTin** | **String** |  |  [optional] |
-|**tinType** | **Integer** |  |  [optional] |
+|**tinType** | **String** |  |  [optional] |
 |**recipientSecondName** | **String** |  |  [optional] |
 |**streetAddress** | **String** |  |  [optional] |
 |**streetAddressLine2** | **String** |  |  [optional] |
@@ -31,6 +28,7 @@
 |**stateEFile** | **Boolean** |  |  [optional] |
 |**tinMatch** | **Boolean** |  |  [optional] |
 |**addressVerification** | **Boolean** |  |  [optional] |
+|**stateAndLocalWithholding** | [**StateAndLocalWithholding**](StateAndLocalWithholding.md) |  |  [optional] |
 
 
 

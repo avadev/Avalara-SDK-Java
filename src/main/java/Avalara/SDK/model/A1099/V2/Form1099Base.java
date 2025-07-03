@@ -137,21 +137,21 @@ public class Form1099Base {
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
 
-  public static final String SERIALIZED_NAME_TYPE_OF_TIN = "typeOfTin";
-  @SerializedName(SERIALIZED_NAME_TYPE_OF_TIN)
-  private String typeOfTin;
+  public static final String SERIALIZED_NAME_TIN_TYPE = "tinType";
+  @SerializedName(SERIALIZED_NAME_TIN_TYPE)
+  private String tinType;
 
   public static final String SERIALIZED_NAME_TIN = "tin";
   @SerializedName(SERIALIZED_NAME_TIN)
   private String tin;
 
-  public static final String SERIALIZED_NAME_FIRST_PAYEE_NAME = "firstPayeeName";
-  @SerializedName(SERIALIZED_NAME_FIRST_PAYEE_NAME)
-  private String firstPayeeName;
+  public static final String SERIALIZED_NAME_RECIPIENT_NAME = "recipientName";
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_NAME)
+  private String recipientName;
 
-  public static final String SERIALIZED_NAME_SECOND_PAYEE_NAME = "secondPayeeName";
-  @SerializedName(SERIALIZED_NAME_SECOND_PAYEE_NAME)
-  private String secondPayeeName;
+  public static final String SERIALIZED_NAME_RECIPIENT_SECOND_NAME = "recipientSecondName";
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_SECOND_NAME)
+  private String recipientSecondName;
 
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
@@ -550,22 +550,22 @@ public class Form1099Base {
   }
 
 
-  public Form1099Base typeOfTin(String typeOfTin) {
-    this.typeOfTin = typeOfTin;
+  public Form1099Base tinType(String tinType) {
+    this.tinType = tinType;
     return this;
   }
 
   /**
-   * Get typeOfTin
-   * @return typeOfTin
+   * Get tinType
+   * @return tinType
    */
   @javax.annotation.Nullable
-  public String getTypeOfTin() {
-    return typeOfTin;
+  public String getTinType() {
+    return tinType;
   }
 
-  public void setTypeOfTin(String typeOfTin) {
-    this.typeOfTin = typeOfTin;
+  public void setTinType(String tinType) {
+    this.tinType = tinType;
   }
 
 
@@ -588,41 +588,41 @@ public class Form1099Base {
   }
 
 
-  public Form1099Base firstPayeeName(String firstPayeeName) {
-    this.firstPayeeName = firstPayeeName;
+  public Form1099Base recipientName(String recipientName) {
+    this.recipientName = recipientName;
     return this;
   }
 
   /**
-   * Get firstPayeeName
-   * @return firstPayeeName
+   * Get recipientName
+   * @return recipientName
    */
   @javax.annotation.Nullable
-  public String getFirstPayeeName() {
-    return firstPayeeName;
+  public String getRecipientName() {
+    return recipientName;
   }
 
-  public void setFirstPayeeName(String firstPayeeName) {
-    this.firstPayeeName = firstPayeeName;
+  public void setRecipientName(String recipientName) {
+    this.recipientName = recipientName;
   }
 
 
-  public Form1099Base secondPayeeName(String secondPayeeName) {
-    this.secondPayeeName = secondPayeeName;
+  public Form1099Base recipientSecondName(String recipientSecondName) {
+    this.recipientSecondName = recipientSecondName;
     return this;
   }
 
   /**
-   * Get secondPayeeName
-   * @return secondPayeeName
+   * Get recipientSecondName
+   * @return recipientSecondName
    */
   @javax.annotation.Nullable
-  public String getSecondPayeeName() {
-    return secondPayeeName;
+  public String getRecipientSecondName() {
+    return recipientSecondName;
   }
 
-  public void setSecondPayeeName(String secondPayeeName) {
-    this.secondPayeeName = secondPayeeName;
+  public void setRecipientSecondName(String recipientSecondName) {
+    this.recipientSecondName = recipientSecondName;
   }
 
 
@@ -871,10 +871,10 @@ public class Form1099Base {
         Objects.equals(this.addressVerificationStatus, form1099Base.addressVerificationStatus) &&
         Objects.equals(this.referenceId, form1099Base.referenceId) &&
         Objects.equals(this.email, form1099Base.email) &&
-        Objects.equals(this.typeOfTin, form1099Base.typeOfTin) &&
+        Objects.equals(this.tinType, form1099Base.tinType) &&
         Objects.equals(this.tin, form1099Base.tin) &&
-        Objects.equals(this.firstPayeeName, form1099Base.firstPayeeName) &&
-        Objects.equals(this.secondPayeeName, form1099Base.secondPayeeName) &&
+        Objects.equals(this.recipientName, form1099Base.recipientName) &&
+        Objects.equals(this.recipientSecondName, form1099Base.recipientSecondName) &&
         Objects.equals(this.address, form1099Base.address) &&
         Objects.equals(this.addressRecipientSecond, form1099Base.addressRecipientSecond) &&
         Objects.equals(this.city, form1099Base.city) &&
@@ -894,7 +894,7 @@ public class Form1099Base {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, issuerId, issuerReferenceId, issuerTin, taxYear, federalEfile, federalEfileStatus, stateEfile, stateEfileStatus, postalMail, postalMailStatus, tinMatch, tinMatchStatus, addressVerification, addressVerificationStatus, referenceId, email, typeOfTin, tin, firstPayeeName, secondPayeeName, address, addressRecipientSecond, city, state, zip, foreignProvince, countryCode, validationErrors, createdAt, updatedAt, stateAndLocalWithholding);
+    return Objects.hash(id, type, issuerId, issuerReferenceId, issuerTin, taxYear, federalEfile, federalEfileStatus, stateEfile, stateEfileStatus, postalMail, postalMailStatus, tinMatch, tinMatchStatus, addressVerification, addressVerificationStatus, referenceId, email, tinType, tin, recipientName, recipientSecondName, address, addressRecipientSecond, city, state, zip, foreignProvince, countryCode, validationErrors, createdAt, updatedAt, stateAndLocalWithholding);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -926,10 +926,10 @@ public class Form1099Base {
     sb.append("    addressVerificationStatus: ").append(toIndentedString(addressVerificationStatus)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    typeOfTin: ").append(toIndentedString(typeOfTin)).append("\n");
+    sb.append("    tinType: ").append(toIndentedString(tinType)).append("\n");
     sb.append("    tin: ").append(toIndentedString(tin)).append("\n");
-    sb.append("    firstPayeeName: ").append(toIndentedString(firstPayeeName)).append("\n");
-    sb.append("    secondPayeeName: ").append(toIndentedString(secondPayeeName)).append("\n");
+    sb.append("    recipientName: ").append(toIndentedString(recipientName)).append("\n");
+    sb.append("    recipientSecondName: ").append(toIndentedString(recipientSecondName)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    addressRecipientSecond: ").append(toIndentedString(addressRecipientSecond)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
@@ -981,10 +981,10 @@ public class Form1099Base {
     openapiFields.add("addressVerificationStatus");
     openapiFields.add("referenceId");
     openapiFields.add("email");
-    openapiFields.add("typeOfTin");
+    openapiFields.add("tinType");
     openapiFields.add("tin");
-    openapiFields.add("firstPayeeName");
-    openapiFields.add("secondPayeeName");
+    openapiFields.add("recipientName");
+    openapiFields.add("recipientSecondName");
     openapiFields.add("address");
     openapiFields.add("addressRecipientSecond");
     openapiFields.add("city");
@@ -1070,17 +1070,17 @@ public class Form1099Base {
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
-      if ((jsonObj.get("typeOfTin") != null && !jsonObj.get("typeOfTin").isJsonNull()) && !jsonObj.get("typeOfTin").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `typeOfTin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("typeOfTin").toString()));
+      if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tinType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tinType").toString()));
       }
       if ((jsonObj.get("tin") != null && !jsonObj.get("tin").isJsonNull()) && !jsonObj.get("tin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tin").toString()));
       }
-      if ((jsonObj.get("firstPayeeName") != null && !jsonObj.get("firstPayeeName").isJsonNull()) && !jsonObj.get("firstPayeeName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `firstPayeeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firstPayeeName").toString()));
+      if ((jsonObj.get("recipientName") != null && !jsonObj.get("recipientName").isJsonNull()) && !jsonObj.get("recipientName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `recipientName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientName").toString()));
       }
-      if ((jsonObj.get("secondPayeeName") != null && !jsonObj.get("secondPayeeName").isJsonNull()) && !jsonObj.get("secondPayeeName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `secondPayeeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secondPayeeName").toString()));
+      if ((jsonObj.get("recipientSecondName") != null && !jsonObj.get("recipientSecondName").isJsonNull()) && !jsonObj.get("recipientSecondName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `recipientSecondName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientSecondName").toString()));
       }
       if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));

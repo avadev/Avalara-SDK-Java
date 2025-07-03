@@ -151,18 +151,6 @@ public class Form1099KRequest {
   @SerializedName(SERIALIZED_NAME_ISSUER_ID)
   private String issuerId;
 
-  public static final String SERIALIZED_NAME_ISSUER_REFERENCE_ID = "issuerReferenceId";
-  @SerializedName(SERIALIZED_NAME_ISSUER_REFERENCE_ID)
-  private String issuerReferenceId;
-
-  public static final String SERIALIZED_NAME_ISSUER_TIN = "issuerTin";
-  @SerializedName(SERIALIZED_NAME_ISSUER_TIN)
-  private String issuerTin;
-
-  public static final String SERIALIZED_NAME_TAX_YEAR = "taxYear";
-  @SerializedName(SERIALIZED_NAME_TAX_YEAR)
-  private Integer taxYear;
-
   public static final String SERIALIZED_NAME_REFERENCE_ID = "referenceId";
   @SerializedName(SERIALIZED_NAME_REFERENCE_ID)
   private String referenceId;
@@ -177,7 +165,7 @@ public class Form1099KRequest {
 
   public static final String SERIALIZED_NAME_TIN_TYPE = "tinType";
   @SerializedName(SERIALIZED_NAME_TIN_TYPE)
-  private Integer tinType;
+  private String tinType;
 
   public static final String SERIALIZED_NAME_RECIPIENT_SECOND_NAME = "recipientSecondName";
   @SerializedName(SERIALIZED_NAME_RECIPIENT_SECOND_NAME)
@@ -683,63 +671,6 @@ public class Form1099KRequest {
   }
 
 
-  public Form1099KRequest issuerReferenceId(String issuerReferenceId) {
-    this.issuerReferenceId = issuerReferenceId;
-    return this;
-  }
-
-  /**
-   * Get issuerReferenceId
-   * @return issuerReferenceId
-   */
-  @javax.annotation.Nullable
-  public String getIssuerReferenceId() {
-    return issuerReferenceId;
-  }
-
-  public void setIssuerReferenceId(String issuerReferenceId) {
-    this.issuerReferenceId = issuerReferenceId;
-  }
-
-
-  public Form1099KRequest issuerTin(String issuerTin) {
-    this.issuerTin = issuerTin;
-    return this;
-  }
-
-  /**
-   * Get issuerTin
-   * @return issuerTin
-   */
-  @javax.annotation.Nullable
-  public String getIssuerTin() {
-    return issuerTin;
-  }
-
-  public void setIssuerTin(String issuerTin) {
-    this.issuerTin = issuerTin;
-  }
-
-
-  public Form1099KRequest taxYear(Integer taxYear) {
-    this.taxYear = taxYear;
-    return this;
-  }
-
-  /**
-   * Get taxYear
-   * @return taxYear
-   */
-  @javax.annotation.Nullable
-  public Integer getTaxYear() {
-    return taxYear;
-  }
-
-  public void setTaxYear(Integer taxYear) {
-    this.taxYear = taxYear;
-  }
-
-
   public Form1099KRequest referenceId(String referenceId) {
     this.referenceId = referenceId;
     return this;
@@ -797,7 +728,7 @@ public class Form1099KRequest {
   }
 
 
-  public Form1099KRequest tinType(Integer tinType) {
+  public Form1099KRequest tinType(String tinType) {
     this.tinType = tinType;
     return this;
   }
@@ -807,11 +738,11 @@ public class Form1099KRequest {
    * @return tinType
    */
   @javax.annotation.Nullable
-  public Integer getTinType() {
+  public String getTinType() {
     return tinType;
   }
 
-  public void setTinType(Integer tinType) {
+  public void setTinType(String tinType) {
     this.tinType = tinType;
   }
 
@@ -1153,9 +1084,6 @@ public class Form1099KRequest {
         Objects.equals(this.december, form1099KRequest.december) &&
         Objects.equals(this.type, form1099KRequest.type) &&
         Objects.equals(this.issuerId, form1099KRequest.issuerId) &&
-        Objects.equals(this.issuerReferenceId, form1099KRequest.issuerReferenceId) &&
-        Objects.equals(this.issuerTin, form1099KRequest.issuerTin) &&
-        Objects.equals(this.taxYear, form1099KRequest.taxYear) &&
         Objects.equals(this.referenceId, form1099KRequest.referenceId) &&
         Objects.equals(this.recipientName, form1099KRequest.recipientName) &&
         Objects.equals(this.recipientTin, form1099KRequest.recipientTin) &&
@@ -1184,7 +1112,7 @@ public class Form1099KRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(stateAndLocalWithholding, filerType, paymentType, paymentSettlementEntityNamePhoneNumber, grossAmountPaymentCard, cardNotPresentTransactions, merchantCategoryCode, paymentTransactionNumber, federalIncomeTaxWithheld, january, february, march, april, may, june, july, august, sept, october, november, december, type, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, recipientName, recipientTin, tinType, recipientSecondName, streetAddress, streetAddressLine2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification);
+    return Objects.hash(stateAndLocalWithholding, filerType, paymentType, paymentSettlementEntityNamePhoneNumber, grossAmountPaymentCard, cardNotPresentTransactions, merchantCategoryCode, paymentTransactionNumber, federalIncomeTaxWithheld, january, february, march, april, may, june, july, august, sept, october, november, december, type, issuerId, referenceId, recipientName, recipientTin, tinType, recipientSecondName, streetAddress, streetAddressLine2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1221,9 +1149,6 @@ public class Form1099KRequest {
     sb.append("    december: ").append(toIndentedString(december)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    issuerId: ").append(toIndentedString(issuerId)).append("\n");
-    sb.append("    issuerReferenceId: ").append(toIndentedString(issuerReferenceId)).append("\n");
-    sb.append("    issuerTin: ").append(toIndentedString(issuerTin)).append("\n");
-    sb.append("    taxYear: ").append(toIndentedString(taxYear)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    recipientName: ").append(toIndentedString(recipientName)).append("\n");
     sb.append("    recipientTin: ").append(toIndentedString(recipientTin)).append("\n");
@@ -1268,9 +1193,6 @@ public class Form1099KRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("type");
     openapiFields.add("issuerId");
-    openapiFields.add("issuerReferenceId");
-    openapiFields.add("issuerTin");
-    openapiFields.add("taxYear");
     openapiFields.add("referenceId");
     openapiFields.add("recipientName");
     openapiFields.add("recipientTin");
@@ -1291,6 +1213,7 @@ public class Form1099KRequest {
     openapiFields.add("stateEFile");
     openapiFields.add("tinMatch");
     openapiFields.add("addressVerification");
+    openapiFields.add("stateAndLocalWithholding");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1333,12 +1256,6 @@ public class Form1099KRequest {
       if ((jsonObj.get("issuerId") != null && !jsonObj.get("issuerId").isJsonNull()) && !jsonObj.get("issuerId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `issuerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerId").toString()));
       }
-      if ((jsonObj.get("issuerReferenceId") != null && !jsonObj.get("issuerReferenceId").isJsonNull()) && !jsonObj.get("issuerReferenceId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `issuerReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerReferenceId").toString()));
-      }
-      if ((jsonObj.get("issuerTin") != null && !jsonObj.get("issuerTin").isJsonNull()) && !jsonObj.get("issuerTin").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `issuerTin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerTin").toString()));
-      }
       if ((jsonObj.get("referenceId") != null && !jsonObj.get("referenceId").isJsonNull()) && !jsonObj.get("referenceId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `referenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referenceId").toString()));
       }
@@ -1347,6 +1264,9 @@ public class Form1099KRequest {
       }
       if ((jsonObj.get("recipientTin") != null && !jsonObj.get("recipientTin").isJsonNull()) && !jsonObj.get("recipientTin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientTin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientTin").toString()));
+      }
+      if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tinType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tinType").toString()));
       }
       if ((jsonObj.get("recipientSecondName") != null && !jsonObj.get("recipientSecondName").isJsonNull()) && !jsonObj.get("recipientSecondName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientSecondName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientSecondName").toString()));

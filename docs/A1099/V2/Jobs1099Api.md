@@ -46,7 +46,7 @@ public class Example {
         Jobs1099Api apiInstance = new Jobs1099Api(apiClient);
         String id = "id_example"; // String | Job id obtained from other API responses, like `/1099/bulk-upsert`.
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "a448f3ca-ffb0-419b-b1fe-818f3727d531"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "27e8a96c-0c06-4f02-8f3e-4d3f1277835c"; // String | Unique correlation Id in a GUID format
         try {
             JobResult result = apiInstance.getJob(id, avalaraVersion, xCorrelationId);
             System.out.println(result);
