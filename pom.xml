@@ -36,15 +36,15 @@
       <url>https://developer.avalara.com/</url>
     </organization>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>central</id>
-            <url>https://ossrh-staging-api.central.sonatype.com/content/repositories/snapshots/</url>
-        </snapshotRepository>
+   <distributionManagement>
         <repository>
-            <id>central</id>
+            <id>ossrh</id>
             <url>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/</url>
         </repository>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/</url>
+        </snapshotRepository>
     </distributionManagement>
     
     <build>
