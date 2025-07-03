@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## getJob
 
-> JobResult getJob(id, avalaraVersion, xCorrelationId)
+> JobResult getJob(id, avalaraVersion, xCorrelationId, xAvalaraClient)
 
 Retrieves information about the job
 
@@ -46,9 +46,10 @@ public class Example {
         Jobs1099Api apiInstance = new Jobs1099Api(apiClient);
         String id = "id_example"; // String | Job id obtained from other API responses, like `/1099/bulk-upsert`.
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "27e8a96c-0c06-4f02-8f3e-4d3f1277835c"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "6b0fee95-8da3-4c1b-85bb-539a27e88d51"; // String | Unique correlation Id in a GUID format
+        String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
-            JobResult result = apiInstance.getJob(id, avalaraVersion, xCorrelationId);
+            JobResult result = apiInstance.getJob(id, avalaraVersion, xCorrelationId, xAvalaraClient);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling Jobs1099Api#getJob");
@@ -68,7 +69,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Job id obtained from other API responses, like &#x60;/1099/bulk-upsert&#x60;. |
  **avalaraVersion** | **String**| API version |
- **xCorrelationId** | **String**| Unique correlation Id in a GUID format |
+ **xCorrelationId** | **String**| Unique correlation Id in a GUID format | [optional]
+ **xAvalaraClient** | **String**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
 
 ### Return type
 

@@ -14,10 +14,10 @@
 |**referenceId** | **String** |  |  [optional] |
 |**recipientName** | **String** |  |  [optional] |
 |**recipientTin** | **String** |  |  [optional] |
-|**tinType** | **String** |  |  [optional] |
+|**tinType** | [**TinTypeEnum**](#TinTypeEnum) |  |  [optional] |
 |**recipientSecondName** | **String** |  |  [optional] |
-|**streetAddress** | **String** |  |  [optional] |
-|**streetAddressLine2** | **String** |  |  [optional] |
+|**address** | **String** |  |  [optional] |
+|**address2** | **String** |  |  [optional] |
 |**city** | **String** |  |  [optional] |
 |**state** | **String** |  |  [optional] |
 |**zip** | **String** |  |  [optional] |
@@ -31,7 +31,18 @@
 |**stateEFile** | **Boolean** |  |  [optional] |
 |**tinMatch** | **Boolean** |  |  [optional] |
 |**addressVerification** | **Boolean** |  |  [optional] |
-|**stateAndLocalWithholding** | [**StateAndLocalWithholding**](StateAndLocalWithholding.md) |  |  [optional] |
+|**stateAndLocalWithholding** | [**StateAndLocalWithholdingRequest**](StateAndLocalWithholdingRequest.md) |  |  [optional] |
+
+
+
+## Enum: TinTypeEnum
+
+| Name | Value |
+|---- | -----|
+| EIN | &quot;EIN&quot; |
+| SSN | &quot;SSN&quot; |
+| ITIN | &quot;ITIN&quot; |
+| ATIN | &quot;ATIN&quot; |
 
 
 

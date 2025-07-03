@@ -310,8 +310,8 @@ public class Example {
         String avalaraVersion = "avalaraVersion_example"; // String | The version of the API to use, e.g., \"1.3\".
         String xCorrelationID = "xCorrelationID_example"; // String | A unique identifier for tracking the request and its response
         String xAvalaraClient = "xAvalaraClient_example"; // String | Client application identification
-        Integer $top = 56; // Integer | The number of items to include in the result.
-        Integer $skip = 56; // Integer | The number of items to skip in the result.
+        BigDecimal $top = new BigDecimal(78); // BigDecimal | The number of items to include in the result.
+        BigDecimal $skip = new BigDecimal(78); // BigDecimal | The number of items to skip in the result.
         Boolean count = true; // Boolean | Whether to include the total count of records in the result.
         Boolean countOnly = true; // Boolean | Whether to return only the count of records, without the list of records.
         try {
@@ -336,8 +336,8 @@ Name | Type | Description  | Notes
  **avalaraVersion** | **String**| The version of the API to use, e.g., \&quot;1.3\&quot;. |
  **xCorrelationID** | **String**| A unique identifier for tracking the request and its response | [optional]
  **xAvalaraClient** | **String**| Client application identification | [optional]
- **$top** | **Integer**| The number of items to include in the result. | [optional]
- **$skip** | **Integer**| The number of items to skip in the result. | [optional]
+ **$top** | **BigDecimal**| The number of items to include in the result. | [optional]
+ **$skip** | **BigDecimal**| The number of items to skip in the result. | [optional]
  **count** | **Boolean**| Whether to include the total count of records in the result. | [optional]
  **countOnly** | **Boolean**| Whether to return only the count of records, without the list of records. | [optional]
 

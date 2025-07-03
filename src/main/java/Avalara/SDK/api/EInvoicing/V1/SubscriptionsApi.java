@@ -36,6 +36,7 @@ import java.io.IOException;
 import java.util.*;
 
 
+import java.math.BigDecimal;
 import Avalara.SDK.model.EInvoicing.V1.SubscriptionDetail;
 import Avalara.SDK.model.EInvoicing.V1.SubscriptionListResponse;
 import Avalara.SDK.model.EInvoicing.V1.SubscriptionRegistration;
@@ -839,8 +840,8 @@ public class SubscriptionsApi {
         private String avalaraVersion;
         private String xCorrelationID;
         private String xAvalaraClient;
-        private Integer $top;
-        private Integer $skip;
+        private BigDecimal $top;
+        private BigDecimal $skip;
         private Boolean count;
         private Boolean countOnly;
 
@@ -853,10 +854,10 @@ public class SubscriptionsApi {
         public void setXCorrelationID(String xCorrelationID) { this.xCorrelationID = xCorrelationID; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
-        public Integer get$top() { return $top; }
-        public void set$top(Integer $top) { this.$top = $top; }
-        public Integer get$skip() { return $skip; }
-        public void set$skip(Integer $skip) { this.$skip = $skip; }
+        public BigDecimal get$top() { return $top; }
+        public void set$top(BigDecimal $top) { this.$top = $top; }
+        public BigDecimal get$skip() { return $skip; }
+        public void set$skip(BigDecimal $skip) { this.$skip = $skip; }
         public Boolean getCount() { return count; }
         public void setCount(Boolean count) { this.count = count; }
         public Boolean getCountOnly() { return countOnly; }

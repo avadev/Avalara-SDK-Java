@@ -157,9 +157,9 @@ public class Form1099Base {
   @SerializedName(SERIALIZED_NAME_ADDRESS)
   private String address;
 
-  public static final String SERIALIZED_NAME_ADDRESS_RECIPIENT_SECOND = "addressRecipientSecond";
-  @SerializedName(SERIALIZED_NAME_ADDRESS_RECIPIENT_SECOND)
-  private String addressRecipientSecond;
+  public static final String SERIALIZED_NAME_ADDRESS2 = "address2";
+  @SerializedName(SERIALIZED_NAME_ADDRESS2)
+  private String address2;
 
   public static final String SERIALIZED_NAME_CITY = "city";
   @SerializedName(SERIALIZED_NAME_CITY)
@@ -645,22 +645,22 @@ public class Form1099Base {
   }
 
 
-  public Form1099Base addressRecipientSecond(String addressRecipientSecond) {
-    this.addressRecipientSecond = addressRecipientSecond;
+  public Form1099Base address2(String address2) {
+    this.address2 = address2;
     return this;
   }
 
   /**
-   * Get addressRecipientSecond
-   * @return addressRecipientSecond
+   * Get address2
+   * @return address2
    */
   @javax.annotation.Nullable
-  public String getAddressRecipientSecond() {
-    return addressRecipientSecond;
+  public String getAddress2() {
+    return address2;
   }
 
-  public void setAddressRecipientSecond(String addressRecipientSecond) {
-    this.addressRecipientSecond = addressRecipientSecond;
+  public void setAddress2(String address2) {
+    this.address2 = address2;
   }
 
 
@@ -876,7 +876,7 @@ public class Form1099Base {
         Objects.equals(this.recipientName, form1099Base.recipientName) &&
         Objects.equals(this.recipientSecondName, form1099Base.recipientSecondName) &&
         Objects.equals(this.address, form1099Base.address) &&
-        Objects.equals(this.addressRecipientSecond, form1099Base.addressRecipientSecond) &&
+        Objects.equals(this.address2, form1099Base.address2) &&
         Objects.equals(this.city, form1099Base.city) &&
         Objects.equals(this.state, form1099Base.state) &&
         Objects.equals(this.zip, form1099Base.zip) &&
@@ -894,7 +894,7 @@ public class Form1099Base {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, issuerId, issuerReferenceId, issuerTin, taxYear, federalEfile, federalEfileStatus, stateEfile, stateEfileStatus, postalMail, postalMailStatus, tinMatch, tinMatchStatus, addressVerification, addressVerificationStatus, referenceId, email, tinType, tin, recipientName, recipientSecondName, address, addressRecipientSecond, city, state, zip, foreignProvince, countryCode, validationErrors, createdAt, updatedAt, stateAndLocalWithholding);
+    return Objects.hash(id, type, issuerId, issuerReferenceId, issuerTin, taxYear, federalEfile, federalEfileStatus, stateEfile, stateEfileStatus, postalMail, postalMailStatus, tinMatch, tinMatchStatus, addressVerification, addressVerificationStatus, referenceId, email, tinType, tin, recipientName, recipientSecondName, address, address2, city, state, zip, foreignProvince, countryCode, validationErrors, createdAt, updatedAt, stateAndLocalWithholding);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -931,7 +931,7 @@ public class Form1099Base {
     sb.append("    recipientName: ").append(toIndentedString(recipientName)).append("\n");
     sb.append("    recipientSecondName: ").append(toIndentedString(recipientSecondName)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    addressRecipientSecond: ").append(toIndentedString(addressRecipientSecond)).append("\n");
+    sb.append("    address2: ").append(toIndentedString(address2)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    zip: ").append(toIndentedString(zip)).append("\n");
@@ -986,7 +986,7 @@ public class Form1099Base {
     openapiFields.add("recipientName");
     openapiFields.add("recipientSecondName");
     openapiFields.add("address");
-    openapiFields.add("addressRecipientSecond");
+    openapiFields.add("address2");
     openapiFields.add("city");
     openapiFields.add("state");
     openapiFields.add("zip");
@@ -1085,8 +1085,8 @@ public class Form1099Base {
       if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
       }
-      if ((jsonObj.get("addressRecipientSecond") != null && !jsonObj.get("addressRecipientSecond").isJsonNull()) && !jsonObj.get("addressRecipientSecond").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `addressRecipientSecond` to be a primitive type in the JSON string but got `%s`", jsonObj.get("addressRecipientSecond").toString()));
+      if ((jsonObj.get("address2") != null && !jsonObj.get("address2").isJsonNull()) && !jsonObj.get("address2").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `address2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address2").toString()));
       }
       if ((jsonObj.get("city") != null && !jsonObj.get("city").isJsonNull()) && !jsonObj.get("city").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));

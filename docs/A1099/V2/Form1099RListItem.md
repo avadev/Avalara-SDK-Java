@@ -34,10 +34,10 @@
 |**referenceId** | **String** |  |  [optional] |
 |**recipientName** | **String** |  |  [optional] |
 |**recipientTin** | **String** |  |  [optional] |
-|**tinType** | **String** |  |  [optional] |
+|**tinType** | [**TinTypeEnum**](#TinTypeEnum) |  |  [optional] |
 |**recipientSecondName** | **String** |  |  [optional] |
-|**streetAddress** | **String** |  |  [optional] |
-|**streetAddressLine2** | **String** |  |  [optional] |
+|**address** | **String** |  |  [optional] |
+|**address2** | **String** |  |  [optional] |
 |**city** | **String** |  |  [optional] |
 |**state** | **String** |  |  [optional] |
 |**zip** | **String** |  |  [optional] |
@@ -51,7 +51,7 @@
 |**stateEFile** | **Boolean** |  |  [optional] |
 |**tinMatch** | **Boolean** |  |  [optional] |
 |**addressVerification** | **Boolean** |  |  [optional] |
-|**stateAndLocalWithholding** | [**StateAndLocalWithholding**](StateAndLocalWithholding.md) |  |  [optional] |
+|**stateAndLocalWithholding** | [**StateAndLocalWithholdingRequest**](StateAndLocalWithholdingRequest.md) |  |  [optional] |
 
 
 
@@ -124,6 +124,17 @@
 | ROTH_IRA_DISTRIBUTION_EXCEPTION | &quot;RothIRADistributionException&quot; |
 | ESOP_DISTRIBUTION | &quot;ESOPDistribution&quot; |
 | LONG_TERM_CARE_INSURANCE | &quot;LongTermCareInsurance&quot; |
+
+
+
+## Enum: TinTypeEnum
+
+| Name | Value |
+|---- | -----|
+| EIN | &quot;EIN&quot; |
+| SSN | &quot;SSN&quot; |
+| ITIN | &quot;ITIN&quot; |
+| ATIN | &quot;ATIN&quot; |
 
 
 

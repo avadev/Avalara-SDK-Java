@@ -39,6 +39,7 @@ import java.util.*;
 import Avalara.SDK.model.EInvoicing.V1.BatchSearch;
 import Avalara.SDK.model.EInvoicing.V1.BatchSearchListResponse;
 import Avalara.SDK.model.EInvoicing.V1.BatchSearchParticipants202Response;
+import java.math.BigDecimal;
 import Avalara.SDK.model.EInvoicing.V1.DirectorySearchResponse;
 import Avalara.SDK.model.EInvoicing.V1.ErrorResponse;
 import java.io.File;
@@ -886,7 +887,7 @@ public class TradingPartnersApi {
     * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\" (optional)</param>
     * @param $filter Filter by field name and value. This filter only supports <code>eq</code> .The parameters supported is <code>name</code>.    Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. Filtering will be done over the provided parameters. (optional)</param>
     * @param count When set to true, the count of the collection is included as @recordSetCount in the response body. (optional)</param>
-    * @param $top If nonzero, return no more than this number of results. Used with <code>$skip</code> to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 200 records. (optional)</param>
+    * @param $top The number of items to include in the result. (optional)</param>
     * @param $skip If nonzero, skip this number of results before returning data. Used with <code>$top</code> to provide pagination for large datasets. (optional)</param>
     * @param $orderBy The $orderBy query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space. (optional)</param>
     * @param xCorrelationID The caller can use this as an identifier to use as a correlation id to trace the call. (optional)</param>
@@ -896,7 +897,7 @@ public class TradingPartnersApi {
         private String xAvalaraClient;
         private String $filter;
         private Boolean count;
-        private String $top;
+        private BigDecimal $top;
         private String $skip;
         private String $orderBy;
         private String xCorrelationID;
@@ -912,8 +913,8 @@ public class TradingPartnersApi {
         public void set$filter(String $filter) { this.$filter = $filter; }
         public Boolean getCount() { return count; }
         public void setCount(Boolean count) { this.count = count; }
-        public String get$top() { return $top; }
-        public void set$top(String $top) { this.$top = $top; }
+        public BigDecimal get$top() { return $top; }
+        public void set$top(BigDecimal $top) { this.$top = $top; }
         public String get$skip() { return $skip; }
         public void set$skip(String $skip) { this.$skip = $skip; }
         public String get$orderBy() { return $orderBy; }
@@ -1124,7 +1125,7 @@ public class TradingPartnersApi {
     * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\" (optional)</param>
     * @param count When set to true, the count of the collection is included as @recordSetCount in the response body. (optional)</param>
     * @param $filter Filter by field name and value. This filter only supports <code>eq</code> .The parameters supported are <code>network</code>, <code>country</code>, <code>documentType</code>, <code>idType</code>.          Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. Filtering will be done over the provided parameters. (optional)</param>
-    * @param $top If nonzero, return no more than this number of results. Used with <code>$skip</code> to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 200 records. (optional)</param>
+    * @param $top The number of items to include in the result. (optional)</param>
     * @param $skip If nonzero, skip this number of results before returning data. Used with <code>$top</code> to provide pagination for large datasets. (optional)</param>
     * @param $orderBy The $orderBy query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space. (optional)</param>
     * @param xCorrelationID The caller can use this as an identifier to use as a correlation id to trace the call. (optional)</param>
@@ -1135,7 +1136,7 @@ public class TradingPartnersApi {
         private String xAvalaraClient;
         private Boolean count;
         private String $filter;
-        private String $top;
+        private BigDecimal $top;
         private String $skip;
         private String $orderBy;
         private String xCorrelationID;
@@ -1153,8 +1154,8 @@ public class TradingPartnersApi {
         public void setCount(Boolean count) { this.count = count; }
         public String get$filter() { return $filter; }
         public void set$filter(String $filter) { this.$filter = $filter; }
-        public String get$top() { return $top; }
-        public void set$top(String $top) { this.$top = $top; }
+        public BigDecimal get$top() { return $top; }
+        public void set$top(BigDecimal $top) { this.$top = $top; }
         public String get$skip() { return $skip; }
         public void set$skip(String $skip) { this.$skip = $skip; }
         public String get$orderBy() { return $orderBy; }
