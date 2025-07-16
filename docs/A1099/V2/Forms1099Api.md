@@ -52,7 +52,7 @@ public class Example {
         Forms1099Api apiInstance = new Forms1099Api(apiClient);
         String avalaraVersion = "2.0"; // String | API version
         Boolean dryRun = false; // Boolean | 
-        String xCorrelationId = "e1c9b23e-dd11-498c-8bf1-da3f5de68e85"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "e5719e20-8805-4ccc-b626-013045304315"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         BulkUpsert1099FormsRequest bulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(); // BulkUpsert1099FormsRequest | 
         try {
@@ -139,7 +139,7 @@ public class Example {
 
         Forms1099Api apiInstance = new Forms1099Api(apiClient);
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "b92f1c14-2af6-4835-b358-9ecfe341281c"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "6095f693-4fb2-48c8-b6e5-c7ab4611f673"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         ICreateForm1099Request icreateForm1099Request = new ICreateForm1099Request(); // ICreateForm1099Request | 
         try {
@@ -225,7 +225,7 @@ public class Example {
         Forms1099Api apiInstance = new Forms1099Api(apiClient);
         String id = "id_example"; // String | The unique identifier of the desired form to delete.
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "9543be44-5aeb-4681-878b-0d5424cbbd4b"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "15d84d4b-81ef-4d59-af08-94e94dc49322"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             apiInstance.delete1099Form(id, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -311,7 +311,7 @@ public class Example {
         Forms1099Api apiInstance = new Forms1099Api(apiClient);
         String id = "id_example"; // String | 
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "b294197f-15c0-45fd-87db-77213a833473"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "72e6716a-27d0-4cd0-8a93-a9aaef422691"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             Get1099Form200Response result = apiInstance.get1099Form(id, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -398,7 +398,7 @@ public class Example {
         String id = "id_example"; // String | 
         String avalaraVersion = "2.0"; // String | API version
         Boolean markEdelivered = true; // Boolean | The parameter for marked e-delivered
-        String xCorrelationId = "7488a1c6-3b7d-440c-8111-77ae6ecff913"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "782ecb31-ec05-4880-a431-bd7a890e63e6"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             Update1099Form200Response result = apiInstance.get1099FormPdf(id, avalaraVersion, markEdelivered, xCorrelationId, xAvalaraClient);
@@ -488,7 +488,7 @@ public class Example {
         Integer $top = 10; // Integer | If nonzero, return no more than this number of results.     Used with skip to provide pagination for large datasets.     Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records.
         Integer $skip = 0; // Integer | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets.
         String $orderBy = "$orderBy_example"; // String | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example issuerReferenceId ASC.    Supported sorting fields are:         issuerReferenceId       taxYear       createdAt       recipientName      updatedAt
-        String xCorrelationId = "e040bf06-c144-42a8-9eae-2f29774f30b5"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "3023fd6b-afc3-488f-ad85-1dd9f72d9f64"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             Form1099List result = apiInstance.list1099Forms(avalaraVersion, $filter, $top, $skip, $orderBy, xCorrelationId, xAvalaraClient);
@@ -577,7 +577,7 @@ public class Example {
         Forms1099Api apiInstance = new Forms1099Api(apiClient);
         String id = "id_example"; // String | 
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "d8b2cfd4-8ba5-4afa-9f1b-e40028f9e437"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "6a610d02-ab2b-4ef8-9554-5149445333f1"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         IUpdateForm1099Request iupdateForm1099Request = new IUpdateForm1099Request(); // IUpdateForm1099Request | 
         try {

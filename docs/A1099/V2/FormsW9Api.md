@@ -49,7 +49,7 @@ public class Example {
 
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "90564741-8d62-498f-9927-026594de1c26"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "5003c014-1aa4-48a4-91c5-3176fcf2bf73"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         IW9FormDataModelsOneOf iw9FormDataModelsOneOf = new IW9FormDataModelsOneOf(); // IW9FormDataModelsOneOf | Form to be created
         try {
@@ -136,7 +136,7 @@ public class Example {
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String id = "id_example"; // String | Id of the form to delete
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "a12a1b60-7914-4cc8-b14f-d651672471da"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "949a3535-39c5-4928-8214-2dc8c4224670"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             apiInstance.deleteW9Form(id, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -221,7 +221,7 @@ public class Example {
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String id = "id_example"; // String | Id of the form
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "43fecb2f-e92e-4847-bab2-2208e95e8619"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "5a0f7713-ffaf-49f0-be47-96783364c87d"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             IW9FormDataModelsOneOf result = apiInstance.getW9Form(id, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -311,7 +311,7 @@ public class Example {
         Integer $skip = 0; // Integer | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets.
         String $orderBy = "$orderBy_example"; // String | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
         Boolean count = true; // Boolean | When true, returns a @recordSetCount in the result set
-        String xCorrelationId = "09899b44-c4ed-483d-a7c4-4caebc5496b9"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "ee2ba593-ca8c-41f1-b96e-5cec3fc8e068"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             PaginatedW9FormsModel result = apiInstance.listW9Forms(avalaraVersion, $filter, $top, $skip, $orderBy, count, xCorrelationId, xAvalaraClient);
@@ -399,7 +399,7 @@ public class Example {
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String id = "id_example"; // String | The ID of the W9/W4/W8 form.
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "791f7898-05b1-4d9d-b150-cfd1b6853905"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "6503b7f4-7f28-42c1-8a3c-d158c4b5aa76"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             IW9FormDataModelsOneOf result = apiInstance.sendW9FormEmail(id, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -483,7 +483,7 @@ public class Example {
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String id = "id_example"; // String | Id of the form to update
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "66f3101e-2f6c-493a-b77b-2bde330d6f5c"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "a40ce0b3-6438-4890-ba0a-ad7be75fb3e1"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         IW9FormDataModelsOneOf iw9FormDataModelsOneOf = new IW9FormDataModelsOneOf(); // IW9FormDataModelsOneOf | Form to be updated
         try {
@@ -571,7 +571,7 @@ public class Example {
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String id = "id_example"; // String | Id of the form
         String avalaraVersion = "2.0"; // String | API version
-        String xCorrelationId = "d3efc696-89c8-4aed-abd7-866445708020"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "fe4f3600-70a9-4fa1-a8a8-28bcf27e678c"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         File _file = new File("/path/to/file"); // File | 
         try {
