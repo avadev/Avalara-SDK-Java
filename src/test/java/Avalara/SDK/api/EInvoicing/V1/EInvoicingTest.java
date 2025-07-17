@@ -25,13 +25,13 @@ import Avalara.SDK.model.EInvoicing.V1.DocumentListResponse;
 import Avalara.SDK.model.EInvoicing.V1.MandatesResponse;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.jetbrains.annotations.NotNull;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * API tests for UtilitiesApi
  */
-public class EInvoicingTest {
+class EInvoicingTest {
     private Configuration configuration;
 
     public EInvoicingTest() {
@@ -52,20 +52,20 @@ public class EInvoicingTest {
     }
 
     @Test
-    public void testGetDocuments() throws Exception {
+    void testGetDocuments() throws Exception {
         ApiClient apiClient = new ApiClient(configuration);
         Avalara.SDK.api.EInvoicing.V1.DocumentsApi apiInstance = new DocumentsApi(apiClient);
         DocumentsApi.GetDocumentListRequest request = apiInstance.getGetDocumentListRequest();
         DocumentListResponse result = apiInstance.getDocumentList(request);
-        Assert.assertNotNull(result);
+        Assertions.assertNotNull(result);
     }
 
     @Test
-    public void testGetMandates() throws Exception {
+    void testGetMandates() throws Exception {
         ApiClient apiClient = new ApiClient(configuration);
         Avalara.SDK.api.EInvoicing.V1.MandatesApi apiInstance = new MandatesApi(apiClient);
         MandatesApi.GetMandatesRequest request = apiInstance.getGetMandatesRequest();
         MandatesResponse result = apiInstance.getMandates(request);
-        Assert.assertNotNull(result.getValue());
+        Assertions.assertNotNull(result.getValue());
     }
 }
