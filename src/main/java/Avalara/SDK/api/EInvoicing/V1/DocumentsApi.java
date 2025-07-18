@@ -140,18 +140,18 @@ public class DocumentsApi {
 
         if (requestParameters.getAccept() != null) {
             localVarHeaderParams.put("Accept", localVarApiClient.parameterToString(requestParameters.getAccept()));
+        } else {
+            final String[] localVarAccepts = {
+                    "application/pdf", "application/xml", "application/json"
+            };
+            final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+            if (localVarAccept != null) {
+                localVarHeaderParams.put("Accept", localVarAccept);
+            }
         }
 
         if (requestParameters.getXAvalaraClient() != null) {
             localVarHeaderParams.put("X-Avalara-Client", localVarApiClient.parameterToString(requestParameters.getXAvalaraClient()));
-        }
-
-        final String[] localVarAccepts = {
-            "application/pdf", "application/xml", "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
         }
 
         final String[] localVarContentTypes = {
