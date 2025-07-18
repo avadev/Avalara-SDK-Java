@@ -23,40 +23,23 @@ import Avalara.SDK.ApiCallback;
 import Avalara.SDK.ApiClient;
 import Avalara.SDK.ApiException;
 import Avalara.SDK.ApiResponse;
-import Avalara.SDK.Configuration;
-import Avalara.SDK.Pair;
-import Avalara.SDK.ProgressRequestBody;
-import Avalara.SDK.ProgressResponseBody;
 import Avalara.SDK.AvalaraMicroservice;
-
-
-import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-import java.util.*;
-
-
-import Avalara.SDK.model.EInvoicing.V1.BadDownloadRequest;
-import Avalara.SDK.model.EInvoicing.V1.BadRequest;
-import java.math.BigDecimal;
+import Avalara.SDK.Pair;
 import Avalara.SDK.model.EInvoicing.V1.DocumentFetch;
 import Avalara.SDK.model.EInvoicing.V1.DocumentListResponse;
 import Avalara.SDK.model.EInvoicing.V1.DocumentStatusResponse;
-import Avalara.SDK.model.EInvoicing.V1.DocumentSubmissionError;
 import Avalara.SDK.model.EInvoicing.V1.DocumentSubmitResponse;
-import Avalara.SDK.model.EInvoicing.V1.FetchDocumentsRequest;
-import java.io.File;
-import Avalara.SDK.model.EInvoicing.V1.ForbiddenError;
-import Avalara.SDK.model.EInvoicing.V1.InternalServerError;
-import Avalara.SDK.model.EInvoicing.V1.NotFoundError;
-import java.time.OffsetDateTime;
 import Avalara.SDK.model.EInvoicing.V1.SubmitDocumentMetadata;
-
+import com.google.gson.reflect.TypeToken;
+import java.io.File;
 import java.lang.reflect.Type;
+import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.MissingFormatArgumentException;
 
 public class DocumentsApi {
     private ApiClient localVarApiClient;
@@ -140,18 +123,18 @@ public class DocumentsApi {
 
         if (requestParameters.getAccept() != null) {
             localVarHeaderParams.put("Accept", localVarApiClient.parameterToString(requestParameters.getAccept()));
+        } else {
+            final String[] localVarAccepts = {
+                    "application/pdf", "application/xml", "application/json"
+            };
+            final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+            if (localVarAccept != null) {
+                localVarHeaderParams.put("Accept", localVarAccept);
+            }
         }
 
         if (requestParameters.getXAvalaraClient() != null) {
             localVarHeaderParams.put("X-Avalara-Client", localVarApiClient.parameterToString(requestParameters.getXAvalaraClient()));
-        }
-
-        final String[] localVarAccepts = {
-            "application/pdf", "application/xml", "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
         }
 
         final String[] localVarContentTypes = {

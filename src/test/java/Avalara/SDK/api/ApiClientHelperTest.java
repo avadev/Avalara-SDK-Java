@@ -23,12 +23,12 @@ package Avalara.SDK.api;
 import Avalara.SDK.*;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.jetbrains.annotations.NotNull;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
-public class ApiClientHelperTest {
-    private Configuration configuration;
+class ApiClientHelperTest {
+    private final Configuration configuration;
 
     public ApiClientHelperTest() {
         configuration = getConfiguration();
@@ -49,21 +49,21 @@ public class ApiClientHelperTest {
 
 
     @Test
-    @Ignore("Not currently supported")
-    public void verifyDeviceAuthorizationFlow() throws Exception {
+    @Disabled("Not currently supported")
+    void verifyDeviceAuthorizationFlow() throws Exception {
         DeviceAuthResponse response = ApiClientHelper.initiateDeviceAuthorizationOAuth(null, configuration);
         DeviceAccessTokenResponse tokenResponse = ApiClientHelper.getAccessTokenForDeviceFlow(response.getDeviceCode(), configuration);
-        Assert.assertEquals(tokenResponse.getErrorMessage(),"authorization_pending");
+        Assertions.assertEquals("authorization_pending", tokenResponse.getErrorMessage());
     }
 
     @Test
-    @Ignore("For this test to run, you need to authenticate manually using user code by pausing the flow at line 145 and then proceed")
-    public void verifyRefreshTokenFlow() throws Exception {
+    @Disabled("For this test to run, you need to authenticate manually using user code by pausing the flow at line 145 and then proceed")
+    void verifyRefreshTokenFlow() throws Exception {
         DeviceAuthResponse response = ApiClientHelper.initiateDeviceAuthorizationOAuth(null, configuration);
         DeviceAccessTokenResponse tokenResponse = ApiClientHelper.getAccessTokenForDeviceFlow(response.getDeviceCode(), configuration);
         String refreshToken = tokenResponse.getRefreshToken();
         tokenResponse = ApiClientHelper.getAccessTokenUsingRefreshTokenForDeviceCodeFlow(refreshToken, configuration);
-        Assert.assertNotNull(tokenResponse.getIdToken());
-        Assert.assertNotNull(tokenResponse.getAccessToken());
+        Assertions.assertNotNull(tokenResponse.getIdToken());
+        Assertions.assertNotNull(tokenResponse.getAccessToken());
     }
 }
