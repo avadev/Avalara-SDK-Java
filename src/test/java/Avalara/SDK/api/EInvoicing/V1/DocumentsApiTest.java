@@ -19,7 +19,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.File;
 import java.util.List;
 import okhttp3.Call;
-import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import wiremock.org.apache.commons.io.FileUtils;
@@ -29,6 +28,10 @@ class DocumentsApiTest {
 
 
     public static final byte[] RESPONSE_CONTENT = "Example".getBytes();
+    public static final String TRANSACTION_ID = "transactionId";
+    public static final String X_AVALARA_CLIENT = "X_AVALARA_CLIENT";
+    public static final String AVALARA_VERSION = "1.3";
+    public static final String CONTENT_TYPE = "Content-Type";
 
     @Test
     void shouldDownloadDocumentWithoutInputCheckAndNoAcceptHeaderDefined(WireMockRuntimeInfo wireMockRuntimeInfo) throws Exception {
@@ -42,16 +45,16 @@ class DocumentsApiTest {
 
         // when
         DownloadDocumentRequest request = documentsApi.getDownloadDocumentRequest();
-        request.setDocumentId("transactionId");
-        request.setXAvalaraClient("X_AVALARA_CLIENT");
-        request.setAvalaraVersion("1.3");
+        request.setDocumentId(TRANSACTION_ID);
+        request.setXAvalaraClient(X_AVALARA_CLIENT);
+        request.setAvalaraVersion(AVALARA_VERSION);
         Call call = documentsApi.downloadDocumentCall(request, null);
         ApiResponse<File> fileApiResponse = documentsApi.getApiClient().execute(call, new TypeToken<File>() {}.getType());
 
 
         // then
         Assertions.assertEquals(200, fileApiResponse.getStatusCode());
-        Assertions.assertEquals(List.of(contentType), fileApiResponse.getHeaders().get("Content-Type"));
+        Assertions.assertEquals(List.of(contentType), fileApiResponse.getHeaders().get(CONTENT_TYPE));
         File file = fileApiResponse.getData();
         byte[] bytes = FileUtils.readFileToByteArray(file);
         Assertions.assertArrayEquals(RESPONSE_CONTENT, bytes);
@@ -70,15 +73,15 @@ class DocumentsApiTest {
 
         // when
         DownloadDocumentRequest request = documentsApi.getDownloadDocumentRequest();
-        request.setDocumentId("transactionId");
-        request.setXAvalaraClient("X_AVALARA_CLIENT");
-        request.setAvalaraVersion("1.3");
+        request.setDocumentId(TRANSACTION_ID);
+        request.setXAvalaraClient(X_AVALARA_CLIENT);
+        request.setAvalaraVersion(AVALARA_VERSION);
         request.setAccept(contentType);
         ApiResponse<File> fileApiResponse = documentsApi.downloadDocumentWithHttpInfo(request);
 
         // then
         Assertions.assertEquals(200, fileApiResponse.getStatusCode());
-        Assertions.assertEquals(List.of(contentType), fileApiResponse.getHeaders().get("Content-Type"));
+        Assertions.assertEquals(List.of(contentType), fileApiResponse.getHeaders().get(CONTENT_TYPE));
         File file = fileApiResponse.getData();
         byte[] bytes = FileUtils.readFileToByteArray(file);
         Assertions.assertArrayEquals(RESPONSE_CONTENT, bytes);
@@ -96,15 +99,15 @@ class DocumentsApiTest {
 
         // when
         DownloadDocumentRequest request = documentsApi.getDownloadDocumentRequest();
-        request.setDocumentId("transactionId");
-        request.setXAvalaraClient("X_AVALARA_CLIENT");
-        request.setAvalaraVersion("1.3");
+        request.setDocumentId(TRANSACTION_ID);
+        request.setXAvalaraClient(X_AVALARA_CLIENT);
+        request.setAvalaraVersion(AVALARA_VERSION);
         request.setAccept(contentType);
         ApiResponse<File> fileApiResponse = documentsApi.downloadDocumentWithHttpInfo(request);
 
         // then
         Assertions.assertEquals(200, fileApiResponse.getStatusCode());
-        Assertions.assertEquals(List.of(contentType), fileApiResponse.getHeaders().get("Content-Type"));
+        Assertions.assertEquals(List.of(contentType), fileApiResponse.getHeaders().get(CONTENT_TYPE));
         File file = fileApiResponse.getData();
         byte[] bytes = FileUtils.readFileToByteArray(file);
         Assertions.assertArrayEquals(RESPONSE_CONTENT, bytes);
@@ -131,7 +134,7 @@ class DocumentsApiTest {
         MappingBuilder mappingBuilder = WireMock.get(urlPathMatching("/einvoicing/documents/transactionId/\\$download"))
                 .withHeader("Accept", equalTo(contentType));
         ResponseDefinitionBuilder responseBuilder = aResponse().withStatus(200)
-                .withHeader("Content-Type", contentType)
+                .withHeader(CONTENT_TYPE, contentType)
                 .withBody(RESPONSE_CONTENT);
         stubFor(mappingBuilder.willReturn(responseBuilder));
     }
