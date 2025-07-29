@@ -479,7 +479,7 @@ public class MandatesApi {
     * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used</param>
     * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)</param>
     * @param $filter Filter by field name and value. This filter only supports <code>eq</code> and <code>contains</code>. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. (optional)</param>
-    * @param $top If nonzero, return no more than this number of results. Used with <code>$skip</code> to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. (optional)</param>
+    * @param $top The number of items to include in the result. (optional)</param>
     * @param $skip If nonzero, skip this number of results before returning data. Used with <code>$top</code> to provide pagination for large datasets. (optional)</param>
     * @param $count When set to true, the count of the collection is also returned in the response body. (optional)</param>
     * @param $countOnly When set to true, only the count of the collection is returned (optional)</param>
@@ -488,7 +488,7 @@ public class MandatesApi {
         private String avalaraVersion;
         private String xAvalaraClient;
         private String $filter;
-        private BigDecimal $top;
+        private Integer $top;
         private BigDecimal $skip;
         private Boolean $count;
         private Boolean $countOnly;
@@ -502,8 +502,8 @@ public class MandatesApi {
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
         public String get$filter() { return $filter; }
         public void set$filter(String $filter) { this.$filter = $filter; }
-        public BigDecimal get$top() { return $top; }
-        public void set$top(BigDecimal $top) { this.$top = $top; }
+        public Integer get$top() { return $top; }
+        public void set$top(Integer $top) { this.$top = $top; }
         public BigDecimal get$skip() { return $skip; }
         public void set$skip(BigDecimal $skip) { this.$skip = $skip; }
         public Boolean get$count() { return $count; }

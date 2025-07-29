@@ -38,7 +38,6 @@ import java.util.*;
 
 import Avalara.SDK.model.EInvoicing.V1.BadDownloadRequest;
 import Avalara.SDK.model.EInvoicing.V1.BadRequest;
-import java.math.BigDecimal;
 import Avalara.SDK.model.EInvoicing.V1.DocumentFetch;
 import Avalara.SDK.model.EInvoicing.V1.DocumentListResponse;
 import Avalara.SDK.model.EInvoicing.V1.DocumentStatusResponse;
@@ -668,7 +667,7 @@ public class DocumentsApi {
     * @param $count When set to true, the count of the collection is also returned in the response body (optional)</param>
     * @param $countOnly When set to true, only the count of the collection is returned (optional)</param>
     * @param $filter Filter by field name and value. This filter only supports <code>eq</code> . Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. Filtering will be done over the provided startDate and endDate. If no startDate or endDate is provided, defaults will be assumed. (optional)</param>
-    * @param $top If nonzero, return no more than this number of results. Used with <code>$skip</code> to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 200 records. (optional)</param>
+    * @param $top The number of items to include in the result. (optional)</param>
     * @param $skip If nonzero, skip this number of results before returning data. Used with <code>$top</code> to provide pagination for large datasets. (optional)</param>
     */
     public class GetDocumentListRequest {
@@ -680,7 +679,7 @@ public class DocumentsApi {
         private String $count;
         private String $countOnly;
         private String $filter;
-        private BigDecimal $top;
+        private Integer $top;
         private String $skip;
 
         public GetDocumentListRequest () {
@@ -702,8 +701,8 @@ public class DocumentsApi {
         public void set$countOnly(String $countOnly) { this.$countOnly = $countOnly; }
         public String get$filter() { return $filter; }
         public void set$filter(String $filter) { this.$filter = $filter; }
-        public BigDecimal get$top() { return $top; }
-        public void set$top(BigDecimal $top) { this.$top = $top; }
+        public Integer get$top() { return $top; }
+        public void set$top(Integer $top) { this.$top = $top; }
         public String get$skip() { return $skip; }
         public void set$skip(String $skip) { this.$skip = $skip; }
     }
