@@ -36,7 +36,6 @@ import java.io.IOException;
 import java.util.*;
 
 
-import java.math.BigDecimal;
 import Avalara.SDK.model.EInvoicing.V1.DataInputFieldsResponse;
 import Avalara.SDK.model.EInvoicing.V1.ForbiddenError;
 import Avalara.SDK.model.EInvoicing.V1.InternalServerError;
@@ -253,7 +252,7 @@ public class DataInputFieldsApi {
     * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)</param>
     * @param $filter Filter by field name and value. This filter only supports <code>eq</code> and <code>contains</code>. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. (optional)</param>
     * @param $top The number of items to include in the result. (optional)</param>
-    * @param $skip If nonzero, skip this number of results before returning data. Used with <code>$top</code> to provide pagination for large datasets. (optional)</param>
+    * @param $skip The number of items to skip in the result. (optional)</param>
     * @param $count When set to true, the count of the collection is also returned in the response body (optional)</param>
     * @param $countOnly When set to true, only the count of the collection is returned (optional)</param>
     */
@@ -262,7 +261,7 @@ public class DataInputFieldsApi {
         private String xAvalaraClient;
         private String $filter;
         private Integer $top;
-        private BigDecimal $skip;
+        private Integer $skip;
         private Boolean $count;
         private Boolean $countOnly;
 
@@ -277,8 +276,8 @@ public class DataInputFieldsApi {
         public void set$filter(String $filter) { this.$filter = $filter; }
         public Integer get$top() { return $top; }
         public void set$top(Integer $top) { this.$top = $top; }
-        public BigDecimal get$skip() { return $skip; }
-        public void set$skip(BigDecimal $skip) { this.$skip = $skip; }
+        public Integer get$skip() { return $skip; }
+        public void set$skip(Integer $skip) { this.$skip = $skip; }
         public Boolean get$count() { return $count; }
         public void set$count(Boolean $count) { this.$count = $count; }
         public Boolean get$countOnly() { return $countOnly; }

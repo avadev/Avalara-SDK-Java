@@ -1492,7 +1492,7 @@ public class TradingPartnersApi {
     * @param $filter Filters the results by field name. Only the <code>eq</code> operator and the name field is supported. For more information, refer to [AvaTax filtering guide](https://developer.avalara.com/avatax/filtering-in-rest/). (optional)</param>
     * @param count When set to <code>true</code>, returns the total count of matching records included as <code>@recordSetCount</code> in the response body. (optional)</param>
     * @param $top The number of items to include in the result. (optional)</param>
-    * @param $skip If nonzero, skip this number of results before returning data. Used with <code>$top</code> to provide pagination for large datasets. (optional)</param>
+    * @param $skip The number of items to skip in the result. (optional)</param>
     * @param $orderBy The <code>$orderBy</code> query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space. (optional)</param>
     * @param xCorrelationID The caller can use this as an identifier to use as a correlation id to trace the call. (optional)</param>
     */
@@ -1502,7 +1502,7 @@ public class TradingPartnersApi {
         private String $filter;
         private Boolean count;
         private Integer $top;
-        private String $skip;
+        private Integer $skip;
         private String $orderBy;
         private String xCorrelationID;
 
@@ -1519,8 +1519,8 @@ public class TradingPartnersApi {
         public void setCount(Boolean count) { this.count = count; }
         public Integer get$top() { return $top; }
         public void set$top(Integer $top) { this.$top = $top; }
-        public String get$skip() { return $skip; }
-        public void set$skip(String $skip) { this.$skip = $skip; }
+        public Integer get$skip() { return $skip; }
+        public void set$skip(Integer $skip) { this.$skip = $skip; }
         public String get$orderBy() { return $orderBy; }
         public void set$orderBy(String $orderBy) { this.$orderBy = $orderBy; }
         public String getXCorrelationID() { return xCorrelationID; }
@@ -1730,7 +1730,7 @@ public class TradingPartnersApi {
     * @param count When set to <code>true</code>, returns the total count of matching records included as <code>@recordSetCount</code> in the response body. (optional)</param>
     * @param $filter Filters the results using the <code>eq</code> operator. Supported fields: <code>network</code>, <code>country</code>, <code>documentType</code>, <code>idType</code>. For more information, refer to [AvaTax filtering guide](https://developer.avalara.com/avatax/filtering-in-rest/). (optional)</param>
     * @param $top The number of items to include in the result. (optional)</param>
-    * @param $skip If nonzero, skip this number of results before returning data. Used with <code>$top</code> to provide pagination for large datasets. (optional)</param>
+    * @param $skip The number of items to skip in the result. (optional)</param>
     * @param $orderBy The <code>$orderBy</code> query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space. (optional)</param>
     * @param xCorrelationID The caller can use this as an identifier to use as a correlation id to trace the call. (optional)</param>
     */
@@ -1741,7 +1741,7 @@ public class TradingPartnersApi {
         private Boolean count;
         private String $filter;
         private Integer $top;
-        private String $skip;
+        private Integer $skip;
         private String $orderBy;
         private String xCorrelationID;
 
@@ -1760,8 +1760,8 @@ public class TradingPartnersApi {
         public void set$filter(String $filter) { this.$filter = $filter; }
         public Integer get$top() { return $top; }
         public void set$top(Integer $top) { this.$top = $top; }
-        public String get$skip() { return $skip; }
-        public void set$skip(String $skip) { this.$skip = $skip; }
+        public Integer get$skip() { return $skip; }
+        public void set$skip(Integer $skip) { this.$skip = $skip; }
         public String get$orderBy() { return $orderBy; }
         public void set$orderBy(String $orderBy) { this.$orderBy = $orderBy; }
         public String getXCorrelationID() { return xCorrelationID; }

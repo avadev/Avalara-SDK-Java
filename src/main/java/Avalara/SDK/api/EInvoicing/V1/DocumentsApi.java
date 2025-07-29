@@ -668,7 +668,7 @@ public class DocumentsApi {
     * @param $countOnly When set to true, only the count of the collection is returned (optional)</param>
     * @param $filter Filter by field name and value. This filter only supports <code>eq</code> . Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. Filtering will be done over the provided startDate and endDate. If no startDate or endDate is provided, defaults will be assumed. (optional)</param>
     * @param $top The number of items to include in the result. (optional)</param>
-    * @param $skip If nonzero, skip this number of results before returning data. Used with <code>$top</code> to provide pagination for large datasets. (optional)</param>
+    * @param $skip The number of items to skip in the result. (optional)</param>
     */
     public class GetDocumentListRequest {
         private String avalaraVersion;
@@ -680,7 +680,7 @@ public class DocumentsApi {
         private String $countOnly;
         private String $filter;
         private Integer $top;
-        private String $skip;
+        private Integer $skip;
 
         public GetDocumentListRequest () {
         }
@@ -703,8 +703,8 @@ public class DocumentsApi {
         public void set$filter(String $filter) { this.$filter = $filter; }
         public Integer get$top() { return $top; }
         public void set$top(Integer $top) { this.$top = $top; }
-        public String get$skip() { return $skip; }
-        public void set$skip(String $skip) { this.$skip = $skip; }
+        public Integer get$skip() { return $skip; }
+        public void set$skip(Integer $skip) { this.$skip = $skip; }
     }
 
     /**

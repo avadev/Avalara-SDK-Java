@@ -230,7 +230,7 @@ public class Example {
         String $countOnly = "false"; // String | When set to true, only the count of the collection is returned
         String $filter = "id eq 52f60401-44d0-4667-ad47-4afe519abb53"; // String | Filter by field name and value. This filter only supports <code>eq</code> . Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. Filtering will be done over the provided startDate and endDate. If no startDate or endDate is provided, defaults will be assumed.
         Integer $top = 56; // Integer | The number of items to include in the result.
-        String $skip = "10"; // String | If nonzero, skip this number of results before returning data. Used with <code>$top</code> to provide pagination for large datasets.
+        Integer $skip = 56; // Integer | The number of items to skip in the result.
         try {
             DocumentListResponse result = apiInstance.getDocumentList(avalaraVersion, xAvalaraClient, startDate, endDate, flow, $count, $countOnly, $filter, $top, $skip);
             System.out.println(result);
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
  **$countOnly** | **String**| When set to true, only the count of the collection is returned | [optional]
  **$filter** | **String**| Filter by field name and value. This filter only supports &lt;code&gt;eq&lt;/code&gt; . Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. Filtering will be done over the provided startDate and endDate. If no startDate or endDate is provided, defaults will be assumed. | [optional]
  **$top** | **Integer**| The number of items to include in the result. | [optional]
- **$skip** | **String**| If nonzero, skip this number of results before returning data. Used with &lt;code&gt;$top&lt;/code&gt; to provide pagination for large datasets. | [optional]
+ **$skip** | **Integer**| The number of items to skip in the result. | [optional]
 
 ### Return type
 

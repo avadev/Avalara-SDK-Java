@@ -48,7 +48,7 @@ public class Example {
         String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
         String $filter = "requiredFor/countryMandate eq AU-B2G-PEPPOL"; // String | Filter by field name and value. This filter only supports <code>eq</code> and <code>contains</code>. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering.
         Integer $top = 56; // Integer | The number of items to include in the result.
-        BigDecimal $skip = new BigDecimal("10"); // BigDecimal | If nonzero, skip this number of results before returning data. Used with <code>$top</code> to provide pagination for large datasets.
+        Integer $skip = 56; // Integer | The number of items to skip in the result.
         Boolean $count = true; // Boolean | When set to true, the count of the collection is also returned in the response body
         Boolean $countOnly = true; // Boolean | When set to true, only the count of the collection is returned
         try {
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
  **xAvalaraClient** | **String**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. | [optional]
  **$filter** | **String**| Filter by field name and value. This filter only supports &lt;code&gt;eq&lt;/code&gt; and &lt;code&gt;contains&lt;/code&gt;. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. | [optional]
  **$top** | **Integer**| The number of items to include in the result. | [optional]
- **$skip** | **BigDecimal**| If nonzero, skip this number of results before returning data. Used with &lt;code&gt;$top&lt;/code&gt; to provide pagination for large datasets. | [optional]
+ **$skip** | **Integer**| The number of items to skip in the result. | [optional]
  **$count** | **Boolean**| When set to true, the count of the collection is also returned in the response body | [optional]
  **$countOnly** | **Boolean**| When set to true, only the count of the collection is returned | [optional]
 
