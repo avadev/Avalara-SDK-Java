@@ -54,7 +54,7 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * Wrapper for errors occurring during webhook subscription or delivery processing.
+ * WebhooksErrorResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class WebhooksErrorResponse {

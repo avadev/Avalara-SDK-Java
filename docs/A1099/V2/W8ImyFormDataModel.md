@@ -126,8 +126,8 @@ W-8 IMY form
 |**certifyBox42** | **Boolean** | Indicates certification for box 42. |  [optional] |
 |**signerName** | **String** | The name of the signer of the form. |  [optional] |
 |**eDeliveryConsentedAt** | **OffsetDateTime** | The date when e-delivery was consented. |  [optional] |
-|**box35FormedOnDate** | **OffsetDateTime** |  |  [optional] |
-|**box36FiledOnDate** | **OffsetDateTime** |  |  [optional] |
+|**box35FormedOnDate** | **LocalDate** |  |  [optional] |
+|**box36FiledOnDate** | **LocalDate** |  |  [optional] |
 |**employeeFirstName** | **String** | The first name of the employee. |  [optional] |
 |**employeeMiddleName** | **String** | The middle name of the employee. |  [optional] |
 |**employeeLastName** | **String** | The last name of the employee. |  [optional] |
@@ -197,9 +197,9 @@ W-8 IMY form
 |**certifyBox41** | **Boolean** |  |  [optional] |
 |**certifyBox43** | **Boolean** |  |  [optional] |
 |**certifyPart29Signature** | **Boolean** |  |  [optional] |
-|**part19FormationOrResolutionDate** | **OffsetDateTime** |  |  [optional] |
-|**part20FilingDate** | **OffsetDateTime** |  |  [optional] |
-|**part21DeterminationDate** | **OffsetDateTime** |  |  [optional] |
+|**part19FormationOrResolutionDate** | **LocalDate** |  |  [optional] |
+|**part20FilingDate** | **LocalDate** |  |  [optional] |
+|**part21DeterminationDate** | **LocalDate** |  |  [optional] |
 |**substantialUsOwners** | [**List&lt;W8BenESubstantialUsOwnerDataModel&gt;**](W8BenESubstantialUsOwnerDataModel.md) |  |  [optional] |
 |**birthday** | **String** | The birthday of the individual associated with the form. |  [optional] |
 |**foreignTinNotRequired** | **Boolean** | Indicates whether a foreign TIN is not required. |  [optional] |

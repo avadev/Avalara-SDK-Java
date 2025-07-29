@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -27,6 +27,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -586,19 +587,19 @@ public class W4FormDataModel {
 
   public static final String SERIALIZED_NAME_PART19_FORMATION_OR_RESOLUTION_DATE = "part19FormationOrResolutionDate";
   @SerializedName(SERIALIZED_NAME_PART19_FORMATION_OR_RESOLUTION_DATE)
-  private OffsetDateTime part19FormationOrResolutionDate;
+  private LocalDate part19FormationOrResolutionDate;
 
   public static final String SERIALIZED_NAME_PART20_FILING_DATE = "part20FilingDate";
   @SerializedName(SERIALIZED_NAME_PART20_FILING_DATE)
-  private OffsetDateTime part20FilingDate;
+  private LocalDate part20FilingDate;
 
   public static final String SERIALIZED_NAME_PART21_DETERMINATION_DATE = "part21DeterminationDate";
   @SerializedName(SERIALIZED_NAME_PART21_DETERMINATION_DATE)
-  private OffsetDateTime part21DeterminationDate;
+  private LocalDate part21DeterminationDate;
 
   public static final String SERIALIZED_NAME_SUBSTANTIAL_US_OWNERS = "substantialUsOwners";
   @SerializedName(SERIALIZED_NAME_SUBSTANTIAL_US_OWNERS)
-  private List<W8BenESubstantialUsOwnerDataModel> substantialUsOwners = new ArrayList<>();
+  private List<W8BenESubstantialUsOwnerDataModel> substantialUsOwners;
 
   public static final String SERIALIZED_NAME_BIRTHDAY = "birthday";
   @SerializedName(SERIALIZED_NAME_BIRTHDAY)
@@ -910,11 +911,11 @@ public class W4FormDataModel {
 
   public static final String SERIALIZED_NAME_BOX35_FORMED_ON_DATE = "box35FormedOnDate";
   @SerializedName(SERIALIZED_NAME_BOX35_FORMED_ON_DATE)
-  private OffsetDateTime box35FormedOnDate;
+  private LocalDate box35FormedOnDate;
 
   public static final String SERIALIZED_NAME_BOX36_FILED_ON_DATE = "box36FiledOnDate";
   @SerializedName(SERIALIZED_NAME_BOX36_FILED_ON_DATE)
-  private OffsetDateTime box36FiledOnDate;
+  private LocalDate box36FiledOnDate;
 
   public static final String SERIALIZED_NAME_TIN_MATCH_STATUS = "tinMatchStatus";
   @SerializedName(SERIALIZED_NAME_TIN_MATCH_STATUS)
@@ -3174,7 +3175,7 @@ public class W4FormDataModel {
   }
 
 
-  public W4FormDataModel part19FormationOrResolutionDate(OffsetDateTime part19FormationOrResolutionDate) {
+  public W4FormDataModel part19FormationOrResolutionDate(LocalDate part19FormationOrResolutionDate) {
     this.part19FormationOrResolutionDate = part19FormationOrResolutionDate;
     return this;
   }
@@ -3184,16 +3185,16 @@ public class W4FormDataModel {
    * @return part19FormationOrResolutionDate
    */
   @javax.annotation.Nullable
-  public OffsetDateTime getPart19FormationOrResolutionDate() {
+  public LocalDate getPart19FormationOrResolutionDate() {
     return part19FormationOrResolutionDate;
   }
 
-  public void setPart19FormationOrResolutionDate(OffsetDateTime part19FormationOrResolutionDate) {
+  public void setPart19FormationOrResolutionDate(LocalDate part19FormationOrResolutionDate) {
     this.part19FormationOrResolutionDate = part19FormationOrResolutionDate;
   }
 
 
-  public W4FormDataModel part20FilingDate(OffsetDateTime part20FilingDate) {
+  public W4FormDataModel part20FilingDate(LocalDate part20FilingDate) {
     this.part20FilingDate = part20FilingDate;
     return this;
   }
@@ -3203,16 +3204,16 @@ public class W4FormDataModel {
    * @return part20FilingDate
    */
   @javax.annotation.Nullable
-  public OffsetDateTime getPart20FilingDate() {
+  public LocalDate getPart20FilingDate() {
     return part20FilingDate;
   }
 
-  public void setPart20FilingDate(OffsetDateTime part20FilingDate) {
+  public void setPart20FilingDate(LocalDate part20FilingDate) {
     this.part20FilingDate = part20FilingDate;
   }
 
 
-  public W4FormDataModel part21DeterminationDate(OffsetDateTime part21DeterminationDate) {
+  public W4FormDataModel part21DeterminationDate(LocalDate part21DeterminationDate) {
     this.part21DeterminationDate = part21DeterminationDate;
     return this;
   }
@@ -3222,11 +3223,11 @@ public class W4FormDataModel {
    * @return part21DeterminationDate
    */
   @javax.annotation.Nullable
-  public OffsetDateTime getPart21DeterminationDate() {
+  public LocalDate getPart21DeterminationDate() {
     return part21DeterminationDate;
   }
 
-  public void setPart21DeterminationDate(OffsetDateTime part21DeterminationDate) {
+  public void setPart21DeterminationDate(LocalDate part21DeterminationDate) {
     this.part21DeterminationDate = part21DeterminationDate;
   }
 
@@ -4721,7 +4722,7 @@ public class W4FormDataModel {
   }
 
 
-  public W4FormDataModel box35FormedOnDate(OffsetDateTime box35FormedOnDate) {
+  public W4FormDataModel box35FormedOnDate(LocalDate box35FormedOnDate) {
     this.box35FormedOnDate = box35FormedOnDate;
     return this;
   }
@@ -4731,16 +4732,16 @@ public class W4FormDataModel {
    * @return box35FormedOnDate
    */
   @javax.annotation.Nullable
-  public OffsetDateTime getBox35FormedOnDate() {
+  public LocalDate getBox35FormedOnDate() {
     return box35FormedOnDate;
   }
 
-  public void setBox35FormedOnDate(OffsetDateTime box35FormedOnDate) {
+  public void setBox35FormedOnDate(LocalDate box35FormedOnDate) {
     this.box35FormedOnDate = box35FormedOnDate;
   }
 
 
-  public W4FormDataModel box36FiledOnDate(OffsetDateTime box36FiledOnDate) {
+  public W4FormDataModel box36FiledOnDate(LocalDate box36FiledOnDate) {
     this.box36FiledOnDate = box36FiledOnDate;
     return this;
   }
@@ -4750,11 +4751,11 @@ public class W4FormDataModel {
    * @return box36FiledOnDate
    */
   @javax.annotation.Nullable
-  public OffsetDateTime getBox36FiledOnDate() {
+  public LocalDate getBox36FiledOnDate() {
     return box36FiledOnDate;
   }
 
-  public void setBox36FiledOnDate(OffsetDateTime box36FiledOnDate) {
+  public void setBox36FiledOnDate(LocalDate box36FiledOnDate) {
     this.box36FiledOnDate = box36FiledOnDate;
   }
 

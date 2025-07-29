@@ -63,7 +63,7 @@ import Avalara.SDK.JSON;
 public class FetchDocumentsRequest {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private List<FetchDocumentsRequestDataInner> data = new ArrayList<>();
+  private List<FetchDocumentsRequestDataInner> data;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)

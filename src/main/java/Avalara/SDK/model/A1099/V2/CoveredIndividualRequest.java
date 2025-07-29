@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -144,7 +144,7 @@ public class CoveredIndividualRequest {
   }
 
   /**
-   * Get firstName
+   * Covered individual&#39;s first name
    * @return firstName
    */
   @javax.annotation.Nullable
@@ -163,7 +163,7 @@ public class CoveredIndividualRequest {
   }
 
   /**
-   * Get middleName
+   * Covered individual&#39;s middle name
    * @return middleName
    */
   @javax.annotation.Nullable
@@ -182,7 +182,7 @@ public class CoveredIndividualRequest {
   }
 
   /**
-   * Get lastName
+   * Covered individual&#39;s last name
    * @return lastName
    */
   @javax.annotation.Nullable
@@ -201,7 +201,7 @@ public class CoveredIndividualRequest {
   }
 
   /**
-   * Get nameSuffix
+   * Covered individual&#39;s name suffix
    * @return nameSuffix
    */
   @javax.annotation.Nullable
@@ -220,7 +220,7 @@ public class CoveredIndividualRequest {
   }
 
   /**
-   * Get tin
+   * Covered individual&#39;s TIN (SSN or ITIN)
    * @return tin
    */
   @javax.annotation.Nullable
@@ -239,7 +239,7 @@ public class CoveredIndividualRequest {
   }
 
   /**
-   * Get birthDate
+   * Covered individual&#39;s date of birth
    * @return birthDate
    */
   @javax.annotation.Nullable
@@ -258,7 +258,7 @@ public class CoveredIndividualRequest {
   }
 
   /**
-   * Get coveredMonthIndicator0
+   * Coverage indicator for all 12 months
    * @return coveredMonthIndicator0
    */
   @javax.annotation.Nullable
@@ -277,7 +277,7 @@ public class CoveredIndividualRequest {
   }
 
   /**
-   * Get coveredMonthIndicator1
+   * Coverage indicator for January
    * @return coveredMonthIndicator1
    */
   @javax.annotation.Nullable
@@ -296,7 +296,7 @@ public class CoveredIndividualRequest {
   }
 
   /**
-   * Get coveredMonthIndicator2
+   * Coverage indicator for February
    * @return coveredMonthIndicator2
    */
   @javax.annotation.Nullable
@@ -315,7 +315,7 @@ public class CoveredIndividualRequest {
   }
 
   /**
-   * Get coveredMonthIndicator3
+   * Coverage indicator for March
    * @return coveredMonthIndicator3
    */
   @javax.annotation.Nullable
@@ -334,7 +334,7 @@ public class CoveredIndividualRequest {
   }
 
   /**
-   * Get coveredMonthIndicator4
+   * Coverage indicator for April
    * @return coveredMonthIndicator4
    */
   @javax.annotation.Nullable
@@ -353,7 +353,7 @@ public class CoveredIndividualRequest {
   }
 
   /**
-   * Get coveredMonthIndicator5
+   * Coverage indicator for May
    * @return coveredMonthIndicator5
    */
   @javax.annotation.Nullable
@@ -372,7 +372,7 @@ public class CoveredIndividualRequest {
   }
 
   /**
-   * Get coveredMonthIndicator6
+   * Coverage indicator for June
    * @return coveredMonthIndicator6
    */
   @javax.annotation.Nullable
@@ -391,7 +391,7 @@ public class CoveredIndividualRequest {
   }
 
   /**
-   * Get coveredMonthIndicator7
+   * Coverage indicator for July
    * @return coveredMonthIndicator7
    */
   @javax.annotation.Nullable
@@ -410,7 +410,7 @@ public class CoveredIndividualRequest {
   }
 
   /**
-   * Get coveredMonthIndicator8
+   * Coverage indicator for August
    * @return coveredMonthIndicator8
    */
   @javax.annotation.Nullable
@@ -429,7 +429,7 @@ public class CoveredIndividualRequest {
   }
 
   /**
-   * Get coveredMonthIndicator9
+   * Coverage indicator for September
    * @return coveredMonthIndicator9
    */
   @javax.annotation.Nullable
@@ -448,7 +448,7 @@ public class CoveredIndividualRequest {
   }
 
   /**
-   * Get coveredMonthIndicator10
+   * Coverage indicator for October
    * @return coveredMonthIndicator10
    */
   @javax.annotation.Nullable
@@ -467,7 +467,7 @@ public class CoveredIndividualRequest {
   }
 
   /**
-   * Get coveredMonthIndicator11
+   * Coverage indicator for November
    * @return coveredMonthIndicator11
    */
   @javax.annotation.Nullable
@@ -486,7 +486,7 @@ public class CoveredIndividualRequest {
   }
 
   /**
-   * Get coveredMonthIndicator12
+   * Coverage indicator for December
    * @return coveredMonthIndicator12
    */
   @javax.annotation.Nullable

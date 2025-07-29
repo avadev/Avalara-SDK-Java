@@ -2,7 +2,6 @@
 
 # Mandate
 
-An object representing the country mandate
 
 ## Properties
 

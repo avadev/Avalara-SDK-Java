@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -20,16 +20,20 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
-import Avalara.SDK.model.A1099.V2.CoveredIndividualReference;
-import Avalara.SDK.model.A1099.V2.Form1095B;
-import Avalara.SDK.model.A1099.V2.Form1099K;
-import Avalara.SDK.model.A1099.V2.Form1099Misc;
-import Avalara.SDK.model.A1099.V2.Form1099Nec;
-import Avalara.SDK.model.A1099.V2.Form1099R;
-import Avalara.SDK.model.A1099.V2.Form1099StatusDetail;
-import Avalara.SDK.model.A1099.V2.StateAndLocalWithholding;
-import Avalara.SDK.model.A1099.V2.StateEfileStatusDetail;
-import Avalara.SDK.model.A1099.V2.ValidationError;
+import Avalara.SDK.model.A1099.V2.CoveredIndividualReferenceResponse;
+import Avalara.SDK.model.A1099.V2.Form1042SListItemResponse;
+import Avalara.SDK.model.A1099.V2.Form1095BListItemResponse;
+import Avalara.SDK.model.A1099.V2.Form1099BaseResponse;
+import Avalara.SDK.model.A1099.V2.Form1099KListItemResponse;
+import Avalara.SDK.model.A1099.V2.Form1099MiscListItemResponse;
+import Avalara.SDK.model.A1099.V2.Form1099NecListItemResponse;
+import Avalara.SDK.model.A1099.V2.Form1099RListItemResponse;
+import Avalara.SDK.model.A1099.V2.Form1099StatusDetailResponse;
+import Avalara.SDK.model.A1099.V2.IntermediaryOrFlowThroughResponse;
+import Avalara.SDK.model.A1099.V2.PrimaryWithholdingAgentResponse;
+import Avalara.SDK.model.A1099.V2.StateAndLocalWithholdingResponse;
+import Avalara.SDK.model.A1099.V2.StateEfileStatusDetailResponse;
+import Avalara.SDK.model.A1099.V2.ValidationErrorResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -89,11 +93,13 @@ public class Get1099Form200Response extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'Get1099Form200Response' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<Form1095B> adapterForm1095B = gson.getDelegateAdapter(this, TypeToken.get(Form1095B.class));
-            final TypeAdapter<Form1099K> adapterForm1099K = gson.getDelegateAdapter(this, TypeToken.get(Form1099K.class));
-            final TypeAdapter<Form1099Misc> adapterForm1099Misc = gson.getDelegateAdapter(this, TypeToken.get(Form1099Misc.class));
-            final TypeAdapter<Form1099Nec> adapterForm1099Nec = gson.getDelegateAdapter(this, TypeToken.get(Form1099Nec.class));
-            final TypeAdapter<Form1099R> adapterForm1099R = gson.getDelegateAdapter(this, TypeToken.get(Form1099R.class));
+            final TypeAdapter<Form1099BaseResponse> adapterForm1099BaseResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1099BaseResponse.class));
+            final TypeAdapter<Form1042SListItemResponse> adapterForm1042SListItemResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1042SListItemResponse.class));
+            final TypeAdapter<Form1095BListItemResponse> adapterForm1095BListItemResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1095BListItemResponse.class));
+            final TypeAdapter<Form1099KListItemResponse> adapterForm1099KListItemResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1099KListItemResponse.class));
+            final TypeAdapter<Form1099MiscListItemResponse> adapterForm1099MiscListItemResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1099MiscListItemResponse.class));
+            final TypeAdapter<Form1099NecListItemResponse> adapterForm1099NecListItemResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1099NecListItemResponse.class));
+            final TypeAdapter<Form1099RListItemResponse> adapterForm1099RListItemResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1099RListItemResponse.class));
 
             return (TypeAdapter<T>) new TypeAdapter<Get1099Form200Response>() {
                 @Override
@@ -103,37 +109,49 @@ public class Get1099Form200Response extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `Form1095B`
-                    if (value.getActualInstance() instanceof Form1095B) {
-                        JsonElement element = adapterForm1095B.toJsonTree((Form1095B)value.getActualInstance());
+                    // check if the actual instance is of the type `Form1099BaseResponse`
+                    if (value.getActualInstance() instanceof Form1099BaseResponse) {
+                        JsonElement element = adapterForm1099BaseResponse.toJsonTree((Form1099BaseResponse)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `Form1099K`
-                    if (value.getActualInstance() instanceof Form1099K) {
-                        JsonElement element = adapterForm1099K.toJsonTree((Form1099K)value.getActualInstance());
+                    // check if the actual instance is of the type `Form1042SListItemResponse`
+                    if (value.getActualInstance() instanceof Form1042SListItemResponse) {
+                        JsonElement element = adapterForm1042SListItemResponse.toJsonTree((Form1042SListItemResponse)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `Form1099Misc`
-                    if (value.getActualInstance() instanceof Form1099Misc) {
-                        JsonElement element = adapterForm1099Misc.toJsonTree((Form1099Misc)value.getActualInstance());
+                    // check if the actual instance is of the type `Form1095BListItemResponse`
+                    if (value.getActualInstance() instanceof Form1095BListItemResponse) {
+                        JsonElement element = adapterForm1095BListItemResponse.toJsonTree((Form1095BListItemResponse)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `Form1099Nec`
-                    if (value.getActualInstance() instanceof Form1099Nec) {
-                        JsonElement element = adapterForm1099Nec.toJsonTree((Form1099Nec)value.getActualInstance());
+                    // check if the actual instance is of the type `Form1099KListItemResponse`
+                    if (value.getActualInstance() instanceof Form1099KListItemResponse) {
+                        JsonElement element = adapterForm1099KListItemResponse.toJsonTree((Form1099KListItemResponse)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `Form1099R`
-                    if (value.getActualInstance() instanceof Form1099R) {
-                        JsonElement element = adapterForm1099R.toJsonTree((Form1099R)value.getActualInstance());
+                    // check if the actual instance is of the type `Form1099MiscListItemResponse`
+                    if (value.getActualInstance() instanceof Form1099MiscListItemResponse) {
+                        JsonElement element = adapterForm1099MiscListItemResponse.toJsonTree((Form1099MiscListItemResponse)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: Form1095B, Form1099K, Form1099Misc, Form1099Nec, Form1099R");
+                    // check if the actual instance is of the type `Form1099NecListItemResponse`
+                    if (value.getActualInstance() instanceof Form1099NecListItemResponse) {
+                        JsonElement element = adapterForm1099NecListItemResponse.toJsonTree((Form1099NecListItemResponse)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `Form1099RListItemResponse`
+                    if (value.getActualInstance() instanceof Form1099RListItemResponse) {
+                        JsonElement element = adapterForm1099RListItemResponse.toJsonTree((Form1099RListItemResponse)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse");
                 }
 
                 @Override
@@ -145,65 +163,89 @@ public class Get1099Form200Response extends AbstractOpenApiSchema {
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize Form1095B
+                    // deserialize Form1099BaseResponse
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        Form1095B.validateJsonElement(jsonElement);
-                        actualAdapter = adapterForm1095B;
+                        Form1099BaseResponse.validateJsonElement(jsonElement);
+                        actualAdapter = adapterForm1099BaseResponse;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'Form1095B'");
+                        log.log(Level.FINER, "Input data matches schema 'Form1099BaseResponse'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for Form1095B failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'Form1095B'", e);
+                        errorMessages.add(String.format("Deserialization for Form1099BaseResponse failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'Form1099BaseResponse'", e);
                     }
-                    // deserialize Form1099K
+                    // deserialize Form1042SListItemResponse
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        Form1099K.validateJsonElement(jsonElement);
-                        actualAdapter = adapterForm1099K;
+                        Form1042SListItemResponse.validateJsonElement(jsonElement);
+                        actualAdapter = adapterForm1042SListItemResponse;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'Form1099K'");
+                        log.log(Level.FINER, "Input data matches schema 'Form1042SListItemResponse'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for Form1099K failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'Form1099K'", e);
+                        errorMessages.add(String.format("Deserialization for Form1042SListItemResponse failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'Form1042SListItemResponse'", e);
                     }
-                    // deserialize Form1099Misc
+                    // deserialize Form1095BListItemResponse
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        Form1099Misc.validateJsonElement(jsonElement);
-                        actualAdapter = adapterForm1099Misc;
+                        Form1095BListItemResponse.validateJsonElement(jsonElement);
+                        actualAdapter = adapterForm1095BListItemResponse;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'Form1099Misc'");
+                        log.log(Level.FINER, "Input data matches schema 'Form1095BListItemResponse'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for Form1099Misc failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'Form1099Misc'", e);
+                        errorMessages.add(String.format("Deserialization for Form1095BListItemResponse failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'Form1095BListItemResponse'", e);
                     }
-                    // deserialize Form1099Nec
+                    // deserialize Form1099KListItemResponse
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        Form1099Nec.validateJsonElement(jsonElement);
-                        actualAdapter = adapterForm1099Nec;
+                        Form1099KListItemResponse.validateJsonElement(jsonElement);
+                        actualAdapter = adapterForm1099KListItemResponse;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'Form1099Nec'");
+                        log.log(Level.FINER, "Input data matches schema 'Form1099KListItemResponse'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for Form1099Nec failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'Form1099Nec'", e);
+                        errorMessages.add(String.format("Deserialization for Form1099KListItemResponse failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'Form1099KListItemResponse'", e);
                     }
-                    // deserialize Form1099R
+                    // deserialize Form1099MiscListItemResponse
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        Form1099R.validateJsonElement(jsonElement);
-                        actualAdapter = adapterForm1099R;
+                        Form1099MiscListItemResponse.validateJsonElement(jsonElement);
+                        actualAdapter = adapterForm1099MiscListItemResponse;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'Form1099R'");
+                        log.log(Level.FINER, "Input data matches schema 'Form1099MiscListItemResponse'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for Form1099R failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'Form1099R'", e);
+                        errorMessages.add(String.format("Deserialization for Form1099MiscListItemResponse failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'Form1099MiscListItemResponse'", e);
+                    }
+                    // deserialize Form1099NecListItemResponse
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        Form1099NecListItemResponse.validateJsonElement(jsonElement);
+                        actualAdapter = adapterForm1099NecListItemResponse;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'Form1099NecListItemResponse'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for Form1099NecListItemResponse failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'Form1099NecListItemResponse'", e);
+                    }
+                    // deserialize Form1099RListItemResponse
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        Form1099RListItemResponse.validateJsonElement(jsonElement);
+                        actualAdapter = adapterForm1099RListItemResponse;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'Form1099RListItemResponse'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for Form1099RListItemResponse failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'Form1099RListItemResponse'", e);
                     }
 
                     if (match == 1) {
@@ -231,11 +273,13 @@ public class Get1099Form200Response extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("Form1095B", Form1095B.class);
-        schemas.put("Form1099K", Form1099K.class);
-        schemas.put("Form1099Misc", Form1099Misc.class);
-        schemas.put("Form1099Nec", Form1099Nec.class);
-        schemas.put("Form1099R", Form1099R.class);
+        schemas.put("Form1099BaseResponse", Form1099BaseResponse.class);
+        schemas.put("Form1042SListItemResponse", Form1042SListItemResponse.class);
+        schemas.put("Form1095BListItemResponse", Form1095BListItemResponse.class);
+        schemas.put("Form1099KListItemResponse", Form1099KListItemResponse.class);
+        schemas.put("Form1099MiscListItemResponse", Form1099MiscListItemResponse.class);
+        schemas.put("Form1099NecListItemResponse", Form1099NecListItemResponse.class);
+        schemas.put("Form1099RListItemResponse", Form1099RListItemResponse.class);
     }
 
     @Override
@@ -246,45 +290,55 @@ public class Get1099Form200Response extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * Form1095B, Form1099K, Form1099Misc, Form1099Nec, Form1099R
+     * Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof Form1095B) {
+        if (instance instanceof Form1099BaseResponse) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof Form1099K) {
+        if (instance instanceof Form1042SListItemResponse) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof Form1099Misc) {
+        if (instance instanceof Form1095BListItemResponse) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof Form1099Nec) {
+        if (instance instanceof Form1099KListItemResponse) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof Form1099R) {
+        if (instance instanceof Form1099MiscListItemResponse) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be Form1095B, Form1099K, Form1099Misc, Form1099Nec, Form1099R");
+        if (instance instanceof Form1099NecListItemResponse) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof Form1099RListItemResponse) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * Form1095B, Form1099K, Form1099Misc, Form1099Nec, Form1099R
+     * Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse
      *
-     * @return The actual instance (Form1095B, Form1099K, Form1099Misc, Form1099Nec, Form1099R)
+     * @return The actual instance (Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -293,54 +347,74 @@ public class Get1099Form200Response extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `Form1095B`. If the actual instance is not `Form1095B`,
+     * Get the actual instance of `Form1099BaseResponse`. If the actual instance is not `Form1099BaseResponse`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `Form1095B`
-     * @throws ClassCastException if the instance is not `Form1095B`
+     * @return The actual instance of `Form1099BaseResponse`
+     * @throws ClassCastException if the instance is not `Form1099BaseResponse`
      */
-    public Form1095B getForm1095B() throws ClassCastException {
-        return (Form1095B)super.getActualInstance();
+    public Form1099BaseResponse getForm1099BaseResponse() throws ClassCastException {
+        return (Form1099BaseResponse)super.getActualInstance();
     }
     /**
-     * Get the actual instance of `Form1099K`. If the actual instance is not `Form1099K`,
+     * Get the actual instance of `Form1042SListItemResponse`. If the actual instance is not `Form1042SListItemResponse`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `Form1099K`
-     * @throws ClassCastException if the instance is not `Form1099K`
+     * @return The actual instance of `Form1042SListItemResponse`
+     * @throws ClassCastException if the instance is not `Form1042SListItemResponse`
      */
-    public Form1099K getForm1099K() throws ClassCastException {
-        return (Form1099K)super.getActualInstance();
+    public Form1042SListItemResponse getForm1042SListItemResponse() throws ClassCastException {
+        return (Form1042SListItemResponse)super.getActualInstance();
     }
     /**
-     * Get the actual instance of `Form1099Misc`. If the actual instance is not `Form1099Misc`,
+     * Get the actual instance of `Form1095BListItemResponse`. If the actual instance is not `Form1095BListItemResponse`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `Form1099Misc`
-     * @throws ClassCastException if the instance is not `Form1099Misc`
+     * @return The actual instance of `Form1095BListItemResponse`
+     * @throws ClassCastException if the instance is not `Form1095BListItemResponse`
      */
-    public Form1099Misc getForm1099Misc() throws ClassCastException {
-        return (Form1099Misc)super.getActualInstance();
+    public Form1095BListItemResponse getForm1095BListItemResponse() throws ClassCastException {
+        return (Form1095BListItemResponse)super.getActualInstance();
     }
     /**
-     * Get the actual instance of `Form1099Nec`. If the actual instance is not `Form1099Nec`,
+     * Get the actual instance of `Form1099KListItemResponse`. If the actual instance is not `Form1099KListItemResponse`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `Form1099Nec`
-     * @throws ClassCastException if the instance is not `Form1099Nec`
+     * @return The actual instance of `Form1099KListItemResponse`
+     * @throws ClassCastException if the instance is not `Form1099KListItemResponse`
      */
-    public Form1099Nec getForm1099Nec() throws ClassCastException {
-        return (Form1099Nec)super.getActualInstance();
+    public Form1099KListItemResponse getForm1099KListItemResponse() throws ClassCastException {
+        return (Form1099KListItemResponse)super.getActualInstance();
     }
     /**
-     * Get the actual instance of `Form1099R`. If the actual instance is not `Form1099R`,
+     * Get the actual instance of `Form1099MiscListItemResponse`. If the actual instance is not `Form1099MiscListItemResponse`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `Form1099R`
-     * @throws ClassCastException if the instance is not `Form1099R`
+     * @return The actual instance of `Form1099MiscListItemResponse`
+     * @throws ClassCastException if the instance is not `Form1099MiscListItemResponse`
      */
-    public Form1099R getForm1099R() throws ClassCastException {
-        return (Form1099R)super.getActualInstance();
+    public Form1099MiscListItemResponse getForm1099MiscListItemResponse() throws ClassCastException {
+        return (Form1099MiscListItemResponse)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `Form1099NecListItemResponse`. If the actual instance is not `Form1099NecListItemResponse`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `Form1099NecListItemResponse`
+     * @throws ClassCastException if the instance is not `Form1099NecListItemResponse`
+     */
+    public Form1099NecListItemResponse getForm1099NecListItemResponse() throws ClassCastException {
+        return (Form1099NecListItemResponse)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `Form1099RListItemResponse`. If the actual instance is not `Form1099RListItemResponse`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `Form1099RListItemResponse`
+     * @throws ClassCastException if the instance is not `Form1099RListItemResponse`
+     */
+    public Form1099RListItemResponse getForm1099RListItemResponse() throws ClassCastException {
+        return (Form1099RListItemResponse)super.getActualInstance();
     }
 
     /**
@@ -353,48 +427,64 @@ public class Get1099Form200Response extends AbstractOpenApiSchema {
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with Form1095B
+        // validate the json string with Form1099BaseResponse
         try {
-            Form1095B.validateJsonElement(jsonElement);
+            Form1099BaseResponse.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for Form1095B failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for Form1099BaseResponse failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with Form1099K
+        // validate the json string with Form1042SListItemResponse
         try {
-            Form1099K.validateJsonElement(jsonElement);
+            Form1042SListItemResponse.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for Form1099K failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for Form1042SListItemResponse failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with Form1099Misc
+        // validate the json string with Form1095BListItemResponse
         try {
-            Form1099Misc.validateJsonElement(jsonElement);
+            Form1095BListItemResponse.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for Form1099Misc failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for Form1095BListItemResponse failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with Form1099Nec
+        // validate the json string with Form1099KListItemResponse
         try {
-            Form1099Nec.validateJsonElement(jsonElement);
+            Form1099KListItemResponse.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for Form1099Nec failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for Form1099KListItemResponse failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with Form1099R
+        // validate the json string with Form1099MiscListItemResponse
         try {
-            Form1099R.validateJsonElement(jsonElement);
+            Form1099MiscListItemResponse.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for Form1099R failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for Form1099MiscListItemResponse failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with Form1099NecListItemResponse
+        try {
+            Form1099NecListItemResponse.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for Form1099NecListItemResponse failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with Form1099RListItemResponse
+        try {
+            Form1099RListItemResponse.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for Form1099RListItemResponse failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format("The JSON string is invalid for Get1099Form200Response with oneOf schemas: Form1095B, Form1099K, Form1099Misc, Form1099Nec, Form1099R. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format("The JSON string is invalid for Get1099Form200Response with oneOf schemas: Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

@@ -70,7 +70,7 @@ public class DocumentStatusResponse {
 
   public static final String SERIALIZED_NAME_EVENTS = "events";
   @SerializedName(SERIALIZED_NAME_EVENTS)
-  private List<StatusEvent> events = new ArrayList<>();
+  private List<StatusEvent> events;
 
   public DocumentStatusResponse() {
   }

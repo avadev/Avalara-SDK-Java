@@ -58,7 +58,7 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * Response model providing a list of input fields required, optional, or conditional for different country mandates.
+ * DataInputFieldsResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class DataInputFieldsResponse {
@@ -72,7 +72,7 @@ public class DataInputFieldsResponse {
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  private List<DataInputField> value = new ArrayList<>();
+  private List<DataInputField> value;
 
   public DataInputFieldsResponse() {
   }

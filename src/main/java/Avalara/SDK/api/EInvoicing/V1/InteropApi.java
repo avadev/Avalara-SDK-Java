@@ -280,7 +280,7 @@ public class InteropApi {
         public void setDocumentType(String documentType) { this.documentType = documentType; }
         public String getInterchangeType() { return interchangeType; }
         public void setInterchangeType(String interchangeType) { this.interchangeType = interchangeType; }
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
@@ -300,7 +300,7 @@ public class InteropApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.7.2");
+        this.localVarApiClient.setSdkVersion("25.8.0");
     }
 }
 

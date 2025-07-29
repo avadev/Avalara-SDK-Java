@@ -94,7 +94,7 @@ public class MandateDataInputField {
 
   public static final String SERIALIZED_NAME_ACCEPTED_VALUES = "acceptedValues";
   @SerializedName(SERIALIZED_NAME_ACCEPTED_VALUES)
-  private List<String> acceptedValues = new ArrayList<>();
+  private List<String> acceptedValues;
 
   public static final String SERIALIZED_NAME_DOCUMENTATION_LINK = "documentationLink";
   @SerializedName(SERIALIZED_NAME_DOCUMENTATION_LINK)

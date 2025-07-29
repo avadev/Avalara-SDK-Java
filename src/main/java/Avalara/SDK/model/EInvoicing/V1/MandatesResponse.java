@@ -72,7 +72,7 @@ public class MandatesResponse {
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  private List<Mandate> value = new ArrayList<>();
+  private List<Mandate> value;
 
   public MandatesResponse() {
   }

@@ -2,7 +2,6 @@
 
 # Pagination
 
-Pagination information for the dataset.
 
 ## Properties
 

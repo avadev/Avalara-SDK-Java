@@ -54,7 +54,7 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * Defines the signature configuration, specifying whether and how messages are signed for webhook delivery.
+ * Signature
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Signature {

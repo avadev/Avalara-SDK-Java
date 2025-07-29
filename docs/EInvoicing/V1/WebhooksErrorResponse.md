@@ -2,7 +2,6 @@
 
 # WebhooksErrorResponse
 
-Wrapper for errors occurring during webhook subscription or delivery processing.
 
 ## Properties
 

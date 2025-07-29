@@ -36,7 +36,6 @@ import java.io.IOException;
 import java.util.*;
 
 
-import java.math.BigDecimal;
 import Avalara.SDK.model.EInvoicing.V1.SubscriptionDetail;
 import Avalara.SDK.model.EInvoicing.V1.SubscriptionListResponse;
 import Avalara.SDK.model.EInvoicing.V1.SubscriptionRegistration;
@@ -240,7 +239,7 @@ public class SubscriptionsApi {
     /**
     * Represents the Request object for the CreateWebhookSubscription API
     *
-    * @param avalaraVersion The version of the API to use, e.g., \"1.3\".</param>
+    * @param avalaraVersion The version of the API to use, e.g., \"1.4\".</param>
     * @param subscriptionRegistration </param>
     * @param xCorrelationID A unique identifier for tracking the request and its response (optional)</param>
     * @param xAvalaraClient Client application identification (optional)</param>
@@ -254,7 +253,7 @@ public class SubscriptionsApi {
         public CreateWebhookSubscriptionRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public SubscriptionRegistration getSubscriptionRegistration() { return subscriptionRegistration; }
         public void setSubscriptionRegistration(SubscriptionRegistration subscriptionRegistration) { this.subscriptionRegistration = subscriptionRegistration; }
@@ -431,7 +430,7 @@ public class SubscriptionsApi {
     * Represents the Request object for the DeleteWebhookSubscription API
     *
     * @param subscriptionId </param>
-    * @param avalaraVersion The version of the API to use, e.g., \"1.3\".</param>
+    * @param avalaraVersion The version of the API to use, e.g., \"1.4\".</param>
     * @param xCorrelationID A unique identifier for tracking the request and its response (optional)</param>
     * @param xAvalaraClient Client application identification (optional)</param>
     */
@@ -446,7 +445,7 @@ public class SubscriptionsApi {
 
         public String getSubscriptionId() { return subscriptionId; }
         public void setSubscriptionId(String subscriptionId) { this.subscriptionId = subscriptionId; }
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXCorrelationID() { return xCorrelationID; }
         public void setXCorrelationID(String xCorrelationID) { this.xCorrelationID = xCorrelationID; }
@@ -625,7 +624,7 @@ public class SubscriptionsApi {
     * Represents the Request object for the GetWebhookSubscription API
     *
     * @param subscriptionId </param>
-    * @param avalaraVersion The version of the API to use, e.g., \"1.3\".</param>
+    * @param avalaraVersion The version of the API to use, e.g., \"1.4\".</param>
     * @param xCorrelationID A unique identifier for tracking the request and its response (optional)</param>
     * @param xAvalaraClient Client application identification (optional)</param>
     */
@@ -640,7 +639,7 @@ public class SubscriptionsApi {
 
         public String getSubscriptionId() { return subscriptionId; }
         public void setSubscriptionId(String subscriptionId) { this.subscriptionId = subscriptionId; }
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXCorrelationID() { return xCorrelationID; }
         public void setXCorrelationID(String xCorrelationID) { this.xCorrelationID = xCorrelationID; }
@@ -828,7 +827,7 @@ public class SubscriptionsApi {
     /**
     * Represents the Request object for the ListWebhookSubscriptions API
     *
-    * @param avalaraVersion The version of the API to use, e.g., \"1.3\".</param>
+    * @param avalaraVersion The version of the API to use, e.g., \"1.4\".</param>
     * @param xCorrelationID A unique identifier for tracking the request and its response (optional)</param>
     * @param xAvalaraClient Client application identification (optional)</param>
     * @param $top The number of items to include in the result. (optional)</param>
@@ -840,24 +839,24 @@ public class SubscriptionsApi {
         private String avalaraVersion;
         private String xCorrelationID;
         private String xAvalaraClient;
-        private BigDecimal $top;
-        private BigDecimal $skip;
+        private Integer $top;
+        private Integer $skip;
         private Boolean count;
         private Boolean countOnly;
 
         public ListWebhookSubscriptionsRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXCorrelationID() { return xCorrelationID; }
         public void setXCorrelationID(String xCorrelationID) { this.xCorrelationID = xCorrelationID; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
-        public BigDecimal get$top() { return $top; }
-        public void set$top(BigDecimal $top) { this.$top = $top; }
-        public BigDecimal get$skip() { return $skip; }
-        public void set$skip(BigDecimal $skip) { this.$skip = $skip; }
+        public Integer get$top() { return $top; }
+        public void set$top(Integer $top) { this.$top = $top; }
+        public Integer get$skip() { return $skip; }
+        public void set$skip(Integer $skip) { this.$skip = $skip; }
         public Boolean getCount() { return count; }
         public void setCount(Boolean count) { this.count = count; }
         public Boolean getCountOnly() { return countOnly; }
@@ -874,7 +873,7 @@ public class SubscriptionsApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.7.2");
+        this.localVarApiClient.setSdkVersion("25.8.0");
     }
 }
 

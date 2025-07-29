@@ -2,7 +2,7 @@
 
 # ErrorResponse
 
-Structure for reporting errors encountered during API operations, including title, status, and detailed message.
+Standard format for API error responses.
 
 ## Properties
 

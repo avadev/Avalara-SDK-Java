@@ -66,7 +66,7 @@ public class ConditionalForField {
 
   public static final String SERIALIZED_NAME_REQUIRED_WHEN = "requiredWhen";
   @SerializedName(SERIALIZED_NAME_REQUIRED_WHEN)
-  private List<RequiredWhenField> requiredWhen = new ArrayList<>();
+  private List<RequiredWhenField> requiredWhen;
 
   public ConditionalForField() {
   }

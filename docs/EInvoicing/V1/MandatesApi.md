@@ -45,7 +45,7 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         MandatesApi apiInstance = new MandatesApi(apiClient);
-        String avalaraVersion = "1.2"; // String | The HTTP Header meant to specify the version of the API intended to be used
+        String avalaraVersion = "1.4"; // String | The HTTP Header meant to specify the version of the API intended to be used
         String mandateId = "AD-B2G-PEPPOL"; // String | The unique ID for the mandate that was returned in the GET /einvoicing/mandates response body
         String documentType = "ubl-invoice"; // String | Select the documentType for which you wish to view the data-input-fields (You may obtain the supported documentTypes from the GET /mandates endpoint)
         String documentVersion = "2.1"; // String | Select the document version of the documentType (You may obtain the supported documentVersion from the GET /mandates endpoint)
@@ -136,11 +136,11 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         MandatesApi apiInstance = new MandatesApi(apiClient);
-        String avalaraVersion = "1.2"; // String | The HTTP Header meant to specify the version of the API intended to be used
+        String avalaraVersion = "1.4"; // String | The HTTP Header meant to specify the version of the API intended to be used
         String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
         String $filter = "countryMandate eq DE-B2G-PEPPOL"; // String | Filter by field name and value. This filter only supports <code>eq</code> and <code>contains</code>. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering.
-        BigDecimal $top = new BigDecimal(78); // BigDecimal | The number of items to include in the result.
-        String $skip = "$skip_example"; // String | If nonzero, skip this number of results before returning data. Used with <code>$top</code> to provide pagination for large datasets.
+        BigDecimal $top = new BigDecimal("10"); // BigDecimal | If nonzero, return no more than this number of results. Used with <code>$skip</code> to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records.
+        BigDecimal $skip = new BigDecimal("10"); // BigDecimal | If nonzero, skip this number of results before returning data. Used with <code>$top</code> to provide pagination for large datasets.
         Boolean $count = true; // Boolean | When set to true, the count of the collection is also returned in the response body.
         Boolean $countOnly = true; // Boolean | When set to true, only the count of the collection is returned
         try {
@@ -165,8 +165,8 @@ Name | Type | Description  | Notes
  **avalaraVersion** | **String**| The HTTP Header meant to specify the version of the API intended to be used |
  **xAvalaraClient** | **String**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. | [optional]
  **$filter** | **String**| Filter by field name and value. This filter only supports &lt;code&gt;eq&lt;/code&gt; and &lt;code&gt;contains&lt;/code&gt;. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. | [optional]
- **$top** | **BigDecimal**| The number of items to include in the result. | [optional]
- **$skip** | **String**| If nonzero, skip this number of results before returning data. Used with &lt;code&gt;$top&lt;/code&gt; to provide pagination for large datasets. | [optional]
+ **$top** | **BigDecimal**| If nonzero, return no more than this number of results. Used with &lt;code&gt;$skip&lt;/code&gt; to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. | [optional]
+ **$skip** | **BigDecimal**| If nonzero, skip this number of results before returning data. Used with &lt;code&gt;$top&lt;/code&gt; to provide pagination for large datasets. | [optional]
  **$count** | **Boolean**| When set to true, the count of the collection is also returned in the response body. | [optional]
  **$countOnly** | **Boolean**| When set to true, only the count of the collection is returned | [optional]
 

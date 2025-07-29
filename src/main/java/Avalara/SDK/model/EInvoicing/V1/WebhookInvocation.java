@@ -84,7 +84,7 @@ public class WebhookInvocation {
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  private List<EventMessage> items = new ArrayList<>();
+  private List<EventMessage> items;
 
   public WebhookInvocation() {
   }

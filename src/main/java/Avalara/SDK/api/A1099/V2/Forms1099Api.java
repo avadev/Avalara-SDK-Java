@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -37,8 +37,10 @@ import java.util.*;
 
 
 import Avalara.SDK.model.A1099.V2.BulkUpsert1099FormsRequest;
+import Avalara.SDK.model.A1099.V2.Create1099Form201Response;
 import Avalara.SDK.model.A1099.V2.ErrorResponse;
-import Avalara.SDK.model.A1099.V2.Form1099List;
+import java.io.File;
+import Avalara.SDK.model.A1099.V2.Form1099ListResponse;
 import Avalara.SDK.model.A1099.V2.Form1099ProccessResult;
 import Avalara.SDK.model.A1099.V2.Get1099Form200Response;
 import Avalara.SDK.model.A1099.V2.ICreateForm1099Request;
@@ -176,8 +178,8 @@ public class Forms1099Api {
     }
 
     /**
-     * Creates or updates multiple 1099 forms.
-     * This endpoint allows you to create or update multiple 1099 forms.  You can use one of the following payload structures:                **Form 1099-MISC:**  &#x60;&#x60;&#x60;json  {     \&quot;formType\&quot;: \&quot;1099-MISC\&quot;,     \&quot;forms\&quot;: [         {             \&quot;IssuerId\&quot;: \&quot;123456\&quot;,             \&quot;IssuerReferenceId\&quot;: \&quot;REF123\&quot;,             \&quot;IssuerTin\&quot;: \&quot;12-3456789\&quot;,             \&quot;TaxYear\&quot;: 2023,             \&quot;ReferenceId\&quot;: \&quot;FORM123456\&quot;,             \&quot;RecipientName\&quot;: \&quot;John Doe\&quot;,             \&quot;RecipientTin\&quot;: \&quot;987-65-4321\&quot;,             \&quot;TinType\&quot;: \&quot;IEN\&quot;,             \&quot;RecipientSecondName\&quot;: \&quot;Jane Doe\&quot;,             \&quot;Address\&quot;: \&quot;123 Main Street\&quot;,             \&quot;Address2\&quot;: \&quot;Apt 4B\&quot;,             \&quot;City\&quot;: \&quot;New York\&quot;,             \&quot;State\&quot;: \&quot;NY\&quot;,             \&quot;Zip\&quot;: \&quot;10001\&quot;,             \&quot;RecipientEmail\&quot;: \&quot;john.doe@email.com\&quot;,             \&quot;AccountNumber\&quot;: \&quot;ACC123456\&quot;,             \&quot;OfficeCode\&quot;: \&quot;NYC01\&quot;,             \&quot;SecondTinNotice\&quot;: false,             \&quot;RecipientNonUsProvince\&quot;: \&quot;\&quot;,             \&quot;CountryCode\&quot;: \&quot;US\&quot;,             \&quot;Rents\&quot;: 12000.00,             \&quot;Royalties\&quot;: 5000.00,             \&quot;OtherIncome\&quot;: 3000.00,             \&quot;FishingBoatProceeds\&quot;: 0.00,             \&quot;MedicalHealthCarePayments\&quot;: 15000.00,             \&quot;SubstitutePayments\&quot;: 1000.00,             \&quot;CropInsuranceProceeds\&quot;: 0.00,             \&quot;GrossProceedsPaidToAttorney\&quot;: 7500.00,             \&quot;FishPurchasedForResale\&quot;: 0.00,             \&quot;FedIncomeTaxWithheld\&quot;: 5000.00,             \&quot;Section409ADeferrals\&quot;: 0.00,             \&quot;ExcessGoldenParachutePayments\&quot;: 0.00,             \&quot;NonqualifiedDeferredCompensation\&quot;: 0.00,             \&quot;PayerMadeDirectSales\&quot;: false,             \&quot;FatcaFilingRequirement\&quot;: false,             \&quot;StateAndLocalWithholding\&quot;: {               \&quot;StateTaxWithheld\&quot;: 2500.00,               \&quot;LocalTaxWithheld\&quot;: 1000.00,               \&quot;State\&quot;: \&quot;NY\&quot;,               \&quot;StateIdNumber\&quot;: \&quot;NY123456\&quot;,               \&quot;Locality\&quot;: \&quot;New York City\&quot;,               \&quot;StateIncome\&quot;: 35000.00,               \&quot;LocalIncome\&quot;: 35000.00             }         }     ]  }  &#x60;&#x60;&#x60;                **Form 1099-NEC:**  &#x60;&#x60;&#x60;json  {    \&quot;formType\&quot;: \&quot;1099-NEC\&quot;,    \&quot;forms\&quot;: [      {        \&quot;issuerID\&quot;: \&quot;180337282\&quot;,        \&quot;issuerReferenceId\&quot;: \&quot;ISS123\&quot;,        \&quot;issuerTin\&quot;: \&quot;12-3000000\&quot;,        \&quot;taxYear\&quot;: 2024,        \&quot;referenceID\&quot;: \&quot;REF-002\&quot;,        \&quot;recipientName\&quot;: \&quot;Jane Smith\&quot;,        \&quot;recipientSecondName\&quot;: \&quot;\&quot;,        \&quot;recipientTin\&quot;: \&quot;987-65-4321\&quot;,        \&quot;tinType\&quot;: \&quot;IEN\&quot;,        \&quot;address\&quot;: \&quot;123 Center St\&quot;,        \&quot;address2\&quot;: \&quot;\&quot;,        \&quot;city\&quot;: \&quot;Santa Monica\&quot;,        \&quot;state\&quot;: \&quot;CA\&quot;,        \&quot;zip\&quot;: \&quot;90401\&quot;,        \&quot;countryCode\&quot;: \&quot;US\&quot;,        \&quot;recipientNonUsProvince\&quot;: \&quot;\&quot;,        \&quot;recipientEmail\&quot;: \&quot;\&quot;,        \&quot;accountNumber\&quot;: \&quot;\&quot;,        \&quot;officeCode\&quot;: \&quot;\&quot;,        \&quot;secondTinNotice\&quot;: false,        \&quot;nonemployeeCompensation\&quot;: 123.45,        \&quot;payerMadeDirectSales\&quot;: false,        \&quot;federalIncomeTaxWithheld\&quot;: 12.34,        \&quot;stateAndLocalWithholding\&quot;: {          \&quot;state\&quot;: \&quot;CA\&quot;,          \&quot;stateIdNumber\&quot;: \&quot;123123123\&quot;          \&quot;stateIncome\&quot;: 123.45,          \&quot;stateTaxWithheld\&quot;: 12.34,          \&quot;locality\&quot;: \&quot;Santa Monica\&quot;,          \&quot;localityIdNumber\&quot;: \&quot;456456\&quot;,          \&quot;localTaxWithheld\&quot;: 12.34          \&quot;localIncome\&quot;: 50000.00         },        \&quot;federalEFile\&quot;: true,        \&quot;postalMail\&quot;: true,        \&quot;stateEFile\&quot;: true,        \&quot;tinMatch\&quot;: true,        \&quot;addressVerification\&quot;: true       }     ]   }  &#x60;&#x60;&#x60;  For the full version of the payload and its schema details, refer to the Swagger schemas section.
+     * Create or update multiple 1099/1095/W2/1042S forms
+     * This endpoint allows you to create or update multiple 1099/1095/W2/1042S forms.  You can use one of the following payload structures:                **Form 1099-MISC:**  &#x60;&#x60;&#x60;json  {     \&quot;formType\&quot;: \&quot;1099-MISC\&quot;,     \&quot;forms\&quot;: [         {             \&quot;IssuerId\&quot;: \&quot;123456\&quot;,             \&quot;IssuerReferenceId\&quot;: \&quot;REF123\&quot;,             \&quot;IssuerTin\&quot;: \&quot;12-3456789\&quot;,             \&quot;TaxYear\&quot;: 2023,             \&quot;ReferenceId\&quot;: \&quot;FORM123456\&quot;,             \&quot;RecipientName\&quot;: \&quot;John Doe\&quot;,             \&quot;RecipientTin\&quot;: \&quot;587-65-4321\&quot;,             \&quot;TinType\&quot;: \&quot;SSN\&quot;,             \&quot;RecipientSecondName\&quot;: \&quot;Jane Doe\&quot;,             \&quot;Address\&quot;: \&quot;123 Main Street\&quot;,             \&quot;Address2\&quot;: \&quot;Apt 4B\&quot;,             \&quot;City\&quot;: \&quot;New York\&quot;,             \&quot;State\&quot;: \&quot;NY\&quot;,             \&quot;Zip\&quot;: \&quot;10001\&quot;,             \&quot;RecipientEmail\&quot;: \&quot;john.doe@email.com\&quot;,             \&quot;AccountNumber\&quot;: \&quot;ACC123456\&quot;,             \&quot;OfficeCode\&quot;: \&quot;NYC01\&quot;,             \&quot;SecondTinNotice\&quot;: false,             \&quot;RecipientNonUsProvince\&quot;: \&quot;\&quot;,             \&quot;CountryCode\&quot;: \&quot;US\&quot;,             \&quot;Rents\&quot;: 12000.00,             \&quot;Royalties\&quot;: 5000.00,             \&quot;OtherIncome\&quot;: 3000.00,             \&quot;FishingBoatProceeds\&quot;: 0.00,             \&quot;MedicalHealthCarePayments\&quot;: 15000.00,             \&quot;SubstitutePayments\&quot;: 1000.00,             \&quot;CropInsuranceProceeds\&quot;: 0.00,             \&quot;GrossProceedsPaidToAttorney\&quot;: 7500.00,             \&quot;FishPurchasedForResale\&quot;: 0.00,             \&quot;FedIncomeTaxWithheld\&quot;: 5000.00,             \&quot;Section409ADeferrals\&quot;: 0.00,             \&quot;ExcessGoldenParachutePayments\&quot;: 0.00,             \&quot;NonqualifiedDeferredCompensation\&quot;: 0.00,             \&quot;DirectSalesIndicator\&quot;: false,             \&quot;FatcaFilingRequirement\&quot;: false,             \&quot;StateAndLocalWithholding\&quot;: {               \&quot;StateTaxWithheld\&quot;: 2500.00,               \&quot;LocalTaxWithheld\&quot;: 1000.00,               \&quot;State\&quot;: \&quot;NY\&quot;,               \&quot;StateIdNumber\&quot;: \&quot;NY123456\&quot;,               \&quot;Locality\&quot;: \&quot;New York City\&quot;,               \&quot;StateIncome\&quot;: 35000.00,               \&quot;LocalIncome\&quot;: 35000.00             }         }     ]  }  &#x60;&#x60;&#x60;                **Form 1099-NEC:**  &#x60;&#x60;&#x60;json  {    \&quot;formType\&quot;: \&quot;1099-NEC\&quot;,    \&quot;forms\&quot;: [      {        \&quot;issuerID\&quot;: \&quot;180337282\&quot;,        \&quot;issuerReferenceId\&quot;: \&quot;ISS123\&quot;,        \&quot;issuerTin\&quot;: \&quot;12-3000000\&quot;,        \&quot;taxYear\&quot;: 2024,        \&quot;referenceID\&quot;: \&quot;REF-002\&quot;,        \&quot;recipientName\&quot;: \&quot;Jane Smith\&quot;,        \&quot;recipientSecondName\&quot;: \&quot;\&quot;,        \&quot;recipientTin\&quot;: \&quot;587-65-4321\&quot;,        \&quot;tinType\&quot;: \&quot;SSN\&quot;,        \&quot;address\&quot;: \&quot;123 Center St\&quot;,        \&quot;address2\&quot;: \&quot;\&quot;,        \&quot;city\&quot;: \&quot;Santa Monica\&quot;,        \&quot;state\&quot;: \&quot;CA\&quot;,        \&quot;zip\&quot;: \&quot;90401\&quot;,        \&quot;countryCode\&quot;: \&quot;US\&quot;,        \&quot;recipientNonUsProvince\&quot;: \&quot;\&quot;,        \&quot;recipientEmail\&quot;: \&quot;\&quot;,        \&quot;accountNumber\&quot;: \&quot;\&quot;,        \&quot;officeCode\&quot;: \&quot;\&quot;,        \&quot;secondTinNotice\&quot;: false,        \&quot;nonemployeeCompensation\&quot;: 123.45,        \&quot;directSalesIndicator\&quot;: false,        \&quot;federalIncomeTaxWithheld\&quot;: 12.34,        \&quot;stateAndLocalWithholding\&quot;: {          \&quot;state\&quot;: \&quot;CA\&quot;,          \&quot;stateIdNumber\&quot;: \&quot;123123123\&quot;,          \&quot;stateIncome\&quot;: 123.45,          \&quot;stateTaxWithheld\&quot;: 12.34,          \&quot;locality\&quot;: \&quot;Santa Monica\&quot;,          \&quot;localityIdNumber\&quot;: \&quot;456456\&quot;,          \&quot;localTaxWithheld\&quot;: 12.34,          \&quot;localIncome\&quot;: 50000.00         },        \&quot;federalEFile\&quot;: true,        \&quot;postalMail\&quot;: true,        \&quot;stateEFile\&quot;: true,        \&quot;tinMatch\&quot;: true,        \&quot;addressVerification\&quot;: true       }     ]   }  &#x60;&#x60;&#x60;  For the full version of the payload and its schema details, refer to the Swagger schemas section.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return Form1099ProccessResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -197,8 +199,8 @@ public class Forms1099Api {
     }
 
     /**
-     * Creates or updates multiple 1099 forms.
-     * This endpoint allows you to create or update multiple 1099 forms.  You can use one of the following payload structures:                **Form 1099-MISC:**  &#x60;&#x60;&#x60;json  {     \&quot;formType\&quot;: \&quot;1099-MISC\&quot;,     \&quot;forms\&quot;: [         {             \&quot;IssuerId\&quot;: \&quot;123456\&quot;,             \&quot;IssuerReferenceId\&quot;: \&quot;REF123\&quot;,             \&quot;IssuerTin\&quot;: \&quot;12-3456789\&quot;,             \&quot;TaxYear\&quot;: 2023,             \&quot;ReferenceId\&quot;: \&quot;FORM123456\&quot;,             \&quot;RecipientName\&quot;: \&quot;John Doe\&quot;,             \&quot;RecipientTin\&quot;: \&quot;987-65-4321\&quot;,             \&quot;TinType\&quot;: \&quot;IEN\&quot;,             \&quot;RecipientSecondName\&quot;: \&quot;Jane Doe\&quot;,             \&quot;Address\&quot;: \&quot;123 Main Street\&quot;,             \&quot;Address2\&quot;: \&quot;Apt 4B\&quot;,             \&quot;City\&quot;: \&quot;New York\&quot;,             \&quot;State\&quot;: \&quot;NY\&quot;,             \&quot;Zip\&quot;: \&quot;10001\&quot;,             \&quot;RecipientEmail\&quot;: \&quot;john.doe@email.com\&quot;,             \&quot;AccountNumber\&quot;: \&quot;ACC123456\&quot;,             \&quot;OfficeCode\&quot;: \&quot;NYC01\&quot;,             \&quot;SecondTinNotice\&quot;: false,             \&quot;RecipientNonUsProvince\&quot;: \&quot;\&quot;,             \&quot;CountryCode\&quot;: \&quot;US\&quot;,             \&quot;Rents\&quot;: 12000.00,             \&quot;Royalties\&quot;: 5000.00,             \&quot;OtherIncome\&quot;: 3000.00,             \&quot;FishingBoatProceeds\&quot;: 0.00,             \&quot;MedicalHealthCarePayments\&quot;: 15000.00,             \&quot;SubstitutePayments\&quot;: 1000.00,             \&quot;CropInsuranceProceeds\&quot;: 0.00,             \&quot;GrossProceedsPaidToAttorney\&quot;: 7500.00,             \&quot;FishPurchasedForResale\&quot;: 0.00,             \&quot;FedIncomeTaxWithheld\&quot;: 5000.00,             \&quot;Section409ADeferrals\&quot;: 0.00,             \&quot;ExcessGoldenParachutePayments\&quot;: 0.00,             \&quot;NonqualifiedDeferredCompensation\&quot;: 0.00,             \&quot;PayerMadeDirectSales\&quot;: false,             \&quot;FatcaFilingRequirement\&quot;: false,             \&quot;StateAndLocalWithholding\&quot;: {               \&quot;StateTaxWithheld\&quot;: 2500.00,               \&quot;LocalTaxWithheld\&quot;: 1000.00,               \&quot;State\&quot;: \&quot;NY\&quot;,               \&quot;StateIdNumber\&quot;: \&quot;NY123456\&quot;,               \&quot;Locality\&quot;: \&quot;New York City\&quot;,               \&quot;StateIncome\&quot;: 35000.00,               \&quot;LocalIncome\&quot;: 35000.00             }         }     ]  }  &#x60;&#x60;&#x60;                **Form 1099-NEC:**  &#x60;&#x60;&#x60;json  {    \&quot;formType\&quot;: \&quot;1099-NEC\&quot;,    \&quot;forms\&quot;: [      {        \&quot;issuerID\&quot;: \&quot;180337282\&quot;,        \&quot;issuerReferenceId\&quot;: \&quot;ISS123\&quot;,        \&quot;issuerTin\&quot;: \&quot;12-3000000\&quot;,        \&quot;taxYear\&quot;: 2024,        \&quot;referenceID\&quot;: \&quot;REF-002\&quot;,        \&quot;recipientName\&quot;: \&quot;Jane Smith\&quot;,        \&quot;recipientSecondName\&quot;: \&quot;\&quot;,        \&quot;recipientTin\&quot;: \&quot;987-65-4321\&quot;,        \&quot;tinType\&quot;: \&quot;IEN\&quot;,        \&quot;address\&quot;: \&quot;123 Center St\&quot;,        \&quot;address2\&quot;: \&quot;\&quot;,        \&quot;city\&quot;: \&quot;Santa Monica\&quot;,        \&quot;state\&quot;: \&quot;CA\&quot;,        \&quot;zip\&quot;: \&quot;90401\&quot;,        \&quot;countryCode\&quot;: \&quot;US\&quot;,        \&quot;recipientNonUsProvince\&quot;: \&quot;\&quot;,        \&quot;recipientEmail\&quot;: \&quot;\&quot;,        \&quot;accountNumber\&quot;: \&quot;\&quot;,        \&quot;officeCode\&quot;: \&quot;\&quot;,        \&quot;secondTinNotice\&quot;: false,        \&quot;nonemployeeCompensation\&quot;: 123.45,        \&quot;payerMadeDirectSales\&quot;: false,        \&quot;federalIncomeTaxWithheld\&quot;: 12.34,        \&quot;stateAndLocalWithholding\&quot;: {          \&quot;state\&quot;: \&quot;CA\&quot;,          \&quot;stateIdNumber\&quot;: \&quot;123123123\&quot;          \&quot;stateIncome\&quot;: 123.45,          \&quot;stateTaxWithheld\&quot;: 12.34,          \&quot;locality\&quot;: \&quot;Santa Monica\&quot;,          \&quot;localityIdNumber\&quot;: \&quot;456456\&quot;,          \&quot;localTaxWithheld\&quot;: 12.34          \&quot;localIncome\&quot;: 50000.00         },        \&quot;federalEFile\&quot;: true,        \&quot;postalMail\&quot;: true,        \&quot;stateEFile\&quot;: true,        \&quot;tinMatch\&quot;: true,        \&quot;addressVerification\&quot;: true       }     ]   }  &#x60;&#x60;&#x60;  For the full version of the payload and its schema details, refer to the Swagger schemas section.
+     * Create or update multiple 1099/1095/W2/1042S forms
+     * This endpoint allows you to create or update multiple 1099/1095/W2/1042S forms.  You can use one of the following payload structures:                **Form 1099-MISC:**  &#x60;&#x60;&#x60;json  {     \&quot;formType\&quot;: \&quot;1099-MISC\&quot;,     \&quot;forms\&quot;: [         {             \&quot;IssuerId\&quot;: \&quot;123456\&quot;,             \&quot;IssuerReferenceId\&quot;: \&quot;REF123\&quot;,             \&quot;IssuerTin\&quot;: \&quot;12-3456789\&quot;,             \&quot;TaxYear\&quot;: 2023,             \&quot;ReferenceId\&quot;: \&quot;FORM123456\&quot;,             \&quot;RecipientName\&quot;: \&quot;John Doe\&quot;,             \&quot;RecipientTin\&quot;: \&quot;587-65-4321\&quot;,             \&quot;TinType\&quot;: \&quot;SSN\&quot;,             \&quot;RecipientSecondName\&quot;: \&quot;Jane Doe\&quot;,             \&quot;Address\&quot;: \&quot;123 Main Street\&quot;,             \&quot;Address2\&quot;: \&quot;Apt 4B\&quot;,             \&quot;City\&quot;: \&quot;New York\&quot;,             \&quot;State\&quot;: \&quot;NY\&quot;,             \&quot;Zip\&quot;: \&quot;10001\&quot;,             \&quot;RecipientEmail\&quot;: \&quot;john.doe@email.com\&quot;,             \&quot;AccountNumber\&quot;: \&quot;ACC123456\&quot;,             \&quot;OfficeCode\&quot;: \&quot;NYC01\&quot;,             \&quot;SecondTinNotice\&quot;: false,             \&quot;RecipientNonUsProvince\&quot;: \&quot;\&quot;,             \&quot;CountryCode\&quot;: \&quot;US\&quot;,             \&quot;Rents\&quot;: 12000.00,             \&quot;Royalties\&quot;: 5000.00,             \&quot;OtherIncome\&quot;: 3000.00,             \&quot;FishingBoatProceeds\&quot;: 0.00,             \&quot;MedicalHealthCarePayments\&quot;: 15000.00,             \&quot;SubstitutePayments\&quot;: 1000.00,             \&quot;CropInsuranceProceeds\&quot;: 0.00,             \&quot;GrossProceedsPaidToAttorney\&quot;: 7500.00,             \&quot;FishPurchasedForResale\&quot;: 0.00,             \&quot;FedIncomeTaxWithheld\&quot;: 5000.00,             \&quot;Section409ADeferrals\&quot;: 0.00,             \&quot;ExcessGoldenParachutePayments\&quot;: 0.00,             \&quot;NonqualifiedDeferredCompensation\&quot;: 0.00,             \&quot;DirectSalesIndicator\&quot;: false,             \&quot;FatcaFilingRequirement\&quot;: false,             \&quot;StateAndLocalWithholding\&quot;: {               \&quot;StateTaxWithheld\&quot;: 2500.00,               \&quot;LocalTaxWithheld\&quot;: 1000.00,               \&quot;State\&quot;: \&quot;NY\&quot;,               \&quot;StateIdNumber\&quot;: \&quot;NY123456\&quot;,               \&quot;Locality\&quot;: \&quot;New York City\&quot;,               \&quot;StateIncome\&quot;: 35000.00,               \&quot;LocalIncome\&quot;: 35000.00             }         }     ]  }  &#x60;&#x60;&#x60;                **Form 1099-NEC:**  &#x60;&#x60;&#x60;json  {    \&quot;formType\&quot;: \&quot;1099-NEC\&quot;,    \&quot;forms\&quot;: [      {        \&quot;issuerID\&quot;: \&quot;180337282\&quot;,        \&quot;issuerReferenceId\&quot;: \&quot;ISS123\&quot;,        \&quot;issuerTin\&quot;: \&quot;12-3000000\&quot;,        \&quot;taxYear\&quot;: 2024,        \&quot;referenceID\&quot;: \&quot;REF-002\&quot;,        \&quot;recipientName\&quot;: \&quot;Jane Smith\&quot;,        \&quot;recipientSecondName\&quot;: \&quot;\&quot;,        \&quot;recipientTin\&quot;: \&quot;587-65-4321\&quot;,        \&quot;tinType\&quot;: \&quot;SSN\&quot;,        \&quot;address\&quot;: \&quot;123 Center St\&quot;,        \&quot;address2\&quot;: \&quot;\&quot;,        \&quot;city\&quot;: \&quot;Santa Monica\&quot;,        \&quot;state\&quot;: \&quot;CA\&quot;,        \&quot;zip\&quot;: \&quot;90401\&quot;,        \&quot;countryCode\&quot;: \&quot;US\&quot;,        \&quot;recipientNonUsProvince\&quot;: \&quot;\&quot;,        \&quot;recipientEmail\&quot;: \&quot;\&quot;,        \&quot;accountNumber\&quot;: \&quot;\&quot;,        \&quot;officeCode\&quot;: \&quot;\&quot;,        \&quot;secondTinNotice\&quot;: false,        \&quot;nonemployeeCompensation\&quot;: 123.45,        \&quot;directSalesIndicator\&quot;: false,        \&quot;federalIncomeTaxWithheld\&quot;: 12.34,        \&quot;stateAndLocalWithholding\&quot;: {          \&quot;state\&quot;: \&quot;CA\&quot;,          \&quot;stateIdNumber\&quot;: \&quot;123123123\&quot;,          \&quot;stateIncome\&quot;: 123.45,          \&quot;stateTaxWithheld\&quot;: 12.34,          \&quot;locality\&quot;: \&quot;Santa Monica\&quot;,          \&quot;localityIdNumber\&quot;: \&quot;456456\&quot;,          \&quot;localTaxWithheld\&quot;: 12.34,          \&quot;localIncome\&quot;: 50000.00         },        \&quot;federalEFile\&quot;: true,        \&quot;postalMail\&quot;: true,        \&quot;stateEFile\&quot;: true,        \&quot;tinMatch\&quot;: true,        \&quot;addressVerification\&quot;: true       }     ]   }  &#x60;&#x60;&#x60;  For the full version of the payload and its schema details, refer to the Swagger schemas section.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;Form1099ProccessResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -219,8 +221,8 @@ public class Forms1099Api {
     }
 
     /**
-     * Creates or updates multiple 1099 forms. (asynchronously)
-     * This endpoint allows you to create or update multiple 1099 forms.  You can use one of the following payload structures:                **Form 1099-MISC:**  &#x60;&#x60;&#x60;json  {     \&quot;formType\&quot;: \&quot;1099-MISC\&quot;,     \&quot;forms\&quot;: [         {             \&quot;IssuerId\&quot;: \&quot;123456\&quot;,             \&quot;IssuerReferenceId\&quot;: \&quot;REF123\&quot;,             \&quot;IssuerTin\&quot;: \&quot;12-3456789\&quot;,             \&quot;TaxYear\&quot;: 2023,             \&quot;ReferenceId\&quot;: \&quot;FORM123456\&quot;,             \&quot;RecipientName\&quot;: \&quot;John Doe\&quot;,             \&quot;RecipientTin\&quot;: \&quot;987-65-4321\&quot;,             \&quot;TinType\&quot;: \&quot;IEN\&quot;,             \&quot;RecipientSecondName\&quot;: \&quot;Jane Doe\&quot;,             \&quot;Address\&quot;: \&quot;123 Main Street\&quot;,             \&quot;Address2\&quot;: \&quot;Apt 4B\&quot;,             \&quot;City\&quot;: \&quot;New York\&quot;,             \&quot;State\&quot;: \&quot;NY\&quot;,             \&quot;Zip\&quot;: \&quot;10001\&quot;,             \&quot;RecipientEmail\&quot;: \&quot;john.doe@email.com\&quot;,             \&quot;AccountNumber\&quot;: \&quot;ACC123456\&quot;,             \&quot;OfficeCode\&quot;: \&quot;NYC01\&quot;,             \&quot;SecondTinNotice\&quot;: false,             \&quot;RecipientNonUsProvince\&quot;: \&quot;\&quot;,             \&quot;CountryCode\&quot;: \&quot;US\&quot;,             \&quot;Rents\&quot;: 12000.00,             \&quot;Royalties\&quot;: 5000.00,             \&quot;OtherIncome\&quot;: 3000.00,             \&quot;FishingBoatProceeds\&quot;: 0.00,             \&quot;MedicalHealthCarePayments\&quot;: 15000.00,             \&quot;SubstitutePayments\&quot;: 1000.00,             \&quot;CropInsuranceProceeds\&quot;: 0.00,             \&quot;GrossProceedsPaidToAttorney\&quot;: 7500.00,             \&quot;FishPurchasedForResale\&quot;: 0.00,             \&quot;FedIncomeTaxWithheld\&quot;: 5000.00,             \&quot;Section409ADeferrals\&quot;: 0.00,             \&quot;ExcessGoldenParachutePayments\&quot;: 0.00,             \&quot;NonqualifiedDeferredCompensation\&quot;: 0.00,             \&quot;PayerMadeDirectSales\&quot;: false,             \&quot;FatcaFilingRequirement\&quot;: false,             \&quot;StateAndLocalWithholding\&quot;: {               \&quot;StateTaxWithheld\&quot;: 2500.00,               \&quot;LocalTaxWithheld\&quot;: 1000.00,               \&quot;State\&quot;: \&quot;NY\&quot;,               \&quot;StateIdNumber\&quot;: \&quot;NY123456\&quot;,               \&quot;Locality\&quot;: \&quot;New York City\&quot;,               \&quot;StateIncome\&quot;: 35000.00,               \&quot;LocalIncome\&quot;: 35000.00             }         }     ]  }  &#x60;&#x60;&#x60;                **Form 1099-NEC:**  &#x60;&#x60;&#x60;json  {    \&quot;formType\&quot;: \&quot;1099-NEC\&quot;,    \&quot;forms\&quot;: [      {        \&quot;issuerID\&quot;: \&quot;180337282\&quot;,        \&quot;issuerReferenceId\&quot;: \&quot;ISS123\&quot;,        \&quot;issuerTin\&quot;: \&quot;12-3000000\&quot;,        \&quot;taxYear\&quot;: 2024,        \&quot;referenceID\&quot;: \&quot;REF-002\&quot;,        \&quot;recipientName\&quot;: \&quot;Jane Smith\&quot;,        \&quot;recipientSecondName\&quot;: \&quot;\&quot;,        \&quot;recipientTin\&quot;: \&quot;987-65-4321\&quot;,        \&quot;tinType\&quot;: \&quot;IEN\&quot;,        \&quot;address\&quot;: \&quot;123 Center St\&quot;,        \&quot;address2\&quot;: \&quot;\&quot;,        \&quot;city\&quot;: \&quot;Santa Monica\&quot;,        \&quot;state\&quot;: \&quot;CA\&quot;,        \&quot;zip\&quot;: \&quot;90401\&quot;,        \&quot;countryCode\&quot;: \&quot;US\&quot;,        \&quot;recipientNonUsProvince\&quot;: \&quot;\&quot;,        \&quot;recipientEmail\&quot;: \&quot;\&quot;,        \&quot;accountNumber\&quot;: \&quot;\&quot;,        \&quot;officeCode\&quot;: \&quot;\&quot;,        \&quot;secondTinNotice\&quot;: false,        \&quot;nonemployeeCompensation\&quot;: 123.45,        \&quot;payerMadeDirectSales\&quot;: false,        \&quot;federalIncomeTaxWithheld\&quot;: 12.34,        \&quot;stateAndLocalWithholding\&quot;: {          \&quot;state\&quot;: \&quot;CA\&quot;,          \&quot;stateIdNumber\&quot;: \&quot;123123123\&quot;          \&quot;stateIncome\&quot;: 123.45,          \&quot;stateTaxWithheld\&quot;: 12.34,          \&quot;locality\&quot;: \&quot;Santa Monica\&quot;,          \&quot;localityIdNumber\&quot;: \&quot;456456\&quot;,          \&quot;localTaxWithheld\&quot;: 12.34          \&quot;localIncome\&quot;: 50000.00         },        \&quot;federalEFile\&quot;: true,        \&quot;postalMail\&quot;: true,        \&quot;stateEFile\&quot;: true,        \&quot;tinMatch\&quot;: true,        \&quot;addressVerification\&quot;: true       }     ]   }  &#x60;&#x60;&#x60;  For the full version of the payload and its schema details, refer to the Swagger schemas section.
+     * Create or update multiple 1099/1095/W2/1042S forms (asynchronously)
+     * This endpoint allows you to create or update multiple 1099/1095/W2/1042S forms.  You can use one of the following payload structures:                **Form 1099-MISC:**  &#x60;&#x60;&#x60;json  {     \&quot;formType\&quot;: \&quot;1099-MISC\&quot;,     \&quot;forms\&quot;: [         {             \&quot;IssuerId\&quot;: \&quot;123456\&quot;,             \&quot;IssuerReferenceId\&quot;: \&quot;REF123\&quot;,             \&quot;IssuerTin\&quot;: \&quot;12-3456789\&quot;,             \&quot;TaxYear\&quot;: 2023,             \&quot;ReferenceId\&quot;: \&quot;FORM123456\&quot;,             \&quot;RecipientName\&quot;: \&quot;John Doe\&quot;,             \&quot;RecipientTin\&quot;: \&quot;587-65-4321\&quot;,             \&quot;TinType\&quot;: \&quot;SSN\&quot;,             \&quot;RecipientSecondName\&quot;: \&quot;Jane Doe\&quot;,             \&quot;Address\&quot;: \&quot;123 Main Street\&quot;,             \&quot;Address2\&quot;: \&quot;Apt 4B\&quot;,             \&quot;City\&quot;: \&quot;New York\&quot;,             \&quot;State\&quot;: \&quot;NY\&quot;,             \&quot;Zip\&quot;: \&quot;10001\&quot;,             \&quot;RecipientEmail\&quot;: \&quot;john.doe@email.com\&quot;,             \&quot;AccountNumber\&quot;: \&quot;ACC123456\&quot;,             \&quot;OfficeCode\&quot;: \&quot;NYC01\&quot;,             \&quot;SecondTinNotice\&quot;: false,             \&quot;RecipientNonUsProvince\&quot;: \&quot;\&quot;,             \&quot;CountryCode\&quot;: \&quot;US\&quot;,             \&quot;Rents\&quot;: 12000.00,             \&quot;Royalties\&quot;: 5000.00,             \&quot;OtherIncome\&quot;: 3000.00,             \&quot;FishingBoatProceeds\&quot;: 0.00,             \&quot;MedicalHealthCarePayments\&quot;: 15000.00,             \&quot;SubstitutePayments\&quot;: 1000.00,             \&quot;CropInsuranceProceeds\&quot;: 0.00,             \&quot;GrossProceedsPaidToAttorney\&quot;: 7500.00,             \&quot;FishPurchasedForResale\&quot;: 0.00,             \&quot;FedIncomeTaxWithheld\&quot;: 5000.00,             \&quot;Section409ADeferrals\&quot;: 0.00,             \&quot;ExcessGoldenParachutePayments\&quot;: 0.00,             \&quot;NonqualifiedDeferredCompensation\&quot;: 0.00,             \&quot;DirectSalesIndicator\&quot;: false,             \&quot;FatcaFilingRequirement\&quot;: false,             \&quot;StateAndLocalWithholding\&quot;: {               \&quot;StateTaxWithheld\&quot;: 2500.00,               \&quot;LocalTaxWithheld\&quot;: 1000.00,               \&quot;State\&quot;: \&quot;NY\&quot;,               \&quot;StateIdNumber\&quot;: \&quot;NY123456\&quot;,               \&quot;Locality\&quot;: \&quot;New York City\&quot;,               \&quot;StateIncome\&quot;: 35000.00,               \&quot;LocalIncome\&quot;: 35000.00             }         }     ]  }  &#x60;&#x60;&#x60;                **Form 1099-NEC:**  &#x60;&#x60;&#x60;json  {    \&quot;formType\&quot;: \&quot;1099-NEC\&quot;,    \&quot;forms\&quot;: [      {        \&quot;issuerID\&quot;: \&quot;180337282\&quot;,        \&quot;issuerReferenceId\&quot;: \&quot;ISS123\&quot;,        \&quot;issuerTin\&quot;: \&quot;12-3000000\&quot;,        \&quot;taxYear\&quot;: 2024,        \&quot;referenceID\&quot;: \&quot;REF-002\&quot;,        \&quot;recipientName\&quot;: \&quot;Jane Smith\&quot;,        \&quot;recipientSecondName\&quot;: \&quot;\&quot;,        \&quot;recipientTin\&quot;: \&quot;587-65-4321\&quot;,        \&quot;tinType\&quot;: \&quot;SSN\&quot;,        \&quot;address\&quot;: \&quot;123 Center St\&quot;,        \&quot;address2\&quot;: \&quot;\&quot;,        \&quot;city\&quot;: \&quot;Santa Monica\&quot;,        \&quot;state\&quot;: \&quot;CA\&quot;,        \&quot;zip\&quot;: \&quot;90401\&quot;,        \&quot;countryCode\&quot;: \&quot;US\&quot;,        \&quot;recipientNonUsProvince\&quot;: \&quot;\&quot;,        \&quot;recipientEmail\&quot;: \&quot;\&quot;,        \&quot;accountNumber\&quot;: \&quot;\&quot;,        \&quot;officeCode\&quot;: \&quot;\&quot;,        \&quot;secondTinNotice\&quot;: false,        \&quot;nonemployeeCompensation\&quot;: 123.45,        \&quot;directSalesIndicator\&quot;: false,        \&quot;federalIncomeTaxWithheld\&quot;: 12.34,        \&quot;stateAndLocalWithholding\&quot;: {          \&quot;state\&quot;: \&quot;CA\&quot;,          \&quot;stateIdNumber\&quot;: \&quot;123123123\&quot;,          \&quot;stateIncome\&quot;: 123.45,          \&quot;stateTaxWithheld\&quot;: 12.34,          \&quot;locality\&quot;: \&quot;Santa Monica\&quot;,          \&quot;localityIdNumber\&quot;: \&quot;456456\&quot;,          \&quot;localTaxWithheld\&quot;: 12.34,          \&quot;localIncome\&quot;: 50000.00         },        \&quot;federalEFile\&quot;: true,        \&quot;postalMail\&quot;: true,        \&quot;stateEFile\&quot;: true,        \&quot;tinMatch\&quot;: true,        \&quot;addressVerification\&quot;: true       }     ]   }  &#x60;&#x60;&#x60;  For the full version of the payload and its schema details, refer to the Swagger schemas section.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -371,10 +373,10 @@ public class Forms1099Api {
     }
 
     /**
-     * Creates a 1099 form.
-     * 
+     * Create a 1099/1095/W2/1042S form
+     * Create a 1099/1095/W2/1042S form.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return Get1099Form200Response
+     * @return Create1099Form201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -385,16 +387,16 @@ public class Forms1099Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Get1099Form200Response create1099Form(Create1099FormRequest requestParameters) throws ApiException {
-        ApiResponse<Get1099Form200Response> localVarResp = create1099FormWithHttpInfo(requestParameters);
+    public Create1099Form201Response create1099Form(Create1099FormRequest requestParameters) throws ApiException {
+        ApiResponse<Create1099Form201Response> localVarResp = create1099FormWithHttpInfo(requestParameters);
         return localVarResp.getData();
     }
 
     /**
-     * Creates a 1099 form.
-     * 
+     * Create a 1099/1095/W2/1042S form
+     * Create a 1099/1095/W2/1042S form.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return ApiResponse&lt;Get1099Form200Response&gt;
+     * @return ApiResponse&lt;Create1099Form201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -405,15 +407,15 @@ public class Forms1099Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Get1099Form200Response> create1099FormWithHttpInfo(Create1099FormRequest requestParameters) throws ApiException {
+    public ApiResponse<Create1099Form201Response> create1099FormWithHttpInfo(Create1099FormRequest requestParameters) throws ApiException {
         okhttp3.Call localVarCall = create1099FormValidateBeforeCall(requestParameters, null);
-        Type localVarReturnType = new TypeToken<Get1099Form200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<Create1099Form201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Creates a 1099 form. (asynchronously)
-     * 
+     * Create a 1099/1095/W2/1042S form (asynchronously)
+     * Create a 1099/1095/W2/1042S form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -427,10 +429,10 @@ public class Forms1099Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call create1099FormAsync(Create1099FormRequest requestParameters, final ApiCallback<Get1099Form200Response> _callback) throws ApiException {
+    public okhttp3.Call create1099FormAsync(Create1099FormRequest requestParameters, final ApiCallback<Create1099Form201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = create1099FormValidateBeforeCall(requestParameters, _callback);
-        Type localVarReturnType = new TypeToken<Get1099Form200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<Create1099Form201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -567,8 +569,8 @@ public class Forms1099Api {
     }
 
     /**
-     * Deletes a 1099 form.
-     * 
+     * Delete a 1099/1095/W2/1042S form
+     * Delete a 1099/1095/W2/1042S form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -587,8 +589,8 @@ public class Forms1099Api {
     }
 
     /**
-     * Deletes a 1099 form.
-     * 
+     * Delete a 1099/1095/W2/1042S form
+     * Delete a 1099/1095/W2/1042S form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -609,8 +611,8 @@ public class Forms1099Api {
     }
 
     /**
-     * Deletes a 1099 form. (asynchronously)
-     * 
+     * Delete a 1099/1095/W2/1042S form (asynchronously)
+     * Delete a 1099/1095/W2/1042S form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -764,8 +766,8 @@ public class Forms1099Api {
     }
 
     /**
-     * Retrieves a 1099 form.
-     * 
+     * Retrieve a 1099/1095/W2/1042S form
+     * Retrieve a 1099/1095/W2/1042S form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return Get1099Form200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -785,8 +787,8 @@ public class Forms1099Api {
     }
 
     /**
-     * Retrieves a 1099 form.
-     * 
+     * Retrieve a 1099/1095/W2/1042S form
+     * Retrieve a 1099/1095/W2/1042S form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;Get1099Form200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -807,8 +809,8 @@ public class Forms1099Api {
     }
 
     /**
-     * Retrieves a 1099 form. (asynchronously)
-     * 
+     * Retrieve a 1099/1095/W2/1042S form (asynchronously)
+     * Retrieve a 1099/1095/W2/1042S form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -928,7 +930,7 @@ public class Forms1099Api {
         }
 
         final String[] localVarAccepts = {
-            "application/json"
+            "application/pdf", "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -966,10 +968,10 @@ public class Forms1099Api {
     }
 
     /**
-     * Retrieves the PDF file for a single 1099 by form id.
-     * 
+     * Retrieve the PDF file for a 1099/1095/W2/1042S form
+     * Retrieve the PDF file for a 1099/1095/W2/1042S form.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return Update1099Form200Response
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -981,16 +983,16 @@ public class Forms1099Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Update1099Form200Response get1099FormPdf(Get1099FormPdfRequest requestParameters) throws ApiException {
-        ApiResponse<Update1099Form200Response> localVarResp = get1099FormPdfWithHttpInfo(requestParameters);
+    public File get1099FormPdf(Get1099FormPdfRequest requestParameters) throws ApiException {
+        ApiResponse<File> localVarResp = get1099FormPdfWithHttpInfo(requestParameters);
         return localVarResp.getData();
     }
 
     /**
-     * Retrieves the PDF file for a single 1099 by form id.
-     * 
+     * Retrieve the PDF file for a 1099/1095/W2/1042S form
+     * Retrieve the PDF file for a 1099/1095/W2/1042S form.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return ApiResponse&lt;Update1099Form200Response&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1002,15 +1004,15 @@ public class Forms1099Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Update1099Form200Response> get1099FormPdfWithHttpInfo(Get1099FormPdfRequest requestParameters) throws ApiException {
+    public ApiResponse<File> get1099FormPdfWithHttpInfo(Get1099FormPdfRequest requestParameters) throws ApiException {
         okhttp3.Call localVarCall = get1099FormPdfValidateBeforeCall(requestParameters, null);
-        Type localVarReturnType = new TypeToken<Update1099Form200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Retrieves the PDF file for a single 1099 by form id. (asynchronously)
-     * 
+     * Retrieve the PDF file for a 1099/1095/W2/1042S form (asynchronously)
+     * Retrieve the PDF file for a 1099/1095/W2/1042S form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1025,19 +1027,19 @@ public class Forms1099Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call get1099FormPdfAsync(Get1099FormPdfRequest requestParameters, final ApiCallback<Update1099Form200Response> _callback) throws ApiException {
+    public okhttp3.Call get1099FormPdfAsync(Get1099FormPdfRequest requestParameters, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = get1099FormPdfValidateBeforeCall(requestParameters, _callback);
-        Type localVarReturnType = new TypeToken<Update1099Form200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
     * Represents the Request object for the Get1099FormPdf API
     *
-    * @param id </param>
+    * @param id The ID of the form</param>
     * @param avalaraVersion API version</param>
-    * @param markEdelivered The parameter for marked e-delivered (optional)</param>
+    * @param markEdelivered Optional boolean that if set indicates that the form should be marked as having been successfully edelivered (optional)</param>
     * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
     * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
     */
@@ -1178,10 +1180,10 @@ public class Forms1099Api {
     }
 
     /**
-     * Retrieves a list of 1099 forms based on query parameters.
-     * 
+     * List 1099/1095/W2/1042S forms
+     * List 1099/1095/W2/1042S forms. Filterable fields are name, referenceId and taxYear.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return Form1099List
+     * @return Form1099ListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1193,16 +1195,16 @@ public class Forms1099Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Form1099List list1099Forms(List1099FormsRequest requestParameters) throws ApiException {
-        ApiResponse<Form1099List> localVarResp = list1099FormsWithHttpInfo(requestParameters);
+    public Form1099ListResponse list1099Forms(List1099FormsRequest requestParameters) throws ApiException {
+        ApiResponse<Form1099ListResponse> localVarResp = list1099FormsWithHttpInfo(requestParameters);
         return localVarResp.getData();
     }
 
     /**
-     * Retrieves a list of 1099 forms based on query parameters.
-     * 
+     * List 1099/1095/W2/1042S forms
+     * List 1099/1095/W2/1042S forms. Filterable fields are name, referenceId and taxYear.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return ApiResponse&lt;Form1099List&gt;
+     * @return ApiResponse&lt;Form1099ListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1214,15 +1216,15 @@ public class Forms1099Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Form1099List> list1099FormsWithHttpInfo(List1099FormsRequest requestParameters) throws ApiException {
+    public ApiResponse<Form1099ListResponse> list1099FormsWithHttpInfo(List1099FormsRequest requestParameters) throws ApiException {
         okhttp3.Call localVarCall = list1099FormsValidateBeforeCall(requestParameters, null);
-        Type localVarReturnType = new TypeToken<Form1099List>(){}.getType();
+        Type localVarReturnType = new TypeToken<Form1099ListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Retrieves a list of 1099 forms based on query parameters. (asynchronously)
-     * 
+     * List 1099/1095/W2/1042S forms (asynchronously)
+     * List 1099/1095/W2/1042S forms. Filterable fields are name, referenceId and taxYear.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1237,10 +1239,10 @@ public class Forms1099Api {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call list1099FormsAsync(List1099FormsRequest requestParameters, final ApiCallback<Form1099List> _callback) throws ApiException {
+    public okhttp3.Call list1099FormsAsync(List1099FormsRequest requestParameters, final ApiCallback<Form1099ListResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = list1099FormsValidateBeforeCall(requestParameters, _callback);
-        Type localVarReturnType = new TypeToken<Form1099List>(){}.getType();
+        Type localVarReturnType = new TypeToken<Form1099ListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1388,8 +1390,8 @@ public class Forms1099Api {
     }
 
     /**
-     * Updates a 1099 form.
-     * 
+     * Update a 1099/1095/W2/1042S form
+     * Update a 1099/1095/W2/1042S form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return Update1099Form200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1409,8 +1411,8 @@ public class Forms1099Api {
     }
 
     /**
-     * Updates a 1099 form.
-     * 
+     * Update a 1099/1095/W2/1042S form
+     * Update a 1099/1095/W2/1042S form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;Update1099Form200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1431,8 +1433,8 @@ public class Forms1099Api {
     }
 
     /**
-     * Updates a 1099 form. (asynchronously)
-     * 
+     * Update a 1099/1095/W2/1042S form (asynchronously)
+     * Update a 1099/1095/W2/1042S form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1495,7 +1497,7 @@ public class Forms1099Api {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.7.2");
+        this.localVarApiClient.setSdkVersion("25.8.0");
     }
 }
 

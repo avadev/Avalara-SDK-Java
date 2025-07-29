@@ -53,7 +53,7 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * Basic configuration for a webhook subscription, including description and target notification URL.
+ * SubscriptionCommon
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class SubscriptionCommon {

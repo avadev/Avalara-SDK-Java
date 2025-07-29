@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -99,7 +99,7 @@ public class StateAndLocalWithholdingResponse {
   }
 
   /**
-   * Get stateTaxWithheld
+   * Amount of state tax that was withheld
    * @return stateTaxWithheld
    */
   @javax.annotation.Nullable
@@ -118,7 +118,7 @@ public class StateAndLocalWithholdingResponse {
   }
 
   /**
-   * Get state
+   * US state
    * @return state
    */
   @javax.annotation.Nullable
@@ -137,7 +137,7 @@ public class StateAndLocalWithholdingResponse {
   }
 
   /**
-   * Get stateIdNumber
+   * State ID number of the entity issuing the form
    * @return stateIdNumber
    */
   @javax.annotation.Nullable
@@ -156,7 +156,7 @@ public class StateAndLocalWithholdingResponse {
   }
 
   /**
-   * Get stateIncome
+   * Amount of state income
    * @return stateIncome
    */
   @javax.annotation.Nullable
@@ -175,7 +175,7 @@ public class StateAndLocalWithholdingResponse {
   }
 
   /**
-   * Get localTaxWithheld
+   * Amount of local tax that was withheld
    * @return localTaxWithheld
    */
   @javax.annotation.Nullable
@@ -194,7 +194,7 @@ public class StateAndLocalWithholdingResponse {
   }
 
   /**
-   * Get locality
+   * Locality name
    * @return locality
    */
   @javax.annotation.Nullable
@@ -213,7 +213,7 @@ public class StateAndLocalWithholdingResponse {
   }
 
   /**
-   * Get localityIdNumber
+   * Locality ID number of the entity issuing the form
    * @return localityIdNumber
    */
   @javax.annotation.Nullable
@@ -232,7 +232,7 @@ public class StateAndLocalWithholdingResponse {
   }
 
   /**
-   * Get localIncome
+   * Amount of local income
    * @return localIncome
    */
   @javax.annotation.Nullable

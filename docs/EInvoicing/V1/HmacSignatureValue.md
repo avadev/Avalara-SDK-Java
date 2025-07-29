@@ -2,7 +2,6 @@
 
 # HmacSignatureValue
 
-Contains the HMAC algorithm and the resulting signature value used for verifying message integrity.
 
 ## Properties
 

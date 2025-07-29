@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -36,6 +36,8 @@ import java.io.IOException;
 import java.util.*;
 
 
+import Avalara.SDK.model.A1099.V2.CreateW9Form201Response;
+import Avalara.SDK.model.A1099.V2.CreateW9FormRequest;
 import Avalara.SDK.model.A1099.V2.ErrorModel;
 import Avalara.SDK.model.A1099.V2.ErrorResponse;
 import java.io.File;
@@ -87,7 +89,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
@@ -110,7 +112,7 @@ public class FormsW9Api {
             basePath = null;
         }
 
-        Object localVarPostBody = requestParameters.getIw9FormDataModelsOneOf();
+        Object localVarPostBody = requestParameters.getCreateW9FormRequest();
 
         // create path and map variables
         String localVarPath = "/w9/forms";
@@ -168,46 +170,46 @@ public class FormsW9Api {
 
     /**
      * Create a W9/W4/W8 form
-     * 
+     * Create a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return IW9FormDataModelsOneOf
+     * @return CreateW9Form201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
      */
-    public IW9FormDataModelsOneOf createW9Form(CreateW9FormRequest requestParameters) throws ApiException {
-        ApiResponse<IW9FormDataModelsOneOf> localVarResp = createW9FormWithHttpInfo(requestParameters);
+    public CreateW9Form201Response createW9Form(CreateW9FormRequest requestParameters) throws ApiException {
+        ApiResponse<CreateW9Form201Response> localVarResp = createW9FormWithHttpInfo(requestParameters);
         return localVarResp.getData();
     }
 
     /**
      * Create a W9/W4/W8 form
-     * 
+     * Create a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return ApiResponse&lt;IW9FormDataModelsOneOf&gt;
+     * @return ApiResponse&lt;CreateW9Form201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IW9FormDataModelsOneOf> createW9FormWithHttpInfo(CreateW9FormRequest requestParameters) throws ApiException {
+    public ApiResponse<CreateW9Form201Response> createW9FormWithHttpInfo(CreateW9FormRequest requestParameters) throws ApiException {
         okhttp3.Call localVarCall = createW9FormValidateBeforeCall(requestParameters, null);
-        Type localVarReturnType = new TypeToken<IW9FormDataModelsOneOf>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateW9Form201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create a W9/W4/W8 form (asynchronously)
-     * 
+     * Create a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -215,15 +217,15 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createW9FormAsync(CreateW9FormRequest requestParameters, final ApiCallback<IW9FormDataModelsOneOf> _callback) throws ApiException {
+    public okhttp3.Call createW9FormAsync(CreateW9FormRequest requestParameters, final ApiCallback<CreateW9Form201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createW9FormValidateBeforeCall(requestParameters, _callback);
-        Type localVarReturnType = new TypeToken<IW9FormDataModelsOneOf>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateW9Form201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -233,13 +235,13 @@ public class FormsW9Api {
     * @param avalaraVersion API version</param>
     * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
     * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
-    * @param iw9FormDataModelsOneOf Form to be created (optional)</param>
+    * @param createW9FormRequest Form to be created (optional)</param>
     */
     public class CreateW9FormRequest {
         private String avalaraVersion;
         private String xCorrelationId;
         private String xAvalaraClient;
-        private IW9FormDataModelsOneOf iw9FormDataModelsOneOf;
+        private CreateW9FormRequest createW9FormRequest;
 
         public CreateW9FormRequest () {
         }
@@ -250,8 +252,8 @@ public class FormsW9Api {
         public void setXCorrelationId(String xCorrelationId) { this.xCorrelationId = xCorrelationId; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
-        public IW9FormDataModelsOneOf getIw9FormDataModelsOneOf() { return iw9FormDataModelsOneOf; }
-        public void setIw9FormDataModelsOneOf(IW9FormDataModelsOneOf iw9FormDataModelsOneOf) { this.iw9FormDataModelsOneOf = iw9FormDataModelsOneOf; }
+        public CreateW9FormRequest getCreateW9FormRequest() { return createW9FormRequest; }
+        public void setCreateW9FormRequest(CreateW9FormRequest createW9FormRequest) { this.createW9FormRequest = createW9FormRequest; }
     }
 
     /**
@@ -357,8 +359,8 @@ public class FormsW9Api {
     }
 
     /**
-     * Delete a form
-     * Delete a form
+     * Delete a W9/W4/W8 form
+     * Delete a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -374,8 +376,8 @@ public class FormsW9Api {
     }
 
     /**
-     * Delete a form
-     * Delete a form
+     * Delete a W9/W4/W8 form
+     * Delete a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -393,8 +395,8 @@ public class FormsW9Api {
     }
 
     /**
-     * Delete a form (asynchronously)
-     * Delete a form
+     * Delete a W9/W4/W8 form (asynchronously)
+     * Delete a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -416,7 +418,7 @@ public class FormsW9Api {
     /**
     * Represents the Request object for the DeleteW9Form API
     *
-    * @param id Id of the form to delete</param>
+    * @param id ID of the form to delete</param>
     * @param avalaraVersion API version</param>
     * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
     * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
@@ -544,9 +546,9 @@ public class FormsW9Api {
 
     /**
      * Retrieve a W9/W4/W8 form
-     * Retrieve a W9/W4/W8 form
+     * Retrieve a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return IW9FormDataModelsOneOf
+     * @return CreateW9Form201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -556,16 +558,16 @@ public class FormsW9Api {
         <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
-    public IW9FormDataModelsOneOf getW9Form(GetW9FormRequest requestParameters) throws ApiException {
-        ApiResponse<IW9FormDataModelsOneOf> localVarResp = getW9FormWithHttpInfo(requestParameters);
+    public CreateW9Form201Response getW9Form(GetW9FormRequest requestParameters) throws ApiException {
+        ApiResponse<CreateW9Form201Response> localVarResp = getW9FormWithHttpInfo(requestParameters);
         return localVarResp.getData();
     }
 
     /**
      * Retrieve a W9/W4/W8 form
-     * Retrieve a W9/W4/W8 form
+     * Retrieve a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return ApiResponse&lt;IW9FormDataModelsOneOf&gt;
+     * @return ApiResponse&lt;CreateW9Form201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -575,15 +577,15 @@ public class FormsW9Api {
         <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IW9FormDataModelsOneOf> getW9FormWithHttpInfo(GetW9FormRequest requestParameters) throws ApiException {
+    public ApiResponse<CreateW9Form201Response> getW9FormWithHttpInfo(GetW9FormRequest requestParameters) throws ApiException {
         okhttp3.Call localVarCall = getW9FormValidateBeforeCall(requestParameters, null);
-        Type localVarReturnType = new TypeToken<IW9FormDataModelsOneOf>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateW9Form201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Retrieve a W9/W4/W8 form (asynchronously)
-     * Retrieve a W9/W4/W8 form
+     * Retrieve a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -596,17 +598,17 @@ public class FormsW9Api {
         <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getW9FormAsync(GetW9FormRequest requestParameters, final ApiCallback<IW9FormDataModelsOneOf> _callback) throws ApiException {
+    public okhttp3.Call getW9FormAsync(GetW9FormRequest requestParameters, final ApiCallback<CreateW9Form201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getW9FormValidateBeforeCall(requestParameters, _callback);
-        Type localVarReturnType = new TypeToken<IW9FormDataModelsOneOf>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateW9Form201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
     * Represents the Request object for the GetW9Form API
     *
-    * @param id Id of the form</param>
+    * @param id ID of the form</param>
     * @param avalaraVersion API version</param>
     * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
     * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
@@ -747,7 +749,7 @@ public class FormsW9Api {
     }
 
     /**
-     * List W9/W4/W8 forms.
+     * List W9/W4/W8 forms
      * List W9/W4/W8 forms.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return PaginatedW9FormsModel
@@ -766,7 +768,7 @@ public class FormsW9Api {
     }
 
     /**
-     * List W9/W4/W8 forms.
+     * List W9/W4/W8 forms
      * List W9/W4/W8 forms.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;PaginatedW9FormsModel&gt;
@@ -786,7 +788,7 @@ public class FormsW9Api {
     }
 
     /**
-     * List W9/W4/W8 forms. (asynchronously)
+     * List W9/W4/W8 forms (asynchronously)
      * List W9/W4/W8 forms.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
@@ -953,8 +955,8 @@ public class FormsW9Api {
     }
 
     /**
-     * Sends a W9 email request to a vendor/payee
-     * 
+     * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form
+     * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return IW9FormDataModelsOneOf
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -972,8 +974,8 @@ public class FormsW9Api {
     }
 
     /**
-     * Sends a W9 email request to a vendor/payee
-     * 
+     * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form
+     * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;IW9FormDataModelsOneOf&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -992,8 +994,8 @@ public class FormsW9Api {
     }
 
     /**
-     * Sends a W9 email request to a vendor/payee (asynchronously)
-     * 
+     * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form (asynchronously)
+     * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1144,7 +1146,7 @@ public class FormsW9Api {
 
     /**
      * Update a W9/W4/W8 form
-     * 
+     * Update a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return IW9FormDataModelsOneOf
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1163,7 +1165,7 @@ public class FormsW9Api {
 
     /**
      * Update a W9/W4/W8 form
-     * 
+     * Update a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;IW9FormDataModelsOneOf&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1183,7 +1185,7 @@ public class FormsW9Api {
 
     /**
      * Update a W9/W4/W8 form (asynchronously)
-     * 
+     * Update a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1206,7 +1208,7 @@ public class FormsW9Api {
     /**
     * Represents the Request object for the UpdateW9Form API
     *
-    * @param id Id of the form to update</param>
+    * @param id ID of the form to update</param>
     * @param avalaraVersion API version</param>
     * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
     * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
@@ -1251,8 +1253,8 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> W9/W4/W8 form with id </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., Only .pdf files are allowed.) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
@@ -1319,7 +1321,7 @@ public class FormsW9Api {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
         String[] localVarAuthNames = new String[] { "OAuth", "bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes, AvalaraMicroservice.A1099);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes, AvalaraMicroservice.A1099);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1342,49 +1344,46 @@ public class FormsW9Api {
     }
 
     /**
-     * Upload files for a W9/W4/W8 form
-     * Upload files for a W9/W4/W8 form
+     * Replace the PDF file for a W9/W4/W8 form
+     * Replaces the PDF file for a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> W9/W4/W8 form with id </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., Only .pdf files are allowed.) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public String uploadW9Files(UploadW9FilesRequest requestParameters) throws ApiException {
-        ApiResponse<String> localVarResp = uploadW9FilesWithHttpInfo(requestParameters);
-        return localVarResp.getData();
+    public void uploadW9Files(UploadW9FilesRequest requestParameters) throws ApiException {
+        uploadW9FilesWithHttpInfo(requestParameters);
     }
 
     /**
-     * Upload files for a W9/W4/W8 form
-     * Upload files for a W9/W4/W8 form
+     * Replace the PDF file for a W9/W4/W8 form
+     * Replaces the PDF file for a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return ApiResponse&lt;String&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> W9/W4/W8 form with id </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., Only .pdf files are allowed.) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> uploadW9FilesWithHttpInfo(UploadW9FilesRequest requestParameters) throws ApiException {
+    public ApiResponse<Void> uploadW9FilesWithHttpInfo(UploadW9FilesRequest requestParameters) throws ApiException {
         okhttp3.Call localVarCall = uploadW9FilesValidateBeforeCall(requestParameters, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
+        return localVarApiClient.execute(localVarCall);
     }
 
     /**
-     * Upload files for a W9/W4/W8 form (asynchronously)
-     * Upload files for a W9/W4/W8 form
+     * Replace the PDF file for a W9/W4/W8 form (asynchronously)
+     * Replaces the PDF file for a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1392,17 +1391,16 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> W9/W4/W8 form with id </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., Only .pdf files are allowed.) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadW9FilesAsync(UploadW9FilesRequest requestParameters, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call uploadW9FilesAsync(UploadW9FilesRequest requestParameters, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = uploadW9FilesValidateBeforeCall(requestParameters, _callback);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
@@ -1446,7 +1444,7 @@ public class FormsW9Api {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.7.2");
+        this.localVarApiClient.setSdkVersion("25.8.0");
     }
 }
 
