@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -168,8 +168,8 @@ public class CompaniesW9Api {
     }
 
     /**
-     * Creates a new company
-     * Creates a new company
+     * Create a company
+     * Create a company.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return CompanyResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -187,8 +187,8 @@ public class CompaniesW9Api {
     }
 
     /**
-     * Creates a new company
-     * Creates a new company
+     * Create a company
+     * Create a company.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;CompanyResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -207,8 +207,8 @@ public class CompaniesW9Api {
     }
 
     /**
-     * Creates a new company (asynchronously)
-     * Creates a new company
+     * Create a company (asynchronously)
+     * Create a company.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -360,8 +360,8 @@ public class CompaniesW9Api {
     }
 
     /**
-     * Deletes a company
-     * Deletes a company
+     * Delete a company
+     * Delete a company.
      * @param requestOptions Object which represents the options available for a given API/request
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -379,8 +379,8 @@ public class CompaniesW9Api {
     }
 
     /**
-     * Deletes a company
-     * Deletes a company
+     * Delete a company
+     * Delete a company.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -400,8 +400,8 @@ public class CompaniesW9Api {
     }
 
     /**
-     * Deletes a company (asynchronously)
-     * Deletes a company
+     * Delete a company (asynchronously)
+     * Delete a company.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -791,7 +791,7 @@ public class CompaniesW9Api {
 
     /**
      * Retrieve a company
-     * Retrieve an existing company
+     * Retrieve a company.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return CompanyResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -812,7 +812,7 @@ public class CompaniesW9Api {
 
     /**
      * Retrieve a company
-     * Retrieve an existing company
+     * Retrieve a company.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;CompanyResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -834,7 +834,7 @@ public class CompaniesW9Api {
 
     /**
      * Retrieve a company (asynchronously)
-     * Retrieve an existing company
+     * Retrieve a company.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -988,7 +988,7 @@ public class CompaniesW9Api {
 
     /**
      * Update a company
-     * Update a company
+     * Update a company.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return CompanyResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1008,7 +1008,7 @@ public class CompaniesW9Api {
 
     /**
      * Update a company
-     * Update a company
+     * Update a company.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;CompanyResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1029,7 +1029,7 @@ public class CompaniesW9Api {
 
     /**
      * Update a company (asynchronously)
-     * Update a company
+     * Update a company.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1091,7 +1091,7 @@ public class CompaniesW9Api {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.7.2");
+        this.localVarApiClient.setSdkVersion("25.8.0");
     }
 }
 

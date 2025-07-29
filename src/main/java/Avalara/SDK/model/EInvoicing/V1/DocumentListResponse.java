@@ -71,7 +71,7 @@ public class DocumentListResponse {
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  private List<DocumentSummary> value = new ArrayList<>();
+  private List<DocumentSummary> value;
 
   public DocumentListResponse() {
   }

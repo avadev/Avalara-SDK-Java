@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -87,9 +87,9 @@ public class Form1099MiscListItem {
   @SerializedName(SERIALIZED_NAME_MEDICAL_HEALTH_CARE_PAYMENTS)
   private Double medicalHealthCarePayments;
 
-  public static final String SERIALIZED_NAME_PAYER_MADE_DIRECT_SALES = "payerMadeDirectSales";
-  @SerializedName(SERIALIZED_NAME_PAYER_MADE_DIRECT_SALES)
-  private Boolean payerMadeDirectSales;
+  public static final String SERIALIZED_NAME_DIRECT_SALES_INDICATOR = "directSalesIndicator";
+  @SerializedName(SERIALIZED_NAME_DIRECT_SALES_INDICATOR)
+  private Boolean directSalesIndicator;
 
   public static final String SERIALIZED_NAME_SUBSTITUTE_PAYMENTS = "substitutePayments";
   @SerializedName(SERIALIZED_NAME_SUBSTITUTE_PAYMENTS)
@@ -143,16 +143,16 @@ public class Form1099MiscListItem {
   @SerializedName(SERIALIZED_NAME_REFERENCE_ID)
   private String referenceId;
 
-  public static final String SERIALIZED_NAME_RECIPIENT_NAME = "recipientName";
-  @SerializedName(SERIALIZED_NAME_RECIPIENT_NAME)
-  private String recipientName;
-
   public static final String SERIALIZED_NAME_RECIPIENT_TIN = "recipientTin";
   @SerializedName(SERIALIZED_NAME_RECIPIENT_TIN)
   private String recipientTin;
 
+  public static final String SERIALIZED_NAME_RECIPIENT_NAME = "recipientName";
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_NAME)
+  private String recipientName;
+
   /**
-   * Gets or Sets tinType
+   * Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN
    */
   @JsonAdapter(TinTypeEnum.Adapter.class)
   public enum TinTypeEnum {
@@ -288,7 +288,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get secondTinNotice
+   * Second TIN notice
    * @return secondTinNotice
    */
   @javax.annotation.Nullable
@@ -307,7 +307,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get rents
+   * Rents
    * @return rents
    */
   @javax.annotation.Nullable
@@ -326,7 +326,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get royalties
+   * Royalties
    * @return royalties
    */
   @javax.annotation.Nullable
@@ -345,7 +345,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get otherIncome
+   * Other income
    * @return otherIncome
    */
   @javax.annotation.Nullable
@@ -364,7 +364,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get fedIncomeTaxWithheld
+   * Federal income tax withheld
    * @return fedIncomeTaxWithheld
    */
   @javax.annotation.Nullable
@@ -383,7 +383,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get fishingBoatProceeds
+   * Fishing boat proceeds
    * @return fishingBoatProceeds
    */
   @javax.annotation.Nullable
@@ -402,7 +402,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get medicalHealthCarePayments
+   * Medical and health care payments
    * @return medicalHealthCarePayments
    */
   @javax.annotation.Nullable
@@ -415,22 +415,22 @@ public class Form1099MiscListItem {
   }
 
 
-  public Form1099MiscListItem payerMadeDirectSales(Boolean payerMadeDirectSales) {
-    this.payerMadeDirectSales = payerMadeDirectSales;
+  public Form1099MiscListItem directSalesIndicator(Boolean directSalesIndicator) {
+    this.directSalesIndicator = directSalesIndicator;
     return this;
   }
 
   /**
-   * Get payerMadeDirectSales
-   * @return payerMadeDirectSales
+   * Payer made direct sales totaling $5,000 or more of consumer products to recipient for resale
+   * @return directSalesIndicator
    */
   @javax.annotation.Nullable
-  public Boolean getPayerMadeDirectSales() {
-    return payerMadeDirectSales;
+  public Boolean getDirectSalesIndicator() {
+    return directSalesIndicator;
   }
 
-  public void setPayerMadeDirectSales(Boolean payerMadeDirectSales) {
-    this.payerMadeDirectSales = payerMadeDirectSales;
+  public void setDirectSalesIndicator(Boolean directSalesIndicator) {
+    this.directSalesIndicator = directSalesIndicator;
   }
 
 
@@ -440,7 +440,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get substitutePayments
+   * Substitute payments in lieu of dividends or interest
    * @return substitutePayments
    */
   @javax.annotation.Nullable
@@ -459,7 +459,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get cropInsuranceProceeds
+   * Crop insurance proceeds
    * @return cropInsuranceProceeds
    */
   @javax.annotation.Nullable
@@ -478,7 +478,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get grossProceedsPaidToAttorney
+   * Gross proceeds paid to an attorney
    * @return grossProceedsPaidToAttorney
    */
   @javax.annotation.Nullable
@@ -497,7 +497,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get fishPurchasedForResale
+   * Fish purchased for resale
    * @return fishPurchasedForResale
    */
   @javax.annotation.Nullable
@@ -516,7 +516,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get section409ADeferrals
+   * Section 409A deferrals
    * @return section409ADeferrals
    */
   @javax.annotation.Nullable
@@ -535,7 +535,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get fatcaFilingRequirement
+   * FATCA filing requirement
    * @return fatcaFilingRequirement
    */
   @javax.annotation.Nullable
@@ -554,7 +554,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get excessGoldenParachutePayments
+   * (Legacy field) Excess golden parachute payments
    * @return excessGoldenParachutePayments
    */
   @javax.annotation.Nullable
@@ -573,7 +573,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get nonqualifiedDeferredCompensation
+   * Nonqualified deferred compensation
    * @return nonqualifiedDeferredCompensation
    */
   @javax.annotation.Nullable
@@ -592,7 +592,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get issuerReferenceId
+   * Issuer Reference ID. One of &#x60;issuerReferenceId&#x60; or &#x60;issuerTin&#x60; is required.
    * @return issuerReferenceId
    */
   @javax.annotation.Nullable
@@ -611,7 +611,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get issuerTin
+   * Issuer TIN. One of &#x60;issuerReferenceId&#x60; or &#x60;issuerTin&#x60; is required.
    * @return issuerTin
    */
   @javax.annotation.Nullable
@@ -630,10 +630,10 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get taxYear
+   * Tax year
    * @return taxYear
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Integer getTaxYear() {
     return taxYear;
   }
@@ -649,7 +649,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get issuerId
+   * Issuer ID
    * @return issuerId
    */
   @javax.annotation.Nullable
@@ -668,7 +668,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get referenceId
+   * Reference ID
    * @return referenceId
    */
   @javax.annotation.Nullable
@@ -681,32 +681,13 @@ public class Form1099MiscListItem {
   }
 
 
-  public Form1099MiscListItem recipientName(String recipientName) {
-    this.recipientName = recipientName;
-    return this;
-  }
-
-  /**
-   * Get recipientName
-   * @return recipientName
-   */
-  @javax.annotation.Nullable
-  public String getRecipientName() {
-    return recipientName;
-  }
-
-  public void setRecipientName(String recipientName) {
-    this.recipientName = recipientName;
-  }
-
-
   public Form1099MiscListItem recipientTin(String recipientTin) {
     this.recipientTin = recipientTin;
     return this;
   }
 
   /**
-   * Get recipientTin
+   * Recipient Tax ID Number
    * @return recipientTin
    */
   @javax.annotation.Nullable
@@ -719,13 +700,32 @@ public class Form1099MiscListItem {
   }
 
 
+  public Form1099MiscListItem recipientName(String recipientName) {
+    this.recipientName = recipientName;
+    return this;
+  }
+
+  /**
+   * Recipient name
+   * @return recipientName
+   */
+  @javax.annotation.Nonnull
+  public String getRecipientName() {
+    return recipientName;
+  }
+
+  public void setRecipientName(String recipientName) {
+    this.recipientName = recipientName;
+  }
+
+
   public Form1099MiscListItem tinType(TinTypeEnum tinType) {
     this.tinType = tinType;
     return this;
   }
 
   /**
-   * Get tinType
+   * Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN
    * @return tinType
    */
   @javax.annotation.Nullable
@@ -744,7 +744,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get recipientSecondName
+   * Recipient second name
    * @return recipientSecondName
    */
   @javax.annotation.Nullable
@@ -763,10 +763,10 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get address
+   * Address
    * @return address
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getAddress() {
     return address;
   }
@@ -782,7 +782,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get address2
+   * Address line 2
    * @return address2
    */
   @javax.annotation.Nullable
@@ -801,10 +801,10 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get city
+   * City
    * @return city
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getCity() {
     return city;
   }
@@ -820,7 +820,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get state
+   * US state. Required if CountryCode is \&quot;US\&quot;.
    * @return state
    */
   @javax.annotation.Nullable
@@ -839,7 +839,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get zip
+   * Zip/postal code
    * @return zip
    */
   @javax.annotation.Nullable
@@ -858,7 +858,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get recipientEmail
+   * Recipient email address
    * @return recipientEmail
    */
   @javax.annotation.Nullable
@@ -877,7 +877,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get accountNumber
+   * Account number
    * @return accountNumber
    */
   @javax.annotation.Nullable
@@ -896,7 +896,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get officeCode
+   * Office code
    * @return officeCode
    */
   @javax.annotation.Nullable
@@ -915,7 +915,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get recipientNonUsProvince
+   * Foreign province
    * @return recipientNonUsProvince
    */
   @javax.annotation.Nullable
@@ -934,10 +934,10 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get countryCode
+   * Country code, as defined at https://www.irs.gov/e-file-providers/country-codes
    * @return countryCode
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getCountryCode() {
     return countryCode;
   }
@@ -953,7 +953,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get federalEFile
+   * Boolean indicating that federal e-filing should be scheduled for this form
    * @return federalEFile
    */
   @javax.annotation.Nullable
@@ -972,7 +972,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get postalMail
+   * Boolean indicating that postal mailing to the recipient should be scheduled for this form
    * @return postalMail
    */
   @javax.annotation.Nullable
@@ -991,7 +991,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get stateEFile
+   * Boolean indicating that state e-filing should be scheduled for this form
    * @return stateEFile
    */
   @javax.annotation.Nullable
@@ -1010,7 +1010,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get tinMatch
+   * Boolean indicating that TIN Matching should be scheduled for this form
    * @return tinMatch
    */
   @javax.annotation.Nullable
@@ -1029,7 +1029,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get addressVerification
+   * Boolean indicating that address verification should be scheduled for this form
    * @return addressVerification
    */
   @javax.annotation.Nullable
@@ -1048,7 +1048,7 @@ public class Form1099MiscListItem {
   }
 
   /**
-   * Get stateAndLocalWithholding
+   * State and local withholding information
    * @return stateAndLocalWithholding
    */
   @javax.annotation.Nullable
@@ -1078,7 +1078,7 @@ public class Form1099MiscListItem {
         Objects.equals(this.fedIncomeTaxWithheld, form1099MiscListItem.fedIncomeTaxWithheld) &&
         Objects.equals(this.fishingBoatProceeds, form1099MiscListItem.fishingBoatProceeds) &&
         Objects.equals(this.medicalHealthCarePayments, form1099MiscListItem.medicalHealthCarePayments) &&
-        Objects.equals(this.payerMadeDirectSales, form1099MiscListItem.payerMadeDirectSales) &&
+        Objects.equals(this.directSalesIndicator, form1099MiscListItem.directSalesIndicator) &&
         Objects.equals(this.substitutePayments, form1099MiscListItem.substitutePayments) &&
         Objects.equals(this.cropInsuranceProceeds, form1099MiscListItem.cropInsuranceProceeds) &&
         Objects.equals(this.grossProceedsPaidToAttorney, form1099MiscListItem.grossProceedsPaidToAttorney) &&
@@ -1092,8 +1092,8 @@ public class Form1099MiscListItem {
         Objects.equals(this.taxYear, form1099MiscListItem.taxYear) &&
         Objects.equals(this.issuerId, form1099MiscListItem.issuerId) &&
         Objects.equals(this.referenceId, form1099MiscListItem.referenceId) &&
-        Objects.equals(this.recipientName, form1099MiscListItem.recipientName) &&
         Objects.equals(this.recipientTin, form1099MiscListItem.recipientTin) &&
+        Objects.equals(this.recipientName, form1099MiscListItem.recipientName) &&
         Objects.equals(this.tinType, form1099MiscListItem.tinType) &&
         Objects.equals(this.recipientSecondName, form1099MiscListItem.recipientSecondName) &&
         Objects.equals(this.address, form1099MiscListItem.address) &&
@@ -1120,7 +1120,7 @@ public class Form1099MiscListItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(secondTinNotice, rents, royalties, otherIncome, fedIncomeTaxWithheld, fishingBoatProceeds, medicalHealthCarePayments, payerMadeDirectSales, substitutePayments, cropInsuranceProceeds, grossProceedsPaidToAttorney, fishPurchasedForResale, section409ADeferrals, fatcaFilingRequirement, excessGoldenParachutePayments, nonqualifiedDeferredCompensation, issuerReferenceId, issuerTin, taxYear, issuerId, referenceId, recipientName, recipientTin, tinType, recipientSecondName, address, address2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification, stateAndLocalWithholding);
+    return Objects.hash(secondTinNotice, rents, royalties, otherIncome, fedIncomeTaxWithheld, fishingBoatProceeds, medicalHealthCarePayments, directSalesIndicator, substitutePayments, cropInsuranceProceeds, grossProceedsPaidToAttorney, fishPurchasedForResale, section409ADeferrals, fatcaFilingRequirement, excessGoldenParachutePayments, nonqualifiedDeferredCompensation, issuerReferenceId, issuerTin, taxYear, issuerId, referenceId, recipientTin, recipientName, tinType, recipientSecondName, address, address2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification, stateAndLocalWithholding);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1141,7 +1141,7 @@ public class Form1099MiscListItem {
     sb.append("    fedIncomeTaxWithheld: ").append(toIndentedString(fedIncomeTaxWithheld)).append("\n");
     sb.append("    fishingBoatProceeds: ").append(toIndentedString(fishingBoatProceeds)).append("\n");
     sb.append("    medicalHealthCarePayments: ").append(toIndentedString(medicalHealthCarePayments)).append("\n");
-    sb.append("    payerMadeDirectSales: ").append(toIndentedString(payerMadeDirectSales)).append("\n");
+    sb.append("    directSalesIndicator: ").append(toIndentedString(directSalesIndicator)).append("\n");
     sb.append("    substitutePayments: ").append(toIndentedString(substitutePayments)).append("\n");
     sb.append("    cropInsuranceProceeds: ").append(toIndentedString(cropInsuranceProceeds)).append("\n");
     sb.append("    grossProceedsPaidToAttorney: ").append(toIndentedString(grossProceedsPaidToAttorney)).append("\n");
@@ -1155,8 +1155,8 @@ public class Form1099MiscListItem {
     sb.append("    taxYear: ").append(toIndentedString(taxYear)).append("\n");
     sb.append("    issuerId: ").append(toIndentedString(issuerId)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
-    sb.append("    recipientName: ").append(toIndentedString(recipientName)).append("\n");
     sb.append("    recipientTin: ").append(toIndentedString(recipientTin)).append("\n");
+    sb.append("    recipientName: ").append(toIndentedString(recipientName)).append("\n");
     sb.append("    tinType: ").append(toIndentedString(tinType)).append("\n");
     sb.append("    recipientSecondName: ").append(toIndentedString(recipientSecondName)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
@@ -1202,8 +1202,8 @@ public class Form1099MiscListItem {
     openapiFields.add("taxYear");
     openapiFields.add("issuerId");
     openapiFields.add("referenceId");
-    openapiFields.add("recipientName");
     openapiFields.add("recipientTin");
+    openapiFields.add("recipientName");
     openapiFields.add("tinType");
     openapiFields.add("recipientSecondName");
     openapiFields.add("address");
@@ -1225,6 +1225,11 @@ public class Form1099MiscListItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("taxYear");
+    openapiRequiredFields.add("recipientName");
+    openapiRequiredFields.add("address");
+    openapiRequiredFields.add("city");
+    openapiRequiredFields.add("countryCode");
   }
 
   /**
@@ -1247,6 +1252,13 @@ public class Form1099MiscListItem {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Form1099MiscListItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : Form1099MiscListItem.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("issuerReferenceId") != null && !jsonObj.get("issuerReferenceId").isJsonNull()) && !jsonObj.get("issuerReferenceId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `issuerReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerReferenceId").toString()));
@@ -1260,11 +1272,11 @@ public class Form1099MiscListItem {
       if ((jsonObj.get("referenceId") != null && !jsonObj.get("referenceId").isJsonNull()) && !jsonObj.get("referenceId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `referenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referenceId").toString()));
       }
-      if ((jsonObj.get("recipientName") != null && !jsonObj.get("recipientName").isJsonNull()) && !jsonObj.get("recipientName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recipientName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientName").toString()));
-      }
       if ((jsonObj.get("recipientTin") != null && !jsonObj.get("recipientTin").isJsonNull()) && !jsonObj.get("recipientTin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientTin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientTin").toString()));
+      }
+      if (!jsonObj.get("recipientName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `recipientName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientName").toString()));
       }
       if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tinType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tinType").toString()));
@@ -1276,13 +1288,13 @@ public class Form1099MiscListItem {
       if ((jsonObj.get("recipientSecondName") != null && !jsonObj.get("recipientSecondName").isJsonNull()) && !jsonObj.get("recipientSecondName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientSecondName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientSecondName").toString()));
       }
-      if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
+      if (!jsonObj.get("address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
       }
       if ((jsonObj.get("address2") != null && !jsonObj.get("address2").isJsonNull()) && !jsonObj.get("address2").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address2").toString()));
       }
-      if ((jsonObj.get("city") != null && !jsonObj.get("city").isJsonNull()) && !jsonObj.get("city").isJsonPrimitive()) {
+      if (!jsonObj.get("city").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
       }
       if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
@@ -1303,7 +1315,7 @@ public class Form1099MiscListItem {
       if ((jsonObj.get("recipientNonUsProvince") != null && !jsonObj.get("recipientNonUsProvince").isJsonNull()) && !jsonObj.get("recipientNonUsProvince").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientNonUsProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientNonUsProvince").toString()));
       }
-      if ((jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonNull()) && !jsonObj.get("countryCode").isJsonPrimitive()) {
+      if (!jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
       }
       // validate the optional field `stateAndLocalWithholding`

@@ -14,7 +14,7 @@
 |**fedIncomeTaxWithheld** | **Double** |  |  [optional] |
 |**fishingBoatProceeds** | **Double** |  |  [optional] |
 |**medicalHealthCarePayments** | **Double** |  |  [optional] |
-|**payerMadeDirectSales** | **Boolean** |  |  [optional] |
+|**directSalesIndicator** | **Boolean** |  |  [optional] |
 |**substitutePayments** | **Double** |  |  [optional] |
 |**cropInsuranceProceeds** | **Double** |  |  [optional] |
 |**grossProceedsPaidToAttorney** | **Double** |  |  [optional] |
@@ -54,11 +54,11 @@
 |**tinMatch** | **Boolean** |  |  [optional] |
 |**addressVerification** | **Boolean** |  |  [optional] |
 |**federalEfileStatus** | [**StatusDetail**](StatusDetail.md) |  |  [optional] |
-|**stateEfileStatus** | [**List&lt;StateEfileStatusDetailApp&gt;**](StateEfileStatusDetailApp.md) |  |  [optional] |
+|**stateEfileStatus** | [**List&lt;StateEfileStatusDetailResponse&gt;**](StateEfileStatusDetailResponse.md) |  |  [optional] |
 |**postalMailStatus** | [**StatusDetail**](StatusDetail.md) |  |  [optional] |
 |**tinMatchStatus** | [**StatusDetail**](StatusDetail.md) |  |  [optional] |
 |**addressVerificationStatus** | [**StatusDetail**](StatusDetail.md) |  |  [optional] |
-|**validationErrors** | [**List&lt;ValidationErrorApp&gt;**](ValidationErrorApp.md) |  |  [optional] |
+|**validationErrors** | [**List&lt;ValidationErrorResponse&gt;**](ValidationErrorResponse.md) |  |  [optional] |
 
 
 
@@ -66,12 +66,13 @@
 
 | Name | Value |
 |---- | -----|
-| FORM1099_NEC | &quot;Form1099Nec&quot; |
-| FORM1099_MISC | &quot;Form1099Misc&quot; |
-| FORM1099_DIV | &quot;Form1099Div&quot; |
-| FORM1099_R | &quot;Form1099R&quot; |
-| FORM1099_K | &quot;Form1099K&quot; |
-| FORM1095_B | &quot;Form1095B&quot; |
+| _1099_NEC | &quot;1099-NEC&quot; |
+| _1099_MISC | &quot;1099-MISC&quot; |
+| _1099_DIV | &quot;1099-DIV&quot; |
+| _1099_R | &quot;1099-R&quot; |
+| _1099_K | &quot;1099-K&quot; |
+| _1095_B | &quot;1095-B&quot; |
+| _1042_S | &quot;1042-S&quot; |
 
 
 

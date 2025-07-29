@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -26,6 +26,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -449,7 +450,7 @@ public class W8ImyFormResponse {
 
   public static final String SERIALIZED_NAME_STARTUP_FORMATION_OR_RESOLUTION_DATE = "startupFormationOrResolutionDate";
   @SerializedName(SERIALIZED_NAME_STARTUP_FORMATION_OR_RESOLUTION_DATE)
-  private OffsetDateTime startupFormationOrResolutionDate;
+  private LocalDate startupFormationOrResolutionDate;
 
   public static final String SERIALIZED_NAME_EXCEPTED_NONFINANCIAL_ENTITY_IN_LIQUIDATION_OR_BANKRUPTCY_CERTIFICATION = "exceptedNonfinancialEntityInLiquidationOrBankruptcyCertification";
   @SerializedName(SERIALIZED_NAME_EXCEPTED_NONFINANCIAL_ENTITY_IN_LIQUIDATION_OR_BANKRUPTCY_CERTIFICATION)
@@ -457,7 +458,7 @@ public class W8ImyFormResponse {
 
   public static final String SERIALIZED_NAME_NONFINANCIAL_ENTITY_FILING_DATE = "nonfinancialEntityFilingDate";
   @SerializedName(SERIALIZED_NAME_NONFINANCIAL_ENTITY_FILING_DATE)
-  private OffsetDateTime nonfinancialEntityFilingDate;
+  private LocalDate nonfinancialEntityFilingDate;
 
   public static final String SERIALIZED_NAME_PUBLICLY_TRADED_NFFE_CERTIFICATION = "publiclyTradedNffeCertification";
   @SerializedName(SERIALIZED_NAME_PUBLICLY_TRADED_NFFE_CERTIFICATION)
@@ -2405,7 +2406,7 @@ public class W8ImyFormResponse {
   }
 
 
-  public W8ImyFormResponse startupFormationOrResolutionDate(OffsetDateTime startupFormationOrResolutionDate) {
+  public W8ImyFormResponse startupFormationOrResolutionDate(LocalDate startupFormationOrResolutionDate) {
     this.startupFormationOrResolutionDate = startupFormationOrResolutionDate;
     return this;
   }
@@ -2415,11 +2416,11 @@ public class W8ImyFormResponse {
    * @return startupFormationOrResolutionDate
    */
   @javax.annotation.Nullable
-  public OffsetDateTime getStartupFormationOrResolutionDate() {
+  public LocalDate getStartupFormationOrResolutionDate() {
     return startupFormationOrResolutionDate;
   }
 
-  public void setStartupFormationOrResolutionDate(OffsetDateTime startupFormationOrResolutionDate) {
+  public void setStartupFormationOrResolutionDate(LocalDate startupFormationOrResolutionDate) {
     this.startupFormationOrResolutionDate = startupFormationOrResolutionDate;
   }
 
@@ -2443,7 +2444,7 @@ public class W8ImyFormResponse {
   }
 
 
-  public W8ImyFormResponse nonfinancialEntityFilingDate(OffsetDateTime nonfinancialEntityFilingDate) {
+  public W8ImyFormResponse nonfinancialEntityFilingDate(LocalDate nonfinancialEntityFilingDate) {
     this.nonfinancialEntityFilingDate = nonfinancialEntityFilingDate;
     return this;
   }
@@ -2453,11 +2454,11 @@ public class W8ImyFormResponse {
    * @return nonfinancialEntityFilingDate
    */
   @javax.annotation.Nullable
-  public OffsetDateTime getNonfinancialEntityFilingDate() {
+  public LocalDate getNonfinancialEntityFilingDate() {
     return nonfinancialEntityFilingDate;
   }
 
-  public void setNonfinancialEntityFilingDate(OffsetDateTime nonfinancialEntityFilingDate) {
+  public void setNonfinancialEntityFilingDate(LocalDate nonfinancialEntityFilingDate) {
     this.nonfinancialEntityFilingDate = nonfinancialEntityFilingDate;
   }
 

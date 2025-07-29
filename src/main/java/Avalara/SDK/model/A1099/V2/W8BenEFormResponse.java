@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -27,6 +27,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -360,7 +361,7 @@ public class W8BenEFormResponse {
 
   public static final String SERIALIZED_NAME_STARTUP_FORMATION_OR_RESOLUTION_DATE = "startupFormationOrResolutionDate";
   @SerializedName(SERIALIZED_NAME_STARTUP_FORMATION_OR_RESOLUTION_DATE)
-  private OffsetDateTime startupFormationOrResolutionDate;
+  private LocalDate startupFormationOrResolutionDate;
 
   public static final String SERIALIZED_NAME_EXCEPTED_NONFINANCIAL_ENTITY_IN_LIQUIDATION_OR_BANKRUPTCY_CERTIFICATION = "exceptedNonfinancialEntityInLiquidationOrBankruptcyCertification";
   @SerializedName(SERIALIZED_NAME_EXCEPTED_NONFINANCIAL_ENTITY_IN_LIQUIDATION_OR_BANKRUPTCY_CERTIFICATION)
@@ -368,7 +369,7 @@ public class W8BenEFormResponse {
 
   public static final String SERIALIZED_NAME_NONFINANCIAL_ENTITY_FILING_DATE = "nonfinancialEntityFilingDate";
   @SerializedName(SERIALIZED_NAME_NONFINANCIAL_ENTITY_FILING_DATE)
-  private OffsetDateTime nonfinancialEntityFilingDate;
+  private LocalDate nonfinancialEntityFilingDate;
 
   public static final String SERIALIZED_NAME_SECTION501_C_ORGANIZATION_CERTIFICATION = "section501COrganizationCertification";
   @SerializedName(SERIALIZED_NAME_SECTION501_C_ORGANIZATION_CERTIFICATION)
@@ -376,7 +377,7 @@ public class W8BenEFormResponse {
 
   public static final String SERIALIZED_NAME_DETERMINATION_LETTER_DATE = "determinationLetterDate";
   @SerializedName(SERIALIZED_NAME_DETERMINATION_LETTER_DATE)
-  private OffsetDateTime determinationLetterDate;
+  private LocalDate determinationLetterDate;
 
   public static final String SERIALIZED_NAME_NONPROFIT_ORGANIZATION_CERTIFICATION = "nonprofitOrganizationCertification";
   @SerializedName(SERIALIZED_NAME_NONPROFIT_ORGANIZATION_CERTIFICATION)
@@ -436,7 +437,7 @@ public class W8BenEFormResponse {
 
   public static final String SERIALIZED_NAME_SUBSTANTIAL_US_OWNERS = "substantialUsOwners";
   @SerializedName(SERIALIZED_NAME_SUBSTANTIAL_US_OWNERS)
-  private List<SubstantialUsOwnerResponse> substantialUsOwners = new ArrayList<>();
+  private List<SubstantialUsOwnerResponse> substantialUsOwners;
 
   public static final String SERIALIZED_NAME_SIGNER_NAME = "signerName";
   @SerializedName(SERIALIZED_NAME_SIGNER_NAME)
@@ -1911,7 +1912,7 @@ public class W8BenEFormResponse {
   }
 
 
-  public W8BenEFormResponse startupFormationOrResolutionDate(OffsetDateTime startupFormationOrResolutionDate) {
+  public W8BenEFormResponse startupFormationOrResolutionDate(LocalDate startupFormationOrResolutionDate) {
     this.startupFormationOrResolutionDate = startupFormationOrResolutionDate;
     return this;
   }
@@ -1921,11 +1922,11 @@ public class W8BenEFormResponse {
    * @return startupFormationOrResolutionDate
    */
   @javax.annotation.Nullable
-  public OffsetDateTime getStartupFormationOrResolutionDate() {
+  public LocalDate getStartupFormationOrResolutionDate() {
     return startupFormationOrResolutionDate;
   }
 
-  public void setStartupFormationOrResolutionDate(OffsetDateTime startupFormationOrResolutionDate) {
+  public void setStartupFormationOrResolutionDate(LocalDate startupFormationOrResolutionDate) {
     this.startupFormationOrResolutionDate = startupFormationOrResolutionDate;
   }
 
@@ -1949,7 +1950,7 @@ public class W8BenEFormResponse {
   }
 
 
-  public W8BenEFormResponse nonfinancialEntityFilingDate(OffsetDateTime nonfinancialEntityFilingDate) {
+  public W8BenEFormResponse nonfinancialEntityFilingDate(LocalDate nonfinancialEntityFilingDate) {
     this.nonfinancialEntityFilingDate = nonfinancialEntityFilingDate;
     return this;
   }
@@ -1959,11 +1960,11 @@ public class W8BenEFormResponse {
    * @return nonfinancialEntityFilingDate
    */
   @javax.annotation.Nullable
-  public OffsetDateTime getNonfinancialEntityFilingDate() {
+  public LocalDate getNonfinancialEntityFilingDate() {
     return nonfinancialEntityFilingDate;
   }
 
-  public void setNonfinancialEntityFilingDate(OffsetDateTime nonfinancialEntityFilingDate) {
+  public void setNonfinancialEntityFilingDate(LocalDate nonfinancialEntityFilingDate) {
     this.nonfinancialEntityFilingDate = nonfinancialEntityFilingDate;
   }
 
@@ -1987,7 +1988,7 @@ public class W8BenEFormResponse {
   }
 
 
-  public W8BenEFormResponse determinationLetterDate(OffsetDateTime determinationLetterDate) {
+  public W8BenEFormResponse determinationLetterDate(LocalDate determinationLetterDate) {
     this.determinationLetterDate = determinationLetterDate;
     return this;
   }
@@ -1997,11 +1998,11 @@ public class W8BenEFormResponse {
    * @return determinationLetterDate
    */
   @javax.annotation.Nullable
-  public OffsetDateTime getDeterminationLetterDate() {
+  public LocalDate getDeterminationLetterDate() {
     return determinationLetterDate;
   }
 
-  public void setDeterminationLetterDate(OffsetDateTime determinationLetterDate) {
+  public void setDeterminationLetterDate(LocalDate determinationLetterDate) {
     this.determinationLetterDate = determinationLetterDate;
   }
 

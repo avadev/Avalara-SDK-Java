@@ -73,7 +73,7 @@ public class DataInputField {
 
   public static final String SERIALIZED_NAME_APPLICABLE_DOCUMENT_ROOTS = "applicableDocumentRoots";
   @SerializedName(SERIALIZED_NAME_APPLICABLE_DOCUMENT_ROOTS)
-  private List<Object> applicableDocumentRoots = new ArrayList<>();
+  private List<Object> applicableDocumentRoots;
 
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
@@ -113,7 +113,7 @@ public class DataInputField {
 
   public static final String SERIALIZED_NAME_CONDITIONAL_FOR = "conditionalFor";
   @SerializedName(SERIALIZED_NAME_CONDITIONAL_FOR)
-  private List<ConditionalForField> conditionalFor = new ArrayList<>();
+  private List<ConditionalForField> conditionalFor;
 
   public static final String SERIALIZED_NAME_NOT_USED_FOR = "notUsedFor";
   @SerializedName(SERIALIZED_NAME_NOT_USED_FOR)

@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -167,7 +167,7 @@ public class Issuers1099Api {
 
     /**
      * Create an issuer
-     * Create a new issuer
+     * Create an issuer (also known as a Payer).
      * @param requestOptions Object which represents the options available for a given API/request
      * @return IssuerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -186,7 +186,7 @@ public class Issuers1099Api {
 
     /**
      * Create an issuer
-     * Create a new issuer
+     * Create an issuer (also known as a Payer).
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;IssuerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -206,7 +206,7 @@ public class Issuers1099Api {
 
     /**
      * Create an issuer (asynchronously)
-     * Create a new issuer
+     * Create an issuer (also known as a Payer).
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -357,7 +357,7 @@ public class Issuers1099Api {
 
     /**
      * Delete an issuer
-     * Delete an issuer
+     * Delete an issuer (also known as a Payer).
      * @param requestOptions Object which represents the options available for a given API/request
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -374,7 +374,7 @@ public class Issuers1099Api {
 
     /**
      * Delete an issuer
-     * Delete an issuer
+     * Delete an issuer (also known as a Payer).
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -393,7 +393,7 @@ public class Issuers1099Api {
 
     /**
      * Delete an issuer (asynchronously)
-     * Delete an issuer
+     * Delete an issuer (also known as a Payer).
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -542,8 +542,8 @@ public class Issuers1099Api {
     }
 
     /**
-     * Get an issuer
-     * Get an issuer
+     * Retrieve an issuer
+     * Retrieve an issuer (also known as a Payer).
      * @param requestOptions Object which represents the options available for a given API/request
      * @return IssuerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -561,8 +561,8 @@ public class Issuers1099Api {
     }
 
     /**
-     * Get an issuer
-     * Get an issuer
+     * Retrieve an issuer
+     * Retrieve an issuer (also known as a Payer).
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;IssuerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -581,8 +581,8 @@ public class Issuers1099Api {
     }
 
     /**
-     * Get an issuer (asynchronously)
-     * Get an issuer
+     * Retrieve an issuer (asynchronously)
+     * Retrieve an issuer (also known as a Payer).
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -605,7 +605,7 @@ public class Issuers1099Api {
     /**
     * Represents the Request object for the GetIssuer API
     *
-    * @param id </param>
+    * @param id Id of the issuer to retrieve</param>
     * @param avalaraVersion API version</param>
     * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
     * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
@@ -753,7 +753,7 @@ public class Issuers1099Api {
 
     /**
      * List issuers
-     * List issuers for a given tax year. Filterable fields are name, referenceId and taxYear
+     * List issuers (also known as Payers). Filterable fields are name, referenceId and taxYear.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return PaginatedQueryResultModelIssuerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -774,7 +774,7 @@ public class Issuers1099Api {
 
     /**
      * List issuers
-     * List issuers for a given tax year. Filterable fields are name, referenceId and taxYear
+     * List issuers (also known as Payers). Filterable fields are name, referenceId and taxYear.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;PaginatedQueryResultModelIssuerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -796,7 +796,7 @@ public class Issuers1099Api {
 
     /**
      * List issuers (asynchronously)
-     * List issuers for a given tax year. Filterable fields are name, referenceId and taxYear
+     * List issuers (also known as Payers). Filterable fields are name, referenceId and taxYear.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -970,7 +970,7 @@ public class Issuers1099Api {
 
     /**
      * Update an issuer
-     * Update an existing issuer
+     * Update an issuer (also known as a Payer).
      * @param requestOptions Object which represents the options available for a given API/request
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -988,7 +988,7 @@ public class Issuers1099Api {
 
     /**
      * Update an issuer
-     * Update an existing issuer
+     * Update an issuer (also known as a Payer).
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1008,7 +1008,7 @@ public class Issuers1099Api {
 
     /**
      * Update an issuer (asynchronously)
-     * Update an existing issuer
+     * Update an issuer (also known as a Payer).
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1031,7 +1031,7 @@ public class Issuers1099Api {
     /**
     * Represents the Request object for the UpdateIssuer API
     *
-    * @param id Id of the issuer to Update</param>
+    * @param id Id of the issuer to update</param>
     * @param avalaraVersion API version</param>
     * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
     * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
@@ -1069,7 +1069,7 @@ public class Issuers1099Api {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.7.2");
+        this.localVarApiClient.setSdkVersion("25.8.0");
     }
 }
 

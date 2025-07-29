@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -140,17 +140,19 @@ public class Form1099DivRequest {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    FORM1099_NEC("Form1099Nec"),
+    _1099_NEC("1099-NEC"),
     
-    FORM1099_MISC("Form1099Misc"),
+    _1099_MISC("1099-MISC"),
     
-    FORM1099_DIV("Form1099Div"),
+    _1099_DIV("1099-DIV"),
     
-    FORM1099_R("Form1099R"),
+    _1099_R("1099-R"),
     
-    FORM1099_K("Form1099K"),
+    _1099_K("1099-K"),
     
-    FORM1095_B("Form1095B");
+    _1095_B("1095-B"),
+    
+    _1042_S("1042-S");
 
     private String value;
 
@@ -207,16 +209,16 @@ public class Form1099DivRequest {
   @SerializedName(SERIALIZED_NAME_REFERENCE_ID)
   private String referenceId;
 
-  public static final String SERIALIZED_NAME_RECIPIENT_NAME = "recipientName";
-  @SerializedName(SERIALIZED_NAME_RECIPIENT_NAME)
-  private String recipientName;
-
   public static final String SERIALIZED_NAME_RECIPIENT_TIN = "recipientTin";
   @SerializedName(SERIALIZED_NAME_RECIPIENT_TIN)
   private String recipientTin;
 
+  public static final String SERIALIZED_NAME_RECIPIENT_NAME = "recipientName";
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_NAME)
+  private String recipientName;
+
   /**
-   * Gets or Sets tinType
+   * Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN
    */
   @JsonAdapter(TinTypeEnum.Adapter.class)
   public enum TinTypeEnum {
@@ -346,20 +348,13 @@ public class Form1099DivRequest {
   public Form1099DivRequest() {
   }
 
-  public Form1099DivRequest(
-     TypeEnum type
-  ) {
-    this();
-    this.type = type;
-  }
-
   public Form1099DivRequest totalOrdinaryDividends(String totalOrdinaryDividends) {
     this.totalOrdinaryDividends = totalOrdinaryDividends;
     return this;
   }
 
   /**
-   * Get totalOrdinaryDividends
+   * Total ordinary dividends
    * @return totalOrdinaryDividends
    */
   @javax.annotation.Nullable
@@ -378,7 +373,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get qualifiedDividends
+   * Qualified dividends
    * @return qualifiedDividends
    */
   @javax.annotation.Nullable
@@ -397,7 +392,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get totalCapitalGainDistr
+   * Total capital gain distributions
    * @return totalCapitalGainDistr
    */
   @javax.annotation.Nullable
@@ -416,7 +411,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get unrecapSec1250Gain
+   * Unrecaptured Section 1250 gain
    * @return unrecapSec1250Gain
    */
   @javax.annotation.Nullable
@@ -435,7 +430,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get section1202Gain
+   * Section 1202 gain
    * @return section1202Gain
    */
   @javax.annotation.Nullable
@@ -454,7 +449,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get collectiblesGain
+   * Collectibles (28%) gain
    * @return collectiblesGain
    */
   @javax.annotation.Nullable
@@ -473,7 +468,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get section897OrdinaryDividends
+   * Section 897 ordinary dividends
    * @return section897OrdinaryDividends
    */
   @javax.annotation.Nullable
@@ -492,7 +487,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get section897CapitalGain
+   * Section 897 capital gain
    * @return section897CapitalGain
    */
   @javax.annotation.Nullable
@@ -511,7 +506,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get nondividendDistributions
+   * Nondividend distributions
    * @return nondividendDistributions
    */
   @javax.annotation.Nullable
@@ -530,7 +525,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get federalIncomeTaxWithheld
+   * Federal income tax withheld
    * @return federalIncomeTaxWithheld
    */
   @javax.annotation.Nullable
@@ -549,7 +544,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get section199ADividends
+   * Section 199A dividends
    * @return section199ADividends
    */
   @javax.annotation.Nullable
@@ -568,7 +563,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get investmentExpenses
+   * Investment expenses
    * @return investmentExpenses
    */
   @javax.annotation.Nullable
@@ -587,7 +582,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get foreignTaxPaid
+   * Foreign tax paid
    * @return foreignTaxPaid
    */
   @javax.annotation.Nullable
@@ -606,7 +601,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get foreignCountryOrUSPossession
+   * Foreign country or U.S. possession
    * @return foreignCountryOrUSPossession
    */
   @javax.annotation.Nullable
@@ -625,7 +620,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get cashLiquidationDistributions
+   * Cash liquidation distributions
    * @return cashLiquidationDistributions
    */
   @javax.annotation.Nullable
@@ -644,7 +639,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get noncashLiquidationDistributions
+   * Noncash liquidation distributions
    * @return noncashLiquidationDistributions
    */
   @javax.annotation.Nullable
@@ -663,7 +658,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get exemptInterestDividends
+   * Exempt-interest dividends
    * @return exemptInterestDividends
    */
   @javax.annotation.Nullable
@@ -682,7 +677,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get specifiedPrivateActivityBondInterestDividends
+   * Specified private activity bond interest dividends
    * @return specifiedPrivateActivityBondInterestDividends
    */
   @javax.annotation.Nullable
@@ -701,7 +696,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get fatcaFilingRequirement
+   * FATCA filing requirement
    * @return fatcaFilingRequirement
    */
   @javax.annotation.Nullable
@@ -714,6 +709,11 @@ public class Form1099DivRequest {
   }
 
 
+  public Form1099DivRequest type(TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
   /**
    * Get type
    * @return type
@@ -723,6 +723,9 @@ public class Form1099DivRequest {
     return type;
   }
 
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
 
 
   public Form1099DivRequest issuerId(String issuerId) {
@@ -731,7 +734,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get issuerId
+   * Issuer ID
    * @return issuerId
    */
   @javax.annotation.Nullable
@@ -750,7 +753,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get referenceId
+   * Reference ID
    * @return referenceId
    */
   @javax.annotation.Nullable
@@ -763,32 +766,13 @@ public class Form1099DivRequest {
   }
 
 
-  public Form1099DivRequest recipientName(String recipientName) {
-    this.recipientName = recipientName;
-    return this;
-  }
-
-  /**
-   * Get recipientName
-   * @return recipientName
-   */
-  @javax.annotation.Nullable
-  public String getRecipientName() {
-    return recipientName;
-  }
-
-  public void setRecipientName(String recipientName) {
-    this.recipientName = recipientName;
-  }
-
-
   public Form1099DivRequest recipientTin(String recipientTin) {
     this.recipientTin = recipientTin;
     return this;
   }
 
   /**
-   * Get recipientTin
+   * Recipient Tax ID Number
    * @return recipientTin
    */
   @javax.annotation.Nullable
@@ -801,13 +785,32 @@ public class Form1099DivRequest {
   }
 
 
+  public Form1099DivRequest recipientName(String recipientName) {
+    this.recipientName = recipientName;
+    return this;
+  }
+
+  /**
+   * Recipient name
+   * @return recipientName
+   */
+  @javax.annotation.Nonnull
+  public String getRecipientName() {
+    return recipientName;
+  }
+
+  public void setRecipientName(String recipientName) {
+    this.recipientName = recipientName;
+  }
+
+
   public Form1099DivRequest tinType(TinTypeEnum tinType) {
     this.tinType = tinType;
     return this;
   }
 
   /**
-   * Get tinType
+   * Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN
    * @return tinType
    */
   @javax.annotation.Nullable
@@ -826,7 +829,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get recipientSecondName
+   * Recipient second name
    * @return recipientSecondName
    */
   @javax.annotation.Nullable
@@ -845,10 +848,10 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get address
+   * Address
    * @return address
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getAddress() {
     return address;
   }
@@ -864,7 +867,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get address2
+   * Address line 2
    * @return address2
    */
   @javax.annotation.Nullable
@@ -883,10 +886,10 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get city
+   * City
    * @return city
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getCity() {
     return city;
   }
@@ -902,7 +905,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get state
+   * US state. Required if CountryCode is \&quot;US\&quot;.
    * @return state
    */
   @javax.annotation.Nullable
@@ -921,7 +924,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get zip
+   * Zip/postal code
    * @return zip
    */
   @javax.annotation.Nullable
@@ -940,7 +943,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get recipientEmail
+   * Recipient email address
    * @return recipientEmail
    */
   @javax.annotation.Nullable
@@ -959,7 +962,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get accountNumber
+   * Account number
    * @return accountNumber
    */
   @javax.annotation.Nullable
@@ -978,7 +981,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get officeCode
+   * Office code
    * @return officeCode
    */
   @javax.annotation.Nullable
@@ -997,7 +1000,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get recipientNonUsProvince
+   * Foreign province
    * @return recipientNonUsProvince
    */
   @javax.annotation.Nullable
@@ -1016,10 +1019,10 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get countryCode
+   * Country code, as defined at https://www.irs.gov/e-file-providers/country-codes
    * @return countryCode
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getCountryCode() {
     return countryCode;
   }
@@ -1035,7 +1038,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get federalEFile
+   * Boolean indicating that federal e-filing should be scheduled for this form
    * @return federalEFile
    */
   @javax.annotation.Nullable
@@ -1054,7 +1057,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get postalMail
+   * Boolean indicating that postal mailing to the recipient should be scheduled for this form
    * @return postalMail
    */
   @javax.annotation.Nullable
@@ -1073,7 +1076,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get stateEFile
+   * Boolean indicating that state e-filing should be scheduled for this form
    * @return stateEFile
    */
   @javax.annotation.Nullable
@@ -1092,7 +1095,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get tinMatch
+   * Boolean indicating that TIN Matching should be scheduled for this form
    * @return tinMatch
    */
   @javax.annotation.Nullable
@@ -1111,7 +1114,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get addressVerification
+   * Boolean indicating that address verification should be scheduled for this form
    * @return addressVerification
    */
   @javax.annotation.Nullable
@@ -1130,7 +1133,7 @@ public class Form1099DivRequest {
   }
 
   /**
-   * Get stateAndLocalWithholding
+   * State and local withholding information
    * @return stateAndLocalWithholding
    */
   @javax.annotation.Nullable
@@ -1175,8 +1178,8 @@ public class Form1099DivRequest {
         Objects.equals(this.type, form1099DivRequest.type) &&
         Objects.equals(this.issuerId, form1099DivRequest.issuerId) &&
         Objects.equals(this.referenceId, form1099DivRequest.referenceId) &&
-        Objects.equals(this.recipientName, form1099DivRequest.recipientName) &&
         Objects.equals(this.recipientTin, form1099DivRequest.recipientTin) &&
+        Objects.equals(this.recipientName, form1099DivRequest.recipientName) &&
         Objects.equals(this.tinType, form1099DivRequest.tinType) &&
         Objects.equals(this.recipientSecondName, form1099DivRequest.recipientSecondName) &&
         Objects.equals(this.address, form1099DivRequest.address) &&
@@ -1203,7 +1206,7 @@ public class Form1099DivRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalOrdinaryDividends, qualifiedDividends, totalCapitalGainDistr, unrecapSec1250Gain, section1202Gain, collectiblesGain, section897OrdinaryDividends, section897CapitalGain, nondividendDistributions, federalIncomeTaxWithheld, section199ADividends, investmentExpenses, foreignTaxPaid, foreignCountryOrUSPossession, cashLiquidationDistributions, noncashLiquidationDistributions, exemptInterestDividends, specifiedPrivateActivityBondInterestDividends, fatcaFilingRequirement, type, issuerId, referenceId, recipientName, recipientTin, tinType, recipientSecondName, address, address2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification, stateAndLocalWithholding);
+    return Objects.hash(totalOrdinaryDividends, qualifiedDividends, totalCapitalGainDistr, unrecapSec1250Gain, section1202Gain, collectiblesGain, section897OrdinaryDividends, section897CapitalGain, nondividendDistributions, federalIncomeTaxWithheld, section199ADividends, investmentExpenses, foreignTaxPaid, foreignCountryOrUSPossession, cashLiquidationDistributions, noncashLiquidationDistributions, exemptInterestDividends, specifiedPrivateActivityBondInterestDividends, fatcaFilingRequirement, type, issuerId, referenceId, recipientTin, recipientName, tinType, recipientSecondName, address, address2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification, stateAndLocalWithholding);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1239,8 +1242,8 @@ public class Form1099DivRequest {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    issuerId: ").append(toIndentedString(issuerId)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
-    sb.append("    recipientName: ").append(toIndentedString(recipientName)).append("\n");
     sb.append("    recipientTin: ").append(toIndentedString(recipientTin)).append("\n");
+    sb.append("    recipientName: ").append(toIndentedString(recipientName)).append("\n");
     sb.append("    tinType: ").append(toIndentedString(tinType)).append("\n");
     sb.append("    recipientSecondName: ").append(toIndentedString(recipientSecondName)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
@@ -1284,8 +1287,8 @@ public class Form1099DivRequest {
     openapiFields.add("type");
     openapiFields.add("issuerId");
     openapiFields.add("referenceId");
-    openapiFields.add("recipientName");
     openapiFields.add("recipientTin");
+    openapiFields.add("recipientName");
     openapiFields.add("tinType");
     openapiFields.add("recipientSecondName");
     openapiFields.add("address");
@@ -1307,6 +1310,10 @@ public class Form1099DivRequest {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("recipientName");
+    openapiRequiredFields.add("address");
+    openapiRequiredFields.add("city");
+    openapiRequiredFields.add("countryCode");
   }
 
   /**
@@ -1327,6 +1334,13 @@ public class Form1099DivRequest {
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Form1099DivRequest.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Form1099DivRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : Form1099DivRequest.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -1400,11 +1414,11 @@ public class Form1099DivRequest {
       if ((jsonObj.get("referenceId") != null && !jsonObj.get("referenceId").isJsonNull()) && !jsonObj.get("referenceId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `referenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referenceId").toString()));
       }
-      if ((jsonObj.get("recipientName") != null && !jsonObj.get("recipientName").isJsonNull()) && !jsonObj.get("recipientName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recipientName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientName").toString()));
-      }
       if ((jsonObj.get("recipientTin") != null && !jsonObj.get("recipientTin").isJsonNull()) && !jsonObj.get("recipientTin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientTin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientTin").toString()));
+      }
+      if (!jsonObj.get("recipientName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `recipientName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientName").toString()));
       }
       if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tinType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tinType").toString()));
@@ -1416,13 +1430,13 @@ public class Form1099DivRequest {
       if ((jsonObj.get("recipientSecondName") != null && !jsonObj.get("recipientSecondName").isJsonNull()) && !jsonObj.get("recipientSecondName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientSecondName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientSecondName").toString()));
       }
-      if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
+      if (!jsonObj.get("address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
       }
       if ((jsonObj.get("address2") != null && !jsonObj.get("address2").isJsonNull()) && !jsonObj.get("address2").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address2").toString()));
       }
-      if ((jsonObj.get("city") != null && !jsonObj.get("city").isJsonNull()) && !jsonObj.get("city").isJsonPrimitive()) {
+      if (!jsonObj.get("city").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
       }
       if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
@@ -1443,7 +1457,7 @@ public class Form1099DivRequest {
       if ((jsonObj.get("recipientNonUsProvince") != null && !jsonObj.get("recipientNonUsProvince").isJsonNull()) && !jsonObj.get("recipientNonUsProvince").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientNonUsProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientNonUsProvince").toString()));
       }
-      if ((jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonNull()) && !jsonObj.get("countryCode").isJsonPrimitive()) {
+      if (!jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
       }
       // validate the optional field `stateAndLocalWithholding`

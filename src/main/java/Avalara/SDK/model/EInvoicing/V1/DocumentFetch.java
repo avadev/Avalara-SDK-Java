@@ -53,7 +53,7 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * An object of the inbound document
+ * DocumentFetch
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class DocumentFetch {

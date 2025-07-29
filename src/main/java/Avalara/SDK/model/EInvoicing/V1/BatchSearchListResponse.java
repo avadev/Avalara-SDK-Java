@@ -56,7 +56,7 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * Schema for batch search list
+ * Response schema for listing batch search details.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class BatchSearchListResponse {
@@ -70,7 +70,7 @@ public class BatchSearchListResponse {
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  private List<BatchSearch> value = new ArrayList<>();
+  private List<BatchSearch> value;
 
   public BatchSearchListResponse() {
   }
@@ -81,7 +81,7 @@ public class BatchSearchListResponse {
   }
 
   /**
-   * The count of records in the result set
+   * The count of records in the result set.
    * @return atRecordSetCount
    */
   @javax.annotation.Nullable
@@ -127,7 +127,7 @@ public class BatchSearchListResponse {
   }
 
   /**
-   * Get value
+   * List of batch search records.
    * @return value
    */
   @javax.annotation.Nullable

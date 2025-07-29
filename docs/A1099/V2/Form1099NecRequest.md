@@ -7,33 +7,33 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**secondTinNotice** | **Boolean** |  |  [optional] |
-|**nonemployeeCompensation** | **Double** |  |  [optional] |
-|**payerMadeDirectSales** | **Boolean** |  |  [optional] |
-|**federalIncomeTaxWithheld** | **Double** |  |  [optional] |
-|**type** | [**TypeEnum**](#TypeEnum) |  |  [optional] [readonly] |
-|**issuerId** | **String** |  |  [optional] |
-|**referenceId** | **String** |  |  [optional] |
-|**recipientName** | **String** |  |  [optional] |
-|**recipientTin** | **String** |  |  [optional] |
-|**tinType** | [**TinTypeEnum**](#TinTypeEnum) |  |  [optional] |
-|**recipientSecondName** | **String** |  |  [optional] |
-|**address** | **String** |  |  [optional] |
-|**address2** | **String** |  |  [optional] |
-|**city** | **String** |  |  [optional] |
-|**state** | **String** |  |  [optional] |
-|**zip** | **String** |  |  [optional] |
-|**recipientEmail** | **String** |  |  [optional] |
-|**accountNumber** | **String** |  |  [optional] |
-|**officeCode** | **String** |  |  [optional] |
-|**recipientNonUsProvince** | **String** |  |  [optional] |
-|**countryCode** | **String** |  |  [optional] |
-|**federalEFile** | **Boolean** |  |  [optional] |
-|**postalMail** | **Boolean** |  |  [optional] |
-|**stateEFile** | **Boolean** |  |  [optional] |
-|**tinMatch** | **Boolean** |  |  [optional] |
-|**addressVerification** | **Boolean** |  |  [optional] |
-|**stateAndLocalWithholding** | [**StateAndLocalWithholdingRequest**](StateAndLocalWithholdingRequest.md) |  |  [optional] |
+|**secondTinNotice** | **Boolean** | Second TIN notice |  [optional] |
+|**nonemployeeCompensation** | **Double** | Nonemployee compensation |  |
+|**directSalesIndicator** | **Boolean** | Payer made direct sales totaling $5,000 or more of consumer products to recipient for resale |  [optional] |
+|**federalIncomeTaxWithheld** | **Double** | Federal income tax withheld |  [optional] |
+|**type** | [**TypeEnum**](#TypeEnum) |  |  [optional] |
+|**issuerId** | **String** | Issuer ID |  [optional] |
+|**referenceId** | **String** | Reference ID |  [optional] |
+|**recipientTin** | **String** | Recipient Tax ID Number |  [optional] |
+|**recipientName** | **String** | Recipient name |  |
+|**tinType** | [**TinTypeEnum**](#TinTypeEnum) | Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN |  [optional] |
+|**recipientSecondName** | **String** | Recipient second name |  [optional] |
+|**address** | **String** | Address |  |
+|**address2** | **String** | Address line 2 |  [optional] |
+|**city** | **String** | City |  |
+|**state** | **String** | US state. Required if CountryCode is \&quot;US\&quot;. |  [optional] |
+|**zip** | **String** | Zip/postal code |  [optional] |
+|**recipientEmail** | **String** | Recipient email address |  [optional] |
+|**accountNumber** | **String** | Account number |  [optional] |
+|**officeCode** | **String** | Office code |  [optional] |
+|**recipientNonUsProvince** | **String** | Foreign province |  [optional] |
+|**countryCode** | **String** | Country code, as defined at https://www.irs.gov/e-file-providers/country-codes |  |
+|**federalEFile** | **Boolean** | Boolean indicating that federal e-filing should be scheduled for this form |  [optional] |
+|**postalMail** | **Boolean** | Boolean indicating that postal mailing to the recipient should be scheduled for this form |  [optional] |
+|**stateEFile** | **Boolean** | Boolean indicating that state e-filing should be scheduled for this form |  [optional] |
+|**tinMatch** | **Boolean** | Boolean indicating that TIN Matching should be scheduled for this form |  [optional] |
+|**addressVerification** | **Boolean** | Boolean indicating that address verification should be scheduled for this form |  [optional] |
+|**stateAndLocalWithholding** | [**StateAndLocalWithholdingRequest**](StateAndLocalWithholdingRequest.md) | State and local withholding information |  [optional] |
 
 
 
@@ -41,12 +41,13 @@
 
 | Name | Value |
 |---- | -----|
-| FORM1099_NEC | &quot;Form1099Nec&quot; |
-| FORM1099_MISC | &quot;Form1099Misc&quot; |
-| FORM1099_DIV | &quot;Form1099Div&quot; |
-| FORM1099_R | &quot;Form1099R&quot; |
-| FORM1099_K | &quot;Form1099K&quot; |
-| FORM1095_B | &quot;Form1095B&quot; |
+| _1099_NEC | &quot;1099-NEC&quot; |
+| _1099_MISC | &quot;1099-MISC&quot; |
+| _1099_DIV | &quot;1099-DIV&quot; |
+| _1099_R | &quot;1099-R&quot; |
+| _1099_K | &quot;1099-K&quot; |
+| _1095_B | &quot;1095-B&quot; |
+| _1042_S | &quot;1042-S&quot; |
 
 
 

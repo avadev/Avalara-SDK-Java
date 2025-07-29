@@ -252,7 +252,7 @@ public class DataInputFieldsApi {
     * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used</param>
     * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)</param>
     * @param $filter Filter by field name and value. This filter only supports <code>eq</code> and <code>contains</code>. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. (optional)</param>
-    * @param $top The number of items to include in the result. (optional)</param>
+    * @param $top If nonzero, return no more than this number of results. Used with <code>$skip</code> to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. (optional)</param>
     * @param $skip If nonzero, skip this number of results before returning data. Used with <code>$top</code> to provide pagination for large datasets. (optional)</param>
     * @param $count When set to true, the count of the collection is also returned in the response body (optional)</param>
     * @param $countOnly When set to true, only the count of the collection is returned (optional)</param>
@@ -262,14 +262,14 @@ public class DataInputFieldsApi {
         private String xAvalaraClient;
         private String $filter;
         private BigDecimal $top;
-        private String $skip;
+        private BigDecimal $skip;
         private Boolean $count;
         private Boolean $countOnly;
 
         public GetDataInputFieldsRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
@@ -277,8 +277,8 @@ public class DataInputFieldsApi {
         public void set$filter(String $filter) { this.$filter = $filter; }
         public BigDecimal get$top() { return $top; }
         public void set$top(BigDecimal $top) { this.$top = $top; }
-        public String get$skip() { return $skip; }
-        public void set$skip(String $skip) { this.$skip = $skip; }
+        public BigDecimal get$skip() { return $skip; }
+        public void set$skip(BigDecimal $skip) { this.$skip = $skip; }
         public Boolean get$count() { return $count; }
         public void set$count(Boolean $count) { this.$count = $count; }
         public Boolean get$countOnly() { return $countOnly; }
@@ -295,7 +295,7 @@ public class DataInputFieldsApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.7.2");
+        this.localVarApiClient.setSdkVersion("25.8.0");
     }
 }
 

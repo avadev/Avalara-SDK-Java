@@ -53,7 +53,7 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * Indicates a successful outcome of an API operation, including a generated ID and success message.
+ * SuccessResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class SuccessResponse {

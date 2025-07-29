@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -21,9 +21,9 @@ package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
 import Avalara.SDK.model.A1099.V2.StateAndLocalWithholdingResponse;
-import Avalara.SDK.model.A1099.V2.StateEfileStatusDetailApp;
+import Avalara.SDK.model.A1099.V2.StateEfileStatusDetailResponse;
 import Avalara.SDK.model.A1099.V2.StatusDetail;
-import Avalara.SDK.model.A1099.V2.ValidationErrorApp;
+import Avalara.SDK.model.A1099.V2.ValidationErrorResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -73,9 +73,9 @@ public class Form1099NecResponse {
   @SerializedName(SERIALIZED_NAME_NONEMPLOYEE_COMPENSATION)
   private Double nonemployeeCompensation;
 
-  public static final String SERIALIZED_NAME_PAYER_MADE_DIRECT_SALES = "payerMadeDirectSales";
-  @SerializedName(SERIALIZED_NAME_PAYER_MADE_DIRECT_SALES)
-  private Boolean payerMadeDirectSales;
+  public static final String SERIALIZED_NAME_DIRECT_SALES_INDICATOR = "directSalesIndicator";
+  @SerializedName(SERIALIZED_NAME_DIRECT_SALES_INDICATOR)
+  private Boolean directSalesIndicator;
 
   public static final String SERIALIZED_NAME_FEDERAL_INCOME_TAX_WITHHELD = "federalIncomeTaxWithheld";
   @SerializedName(SERIALIZED_NAME_FEDERAL_INCOME_TAX_WITHHELD)
@@ -86,17 +86,19 @@ public class Form1099NecResponse {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    FORM1099_NEC("Form1099Nec"),
+    _1099_NEC("1099-NEC"),
     
-    FORM1099_MISC("Form1099Misc"),
+    _1099_MISC("1099-MISC"),
     
-    FORM1099_DIV("Form1099Div"),
+    _1099_DIV("1099-DIV"),
     
-    FORM1099_R("Form1099R"),
+    _1099_R("1099-R"),
     
-    FORM1099_K("Form1099K"),
+    _1099_K("1099-K"),
     
-    FORM1095_B("Form1095B");
+    _1095_B("1095-B"),
+    
+    _1042_S("1042-S");
 
     private String value;
 
@@ -323,7 +325,7 @@ public class Form1099NecResponse {
 
   public static final String SERIALIZED_NAME_STATE_EFILE_STATUS = "stateEfileStatus";
   @SerializedName(SERIALIZED_NAME_STATE_EFILE_STATUS)
-  private List<StateEfileStatusDetailApp> stateEfileStatus;
+  private List<StateEfileStatusDetailResponse> stateEfileStatus;
 
   public static final String SERIALIZED_NAME_POSTAL_MAIL_STATUS = "postalMailStatus";
   @SerializedName(SERIALIZED_NAME_POSTAL_MAIL_STATUS)
@@ -339,7 +341,7 @@ public class Form1099NecResponse {
 
   public static final String SERIALIZED_NAME_VALIDATION_ERRORS = "validationErrors";
   @SerializedName(SERIALIZED_NAME_VALIDATION_ERRORS)
-  private List<ValidationErrorApp> validationErrors;
+  private List<ValidationErrorResponse> validationErrors;
 
   public Form1099NecResponse() {
   }
@@ -389,22 +391,22 @@ public class Form1099NecResponse {
   }
 
 
-  public Form1099NecResponse payerMadeDirectSales(Boolean payerMadeDirectSales) {
-    this.payerMadeDirectSales = payerMadeDirectSales;
+  public Form1099NecResponse directSalesIndicator(Boolean directSalesIndicator) {
+    this.directSalesIndicator = directSalesIndicator;
     return this;
   }
 
   /**
-   * Get payerMadeDirectSales
-   * @return payerMadeDirectSales
+   * Get directSalesIndicator
+   * @return directSalesIndicator
    */
   @javax.annotation.Nullable
-  public Boolean getPayerMadeDirectSales() {
-    return payerMadeDirectSales;
+  public Boolean getDirectSalesIndicator() {
+    return directSalesIndicator;
   }
 
-  public void setPayerMadeDirectSales(Boolean payerMadeDirectSales) {
-    this.payerMadeDirectSales = payerMadeDirectSales;
+  public void setDirectSalesIndicator(Boolean directSalesIndicator) {
+    this.directSalesIndicator = directSalesIndicator;
   }
 
 
@@ -1008,12 +1010,12 @@ public class Form1099NecResponse {
   }
 
 
-  public Form1099NecResponse stateEfileStatus(List<StateEfileStatusDetailApp> stateEfileStatus) {
+  public Form1099NecResponse stateEfileStatus(List<StateEfileStatusDetailResponse> stateEfileStatus) {
     this.stateEfileStatus = stateEfileStatus;
     return this;
   }
 
-  public Form1099NecResponse addStateEfileStatusItem(StateEfileStatusDetailApp stateEfileStatusItem) {
+  public Form1099NecResponse addStateEfileStatusItem(StateEfileStatusDetailResponse stateEfileStatusItem) {
     if (this.stateEfileStatus == null) {
       this.stateEfileStatus = new ArrayList<>();
     }
@@ -1026,11 +1028,11 @@ public class Form1099NecResponse {
    * @return stateEfileStatus
    */
   @javax.annotation.Nullable
-  public List<StateEfileStatusDetailApp> getStateEfileStatus() {
+  public List<StateEfileStatusDetailResponse> getStateEfileStatus() {
     return stateEfileStatus;
   }
 
-  public void setStateEfileStatus(List<StateEfileStatusDetailApp> stateEfileStatus) {
+  public void setStateEfileStatus(List<StateEfileStatusDetailResponse> stateEfileStatus) {
     this.stateEfileStatus = stateEfileStatus;
   }
 
@@ -1092,12 +1094,12 @@ public class Form1099NecResponse {
   }
 
 
-  public Form1099NecResponse validationErrors(List<ValidationErrorApp> validationErrors) {
+  public Form1099NecResponse validationErrors(List<ValidationErrorResponse> validationErrors) {
     this.validationErrors = validationErrors;
     return this;
   }
 
-  public Form1099NecResponse addValidationErrorsItem(ValidationErrorApp validationErrorsItem) {
+  public Form1099NecResponse addValidationErrorsItem(ValidationErrorResponse validationErrorsItem) {
     if (this.validationErrors == null) {
       this.validationErrors = new ArrayList<>();
     }
@@ -1110,11 +1112,11 @@ public class Form1099NecResponse {
    * @return validationErrors
    */
   @javax.annotation.Nullable
-  public List<ValidationErrorApp> getValidationErrors() {
+  public List<ValidationErrorResponse> getValidationErrors() {
     return validationErrors;
   }
 
-  public void setValidationErrors(List<ValidationErrorApp> validationErrors) {
+  public void setValidationErrors(List<ValidationErrorResponse> validationErrors) {
     this.validationErrors = validationErrors;
   }
 
@@ -1131,7 +1133,7 @@ public class Form1099NecResponse {
     Form1099NecResponse form1099NecResponse = (Form1099NecResponse) o;
     return Objects.equals(this.secondTinNotice, form1099NecResponse.secondTinNotice) &&
         Objects.equals(this.nonemployeeCompensation, form1099NecResponse.nonemployeeCompensation) &&
-        Objects.equals(this.payerMadeDirectSales, form1099NecResponse.payerMadeDirectSales) &&
+        Objects.equals(this.directSalesIndicator, form1099NecResponse.directSalesIndicator) &&
         Objects.equals(this.federalIncomeTaxWithheld, form1099NecResponse.federalIncomeTaxWithheld) &&
         Objects.equals(this.type, form1099NecResponse.type) &&
         Objects.equals(this.createdAt, form1099NecResponse.createdAt) &&
@@ -1177,7 +1179,7 @@ public class Form1099NecResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(secondTinNotice, nonemployeeCompensation, payerMadeDirectSales, federalIncomeTaxWithheld, type, createdAt, updatedAt, userId, stateAndLocalWithholding, tinType, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, recipientName, recipientTin, recipientSecondName, address, address2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, validationErrors);
+    return Objects.hash(secondTinNotice, nonemployeeCompensation, directSalesIndicator, federalIncomeTaxWithheld, type, createdAt, updatedAt, userId, stateAndLocalWithholding, tinType, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, recipientName, recipientTin, recipientSecondName, address, address2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, validationErrors);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1193,7 +1195,7 @@ public class Form1099NecResponse {
     sb.append("class Form1099NecResponse {\n");
     sb.append("    secondTinNotice: ").append(toIndentedString(secondTinNotice)).append("\n");
     sb.append("    nonemployeeCompensation: ").append(toIndentedString(nonemployeeCompensation)).append("\n");
-    sb.append("    payerMadeDirectSales: ").append(toIndentedString(payerMadeDirectSales)).append("\n");
+    sb.append("    directSalesIndicator: ").append(toIndentedString(directSalesIndicator)).append("\n");
     sb.append("    federalIncomeTaxWithheld: ").append(toIndentedString(federalIncomeTaxWithheld)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -1404,7 +1406,7 @@ public class Form1099NecResponse {
 
           // validate the optional field `stateEfileStatus` (array)
           for (int i = 0; i < jsonArraystateEfileStatus.size(); i++) {
-            StateEfileStatusDetailApp.validateJsonElement(jsonArraystateEfileStatus.get(i));
+            StateEfileStatusDetailResponse.validateJsonElement(jsonArraystateEfileStatus.get(i));
           };
         }
       }
@@ -1430,7 +1432,7 @@ public class Form1099NecResponse {
 
           // validate the optional field `validationErrors` (array)
           for (int i = 0; i < jsonArrayvalidationErrors.size(); i++) {
-            ValidationErrorApp.validateJsonElement(jsonArrayvalidationErrors.get(i));
+            ValidationErrorResponse.validateJsonElement(jsonArrayvalidationErrors.get(i));
           };
         }
       }

@@ -1,12 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.avalara</groupId>
     <artifactId>avalara-sdk</artifactId>
     <packaging>jar</packaging>
     <name>avalara-sdk</name>
-    <version>25.7.2</version>
+    <version>25.8.0</version>
     <url>https://github.com/avadev/Avalara-SDK-Java</url>
     <description>OpenAPI Java</description>
     <scm>
@@ -25,7 +24,7 @@
 
     <developers>
         <developer>
-            <name>svc.developer@avalara.com</name>
+            <name>SVC.Developer</name>
             <email>svc.developer@avalara.com</email>
             <organization>Avalara</organization>
             <organizationUrl>https://developer.avalara.com/</organizationUrl>
@@ -33,24 +32,24 @@
     </developers>
 
     <organization>
-        <name>Avalara</name>
-        <url>https://developer.avalara.com/</url>
+      <name>Avalara</name>
+      <url>https://developer.avalara.com/</url>
     </organization>
 
     <distributionManagement>
-        <repository>
-            <id>ossrh</id>
-            <url>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/</url>
-        </repository>
         <snapshotRepository>
             <id>ossrh</id>
             <url>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/</url>
         </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/</url>
+        </repository>
     </distributionManagement>
-
+    
     <build>
         <plugins>
-            <!-- Central Publishing Maven Plugin for auto-release -->
+             <!-- Central Publishing Maven Plugin for auto-release -->
             <plugin>
                 <groupId>org.sonatype.central</groupId>
                 <artifactId>central-publishing-maven-plugin</artifactId>
@@ -62,8 +61,7 @@
                     <waitUntil>published</waitUntil>
                 </configuration>
             </plugin>
-            <!-- Compiler Plugin -->
-            <plugin>
+           <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
@@ -73,11 +71,10 @@
                     <maxmem>512m</maxmem>
                     <compilerArgs>
                         <arg>-Xlint:all</arg>
-                        <arg>-J-Xss4m</arg>
+                        <arg>-J-Xss4m</arg><!-- Compiling the generated JSON.java file may require larger stack size. -->
                     </compilerArgs>
                 </configuration>
             </plugin>
-            <!-- Enforcer Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
@@ -98,7 +95,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- Surefire Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -115,7 +111,6 @@
                     <threadCount>10</threadCount>
                 </configuration>
             </plugin>
-            <!-- Dependency Plugin -->
             <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
@@ -130,7 +125,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- Jar Plugin for test-jar -->
+            <!-- attach test jar -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -142,8 +137,9 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                </configuration>
             </plugin>
-            <!-- Build Helper Plugin -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
@@ -175,7 +171,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- Javadoc Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -199,7 +194,6 @@
                     </tags>
                 </configuration>
             </plugin>
-            <!-- Source Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -213,28 +207,33 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- Spotless Plugin -->
+            <!-- Use spotless plugin to automatically format code, remove unused import, etc
+                 To apply changes directly to the file, run `mvn spotless:apply`
+                 Ref: https://github.com/diffplug/spotless/tree/main/plugin-maven
+            -->
             <plugin>
-                <groupId>com.diffplug.spotless</groupId>
-                <artifactId>spotless-maven-plugin</artifactId>
-                <version>${spotless.version}</version>
-                <configuration>
-                    <formats>
-                        <format>
+              <groupId>com.diffplug.spotless</groupId>
+              <artifactId>spotless-maven-plugin</artifactId>
+              <version>${spotless.version}</version>
+              <configuration>
+                <formats>
+                  <!-- you can define as many formats as you want, each is independent -->
+                  <format>
                     <!-- define the files to apply to -->
                     <includes>
                       <include>.gitignore</include>
                     </includes>
                     <!-- define the steps to apply to those files -->
-                            <trimTrailingWhitespace/>
-                            <endWithNewline/>
+                    <trimTrailingWhitespace/>
+                    <endWithNewline/>
                     <indent>
                       <spaces>true</spaces> <!-- or <tabs>true</tabs> -->
                       <spacesPerTab>4</spacesPerTab> <!-- optional, default is 4 -->
                     </indent>
-                        </format>
-                    </formats>
-                    <java>
+                  </format>
+                </formats>
+                <!-- define a language-specific format -->
+                <java>
                   <!-- no need to specify files, inferred automatically, but you can if you want -->
 
                   <!-- apply a specific flavor of google-java-format and reflow long strings -->
@@ -244,10 +243,11 @@
                     <reflowLongStrings>true</reflowLongStrings>
                   </googleJavaFormat>
 
-                        <removeUnusedImports/>
-                        <importOrder/>
-                    </java>
-                </configuration>
+                  <removeUnusedImports/>
+                  <importOrder/>
+
+                </java>
+              </configuration>
             </plugin>
         </plugins>
     </build>
@@ -282,6 +282,7 @@
             <artifactId>swagger-annotations</artifactId>
             <version>${swagger-core-version}</version>
         </dependency>
+        <!-- @Nullable annotation -->
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
@@ -354,6 +355,7 @@
             <artifactId>javax.ws.rs-api</artifactId>
             <version>${javax-version}</version>
         </dependency>
+        <!-- test dependencies -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -367,7 +369,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <properties>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>

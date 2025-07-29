@@ -133,9 +133,9 @@ W-8 BEN form
 |**certifyBox41** | **Boolean** |  |  [optional] |
 |**certifyBox43** | **Boolean** |  |  [optional] |
 |**certifyPart29Signature** | **Boolean** |  |  [optional] |
-|**part19FormationOrResolutionDate** | **OffsetDateTime** |  |  [optional] |
-|**part20FilingDate** | **OffsetDateTime** |  |  [optional] |
-|**part21DeterminationDate** | **OffsetDateTime** |  |  [optional] |
+|**part19FormationOrResolutionDate** | **LocalDate** |  |  [optional] |
+|**part20FilingDate** | **LocalDate** |  |  [optional] |
+|**part21DeterminationDate** | **LocalDate** |  |  [optional] |
 |**substantialUsOwners** | [**List&lt;W8BenESubstantialUsOwnerDataModel&gt;**](W8BenESubstantialUsOwnerDataModel.md) |  |  [optional] |
 |**ein** | **String** | The employer identification number (EIN). |  [optional] |
 |**einType** | **String** | The type of employer identification number (EIN). |  [optional] |
@@ -205,8 +205,8 @@ W-8 BEN form
 |**certifyBox40** | **Boolean** | Indicates certification for box 40. |  [optional] |
 |**box41SponsoringEntity** | **String** | The sponsoring entity information for box 41. |  [optional] |
 |**certifyBox42** | **Boolean** | Indicates certification for box 42. |  [optional] |
-|**box35FormedOnDate** | **OffsetDateTime** |  |  [optional] |
-|**box36FiledOnDate** | **OffsetDateTime** |  |  [optional] |
+|**box35FormedOnDate** | **LocalDate** |  |  [optional] |
+|**box36FiledOnDate** | **LocalDate** |  |  [optional] |
 |**tinMatchStatus** | **String** | The status of the TIN match. |  [optional] |
 |**signature** | **String** | The signature itself |  [optional] |
 |**businessClassification** | **String** | The classification of the business. |  [optional] |

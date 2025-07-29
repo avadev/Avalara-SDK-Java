@@ -53,7 +53,7 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * Structure for reporting errors encountered during API operations, including title, status, and detailed message.
+ * Standard format for API error responses.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class ErrorResponse {

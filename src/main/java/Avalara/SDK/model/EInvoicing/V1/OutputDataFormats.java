@@ -65,7 +65,7 @@ public class OutputDataFormats {
 
   public static final String SERIALIZED_NAME_VERSIONS = "versions";
   @SerializedName(SERIALIZED_NAME_VERSIONS)
-  private List<String> versions = new ArrayList<>();
+  private List<String> versions;
 
   public OutputDataFormats() {
   }

@@ -70,7 +70,7 @@ public class SubscriptionListResponse {
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  private List<SubscriptionDetail> value = new ArrayList<>();
+  private List<SubscriptionDetail> value;
 
   public SubscriptionListResponse() {
   }

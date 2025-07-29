@@ -58,7 +58,7 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * An object representing the country mandate
+ * Mandate
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Mandate {
@@ -96,7 +96,7 @@ public class Mandate {
 
   public static final String SERIALIZED_NAME_GET_INVOICE_AVAILABLE_MEDIA_TYPE = "getInvoiceAvailableMediaType";
   @SerializedName(SERIALIZED_NAME_GET_INVOICE_AVAILABLE_MEDIA_TYPE)
-  private List<String> getInvoiceAvailableMediaType = new ArrayList<>();
+  private List<String> getInvoiceAvailableMediaType;
 
   public static final String SERIALIZED_NAME_SUPPORTS_INBOUND_DIGITAL_DOCUMENT = "supportsInboundDigitalDocument";
   @SerializedName(SERIALIZED_NAME_SUPPORTS_INBOUND_DIGITAL_DOCUMENT)
@@ -104,15 +104,15 @@ public class Mandate {
 
   public static final String SERIALIZED_NAME_INPUT_DATA_FORMATS = "inputDataFormats";
   @SerializedName(SERIALIZED_NAME_INPUT_DATA_FORMATS)
-  private List<InputDataFormats> inputDataFormats = new ArrayList<>();
+  private List<InputDataFormats> inputDataFormats;
 
   public static final String SERIALIZED_NAME_OUTPUT_DATA_FORMATS = "outputDataFormats";
   @SerializedName(SERIALIZED_NAME_OUTPUT_DATA_FORMATS)
-  private List<OutputDataFormats> outputDataFormats = new ArrayList<>();
+  private List<OutputDataFormats> outputDataFormats;
 
   public static final String SERIALIZED_NAME_WORKFLOW_IDS = "workflowIds";
   @SerializedName(SERIALIZED_NAME_WORKFLOW_IDS)
-  private List<WorkflowIds> workflowIds = new ArrayList<>();
+  private List<WorkflowIds> workflowIds;
 
   public Mandate() {
   }

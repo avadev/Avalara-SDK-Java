@@ -75,7 +75,7 @@ public class SubscriptionRegistration {
 
   public static final String SERIALIZED_NAME_EVENTS = "events";
   @SerializedName(SERIALIZED_NAME_EVENTS)
-  private List<EventSubscription> events = new ArrayList<>();
+  private List<EventSubscription> events;
 
   public SubscriptionRegistration() {
   }

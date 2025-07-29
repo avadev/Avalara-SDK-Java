@@ -273,7 +273,7 @@ public class DocumentsApi {
         public DownloadDocumentRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getAccept() { return accept; }
         public void setAccept(String accept) { this.accept = accept; }
@@ -460,7 +460,7 @@ public class DocumentsApi {
         public FetchDocumentsRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public FetchDocumentsRequest getFetchDocumentsRequest() { return fetchDocumentsRequest; }
         public void setFetchDocumentsRequest(FetchDocumentsRequest fetchDocumentsRequest) { this.fetchDocumentsRequest = fetchDocumentsRequest; }
@@ -668,7 +668,7 @@ public class DocumentsApi {
     * @param $count When set to true, the count of the collection is also returned in the response body (optional)</param>
     * @param $countOnly When set to true, only the count of the collection is returned (optional)</param>
     * @param $filter Filter by field name and value. This filter only supports <code>eq</code> . Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. Filtering will be done over the provided startDate and endDate. If no startDate or endDate is provided, defaults will be assumed. (optional)</param>
-    * @param $top The number of items to include in the result. (optional)</param>
+    * @param $top If nonzero, return no more than this number of results. Used with <code>$skip</code> to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 200 records. (optional)</param>
     * @param $skip If nonzero, skip this number of results before returning data. Used with <code>$top</code> to provide pagination for large datasets. (optional)</param>
     */
     public class GetDocumentListRequest {
@@ -686,7 +686,7 @@ public class DocumentsApi {
         public GetDocumentListRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
@@ -886,7 +886,7 @@ public class DocumentsApi {
         public GetDocumentStatusRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getDocumentId() { return documentId; }
         public void setDocumentId(String documentId) { this.documentId = documentId; }
@@ -1086,7 +1086,7 @@ public class DocumentsApi {
         public SubmitDocumentRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.3"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public SubmitDocumentMetadata getMetadata() { return metadata; }
         public void setMetadata(SubmitDocumentMetadata metadata) { this.metadata = metadata; }
@@ -1106,7 +1106,7 @@ public class DocumentsApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.7.2");
+        this.localVarApiClient.setSdkVersion("25.8.0");
     }
 }
 
