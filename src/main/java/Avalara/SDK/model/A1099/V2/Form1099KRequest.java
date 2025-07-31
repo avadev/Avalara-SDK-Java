@@ -59,13 +59,119 @@ import Avalara.SDK.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Form1099KRequest {
+  /**
+   * Filer type (PSE or EPF)
+   */
+  @JsonAdapter(FilerTypeEnum.Adapter.class)
+  public enum FilerTypeEnum {
+    PSE("PSE"),
+    
+    EPF("EPF"),
+    
+    OTHER("Other");
+
+    private String value;
+
+    FilerTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static FilerTypeEnum fromValue(String value) {
+      for (FilerTypeEnum b : FilerTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<FilerTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FilerTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public FilerTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return FilerTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      FilerTypeEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_FILER_TYPE = "filerType";
   @SerializedName(SERIALIZED_NAME_FILER_TYPE)
-  private Integer filerType;
+  private FilerTypeEnum filerType;
+
+  /**
+   * Payment type (payment card or third party network)
+   */
+  @JsonAdapter(PaymentTypeEnum.Adapter.class)
+  public enum PaymentTypeEnum {
+    MERCHANT_PAYMENT_CARD("MerchantPaymentCard"),
+    
+    THIRD_PARTY_NETWORK("ThirdPartyNetwork");
+
+    private String value;
+
+    PaymentTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PaymentTypeEnum fromValue(String value) {
+      for (PaymentTypeEnum b : PaymentTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<PaymentTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PaymentTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PaymentTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return PaymentTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      PaymentTypeEnum.fromValue(value);
+    }
+  }
 
   public static final String SERIALIZED_NAME_PAYMENT_TYPE = "paymentType";
   @SerializedName(SERIALIZED_NAME_PAYMENT_TYPE)
-  private Integer paymentType;
+  private PaymentTypeEnum paymentType;
 
   public static final String SERIALIZED_NAME_PAYMENT_SETTLEMENT_ENTITY_NAME_PHONE_NUMBER = "paymentSettlementEntityNamePhoneNumber";
   @SerializedName(SERIALIZED_NAME_PAYMENT_SETTLEMENT_ENTITY_NAME_PHONE_NUMBER)
@@ -156,7 +262,9 @@ public class Form1099KRequest {
     
     _1095_B("1095-B"),
     
-    _1042_S("1042-S");
+    _1042_S("1042-S"),
+    
+    _1095_C("1095-C");
 
     private String value;
 
@@ -305,9 +413,9 @@ public class Form1099KRequest {
   @SerializedName(SERIALIZED_NAME_ZIP)
   private String zip;
 
-  public static final String SERIALIZED_NAME_RECIPIENT_EMAIL = "recipientEmail";
-  @SerializedName(SERIALIZED_NAME_RECIPIENT_EMAIL)
-  private String recipientEmail;
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
 
   public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "accountNumber";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
@@ -317,9 +425,9 @@ public class Form1099KRequest {
   @SerializedName(SERIALIZED_NAME_OFFICE_CODE)
   private String officeCode;
 
-  public static final String SERIALIZED_NAME_RECIPIENT_NON_US_PROVINCE = "recipientNonUsProvince";
-  @SerializedName(SERIALIZED_NAME_RECIPIENT_NON_US_PROVINCE)
-  private String recipientNonUsProvince;
+  public static final String SERIALIZED_NAME_NON_US_PROVINCE = "nonUsProvince";
+  @SerializedName(SERIALIZED_NAME_NON_US_PROVINCE)
+  private String nonUsProvince;
 
   public static final String SERIALIZED_NAME_COUNTRY_CODE = "countryCode";
   @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
@@ -341,6 +449,14 @@ public class Form1099KRequest {
   @SerializedName(SERIALIZED_NAME_TIN_MATCH)
   private Boolean tinMatch;
 
+  public static final String SERIALIZED_NAME_NO_TIN = "noTin";
+  @SerializedName(SERIALIZED_NAME_NO_TIN)
+  private Boolean noTin;
+
+  public static final String SERIALIZED_NAME_SECOND_TIN_NOTICE = "secondTinNotice";
+  @SerializedName(SERIALIZED_NAME_SECOND_TIN_NOTICE)
+  private Boolean secondTinNotice;
+
   public static final String SERIALIZED_NAME_ADDRESS_VERIFICATION = "addressVerification";
   @SerializedName(SERIALIZED_NAME_ADDRESS_VERIFICATION)
   private Boolean addressVerification;
@@ -352,7 +468,7 @@ public class Form1099KRequest {
   public Form1099KRequest() {
   }
 
-  public Form1099KRequest filerType(Integer filerType) {
+  public Form1099KRequest filerType(FilerTypeEnum filerType) {
     this.filerType = filerType;
     return this;
   }
@@ -362,16 +478,16 @@ public class Form1099KRequest {
    * @return filerType
    */
   @javax.annotation.Nullable
-  public Integer getFilerType() {
+  public FilerTypeEnum getFilerType() {
     return filerType;
   }
 
-  public void setFilerType(Integer filerType) {
+  public void setFilerType(FilerTypeEnum filerType) {
     this.filerType = filerType;
   }
 
 
-  public Form1099KRequest paymentType(Integer paymentType) {
+  public Form1099KRequest paymentType(PaymentTypeEnum paymentType) {
     this.paymentType = paymentType;
     return this;
   }
@@ -381,11 +497,11 @@ public class Form1099KRequest {
    * @return paymentType
    */
   @javax.annotation.Nullable
-  public Integer getPaymentType() {
+  public PaymentTypeEnum getPaymentType() {
     return paymentType;
   }
 
-  public void setPaymentType(Integer paymentType) {
+  public void setPaymentType(PaymentTypeEnum paymentType) {
     this.paymentType = paymentType;
   }
 
@@ -817,7 +933,7 @@ public class Form1099KRequest {
    * Recipient name
    * @return recipientName
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getRecipientName() {
     return recipientName;
   }
@@ -960,22 +1076,22 @@ public class Form1099KRequest {
   }
 
 
-  public Form1099KRequest recipientEmail(String recipientEmail) {
-    this.recipientEmail = recipientEmail;
+  public Form1099KRequest email(String email) {
+    this.email = email;
     return this;
   }
 
   /**
    * Recipient email address
-   * @return recipientEmail
+   * @return email
    */
   @javax.annotation.Nullable
-  public String getRecipientEmail() {
-    return recipientEmail;
+  public String getEmail() {
+    return email;
   }
 
-  public void setRecipientEmail(String recipientEmail) {
-    this.recipientEmail = recipientEmail;
+  public void setEmail(String email) {
+    this.email = email;
   }
 
 
@@ -1017,22 +1133,22 @@ public class Form1099KRequest {
   }
 
 
-  public Form1099KRequest recipientNonUsProvince(String recipientNonUsProvince) {
-    this.recipientNonUsProvince = recipientNonUsProvince;
+  public Form1099KRequest nonUsProvince(String nonUsProvince) {
+    this.nonUsProvince = nonUsProvince;
     return this;
   }
 
   /**
    * Foreign province
-   * @return recipientNonUsProvince
+   * @return nonUsProvince
    */
   @javax.annotation.Nullable
-  public String getRecipientNonUsProvince() {
-    return recipientNonUsProvince;
+  public String getNonUsProvince() {
+    return nonUsProvince;
   }
 
-  public void setRecipientNonUsProvince(String recipientNonUsProvince) {
-    this.recipientNonUsProvince = recipientNonUsProvince;
+  public void setNonUsProvince(String nonUsProvince) {
+    this.nonUsProvince = nonUsProvince;
   }
 
 
@@ -1131,6 +1247,44 @@ public class Form1099KRequest {
   }
 
 
+  public Form1099KRequest noTin(Boolean noTin) {
+    this.noTin = noTin;
+    return this;
+  }
+
+  /**
+   * Indicates whether the recipient has no TIN
+   * @return noTin
+   */
+  @javax.annotation.Nullable
+  public Boolean getNoTin() {
+    return noTin;
+  }
+
+  public void setNoTin(Boolean noTin) {
+    this.noTin = noTin;
+  }
+
+
+  public Form1099KRequest secondTinNotice(Boolean secondTinNotice) {
+    this.secondTinNotice = secondTinNotice;
+    return this;
+  }
+
+  /**
+   * Second TIN notice in three years
+   * @return secondTinNotice
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecondTinNotice() {
+    return secondTinNotice;
+  }
+
+  public void setSecondTinNotice(Boolean secondTinNotice) {
+    this.secondTinNotice = secondTinNotice;
+  }
+
+
   public Form1099KRequest addressVerification(Boolean addressVerification) {
     this.addressVerification = addressVerification;
     return this;
@@ -1211,15 +1365,17 @@ public class Form1099KRequest {
         Objects.equals(this.city, form1099KRequest.city) &&
         Objects.equals(this.state, form1099KRequest.state) &&
         Objects.equals(this.zip, form1099KRequest.zip) &&
-        Objects.equals(this.recipientEmail, form1099KRequest.recipientEmail) &&
+        Objects.equals(this.email, form1099KRequest.email) &&
         Objects.equals(this.accountNumber, form1099KRequest.accountNumber) &&
         Objects.equals(this.officeCode, form1099KRequest.officeCode) &&
-        Objects.equals(this.recipientNonUsProvince, form1099KRequest.recipientNonUsProvince) &&
+        Objects.equals(this.nonUsProvince, form1099KRequest.nonUsProvince) &&
         Objects.equals(this.countryCode, form1099KRequest.countryCode) &&
         Objects.equals(this.federalEFile, form1099KRequest.federalEFile) &&
         Objects.equals(this.postalMail, form1099KRequest.postalMail) &&
         Objects.equals(this.stateEFile, form1099KRequest.stateEFile) &&
         Objects.equals(this.tinMatch, form1099KRequest.tinMatch) &&
+        Objects.equals(this.noTin, form1099KRequest.noTin) &&
+        Objects.equals(this.secondTinNotice, form1099KRequest.secondTinNotice) &&
         Objects.equals(this.addressVerification, form1099KRequest.addressVerification) &&
         Objects.equals(this.stateAndLocalWithholding, form1099KRequest.stateAndLocalWithholding);
   }
@@ -1230,7 +1386,7 @@ public class Form1099KRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filerType, paymentType, paymentSettlementEntityNamePhoneNumber, grossAmountPaymentCard, cardNotPresentTransactions, merchantCategoryCode, paymentTransactionNumber, federalIncomeTaxWithheld, january, february, march, april, may, june, july, august, sept, october, november, december, type, issuerId, referenceId, recipientTin, recipientName, tinType, recipientSecondName, address, address2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification, stateAndLocalWithholding);
+    return Objects.hash(filerType, paymentType, paymentSettlementEntityNamePhoneNumber, grossAmountPaymentCard, cardNotPresentTransactions, merchantCategoryCode, paymentTransactionNumber, federalIncomeTaxWithheld, january, february, march, april, may, june, july, august, sept, october, november, december, type, issuerId, referenceId, recipientTin, recipientName, tinType, recipientSecondName, address, address2, city, state, zip, email, accountNumber, officeCode, nonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, noTin, secondTinNotice, addressVerification, stateAndLocalWithholding);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1276,15 +1432,17 @@ public class Form1099KRequest {
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    zip: ").append(toIndentedString(zip)).append("\n");
-    sb.append("    recipientEmail: ").append(toIndentedString(recipientEmail)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    officeCode: ").append(toIndentedString(officeCode)).append("\n");
-    sb.append("    recipientNonUsProvince: ").append(toIndentedString(recipientNonUsProvince)).append("\n");
+    sb.append("    nonUsProvince: ").append(toIndentedString(nonUsProvince)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    federalEFile: ").append(toIndentedString(federalEFile)).append("\n");
     sb.append("    postalMail: ").append(toIndentedString(postalMail)).append("\n");
     sb.append("    stateEFile: ").append(toIndentedString(stateEFile)).append("\n");
     sb.append("    tinMatch: ").append(toIndentedString(tinMatch)).append("\n");
+    sb.append("    noTin: ").append(toIndentedString(noTin)).append("\n");
+    sb.append("    secondTinNotice: ").append(toIndentedString(secondTinNotice)).append("\n");
     sb.append("    addressVerification: ").append(toIndentedString(addressVerification)).append("\n");
     sb.append("    stateAndLocalWithholding: ").append(toIndentedString(stateAndLocalWithholding)).append("\n");
     sb.append("}");
@@ -1321,21 +1479,22 @@ public class Form1099KRequest {
     openapiFields.add("city");
     openapiFields.add("state");
     openapiFields.add("zip");
-    openapiFields.add("recipientEmail");
+    openapiFields.add("email");
     openapiFields.add("accountNumber");
     openapiFields.add("officeCode");
-    openapiFields.add("recipientNonUsProvince");
+    openapiFields.add("nonUsProvince");
     openapiFields.add("countryCode");
     openapiFields.add("federalEFile");
     openapiFields.add("postalMail");
     openapiFields.add("stateEFile");
     openapiFields.add("tinMatch");
+    openapiFields.add("noTin");
+    openapiFields.add("secondTinNotice");
     openapiFields.add("addressVerification");
     openapiFields.add("stateAndLocalWithholding");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("recipientName");
     openapiRequiredFields.add("address");
     openapiRequiredFields.add("city");
     openapiRequiredFields.add("countryCode");
@@ -1369,6 +1528,20 @@ public class Form1099KRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("filerType") != null && !jsonObj.get("filerType").isJsonNull()) && !jsonObj.get("filerType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `filerType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filerType").toString()));
+      }
+      // validate the optional field `filerType`
+      if (jsonObj.get("filerType") != null && !jsonObj.get("filerType").isJsonNull()) {
+        FilerTypeEnum.validateJsonElement(jsonObj.get("filerType"));
+      }
+      if ((jsonObj.get("paymentType") != null && !jsonObj.get("paymentType").isJsonNull()) && !jsonObj.get("paymentType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `paymentType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentType").toString()));
+      }
+      // validate the optional field `paymentType`
+      if (jsonObj.get("paymentType") != null && !jsonObj.get("paymentType").isJsonNull()) {
+        PaymentTypeEnum.validateJsonElement(jsonObj.get("paymentType"));
+      }
       if ((jsonObj.get("paymentSettlementEntityNamePhoneNumber") != null && !jsonObj.get("paymentSettlementEntityNamePhoneNumber").isJsonNull()) && !jsonObj.get("paymentSettlementEntityNamePhoneNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `paymentSettlementEntityNamePhoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentSettlementEntityNamePhoneNumber").toString()));
       }
@@ -1391,7 +1564,7 @@ public class Form1099KRequest {
       if ((jsonObj.get("recipientTin") != null && !jsonObj.get("recipientTin").isJsonNull()) && !jsonObj.get("recipientTin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientTin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientTin").toString()));
       }
-      if (!jsonObj.get("recipientName").isJsonPrimitive()) {
+      if ((jsonObj.get("recipientName") != null && !jsonObj.get("recipientName").isJsonNull()) && !jsonObj.get("recipientName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientName").toString()));
       }
       if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
@@ -1419,8 +1592,8 @@ public class Form1099KRequest {
       if ((jsonObj.get("zip") != null && !jsonObj.get("zip").isJsonNull()) && !jsonObj.get("zip").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `zip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zip").toString()));
       }
-      if ((jsonObj.get("recipientEmail") != null && !jsonObj.get("recipientEmail").isJsonNull()) && !jsonObj.get("recipientEmail").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recipientEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientEmail").toString()));
+      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       if ((jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonNull()) && !jsonObj.get("accountNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
@@ -1428,8 +1601,8 @@ public class Form1099KRequest {
       if ((jsonObj.get("officeCode") != null && !jsonObj.get("officeCode").isJsonNull()) && !jsonObj.get("officeCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `officeCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("officeCode").toString()));
       }
-      if ((jsonObj.get("recipientNonUsProvince") != null && !jsonObj.get("recipientNonUsProvince").isJsonNull()) && !jsonObj.get("recipientNonUsProvince").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recipientNonUsProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientNonUsProvince").toString()));
+      if ((jsonObj.get("nonUsProvince") != null && !jsonObj.get("nonUsProvince").isJsonNull()) && !jsonObj.get("nonUsProvince").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `nonUsProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nonUsProvince").toString()));
       }
       if (!jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));

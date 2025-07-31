@@ -24,15 +24,16 @@ import Avalara.SDK.model.A1099.V2.CoveredIndividualReferenceResponse;
 import Avalara.SDK.model.A1099.V2.Form1042SListItemResponse;
 import Avalara.SDK.model.A1099.V2.Form1095BListItemResponse;
 import Avalara.SDK.model.A1099.V2.Form1099BaseResponse;
+import Avalara.SDK.model.A1099.V2.Form1099DivListItemResponse;
 import Avalara.SDK.model.A1099.V2.Form1099KListItemResponse;
 import Avalara.SDK.model.A1099.V2.Form1099MiscListItemResponse;
 import Avalara.SDK.model.A1099.V2.Form1099NecListItemResponse;
 import Avalara.SDK.model.A1099.V2.Form1099RListItemResponse;
-import Avalara.SDK.model.A1099.V2.Form1099StatusDetailResponse;
 import Avalara.SDK.model.A1099.V2.IntermediaryOrFlowThroughResponse;
 import Avalara.SDK.model.A1099.V2.PrimaryWithholdingAgentResponse;
 import Avalara.SDK.model.A1099.V2.StateAndLocalWithholdingResponse;
 import Avalara.SDK.model.A1099.V2.StateEfileStatusDetailResponse;
+import Avalara.SDK.model.A1099.V2.StatusDetail;
 import Avalara.SDK.model.A1099.V2.ValidationErrorResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -96,6 +97,7 @@ public class Create1099Form201Response extends AbstractOpenApiSchema {
             final TypeAdapter<Form1099BaseResponse> adapterForm1099BaseResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1099BaseResponse.class));
             final TypeAdapter<Form1042SListItemResponse> adapterForm1042SListItemResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1042SListItemResponse.class));
             final TypeAdapter<Form1095BListItemResponse> adapterForm1095BListItemResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1095BListItemResponse.class));
+            final TypeAdapter<Form1099DivListItemResponse> adapterForm1099DivListItemResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1099DivListItemResponse.class));
             final TypeAdapter<Form1099KListItemResponse> adapterForm1099KListItemResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1099KListItemResponse.class));
             final TypeAdapter<Form1099MiscListItemResponse> adapterForm1099MiscListItemResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1099MiscListItemResponse.class));
             final TypeAdapter<Form1099NecListItemResponse> adapterForm1099NecListItemResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1099NecListItemResponse.class));
@@ -127,6 +129,12 @@ public class Create1099Form201Response extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
+                    // check if the actual instance is of the type `Form1099DivListItemResponse`
+                    if (value.getActualInstance() instanceof Form1099DivListItemResponse) {
+                        JsonElement element = adapterForm1099DivListItemResponse.toJsonTree((Form1099DivListItemResponse)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
                     // check if the actual instance is of the type `Form1099KListItemResponse`
                     if (value.getActualInstance() instanceof Form1099KListItemResponse) {
                         JsonElement element = adapterForm1099KListItemResponse.toJsonTree((Form1099KListItemResponse)value.getActualInstance());
@@ -151,7 +159,7 @@ public class Create1099Form201Response extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099DivListItemResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse");
                 }
 
                 @Override
@@ -198,6 +206,18 @@ public class Create1099Form201Response extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for Form1095BListItemResponse failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'Form1095BListItemResponse'", e);
+                    }
+                    // deserialize Form1099DivListItemResponse
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        Form1099DivListItemResponse.validateJsonElement(jsonElement);
+                        actualAdapter = adapterForm1099DivListItemResponse;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'Form1099DivListItemResponse'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for Form1099DivListItemResponse failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'Form1099DivListItemResponse'", e);
                     }
                     // deserialize Form1099KListItemResponse
                     try {
@@ -276,6 +296,7 @@ public class Create1099Form201Response extends AbstractOpenApiSchema {
         schemas.put("Form1099BaseResponse", Form1099BaseResponse.class);
         schemas.put("Form1042SListItemResponse", Form1042SListItemResponse.class);
         schemas.put("Form1095BListItemResponse", Form1095BListItemResponse.class);
+        schemas.put("Form1099DivListItemResponse", Form1099DivListItemResponse.class);
         schemas.put("Form1099KListItemResponse", Form1099KListItemResponse.class);
         schemas.put("Form1099MiscListItemResponse", Form1099MiscListItemResponse.class);
         schemas.put("Form1099NecListItemResponse", Form1099NecListItemResponse.class);
@@ -290,7 +311,7 @@ public class Create1099Form201Response extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse
+     * Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099DivListItemResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -307,6 +328,11 @@ public class Create1099Form201Response extends AbstractOpenApiSchema {
         }
 
         if (instance instanceof Form1095BListItemResponse) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof Form1099DivListItemResponse) {
             super.setActualInstance(instance);
             return;
         }
@@ -331,14 +357,14 @@ public class Create1099Form201Response extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse");
+        throw new RuntimeException("Invalid instance type. Must be Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099DivListItemResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse
+     * Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099DivListItemResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse
      *
-     * @return The actual instance (Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse)
+     * @return The actual instance (Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099DivListItemResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -375,6 +401,16 @@ public class Create1099Form201Response extends AbstractOpenApiSchema {
      */
     public Form1095BListItemResponse getForm1095BListItemResponse() throws ClassCastException {
         return (Form1095BListItemResponse)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `Form1099DivListItemResponse`. If the actual instance is not `Form1099DivListItemResponse`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `Form1099DivListItemResponse`
+     * @throws ClassCastException if the instance is not `Form1099DivListItemResponse`
+     */
+    public Form1099DivListItemResponse getForm1099DivListItemResponse() throws ClassCastException {
+        return (Form1099DivListItemResponse)super.getActualInstance();
     }
     /**
      * Get the actual instance of `Form1099KListItemResponse`. If the actual instance is not `Form1099KListItemResponse`,
@@ -451,6 +487,14 @@ public class Create1099Form201Response extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for Form1095BListItemResponse failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with Form1099DivListItemResponse
+        try {
+            Form1099DivListItemResponse.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for Form1099DivListItemResponse failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         // validate the json string with Form1099KListItemResponse
         try {
             Form1099KListItemResponse.validateJsonElement(jsonElement);
@@ -484,7 +528,7 @@ public class Create1099Form201Response extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format("The JSON string is invalid for Create1099Form201Response with oneOf schemas: Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format("The JSON string is invalid for Create1099Form201Response with oneOf schemas: Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099DivListItemResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

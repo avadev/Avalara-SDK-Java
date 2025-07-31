@@ -34,19 +34,22 @@
 |**issuerTin** | **String** | Issuer TIN |  [optional] |
 |**taxYear** | **Integer** | Tax year |  [optional] |
 |**federalEfile** | **Boolean** | Boolean indicating that federal e-filing has been scheduled for this form |  |
-|**federalEfileStatus** | [**Form1099StatusDetailResponse**](Form1099StatusDetailResponse.md) | Federal e-file status |  [optional] [readonly] |
+|**federalEfileStatus** | [**StatusDetail**](StatusDetail.md) | Federal e-file status |  [optional] [readonly] |
 |**stateEfile** | **Boolean** | Boolean indicating that state e-filing has been scheduled for this form |  |
 |**stateEfileStatus** | [**List&lt;StateEfileStatusDetailResponse&gt;**](StateEfileStatusDetailResponse.md) | State e-file status |  [optional] [readonly] |
 |**postalMail** | **Boolean** | Boolean indicating that postal mailing to the recipient has been scheduled for this form |  |
-|**postalMailStatus** | [**Form1099StatusDetailResponse**](Form1099StatusDetailResponse.md) | Postal mail to recipient status |  [optional] [readonly] |
+|**postalMailStatus** | [**StatusDetail**](StatusDetail.md) | Postal mail to recipient status |  [optional] [readonly] |
 |**tinMatch** | **Boolean** | Boolean indicating that TIN Matching has been scheduled for this form |  |
-|**tinMatchStatus** | [**Form1099StatusDetailResponse**](Form1099StatusDetailResponse.md) | TIN Match status |  [optional] [readonly] |
+|**tinMatchStatus** | [**StatusDetail**](StatusDetail.md) | TIN Match status |  [optional] [readonly] |
 |**addressVerification** | **Boolean** | Boolean indicating that address verification has been scheduled for this form |  |
-|**addressVerificationStatus** | [**Form1099StatusDetailResponse**](Form1099StatusDetailResponse.md) | Address verification status |  [optional] [readonly] |
+|**addressVerificationStatus** | [**StatusDetail**](StatusDetail.md) | Address verification status |  [optional] [readonly] |
+|**eDeliveryStatus** | [**StatusDetail**](StatusDetail.md) | EDelivery status |  [optional] [readonly] |
 |**referenceId** | **String** | Reference ID |  [optional] |
 |**email** | **String** | Recipient email address |  [optional] |
 |**tinType** | **String** | Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN |  [optional] |
 |**tin** | **String** | Recipient Tax ID Number |  [optional] |
+|**noTin** | **Boolean** | Indicates whether the recipient has no TIN |  [optional] |
+|**secondTinNotice** | **Boolean** | Second Tin Notice |  [optional] |
 |**recipientName** | **String** | Recipient name |  [optional] |
 |**recipientSecondName** | **String** | Recipient second name |  [optional] |
 |**address** | **String** | Address |  [optional] |
@@ -54,8 +57,11 @@
 |**city** | **String** | City |  [optional] |
 |**state** | **String** | US state |  [optional] |
 |**zip** | **String** | Zip/postal code |  [optional] |
-|**foreignProvince** | **String** | Foreign province |  [optional] |
+|**nonUsProvince** | **String** | Foreign province |  [optional] |
 |**countryCode** | **String** | Country code, as defined at https://www.irs.gov/e-file-providers/country-codes |  [optional] |
+|**accountNumber** | **String** | Account Number |  [optional] |
+|**officeCode** | **String** | Office Code |  [optional] |
+|**fatcaFilingRequirement** | **Boolean** | FATCA filing requirement |  [optional] |
 |**validationErrors** | [**List&lt;ValidationErrorResponse&gt;**](ValidationErrorResponse.md) | Validation errors |  [optional] [readonly] |
 |**createdAt** | **OffsetDateTime** | Creation time |  [optional] [readonly] |
 |**updatedAt** | **OffsetDateTime** | Update time |  [optional] [readonly] |

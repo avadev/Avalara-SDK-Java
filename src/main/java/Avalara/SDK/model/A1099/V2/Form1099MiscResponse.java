@@ -65,10 +65,6 @@ import Avalara.SDK.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Form1099MiscResponse {
-  public static final String SERIALIZED_NAME_SECOND_TIN_NOTICE = "secondTinNotice";
-  @SerializedName(SERIALIZED_NAME_SECOND_TIN_NOTICE)
-  private Boolean secondTinNotice;
-
   public static final String SERIALIZED_NAME_RENTS = "rents";
   @SerializedName(SERIALIZED_NAME_RENTS)
   private Double rents;
@@ -89,9 +85,9 @@ public class Form1099MiscResponse {
   @SerializedName(SERIALIZED_NAME_FISHING_BOAT_PROCEEDS)
   private Double fishingBoatProceeds;
 
-  public static final String SERIALIZED_NAME_MEDICAL_HEALTH_CARE_PAYMENTS = "medicalHealthCarePayments";
-  @SerializedName(SERIALIZED_NAME_MEDICAL_HEALTH_CARE_PAYMENTS)
-  private Double medicalHealthCarePayments;
+  public static final String SERIALIZED_NAME_MEDICAL_AND_HEALTH_CARE_PAYMENTS = "medicalAndHealthCarePayments";
+  @SerializedName(SERIALIZED_NAME_MEDICAL_AND_HEALTH_CARE_PAYMENTS)
+  private Double medicalAndHealthCarePayments;
 
   public static final String SERIALIZED_NAME_DIRECT_SALES_INDICATOR = "directSalesIndicator";
   @SerializedName(SERIALIZED_NAME_DIRECT_SALES_INDICATOR)
@@ -146,7 +142,9 @@ public class Form1099MiscResponse {
     
     _1095_B("1095-B"),
     
-    _1042_S("1042-S");
+    _1042_S("1042-S"),
+    
+    _1095_C("1095-C");
 
     private String value;
 
@@ -202,10 +200,6 @@ public class Form1099MiscResponse {
   public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
-
-  public static final String SERIALIZED_NAME_USER_ID = "userId";
-  @SerializedName(SERIALIZED_NAME_USER_ID)
-  private String userId;
 
   public static final String SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING = "stateAndLocalWithholding";
   @SerializedName(SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING)
@@ -327,9 +321,9 @@ public class Form1099MiscResponse {
   @SerializedName(SERIALIZED_NAME_ZIP)
   private String zip;
 
-  public static final String SERIALIZED_NAME_RECIPIENT_EMAIL = "recipientEmail";
-  @SerializedName(SERIALIZED_NAME_RECIPIENT_EMAIL)
-  private String recipientEmail;
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
 
   public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "accountNumber";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
@@ -339,9 +333,9 @@ public class Form1099MiscResponse {
   @SerializedName(SERIALIZED_NAME_OFFICE_CODE)
   private String officeCode;
 
-  public static final String SERIALIZED_NAME_RECIPIENT_NON_US_PROVINCE = "recipientNonUsProvince";
-  @SerializedName(SERIALIZED_NAME_RECIPIENT_NON_US_PROVINCE)
-  private String recipientNonUsProvince;
+  public static final String SERIALIZED_NAME_NON_US_PROVINCE = "nonUsProvince";
+  @SerializedName(SERIALIZED_NAME_NON_US_PROVINCE)
+  private String nonUsProvince;
 
   public static final String SERIALIZED_NAME_COUNTRY_CODE = "countryCode";
   @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
@@ -363,6 +357,14 @@ public class Form1099MiscResponse {
   @SerializedName(SERIALIZED_NAME_TIN_MATCH)
   private Boolean tinMatch;
 
+  public static final String SERIALIZED_NAME_NO_TIN = "noTin";
+  @SerializedName(SERIALIZED_NAME_NO_TIN)
+  private Boolean noTin;
+
+  public static final String SERIALIZED_NAME_SECOND_TIN_NOTICE = "secondTinNotice";
+  @SerializedName(SERIALIZED_NAME_SECOND_TIN_NOTICE)
+  private Boolean secondTinNotice;
+
   public static final String SERIALIZED_NAME_ADDRESS_VERIFICATION = "addressVerification";
   @SerializedName(SERIALIZED_NAME_ADDRESS_VERIFICATION)
   private Boolean addressVerification;
@@ -370,6 +372,10 @@ public class Form1099MiscResponse {
   public static final String SERIALIZED_NAME_FEDERAL_EFILE_STATUS = "federalEfileStatus";
   @SerializedName(SERIALIZED_NAME_FEDERAL_EFILE_STATUS)
   private StatusDetail federalEfileStatus;
+
+  public static final String SERIALIZED_NAME_E_DELIVERY_STATUS = "eDeliveryStatus";
+  @SerializedName(SERIALIZED_NAME_E_DELIVERY_STATUS)
+  private StatusDetail eDeliveryStatus;
 
   public static final String SERIALIZED_NAME_STATE_EFILE_STATUS = "stateEfileStatus";
   @SerializedName(SERIALIZED_NAME_STATE_EFILE_STATUS)
@@ -400,25 +406,6 @@ public class Form1099MiscResponse {
     this();
     this.type = type;
   }
-
-  public Form1099MiscResponse secondTinNotice(Boolean secondTinNotice) {
-    this.secondTinNotice = secondTinNotice;
-    return this;
-  }
-
-  /**
-   * Get secondTinNotice
-   * @return secondTinNotice
-   */
-  @javax.annotation.Nullable
-  public Boolean getSecondTinNotice() {
-    return secondTinNotice;
-  }
-
-  public void setSecondTinNotice(Boolean secondTinNotice) {
-    this.secondTinNotice = secondTinNotice;
-  }
-
 
   public Form1099MiscResponse rents(Double rents) {
     this.rents = rents;
@@ -515,22 +502,22 @@ public class Form1099MiscResponse {
   }
 
 
-  public Form1099MiscResponse medicalHealthCarePayments(Double medicalHealthCarePayments) {
-    this.medicalHealthCarePayments = medicalHealthCarePayments;
+  public Form1099MiscResponse medicalAndHealthCarePayments(Double medicalAndHealthCarePayments) {
+    this.medicalAndHealthCarePayments = medicalAndHealthCarePayments;
     return this;
   }
 
   /**
-   * Get medicalHealthCarePayments
-   * @return medicalHealthCarePayments
+   * Get medicalAndHealthCarePayments
+   * @return medicalAndHealthCarePayments
    */
   @javax.annotation.Nullable
-  public Double getMedicalHealthCarePayments() {
-    return medicalHealthCarePayments;
+  public Double getMedicalAndHealthCarePayments() {
+    return medicalAndHealthCarePayments;
   }
 
-  public void setMedicalHealthCarePayments(Double medicalHealthCarePayments) {
-    this.medicalHealthCarePayments = medicalHealthCarePayments;
+  public void setMedicalAndHealthCarePayments(Double medicalAndHealthCarePayments) {
+    this.medicalAndHealthCarePayments = medicalAndHealthCarePayments;
   }
 
 
@@ -751,25 +738,6 @@ public class Form1099MiscResponse {
 
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
-  }
-
-
-  public Form1099MiscResponse userId(String userId) {
-    this.userId = userId;
-    return this;
-  }
-
-  /**
-   * Get userId
-   * @return userId
-   */
-  @javax.annotation.Nullable
-  public String getUserId() {
-    return userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
   }
 
 
@@ -1077,22 +1045,22 @@ public class Form1099MiscResponse {
   }
 
 
-  public Form1099MiscResponse recipientEmail(String recipientEmail) {
-    this.recipientEmail = recipientEmail;
+  public Form1099MiscResponse email(String email) {
+    this.email = email;
     return this;
   }
 
   /**
-   * Get recipientEmail
-   * @return recipientEmail
+   * Get email
+   * @return email
    */
   @javax.annotation.Nullable
-  public String getRecipientEmail() {
-    return recipientEmail;
+  public String getEmail() {
+    return email;
   }
 
-  public void setRecipientEmail(String recipientEmail) {
-    this.recipientEmail = recipientEmail;
+  public void setEmail(String email) {
+    this.email = email;
   }
 
 
@@ -1134,22 +1102,22 @@ public class Form1099MiscResponse {
   }
 
 
-  public Form1099MiscResponse recipientNonUsProvince(String recipientNonUsProvince) {
-    this.recipientNonUsProvince = recipientNonUsProvince;
+  public Form1099MiscResponse nonUsProvince(String nonUsProvince) {
+    this.nonUsProvince = nonUsProvince;
     return this;
   }
 
   /**
-   * Get recipientNonUsProvince
-   * @return recipientNonUsProvince
+   * Get nonUsProvince
+   * @return nonUsProvince
    */
   @javax.annotation.Nullable
-  public String getRecipientNonUsProvince() {
-    return recipientNonUsProvince;
+  public String getNonUsProvince() {
+    return nonUsProvince;
   }
 
-  public void setRecipientNonUsProvince(String recipientNonUsProvince) {
-    this.recipientNonUsProvince = recipientNonUsProvince;
+  public void setNonUsProvince(String nonUsProvince) {
+    this.nonUsProvince = nonUsProvince;
   }
 
 
@@ -1248,6 +1216,44 @@ public class Form1099MiscResponse {
   }
 
 
+  public Form1099MiscResponse noTin(Boolean noTin) {
+    this.noTin = noTin;
+    return this;
+  }
+
+  /**
+   * Get noTin
+   * @return noTin
+   */
+  @javax.annotation.Nullable
+  public Boolean getNoTin() {
+    return noTin;
+  }
+
+  public void setNoTin(Boolean noTin) {
+    this.noTin = noTin;
+  }
+
+
+  public Form1099MiscResponse secondTinNotice(Boolean secondTinNotice) {
+    this.secondTinNotice = secondTinNotice;
+    return this;
+  }
+
+  /**
+   * Get secondTinNotice
+   * @return secondTinNotice
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecondTinNotice() {
+    return secondTinNotice;
+  }
+
+  public void setSecondTinNotice(Boolean secondTinNotice) {
+    this.secondTinNotice = secondTinNotice;
+  }
+
+
   public Form1099MiscResponse addressVerification(Boolean addressVerification) {
     this.addressVerification = addressVerification;
     return this;
@@ -1283,6 +1289,25 @@ public class Form1099MiscResponse {
 
   public void setFederalEfileStatus(StatusDetail federalEfileStatus) {
     this.federalEfileStatus = federalEfileStatus;
+  }
+
+
+  public Form1099MiscResponse eDeliveryStatus(StatusDetail eDeliveryStatus) {
+    this.eDeliveryStatus = eDeliveryStatus;
+    return this;
+  }
+
+  /**
+   * Get eDeliveryStatus
+   * @return eDeliveryStatus
+   */
+  @javax.annotation.Nullable
+  public StatusDetail geteDeliveryStatus() {
+    return eDeliveryStatus;
+  }
+
+  public void seteDeliveryStatus(StatusDetail eDeliveryStatus) {
+    this.eDeliveryStatus = eDeliveryStatus;
   }
 
 
@@ -1407,13 +1432,12 @@ public class Form1099MiscResponse {
       return false;
     }
     Form1099MiscResponse form1099MiscResponse = (Form1099MiscResponse) o;
-    return Objects.equals(this.secondTinNotice, form1099MiscResponse.secondTinNotice) &&
-        Objects.equals(this.rents, form1099MiscResponse.rents) &&
+    return Objects.equals(this.rents, form1099MiscResponse.rents) &&
         Objects.equals(this.royalties, form1099MiscResponse.royalties) &&
         Objects.equals(this.otherIncome, form1099MiscResponse.otherIncome) &&
         Objects.equals(this.fedIncomeTaxWithheld, form1099MiscResponse.fedIncomeTaxWithheld) &&
         Objects.equals(this.fishingBoatProceeds, form1099MiscResponse.fishingBoatProceeds) &&
-        Objects.equals(this.medicalHealthCarePayments, form1099MiscResponse.medicalHealthCarePayments) &&
+        Objects.equals(this.medicalAndHealthCarePayments, form1099MiscResponse.medicalAndHealthCarePayments) &&
         Objects.equals(this.directSalesIndicator, form1099MiscResponse.directSalesIndicator) &&
         Objects.equals(this.substitutePayments, form1099MiscResponse.substitutePayments) &&
         Objects.equals(this.cropInsuranceProceeds, form1099MiscResponse.cropInsuranceProceeds) &&
@@ -1426,7 +1450,6 @@ public class Form1099MiscResponse {
         Objects.equals(this.type, form1099MiscResponse.type) &&
         Objects.equals(this.createdAt, form1099MiscResponse.createdAt) &&
         Objects.equals(this.updatedAt, form1099MiscResponse.updatedAt) &&
-        Objects.equals(this.userId, form1099MiscResponse.userId) &&
         Objects.equals(this.stateAndLocalWithholding, form1099MiscResponse.stateAndLocalWithholding) &&
         Objects.equals(this.tinType, form1099MiscResponse.tinType) &&
         Objects.equals(this.id, form1099MiscResponse.id) &&
@@ -1443,17 +1466,20 @@ public class Form1099MiscResponse {
         Objects.equals(this.city, form1099MiscResponse.city) &&
         Objects.equals(this.state, form1099MiscResponse.state) &&
         Objects.equals(this.zip, form1099MiscResponse.zip) &&
-        Objects.equals(this.recipientEmail, form1099MiscResponse.recipientEmail) &&
+        Objects.equals(this.email, form1099MiscResponse.email) &&
         Objects.equals(this.accountNumber, form1099MiscResponse.accountNumber) &&
         Objects.equals(this.officeCode, form1099MiscResponse.officeCode) &&
-        Objects.equals(this.recipientNonUsProvince, form1099MiscResponse.recipientNonUsProvince) &&
+        Objects.equals(this.nonUsProvince, form1099MiscResponse.nonUsProvince) &&
         Objects.equals(this.countryCode, form1099MiscResponse.countryCode) &&
         Objects.equals(this.federalEFile, form1099MiscResponse.federalEFile) &&
         Objects.equals(this.postalMail, form1099MiscResponse.postalMail) &&
         Objects.equals(this.stateEFile, form1099MiscResponse.stateEFile) &&
         Objects.equals(this.tinMatch, form1099MiscResponse.tinMatch) &&
+        Objects.equals(this.noTin, form1099MiscResponse.noTin) &&
+        Objects.equals(this.secondTinNotice, form1099MiscResponse.secondTinNotice) &&
         Objects.equals(this.addressVerification, form1099MiscResponse.addressVerification) &&
         Objects.equals(this.federalEfileStatus, form1099MiscResponse.federalEfileStatus) &&
+        Objects.equals(this.eDeliveryStatus, form1099MiscResponse.eDeliveryStatus) &&
         Objects.equals(this.stateEfileStatus, form1099MiscResponse.stateEfileStatus) &&
         Objects.equals(this.postalMailStatus, form1099MiscResponse.postalMailStatus) &&
         Objects.equals(this.tinMatchStatus, form1099MiscResponse.tinMatchStatus) &&
@@ -1467,7 +1493,7 @@ public class Form1099MiscResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(secondTinNotice, rents, royalties, otherIncome, fedIncomeTaxWithheld, fishingBoatProceeds, medicalHealthCarePayments, directSalesIndicator, substitutePayments, cropInsuranceProceeds, grossProceedsPaidToAttorney, fishPurchasedForResale, section409ADeferrals, fatcaFilingRequirement, excessGoldenParachutePayments, nonqualifiedDeferredCompensation, type, createdAt, updatedAt, userId, stateAndLocalWithholding, tinType, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, recipientName, recipientTin, recipientSecondName, address, address2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, validationErrors);
+    return Objects.hash(rents, royalties, otherIncome, fedIncomeTaxWithheld, fishingBoatProceeds, medicalAndHealthCarePayments, directSalesIndicator, substitutePayments, cropInsuranceProceeds, grossProceedsPaidToAttorney, fishPurchasedForResale, section409ADeferrals, fatcaFilingRequirement, excessGoldenParachutePayments, nonqualifiedDeferredCompensation, type, createdAt, updatedAt, stateAndLocalWithholding, tinType, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, recipientName, recipientTin, recipientSecondName, address, address2, city, state, zip, email, accountNumber, officeCode, nonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, noTin, secondTinNotice, addressVerification, federalEfileStatus, eDeliveryStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, validationErrors);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1481,13 +1507,12 @@ public class Form1099MiscResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Form1099MiscResponse {\n");
-    sb.append("    secondTinNotice: ").append(toIndentedString(secondTinNotice)).append("\n");
     sb.append("    rents: ").append(toIndentedString(rents)).append("\n");
     sb.append("    royalties: ").append(toIndentedString(royalties)).append("\n");
     sb.append("    otherIncome: ").append(toIndentedString(otherIncome)).append("\n");
     sb.append("    fedIncomeTaxWithheld: ").append(toIndentedString(fedIncomeTaxWithheld)).append("\n");
     sb.append("    fishingBoatProceeds: ").append(toIndentedString(fishingBoatProceeds)).append("\n");
-    sb.append("    medicalHealthCarePayments: ").append(toIndentedString(medicalHealthCarePayments)).append("\n");
+    sb.append("    medicalAndHealthCarePayments: ").append(toIndentedString(medicalAndHealthCarePayments)).append("\n");
     sb.append("    directSalesIndicator: ").append(toIndentedString(directSalesIndicator)).append("\n");
     sb.append("    substitutePayments: ").append(toIndentedString(substitutePayments)).append("\n");
     sb.append("    cropInsuranceProceeds: ").append(toIndentedString(cropInsuranceProceeds)).append("\n");
@@ -1500,7 +1525,6 @@ public class Form1099MiscResponse {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    stateAndLocalWithholding: ").append(toIndentedString(stateAndLocalWithholding)).append("\n");
     sb.append("    tinType: ").append(toIndentedString(tinType)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -1517,17 +1541,20 @@ public class Form1099MiscResponse {
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    zip: ").append(toIndentedString(zip)).append("\n");
-    sb.append("    recipientEmail: ").append(toIndentedString(recipientEmail)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    officeCode: ").append(toIndentedString(officeCode)).append("\n");
-    sb.append("    recipientNonUsProvince: ").append(toIndentedString(recipientNonUsProvince)).append("\n");
+    sb.append("    nonUsProvince: ").append(toIndentedString(nonUsProvince)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    federalEFile: ").append(toIndentedString(federalEFile)).append("\n");
     sb.append("    postalMail: ").append(toIndentedString(postalMail)).append("\n");
     sb.append("    stateEFile: ").append(toIndentedString(stateEFile)).append("\n");
     sb.append("    tinMatch: ").append(toIndentedString(tinMatch)).append("\n");
+    sb.append("    noTin: ").append(toIndentedString(noTin)).append("\n");
+    sb.append("    secondTinNotice: ").append(toIndentedString(secondTinNotice)).append("\n");
     sb.append("    addressVerification: ").append(toIndentedString(addressVerification)).append("\n");
     sb.append("    federalEfileStatus: ").append(toIndentedString(federalEfileStatus)).append("\n");
+    sb.append("    eDeliveryStatus: ").append(toIndentedString(eDeliveryStatus)).append("\n");
     sb.append("    stateEfileStatus: ").append(toIndentedString(stateEfileStatus)).append("\n");
     sb.append("    postalMailStatus: ").append(toIndentedString(postalMailStatus)).append("\n");
     sb.append("    tinMatchStatus: ").append(toIndentedString(tinMatchStatus)).append("\n");
@@ -1558,7 +1585,6 @@ public class Form1099MiscResponse {
     openapiFields.add("type");
     openapiFields.add("createdAt");
     openapiFields.add("updatedAt");
-    openapiFields.add("userId");
     openapiFields.add("stateAndLocalWithholding");
     openapiFields.add("tinType");
     openapiFields.add("id");
@@ -1575,17 +1601,20 @@ public class Form1099MiscResponse {
     openapiFields.add("city");
     openapiFields.add("state");
     openapiFields.add("zip");
-    openapiFields.add("recipientEmail");
+    openapiFields.add("email");
     openapiFields.add("accountNumber");
     openapiFields.add("officeCode");
-    openapiFields.add("recipientNonUsProvince");
+    openapiFields.add("nonUsProvince");
     openapiFields.add("countryCode");
     openapiFields.add("federalEFile");
     openapiFields.add("postalMail");
     openapiFields.add("stateEFile");
     openapiFields.add("tinMatch");
+    openapiFields.add("noTin");
+    openapiFields.add("secondTinNotice");
     openapiFields.add("addressVerification");
     openapiFields.add("federalEfileStatus");
+    openapiFields.add("eDeliveryStatus");
     openapiFields.add("stateEfileStatus");
     openapiFields.add("postalMailStatus");
     openapiFields.add("tinMatchStatus");
@@ -1623,9 +1652,6 @@ public class Form1099MiscResponse {
       // validate the optional field `type`
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
         TypeEnum.validateJsonElement(jsonObj.get("type"));
-      }
-      if ((jsonObj.get("userId") != null && !jsonObj.get("userId").isJsonNull()) && !jsonObj.get("userId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
       }
       // validate the optional field `stateAndLocalWithholding`
       if (jsonObj.get("stateAndLocalWithholding") != null && !jsonObj.get("stateAndLocalWithholding").isJsonNull()) {
@@ -1677,8 +1703,8 @@ public class Form1099MiscResponse {
       if ((jsonObj.get("zip") != null && !jsonObj.get("zip").isJsonNull()) && !jsonObj.get("zip").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `zip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zip").toString()));
       }
-      if ((jsonObj.get("recipientEmail") != null && !jsonObj.get("recipientEmail").isJsonNull()) && !jsonObj.get("recipientEmail").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recipientEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientEmail").toString()));
+      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       if ((jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonNull()) && !jsonObj.get("accountNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
@@ -1686,8 +1712,8 @@ public class Form1099MiscResponse {
       if ((jsonObj.get("officeCode") != null && !jsonObj.get("officeCode").isJsonNull()) && !jsonObj.get("officeCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `officeCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("officeCode").toString()));
       }
-      if ((jsonObj.get("recipientNonUsProvince") != null && !jsonObj.get("recipientNonUsProvince").isJsonNull()) && !jsonObj.get("recipientNonUsProvince").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recipientNonUsProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientNonUsProvince").toString()));
+      if ((jsonObj.get("nonUsProvince") != null && !jsonObj.get("nonUsProvince").isJsonNull()) && !jsonObj.get("nonUsProvince").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `nonUsProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nonUsProvince").toString()));
       }
       if ((jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonNull()) && !jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
@@ -1695,6 +1721,10 @@ public class Form1099MiscResponse {
       // validate the optional field `federalEfileStatus`
       if (jsonObj.get("federalEfileStatus") != null && !jsonObj.get("federalEfileStatus").isJsonNull()) {
         StatusDetail.validateJsonElement(jsonObj.get("federalEfileStatus"));
+      }
+      // validate the optional field `eDeliveryStatus`
+      if (jsonObj.get("eDeliveryStatus") != null && !jsonObj.get("eDeliveryStatus").isJsonNull()) {
+        StatusDetail.validateJsonElement(jsonObj.get("eDeliveryStatus"));
       }
       if (jsonObj.get("stateEfileStatus") != null && !jsonObj.get("stateEfileStatus").isJsonNull()) {
         JsonArray jsonArraystateEfileStatus = jsonObj.getAsJsonArray("stateEfileStatus");

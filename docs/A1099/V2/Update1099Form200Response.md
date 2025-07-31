@@ -10,7 +10,6 @@
 |**type** | [**TypeEnum**](#TypeEnum) |  |  [optional] [readonly] |
 |**createdAt** | **OffsetDateTime** |  |  [optional] |
 |**updatedAt** | **OffsetDateTime** |  |  [optional] |
-|**userId** | **String** |  |  [optional] |
 |**stateAndLocalWithholding** | [**StateAndLocalWithholdingResponse**](StateAndLocalWithholdingResponse.md) |  |  [optional] |
 |**tinType** | [**TinTypeEnum**](#TinTypeEnum) |  |  [optional] |
 |**id** | **String** |  |  [optional] |
@@ -27,29 +26,51 @@
 |**city** | **String** |  |  [optional] |
 |**state** | **String** |  |  [optional] |
 |**zip** | **String** |  |  [optional] |
-|**recipientEmail** | **String** |  |  [optional] |
+|**email** | **String** |  |  [optional] |
 |**accountNumber** | **String** |  |  [optional] |
 |**officeCode** | **String** |  |  [optional] |
-|**recipientNonUsProvince** | **String** |  |  [optional] |
+|**nonUsProvince** | **String** |  |  [optional] |
 |**countryCode** | **String** |  |  [optional] |
 |**federalEFile** | **Boolean** |  |  [optional] |
 |**postalMail** | **Boolean** |  |  [optional] |
 |**stateEFile** | **Boolean** |  |  [optional] |
 |**tinMatch** | **Boolean** |  |  [optional] |
+|**noTin** | **Boolean** |  |  [optional] |
+|**secondTinNotice** | **Boolean** |  |  [optional] |
 |**addressVerification** | **Boolean** |  |  [optional] |
 |**federalEfileStatus** | [**StatusDetail**](StatusDetail.md) |  |  [optional] |
+|**eDeliveryStatus** | [**StatusDetail**](StatusDetail.md) |  |  [optional] |
 |**stateEfileStatus** | [**List&lt;StateEfileStatusDetailResponse&gt;**](StateEfileStatusDetailResponse.md) |  |  [optional] |
 |**postalMailStatus** | [**StatusDetail**](StatusDetail.md) |  |  [optional] |
 |**tinMatchStatus** | [**StatusDetail**](StatusDetail.md) |  |  [optional] |
 |**addressVerificationStatus** | [**StatusDetail**](StatusDetail.md) |  |  [optional] |
 |**validationErrors** | [**List&lt;ValidationErrorResponse&gt;**](ValidationErrorResponse.md) |  |  [optional] |
-|**secondTinNotice** | **Boolean** |  |  [optional] |
+|**filerType** | [**FilerTypeEnum**](#FilerTypeEnum) |  |  [optional] |
+|**paymentType** | [**PaymentTypeEnum**](#PaymentTypeEnum) |  |  [optional] |
+|**paymentSettlementEntityNamePhoneNumber** | **String** |  |  [optional] |
+|**grossAmountPaymentCard** | **Double** |  |  [optional] |
+|**cardNotPresentTransactions** | **Double** |  |  [optional] |
+|**merchantCategoryCode** | **String** |  |  [optional] |
+|**paymentTransactionNumber** | **Double** |  |  [optional] |
+|**federalIncomeTaxWithheld** | **Double** |  |  [optional] |
+|**january** | **Double** |  |  [optional] |
+|**february** | **Double** |  |  [optional] |
+|**march** | **Double** |  |  [optional] |
+|**april** | **Double** |  |  [optional] |
+|**may** | **Double** |  |  [optional] |
+|**june** | **Double** |  |  [optional] |
+|**july** | **Double** |  |  [optional] |
+|**august** | **Double** |  |  [optional] |
+|**sept** | **Double** |  |  [optional] |
+|**october** | **Double** |  |  [optional] |
+|**november** | **Double** |  |  [optional] |
+|**december** | **Double** |  |  [optional] |
 |**rents** | **Double** |  |  [optional] |
 |**royalties** | **Double** |  |  [optional] |
 |**otherIncome** | **Double** |  |  [optional] |
 |**fedIncomeTaxWithheld** | **Double** |  |  [optional] |
 |**fishingBoatProceeds** | **Double** |  |  [optional] |
-|**medicalHealthCarePayments** | **Double** |  |  [optional] |
+|**medicalAndHealthCarePayments** | **Double** |  |  [optional] |
 |**directSalesIndicator** | **Boolean** |  |  [optional] |
 |**substitutePayments** | **Double** |  |  [optional] |
 |**cropInsuranceProceeds** | **Double** |  |  [optional] |
@@ -60,7 +81,6 @@
 |**excessGoldenParachutePayments** | **Double** |  |  [optional] |
 |**nonqualifiedDeferredCompensation** | **Double** |  |  [optional] |
 |**nonemployeeCompensation** | **Double** |  |  [optional] |
-|**federalIncomeTaxWithheld** | **Double** |  |  [optional] |
 
 
 
@@ -75,6 +95,7 @@
 | _1099_K | &quot;1099-K&quot; |
 | _1095_B | &quot;1095-B&quot; |
 | _1042_S | &quot;1042-S&quot; |
+| _1095_C | &quot;1095-C&quot; |
 
 
 
@@ -86,6 +107,25 @@
 | SSN | &quot;SSN&quot; |
 | ITIN | &quot;ITIN&quot; |
 | ATIN | &quot;ATIN&quot; |
+
+
+
+## Enum: FilerTypeEnum
+
+| Name | Value |
+|---- | -----|
+| PSE | &quot;PSE&quot; |
+| EPF | &quot;EPF&quot; |
+| OTHER | &quot;Other&quot; |
+
+
+
+## Enum: PaymentTypeEnum
+
+| Name | Value |
+|---- | -----|
+| MERCHANT_PAYMENT_CARD | &quot;MerchantPaymentCard&quot; |
+| THIRD_PARTY_NETWORK | &quot;ThirdPartyNetwork&quot; |
 
 
 

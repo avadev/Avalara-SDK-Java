@@ -157,7 +157,9 @@ public class Form1099RRequest {
     
     _1095_B("1095-B"),
     
-    _1042_S("1042-S");
+    _1042_S("1042-S"),
+    
+    _1095_C("1095-C");
 
     private String value;
 
@@ -306,9 +308,9 @@ public class Form1099RRequest {
   @SerializedName(SERIALIZED_NAME_ZIP)
   private String zip;
 
-  public static final String SERIALIZED_NAME_RECIPIENT_EMAIL = "recipientEmail";
-  @SerializedName(SERIALIZED_NAME_RECIPIENT_EMAIL)
-  private String recipientEmail;
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
 
   public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "accountNumber";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
@@ -318,9 +320,9 @@ public class Form1099RRequest {
   @SerializedName(SERIALIZED_NAME_OFFICE_CODE)
   private String officeCode;
 
-  public static final String SERIALIZED_NAME_RECIPIENT_NON_US_PROVINCE = "recipientNonUsProvince";
-  @SerializedName(SERIALIZED_NAME_RECIPIENT_NON_US_PROVINCE)
-  private String recipientNonUsProvince;
+  public static final String SERIALIZED_NAME_NON_US_PROVINCE = "nonUsProvince";
+  @SerializedName(SERIALIZED_NAME_NON_US_PROVINCE)
+  private String nonUsProvince;
 
   public static final String SERIALIZED_NAME_COUNTRY_CODE = "countryCode";
   @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
@@ -341,6 +343,14 @@ public class Form1099RRequest {
   public static final String SERIALIZED_NAME_TIN_MATCH = "tinMatch";
   @SerializedName(SERIALIZED_NAME_TIN_MATCH)
   private Boolean tinMatch;
+
+  public static final String SERIALIZED_NAME_NO_TIN = "noTin";
+  @SerializedName(SERIALIZED_NAME_NO_TIN)
+  private Boolean noTin;
+
+  public static final String SERIALIZED_NAME_SECOND_TIN_NOTICE = "secondTinNotice";
+  @SerializedName(SERIALIZED_NAME_SECOND_TIN_NOTICE)
+  private Boolean secondTinNotice;
 
   public static final String SERIALIZED_NAME_ADDRESS_VERIFICATION = "addressVerification";
   @SerializedName(SERIALIZED_NAME_ADDRESS_VERIFICATION)
@@ -818,7 +828,7 @@ public class Form1099RRequest {
    * Recipient name
    * @return recipientName
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getRecipientName() {
     return recipientName;
   }
@@ -961,22 +971,22 @@ public class Form1099RRequest {
   }
 
 
-  public Form1099RRequest recipientEmail(String recipientEmail) {
-    this.recipientEmail = recipientEmail;
+  public Form1099RRequest email(String email) {
+    this.email = email;
     return this;
   }
 
   /**
    * Recipient email address
-   * @return recipientEmail
+   * @return email
    */
   @javax.annotation.Nullable
-  public String getRecipientEmail() {
-    return recipientEmail;
+  public String getEmail() {
+    return email;
   }
 
-  public void setRecipientEmail(String recipientEmail) {
-    this.recipientEmail = recipientEmail;
+  public void setEmail(String email) {
+    this.email = email;
   }
 
 
@@ -1018,22 +1028,22 @@ public class Form1099RRequest {
   }
 
 
-  public Form1099RRequest recipientNonUsProvince(String recipientNonUsProvince) {
-    this.recipientNonUsProvince = recipientNonUsProvince;
+  public Form1099RRequest nonUsProvince(String nonUsProvince) {
+    this.nonUsProvince = nonUsProvince;
     return this;
   }
 
   /**
    * Foreign province
-   * @return recipientNonUsProvince
+   * @return nonUsProvince
    */
   @javax.annotation.Nullable
-  public String getRecipientNonUsProvince() {
-    return recipientNonUsProvince;
+  public String getNonUsProvince() {
+    return nonUsProvince;
   }
 
-  public void setRecipientNonUsProvince(String recipientNonUsProvince) {
-    this.recipientNonUsProvince = recipientNonUsProvince;
+  public void setNonUsProvince(String nonUsProvince) {
+    this.nonUsProvince = nonUsProvince;
   }
 
 
@@ -1132,6 +1142,44 @@ public class Form1099RRequest {
   }
 
 
+  public Form1099RRequest noTin(Boolean noTin) {
+    this.noTin = noTin;
+    return this;
+  }
+
+  /**
+   * Indicates whether the recipient has no TIN
+   * @return noTin
+   */
+  @javax.annotation.Nullable
+  public Boolean getNoTin() {
+    return noTin;
+  }
+
+  public void setNoTin(Boolean noTin) {
+    this.noTin = noTin;
+  }
+
+
+  public Form1099RRequest secondTinNotice(Boolean secondTinNotice) {
+    this.secondTinNotice = secondTinNotice;
+    return this;
+  }
+
+  /**
+   * Second TIN notice in three years
+   * @return secondTinNotice
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecondTinNotice() {
+    return secondTinNotice;
+  }
+
+  public void setSecondTinNotice(Boolean secondTinNotice) {
+    this.secondTinNotice = secondTinNotice;
+  }
+
+
   public Form1099RRequest addressVerification(Boolean addressVerification) {
     this.addressVerification = addressVerification;
     return this;
@@ -1212,15 +1260,17 @@ public class Form1099RRequest {
         Objects.equals(this.city, form1099RRequest.city) &&
         Objects.equals(this.state, form1099RRequest.state) &&
         Objects.equals(this.zip, form1099RRequest.zip) &&
-        Objects.equals(this.recipientEmail, form1099RRequest.recipientEmail) &&
+        Objects.equals(this.email, form1099RRequest.email) &&
         Objects.equals(this.accountNumber, form1099RRequest.accountNumber) &&
         Objects.equals(this.officeCode, form1099RRequest.officeCode) &&
-        Objects.equals(this.recipientNonUsProvince, form1099RRequest.recipientNonUsProvince) &&
+        Objects.equals(this.nonUsProvince, form1099RRequest.nonUsProvince) &&
         Objects.equals(this.countryCode, form1099RRequest.countryCode) &&
         Objects.equals(this.federalEFile, form1099RRequest.federalEFile) &&
         Objects.equals(this.postalMail, form1099RRequest.postalMail) &&
         Objects.equals(this.stateEFile, form1099RRequest.stateEFile) &&
         Objects.equals(this.tinMatch, form1099RRequest.tinMatch) &&
+        Objects.equals(this.noTin, form1099RRequest.noTin) &&
+        Objects.equals(this.secondTinNotice, form1099RRequest.secondTinNotice) &&
         Objects.equals(this.addressVerification, form1099RRequest.addressVerification) &&
         Objects.equals(this.stateAndLocalWithholding, form1099RRequest.stateAndLocalWithholding);
   }
@@ -1231,7 +1281,7 @@ public class Form1099RRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(grossDistribution, taxableAmount, taxableAmountNotDetermined, totalDistributionDetermined, capitalGain, federalIncomeTaxWithheld, employeeContributionsOrDesignatedRothOrInsurancePremiums, netUnrealizedAppreciationInEmployerSecurities, distributionCode, secondDistributionCode, iraSepSimple, traditionalIraSepSimpleOrRothConversionAmount, otherAmount, otherPercentage, totalDistributionPercentage, totalEmployeeContributions, amountAllocableToIrrWithin5Years, firstYearOfDesignatedRothContribution, fatcaFilingRequirement, dateOfPayment, type, issuerId, referenceId, recipientTin, recipientName, tinType, recipientSecondName, address, address2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification, stateAndLocalWithholding);
+    return Objects.hash(grossDistribution, taxableAmount, taxableAmountNotDetermined, totalDistributionDetermined, capitalGain, federalIncomeTaxWithheld, employeeContributionsOrDesignatedRothOrInsurancePremiums, netUnrealizedAppreciationInEmployerSecurities, distributionCode, secondDistributionCode, iraSepSimple, traditionalIraSepSimpleOrRothConversionAmount, otherAmount, otherPercentage, totalDistributionPercentage, totalEmployeeContributions, amountAllocableToIrrWithin5Years, firstYearOfDesignatedRothContribution, fatcaFilingRequirement, dateOfPayment, type, issuerId, referenceId, recipientTin, recipientName, tinType, recipientSecondName, address, address2, city, state, zip, email, accountNumber, officeCode, nonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, noTin, secondTinNotice, addressVerification, stateAndLocalWithholding);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1277,15 +1327,17 @@ public class Form1099RRequest {
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    zip: ").append(toIndentedString(zip)).append("\n");
-    sb.append("    recipientEmail: ").append(toIndentedString(recipientEmail)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    officeCode: ").append(toIndentedString(officeCode)).append("\n");
-    sb.append("    recipientNonUsProvince: ").append(toIndentedString(recipientNonUsProvince)).append("\n");
+    sb.append("    nonUsProvince: ").append(toIndentedString(nonUsProvince)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    federalEFile: ").append(toIndentedString(federalEFile)).append("\n");
     sb.append("    postalMail: ").append(toIndentedString(postalMail)).append("\n");
     sb.append("    stateEFile: ").append(toIndentedString(stateEFile)).append("\n");
     sb.append("    tinMatch: ").append(toIndentedString(tinMatch)).append("\n");
+    sb.append("    noTin: ").append(toIndentedString(noTin)).append("\n");
+    sb.append("    secondTinNotice: ").append(toIndentedString(secondTinNotice)).append("\n");
     sb.append("    addressVerification: ").append(toIndentedString(addressVerification)).append("\n");
     sb.append("    stateAndLocalWithholding: ").append(toIndentedString(stateAndLocalWithholding)).append("\n");
     sb.append("}");
@@ -1322,21 +1374,22 @@ public class Form1099RRequest {
     openapiFields.add("city");
     openapiFields.add("state");
     openapiFields.add("zip");
-    openapiFields.add("recipientEmail");
+    openapiFields.add("email");
     openapiFields.add("accountNumber");
     openapiFields.add("officeCode");
-    openapiFields.add("recipientNonUsProvince");
+    openapiFields.add("nonUsProvince");
     openapiFields.add("countryCode");
     openapiFields.add("federalEFile");
     openapiFields.add("postalMail");
     openapiFields.add("stateEFile");
     openapiFields.add("tinMatch");
+    openapiFields.add("noTin");
+    openapiFields.add("secondTinNotice");
     openapiFields.add("addressVerification");
     openapiFields.add("stateAndLocalWithholding");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("recipientName");
     openapiRequiredFields.add("address");
     openapiRequiredFields.add("city");
     openapiRequiredFields.add("countryCode");
@@ -1401,7 +1454,7 @@ public class Form1099RRequest {
       if ((jsonObj.get("recipientTin") != null && !jsonObj.get("recipientTin").isJsonNull()) && !jsonObj.get("recipientTin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientTin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientTin").toString()));
       }
-      if (!jsonObj.get("recipientName").isJsonPrimitive()) {
+      if ((jsonObj.get("recipientName") != null && !jsonObj.get("recipientName").isJsonNull()) && !jsonObj.get("recipientName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientName").toString()));
       }
       if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
@@ -1429,8 +1482,8 @@ public class Form1099RRequest {
       if ((jsonObj.get("zip") != null && !jsonObj.get("zip").isJsonNull()) && !jsonObj.get("zip").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `zip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zip").toString()));
       }
-      if ((jsonObj.get("recipientEmail") != null && !jsonObj.get("recipientEmail").isJsonNull()) && !jsonObj.get("recipientEmail").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recipientEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientEmail").toString()));
+      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       if ((jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonNull()) && !jsonObj.get("accountNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
@@ -1438,8 +1491,8 @@ public class Form1099RRequest {
       if ((jsonObj.get("officeCode") != null && !jsonObj.get("officeCode").isJsonNull()) && !jsonObj.get("officeCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `officeCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("officeCode").toString()));
       }
-      if ((jsonObj.get("recipientNonUsProvince") != null && !jsonObj.get("recipientNonUsProvince").isJsonNull()) && !jsonObj.get("recipientNonUsProvince").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recipientNonUsProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientNonUsProvince").toString()));
+      if ((jsonObj.get("nonUsProvince") != null && !jsonObj.get("nonUsProvince").isJsonNull()) && !jsonObj.get("nonUsProvince").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `nonUsProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nonUsProvince").toString()));
       }
       if (!jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));

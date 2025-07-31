@@ -10,7 +10,6 @@
 |**type** | [**TypeEnum**](#TypeEnum) |  |  [optional] [readonly] |
 |**createdAt** | **OffsetDateTime** |  |  [optional] |
 |**updatedAt** | **OffsetDateTime** |  |  [optional] |
-|**userId** | **String** |  |  [optional] |
 |**stateAndLocalWithholding** | [**StateAndLocalWithholdingResponse**](StateAndLocalWithholdingResponse.md) |  |  [optional] |
 |**tinType** | [**TinTypeEnum**](#TinTypeEnum) |  |  [optional] |
 |**id** | **String** |  |  [optional] |
@@ -27,17 +26,20 @@
 |**city** | **String** |  |  [optional] |
 |**state** | **String** |  |  [optional] |
 |**zip** | **String** |  |  [optional] |
-|**recipientEmail** | **String** |  |  [optional] |
+|**email** | **String** |  |  [optional] |
 |**accountNumber** | **String** |  |  [optional] |
 |**officeCode** | **String** |  |  [optional] |
-|**recipientNonUsProvince** | **String** |  |  [optional] |
+|**nonUsProvince** | **String** |  |  [optional] |
 |**countryCode** | **String** |  |  [optional] |
 |**federalEFile** | **Boolean** |  |  [optional] |
 |**postalMail** | **Boolean** |  |  [optional] |
 |**stateEFile** | **Boolean** |  |  [optional] |
 |**tinMatch** | **Boolean** |  |  [optional] |
+|**noTin** | **Boolean** |  |  [optional] |
+|**secondTinNotice** | **Boolean** |  |  [optional] |
 |**addressVerification** | **Boolean** |  |  [optional] |
 |**federalEfileStatus** | [**StatusDetail**](StatusDetail.md) |  |  [optional] |
+|**eDeliveryStatus** | [**StatusDetail**](StatusDetail.md) |  |  [optional] |
 |**stateEfileStatus** | [**List&lt;StateEfileStatusDetailResponse&gt;**](StateEfileStatusDetailResponse.md) |  |  [optional] |
 |**postalMailStatus** | [**StatusDetail**](StatusDetail.md) |  |  [optional] |
 |**tinMatchStatus** | [**StatusDetail**](StatusDetail.md) |  |  [optional] |
@@ -57,6 +59,7 @@
 | _1099_K | &quot;1099-K&quot; |
 | _1095_B | &quot;1095-B&quot; |
 | _1042_S | &quot;1042-S&quot; |
+| _1095_C | &quot;1095-C&quot; |
 
 
 
