@@ -21,6 +21,7 @@ package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
 import Avalara.SDK.model.A1099.V2.Form1099DivRequest;
+import Avalara.SDK.model.A1099.V2.Form1099KRequest;
 import Avalara.SDK.model.A1099.V2.Form1099MiscRequest;
 import Avalara.SDK.model.A1099.V2.Form1099NecRequest;
 import Avalara.SDK.model.A1099.V2.StateAndLocalWithholdingRequest;
@@ -82,6 +83,7 @@ public class IUpdateForm1099Request extends AbstractOpenApiSchema {
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<Form1099DivRequest> adapterForm1099DivRequest = gson.getDelegateAdapter(this, TypeToken.get(Form1099DivRequest.class));
             final TypeAdapter<Form1099MiscRequest> adapterForm1099MiscRequest = gson.getDelegateAdapter(this, TypeToken.get(Form1099MiscRequest.class));
+            final TypeAdapter<Form1099KRequest> adapterForm1099KRequest = gson.getDelegateAdapter(this, TypeToken.get(Form1099KRequest.class));
             final TypeAdapter<Form1099NecRequest> adapterForm1099NecRequest = gson.getDelegateAdapter(this, TypeToken.get(Form1099NecRequest.class));
 
             return (TypeAdapter<T>) new TypeAdapter<IUpdateForm1099Request>() {
@@ -104,13 +106,19 @@ public class IUpdateForm1099Request extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
+                    // check if the actual instance is of the type `Form1099KRequest`
+                    if (value.getActualInstance() instanceof Form1099KRequest) {
+                        JsonElement element = adapterForm1099KRequest.toJsonTree((Form1099KRequest)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
                     // check if the actual instance is of the type `Form1099NecRequest`
                     if (value.getActualInstance() instanceof Form1099NecRequest) {
                         JsonElement element = adapterForm1099NecRequest.toJsonTree((Form1099NecRequest)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: Form1099DivRequest, Form1099MiscRequest, Form1099NecRequest");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: Form1099DivRequest, Form1099KRequest, Form1099MiscRequest, Form1099NecRequest");
                 }
 
                 @Override
@@ -145,6 +153,18 @@ public class IUpdateForm1099Request extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for Form1099MiscRequest failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'Form1099MiscRequest'", e);
+                    }
+                    // deserialize Form1099KRequest
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        Form1099KRequest.validateJsonElement(jsonElement);
+                        actualAdapter = adapterForm1099KRequest;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'Form1099KRequest'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for Form1099KRequest failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'Form1099KRequest'", e);
                     }
                     // deserialize Form1099NecRequest
                     try {
@@ -186,6 +206,7 @@ public class IUpdateForm1099Request extends AbstractOpenApiSchema {
     static {
         schemas.put("Form1099DivRequest", Form1099DivRequest.class);
         schemas.put("Form1099MiscRequest", Form1099MiscRequest.class);
+        schemas.put("Form1099KRequest", Form1099KRequest.class);
         schemas.put("Form1099NecRequest", Form1099NecRequest.class);
     }
 
@@ -197,7 +218,7 @@ public class IUpdateForm1099Request extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * Form1099DivRequest, Form1099MiscRequest, Form1099NecRequest
+     * Form1099DivRequest, Form1099KRequest, Form1099MiscRequest, Form1099NecRequest
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -213,19 +234,24 @@ public class IUpdateForm1099Request extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof Form1099KRequest) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof Form1099NecRequest) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be Form1099DivRequest, Form1099MiscRequest, Form1099NecRequest");
+        throw new RuntimeException("Invalid instance type. Must be Form1099DivRequest, Form1099KRequest, Form1099MiscRequest, Form1099NecRequest");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * Form1099DivRequest, Form1099MiscRequest, Form1099NecRequest
+     * Form1099DivRequest, Form1099KRequest, Form1099MiscRequest, Form1099NecRequest
      *
-     * @return The actual instance (Form1099DivRequest, Form1099MiscRequest, Form1099NecRequest)
+     * @return The actual instance (Form1099DivRequest, Form1099KRequest, Form1099MiscRequest, Form1099NecRequest)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -252,6 +278,16 @@ public class IUpdateForm1099Request extends AbstractOpenApiSchema {
      */
     public Form1099MiscRequest getForm1099MiscRequest() throws ClassCastException {
         return (Form1099MiscRequest)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `Form1099KRequest`. If the actual instance is not `Form1099KRequest`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `Form1099KRequest`
+     * @throws ClassCastException if the instance is not `Form1099KRequest`
+     */
+    public Form1099KRequest getForm1099KRequest() throws ClassCastException {
+        return (Form1099KRequest)super.getActualInstance();
     }
     /**
      * Get the actual instance of `Form1099NecRequest`. If the actual instance is not `Form1099NecRequest`,
@@ -290,6 +326,14 @@ public class IUpdateForm1099Request extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for Form1099MiscRequest failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with Form1099KRequest
+        try {
+            Form1099KRequest.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for Form1099KRequest failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         // validate the json string with Form1099NecRequest
         try {
             Form1099NecRequest.validateJsonElement(jsonElement);
@@ -299,7 +343,7 @@ public class IUpdateForm1099Request extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format("The JSON string is invalid for IUpdateForm1099Request with oneOf schemas: Form1099DivRequest, Form1099MiscRequest, Form1099NecRequest. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format("The JSON string is invalid for IUpdateForm1099Request with oneOf schemas: Form1099DivRequest, Form1099KRequest, Form1099MiscRequest, Form1099NecRequest. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

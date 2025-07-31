@@ -59,10 +59,6 @@ import Avalara.SDK.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Form1099NecListItem {
-  public static final String SERIALIZED_NAME_SECOND_TIN_NOTICE = "secondTinNotice";
-  @SerializedName(SERIALIZED_NAME_SECOND_TIN_NOTICE)
-  private Boolean secondTinNotice;
-
   public static final String SERIALIZED_NAME_NONEMPLOYEE_COMPENSATION = "nonemployeeCompensation";
   @SerializedName(SERIALIZED_NAME_NONEMPLOYEE_COMPENSATION)
   private Double nonemployeeCompensation;
@@ -187,9 +183,9 @@ public class Form1099NecListItem {
   @SerializedName(SERIALIZED_NAME_ZIP)
   private String zip;
 
-  public static final String SERIALIZED_NAME_RECIPIENT_EMAIL = "recipientEmail";
-  @SerializedName(SERIALIZED_NAME_RECIPIENT_EMAIL)
-  private String recipientEmail;
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
 
   public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "accountNumber";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
@@ -199,9 +195,9 @@ public class Form1099NecListItem {
   @SerializedName(SERIALIZED_NAME_OFFICE_CODE)
   private String officeCode;
 
-  public static final String SERIALIZED_NAME_RECIPIENT_NON_US_PROVINCE = "recipientNonUsProvince";
-  @SerializedName(SERIALIZED_NAME_RECIPIENT_NON_US_PROVINCE)
-  private String recipientNonUsProvince;
+  public static final String SERIALIZED_NAME_NON_US_PROVINCE = "nonUsProvince";
+  @SerializedName(SERIALIZED_NAME_NON_US_PROVINCE)
+  private String nonUsProvince;
 
   public static final String SERIALIZED_NAME_COUNTRY_CODE = "countryCode";
   @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
@@ -223,6 +219,14 @@ public class Form1099NecListItem {
   @SerializedName(SERIALIZED_NAME_TIN_MATCH)
   private Boolean tinMatch;
 
+  public static final String SERIALIZED_NAME_NO_TIN = "noTin";
+  @SerializedName(SERIALIZED_NAME_NO_TIN)
+  private Boolean noTin;
+
+  public static final String SERIALIZED_NAME_SECOND_TIN_NOTICE = "secondTinNotice";
+  @SerializedName(SERIALIZED_NAME_SECOND_TIN_NOTICE)
+  private Boolean secondTinNotice;
+
   public static final String SERIALIZED_NAME_ADDRESS_VERIFICATION = "addressVerification";
   @SerializedName(SERIALIZED_NAME_ADDRESS_VERIFICATION)
   private Boolean addressVerification;
@@ -233,25 +237,6 @@ public class Form1099NecListItem {
 
   public Form1099NecListItem() {
   }
-
-  public Form1099NecListItem secondTinNotice(Boolean secondTinNotice) {
-    this.secondTinNotice = secondTinNotice;
-    return this;
-  }
-
-  /**
-   * Second TIN notice
-   * @return secondTinNotice
-   */
-  @javax.annotation.Nullable
-  public Boolean getSecondTinNotice() {
-    return secondTinNotice;
-  }
-
-  public void setSecondTinNotice(Boolean secondTinNotice) {
-    this.secondTinNotice = secondTinNotice;
-  }
-
 
   public Form1099NecListItem nonemployeeCompensation(Double nonemployeeCompensation) {
     this.nonemployeeCompensation = nonemployeeCompensation;
@@ -433,7 +418,7 @@ public class Form1099NecListItem {
    * Recipient name
    * @return recipientName
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getRecipientName() {
     return recipientName;
   }
@@ -576,22 +561,22 @@ public class Form1099NecListItem {
   }
 
 
-  public Form1099NecListItem recipientEmail(String recipientEmail) {
-    this.recipientEmail = recipientEmail;
+  public Form1099NecListItem email(String email) {
+    this.email = email;
     return this;
   }
 
   /**
    * Recipient email address
-   * @return recipientEmail
+   * @return email
    */
   @javax.annotation.Nullable
-  public String getRecipientEmail() {
-    return recipientEmail;
+  public String getEmail() {
+    return email;
   }
 
-  public void setRecipientEmail(String recipientEmail) {
-    this.recipientEmail = recipientEmail;
+  public void setEmail(String email) {
+    this.email = email;
   }
 
 
@@ -633,22 +618,22 @@ public class Form1099NecListItem {
   }
 
 
-  public Form1099NecListItem recipientNonUsProvince(String recipientNonUsProvince) {
-    this.recipientNonUsProvince = recipientNonUsProvince;
+  public Form1099NecListItem nonUsProvince(String nonUsProvince) {
+    this.nonUsProvince = nonUsProvince;
     return this;
   }
 
   /**
    * Foreign province
-   * @return recipientNonUsProvince
+   * @return nonUsProvince
    */
   @javax.annotation.Nullable
-  public String getRecipientNonUsProvince() {
-    return recipientNonUsProvince;
+  public String getNonUsProvince() {
+    return nonUsProvince;
   }
 
-  public void setRecipientNonUsProvince(String recipientNonUsProvince) {
-    this.recipientNonUsProvince = recipientNonUsProvince;
+  public void setNonUsProvince(String nonUsProvince) {
+    this.nonUsProvince = nonUsProvince;
   }
 
 
@@ -747,6 +732,44 @@ public class Form1099NecListItem {
   }
 
 
+  public Form1099NecListItem noTin(Boolean noTin) {
+    this.noTin = noTin;
+    return this;
+  }
+
+  /**
+   * Indicates whether the recipient has no TIN
+   * @return noTin
+   */
+  @javax.annotation.Nullable
+  public Boolean getNoTin() {
+    return noTin;
+  }
+
+  public void setNoTin(Boolean noTin) {
+    this.noTin = noTin;
+  }
+
+
+  public Form1099NecListItem secondTinNotice(Boolean secondTinNotice) {
+    this.secondTinNotice = secondTinNotice;
+    return this;
+  }
+
+  /**
+   * Second TIN notice in three years
+   * @return secondTinNotice
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecondTinNotice() {
+    return secondTinNotice;
+  }
+
+  public void setSecondTinNotice(Boolean secondTinNotice) {
+    this.secondTinNotice = secondTinNotice;
+  }
+
+
   public Form1099NecListItem addressVerification(Boolean addressVerification) {
     this.addressVerification = addressVerification;
     return this;
@@ -795,8 +818,7 @@ public class Form1099NecListItem {
       return false;
     }
     Form1099NecListItem form1099NecListItem = (Form1099NecListItem) o;
-    return Objects.equals(this.secondTinNotice, form1099NecListItem.secondTinNotice) &&
-        Objects.equals(this.nonemployeeCompensation, form1099NecListItem.nonemployeeCompensation) &&
+    return Objects.equals(this.nonemployeeCompensation, form1099NecListItem.nonemployeeCompensation) &&
         Objects.equals(this.directSalesIndicator, form1099NecListItem.directSalesIndicator) &&
         Objects.equals(this.federalIncomeTaxWithheld, form1099NecListItem.federalIncomeTaxWithheld) &&
         Objects.equals(this.issuerReferenceId, form1099NecListItem.issuerReferenceId) &&
@@ -813,15 +835,17 @@ public class Form1099NecListItem {
         Objects.equals(this.city, form1099NecListItem.city) &&
         Objects.equals(this.state, form1099NecListItem.state) &&
         Objects.equals(this.zip, form1099NecListItem.zip) &&
-        Objects.equals(this.recipientEmail, form1099NecListItem.recipientEmail) &&
+        Objects.equals(this.email, form1099NecListItem.email) &&
         Objects.equals(this.accountNumber, form1099NecListItem.accountNumber) &&
         Objects.equals(this.officeCode, form1099NecListItem.officeCode) &&
-        Objects.equals(this.recipientNonUsProvince, form1099NecListItem.recipientNonUsProvince) &&
+        Objects.equals(this.nonUsProvince, form1099NecListItem.nonUsProvince) &&
         Objects.equals(this.countryCode, form1099NecListItem.countryCode) &&
         Objects.equals(this.federalEFile, form1099NecListItem.federalEFile) &&
         Objects.equals(this.postalMail, form1099NecListItem.postalMail) &&
         Objects.equals(this.stateEFile, form1099NecListItem.stateEFile) &&
         Objects.equals(this.tinMatch, form1099NecListItem.tinMatch) &&
+        Objects.equals(this.noTin, form1099NecListItem.noTin) &&
+        Objects.equals(this.secondTinNotice, form1099NecListItem.secondTinNotice) &&
         Objects.equals(this.addressVerification, form1099NecListItem.addressVerification) &&
         Objects.equals(this.stateAndLocalWithholding, form1099NecListItem.stateAndLocalWithholding);
   }
@@ -832,7 +856,7 @@ public class Form1099NecListItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(secondTinNotice, nonemployeeCompensation, directSalesIndicator, federalIncomeTaxWithheld, issuerReferenceId, issuerTin, taxYear, issuerId, referenceId, recipientTin, recipientName, tinType, recipientSecondName, address, address2, city, state, zip, recipientEmail, accountNumber, officeCode, recipientNonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, addressVerification, stateAndLocalWithholding);
+    return Objects.hash(nonemployeeCompensation, directSalesIndicator, federalIncomeTaxWithheld, issuerReferenceId, issuerTin, taxYear, issuerId, referenceId, recipientTin, recipientName, tinType, recipientSecondName, address, address2, city, state, zip, email, accountNumber, officeCode, nonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, noTin, secondTinNotice, addressVerification, stateAndLocalWithholding);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -846,7 +870,6 @@ public class Form1099NecListItem {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Form1099NecListItem {\n");
-    sb.append("    secondTinNotice: ").append(toIndentedString(secondTinNotice)).append("\n");
     sb.append("    nonemployeeCompensation: ").append(toIndentedString(nonemployeeCompensation)).append("\n");
     sb.append("    directSalesIndicator: ").append(toIndentedString(directSalesIndicator)).append("\n");
     sb.append("    federalIncomeTaxWithheld: ").append(toIndentedString(federalIncomeTaxWithheld)).append("\n");
@@ -864,15 +887,17 @@ public class Form1099NecListItem {
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    zip: ").append(toIndentedString(zip)).append("\n");
-    sb.append("    recipientEmail: ").append(toIndentedString(recipientEmail)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    officeCode: ").append(toIndentedString(officeCode)).append("\n");
-    sb.append("    recipientNonUsProvince: ").append(toIndentedString(recipientNonUsProvince)).append("\n");
+    sb.append("    nonUsProvince: ").append(toIndentedString(nonUsProvince)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    federalEFile: ").append(toIndentedString(federalEFile)).append("\n");
     sb.append("    postalMail: ").append(toIndentedString(postalMail)).append("\n");
     sb.append("    stateEFile: ").append(toIndentedString(stateEFile)).append("\n");
     sb.append("    tinMatch: ").append(toIndentedString(tinMatch)).append("\n");
+    sb.append("    noTin: ").append(toIndentedString(noTin)).append("\n");
+    sb.append("    secondTinNotice: ").append(toIndentedString(secondTinNotice)).append("\n");
     sb.append("    addressVerification: ").append(toIndentedString(addressVerification)).append("\n");
     sb.append("    stateAndLocalWithholding: ").append(toIndentedString(stateAndLocalWithholding)).append("\n");
     sb.append("}");
@@ -911,15 +936,17 @@ public class Form1099NecListItem {
     openapiFields.add("city");
     openapiFields.add("state");
     openapiFields.add("zip");
-    openapiFields.add("recipientEmail");
+    openapiFields.add("email");
     openapiFields.add("accountNumber");
     openapiFields.add("officeCode");
-    openapiFields.add("recipientNonUsProvince");
+    openapiFields.add("nonUsProvince");
     openapiFields.add("countryCode");
     openapiFields.add("federalEFile");
     openapiFields.add("postalMail");
     openapiFields.add("stateEFile");
     openapiFields.add("tinMatch");
+    openapiFields.add("noTin");
+    openapiFields.add("secondTinNotice");
     openapiFields.add("addressVerification");
     openapiFields.add("stateAndLocalWithholding");
 
@@ -927,7 +954,6 @@ public class Form1099NecListItem {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("nonemployeeCompensation");
     openapiRequiredFields.add("taxYear");
-    openapiRequiredFields.add("recipientName");
     openapiRequiredFields.add("address");
     openapiRequiredFields.add("city");
     openapiRequiredFields.add("countryCode");
@@ -976,7 +1002,7 @@ public class Form1099NecListItem {
       if ((jsonObj.get("recipientTin") != null && !jsonObj.get("recipientTin").isJsonNull()) && !jsonObj.get("recipientTin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientTin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientTin").toString()));
       }
-      if (!jsonObj.get("recipientName").isJsonPrimitive()) {
+      if ((jsonObj.get("recipientName") != null && !jsonObj.get("recipientName").isJsonNull()) && !jsonObj.get("recipientName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientName").toString()));
       }
       if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
@@ -1004,8 +1030,8 @@ public class Form1099NecListItem {
       if ((jsonObj.get("zip") != null && !jsonObj.get("zip").isJsonNull()) && !jsonObj.get("zip").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `zip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zip").toString()));
       }
-      if ((jsonObj.get("recipientEmail") != null && !jsonObj.get("recipientEmail").isJsonNull()) && !jsonObj.get("recipientEmail").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recipientEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientEmail").toString()));
+      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       if ((jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonNull()) && !jsonObj.get("accountNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
@@ -1013,8 +1039,8 @@ public class Form1099NecListItem {
       if ((jsonObj.get("officeCode") != null && !jsonObj.get("officeCode").isJsonNull()) && !jsonObj.get("officeCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `officeCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("officeCode").toString()));
       }
-      if ((jsonObj.get("recipientNonUsProvince") != null && !jsonObj.get("recipientNonUsProvince").isJsonNull()) && !jsonObj.get("recipientNonUsProvince").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recipientNonUsProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientNonUsProvince").toString()));
+      if ((jsonObj.get("nonUsProvince") != null && !jsonObj.get("nonUsProvince").isJsonNull()) && !jsonObj.get("nonUsProvince").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `nonUsProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nonUsProvince").toString()));
       }
       if (!jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));

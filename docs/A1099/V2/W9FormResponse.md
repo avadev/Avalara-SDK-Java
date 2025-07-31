@@ -25,6 +25,7 @@
 |**tin** | **String** | The taxpayer identification number (TIN). |  [optional] |
 |**backupWithholding** | **Boolean** | Indicates whether backup withholding applies. |  [optional] |
 |**is1099able** | **Boolean** | Indicates whether the individual or entity should be issued a 1099 form. |  [optional] |
+|**tinMatchStatus** | [**TinMatchStatusResponse**](TinMatchStatusResponse.md) | The TIN Match status from IRS. |  [optional] |
 |**id** | **String** | The unique identifier for the form. |  [optional] |
 |**type** | **String** | The form type. |  [optional] |
 |**entryStatus** | **String** | The form status. |  [optional] |

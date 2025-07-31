@@ -14,19 +14,22 @@
 |**issuerTin** | **String** | Issuer TIN |  [optional] |
 |**taxYear** | **Integer** | Tax year |  [optional] |
 |**federalEfile** | **Boolean** | Boolean indicating that federal e-filing has been scheduled for this form |  |
-|**federalEfileStatus** | [**Form1099StatusDetailResponse**](Form1099StatusDetailResponse.md) | Federal e-file status |  [optional] [readonly] |
+|**federalEfileStatus** | [**StatusDetail**](StatusDetail.md) | Federal e-file status |  [optional] [readonly] |
 |**stateEfile** | **Boolean** | Boolean indicating that state e-filing has been scheduled for this form |  |
 |**stateEfileStatus** | [**List&lt;StateEfileStatusDetailResponse&gt;**](StateEfileStatusDetailResponse.md) | State e-file status |  [optional] [readonly] |
 |**postalMail** | **Boolean** | Boolean indicating that postal mailing to the recipient has been scheduled for this form |  |
-|**postalMailStatus** | [**Form1099StatusDetailResponse**](Form1099StatusDetailResponse.md) | Postal mail to recipient status |  [optional] [readonly] |
+|**postalMailStatus** | [**StatusDetail**](StatusDetail.md) | Postal mail to recipient status |  [optional] [readonly] |
 |**tinMatch** | **Boolean** | Boolean indicating that TIN Matching has been scheduled for this form |  |
-|**tinMatchStatus** | [**Form1099StatusDetailResponse**](Form1099StatusDetailResponse.md) | TIN Match status |  [optional] [readonly] |
+|**tinMatchStatus** | [**StatusDetail**](StatusDetail.md) | TIN Match status |  [optional] [readonly] |
 |**addressVerification** | **Boolean** | Boolean indicating that address verification has been scheduled for this form |  |
-|**addressVerificationStatus** | [**Form1099StatusDetailResponse**](Form1099StatusDetailResponse.md) | Address verification status |  [optional] [readonly] |
+|**addressVerificationStatus** | [**StatusDetail**](StatusDetail.md) | Address verification status |  [optional] [readonly] |
+|**eDeliveryStatus** | [**StatusDetail**](StatusDetail.md) | EDelivery status |  [optional] [readonly] |
 |**referenceId** | **String** | Reference ID |  [optional] |
 |**email** | **String** | Recipient email address |  [optional] |
 |**tinType** | **String** | Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN |  [optional] |
 |**tin** | **String** | Recipient Tax ID Number |  [optional] |
+|**noTin** | **Boolean** | Indicates whether the recipient has no TIN |  [optional] |
+|**secondTinNotice** | **Boolean** | Second Tin Notice |  [optional] |
 |**recipientName** | **String** | Recipient name |  [optional] |
 |**recipientSecondName** | **String** | Recipient second name |  [optional] |
 |**address** | **String** | Address |  [optional] |
@@ -34,14 +37,16 @@
 |**city** | **String** | City |  [optional] |
 |**state** | **String** | US state |  [optional] |
 |**zip** | **String** | Zip/postal code |  [optional] |
-|**foreignProvince** | **String** | Foreign province |  [optional] |
+|**nonUsProvince** | **String** | Foreign province |  [optional] |
 |**countryCode** | **String** | Country code, as defined at https://www.irs.gov/e-file-providers/country-codes |  [optional] |
+|**accountNumber** | **String** | Account Number |  [optional] |
+|**officeCode** | **String** | Office Code |  [optional] |
+|**fatcaFilingRequirement** | **Boolean** | FATCA filing requirement |  [optional] |
 |**validationErrors** | [**List&lt;ValidationErrorResponse&gt;**](ValidationErrorResponse.md) | Validation errors |  [optional] [readonly] |
 |**createdAt** | **OffsetDateTime** | Creation time |  [optional] [readonly] |
 |**updatedAt** | **OffsetDateTime** | Update time |  [optional] [readonly] |
 |**stateAndLocalWithholding** | [**StateAndLocalWithholdingResponse**](StateAndLocalWithholdingResponse.md) |  |  [optional] |
 |**uniqueFormId** | **String** | Unique form identifier |  [optional] |
-|**noTin** | **Boolean** | No TIN indicator |  [optional] |
 |**recipientDateOfBirth** | **OffsetDateTime** | Recipient&#39;s date of birth |  [optional] |
 |**recipientGiin** | **String** | Recipient&#39;s GIIN (Global Intermediary Identification Number) |  [optional] |
 |**recipientForeignTin** | **String** | Recipient&#39;s foreign TIN |  [optional] |
@@ -66,6 +71,24 @@
 |**intermediaryOrFlowThrough** | [**IntermediaryOrFlowThroughResponse**](IntermediaryOrFlowThroughResponse.md) | Intermediary or flow-through entity information |  [optional] |
 |**originOfHealthCoverageCode** | **String** | Origin of health coverage code |  [optional] |
 |**coveredIndividuals** | [**List&lt;CoveredIndividualReferenceResponse&gt;**](CoveredIndividualReferenceResponse.md) | Covered individuals information |  [optional] |
+|**totalOrdinaryDividends** | **String** | Total ordinary dividends |  [optional] |
+|**qualifiedDividends** | **String** | Qualified dividends |  [optional] |
+|**totalCapitalGainDistributions** | **String** | Total capital gain distributions |  [optional] |
+|**unrecapturedSection1250Gain** | **String** | Unrecaptured Section 1250 gain |  [optional] |
+|**section1202Gain** | **String** | Section 1202 gain |  [optional] |
+|**collectiblesGain** | **String** | Collectibles (28%) gain |  [optional] |
+|**section897OrdinaryDividends** | **String** | Section 897 ordinary dividends |  [optional] |
+|**section897CapitalGain** | **String** | Section 897 capital gain |  [optional] |
+|**nondividendDistributions** | **String** | Nondividend distributions |  [optional] |
+|**federalIncomeTaxWithheld** | **Double** | Federal income tax withheld |  [optional] |
+|**section199ADividends** | **String** | Section 199A dividends |  [optional] |
+|**investmentExpenses** | **String** | Investment expenses |  [optional] |
+|**foreignTaxPaid** | **String** | Foreign tax paid |  [optional] |
+|**foreignCountryOrUSPossession** | **String** | Foreign country or U.S. possession |  [optional] |
+|**cashLiquidationDistributions** | **String** | Cash liquidation distributions |  [optional] |
+|**noncashLiquidationDistributions** | **String** | Noncash liquidation distributions |  [optional] |
+|**exemptInterestDividends** | **String** | Exempt-interest dividends |  [optional] |
+|**specifiedPrivateActivityBondInterestDividends** | **String** | Specified private activity bond interest dividends |  [optional] |
 |**filerType** | [**FilerTypeEnum**](#FilerTypeEnum) | Filer type (PSE or EPF) |  [optional] |
 |**paymentType** | [**PaymentTypeEnum**](#PaymentTypeEnum) | Payment type (payment card or third party network) |  [optional] |
 |**paymentSettlementEntityNamePhoneNumber** | **String** | Payment settlement entity name and phone number |  [optional] |
@@ -73,7 +96,6 @@
 |**cardNotPresentTransactions** | **Double** | Card not present transactions |  [optional] |
 |**merchantCategoryCode** | **String** | Merchant category code |  [optional] |
 |**paymentTransactionNumber** | **Double** | Number of payment transactions |  [optional] |
-|**federalIncomeTaxWithheld** | **Double** | Federal income tax withheld |  [optional] |
 |**january** | **Double** | January gross payments |  [optional] |
 |**february** | **Double** | February gross payments |  [optional] |
 |**march** | **Double** | March gross payments |  [optional] |
@@ -91,14 +113,15 @@
 |**otherIncome** | **Double** | Other income |  [optional] |
 |**fedIncomeTaxWithheld** | **Double** | Federal income tax withheld |  [optional] |
 |**fishingBoatProceeds** | **Double** | Fishing boat proceeds |  [optional] |
-|**medicalAndHealthCare** | **Double** | Medical and health care payments |  [optional] |
+|**medicalAndHealthCarePayments** | **Double** | Medical and health care payments |  [optional] |
 |**substitutePayments** | **Double** | Substitute payments in lieu of dividends or interest |  [optional] |
 |**directSalesIndicator** | **Boolean** | Payer made direct sales totaling $5,000 or more of consumer products to recipient for resale |  [optional] |
 |**cropInsuranceProceeds** | **Double** | Crop insurance proceeds |  [optional] |
-|**excessGoldenParachute** | **Double** | (Legacy field) Excess golden parachute payments |  [optional] |
-|**grossAmountPaidAttorney** | **Double** | Gross proceeds paid to an attorney |  [optional] |
+|**excessGoldenParachutePayments** | **Double** | (Legacy field) Excess golden parachute payments |  [optional] |
+|**grossProceedsPaidToAttorney** | **Double** | Gross proceeds paid to an attorney |  [optional] |
+|**fishPurchasedForResale** | **Double** | Fish purchased for resale |  [optional] |
 |**section409ADeferrals** | **Double** | Section 409A deferrals |  [optional] |
-|**section409AIncome** | **Double** | Nonqualified deferred compensation |  [optional] |
+|**nonqualifiedDeferredCompensation** | **Double** | Nonqualified deferred compensation |  [optional] |
 |**nonemployeeCompensation** | **Double** | Nonemployee compensation |  [optional] |
 |**grossDistributions** | **Double** | Gross distribution |  [optional] |
 |**taxableAmount** | **Double** | Taxable amount |  [optional] |

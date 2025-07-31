@@ -20,6 +20,7 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
+import Avalara.SDK.model.A1099.V2.TinMatchStatusResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -130,6 +131,10 @@ public class W9FormResponse {
   public static final String SERIALIZED_NAME_IS1099ABLE = "is1099able";
   @SerializedName(SERIALIZED_NAME_IS1099ABLE)
   private Boolean is1099able;
+
+  public static final String SERIALIZED_NAME_TIN_MATCH_STATUS = "tinMatchStatus";
+  @SerializedName(SERIALIZED_NAME_TIN_MATCH_STATUS)
+  private TinMatchStatusResponse tinMatchStatus;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -532,6 +537,25 @@ public class W9FormResponse {
   }
 
 
+  public W9FormResponse tinMatchStatus(TinMatchStatusResponse tinMatchStatus) {
+    this.tinMatchStatus = tinMatchStatus;
+    return this;
+  }
+
+  /**
+   * The TIN Match status from IRS.
+   * @return tinMatchStatus
+   */
+  @javax.annotation.Nullable
+  public TinMatchStatusResponse getTinMatchStatus() {
+    return tinMatchStatus;
+  }
+
+  public void setTinMatchStatus(TinMatchStatusResponse tinMatchStatus) {
+    this.tinMatchStatus = tinMatchStatus;
+  }
+
+
   public W9FormResponse id(String id) {
     this.id = id;
     return this;
@@ -826,6 +850,7 @@ public class W9FormResponse {
         Objects.equals(this.tin, w9FormResponse.tin) &&
         Objects.equals(this.backupWithholding, w9FormResponse.backupWithholding) &&
         Objects.equals(this.is1099able, w9FormResponse.is1099able) &&
+        Objects.equals(this.tinMatchStatus, w9FormResponse.tinMatchStatus) &&
         Objects.equals(this.id, w9FormResponse.id) &&
         Objects.equals(this.type, w9FormResponse.type) &&
         Objects.equals(this.entryStatus, w9FormResponse.entryStatus) &&
@@ -848,7 +873,7 @@ public class W9FormResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, businessName, businessClassification, businessOther, foreignPartnerOwnerOrBeneficiary, exemptPayeeCode, exemptFatcaCode, foreignCountryIndicator, address, foreignAddress, city, state, zip, accountNumber, tinType, tin, backupWithholding, is1099able, id, type, entryStatus, entryStatusDate, referenceId, companyId, displayName, email, archived, signature, signedDate, eDeliveryConsentedAt, createdAt, updatedAt);
+    return Objects.hash(name, businessName, businessClassification, businessOther, foreignPartnerOwnerOrBeneficiary, exemptPayeeCode, exemptFatcaCode, foreignCountryIndicator, address, foreignAddress, city, state, zip, accountNumber, tinType, tin, backupWithholding, is1099able, tinMatchStatus, id, type, entryStatus, entryStatusDate, referenceId, companyId, displayName, email, archived, signature, signedDate, eDeliveryConsentedAt, createdAt, updatedAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -880,6 +905,7 @@ public class W9FormResponse {
     sb.append("    tin: ").append(toIndentedString(tin)).append("\n");
     sb.append("    backupWithholding: ").append(toIndentedString(backupWithholding)).append("\n");
     sb.append("    is1099able: ").append(toIndentedString(is1099able)).append("\n");
+    sb.append("    tinMatchStatus: ").append(toIndentedString(tinMatchStatus)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    entryStatus: ").append(toIndentedString(entryStatus)).append("\n");
@@ -997,6 +1023,10 @@ public class W9FormResponse {
       }
       if ((jsonObj.get("tin") != null && !jsonObj.get("tin").isJsonNull()) && !jsonObj.get("tin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tin").toString()));
+      }
+      // validate the optional field `tinMatchStatus`
+      if (jsonObj.get("tinMatchStatus") != null && !jsonObj.get("tinMatchStatus").isJsonNull()) {
+        TinMatchStatusResponse.validateJsonElement(jsonObj.get("tinMatchStatus"));
       }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));

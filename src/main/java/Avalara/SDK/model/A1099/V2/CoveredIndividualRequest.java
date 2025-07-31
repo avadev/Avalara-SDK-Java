@@ -83,57 +83,57 @@ public class CoveredIndividualRequest {
   @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
   private OffsetDateTime birthDate;
 
-  public static final String SERIALIZED_NAME_COVERED_MONTH_INDICATOR0 = "coveredMonthIndicator0";
-  @SerializedName(SERIALIZED_NAME_COVERED_MONTH_INDICATOR0)
-  private Boolean coveredMonthIndicator0;
+  public static final String SERIALIZED_NAME_COVERED_ALL_MONTHS = "coveredAllMonths";
+  @SerializedName(SERIALIZED_NAME_COVERED_ALL_MONTHS)
+  private Boolean coveredAllMonths;
 
-  public static final String SERIALIZED_NAME_COVERED_MONTH_INDICATOR1 = "coveredMonthIndicator1";
-  @SerializedName(SERIALIZED_NAME_COVERED_MONTH_INDICATOR1)
-  private Boolean coveredMonthIndicator1;
+  public static final String SERIALIZED_NAME_COVERED_JANUARY = "coveredJanuary";
+  @SerializedName(SERIALIZED_NAME_COVERED_JANUARY)
+  private Boolean coveredJanuary;
 
-  public static final String SERIALIZED_NAME_COVERED_MONTH_INDICATOR2 = "coveredMonthIndicator2";
-  @SerializedName(SERIALIZED_NAME_COVERED_MONTH_INDICATOR2)
-  private Boolean coveredMonthIndicator2;
+  public static final String SERIALIZED_NAME_COVERED_FEBRUARY = "coveredFebruary";
+  @SerializedName(SERIALIZED_NAME_COVERED_FEBRUARY)
+  private Boolean coveredFebruary;
 
-  public static final String SERIALIZED_NAME_COVERED_MONTH_INDICATOR3 = "coveredMonthIndicator3";
-  @SerializedName(SERIALIZED_NAME_COVERED_MONTH_INDICATOR3)
-  private Boolean coveredMonthIndicator3;
+  public static final String SERIALIZED_NAME_COVERED_MARCH = "coveredMarch";
+  @SerializedName(SERIALIZED_NAME_COVERED_MARCH)
+  private Boolean coveredMarch;
 
-  public static final String SERIALIZED_NAME_COVERED_MONTH_INDICATOR4 = "coveredMonthIndicator4";
-  @SerializedName(SERIALIZED_NAME_COVERED_MONTH_INDICATOR4)
-  private Boolean coveredMonthIndicator4;
+  public static final String SERIALIZED_NAME_COVERED_APRIL = "coveredApril";
+  @SerializedName(SERIALIZED_NAME_COVERED_APRIL)
+  private Boolean coveredApril;
 
-  public static final String SERIALIZED_NAME_COVERED_MONTH_INDICATOR5 = "coveredMonthIndicator5";
-  @SerializedName(SERIALIZED_NAME_COVERED_MONTH_INDICATOR5)
-  private Boolean coveredMonthIndicator5;
+  public static final String SERIALIZED_NAME_COVERED_MAY = "coveredMay";
+  @SerializedName(SERIALIZED_NAME_COVERED_MAY)
+  private Boolean coveredMay;
 
-  public static final String SERIALIZED_NAME_COVERED_MONTH_INDICATOR6 = "coveredMonthIndicator6";
-  @SerializedName(SERIALIZED_NAME_COVERED_MONTH_INDICATOR6)
-  private Boolean coveredMonthIndicator6;
+  public static final String SERIALIZED_NAME_COVERED_JUNE = "coveredJune";
+  @SerializedName(SERIALIZED_NAME_COVERED_JUNE)
+  private Boolean coveredJune;
 
-  public static final String SERIALIZED_NAME_COVERED_MONTH_INDICATOR7 = "coveredMonthIndicator7";
-  @SerializedName(SERIALIZED_NAME_COVERED_MONTH_INDICATOR7)
-  private Boolean coveredMonthIndicator7;
+  public static final String SERIALIZED_NAME_COVERED_JULY = "coveredJuly";
+  @SerializedName(SERIALIZED_NAME_COVERED_JULY)
+  private Boolean coveredJuly;
 
-  public static final String SERIALIZED_NAME_COVERED_MONTH_INDICATOR8 = "coveredMonthIndicator8";
-  @SerializedName(SERIALIZED_NAME_COVERED_MONTH_INDICATOR8)
-  private Boolean coveredMonthIndicator8;
+  public static final String SERIALIZED_NAME_COVERED_AUGUST = "coveredAugust";
+  @SerializedName(SERIALIZED_NAME_COVERED_AUGUST)
+  private Boolean coveredAugust;
 
-  public static final String SERIALIZED_NAME_COVERED_MONTH_INDICATOR9 = "coveredMonthIndicator9";
-  @SerializedName(SERIALIZED_NAME_COVERED_MONTH_INDICATOR9)
-  private Boolean coveredMonthIndicator9;
+  public static final String SERIALIZED_NAME_COVERED_SEPTEMBER = "coveredSeptember";
+  @SerializedName(SERIALIZED_NAME_COVERED_SEPTEMBER)
+  private Boolean coveredSeptember;
 
-  public static final String SERIALIZED_NAME_COVERED_MONTH_INDICATOR10 = "coveredMonthIndicator10";
-  @SerializedName(SERIALIZED_NAME_COVERED_MONTH_INDICATOR10)
-  private Boolean coveredMonthIndicator10;
+  public static final String SERIALIZED_NAME_COVERED_OCTOBER = "coveredOctober";
+  @SerializedName(SERIALIZED_NAME_COVERED_OCTOBER)
+  private Boolean coveredOctober;
 
-  public static final String SERIALIZED_NAME_COVERED_MONTH_INDICATOR11 = "coveredMonthIndicator11";
-  @SerializedName(SERIALIZED_NAME_COVERED_MONTH_INDICATOR11)
-  private Boolean coveredMonthIndicator11;
+  public static final String SERIALIZED_NAME_COVERED_NOVEMBER = "coveredNovember";
+  @SerializedName(SERIALIZED_NAME_COVERED_NOVEMBER)
+  private Boolean coveredNovember;
 
-  public static final String SERIALIZED_NAME_COVERED_MONTH_INDICATOR12 = "coveredMonthIndicator12";
-  @SerializedName(SERIALIZED_NAME_COVERED_MONTH_INDICATOR12)
-  private Boolean coveredMonthIndicator12;
+  public static final String SERIALIZED_NAME_COVERED_DECEMBER = "coveredDecember";
+  @SerializedName(SERIALIZED_NAME_COVERED_DECEMBER)
+  private Boolean coveredDecember;
 
   public CoveredIndividualRequest() {
   }
@@ -252,250 +252,250 @@ public class CoveredIndividualRequest {
   }
 
 
-  public CoveredIndividualRequest coveredMonthIndicator0(Boolean coveredMonthIndicator0) {
-    this.coveredMonthIndicator0 = coveredMonthIndicator0;
+  public CoveredIndividualRequest coveredAllMonths(Boolean coveredAllMonths) {
+    this.coveredAllMonths = coveredAllMonths;
     return this;
   }
 
   /**
    * Coverage indicator for all 12 months
-   * @return coveredMonthIndicator0
+   * @return coveredAllMonths
    */
   @javax.annotation.Nullable
-  public Boolean getCoveredMonthIndicator0() {
-    return coveredMonthIndicator0;
+  public Boolean getCoveredAllMonths() {
+    return coveredAllMonths;
   }
 
-  public void setCoveredMonthIndicator0(Boolean coveredMonthIndicator0) {
-    this.coveredMonthIndicator0 = coveredMonthIndicator0;
+  public void setCoveredAllMonths(Boolean coveredAllMonths) {
+    this.coveredAllMonths = coveredAllMonths;
   }
 
 
-  public CoveredIndividualRequest coveredMonthIndicator1(Boolean coveredMonthIndicator1) {
-    this.coveredMonthIndicator1 = coveredMonthIndicator1;
+  public CoveredIndividualRequest coveredJanuary(Boolean coveredJanuary) {
+    this.coveredJanuary = coveredJanuary;
     return this;
   }
 
   /**
    * Coverage indicator for January
-   * @return coveredMonthIndicator1
+   * @return coveredJanuary
    */
   @javax.annotation.Nullable
-  public Boolean getCoveredMonthIndicator1() {
-    return coveredMonthIndicator1;
+  public Boolean getCoveredJanuary() {
+    return coveredJanuary;
   }
 
-  public void setCoveredMonthIndicator1(Boolean coveredMonthIndicator1) {
-    this.coveredMonthIndicator1 = coveredMonthIndicator1;
+  public void setCoveredJanuary(Boolean coveredJanuary) {
+    this.coveredJanuary = coveredJanuary;
   }
 
 
-  public CoveredIndividualRequest coveredMonthIndicator2(Boolean coveredMonthIndicator2) {
-    this.coveredMonthIndicator2 = coveredMonthIndicator2;
+  public CoveredIndividualRequest coveredFebruary(Boolean coveredFebruary) {
+    this.coveredFebruary = coveredFebruary;
     return this;
   }
 
   /**
    * Coverage indicator for February
-   * @return coveredMonthIndicator2
+   * @return coveredFebruary
    */
   @javax.annotation.Nullable
-  public Boolean getCoveredMonthIndicator2() {
-    return coveredMonthIndicator2;
+  public Boolean getCoveredFebruary() {
+    return coveredFebruary;
   }
 
-  public void setCoveredMonthIndicator2(Boolean coveredMonthIndicator2) {
-    this.coveredMonthIndicator2 = coveredMonthIndicator2;
+  public void setCoveredFebruary(Boolean coveredFebruary) {
+    this.coveredFebruary = coveredFebruary;
   }
 
 
-  public CoveredIndividualRequest coveredMonthIndicator3(Boolean coveredMonthIndicator3) {
-    this.coveredMonthIndicator3 = coveredMonthIndicator3;
+  public CoveredIndividualRequest coveredMarch(Boolean coveredMarch) {
+    this.coveredMarch = coveredMarch;
     return this;
   }
 
   /**
    * Coverage indicator for March
-   * @return coveredMonthIndicator3
+   * @return coveredMarch
    */
   @javax.annotation.Nullable
-  public Boolean getCoveredMonthIndicator3() {
-    return coveredMonthIndicator3;
+  public Boolean getCoveredMarch() {
+    return coveredMarch;
   }
 
-  public void setCoveredMonthIndicator3(Boolean coveredMonthIndicator3) {
-    this.coveredMonthIndicator3 = coveredMonthIndicator3;
+  public void setCoveredMarch(Boolean coveredMarch) {
+    this.coveredMarch = coveredMarch;
   }
 
 
-  public CoveredIndividualRequest coveredMonthIndicator4(Boolean coveredMonthIndicator4) {
-    this.coveredMonthIndicator4 = coveredMonthIndicator4;
+  public CoveredIndividualRequest coveredApril(Boolean coveredApril) {
+    this.coveredApril = coveredApril;
     return this;
   }
 
   /**
    * Coverage indicator for April
-   * @return coveredMonthIndicator4
+   * @return coveredApril
    */
   @javax.annotation.Nullable
-  public Boolean getCoveredMonthIndicator4() {
-    return coveredMonthIndicator4;
+  public Boolean getCoveredApril() {
+    return coveredApril;
   }
 
-  public void setCoveredMonthIndicator4(Boolean coveredMonthIndicator4) {
-    this.coveredMonthIndicator4 = coveredMonthIndicator4;
+  public void setCoveredApril(Boolean coveredApril) {
+    this.coveredApril = coveredApril;
   }
 
 
-  public CoveredIndividualRequest coveredMonthIndicator5(Boolean coveredMonthIndicator5) {
-    this.coveredMonthIndicator5 = coveredMonthIndicator5;
+  public CoveredIndividualRequest coveredMay(Boolean coveredMay) {
+    this.coveredMay = coveredMay;
     return this;
   }
 
   /**
    * Coverage indicator for May
-   * @return coveredMonthIndicator5
+   * @return coveredMay
    */
   @javax.annotation.Nullable
-  public Boolean getCoveredMonthIndicator5() {
-    return coveredMonthIndicator5;
+  public Boolean getCoveredMay() {
+    return coveredMay;
   }
 
-  public void setCoveredMonthIndicator5(Boolean coveredMonthIndicator5) {
-    this.coveredMonthIndicator5 = coveredMonthIndicator5;
+  public void setCoveredMay(Boolean coveredMay) {
+    this.coveredMay = coveredMay;
   }
 
 
-  public CoveredIndividualRequest coveredMonthIndicator6(Boolean coveredMonthIndicator6) {
-    this.coveredMonthIndicator6 = coveredMonthIndicator6;
+  public CoveredIndividualRequest coveredJune(Boolean coveredJune) {
+    this.coveredJune = coveredJune;
     return this;
   }
 
   /**
    * Coverage indicator for June
-   * @return coveredMonthIndicator6
+   * @return coveredJune
    */
   @javax.annotation.Nullable
-  public Boolean getCoveredMonthIndicator6() {
-    return coveredMonthIndicator6;
+  public Boolean getCoveredJune() {
+    return coveredJune;
   }
 
-  public void setCoveredMonthIndicator6(Boolean coveredMonthIndicator6) {
-    this.coveredMonthIndicator6 = coveredMonthIndicator6;
+  public void setCoveredJune(Boolean coveredJune) {
+    this.coveredJune = coveredJune;
   }
 
 
-  public CoveredIndividualRequest coveredMonthIndicator7(Boolean coveredMonthIndicator7) {
-    this.coveredMonthIndicator7 = coveredMonthIndicator7;
+  public CoveredIndividualRequest coveredJuly(Boolean coveredJuly) {
+    this.coveredJuly = coveredJuly;
     return this;
   }
 
   /**
    * Coverage indicator for July
-   * @return coveredMonthIndicator7
+   * @return coveredJuly
    */
   @javax.annotation.Nullable
-  public Boolean getCoveredMonthIndicator7() {
-    return coveredMonthIndicator7;
+  public Boolean getCoveredJuly() {
+    return coveredJuly;
   }
 
-  public void setCoveredMonthIndicator7(Boolean coveredMonthIndicator7) {
-    this.coveredMonthIndicator7 = coveredMonthIndicator7;
+  public void setCoveredJuly(Boolean coveredJuly) {
+    this.coveredJuly = coveredJuly;
   }
 
 
-  public CoveredIndividualRequest coveredMonthIndicator8(Boolean coveredMonthIndicator8) {
-    this.coveredMonthIndicator8 = coveredMonthIndicator8;
+  public CoveredIndividualRequest coveredAugust(Boolean coveredAugust) {
+    this.coveredAugust = coveredAugust;
     return this;
   }
 
   /**
    * Coverage indicator for August
-   * @return coveredMonthIndicator8
+   * @return coveredAugust
    */
   @javax.annotation.Nullable
-  public Boolean getCoveredMonthIndicator8() {
-    return coveredMonthIndicator8;
+  public Boolean getCoveredAugust() {
+    return coveredAugust;
   }
 
-  public void setCoveredMonthIndicator8(Boolean coveredMonthIndicator8) {
-    this.coveredMonthIndicator8 = coveredMonthIndicator8;
+  public void setCoveredAugust(Boolean coveredAugust) {
+    this.coveredAugust = coveredAugust;
   }
 
 
-  public CoveredIndividualRequest coveredMonthIndicator9(Boolean coveredMonthIndicator9) {
-    this.coveredMonthIndicator9 = coveredMonthIndicator9;
+  public CoveredIndividualRequest coveredSeptember(Boolean coveredSeptember) {
+    this.coveredSeptember = coveredSeptember;
     return this;
   }
 
   /**
    * Coverage indicator for September
-   * @return coveredMonthIndicator9
+   * @return coveredSeptember
    */
   @javax.annotation.Nullable
-  public Boolean getCoveredMonthIndicator9() {
-    return coveredMonthIndicator9;
+  public Boolean getCoveredSeptember() {
+    return coveredSeptember;
   }
 
-  public void setCoveredMonthIndicator9(Boolean coveredMonthIndicator9) {
-    this.coveredMonthIndicator9 = coveredMonthIndicator9;
+  public void setCoveredSeptember(Boolean coveredSeptember) {
+    this.coveredSeptember = coveredSeptember;
   }
 
 
-  public CoveredIndividualRequest coveredMonthIndicator10(Boolean coveredMonthIndicator10) {
-    this.coveredMonthIndicator10 = coveredMonthIndicator10;
+  public CoveredIndividualRequest coveredOctober(Boolean coveredOctober) {
+    this.coveredOctober = coveredOctober;
     return this;
   }
 
   /**
    * Coverage indicator for October
-   * @return coveredMonthIndicator10
+   * @return coveredOctober
    */
   @javax.annotation.Nullable
-  public Boolean getCoveredMonthIndicator10() {
-    return coveredMonthIndicator10;
+  public Boolean getCoveredOctober() {
+    return coveredOctober;
   }
 
-  public void setCoveredMonthIndicator10(Boolean coveredMonthIndicator10) {
-    this.coveredMonthIndicator10 = coveredMonthIndicator10;
+  public void setCoveredOctober(Boolean coveredOctober) {
+    this.coveredOctober = coveredOctober;
   }
 
 
-  public CoveredIndividualRequest coveredMonthIndicator11(Boolean coveredMonthIndicator11) {
-    this.coveredMonthIndicator11 = coveredMonthIndicator11;
+  public CoveredIndividualRequest coveredNovember(Boolean coveredNovember) {
+    this.coveredNovember = coveredNovember;
     return this;
   }
 
   /**
    * Coverage indicator for November
-   * @return coveredMonthIndicator11
+   * @return coveredNovember
    */
   @javax.annotation.Nullable
-  public Boolean getCoveredMonthIndicator11() {
-    return coveredMonthIndicator11;
+  public Boolean getCoveredNovember() {
+    return coveredNovember;
   }
 
-  public void setCoveredMonthIndicator11(Boolean coveredMonthIndicator11) {
-    this.coveredMonthIndicator11 = coveredMonthIndicator11;
+  public void setCoveredNovember(Boolean coveredNovember) {
+    this.coveredNovember = coveredNovember;
   }
 
 
-  public CoveredIndividualRequest coveredMonthIndicator12(Boolean coveredMonthIndicator12) {
-    this.coveredMonthIndicator12 = coveredMonthIndicator12;
+  public CoveredIndividualRequest coveredDecember(Boolean coveredDecember) {
+    this.coveredDecember = coveredDecember;
     return this;
   }
 
   /**
    * Coverage indicator for December
-   * @return coveredMonthIndicator12
+   * @return coveredDecember
    */
   @javax.annotation.Nullable
-  public Boolean getCoveredMonthIndicator12() {
-    return coveredMonthIndicator12;
+  public Boolean getCoveredDecember() {
+    return coveredDecember;
   }
 
-  public void setCoveredMonthIndicator12(Boolean coveredMonthIndicator12) {
-    this.coveredMonthIndicator12 = coveredMonthIndicator12;
+  public void setCoveredDecember(Boolean coveredDecember) {
+    this.coveredDecember = coveredDecember;
   }
 
 
@@ -515,19 +515,19 @@ public class CoveredIndividualRequest {
         Objects.equals(this.nameSuffix, coveredIndividualRequest.nameSuffix) &&
         Objects.equals(this.tin, coveredIndividualRequest.tin) &&
         Objects.equals(this.birthDate, coveredIndividualRequest.birthDate) &&
-        Objects.equals(this.coveredMonthIndicator0, coveredIndividualRequest.coveredMonthIndicator0) &&
-        Objects.equals(this.coveredMonthIndicator1, coveredIndividualRequest.coveredMonthIndicator1) &&
-        Objects.equals(this.coveredMonthIndicator2, coveredIndividualRequest.coveredMonthIndicator2) &&
-        Objects.equals(this.coveredMonthIndicator3, coveredIndividualRequest.coveredMonthIndicator3) &&
-        Objects.equals(this.coveredMonthIndicator4, coveredIndividualRequest.coveredMonthIndicator4) &&
-        Objects.equals(this.coveredMonthIndicator5, coveredIndividualRequest.coveredMonthIndicator5) &&
-        Objects.equals(this.coveredMonthIndicator6, coveredIndividualRequest.coveredMonthIndicator6) &&
-        Objects.equals(this.coveredMonthIndicator7, coveredIndividualRequest.coveredMonthIndicator7) &&
-        Objects.equals(this.coveredMonthIndicator8, coveredIndividualRequest.coveredMonthIndicator8) &&
-        Objects.equals(this.coveredMonthIndicator9, coveredIndividualRequest.coveredMonthIndicator9) &&
-        Objects.equals(this.coveredMonthIndicator10, coveredIndividualRequest.coveredMonthIndicator10) &&
-        Objects.equals(this.coveredMonthIndicator11, coveredIndividualRequest.coveredMonthIndicator11) &&
-        Objects.equals(this.coveredMonthIndicator12, coveredIndividualRequest.coveredMonthIndicator12);
+        Objects.equals(this.coveredAllMonths, coveredIndividualRequest.coveredAllMonths) &&
+        Objects.equals(this.coveredJanuary, coveredIndividualRequest.coveredJanuary) &&
+        Objects.equals(this.coveredFebruary, coveredIndividualRequest.coveredFebruary) &&
+        Objects.equals(this.coveredMarch, coveredIndividualRequest.coveredMarch) &&
+        Objects.equals(this.coveredApril, coveredIndividualRequest.coveredApril) &&
+        Objects.equals(this.coveredMay, coveredIndividualRequest.coveredMay) &&
+        Objects.equals(this.coveredJune, coveredIndividualRequest.coveredJune) &&
+        Objects.equals(this.coveredJuly, coveredIndividualRequest.coveredJuly) &&
+        Objects.equals(this.coveredAugust, coveredIndividualRequest.coveredAugust) &&
+        Objects.equals(this.coveredSeptember, coveredIndividualRequest.coveredSeptember) &&
+        Objects.equals(this.coveredOctober, coveredIndividualRequest.coveredOctober) &&
+        Objects.equals(this.coveredNovember, coveredIndividualRequest.coveredNovember) &&
+        Objects.equals(this.coveredDecember, coveredIndividualRequest.coveredDecember);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -536,7 +536,7 @@ public class CoveredIndividualRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, middleName, lastName, nameSuffix, tin, birthDate, coveredMonthIndicator0, coveredMonthIndicator1, coveredMonthIndicator2, coveredMonthIndicator3, coveredMonthIndicator4, coveredMonthIndicator5, coveredMonthIndicator6, coveredMonthIndicator7, coveredMonthIndicator8, coveredMonthIndicator9, coveredMonthIndicator10, coveredMonthIndicator11, coveredMonthIndicator12);
+    return Objects.hash(firstName, middleName, lastName, nameSuffix, tin, birthDate, coveredAllMonths, coveredJanuary, coveredFebruary, coveredMarch, coveredApril, coveredMay, coveredJune, coveredJuly, coveredAugust, coveredSeptember, coveredOctober, coveredNovember, coveredDecember);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -556,19 +556,19 @@ public class CoveredIndividualRequest {
     sb.append("    nameSuffix: ").append(toIndentedString(nameSuffix)).append("\n");
     sb.append("    tin: ").append(toIndentedString(tin)).append("\n");
     sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
-    sb.append("    coveredMonthIndicator0: ").append(toIndentedString(coveredMonthIndicator0)).append("\n");
-    sb.append("    coveredMonthIndicator1: ").append(toIndentedString(coveredMonthIndicator1)).append("\n");
-    sb.append("    coveredMonthIndicator2: ").append(toIndentedString(coveredMonthIndicator2)).append("\n");
-    sb.append("    coveredMonthIndicator3: ").append(toIndentedString(coveredMonthIndicator3)).append("\n");
-    sb.append("    coveredMonthIndicator4: ").append(toIndentedString(coveredMonthIndicator4)).append("\n");
-    sb.append("    coveredMonthIndicator5: ").append(toIndentedString(coveredMonthIndicator5)).append("\n");
-    sb.append("    coveredMonthIndicator6: ").append(toIndentedString(coveredMonthIndicator6)).append("\n");
-    sb.append("    coveredMonthIndicator7: ").append(toIndentedString(coveredMonthIndicator7)).append("\n");
-    sb.append("    coveredMonthIndicator8: ").append(toIndentedString(coveredMonthIndicator8)).append("\n");
-    sb.append("    coveredMonthIndicator9: ").append(toIndentedString(coveredMonthIndicator9)).append("\n");
-    sb.append("    coveredMonthIndicator10: ").append(toIndentedString(coveredMonthIndicator10)).append("\n");
-    sb.append("    coveredMonthIndicator11: ").append(toIndentedString(coveredMonthIndicator11)).append("\n");
-    sb.append("    coveredMonthIndicator12: ").append(toIndentedString(coveredMonthIndicator12)).append("\n");
+    sb.append("    coveredAllMonths: ").append(toIndentedString(coveredAllMonths)).append("\n");
+    sb.append("    coveredJanuary: ").append(toIndentedString(coveredJanuary)).append("\n");
+    sb.append("    coveredFebruary: ").append(toIndentedString(coveredFebruary)).append("\n");
+    sb.append("    coveredMarch: ").append(toIndentedString(coveredMarch)).append("\n");
+    sb.append("    coveredApril: ").append(toIndentedString(coveredApril)).append("\n");
+    sb.append("    coveredMay: ").append(toIndentedString(coveredMay)).append("\n");
+    sb.append("    coveredJune: ").append(toIndentedString(coveredJune)).append("\n");
+    sb.append("    coveredJuly: ").append(toIndentedString(coveredJuly)).append("\n");
+    sb.append("    coveredAugust: ").append(toIndentedString(coveredAugust)).append("\n");
+    sb.append("    coveredSeptember: ").append(toIndentedString(coveredSeptember)).append("\n");
+    sb.append("    coveredOctober: ").append(toIndentedString(coveredOctober)).append("\n");
+    sb.append("    coveredNovember: ").append(toIndentedString(coveredNovember)).append("\n");
+    sb.append("    coveredDecember: ").append(toIndentedString(coveredDecember)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -597,19 +597,19 @@ public class CoveredIndividualRequest {
     openapiFields.add("nameSuffix");
     openapiFields.add("tin");
     openapiFields.add("birthDate");
-    openapiFields.add("coveredMonthIndicator0");
-    openapiFields.add("coveredMonthIndicator1");
-    openapiFields.add("coveredMonthIndicator2");
-    openapiFields.add("coveredMonthIndicator3");
-    openapiFields.add("coveredMonthIndicator4");
-    openapiFields.add("coveredMonthIndicator5");
-    openapiFields.add("coveredMonthIndicator6");
-    openapiFields.add("coveredMonthIndicator7");
-    openapiFields.add("coveredMonthIndicator8");
-    openapiFields.add("coveredMonthIndicator9");
-    openapiFields.add("coveredMonthIndicator10");
-    openapiFields.add("coveredMonthIndicator11");
-    openapiFields.add("coveredMonthIndicator12");
+    openapiFields.add("coveredAllMonths");
+    openapiFields.add("coveredJanuary");
+    openapiFields.add("coveredFebruary");
+    openapiFields.add("coveredMarch");
+    openapiFields.add("coveredApril");
+    openapiFields.add("coveredMay");
+    openapiFields.add("coveredJune");
+    openapiFields.add("coveredJuly");
+    openapiFields.add("coveredAugust");
+    openapiFields.add("coveredSeptember");
+    openapiFields.add("coveredOctober");
+    openapiFields.add("coveredNovember");
+    openapiFields.add("coveredDecember");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
