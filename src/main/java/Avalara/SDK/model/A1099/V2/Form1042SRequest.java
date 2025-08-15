@@ -177,7 +177,9 @@ public class Form1042SRequest {
     
     _1042_S("1042-S"),
     
-    _1095_C("1095-C");
+    _1095_C("1095-C"),
+    
+    _1099_INT("1099-INT");
 
     private String value;
 
@@ -369,6 +371,10 @@ public class Form1042SRequest {
   public static final String SERIALIZED_NAME_SECOND_TIN_NOTICE = "secondTinNotice";
   @SerializedName(SERIALIZED_NAME_SECOND_TIN_NOTICE)
   private Boolean secondTinNotice;
+
+  public static final String SERIALIZED_NAME_FATCA_FILING_REQUIREMENT = "fatcaFilingRequirement";
+  @SerializedName(SERIALIZED_NAME_FATCA_FILING_REQUIREMENT)
+  private Boolean fatcaFilingRequirement;
 
   public static final String SERIALIZED_NAME_ADDRESS_VERIFICATION = "addressVerification";
   @SerializedName(SERIALIZED_NAME_ADDRESS_VERIFICATION)
@@ -975,7 +981,7 @@ public class Form1042SRequest {
    * Address
    * @return address
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getAddress() {
     return address;
   }
@@ -1013,7 +1019,7 @@ public class Form1042SRequest {
    * City
    * @return city
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getCity() {
     return city;
   }
@@ -1146,7 +1152,7 @@ public class Form1042SRequest {
    * Country code, as defined at https://www.irs.gov/e-file-providers/country-codes
    * @return countryCode
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getCountryCode() {
     return countryCode;
   }
@@ -1270,6 +1276,25 @@ public class Form1042SRequest {
   }
 
 
+  public Form1042SRequest fatcaFilingRequirement(Boolean fatcaFilingRequirement) {
+    this.fatcaFilingRequirement = fatcaFilingRequirement;
+    return this;
+  }
+
+  /**
+   * Fatca filing requirement
+   * @return fatcaFilingRequirement
+   */
+  @javax.annotation.Nullable
+  public Boolean getFatcaFilingRequirement() {
+    return fatcaFilingRequirement;
+  }
+
+  public void setFatcaFilingRequirement(Boolean fatcaFilingRequirement) {
+    this.fatcaFilingRequirement = fatcaFilingRequirement;
+  }
+
+
   public Form1042SRequest addressVerification(Boolean addressVerification) {
     this.addressVerification = addressVerification;
     return this;
@@ -1346,6 +1371,7 @@ public class Form1042SRequest {
         Objects.equals(this.tinMatch, form1042SRequest.tinMatch) &&
         Objects.equals(this.noTin, form1042SRequest.noTin) &&
         Objects.equals(this.secondTinNotice, form1042SRequest.secondTinNotice) &&
+        Objects.equals(this.fatcaFilingRequirement, form1042SRequest.fatcaFilingRequirement) &&
         Objects.equals(this.addressVerification, form1042SRequest.addressVerification);
   }
 
@@ -1355,7 +1381,7 @@ public class Form1042SRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uniqueFormId, recipientDateOfBirth, recipientGiin, recipientForeignTin, lobCode, incomeCode, grossIncome, withholdingIndicator, taxCountryCode, exemptionCodeChap3, exemptionCodeChap4, taxRateChap3, withholdingAllowance, federalTaxWithheld, taxNotDepositedIndicator, academicIndicator, taxWithheldOtherAgents, amountRepaid, taxPaidAgent, chap3StatusCode, chap4StatusCode, primaryWithholdingAgent, intermediaryOrFlowThrough, stateAndLocalWithholding, type, issuerId, referenceId, recipientTin, recipientName, tinType, recipientSecondName, address, address2, city, state, zip, email, accountNumber, officeCode, nonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, noTin, secondTinNotice, addressVerification);
+    return Objects.hash(uniqueFormId, recipientDateOfBirth, recipientGiin, recipientForeignTin, lobCode, incomeCode, grossIncome, withholdingIndicator, taxCountryCode, exemptionCodeChap3, exemptionCodeChap4, taxRateChap3, withholdingAllowance, federalTaxWithheld, taxNotDepositedIndicator, academicIndicator, taxWithheldOtherAgents, amountRepaid, taxPaidAgent, chap3StatusCode, chap4StatusCode, primaryWithholdingAgent, intermediaryOrFlowThrough, stateAndLocalWithholding, type, issuerId, referenceId, recipientTin, recipientName, tinType, recipientSecondName, address, address2, city, state, zip, email, accountNumber, officeCode, nonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, noTin, secondTinNotice, fatcaFilingRequirement, addressVerification);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1416,6 +1442,7 @@ public class Form1042SRequest {
     sb.append("    tinMatch: ").append(toIndentedString(tinMatch)).append("\n");
     sb.append("    noTin: ").append(toIndentedString(noTin)).append("\n");
     sb.append("    secondTinNotice: ").append(toIndentedString(secondTinNotice)).append("\n");
+    sb.append("    fatcaFilingRequirement: ").append(toIndentedString(fatcaFilingRequirement)).append("\n");
     sb.append("    addressVerification: ").append(toIndentedString(addressVerification)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1462,14 +1489,12 @@ public class Form1042SRequest {
     openapiFields.add("tinMatch");
     openapiFields.add("noTin");
     openapiFields.add("secondTinNotice");
+    openapiFields.add("fatcaFilingRequirement");
     openapiFields.add("addressVerification");
     openapiFields.add("stateAndLocalWithholding");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("address");
-    openapiRequiredFields.add("city");
-    openapiRequiredFields.add("countryCode");
   }
 
   /**
@@ -1490,13 +1515,6 @@ public class Form1042SRequest {
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Form1042SRequest.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Form1042SRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Form1042SRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -1577,13 +1595,13 @@ public class Form1042SRequest {
       if ((jsonObj.get("recipientSecondName") != null && !jsonObj.get("recipientSecondName").isJsonNull()) && !jsonObj.get("recipientSecondName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientSecondName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientSecondName").toString()));
       }
-      if (!jsonObj.get("address").isJsonPrimitive()) {
+      if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
       }
       if ((jsonObj.get("address2") != null && !jsonObj.get("address2").isJsonNull()) && !jsonObj.get("address2").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address2").toString()));
       }
-      if (!jsonObj.get("city").isJsonPrimitive()) {
+      if ((jsonObj.get("city") != null && !jsonObj.get("city").isJsonNull()) && !jsonObj.get("city").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
       }
       if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
@@ -1604,7 +1622,7 @@ public class Form1042SRequest {
       if ((jsonObj.get("nonUsProvince") != null && !jsonObj.get("nonUsProvince").isJsonNull()) && !jsonObj.get("nonUsProvince").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `nonUsProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nonUsProvince").toString()));
       }
-      if (!jsonObj.get("countryCode").isJsonPrimitive()) {
+      if ((jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonNull()) && !jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
       }
   }

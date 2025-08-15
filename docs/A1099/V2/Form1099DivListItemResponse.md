@@ -7,24 +7,24 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**totalOrdinaryDividends** | **String** | Total ordinary dividends |  [optional] |
-|**qualifiedDividends** | **String** | Qualified dividends |  [optional] |
-|**totalCapitalGainDistributions** | **String** | Total capital gain distributions |  [optional] |
-|**unrecapturedSection1250Gain** | **String** | Unrecaptured Section 1250 gain |  [optional] |
-|**section1202Gain** | **String** | Section 1202 gain |  [optional] |
-|**collectiblesGain** | **String** | Collectibles (28%) gain |  [optional] |
-|**section897OrdinaryDividends** | **String** | Section 897 ordinary dividends |  [optional] |
-|**section897CapitalGain** | **String** | Section 897 capital gain |  [optional] |
-|**nondividendDistributions** | **String** | Nondividend distributions |  [optional] |
-|**federalIncomeTaxWithheld** | **String** | Federal income tax withheld |  [optional] |
-|**section199ADividends** | **String** | Section 199A dividends |  [optional] |
-|**investmentExpenses** | **String** | Investment expenses |  [optional] |
-|**foreignTaxPaid** | **String** | Foreign tax paid |  [optional] |
+|**totalOrdinaryDividends** | **Double** | Total ordinary dividends |  [optional] |
+|**qualifiedDividends** | **Double** | Qualified dividends |  [optional] |
+|**totalCapitalGainDistributions** | **Double** | Total capital gain distributions |  [optional] |
+|**unrecapturedSection1250Gain** | **Double** | Unrecaptured Section 1250 gain |  [optional] |
+|**section1202Gain** | **Double** | Section 1202 gain |  [optional] |
+|**collectiblesGain** | **Double** | Collectibles (28%) gain |  [optional] |
+|**section897OrdinaryDividends** | **Double** | Section 897 ordinary dividends |  [optional] |
+|**section897CapitalGain** | **Double** | Section 897 capital gain |  [optional] |
+|**nondividendDistributions** | **Double** | Nondividend distributions |  [optional] |
+|**federalIncomeTaxWithheld** | **Double** | Federal income tax withheld |  [optional] |
+|**section199ADividends** | **Double** | Section 199A dividends |  [optional] |
+|**investmentExpenses** | **Double** | Investment expenses |  [optional] |
+|**foreignTaxPaid** | **Double** | Foreign tax paid |  [optional] |
 |**foreignCountryOrUSPossession** | **String** | Foreign country or U.S. possession |  [optional] |
-|**cashLiquidationDistributions** | **String** | Cash liquidation distributions |  [optional] |
-|**noncashLiquidationDistributions** | **String** | Noncash liquidation distributions |  [optional] |
-|**exemptInterestDividends** | **String** | Exempt-interest dividends |  [optional] |
-|**specifiedPrivateActivityBondInterestDividends** | **String** | Specified private activity bond interest dividends |  [optional] |
+|**cashLiquidationDistributions** | **Double** | Cash liquidation distributions |  [optional] |
+|**noncashLiquidationDistributions** | **Double** | Noncash liquidation distributions |  [optional] |
+|**exemptInterestDividends** | **Double** | Exempt-interest dividends |  [optional] |
+|**specifiedPrivateActivityBondInterestDividends** | **Double** | Specified private activity bond interest dividends |  [optional] |
 |**fatcaFilingRequirement** | **Boolean** | FATCA filing requirement |  [optional] |
 |**id** | **String** | ID of the form |  [readonly] |
 |**type** | **String** | Type of the form. Will be one of:  * 940  * 941  * 943  * 944  * 945  * 1042  * 1042-S  * 1095-B  * 1095-C  * 1097-BTC  * 1098  * 1098-C  * 1098-E  * 1098-Q  * 1098-T  * 3921  * 3922  * 5498  * 5498-ESA  * 5498-SA  * 1099-MISC  * 1099-A  * 1099-B  * 1099-C  * 1099-CAP  * 1099-DIV  * 1099-G  * 1099-INT  * 1099-K  * 1099-LS  * 1099-LTC  * 1099-NEC  * 1099-OID  * 1099-PATR  * 1099-Q  * 1099-R  * 1099-S  * 1099-SA  * T4A  * W-2  * W-2G  * 1099-HC |  |

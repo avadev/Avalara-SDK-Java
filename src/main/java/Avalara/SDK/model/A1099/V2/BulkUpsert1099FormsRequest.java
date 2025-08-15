@@ -24,6 +24,7 @@ import Avalara.SDK.model.A1099.V2.Form1042SList;
 import Avalara.SDK.model.A1099.V2.Form1095BList;
 import Avalara.SDK.model.A1099.V2.Form1095CList;
 import Avalara.SDK.model.A1099.V2.Form1099DivList;
+import Avalara.SDK.model.A1099.V2.Form1099IntList;
 import Avalara.SDK.model.A1099.V2.Form1099KList;
 import Avalara.SDK.model.A1099.V2.Form1099MiscList;
 import Avalara.SDK.model.A1099.V2.Form1099NecList;
@@ -90,6 +91,7 @@ public class BulkUpsert1099FormsRequest extends AbstractOpenApiSchema {
             final TypeAdapter<Form1095BList> adapterForm1095BList = gson.getDelegateAdapter(this, TypeToken.get(Form1095BList.class));
             final TypeAdapter<Form1095CList> adapterForm1095CList = gson.getDelegateAdapter(this, TypeToken.get(Form1095CList.class));
             final TypeAdapter<Form1099DivList> adapterForm1099DivList = gson.getDelegateAdapter(this, TypeToken.get(Form1099DivList.class));
+            final TypeAdapter<Form1099IntList> adapterForm1099IntList = gson.getDelegateAdapter(this, TypeToken.get(Form1099IntList.class));
             final TypeAdapter<Form1099KList> adapterForm1099KList = gson.getDelegateAdapter(this, TypeToken.get(Form1099KList.class));
             final TypeAdapter<Form1099MiscList> adapterForm1099MiscList = gson.getDelegateAdapter(this, TypeToken.get(Form1099MiscList.class));
             final TypeAdapter<Form1099NecList> adapterForm1099NecList = gson.getDelegateAdapter(this, TypeToken.get(Form1099NecList.class));
@@ -127,6 +129,12 @@ public class BulkUpsert1099FormsRequest extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
+                    // check if the actual instance is of the type `Form1099IntList`
+                    if (value.getActualInstance() instanceof Form1099IntList) {
+                        JsonElement element = adapterForm1099IntList.toJsonTree((Form1099IntList)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
                     // check if the actual instance is of the type `Form1099KList`
                     if (value.getActualInstance() instanceof Form1099KList) {
                         JsonElement element = adapterForm1099KList.toJsonTree((Form1099KList)value.getActualInstance());
@@ -151,7 +159,7 @@ public class BulkUpsert1099FormsRequest extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: Form1042SList, Form1095BList, Form1095CList, Form1099DivList, Form1099KList, Form1099MiscList, Form1099NecList, Form1099RList");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: Form1042SList, Form1095BList, Form1095CList, Form1099DivList, Form1099IntList, Form1099KList, Form1099MiscList, Form1099NecList, Form1099RList");
                 }
 
                 @Override
@@ -210,6 +218,18 @@ public class BulkUpsert1099FormsRequest extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for Form1099DivList failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'Form1099DivList'", e);
+                    }
+                    // deserialize Form1099IntList
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        Form1099IntList.validateJsonElement(jsonElement);
+                        actualAdapter = adapterForm1099IntList;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'Form1099IntList'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for Form1099IntList failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'Form1099IntList'", e);
                     }
                     // deserialize Form1099KList
                     try {
@@ -289,6 +309,7 @@ public class BulkUpsert1099FormsRequest extends AbstractOpenApiSchema {
         schemas.put("Form1095BList", Form1095BList.class);
         schemas.put("Form1095CList", Form1095CList.class);
         schemas.put("Form1099DivList", Form1099DivList.class);
+        schemas.put("Form1099IntList", Form1099IntList.class);
         schemas.put("Form1099KList", Form1099KList.class);
         schemas.put("Form1099MiscList", Form1099MiscList.class);
         schemas.put("Form1099NecList", Form1099NecList.class);
@@ -303,7 +324,7 @@ public class BulkUpsert1099FormsRequest extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * Form1042SList, Form1095BList, Form1095CList, Form1099DivList, Form1099KList, Form1099MiscList, Form1099NecList, Form1099RList
+     * Form1042SList, Form1095BList, Form1095CList, Form1099DivList, Form1099IntList, Form1099KList, Form1099MiscList, Form1099NecList, Form1099RList
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -329,6 +350,11 @@ public class BulkUpsert1099FormsRequest extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof Form1099IntList) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof Form1099KList) {
             super.setActualInstance(instance);
             return;
@@ -349,14 +375,14 @@ public class BulkUpsert1099FormsRequest extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be Form1042SList, Form1095BList, Form1095CList, Form1099DivList, Form1099KList, Form1099MiscList, Form1099NecList, Form1099RList");
+        throw new RuntimeException("Invalid instance type. Must be Form1042SList, Form1095BList, Form1095CList, Form1099DivList, Form1099IntList, Form1099KList, Form1099MiscList, Form1099NecList, Form1099RList");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * Form1042SList, Form1095BList, Form1095CList, Form1099DivList, Form1099KList, Form1099MiscList, Form1099NecList, Form1099RList
+     * Form1042SList, Form1095BList, Form1095CList, Form1099DivList, Form1099IntList, Form1099KList, Form1099MiscList, Form1099NecList, Form1099RList
      *
-     * @return The actual instance (Form1042SList, Form1095BList, Form1095CList, Form1099DivList, Form1099KList, Form1099MiscList, Form1099NecList, Form1099RList)
+     * @return The actual instance (Form1042SList, Form1095BList, Form1095CList, Form1099DivList, Form1099IntList, Form1099KList, Form1099MiscList, Form1099NecList, Form1099RList)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -403,6 +429,16 @@ public class BulkUpsert1099FormsRequest extends AbstractOpenApiSchema {
      */
     public Form1099DivList getForm1099DivList() throws ClassCastException {
         return (Form1099DivList)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `Form1099IntList`. If the actual instance is not `Form1099IntList`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `Form1099IntList`
+     * @throws ClassCastException if the instance is not `Form1099IntList`
+     */
+    public Form1099IntList getForm1099IntList() throws ClassCastException {
+        return (Form1099IntList)super.getActualInstance();
     }
     /**
      * Get the actual instance of `Form1099KList`. If the actual instance is not `Form1099KList`,
@@ -487,6 +523,14 @@ public class BulkUpsert1099FormsRequest extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for Form1099DivList failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with Form1099IntList
+        try {
+            Form1099IntList.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for Form1099IntList failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         // validate the json string with Form1099KList
         try {
             Form1099KList.validateJsonElement(jsonElement);
@@ -520,7 +564,7 @@ public class BulkUpsert1099FormsRequest extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format("The JSON string is invalid for BulkUpsert1099FormsRequest with oneOf schemas: Form1042SList, Form1095BList, Form1095CList, Form1099DivList, Form1099KList, Form1099MiscList, Form1099NecList, Form1099RList. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format("The JSON string is invalid for BulkUpsert1099FormsRequest with oneOf schemas: Form1042SList, Form1095BList, Form1095CList, Form1099DivList, Form1099IntList, Form1099KList, Form1099MiscList, Form1099NecList, Form1099RList. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

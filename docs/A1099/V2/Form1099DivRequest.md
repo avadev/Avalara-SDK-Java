@@ -7,24 +7,24 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**totalOrdinaryDividends** | **String** | Total ordinary dividends |  [optional] |
-|**qualifiedDividends** | **String** | Qualified dividends |  [optional] |
-|**totalCapitalGainDistributions** | **String** | Total capital gain distributions |  [optional] |
-|**unrecapturedSection1250Gain** | **String** | Unrecaptured Section 1250 gain |  [optional] |
-|**section1202Gain** | **String** | Section 1202 gain |  [optional] |
-|**collectiblesGain** | **String** | Collectibles (28%) gain |  [optional] |
-|**section897OrdinaryDividends** | **String** | Section 897 ordinary dividends |  [optional] |
-|**section897CapitalGain** | **String** | Section 897 capital gain |  [optional] |
-|**nondividendDistributions** | **String** | Nondividend distributions |  [optional] |
-|**federalIncomeTaxWithheld** | **String** | Federal income tax withheld |  [optional] |
-|**section199ADividends** | **String** | Section 199A dividends |  [optional] |
-|**investmentExpenses** | **String** | Investment expenses |  [optional] |
-|**foreignTaxPaid** | **String** | Foreign tax paid |  [optional] |
+|**totalOrdinaryDividends** | **Double** | Total ordinary dividends |  [optional] |
+|**qualifiedDividends** | **Double** | Qualified dividends |  [optional] |
+|**totalCapitalGainDistributions** | **Double** | Total capital gain distributions |  [optional] |
+|**unrecapturedSection1250Gain** | **Double** | Unrecaptured Section 1250 gain |  [optional] |
+|**section1202Gain** | **Double** | Section 1202 gain |  [optional] |
+|**collectiblesGain** | **Double** | Collectibles (28%) gain |  [optional] |
+|**section897OrdinaryDividends** | **Double** | Section 897 ordinary dividends |  [optional] |
+|**section897CapitalGain** | **Double** | Section 897 capital gain |  [optional] |
+|**nondividendDistributions** | **Double** | Nondividend distributions |  [optional] |
+|**federalIncomeTaxWithheld** | **Double** | Federal income tax withheld |  [optional] |
+|**section199ADividends** | **Double** | Section 199A dividends |  [optional] |
+|**investmentExpenses** | **Double** | Investment expenses |  [optional] |
+|**foreignTaxPaid** | **Double** | Foreign tax paid |  [optional] |
 |**foreignCountryOrUSPossession** | **String** | Foreign country or U.S. possession |  [optional] |
-|**cashLiquidationDistributions** | **String** | Cash liquidation distributions |  [optional] |
-|**noncashLiquidationDistributions** | **String** | Noncash liquidation distributions |  [optional] |
-|**exemptInterestDividends** | **String** | Exempt-interest dividends |  [optional] |
-|**specifiedPrivateActivityBondInterestDividends** | **String** | Specified private activity bond interest dividends |  [optional] |
+|**cashLiquidationDistributions** | **Double** | Cash liquidation distributions |  [optional] |
+|**noncashLiquidationDistributions** | **Double** | Noncash liquidation distributions |  [optional] |
+|**exemptInterestDividends** | **Double** | Exempt-interest dividends |  [optional] |
+|**specifiedPrivateActivityBondInterestDividends** | **Double** | Specified private activity bond interest dividends |  [optional] |
 |**fatcaFilingRequirement** | **Boolean** | FATCA filing requirement |  [optional] |
 |**type** | [**TypeEnum**](#TypeEnum) |  |  [optional] |
 |**issuerId** | **String** | Issuer ID |  [optional] |
@@ -33,16 +33,16 @@
 |**recipientName** | **String** | Recipient name |  [optional] |
 |**tinType** | [**TinTypeEnum**](#TinTypeEnum) | Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN |  [optional] |
 |**recipientSecondName** | **String** | Recipient second name |  [optional] |
-|**address** | **String** | Address |  |
+|**address** | **String** | Address |  [optional] |
 |**address2** | **String** | Address line 2 |  [optional] |
-|**city** | **String** | City |  |
+|**city** | **String** | City |  [optional] |
 |**state** | **String** | US state. Required if CountryCode is \&quot;US\&quot;. |  [optional] |
 |**zip** | **String** | Zip/postal code |  [optional] |
 |**email** | **String** | Recipient email address |  [optional] |
 |**accountNumber** | **String** | Account number |  [optional] |
 |**officeCode** | **String** | Office code |  [optional] |
 |**nonUsProvince** | **String** | Foreign province |  [optional] |
-|**countryCode** | **String** | Country code, as defined at https://www.irs.gov/e-file-providers/country-codes |  |
+|**countryCode** | **String** | Country code, as defined at https://www.irs.gov/e-file-providers/country-codes |  [optional] |
 |**federalEFile** | **Boolean** | Boolean indicating that federal e-filing should be scheduled for this form |  [optional] |
 |**postalMail** | **Boolean** | Boolean indicating that postal mailing to the recipient should be scheduled for this form |  [optional] |
 |**stateEFile** | **Boolean** | Boolean indicating that state e-filing should be scheduled for this form |  [optional] |
@@ -66,6 +66,7 @@
 | _1095_B | &quot;1095-B&quot; |
 | _1042_S | &quot;1042-S&quot; |
 | _1095_C | &quot;1095-C&quot; |
+| _1099_INT | &quot;1099-INT&quot; |
 
 
 

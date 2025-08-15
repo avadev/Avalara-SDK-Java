@@ -61,55 +61,55 @@ import Avalara.SDK.JSON;
 public class Form1099DivListItem {
   public static final String SERIALIZED_NAME_TOTAL_ORDINARY_DIVIDENDS = "totalOrdinaryDividends";
   @SerializedName(SERIALIZED_NAME_TOTAL_ORDINARY_DIVIDENDS)
-  private String totalOrdinaryDividends;
+  private Double totalOrdinaryDividends;
 
   public static final String SERIALIZED_NAME_QUALIFIED_DIVIDENDS = "qualifiedDividends";
   @SerializedName(SERIALIZED_NAME_QUALIFIED_DIVIDENDS)
-  private String qualifiedDividends;
+  private Double qualifiedDividends;
 
   public static final String SERIALIZED_NAME_TOTAL_CAPITAL_GAIN_DISTRIBUTIONS = "totalCapitalGainDistributions";
   @SerializedName(SERIALIZED_NAME_TOTAL_CAPITAL_GAIN_DISTRIBUTIONS)
-  private String totalCapitalGainDistributions;
+  private Double totalCapitalGainDistributions;
 
   public static final String SERIALIZED_NAME_UNRECAPTURED_SECTION1250_GAIN = "unrecapturedSection1250Gain";
   @SerializedName(SERIALIZED_NAME_UNRECAPTURED_SECTION1250_GAIN)
-  private String unrecapturedSection1250Gain;
+  private Double unrecapturedSection1250Gain;
 
   public static final String SERIALIZED_NAME_SECTION1202_GAIN = "section1202Gain";
   @SerializedName(SERIALIZED_NAME_SECTION1202_GAIN)
-  private String section1202Gain;
+  private Double section1202Gain;
 
   public static final String SERIALIZED_NAME_COLLECTIBLES_GAIN = "collectiblesGain";
   @SerializedName(SERIALIZED_NAME_COLLECTIBLES_GAIN)
-  private String collectiblesGain;
+  private Double collectiblesGain;
 
   public static final String SERIALIZED_NAME_SECTION897_ORDINARY_DIVIDENDS = "section897OrdinaryDividends";
   @SerializedName(SERIALIZED_NAME_SECTION897_ORDINARY_DIVIDENDS)
-  private String section897OrdinaryDividends;
+  private Double section897OrdinaryDividends;
 
   public static final String SERIALIZED_NAME_SECTION897_CAPITAL_GAIN = "section897CapitalGain";
   @SerializedName(SERIALIZED_NAME_SECTION897_CAPITAL_GAIN)
-  private String section897CapitalGain;
+  private Double section897CapitalGain;
 
   public static final String SERIALIZED_NAME_NONDIVIDEND_DISTRIBUTIONS = "nondividendDistributions";
   @SerializedName(SERIALIZED_NAME_NONDIVIDEND_DISTRIBUTIONS)
-  private String nondividendDistributions;
+  private Double nondividendDistributions;
 
   public static final String SERIALIZED_NAME_FEDERAL_INCOME_TAX_WITHHELD = "federalIncomeTaxWithheld";
   @SerializedName(SERIALIZED_NAME_FEDERAL_INCOME_TAX_WITHHELD)
-  private String federalIncomeTaxWithheld;
+  private Double federalIncomeTaxWithheld;
 
   public static final String SERIALIZED_NAME_SECTION199_A_DIVIDENDS = "section199ADividends";
   @SerializedName(SERIALIZED_NAME_SECTION199_A_DIVIDENDS)
-  private String section199ADividends;
+  private Double section199ADividends;
 
   public static final String SERIALIZED_NAME_INVESTMENT_EXPENSES = "investmentExpenses";
   @SerializedName(SERIALIZED_NAME_INVESTMENT_EXPENSES)
-  private String investmentExpenses;
+  private Double investmentExpenses;
 
   public static final String SERIALIZED_NAME_FOREIGN_TAX_PAID = "foreignTaxPaid";
   @SerializedName(SERIALIZED_NAME_FOREIGN_TAX_PAID)
-  private String foreignTaxPaid;
+  private Double foreignTaxPaid;
 
   public static final String SERIALIZED_NAME_FOREIGN_COUNTRY_OR_U_S_POSSESSION = "foreignCountryOrUSPossession";
   @SerializedName(SERIALIZED_NAME_FOREIGN_COUNTRY_OR_U_S_POSSESSION)
@@ -117,19 +117,19 @@ public class Form1099DivListItem {
 
   public static final String SERIALIZED_NAME_CASH_LIQUIDATION_DISTRIBUTIONS = "cashLiquidationDistributions";
   @SerializedName(SERIALIZED_NAME_CASH_LIQUIDATION_DISTRIBUTIONS)
-  private String cashLiquidationDistributions;
+  private Double cashLiquidationDistributions;
 
   public static final String SERIALIZED_NAME_NONCASH_LIQUIDATION_DISTRIBUTIONS = "noncashLiquidationDistributions";
   @SerializedName(SERIALIZED_NAME_NONCASH_LIQUIDATION_DISTRIBUTIONS)
-  private String noncashLiquidationDistributions;
+  private Double noncashLiquidationDistributions;
 
   public static final String SERIALIZED_NAME_EXEMPT_INTEREST_DIVIDENDS = "exemptInterestDividends";
   @SerializedName(SERIALIZED_NAME_EXEMPT_INTEREST_DIVIDENDS)
-  private String exemptInterestDividends;
+  private Double exemptInterestDividends;
 
   public static final String SERIALIZED_NAME_SPECIFIED_PRIVATE_ACTIVITY_BOND_INTEREST_DIVIDENDS = "specifiedPrivateActivityBondInterestDividends";
   @SerializedName(SERIALIZED_NAME_SPECIFIED_PRIVATE_ACTIVITY_BOND_INTEREST_DIVIDENDS)
-  private String specifiedPrivateActivityBondInterestDividends;
+  private Double specifiedPrivateActivityBondInterestDividends;
 
   public static final String SERIALIZED_NAME_FATCA_FILING_REQUIREMENT = "fatcaFilingRequirement";
   @SerializedName(SERIALIZED_NAME_FATCA_FILING_REQUIREMENT)
@@ -302,7 +302,7 @@ public class Form1099DivListItem {
   public Form1099DivListItem() {
   }
 
-  public Form1099DivListItem totalOrdinaryDividends(String totalOrdinaryDividends) {
+  public Form1099DivListItem totalOrdinaryDividends(Double totalOrdinaryDividends) {
     this.totalOrdinaryDividends = totalOrdinaryDividends;
     return this;
   }
@@ -312,16 +312,16 @@ public class Form1099DivListItem {
    * @return totalOrdinaryDividends
    */
   @javax.annotation.Nullable
-  public String getTotalOrdinaryDividends() {
+  public Double getTotalOrdinaryDividends() {
     return totalOrdinaryDividends;
   }
 
-  public void setTotalOrdinaryDividends(String totalOrdinaryDividends) {
+  public void setTotalOrdinaryDividends(Double totalOrdinaryDividends) {
     this.totalOrdinaryDividends = totalOrdinaryDividends;
   }
 
 
-  public Form1099DivListItem qualifiedDividends(String qualifiedDividends) {
+  public Form1099DivListItem qualifiedDividends(Double qualifiedDividends) {
     this.qualifiedDividends = qualifiedDividends;
     return this;
   }
@@ -331,16 +331,16 @@ public class Form1099DivListItem {
    * @return qualifiedDividends
    */
   @javax.annotation.Nullable
-  public String getQualifiedDividends() {
+  public Double getQualifiedDividends() {
     return qualifiedDividends;
   }
 
-  public void setQualifiedDividends(String qualifiedDividends) {
+  public void setQualifiedDividends(Double qualifiedDividends) {
     this.qualifiedDividends = qualifiedDividends;
   }
 
 
-  public Form1099DivListItem totalCapitalGainDistributions(String totalCapitalGainDistributions) {
+  public Form1099DivListItem totalCapitalGainDistributions(Double totalCapitalGainDistributions) {
     this.totalCapitalGainDistributions = totalCapitalGainDistributions;
     return this;
   }
@@ -350,16 +350,16 @@ public class Form1099DivListItem {
    * @return totalCapitalGainDistributions
    */
   @javax.annotation.Nullable
-  public String getTotalCapitalGainDistributions() {
+  public Double getTotalCapitalGainDistributions() {
     return totalCapitalGainDistributions;
   }
 
-  public void setTotalCapitalGainDistributions(String totalCapitalGainDistributions) {
+  public void setTotalCapitalGainDistributions(Double totalCapitalGainDistributions) {
     this.totalCapitalGainDistributions = totalCapitalGainDistributions;
   }
 
 
-  public Form1099DivListItem unrecapturedSection1250Gain(String unrecapturedSection1250Gain) {
+  public Form1099DivListItem unrecapturedSection1250Gain(Double unrecapturedSection1250Gain) {
     this.unrecapturedSection1250Gain = unrecapturedSection1250Gain;
     return this;
   }
@@ -369,16 +369,16 @@ public class Form1099DivListItem {
    * @return unrecapturedSection1250Gain
    */
   @javax.annotation.Nullable
-  public String getUnrecapturedSection1250Gain() {
+  public Double getUnrecapturedSection1250Gain() {
     return unrecapturedSection1250Gain;
   }
 
-  public void setUnrecapturedSection1250Gain(String unrecapturedSection1250Gain) {
+  public void setUnrecapturedSection1250Gain(Double unrecapturedSection1250Gain) {
     this.unrecapturedSection1250Gain = unrecapturedSection1250Gain;
   }
 
 
-  public Form1099DivListItem section1202Gain(String section1202Gain) {
+  public Form1099DivListItem section1202Gain(Double section1202Gain) {
     this.section1202Gain = section1202Gain;
     return this;
   }
@@ -388,16 +388,16 @@ public class Form1099DivListItem {
    * @return section1202Gain
    */
   @javax.annotation.Nullable
-  public String getSection1202Gain() {
+  public Double getSection1202Gain() {
     return section1202Gain;
   }
 
-  public void setSection1202Gain(String section1202Gain) {
+  public void setSection1202Gain(Double section1202Gain) {
     this.section1202Gain = section1202Gain;
   }
 
 
-  public Form1099DivListItem collectiblesGain(String collectiblesGain) {
+  public Form1099DivListItem collectiblesGain(Double collectiblesGain) {
     this.collectiblesGain = collectiblesGain;
     return this;
   }
@@ -407,16 +407,16 @@ public class Form1099DivListItem {
    * @return collectiblesGain
    */
   @javax.annotation.Nullable
-  public String getCollectiblesGain() {
+  public Double getCollectiblesGain() {
     return collectiblesGain;
   }
 
-  public void setCollectiblesGain(String collectiblesGain) {
+  public void setCollectiblesGain(Double collectiblesGain) {
     this.collectiblesGain = collectiblesGain;
   }
 
 
-  public Form1099DivListItem section897OrdinaryDividends(String section897OrdinaryDividends) {
+  public Form1099DivListItem section897OrdinaryDividends(Double section897OrdinaryDividends) {
     this.section897OrdinaryDividends = section897OrdinaryDividends;
     return this;
   }
@@ -426,16 +426,16 @@ public class Form1099DivListItem {
    * @return section897OrdinaryDividends
    */
   @javax.annotation.Nullable
-  public String getSection897OrdinaryDividends() {
+  public Double getSection897OrdinaryDividends() {
     return section897OrdinaryDividends;
   }
 
-  public void setSection897OrdinaryDividends(String section897OrdinaryDividends) {
+  public void setSection897OrdinaryDividends(Double section897OrdinaryDividends) {
     this.section897OrdinaryDividends = section897OrdinaryDividends;
   }
 
 
-  public Form1099DivListItem section897CapitalGain(String section897CapitalGain) {
+  public Form1099DivListItem section897CapitalGain(Double section897CapitalGain) {
     this.section897CapitalGain = section897CapitalGain;
     return this;
   }
@@ -445,16 +445,16 @@ public class Form1099DivListItem {
    * @return section897CapitalGain
    */
   @javax.annotation.Nullable
-  public String getSection897CapitalGain() {
+  public Double getSection897CapitalGain() {
     return section897CapitalGain;
   }
 
-  public void setSection897CapitalGain(String section897CapitalGain) {
+  public void setSection897CapitalGain(Double section897CapitalGain) {
     this.section897CapitalGain = section897CapitalGain;
   }
 
 
-  public Form1099DivListItem nondividendDistributions(String nondividendDistributions) {
+  public Form1099DivListItem nondividendDistributions(Double nondividendDistributions) {
     this.nondividendDistributions = nondividendDistributions;
     return this;
   }
@@ -464,16 +464,16 @@ public class Form1099DivListItem {
    * @return nondividendDistributions
    */
   @javax.annotation.Nullable
-  public String getNondividendDistributions() {
+  public Double getNondividendDistributions() {
     return nondividendDistributions;
   }
 
-  public void setNondividendDistributions(String nondividendDistributions) {
+  public void setNondividendDistributions(Double nondividendDistributions) {
     this.nondividendDistributions = nondividendDistributions;
   }
 
 
-  public Form1099DivListItem federalIncomeTaxWithheld(String federalIncomeTaxWithheld) {
+  public Form1099DivListItem federalIncomeTaxWithheld(Double federalIncomeTaxWithheld) {
     this.federalIncomeTaxWithheld = federalIncomeTaxWithheld;
     return this;
   }
@@ -483,16 +483,16 @@ public class Form1099DivListItem {
    * @return federalIncomeTaxWithheld
    */
   @javax.annotation.Nullable
-  public String getFederalIncomeTaxWithheld() {
+  public Double getFederalIncomeTaxWithheld() {
     return federalIncomeTaxWithheld;
   }
 
-  public void setFederalIncomeTaxWithheld(String federalIncomeTaxWithheld) {
+  public void setFederalIncomeTaxWithheld(Double federalIncomeTaxWithheld) {
     this.federalIncomeTaxWithheld = federalIncomeTaxWithheld;
   }
 
 
-  public Form1099DivListItem section199ADividends(String section199ADividends) {
+  public Form1099DivListItem section199ADividends(Double section199ADividends) {
     this.section199ADividends = section199ADividends;
     return this;
   }
@@ -502,16 +502,16 @@ public class Form1099DivListItem {
    * @return section199ADividends
    */
   @javax.annotation.Nullable
-  public String getSection199ADividends() {
+  public Double getSection199ADividends() {
     return section199ADividends;
   }
 
-  public void setSection199ADividends(String section199ADividends) {
+  public void setSection199ADividends(Double section199ADividends) {
     this.section199ADividends = section199ADividends;
   }
 
 
-  public Form1099DivListItem investmentExpenses(String investmentExpenses) {
+  public Form1099DivListItem investmentExpenses(Double investmentExpenses) {
     this.investmentExpenses = investmentExpenses;
     return this;
   }
@@ -521,16 +521,16 @@ public class Form1099DivListItem {
    * @return investmentExpenses
    */
   @javax.annotation.Nullable
-  public String getInvestmentExpenses() {
+  public Double getInvestmentExpenses() {
     return investmentExpenses;
   }
 
-  public void setInvestmentExpenses(String investmentExpenses) {
+  public void setInvestmentExpenses(Double investmentExpenses) {
     this.investmentExpenses = investmentExpenses;
   }
 
 
-  public Form1099DivListItem foreignTaxPaid(String foreignTaxPaid) {
+  public Form1099DivListItem foreignTaxPaid(Double foreignTaxPaid) {
     this.foreignTaxPaid = foreignTaxPaid;
     return this;
   }
@@ -540,11 +540,11 @@ public class Form1099DivListItem {
    * @return foreignTaxPaid
    */
   @javax.annotation.Nullable
-  public String getForeignTaxPaid() {
+  public Double getForeignTaxPaid() {
     return foreignTaxPaid;
   }
 
-  public void setForeignTaxPaid(String foreignTaxPaid) {
+  public void setForeignTaxPaid(Double foreignTaxPaid) {
     this.foreignTaxPaid = foreignTaxPaid;
   }
 
@@ -568,7 +568,7 @@ public class Form1099DivListItem {
   }
 
 
-  public Form1099DivListItem cashLiquidationDistributions(String cashLiquidationDistributions) {
+  public Form1099DivListItem cashLiquidationDistributions(Double cashLiquidationDistributions) {
     this.cashLiquidationDistributions = cashLiquidationDistributions;
     return this;
   }
@@ -578,16 +578,16 @@ public class Form1099DivListItem {
    * @return cashLiquidationDistributions
    */
   @javax.annotation.Nullable
-  public String getCashLiquidationDistributions() {
+  public Double getCashLiquidationDistributions() {
     return cashLiquidationDistributions;
   }
 
-  public void setCashLiquidationDistributions(String cashLiquidationDistributions) {
+  public void setCashLiquidationDistributions(Double cashLiquidationDistributions) {
     this.cashLiquidationDistributions = cashLiquidationDistributions;
   }
 
 
-  public Form1099DivListItem noncashLiquidationDistributions(String noncashLiquidationDistributions) {
+  public Form1099DivListItem noncashLiquidationDistributions(Double noncashLiquidationDistributions) {
     this.noncashLiquidationDistributions = noncashLiquidationDistributions;
     return this;
   }
@@ -597,16 +597,16 @@ public class Form1099DivListItem {
    * @return noncashLiquidationDistributions
    */
   @javax.annotation.Nullable
-  public String getNoncashLiquidationDistributions() {
+  public Double getNoncashLiquidationDistributions() {
     return noncashLiquidationDistributions;
   }
 
-  public void setNoncashLiquidationDistributions(String noncashLiquidationDistributions) {
+  public void setNoncashLiquidationDistributions(Double noncashLiquidationDistributions) {
     this.noncashLiquidationDistributions = noncashLiquidationDistributions;
   }
 
 
-  public Form1099DivListItem exemptInterestDividends(String exemptInterestDividends) {
+  public Form1099DivListItem exemptInterestDividends(Double exemptInterestDividends) {
     this.exemptInterestDividends = exemptInterestDividends;
     return this;
   }
@@ -616,16 +616,16 @@ public class Form1099DivListItem {
    * @return exemptInterestDividends
    */
   @javax.annotation.Nullable
-  public String getExemptInterestDividends() {
+  public Double getExemptInterestDividends() {
     return exemptInterestDividends;
   }
 
-  public void setExemptInterestDividends(String exemptInterestDividends) {
+  public void setExemptInterestDividends(Double exemptInterestDividends) {
     this.exemptInterestDividends = exemptInterestDividends;
   }
 
 
-  public Form1099DivListItem specifiedPrivateActivityBondInterestDividends(String specifiedPrivateActivityBondInterestDividends) {
+  public Form1099DivListItem specifiedPrivateActivityBondInterestDividends(Double specifiedPrivateActivityBondInterestDividends) {
     this.specifiedPrivateActivityBondInterestDividends = specifiedPrivateActivityBondInterestDividends;
     return this;
   }
@@ -635,11 +635,11 @@ public class Form1099DivListItem {
    * @return specifiedPrivateActivityBondInterestDividends
    */
   @javax.annotation.Nullable
-  public String getSpecifiedPrivateActivityBondInterestDividends() {
+  public Double getSpecifiedPrivateActivityBondInterestDividends() {
     return specifiedPrivateActivityBondInterestDividends;
   }
 
-  public void setSpecifiedPrivateActivityBondInterestDividends(String specifiedPrivateActivityBondInterestDividends) {
+  public void setSpecifiedPrivateActivityBondInterestDividends(Double specifiedPrivateActivityBondInterestDividends) {
     this.specifiedPrivateActivityBondInterestDividends = specifiedPrivateActivityBondInterestDividends;
   }
 
@@ -843,7 +843,7 @@ public class Form1099DivListItem {
    * Address
    * @return address
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getAddress() {
     return address;
   }
@@ -881,7 +881,7 @@ public class Form1099DivListItem {
    * City
    * @return city
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getCity() {
     return city;
   }
@@ -1014,7 +1014,7 @@ public class Form1099DivListItem {
    * Country code, as defined at https://www.irs.gov/e-file-providers/country-codes
    * @return countryCode
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getCountryCode() {
     return countryCode;
   }
@@ -1347,15 +1347,13 @@ public class Form1099DivListItem {
     openapiFields.add("tinMatch");
     openapiFields.add("noTin");
     openapiFields.add("secondTinNotice");
+    openapiFields.add("fatcaFilingRequirement");
     openapiFields.add("addressVerification");
     openapiFields.add("stateAndLocalWithholding");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("taxYear");
-    openapiRequiredFields.add("address");
-    openapiRequiredFields.add("city");
-    openapiRequiredFields.add("countryCode");
   }
 
   /**
@@ -1386,59 +1384,8 @@ public class Form1099DivListItem {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("totalOrdinaryDividends") != null && !jsonObj.get("totalOrdinaryDividends").isJsonNull()) && !jsonObj.get("totalOrdinaryDividends").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `totalOrdinaryDividends` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalOrdinaryDividends").toString()));
-      }
-      if ((jsonObj.get("qualifiedDividends") != null && !jsonObj.get("qualifiedDividends").isJsonNull()) && !jsonObj.get("qualifiedDividends").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `qualifiedDividends` to be a primitive type in the JSON string but got `%s`", jsonObj.get("qualifiedDividends").toString()));
-      }
-      if ((jsonObj.get("totalCapitalGainDistributions") != null && !jsonObj.get("totalCapitalGainDistributions").isJsonNull()) && !jsonObj.get("totalCapitalGainDistributions").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `totalCapitalGainDistributions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalCapitalGainDistributions").toString()));
-      }
-      if ((jsonObj.get("unrecapturedSection1250Gain") != null && !jsonObj.get("unrecapturedSection1250Gain").isJsonNull()) && !jsonObj.get("unrecapturedSection1250Gain").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `unrecapturedSection1250Gain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unrecapturedSection1250Gain").toString()));
-      }
-      if ((jsonObj.get("section1202Gain") != null && !jsonObj.get("section1202Gain").isJsonNull()) && !jsonObj.get("section1202Gain").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `section1202Gain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("section1202Gain").toString()));
-      }
-      if ((jsonObj.get("collectiblesGain") != null && !jsonObj.get("collectiblesGain").isJsonNull()) && !jsonObj.get("collectiblesGain").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `collectiblesGain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("collectiblesGain").toString()));
-      }
-      if ((jsonObj.get("section897OrdinaryDividends") != null && !jsonObj.get("section897OrdinaryDividends").isJsonNull()) && !jsonObj.get("section897OrdinaryDividends").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `section897OrdinaryDividends` to be a primitive type in the JSON string but got `%s`", jsonObj.get("section897OrdinaryDividends").toString()));
-      }
-      if ((jsonObj.get("section897CapitalGain") != null && !jsonObj.get("section897CapitalGain").isJsonNull()) && !jsonObj.get("section897CapitalGain").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `section897CapitalGain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("section897CapitalGain").toString()));
-      }
-      if ((jsonObj.get("nondividendDistributions") != null && !jsonObj.get("nondividendDistributions").isJsonNull()) && !jsonObj.get("nondividendDistributions").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `nondividendDistributions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nondividendDistributions").toString()));
-      }
-      if ((jsonObj.get("federalIncomeTaxWithheld") != null && !jsonObj.get("federalIncomeTaxWithheld").isJsonNull()) && !jsonObj.get("federalIncomeTaxWithheld").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `federalIncomeTaxWithheld` to be a primitive type in the JSON string but got `%s`", jsonObj.get("federalIncomeTaxWithheld").toString()));
-      }
-      if ((jsonObj.get("section199ADividends") != null && !jsonObj.get("section199ADividends").isJsonNull()) && !jsonObj.get("section199ADividends").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `section199ADividends` to be a primitive type in the JSON string but got `%s`", jsonObj.get("section199ADividends").toString()));
-      }
-      if ((jsonObj.get("investmentExpenses") != null && !jsonObj.get("investmentExpenses").isJsonNull()) && !jsonObj.get("investmentExpenses").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `investmentExpenses` to be a primitive type in the JSON string but got `%s`", jsonObj.get("investmentExpenses").toString()));
-      }
-      if ((jsonObj.get("foreignTaxPaid") != null && !jsonObj.get("foreignTaxPaid").isJsonNull()) && !jsonObj.get("foreignTaxPaid").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `foreignTaxPaid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("foreignTaxPaid").toString()));
-      }
       if ((jsonObj.get("foreignCountryOrUSPossession") != null && !jsonObj.get("foreignCountryOrUSPossession").isJsonNull()) && !jsonObj.get("foreignCountryOrUSPossession").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `foreignCountryOrUSPossession` to be a primitive type in the JSON string but got `%s`", jsonObj.get("foreignCountryOrUSPossession").toString()));
-      }
-      if ((jsonObj.get("cashLiquidationDistributions") != null && !jsonObj.get("cashLiquidationDistributions").isJsonNull()) && !jsonObj.get("cashLiquidationDistributions").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cashLiquidationDistributions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cashLiquidationDistributions").toString()));
-      }
-      if ((jsonObj.get("noncashLiquidationDistributions") != null && !jsonObj.get("noncashLiquidationDistributions").isJsonNull()) && !jsonObj.get("noncashLiquidationDistributions").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `noncashLiquidationDistributions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("noncashLiquidationDistributions").toString()));
-      }
-      if ((jsonObj.get("exemptInterestDividends") != null && !jsonObj.get("exemptInterestDividends").isJsonNull()) && !jsonObj.get("exemptInterestDividends").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `exemptInterestDividends` to be a primitive type in the JSON string but got `%s`", jsonObj.get("exemptInterestDividends").toString()));
-      }
-      if ((jsonObj.get("specifiedPrivateActivityBondInterestDividends") != null && !jsonObj.get("specifiedPrivateActivityBondInterestDividends").isJsonNull()) && !jsonObj.get("specifiedPrivateActivityBondInterestDividends").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `specifiedPrivateActivityBondInterestDividends` to be a primitive type in the JSON string but got `%s`", jsonObj.get("specifiedPrivateActivityBondInterestDividends").toString()));
       }
       if ((jsonObj.get("issuerReferenceId") != null && !jsonObj.get("issuerReferenceId").isJsonNull()) && !jsonObj.get("issuerReferenceId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `issuerReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerReferenceId").toString()));
@@ -1468,13 +1415,13 @@ public class Form1099DivListItem {
       if ((jsonObj.get("recipientSecondName") != null && !jsonObj.get("recipientSecondName").isJsonNull()) && !jsonObj.get("recipientSecondName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientSecondName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientSecondName").toString()));
       }
-      if (!jsonObj.get("address").isJsonPrimitive()) {
+      if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
       }
       if ((jsonObj.get("address2") != null && !jsonObj.get("address2").isJsonNull()) && !jsonObj.get("address2").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address2").toString()));
       }
-      if (!jsonObj.get("city").isJsonPrimitive()) {
+      if ((jsonObj.get("city") != null && !jsonObj.get("city").isJsonNull()) && !jsonObj.get("city").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
       }
       if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
@@ -1495,7 +1442,7 @@ public class Form1099DivListItem {
       if ((jsonObj.get("nonUsProvince") != null && !jsonObj.get("nonUsProvince").isJsonNull()) && !jsonObj.get("nonUsProvince").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `nonUsProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nonUsProvince").toString()));
       }
-      if (!jsonObj.get("countryCode").isJsonPrimitive()) {
+      if ((jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonNull()) && !jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
       }
       // validate the optional field `stateAndLocalWithholding`

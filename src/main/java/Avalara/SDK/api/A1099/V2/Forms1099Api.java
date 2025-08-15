@@ -1497,7 +1497,7 @@ public class Forms1099Api {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.8.1");
+        this.localVarApiClient.setSdkVersion("25.8.2");
     }
 }
 

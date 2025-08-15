@@ -144,7 +144,9 @@ public class Form1099MiscResponse {
     
     _1042_S("1042-S"),
     
-    _1095_C("1095-C");
+    _1095_C("1095-C"),
+    
+    _1099_INT("1099-INT");
 
     private String value;
 

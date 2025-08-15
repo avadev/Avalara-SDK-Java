@@ -71,24 +71,35 @@
 |**intermediaryOrFlowThrough** | [**IntermediaryOrFlowThroughResponse**](IntermediaryOrFlowThroughResponse.md) | Intermediary or flow-through entity information |  [optional] |
 |**originOfHealthCoverageCode** | **String** | Origin of health coverage code |  [optional] |
 |**coveredIndividuals** | [**List&lt;CoveredIndividualReferenceResponse&gt;**](CoveredIndividualReferenceResponse.md) | Covered individuals information |  [optional] |
-|**totalOrdinaryDividends** | **String** | Total ordinary dividends |  [optional] |
-|**qualifiedDividends** | **String** | Qualified dividends |  [optional] |
-|**totalCapitalGainDistributions** | **String** | Total capital gain distributions |  [optional] |
-|**unrecapturedSection1250Gain** | **String** | Unrecaptured Section 1250 gain |  [optional] |
-|**section1202Gain** | **String** | Section 1202 gain |  [optional] |
-|**collectiblesGain** | **String** | Collectibles (28%) gain |  [optional] |
-|**section897OrdinaryDividends** | **String** | Section 897 ordinary dividends |  [optional] |
-|**section897CapitalGain** | **String** | Section 897 capital gain |  [optional] |
-|**nondividendDistributions** | **String** | Nondividend distributions |  [optional] |
+|**totalOrdinaryDividends** | **Double** | Total ordinary dividends |  [optional] |
+|**qualifiedDividends** | **Double** | Qualified dividends |  [optional] |
+|**totalCapitalGainDistributions** | **Double** | Total capital gain distributions |  [optional] |
+|**unrecapturedSection1250Gain** | **Double** | Unrecaptured Section 1250 gain |  [optional] |
+|**section1202Gain** | **Double** | Section 1202 gain |  [optional] |
+|**collectiblesGain** | **Double** | Collectibles (28%) gain |  [optional] |
+|**section897OrdinaryDividends** | **Double** | Section 897 ordinary dividends |  [optional] |
+|**section897CapitalGain** | **Double** | Section 897 capital gain |  [optional] |
+|**nondividendDistributions** | **Double** | Nondividend distributions |  [optional] |
 |**federalIncomeTaxWithheld** | **Double** | Federal income tax withheld |  [optional] |
-|**section199ADividends** | **String** | Section 199A dividends |  [optional] |
-|**investmentExpenses** | **String** | Investment expenses |  [optional] |
-|**foreignTaxPaid** | **String** | Foreign tax paid |  [optional] |
+|**section199ADividends** | **Double** | Section 199A dividends |  [optional] |
+|**investmentExpenses** | **Double** | Investment expenses |  [optional] |
+|**foreignTaxPaid** | **Double** | Foreign tax paid |  [optional] |
 |**foreignCountryOrUSPossession** | **String** | Foreign country or U.S. possession |  [optional] |
-|**cashLiquidationDistributions** | **String** | Cash liquidation distributions |  [optional] |
-|**noncashLiquidationDistributions** | **String** | Noncash liquidation distributions |  [optional] |
-|**exemptInterestDividends** | **String** | Exempt-interest dividends |  [optional] |
-|**specifiedPrivateActivityBondInterestDividends** | **String** | Specified private activity bond interest dividends |  [optional] |
+|**cashLiquidationDistributions** | **Double** | Cash liquidation distributions |  [optional] |
+|**noncashLiquidationDistributions** | **Double** | Noncash liquidation distributions |  [optional] |
+|**exemptInterestDividends** | **Double** | Exempt-interest dividends |  [optional] |
+|**specifiedPrivateActivityBondInterestDividends** | **Double** | Specified private activity bond interest dividends |  [optional] |
+|**interestIncome** | **Double** | Interest Income |  [optional] |
+|**earlyWithdrawalPenalty** | **Double** | Early withdrawal penalty |  [optional] |
+|**usSavingsBondsInterest** | **Double** | Interest on U.S. Savings Bonds and Treasury obligations |  [optional] |
+|**foreignCountry** | **String** | Foreign country or U.S. possession |  [optional] |
+|**taxExemptInterest** | **Double** | Tax-exempt interest |  [optional] |
+|**specifiedPrivateActivityBondInterest** | **Double** | Specified private activity bond interest |  [optional] |
+|**marketDiscount** | **Double** | Market discount |  [optional] |
+|**bondPremium** | **Double** | Bond premium |  [optional] |
+|**bondPremiumOnTreasuryObligations** | **Double** | Bond premium on Treasury obligations |  [optional] |
+|**bondPremiumOnTaxExemptBond** | **Double** | Bond premium on tax exempt bond |  [optional] |
+|**taxExemptBondCusipNumber** | **String** | Tax exempt bond CUSIP number |  [optional] |
 |**filerType** | [**FilerTypeEnum**](#FilerTypeEnum) | Filer type (PSE or EPF) |  [optional] |
 |**paymentType** | [**PaymentTypeEnum**](#PaymentTypeEnum) | Payment type (payment card or third party network) |  [optional] |
 |**paymentSettlementEntityNamePhoneNumber** | **String** | Payment settlement entity name and phone number |  [optional] |
@@ -140,7 +151,6 @@
 |**totalEmployeeContributions** | **Double** | Total employee contributions |  [optional] |
 |**amountAllocableToIrr** | **Double** | Amount allocable to IRR within 5 years |  [optional] |
 |**firstYearDesignatedRothContrib** | **String** | First year of designated Roth contribution |  [optional] |
-|**fatcaRequirementIndicator** | **Boolean** | FATCA filing requirement |  [optional] |
 |**dateOfPayment** | **String** | Date of payment |  [optional] |
 
 

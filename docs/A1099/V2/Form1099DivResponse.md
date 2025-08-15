@@ -7,6 +7,25 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**totalOrdinaryDividends** | **Double** |  |  [optional] |
+|**qualifiedDividends** | **Double** |  |  [optional] |
+|**totalCapitalGainDistributions** | **Double** |  |  [optional] |
+|**unrecapturedSection1250Gain** | **Double** |  |  [optional] |
+|**section1202Gain** | **Double** |  |  [optional] |
+|**collectiblesGain** | **Double** |  |  [optional] |
+|**section897OrdinaryDividends** | **Double** |  |  [optional] |
+|**section897CapitalGain** | **Double** |  |  [optional] |
+|**nondividendDistributions** | **Double** |  |  [optional] |
+|**federalIncomeTaxWithheld** | **Double** |  |  [optional] |
+|**section199ADividends** | **Double** |  |  [optional] |
+|**investmentExpenses** | **Double** |  |  [optional] |
+|**foreignTaxPaid** | **Double** |  |  [optional] |
+|**foreignCountryOrUSPossession** | **String** |  |  [optional] |
+|**cashLiquidationDistributions** | **Double** |  |  [optional] |
+|**noncashLiquidationDistributions** | **Double** |  |  [optional] |
+|**exemptInterestDividends** | **Double** |  |  [optional] |
+|**specifiedPrivateActivityBondInterestDividends** | **Double** |  |  [optional] |
+|**fatcaFilingRequirement** | **Boolean** |  |  [optional] |
 |**type** | [**TypeEnum**](#TypeEnum) |  |  [optional] [readonly] |
 |**createdAt** | **OffsetDateTime** |  |  [optional] |
 |**updatedAt** | **OffsetDateTime** |  |  [optional] |
@@ -60,6 +79,7 @@
 | _1095_B | &quot;1095-B&quot; |
 | _1042_S | &quot;1042-S&quot; |
 | _1095_C | &quot;1095-C&quot; |
+| _1099_INT | &quot;1099-INT&quot; |
 
 
 

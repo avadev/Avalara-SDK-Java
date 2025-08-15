@@ -20,11 +20,15 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
+import Avalara.SDK.model.A1099.V2.CoveredIndividualRequest;
 import Avalara.SDK.model.A1099.V2.Form1042SResponse;
+import Avalara.SDK.model.A1099.V2.Form1095BResponse;
 import Avalara.SDK.model.A1099.V2.Form1099DivResponse;
+import Avalara.SDK.model.A1099.V2.Form1099IntResponse;
 import Avalara.SDK.model.A1099.V2.Form1099KResponse;
 import Avalara.SDK.model.A1099.V2.Form1099MiscResponse;
 import Avalara.SDK.model.A1099.V2.Form1099NecResponse;
+import Avalara.SDK.model.A1099.V2.Form1099RResponse;
 import Avalara.SDK.model.A1099.V2.FormResponseBase;
 import Avalara.SDK.model.A1099.V2.StateAndLocalWithholdingResponse;
 import Avalara.SDK.model.A1099.V2.StateEfileStatusDetailResponse;
@@ -91,10 +95,13 @@ public class Update1099Form200Response extends AbstractOpenApiSchema {
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<FormResponseBase> adapterFormResponseBase = gson.getDelegateAdapter(this, TypeToken.get(FormResponseBase.class));
             final TypeAdapter<Form1042SResponse> adapterForm1042SResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1042SResponse.class));
+            final TypeAdapter<Form1095BResponse> adapterForm1095BResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1095BResponse.class));
             final TypeAdapter<Form1099DivResponse> adapterForm1099DivResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1099DivResponse.class));
+            final TypeAdapter<Form1099IntResponse> adapterForm1099IntResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1099IntResponse.class));
             final TypeAdapter<Form1099KResponse> adapterForm1099KResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1099KResponse.class));
             final TypeAdapter<Form1099MiscResponse> adapterForm1099MiscResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1099MiscResponse.class));
             final TypeAdapter<Form1099NecResponse> adapterForm1099NecResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1099NecResponse.class));
+            final TypeAdapter<Form1099RResponse> adapterForm1099RResponse = gson.getDelegateAdapter(this, TypeToken.get(Form1099RResponse.class));
 
             return (TypeAdapter<T>) new TypeAdapter<Update1099Form200Response>() {
                 @Override
@@ -116,9 +123,21 @@ public class Update1099Form200Response extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
+                    // check if the actual instance is of the type `Form1095BResponse`
+                    if (value.getActualInstance() instanceof Form1095BResponse) {
+                        JsonElement element = adapterForm1095BResponse.toJsonTree((Form1095BResponse)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
                     // check if the actual instance is of the type `Form1099DivResponse`
                     if (value.getActualInstance() instanceof Form1099DivResponse) {
                         JsonElement element = adapterForm1099DivResponse.toJsonTree((Form1099DivResponse)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `Form1099IntResponse`
+                    if (value.getActualInstance() instanceof Form1099IntResponse) {
+                        JsonElement element = adapterForm1099IntResponse.toJsonTree((Form1099IntResponse)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
@@ -140,7 +159,13 @@ public class Update1099Form200Response extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: Form1042SResponse, Form1099DivResponse, Form1099KResponse, Form1099MiscResponse, Form1099NecResponse, FormResponseBase");
+                    // check if the actual instance is of the type `Form1099RResponse`
+                    if (value.getActualInstance() instanceof Form1099RResponse) {
+                        JsonElement element = adapterForm1099RResponse.toJsonTree((Form1099RResponse)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: Form1042SResponse, Form1095BResponse, Form1099DivResponse, Form1099IntResponse, Form1099KResponse, Form1099MiscResponse, Form1099NecResponse, Form1099RResponse, FormResponseBase");
                 }
 
                 @Override
@@ -176,6 +201,18 @@ public class Update1099Form200Response extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for Form1042SResponse failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'Form1042SResponse'", e);
                     }
+                    // deserialize Form1095BResponse
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        Form1095BResponse.validateJsonElement(jsonElement);
+                        actualAdapter = adapterForm1095BResponse;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'Form1095BResponse'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for Form1095BResponse failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'Form1095BResponse'", e);
+                    }
                     // deserialize Form1099DivResponse
                     try {
                         // validate the JSON object to see if any exception is thrown
@@ -187,6 +224,18 @@ public class Update1099Form200Response extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for Form1099DivResponse failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'Form1099DivResponse'", e);
+                    }
+                    // deserialize Form1099IntResponse
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        Form1099IntResponse.validateJsonElement(jsonElement);
+                        actualAdapter = adapterForm1099IntResponse;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'Form1099IntResponse'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for Form1099IntResponse failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'Form1099IntResponse'", e);
                     }
                     // deserialize Form1099KResponse
                     try {
@@ -224,6 +273,18 @@ public class Update1099Form200Response extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for Form1099NecResponse failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'Form1099NecResponse'", e);
                     }
+                    // deserialize Form1099RResponse
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        Form1099RResponse.validateJsonElement(jsonElement);
+                        actualAdapter = adapterForm1099RResponse;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'Form1099RResponse'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for Form1099RResponse failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'Form1099RResponse'", e);
+                    }
 
                     if (match == 1) {
                         Update1099Form200Response ret = new Update1099Form200Response();
@@ -252,10 +313,13 @@ public class Update1099Form200Response extends AbstractOpenApiSchema {
     static {
         schemas.put("FormResponseBase", FormResponseBase.class);
         schemas.put("Form1042SResponse", Form1042SResponse.class);
+        schemas.put("Form1095BResponse", Form1095BResponse.class);
         schemas.put("Form1099DivResponse", Form1099DivResponse.class);
+        schemas.put("Form1099IntResponse", Form1099IntResponse.class);
         schemas.put("Form1099KResponse", Form1099KResponse.class);
         schemas.put("Form1099MiscResponse", Form1099MiscResponse.class);
         schemas.put("Form1099NecResponse", Form1099NecResponse.class);
+        schemas.put("Form1099RResponse", Form1099RResponse.class);
     }
 
     @Override
@@ -266,7 +330,7 @@ public class Update1099Form200Response extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * Form1042SResponse, Form1099DivResponse, Form1099KResponse, Form1099MiscResponse, Form1099NecResponse, FormResponseBase
+     * Form1042SResponse, Form1095BResponse, Form1099DivResponse, Form1099IntResponse, Form1099KResponse, Form1099MiscResponse, Form1099NecResponse, Form1099RResponse, FormResponseBase
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -282,7 +346,17 @@ public class Update1099Form200Response extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof Form1095BResponse) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof Form1099DivResponse) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof Form1099IntResponse) {
             super.setActualInstance(instance);
             return;
         }
@@ -302,14 +376,19 @@ public class Update1099Form200Response extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be Form1042SResponse, Form1099DivResponse, Form1099KResponse, Form1099MiscResponse, Form1099NecResponse, FormResponseBase");
+        if (instance instanceof Form1099RResponse) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be Form1042SResponse, Form1095BResponse, Form1099DivResponse, Form1099IntResponse, Form1099KResponse, Form1099MiscResponse, Form1099NecResponse, Form1099RResponse, FormResponseBase");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * Form1042SResponse, Form1099DivResponse, Form1099KResponse, Form1099MiscResponse, Form1099NecResponse, FormResponseBase
+     * Form1042SResponse, Form1095BResponse, Form1099DivResponse, Form1099IntResponse, Form1099KResponse, Form1099MiscResponse, Form1099NecResponse, Form1099RResponse, FormResponseBase
      *
-     * @return The actual instance (Form1042SResponse, Form1099DivResponse, Form1099KResponse, Form1099MiscResponse, Form1099NecResponse, FormResponseBase)
+     * @return The actual instance (Form1042SResponse, Form1095BResponse, Form1099DivResponse, Form1099IntResponse, Form1099KResponse, Form1099MiscResponse, Form1099NecResponse, Form1099RResponse, FormResponseBase)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -338,6 +417,16 @@ public class Update1099Form200Response extends AbstractOpenApiSchema {
         return (Form1042SResponse)super.getActualInstance();
     }
     /**
+     * Get the actual instance of `Form1095BResponse`. If the actual instance is not `Form1095BResponse`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `Form1095BResponse`
+     * @throws ClassCastException if the instance is not `Form1095BResponse`
+     */
+    public Form1095BResponse getForm1095BResponse() throws ClassCastException {
+        return (Form1095BResponse)super.getActualInstance();
+    }
+    /**
      * Get the actual instance of `Form1099DivResponse`. If the actual instance is not `Form1099DivResponse`,
      * the ClassCastException will be thrown.
      *
@@ -346,6 +435,16 @@ public class Update1099Form200Response extends AbstractOpenApiSchema {
      */
     public Form1099DivResponse getForm1099DivResponse() throws ClassCastException {
         return (Form1099DivResponse)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `Form1099IntResponse`. If the actual instance is not `Form1099IntResponse`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `Form1099IntResponse`
+     * @throws ClassCastException if the instance is not `Form1099IntResponse`
+     */
+    public Form1099IntResponse getForm1099IntResponse() throws ClassCastException {
+        return (Form1099IntResponse)super.getActualInstance();
     }
     /**
      * Get the actual instance of `Form1099KResponse`. If the actual instance is not `Form1099KResponse`,
@@ -377,6 +476,16 @@ public class Update1099Form200Response extends AbstractOpenApiSchema {
     public Form1099NecResponse getForm1099NecResponse() throws ClassCastException {
         return (Form1099NecResponse)super.getActualInstance();
     }
+    /**
+     * Get the actual instance of `Form1099RResponse`. If the actual instance is not `Form1099RResponse`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `Form1099RResponse`
+     * @throws ClassCastException if the instance is not `Form1099RResponse`
+     */
+    public Form1099RResponse getForm1099RResponse() throws ClassCastException {
+        return (Form1099RResponse)super.getActualInstance();
+    }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
@@ -404,12 +513,28 @@ public class Update1099Form200Response extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for Form1042SResponse failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with Form1095BResponse
+        try {
+            Form1095BResponse.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for Form1095BResponse failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         // validate the json string with Form1099DivResponse
         try {
             Form1099DivResponse.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(String.format("Deserialization for Form1099DivResponse failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with Form1099IntResponse
+        try {
+            Form1099IntResponse.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for Form1099IntResponse failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with Form1099KResponse
@@ -436,8 +561,16 @@ public class Update1099Form200Response extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for Form1099NecResponse failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with Form1099RResponse
+        try {
+            Form1099RResponse.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for Form1099RResponse failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
-            throw new IOException(String.format("The JSON string is invalid for Update1099Form200Response with oneOf schemas: Form1042SResponse, Form1099DivResponse, Form1099KResponse, Form1099MiscResponse, Form1099NecResponse, FormResponseBase. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format("The JSON string is invalid for Update1099Form200Response with oneOf schemas: Form1042SResponse, Form1095BResponse, Form1099DivResponse, Form1099IntResponse, Form1099KResponse, Form1099MiscResponse, Form1099NecResponse, Form1099RResponse, FormResponseBase. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

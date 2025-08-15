@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -85,13 +85,9 @@ public class Form1099Misc {
   @SerializedName(SERIALIZED_NAME_FISHING_BOAT_PROCEEDS)
   private Double fishingBoatProceeds;
 
-  public static final String SERIALIZED_NAME_MEDICAL_AND_HEALTH_CARE = "medicalAndHealthCare";
-  @SerializedName(SERIALIZED_NAME_MEDICAL_AND_HEALTH_CARE)
-  private Double medicalAndHealthCare;
-
-  public static final String SERIALIZED_NAME_NONEMPLOYEE_COMPENSATION = "nonemployeeCompensation";
-  @SerializedName(SERIALIZED_NAME_NONEMPLOYEE_COMPENSATION)
-  private Double nonemployeeCompensation;
+  public static final String SERIALIZED_NAME_MEDICAL_AND_HEALTH_CARE_PAYMENTS = "medicalAndHealthCarePayments";
+  @SerializedName(SERIALIZED_NAME_MEDICAL_AND_HEALTH_CARE_PAYMENTS)
+  private Double medicalAndHealthCarePayments;
 
   public static final String SERIALIZED_NAME_SUBSTITUTE_PAYMENTS = "substitutePayments";
   @SerializedName(SERIALIZED_NAME_SUBSTITUTE_PAYMENTS)
@@ -105,21 +101,25 @@ public class Form1099Misc {
   @SerializedName(SERIALIZED_NAME_CROP_INSURANCE_PROCEEDS)
   private Double cropInsuranceProceeds;
 
-  public static final String SERIALIZED_NAME_EXCESS_GOLDEN_PARACHUTE = "excessGoldenParachute";
-  @SerializedName(SERIALIZED_NAME_EXCESS_GOLDEN_PARACHUTE)
-  private Double excessGoldenParachute;
+  public static final String SERIALIZED_NAME_EXCESS_GOLDEN_PARACHUTE_PAYMENTS = "excessGoldenParachutePayments";
+  @SerializedName(SERIALIZED_NAME_EXCESS_GOLDEN_PARACHUTE_PAYMENTS)
+  private Double excessGoldenParachutePayments;
 
-  public static final String SERIALIZED_NAME_GROSS_AMOUNT_PAID_ATTORNEY = "grossAmountPaidAttorney";
-  @SerializedName(SERIALIZED_NAME_GROSS_AMOUNT_PAID_ATTORNEY)
-  private Double grossAmountPaidAttorney;
+  public static final String SERIALIZED_NAME_GROSS_PROCEEDS_PAID_TO_ATTORNEY = "grossProceedsPaidToAttorney";
+  @SerializedName(SERIALIZED_NAME_GROSS_PROCEEDS_PAID_TO_ATTORNEY)
+  private Double grossProceedsPaidToAttorney;
+
+  public static final String SERIALIZED_NAME_FISH_PURCHASED_FOR_RESALE = "fishPurchasedForResale";
+  @SerializedName(SERIALIZED_NAME_FISH_PURCHASED_FOR_RESALE)
+  private Double fishPurchasedForResale;
 
   public static final String SERIALIZED_NAME_SECTION409_A_DEFERRALS = "section409ADeferrals";
   @SerializedName(SERIALIZED_NAME_SECTION409_A_DEFERRALS)
   private Double section409ADeferrals;
 
-  public static final String SERIALIZED_NAME_SECTION409_A_INCOME = "section409AIncome";
-  @SerializedName(SERIALIZED_NAME_SECTION409_A_INCOME)
-  private Double section409AIncome;
+  public static final String SERIALIZED_NAME_NONQUALIFIED_DEFERRED_COMPENSATION = "nonqualifiedDeferredCompensation";
+  @SerializedName(SERIALIZED_NAME_NONQUALIFIED_DEFERRED_COMPENSATION)
+  private Double nonqualifiedDeferredCompensation;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -185,6 +185,10 @@ public class Form1099Misc {
   @SerializedName(SERIALIZED_NAME_ADDRESS_VERIFICATION_STATUS)
   private Form1099StatusDetail addressVerificationStatus;
 
+  public static final String SERIALIZED_NAME_E_DELIVERY_STATUS = "eDeliveryStatus";
+  @SerializedName(SERIALIZED_NAME_E_DELIVERY_STATUS)
+  private Form1099StatusDetail eDeliveryStatus;
+
   public static final String SERIALIZED_NAME_REFERENCE_ID = "referenceId";
   @SerializedName(SERIALIZED_NAME_REFERENCE_ID)
   private String referenceId;
@@ -197,9 +201,21 @@ public class Form1099Misc {
   @SerializedName(SERIALIZED_NAME_TIN_TYPE)
   private String tinType;
 
+  public static final String SERIALIZED_NAME_FATCA_FILING_REQUIREMENT = "fatcaFilingRequirement";
+  @SerializedName(SERIALIZED_NAME_FATCA_FILING_REQUIREMENT)
+  private Boolean fatcaFilingRequirement;
+
   public static final String SERIALIZED_NAME_TIN = "tin";
   @SerializedName(SERIALIZED_NAME_TIN)
   private String tin;
+
+  public static final String SERIALIZED_NAME_NO_TIN = "noTin";
+  @SerializedName(SERIALIZED_NAME_NO_TIN)
+  private Boolean noTin;
+
+  public static final String SERIALIZED_NAME_SECOND_TIN_NOTICE = "secondTinNotice";
+  @SerializedName(SERIALIZED_NAME_SECOND_TIN_NOTICE)
+  private Boolean secondTinNotice;
 
   public static final String SERIALIZED_NAME_RECIPIENT_NAME = "recipientName";
   @SerializedName(SERIALIZED_NAME_RECIPIENT_NAME)
@@ -229,13 +245,21 @@ public class Form1099Misc {
   @SerializedName(SERIALIZED_NAME_ZIP)
   private String zip;
 
-  public static final String SERIALIZED_NAME_FOREIGN_PROVINCE = "foreignProvince";
-  @SerializedName(SERIALIZED_NAME_FOREIGN_PROVINCE)
-  private String foreignProvince;
+  public static final String SERIALIZED_NAME_NON_US_PROVINCE = "nonUsProvince";
+  @SerializedName(SERIALIZED_NAME_NON_US_PROVINCE)
+  private String nonUsProvince;
 
   public static final String SERIALIZED_NAME_COUNTRY_CODE = "countryCode";
   @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
   private String countryCode;
+
+  public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "accountNumber";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
+  private String accountNumber;
+
+  public static final String SERIALIZED_NAME_OFFICE_CODE = "officeCode";
+  @SerializedName(SERIALIZED_NAME_OFFICE_CODE)
+  private String officeCode;
 
   public static final String SERIALIZED_NAME_VALIDATION_ERRORS = "validationErrors";
   @SerializedName(SERIALIZED_NAME_VALIDATION_ERRORS)
@@ -351,41 +375,22 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc medicalAndHealthCare(Double medicalAndHealthCare) {
-    this.medicalAndHealthCare = medicalAndHealthCare;
+  public Form1099Misc medicalAndHealthCarePayments(Double medicalAndHealthCarePayments) {
+    this.medicalAndHealthCarePayments = medicalAndHealthCarePayments;
     return this;
   }
 
   /**
-   * Get medicalAndHealthCare
-   * @return medicalAndHealthCare
+   * Get medicalAndHealthCarePayments
+   * @return medicalAndHealthCarePayments
    */
   @javax.annotation.Nullable
-  public Double getMedicalAndHealthCare() {
-    return medicalAndHealthCare;
+  public Double getMedicalAndHealthCarePayments() {
+    return medicalAndHealthCarePayments;
   }
 
-  public void setMedicalAndHealthCare(Double medicalAndHealthCare) {
-    this.medicalAndHealthCare = medicalAndHealthCare;
-  }
-
-
-  public Form1099Misc nonemployeeCompensation(Double nonemployeeCompensation) {
-    this.nonemployeeCompensation = nonemployeeCompensation;
-    return this;
-  }
-
-  /**
-   * Get nonemployeeCompensation
-   * @return nonemployeeCompensation
-   */
-  @javax.annotation.Nullable
-  public Double getNonemployeeCompensation() {
-    return nonemployeeCompensation;
-  }
-
-  public void setNonemployeeCompensation(Double nonemployeeCompensation) {
-    this.nonemployeeCompensation = nonemployeeCompensation;
+  public void setMedicalAndHealthCarePayments(Double medicalAndHealthCarePayments) {
+    this.medicalAndHealthCarePayments = medicalAndHealthCarePayments;
   }
 
 
@@ -446,41 +451,60 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc excessGoldenParachute(Double excessGoldenParachute) {
-    this.excessGoldenParachute = excessGoldenParachute;
+  public Form1099Misc excessGoldenParachutePayments(Double excessGoldenParachutePayments) {
+    this.excessGoldenParachutePayments = excessGoldenParachutePayments;
     return this;
   }
 
   /**
-   * Get excessGoldenParachute
-   * @return excessGoldenParachute
+   * Get excessGoldenParachutePayments
+   * @return excessGoldenParachutePayments
    */
   @javax.annotation.Nullable
-  public Double getExcessGoldenParachute() {
-    return excessGoldenParachute;
+  public Double getExcessGoldenParachutePayments() {
+    return excessGoldenParachutePayments;
   }
 
-  public void setExcessGoldenParachute(Double excessGoldenParachute) {
-    this.excessGoldenParachute = excessGoldenParachute;
+  public void setExcessGoldenParachutePayments(Double excessGoldenParachutePayments) {
+    this.excessGoldenParachutePayments = excessGoldenParachutePayments;
   }
 
 
-  public Form1099Misc grossAmountPaidAttorney(Double grossAmountPaidAttorney) {
-    this.grossAmountPaidAttorney = grossAmountPaidAttorney;
+  public Form1099Misc grossProceedsPaidToAttorney(Double grossProceedsPaidToAttorney) {
+    this.grossProceedsPaidToAttorney = grossProceedsPaidToAttorney;
     return this;
   }
 
   /**
-   * Get grossAmountPaidAttorney
-   * @return grossAmountPaidAttorney
+   * Get grossProceedsPaidToAttorney
+   * @return grossProceedsPaidToAttorney
    */
   @javax.annotation.Nullable
-  public Double getGrossAmountPaidAttorney() {
-    return grossAmountPaidAttorney;
+  public Double getGrossProceedsPaidToAttorney() {
+    return grossProceedsPaidToAttorney;
   }
 
-  public void setGrossAmountPaidAttorney(Double grossAmountPaidAttorney) {
-    this.grossAmountPaidAttorney = grossAmountPaidAttorney;
+  public void setGrossProceedsPaidToAttorney(Double grossProceedsPaidToAttorney) {
+    this.grossProceedsPaidToAttorney = grossProceedsPaidToAttorney;
+  }
+
+
+  public Form1099Misc fishPurchasedForResale(Double fishPurchasedForResale) {
+    this.fishPurchasedForResale = fishPurchasedForResale;
+    return this;
+  }
+
+  /**
+   * Get fishPurchasedForResale
+   * @return fishPurchasedForResale
+   */
+  @javax.annotation.Nullable
+  public Double getFishPurchasedForResale() {
+    return fishPurchasedForResale;
+  }
+
+  public void setFishPurchasedForResale(Double fishPurchasedForResale) {
+    this.fishPurchasedForResale = fishPurchasedForResale;
   }
 
 
@@ -503,22 +527,22 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc section409AIncome(Double section409AIncome) {
-    this.section409AIncome = section409AIncome;
+  public Form1099Misc nonqualifiedDeferredCompensation(Double nonqualifiedDeferredCompensation) {
+    this.nonqualifiedDeferredCompensation = nonqualifiedDeferredCompensation;
     return this;
   }
 
   /**
-   * Get section409AIncome
-   * @return section409AIncome
+   * Get nonqualifiedDeferredCompensation
+   * @return nonqualifiedDeferredCompensation
    */
   @javax.annotation.Nullable
-  public Double getSection409AIncome() {
-    return section409AIncome;
+  public Double getNonqualifiedDeferredCompensation() {
+    return nonqualifiedDeferredCompensation;
   }
 
-  public void setSection409AIncome(Double section409AIncome) {
-    this.section409AIncome = section409AIncome;
+  public void setNonqualifiedDeferredCompensation(Double nonqualifiedDeferredCompensation) {
+    this.nonqualifiedDeferredCompensation = nonqualifiedDeferredCompensation;
   }
 
 
@@ -834,6 +858,25 @@ public class Form1099Misc {
   }
 
 
+  public Form1099Misc eDeliveryStatus(Form1099StatusDetail eDeliveryStatus) {
+    this.eDeliveryStatus = eDeliveryStatus;
+    return this;
+  }
+
+  /**
+   * Get eDeliveryStatus
+   * @return eDeliveryStatus
+   */
+  @javax.annotation.Nullable
+  public Form1099StatusDetail geteDeliveryStatus() {
+    return eDeliveryStatus;
+  }
+
+  public void seteDeliveryStatus(Form1099StatusDetail eDeliveryStatus) {
+    this.eDeliveryStatus = eDeliveryStatus;
+  }
+
+
   public Form1099Misc referenceId(String referenceId) {
     this.referenceId = referenceId;
     return this;
@@ -891,6 +934,25 @@ public class Form1099Misc {
   }
 
 
+  public Form1099Misc fatcaFilingRequirement(Boolean fatcaFilingRequirement) {
+    this.fatcaFilingRequirement = fatcaFilingRequirement;
+    return this;
+  }
+
+  /**
+   * Get fatcaFilingRequirement
+   * @return fatcaFilingRequirement
+   */
+  @javax.annotation.Nullable
+  public Boolean getFatcaFilingRequirement() {
+    return fatcaFilingRequirement;
+  }
+
+  public void setFatcaFilingRequirement(Boolean fatcaFilingRequirement) {
+    this.fatcaFilingRequirement = fatcaFilingRequirement;
+  }
+
+
   public Form1099Misc tin(String tin) {
     this.tin = tin;
     return this;
@@ -907,6 +969,44 @@ public class Form1099Misc {
 
   public void setTin(String tin) {
     this.tin = tin;
+  }
+
+
+  public Form1099Misc noTin(Boolean noTin) {
+    this.noTin = noTin;
+    return this;
+  }
+
+  /**
+   * Get noTin
+   * @return noTin
+   */
+  @javax.annotation.Nullable
+  public Boolean getNoTin() {
+    return noTin;
+  }
+
+  public void setNoTin(Boolean noTin) {
+    this.noTin = noTin;
+  }
+
+
+  public Form1099Misc secondTinNotice(Boolean secondTinNotice) {
+    this.secondTinNotice = secondTinNotice;
+    return this;
+  }
+
+  /**
+   * Get secondTinNotice
+   * @return secondTinNotice
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecondTinNotice() {
+    return secondTinNotice;
+  }
+
+  public void setSecondTinNotice(Boolean secondTinNotice) {
+    this.secondTinNotice = secondTinNotice;
   }
 
 
@@ -1043,22 +1143,22 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc foreignProvince(String foreignProvince) {
-    this.foreignProvince = foreignProvince;
+  public Form1099Misc nonUsProvince(String nonUsProvince) {
+    this.nonUsProvince = nonUsProvince;
     return this;
   }
 
   /**
-   * Get foreignProvince
-   * @return foreignProvince
+   * Get nonUsProvince
+   * @return nonUsProvince
    */
   @javax.annotation.Nullable
-  public String getForeignProvince() {
-    return foreignProvince;
+  public String getNonUsProvince() {
+    return nonUsProvince;
   }
 
-  public void setForeignProvince(String foreignProvince) {
-    this.foreignProvince = foreignProvince;
+  public void setNonUsProvince(String nonUsProvince) {
+    this.nonUsProvince = nonUsProvince;
   }
 
 
@@ -1078,6 +1178,44 @@ public class Form1099Misc {
 
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
+  }
+
+
+  public Form1099Misc accountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+    return this;
+  }
+
+  /**
+   * Get accountNumber
+   * @return accountNumber
+   */
+  @javax.annotation.Nullable
+  public String getAccountNumber() {
+    return accountNumber;
+  }
+
+  public void setAccountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+  }
+
+
+  public Form1099Misc officeCode(String officeCode) {
+    this.officeCode = officeCode;
+    return this;
+  }
+
+  /**
+   * Get officeCode
+   * @return officeCode
+   */
+  @javax.annotation.Nullable
+  public String getOfficeCode() {
+    return officeCode;
+  }
+
+  public void setOfficeCode(String officeCode) {
+    this.officeCode = officeCode;
   }
 
 
@@ -1180,15 +1318,15 @@ public class Form1099Misc {
         Objects.equals(this.otherIncome, form1099Misc.otherIncome) &&
         Objects.equals(this.fedIncomeTaxWithheld, form1099Misc.fedIncomeTaxWithheld) &&
         Objects.equals(this.fishingBoatProceeds, form1099Misc.fishingBoatProceeds) &&
-        Objects.equals(this.medicalAndHealthCare, form1099Misc.medicalAndHealthCare) &&
-        Objects.equals(this.nonemployeeCompensation, form1099Misc.nonemployeeCompensation) &&
+        Objects.equals(this.medicalAndHealthCarePayments, form1099Misc.medicalAndHealthCarePayments) &&
         Objects.equals(this.substitutePayments, form1099Misc.substitutePayments) &&
         Objects.equals(this.directSalesIndicator, form1099Misc.directSalesIndicator) &&
         Objects.equals(this.cropInsuranceProceeds, form1099Misc.cropInsuranceProceeds) &&
-        Objects.equals(this.excessGoldenParachute, form1099Misc.excessGoldenParachute) &&
-        Objects.equals(this.grossAmountPaidAttorney, form1099Misc.grossAmountPaidAttorney) &&
+        Objects.equals(this.excessGoldenParachutePayments, form1099Misc.excessGoldenParachutePayments) &&
+        Objects.equals(this.grossProceedsPaidToAttorney, form1099Misc.grossProceedsPaidToAttorney) &&
+        Objects.equals(this.fishPurchasedForResale, form1099Misc.fishPurchasedForResale) &&
         Objects.equals(this.section409ADeferrals, form1099Misc.section409ADeferrals) &&
-        Objects.equals(this.section409AIncome, form1099Misc.section409AIncome) &&
+        Objects.equals(this.nonqualifiedDeferredCompensation, form1099Misc.nonqualifiedDeferredCompensation) &&
         Objects.equals(this.id, form1099Misc.id) &&
         Objects.equals(this.type, form1099Misc.type) &&
         Objects.equals(this.issuerId, form1099Misc.issuerId) &&
@@ -1205,10 +1343,14 @@ public class Form1099Misc {
         Objects.equals(this.tinMatchStatus, form1099Misc.tinMatchStatus) &&
         Objects.equals(this.addressVerification, form1099Misc.addressVerification) &&
         Objects.equals(this.addressVerificationStatus, form1099Misc.addressVerificationStatus) &&
+        Objects.equals(this.eDeliveryStatus, form1099Misc.eDeliveryStatus) &&
         Objects.equals(this.referenceId, form1099Misc.referenceId) &&
         Objects.equals(this.email, form1099Misc.email) &&
         Objects.equals(this.tinType, form1099Misc.tinType) &&
+        Objects.equals(this.fatcaFilingRequirement, form1099Misc.fatcaFilingRequirement) &&
         Objects.equals(this.tin, form1099Misc.tin) &&
+        Objects.equals(this.noTin, form1099Misc.noTin) &&
+        Objects.equals(this.secondTinNotice, form1099Misc.secondTinNotice) &&
         Objects.equals(this.recipientName, form1099Misc.recipientName) &&
         Objects.equals(this.recipientSecondName, form1099Misc.recipientSecondName) &&
         Objects.equals(this.address, form1099Misc.address) &&
@@ -1216,8 +1358,10 @@ public class Form1099Misc {
         Objects.equals(this.city, form1099Misc.city) &&
         Objects.equals(this.state, form1099Misc.state) &&
         Objects.equals(this.zip, form1099Misc.zip) &&
-        Objects.equals(this.foreignProvince, form1099Misc.foreignProvince) &&
+        Objects.equals(this.nonUsProvince, form1099Misc.nonUsProvince) &&
         Objects.equals(this.countryCode, form1099Misc.countryCode) &&
+        Objects.equals(this.accountNumber, form1099Misc.accountNumber) &&
+        Objects.equals(this.officeCode, form1099Misc.officeCode) &&
         Objects.equals(this.validationErrors, form1099Misc.validationErrors) &&
         Objects.equals(this.createdAt, form1099Misc.createdAt) &&
         Objects.equals(this.updatedAt, form1099Misc.updatedAt) &&
@@ -1230,7 +1374,7 @@ public class Form1099Misc {
 
   @Override
   public int hashCode() {
-    return Objects.hash(rents, royalties, otherIncome, fedIncomeTaxWithheld, fishingBoatProceeds, medicalAndHealthCare, nonemployeeCompensation, substitutePayments, directSalesIndicator, cropInsuranceProceeds, excessGoldenParachute, grossAmountPaidAttorney, section409ADeferrals, section409AIncome, id, type, issuerId, issuerReferenceId, issuerTin, taxYear, federalEfile, federalEfileStatus, stateEfile, stateEfileStatus, postalMail, postalMailStatus, tinMatch, tinMatchStatus, addressVerification, addressVerificationStatus, referenceId, email, tinType, tin, recipientName, recipientSecondName, address, address2, city, state, zip, foreignProvince, countryCode, validationErrors, createdAt, updatedAt, stateAndLocalWithholding);
+    return Objects.hash(rents, royalties, otherIncome, fedIncomeTaxWithheld, fishingBoatProceeds, medicalAndHealthCarePayments, substitutePayments, directSalesIndicator, cropInsuranceProceeds, excessGoldenParachutePayments, grossProceedsPaidToAttorney, fishPurchasedForResale, section409ADeferrals, nonqualifiedDeferredCompensation, id, type, issuerId, issuerReferenceId, issuerTin, taxYear, federalEfile, federalEfileStatus, stateEfile, stateEfileStatus, postalMail, postalMailStatus, tinMatch, tinMatchStatus, addressVerification, addressVerificationStatus, eDeliveryStatus, referenceId, email, tinType, fatcaFilingRequirement, tin, noTin, secondTinNotice, recipientName, recipientSecondName, address, address2, city, state, zip, nonUsProvince, countryCode, accountNumber, officeCode, validationErrors, createdAt, updatedAt, stateAndLocalWithholding);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1249,15 +1393,15 @@ public class Form1099Misc {
     sb.append("    otherIncome: ").append(toIndentedString(otherIncome)).append("\n");
     sb.append("    fedIncomeTaxWithheld: ").append(toIndentedString(fedIncomeTaxWithheld)).append("\n");
     sb.append("    fishingBoatProceeds: ").append(toIndentedString(fishingBoatProceeds)).append("\n");
-    sb.append("    medicalAndHealthCare: ").append(toIndentedString(medicalAndHealthCare)).append("\n");
-    sb.append("    nonemployeeCompensation: ").append(toIndentedString(nonemployeeCompensation)).append("\n");
+    sb.append("    medicalAndHealthCarePayments: ").append(toIndentedString(medicalAndHealthCarePayments)).append("\n");
     sb.append("    substitutePayments: ").append(toIndentedString(substitutePayments)).append("\n");
     sb.append("    directSalesIndicator: ").append(toIndentedString(directSalesIndicator)).append("\n");
     sb.append("    cropInsuranceProceeds: ").append(toIndentedString(cropInsuranceProceeds)).append("\n");
-    sb.append("    excessGoldenParachute: ").append(toIndentedString(excessGoldenParachute)).append("\n");
-    sb.append("    grossAmountPaidAttorney: ").append(toIndentedString(grossAmountPaidAttorney)).append("\n");
+    sb.append("    excessGoldenParachutePayments: ").append(toIndentedString(excessGoldenParachutePayments)).append("\n");
+    sb.append("    grossProceedsPaidToAttorney: ").append(toIndentedString(grossProceedsPaidToAttorney)).append("\n");
+    sb.append("    fishPurchasedForResale: ").append(toIndentedString(fishPurchasedForResale)).append("\n");
     sb.append("    section409ADeferrals: ").append(toIndentedString(section409ADeferrals)).append("\n");
-    sb.append("    section409AIncome: ").append(toIndentedString(section409AIncome)).append("\n");
+    sb.append("    nonqualifiedDeferredCompensation: ").append(toIndentedString(nonqualifiedDeferredCompensation)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    issuerId: ").append(toIndentedString(issuerId)).append("\n");
@@ -1274,10 +1418,14 @@ public class Form1099Misc {
     sb.append("    tinMatchStatus: ").append(toIndentedString(tinMatchStatus)).append("\n");
     sb.append("    addressVerification: ").append(toIndentedString(addressVerification)).append("\n");
     sb.append("    addressVerificationStatus: ").append(toIndentedString(addressVerificationStatus)).append("\n");
+    sb.append("    eDeliveryStatus: ").append(toIndentedString(eDeliveryStatus)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    tinType: ").append(toIndentedString(tinType)).append("\n");
+    sb.append("    fatcaFilingRequirement: ").append(toIndentedString(fatcaFilingRequirement)).append("\n");
     sb.append("    tin: ").append(toIndentedString(tin)).append("\n");
+    sb.append("    noTin: ").append(toIndentedString(noTin)).append("\n");
+    sb.append("    secondTinNotice: ").append(toIndentedString(secondTinNotice)).append("\n");
     sb.append("    recipientName: ").append(toIndentedString(recipientName)).append("\n");
     sb.append("    recipientSecondName: ").append(toIndentedString(recipientSecondName)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
@@ -1285,8 +1433,10 @@ public class Form1099Misc {
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    zip: ").append(toIndentedString(zip)).append("\n");
-    sb.append("    foreignProvince: ").append(toIndentedString(foreignProvince)).append("\n");
+    sb.append("    nonUsProvince: ").append(toIndentedString(nonUsProvince)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
+    sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
+    sb.append("    officeCode: ").append(toIndentedString(officeCode)).append("\n");
     sb.append("    validationErrors: ").append(toIndentedString(validationErrors)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
@@ -1329,10 +1479,14 @@ public class Form1099Misc {
     openapiFields.add("tinMatchStatus");
     openapiFields.add("addressVerification");
     openapiFields.add("addressVerificationStatus");
+    openapiFields.add("eDeliveryStatus");
     openapiFields.add("referenceId");
     openapiFields.add("email");
     openapiFields.add("tinType");
+    openapiFields.add("fatcaFilingRequirement");
     openapiFields.add("tin");
+    openapiFields.add("noTin");
+    openapiFields.add("secondTinNotice");
     openapiFields.add("recipientName");
     openapiFields.add("recipientSecondName");
     openapiFields.add("address");
@@ -1340,8 +1494,10 @@ public class Form1099Misc {
     openapiFields.add("city");
     openapiFields.add("state");
     openapiFields.add("zip");
-    openapiFields.add("foreignProvince");
+    openapiFields.add("nonUsProvince");
     openapiFields.add("countryCode");
+    openapiFields.add("accountNumber");
+    openapiFields.add("officeCode");
     openapiFields.add("validationErrors");
     openapiFields.add("createdAt");
     openapiFields.add("updatedAt");
@@ -1414,6 +1570,10 @@ public class Form1099Misc {
       if (jsonObj.get("addressVerificationStatus") != null && !jsonObj.get("addressVerificationStatus").isJsonNull()) {
         Form1099StatusDetail.validateJsonElement(jsonObj.get("addressVerificationStatus"));
       }
+      // validate the optional field `eDeliveryStatus`
+      if (jsonObj.get("eDeliveryStatus") != null && !jsonObj.get("eDeliveryStatus").isJsonNull()) {
+        Form1099StatusDetail.validateJsonElement(jsonObj.get("eDeliveryStatus"));
+      }
       if ((jsonObj.get("referenceId") != null && !jsonObj.get("referenceId").isJsonNull()) && !jsonObj.get("referenceId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `referenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referenceId").toString()));
       }
@@ -1447,11 +1607,17 @@ public class Form1099Misc {
       if ((jsonObj.get("zip") != null && !jsonObj.get("zip").isJsonNull()) && !jsonObj.get("zip").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `zip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zip").toString()));
       }
-      if ((jsonObj.get("foreignProvince") != null && !jsonObj.get("foreignProvince").isJsonNull()) && !jsonObj.get("foreignProvince").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `foreignProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("foreignProvince").toString()));
+      if ((jsonObj.get("nonUsProvince") != null && !jsonObj.get("nonUsProvince").isJsonNull()) && !jsonObj.get("nonUsProvince").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `nonUsProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nonUsProvince").toString()));
       }
       if ((jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonNull()) && !jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
+      }
+      if ((jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonNull()) && !jsonObj.get("accountNumber").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
+      }
+      if ((jsonObj.get("officeCode") != null && !jsonObj.get("officeCode").isJsonNull()) && !jsonObj.get("officeCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `officeCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("officeCode").toString()));
       }
       if (jsonObj.get("validationErrors") != null && !jsonObj.get("validationErrors").isJsonNull()) {
         JsonArray jsonArrayvalidationErrors = jsonObj.getAsJsonArray("validationErrors");
