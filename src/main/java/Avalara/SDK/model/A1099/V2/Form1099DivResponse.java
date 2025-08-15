@@ -65,6 +65,82 @@ import Avalara.SDK.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Form1099DivResponse {
+  public static final String SERIALIZED_NAME_TOTAL_ORDINARY_DIVIDENDS = "totalOrdinaryDividends";
+  @SerializedName(SERIALIZED_NAME_TOTAL_ORDINARY_DIVIDENDS)
+  private Double totalOrdinaryDividends;
+
+  public static final String SERIALIZED_NAME_QUALIFIED_DIVIDENDS = "qualifiedDividends";
+  @SerializedName(SERIALIZED_NAME_QUALIFIED_DIVIDENDS)
+  private Double qualifiedDividends;
+
+  public static final String SERIALIZED_NAME_TOTAL_CAPITAL_GAIN_DISTRIBUTIONS = "totalCapitalGainDistributions";
+  @SerializedName(SERIALIZED_NAME_TOTAL_CAPITAL_GAIN_DISTRIBUTIONS)
+  private Double totalCapitalGainDistributions;
+
+  public static final String SERIALIZED_NAME_UNRECAPTURED_SECTION1250_GAIN = "unrecapturedSection1250Gain";
+  @SerializedName(SERIALIZED_NAME_UNRECAPTURED_SECTION1250_GAIN)
+  private Double unrecapturedSection1250Gain;
+
+  public static final String SERIALIZED_NAME_SECTION1202_GAIN = "section1202Gain";
+  @SerializedName(SERIALIZED_NAME_SECTION1202_GAIN)
+  private Double section1202Gain;
+
+  public static final String SERIALIZED_NAME_COLLECTIBLES_GAIN = "collectiblesGain";
+  @SerializedName(SERIALIZED_NAME_COLLECTIBLES_GAIN)
+  private Double collectiblesGain;
+
+  public static final String SERIALIZED_NAME_SECTION897_ORDINARY_DIVIDENDS = "section897OrdinaryDividends";
+  @SerializedName(SERIALIZED_NAME_SECTION897_ORDINARY_DIVIDENDS)
+  private Double section897OrdinaryDividends;
+
+  public static final String SERIALIZED_NAME_SECTION897_CAPITAL_GAIN = "section897CapitalGain";
+  @SerializedName(SERIALIZED_NAME_SECTION897_CAPITAL_GAIN)
+  private Double section897CapitalGain;
+
+  public static final String SERIALIZED_NAME_NONDIVIDEND_DISTRIBUTIONS = "nondividendDistributions";
+  @SerializedName(SERIALIZED_NAME_NONDIVIDEND_DISTRIBUTIONS)
+  private Double nondividendDistributions;
+
+  public static final String SERIALIZED_NAME_FEDERAL_INCOME_TAX_WITHHELD = "federalIncomeTaxWithheld";
+  @SerializedName(SERIALIZED_NAME_FEDERAL_INCOME_TAX_WITHHELD)
+  private Double federalIncomeTaxWithheld;
+
+  public static final String SERIALIZED_NAME_SECTION199_A_DIVIDENDS = "section199ADividends";
+  @SerializedName(SERIALIZED_NAME_SECTION199_A_DIVIDENDS)
+  private Double section199ADividends;
+
+  public static final String SERIALIZED_NAME_INVESTMENT_EXPENSES = "investmentExpenses";
+  @SerializedName(SERIALIZED_NAME_INVESTMENT_EXPENSES)
+  private Double investmentExpenses;
+
+  public static final String SERIALIZED_NAME_FOREIGN_TAX_PAID = "foreignTaxPaid";
+  @SerializedName(SERIALIZED_NAME_FOREIGN_TAX_PAID)
+  private Double foreignTaxPaid;
+
+  public static final String SERIALIZED_NAME_FOREIGN_COUNTRY_OR_U_S_POSSESSION = "foreignCountryOrUSPossession";
+  @SerializedName(SERIALIZED_NAME_FOREIGN_COUNTRY_OR_U_S_POSSESSION)
+  private String foreignCountryOrUSPossession;
+
+  public static final String SERIALIZED_NAME_CASH_LIQUIDATION_DISTRIBUTIONS = "cashLiquidationDistributions";
+  @SerializedName(SERIALIZED_NAME_CASH_LIQUIDATION_DISTRIBUTIONS)
+  private Double cashLiquidationDistributions;
+
+  public static final String SERIALIZED_NAME_NONCASH_LIQUIDATION_DISTRIBUTIONS = "noncashLiquidationDistributions";
+  @SerializedName(SERIALIZED_NAME_NONCASH_LIQUIDATION_DISTRIBUTIONS)
+  private Double noncashLiquidationDistributions;
+
+  public static final String SERIALIZED_NAME_EXEMPT_INTEREST_DIVIDENDS = "exemptInterestDividends";
+  @SerializedName(SERIALIZED_NAME_EXEMPT_INTEREST_DIVIDENDS)
+  private Double exemptInterestDividends;
+
+  public static final String SERIALIZED_NAME_SPECIFIED_PRIVATE_ACTIVITY_BOND_INTEREST_DIVIDENDS = "specifiedPrivateActivityBondInterestDividends";
+  @SerializedName(SERIALIZED_NAME_SPECIFIED_PRIVATE_ACTIVITY_BOND_INTEREST_DIVIDENDS)
+  private Double specifiedPrivateActivityBondInterestDividends;
+
+  public static final String SERIALIZED_NAME_FATCA_FILING_REQUIREMENT = "fatcaFilingRequirement";
+  @SerializedName(SERIALIZED_NAME_FATCA_FILING_REQUIREMENT)
+  private Boolean fatcaFilingRequirement;
+
   /**
    * Gets or Sets type
    */
@@ -84,7 +160,9 @@ public class Form1099DivResponse {
     
     _1042_S("1042-S"),
     
-    _1095_C("1095-C");
+    _1095_C("1095-C"),
+    
+    _1099_INT("1099-INT");
 
     private String value;
 
@@ -346,6 +424,367 @@ public class Form1099DivResponse {
     this();
     this.type = type;
   }
+
+  public Form1099DivResponse totalOrdinaryDividends(Double totalOrdinaryDividends) {
+    this.totalOrdinaryDividends = totalOrdinaryDividends;
+    return this;
+  }
+
+  /**
+   * Get totalOrdinaryDividends
+   * @return totalOrdinaryDividends
+   */
+  @javax.annotation.Nullable
+  public Double getTotalOrdinaryDividends() {
+    return totalOrdinaryDividends;
+  }
+
+  public void setTotalOrdinaryDividends(Double totalOrdinaryDividends) {
+    this.totalOrdinaryDividends = totalOrdinaryDividends;
+  }
+
+
+  public Form1099DivResponse qualifiedDividends(Double qualifiedDividends) {
+    this.qualifiedDividends = qualifiedDividends;
+    return this;
+  }
+
+  /**
+   * Get qualifiedDividends
+   * @return qualifiedDividends
+   */
+  @javax.annotation.Nullable
+  public Double getQualifiedDividends() {
+    return qualifiedDividends;
+  }
+
+  public void setQualifiedDividends(Double qualifiedDividends) {
+    this.qualifiedDividends = qualifiedDividends;
+  }
+
+
+  public Form1099DivResponse totalCapitalGainDistributions(Double totalCapitalGainDistributions) {
+    this.totalCapitalGainDistributions = totalCapitalGainDistributions;
+    return this;
+  }
+
+  /**
+   * Get totalCapitalGainDistributions
+   * @return totalCapitalGainDistributions
+   */
+  @javax.annotation.Nullable
+  public Double getTotalCapitalGainDistributions() {
+    return totalCapitalGainDistributions;
+  }
+
+  public void setTotalCapitalGainDistributions(Double totalCapitalGainDistributions) {
+    this.totalCapitalGainDistributions = totalCapitalGainDistributions;
+  }
+
+
+  public Form1099DivResponse unrecapturedSection1250Gain(Double unrecapturedSection1250Gain) {
+    this.unrecapturedSection1250Gain = unrecapturedSection1250Gain;
+    return this;
+  }
+
+  /**
+   * Get unrecapturedSection1250Gain
+   * @return unrecapturedSection1250Gain
+   */
+  @javax.annotation.Nullable
+  public Double getUnrecapturedSection1250Gain() {
+    return unrecapturedSection1250Gain;
+  }
+
+  public void setUnrecapturedSection1250Gain(Double unrecapturedSection1250Gain) {
+    this.unrecapturedSection1250Gain = unrecapturedSection1250Gain;
+  }
+
+
+  public Form1099DivResponse section1202Gain(Double section1202Gain) {
+    this.section1202Gain = section1202Gain;
+    return this;
+  }
+
+  /**
+   * Get section1202Gain
+   * @return section1202Gain
+   */
+  @javax.annotation.Nullable
+  public Double getSection1202Gain() {
+    return section1202Gain;
+  }
+
+  public void setSection1202Gain(Double section1202Gain) {
+    this.section1202Gain = section1202Gain;
+  }
+
+
+  public Form1099DivResponse collectiblesGain(Double collectiblesGain) {
+    this.collectiblesGain = collectiblesGain;
+    return this;
+  }
+
+  /**
+   * Get collectiblesGain
+   * @return collectiblesGain
+   */
+  @javax.annotation.Nullable
+  public Double getCollectiblesGain() {
+    return collectiblesGain;
+  }
+
+  public void setCollectiblesGain(Double collectiblesGain) {
+    this.collectiblesGain = collectiblesGain;
+  }
+
+
+  public Form1099DivResponse section897OrdinaryDividends(Double section897OrdinaryDividends) {
+    this.section897OrdinaryDividends = section897OrdinaryDividends;
+    return this;
+  }
+
+  /**
+   * Get section897OrdinaryDividends
+   * @return section897OrdinaryDividends
+   */
+  @javax.annotation.Nullable
+  public Double getSection897OrdinaryDividends() {
+    return section897OrdinaryDividends;
+  }
+
+  public void setSection897OrdinaryDividends(Double section897OrdinaryDividends) {
+    this.section897OrdinaryDividends = section897OrdinaryDividends;
+  }
+
+
+  public Form1099DivResponse section897CapitalGain(Double section897CapitalGain) {
+    this.section897CapitalGain = section897CapitalGain;
+    return this;
+  }
+
+  /**
+   * Get section897CapitalGain
+   * @return section897CapitalGain
+   */
+  @javax.annotation.Nullable
+  public Double getSection897CapitalGain() {
+    return section897CapitalGain;
+  }
+
+  public void setSection897CapitalGain(Double section897CapitalGain) {
+    this.section897CapitalGain = section897CapitalGain;
+  }
+
+
+  public Form1099DivResponse nondividendDistributions(Double nondividendDistributions) {
+    this.nondividendDistributions = nondividendDistributions;
+    return this;
+  }
+
+  /**
+   * Get nondividendDistributions
+   * @return nondividendDistributions
+   */
+  @javax.annotation.Nullable
+  public Double getNondividendDistributions() {
+    return nondividendDistributions;
+  }
+
+  public void setNondividendDistributions(Double nondividendDistributions) {
+    this.nondividendDistributions = nondividendDistributions;
+  }
+
+
+  public Form1099DivResponse federalIncomeTaxWithheld(Double federalIncomeTaxWithheld) {
+    this.federalIncomeTaxWithheld = federalIncomeTaxWithheld;
+    return this;
+  }
+
+  /**
+   * Get federalIncomeTaxWithheld
+   * @return federalIncomeTaxWithheld
+   */
+  @javax.annotation.Nullable
+  public Double getFederalIncomeTaxWithheld() {
+    return federalIncomeTaxWithheld;
+  }
+
+  public void setFederalIncomeTaxWithheld(Double federalIncomeTaxWithheld) {
+    this.federalIncomeTaxWithheld = federalIncomeTaxWithheld;
+  }
+
+
+  public Form1099DivResponse section199ADividends(Double section199ADividends) {
+    this.section199ADividends = section199ADividends;
+    return this;
+  }
+
+  /**
+   * Get section199ADividends
+   * @return section199ADividends
+   */
+  @javax.annotation.Nullable
+  public Double getSection199ADividends() {
+    return section199ADividends;
+  }
+
+  public void setSection199ADividends(Double section199ADividends) {
+    this.section199ADividends = section199ADividends;
+  }
+
+
+  public Form1099DivResponse investmentExpenses(Double investmentExpenses) {
+    this.investmentExpenses = investmentExpenses;
+    return this;
+  }
+
+  /**
+   * Get investmentExpenses
+   * @return investmentExpenses
+   */
+  @javax.annotation.Nullable
+  public Double getInvestmentExpenses() {
+    return investmentExpenses;
+  }
+
+  public void setInvestmentExpenses(Double investmentExpenses) {
+    this.investmentExpenses = investmentExpenses;
+  }
+
+
+  public Form1099DivResponse foreignTaxPaid(Double foreignTaxPaid) {
+    this.foreignTaxPaid = foreignTaxPaid;
+    return this;
+  }
+
+  /**
+   * Get foreignTaxPaid
+   * @return foreignTaxPaid
+   */
+  @javax.annotation.Nullable
+  public Double getForeignTaxPaid() {
+    return foreignTaxPaid;
+  }
+
+  public void setForeignTaxPaid(Double foreignTaxPaid) {
+    this.foreignTaxPaid = foreignTaxPaid;
+  }
+
+
+  public Form1099DivResponse foreignCountryOrUSPossession(String foreignCountryOrUSPossession) {
+    this.foreignCountryOrUSPossession = foreignCountryOrUSPossession;
+    return this;
+  }
+
+  /**
+   * Get foreignCountryOrUSPossession
+   * @return foreignCountryOrUSPossession
+   */
+  @javax.annotation.Nullable
+  public String getForeignCountryOrUSPossession() {
+    return foreignCountryOrUSPossession;
+  }
+
+  public void setForeignCountryOrUSPossession(String foreignCountryOrUSPossession) {
+    this.foreignCountryOrUSPossession = foreignCountryOrUSPossession;
+  }
+
+
+  public Form1099DivResponse cashLiquidationDistributions(Double cashLiquidationDistributions) {
+    this.cashLiquidationDistributions = cashLiquidationDistributions;
+    return this;
+  }
+
+  /**
+   * Get cashLiquidationDistributions
+   * @return cashLiquidationDistributions
+   */
+  @javax.annotation.Nullable
+  public Double getCashLiquidationDistributions() {
+    return cashLiquidationDistributions;
+  }
+
+  public void setCashLiquidationDistributions(Double cashLiquidationDistributions) {
+    this.cashLiquidationDistributions = cashLiquidationDistributions;
+  }
+
+
+  public Form1099DivResponse noncashLiquidationDistributions(Double noncashLiquidationDistributions) {
+    this.noncashLiquidationDistributions = noncashLiquidationDistributions;
+    return this;
+  }
+
+  /**
+   * Get noncashLiquidationDistributions
+   * @return noncashLiquidationDistributions
+   */
+  @javax.annotation.Nullable
+  public Double getNoncashLiquidationDistributions() {
+    return noncashLiquidationDistributions;
+  }
+
+  public void setNoncashLiquidationDistributions(Double noncashLiquidationDistributions) {
+    this.noncashLiquidationDistributions = noncashLiquidationDistributions;
+  }
+
+
+  public Form1099DivResponse exemptInterestDividends(Double exemptInterestDividends) {
+    this.exemptInterestDividends = exemptInterestDividends;
+    return this;
+  }
+
+  /**
+   * Get exemptInterestDividends
+   * @return exemptInterestDividends
+   */
+  @javax.annotation.Nullable
+  public Double getExemptInterestDividends() {
+    return exemptInterestDividends;
+  }
+
+  public void setExemptInterestDividends(Double exemptInterestDividends) {
+    this.exemptInterestDividends = exemptInterestDividends;
+  }
+
+
+  public Form1099DivResponse specifiedPrivateActivityBondInterestDividends(Double specifiedPrivateActivityBondInterestDividends) {
+    this.specifiedPrivateActivityBondInterestDividends = specifiedPrivateActivityBondInterestDividends;
+    return this;
+  }
+
+  /**
+   * Get specifiedPrivateActivityBondInterestDividends
+   * @return specifiedPrivateActivityBondInterestDividends
+   */
+  @javax.annotation.Nullable
+  public Double getSpecifiedPrivateActivityBondInterestDividends() {
+    return specifiedPrivateActivityBondInterestDividends;
+  }
+
+  public void setSpecifiedPrivateActivityBondInterestDividends(Double specifiedPrivateActivityBondInterestDividends) {
+    this.specifiedPrivateActivityBondInterestDividends = specifiedPrivateActivityBondInterestDividends;
+  }
+
+
+  public Form1099DivResponse fatcaFilingRequirement(Boolean fatcaFilingRequirement) {
+    this.fatcaFilingRequirement = fatcaFilingRequirement;
+    return this;
+  }
+
+  /**
+   * Get fatcaFilingRequirement
+   * @return fatcaFilingRequirement
+   */
+  @javax.annotation.Nullable
+  public Boolean getFatcaFilingRequirement() {
+    return fatcaFilingRequirement;
+  }
+
+  public void setFatcaFilingRequirement(Boolean fatcaFilingRequirement) {
+    this.fatcaFilingRequirement = fatcaFilingRequirement;
+  }
+
 
   /**
    * Get type
@@ -1087,7 +1526,26 @@ public class Form1099DivResponse {
       return false;
     }
     Form1099DivResponse form1099DivResponse = (Form1099DivResponse) o;
-    return Objects.equals(this.type, form1099DivResponse.type) &&
+    return Objects.equals(this.totalOrdinaryDividends, form1099DivResponse.totalOrdinaryDividends) &&
+        Objects.equals(this.qualifiedDividends, form1099DivResponse.qualifiedDividends) &&
+        Objects.equals(this.totalCapitalGainDistributions, form1099DivResponse.totalCapitalGainDistributions) &&
+        Objects.equals(this.unrecapturedSection1250Gain, form1099DivResponse.unrecapturedSection1250Gain) &&
+        Objects.equals(this.section1202Gain, form1099DivResponse.section1202Gain) &&
+        Objects.equals(this.collectiblesGain, form1099DivResponse.collectiblesGain) &&
+        Objects.equals(this.section897OrdinaryDividends, form1099DivResponse.section897OrdinaryDividends) &&
+        Objects.equals(this.section897CapitalGain, form1099DivResponse.section897CapitalGain) &&
+        Objects.equals(this.nondividendDistributions, form1099DivResponse.nondividendDistributions) &&
+        Objects.equals(this.federalIncomeTaxWithheld, form1099DivResponse.federalIncomeTaxWithheld) &&
+        Objects.equals(this.section199ADividends, form1099DivResponse.section199ADividends) &&
+        Objects.equals(this.investmentExpenses, form1099DivResponse.investmentExpenses) &&
+        Objects.equals(this.foreignTaxPaid, form1099DivResponse.foreignTaxPaid) &&
+        Objects.equals(this.foreignCountryOrUSPossession, form1099DivResponse.foreignCountryOrUSPossession) &&
+        Objects.equals(this.cashLiquidationDistributions, form1099DivResponse.cashLiquidationDistributions) &&
+        Objects.equals(this.noncashLiquidationDistributions, form1099DivResponse.noncashLiquidationDistributions) &&
+        Objects.equals(this.exemptInterestDividends, form1099DivResponse.exemptInterestDividends) &&
+        Objects.equals(this.specifiedPrivateActivityBondInterestDividends, form1099DivResponse.specifiedPrivateActivityBondInterestDividends) &&
+        Objects.equals(this.fatcaFilingRequirement, form1099DivResponse.fatcaFilingRequirement) &&
+        Objects.equals(this.type, form1099DivResponse.type) &&
         Objects.equals(this.createdAt, form1099DivResponse.createdAt) &&
         Objects.equals(this.updatedAt, form1099DivResponse.updatedAt) &&
         Objects.equals(this.stateAndLocalWithholding, form1099DivResponse.stateAndLocalWithholding) &&
@@ -1133,7 +1591,7 @@ public class Form1099DivResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, createdAt, updatedAt, stateAndLocalWithholding, tinType, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, recipientName, recipientTin, recipientSecondName, address, address2, city, state, zip, email, accountNumber, officeCode, nonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, noTin, secondTinNotice, addressVerification, federalEfileStatus, eDeliveryStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, validationErrors);
+    return Objects.hash(totalOrdinaryDividends, qualifiedDividends, totalCapitalGainDistributions, unrecapturedSection1250Gain, section1202Gain, collectiblesGain, section897OrdinaryDividends, section897CapitalGain, nondividendDistributions, federalIncomeTaxWithheld, section199ADividends, investmentExpenses, foreignTaxPaid, foreignCountryOrUSPossession, cashLiquidationDistributions, noncashLiquidationDistributions, exemptInterestDividends, specifiedPrivateActivityBondInterestDividends, fatcaFilingRequirement, type, createdAt, updatedAt, stateAndLocalWithholding, tinType, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, recipientName, recipientTin, recipientSecondName, address, address2, city, state, zip, email, accountNumber, officeCode, nonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, noTin, secondTinNotice, addressVerification, federalEfileStatus, eDeliveryStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, validationErrors);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1147,6 +1605,25 @@ public class Form1099DivResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Form1099DivResponse {\n");
+    sb.append("    totalOrdinaryDividends: ").append(toIndentedString(totalOrdinaryDividends)).append("\n");
+    sb.append("    qualifiedDividends: ").append(toIndentedString(qualifiedDividends)).append("\n");
+    sb.append("    totalCapitalGainDistributions: ").append(toIndentedString(totalCapitalGainDistributions)).append("\n");
+    sb.append("    unrecapturedSection1250Gain: ").append(toIndentedString(unrecapturedSection1250Gain)).append("\n");
+    sb.append("    section1202Gain: ").append(toIndentedString(section1202Gain)).append("\n");
+    sb.append("    collectiblesGain: ").append(toIndentedString(collectiblesGain)).append("\n");
+    sb.append("    section897OrdinaryDividends: ").append(toIndentedString(section897OrdinaryDividends)).append("\n");
+    sb.append("    section897CapitalGain: ").append(toIndentedString(section897CapitalGain)).append("\n");
+    sb.append("    nondividendDistributions: ").append(toIndentedString(nondividendDistributions)).append("\n");
+    sb.append("    federalIncomeTaxWithheld: ").append(toIndentedString(federalIncomeTaxWithheld)).append("\n");
+    sb.append("    section199ADividends: ").append(toIndentedString(section199ADividends)).append("\n");
+    sb.append("    investmentExpenses: ").append(toIndentedString(investmentExpenses)).append("\n");
+    sb.append("    foreignTaxPaid: ").append(toIndentedString(foreignTaxPaid)).append("\n");
+    sb.append("    foreignCountryOrUSPossession: ").append(toIndentedString(foreignCountryOrUSPossession)).append("\n");
+    sb.append("    cashLiquidationDistributions: ").append(toIndentedString(cashLiquidationDistributions)).append("\n");
+    sb.append("    noncashLiquidationDistributions: ").append(toIndentedString(noncashLiquidationDistributions)).append("\n");
+    sb.append("    exemptInterestDividends: ").append(toIndentedString(exemptInterestDividends)).append("\n");
+    sb.append("    specifiedPrivateActivityBondInterestDividends: ").append(toIndentedString(specifiedPrivateActivityBondInterestDividends)).append("\n");
+    sb.append("    fatcaFilingRequirement: ").append(toIndentedString(fatcaFilingRequirement)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
@@ -1271,6 +1748,9 @@ public class Form1099DivResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("foreignCountryOrUSPossession") != null && !jsonObj.get("foreignCountryOrUSPossession").isJsonNull()) && !jsonObj.get("foreignCountryOrUSPossession").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `foreignCountryOrUSPossession` to be a primitive type in the JSON string but got `%s`", jsonObj.get("foreignCountryOrUSPossession").toString()));
+      }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }

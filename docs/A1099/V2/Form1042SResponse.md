@@ -60,6 +60,7 @@
 | _1095_B | &quot;1095-B&quot; |
 | _1042_S | &quot;1042-S&quot; |
 | _1095_C | &quot;1095-C&quot; |
+| _1099_INT | &quot;1099-INT&quot; |
 
 
 

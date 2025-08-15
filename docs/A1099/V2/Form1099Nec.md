@@ -26,10 +26,14 @@
 |**tinMatchStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) |  |  [optional] |
 |**addressVerification** | **Boolean** |  |  [optional] |
 |**addressVerificationStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) |  |  [optional] |
+|**eDeliveryStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) |  |  [optional] |
 |**referenceId** | **String** |  |  [optional] |
 |**email** | **String** |  |  [optional] |
 |**tinType** | **String** |  |  [optional] |
+|**fatcaFilingRequirement** | **Boolean** |  |  [optional] |
 |**tin** | **String** |  |  [optional] |
+|**noTin** | **Boolean** |  |  [optional] |
+|**secondTinNotice** | **Boolean** |  |  [optional] |
 |**recipientName** | **String** |  |  [optional] |
 |**recipientSecondName** | **String** |  |  [optional] |
 |**address** | **String** |  |  [optional] |
@@ -37,8 +41,10 @@
 |**city** | **String** |  |  [optional] |
 |**state** | **String** |  |  [optional] |
 |**zip** | **String** |  |  [optional] |
-|**foreignProvince** | **String** |  |  [optional] |
+|**nonUsProvince** | **String** |  |  [optional] |
 |**countryCode** | **String** |  |  [optional] |
+|**accountNumber** | **String** |  |  [optional] |
+|**officeCode** | **String** |  |  [optional] |
 |**validationErrors** | [**List&lt;ValidationError&gt;**](ValidationError.md) |  |  [optional] |
 |**createdAt** | **OffsetDateTime** |  |  [optional] |
 |**updatedAt** | **OffsetDateTime** |  |  [optional] |

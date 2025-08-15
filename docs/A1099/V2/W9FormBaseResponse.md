@@ -8,7 +8,6 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** | The unique identifier for the form. |  [optional] |
-|**type** | **String** | The form type. |  [optional] |
 |**entryStatus** | **String** | The form status. |  [optional] |
 |**entryStatusDate** | **OffsetDateTime** | The timestamp for the latest status update. |  [optional] |
 |**referenceId** | **String** | A reference identifier for the form. |  [optional] |
@@ -21,6 +20,7 @@
 |**eDeliveryConsentedAt** | **OffsetDateTime** | The date when e-delivery was consented. |  [optional] |
 |**createdAt** | **OffsetDateTime** | The creation date of the form. |  [optional] |
 |**updatedAt** | **OffsetDateTime** | The last updated date of the form. |  [optional] |
+|**type** | **String** | The type of the response object. |  [optional] |
 
 
 

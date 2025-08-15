@@ -42,7 +42,7 @@ import Avalara.SDK.model.A1099.V2.ErrorModel;
 import Avalara.SDK.model.A1099.V2.ErrorResponse;
 import java.io.File;
 import Avalara.SDK.model.A1099.V2.IW9FormDataModelsOneOf;
-import Avalara.SDK.model.A1099.V2.PaginatedW9FormsModel;
+import Avalara.SDK.model.A1099.V2.PaginatedQueryResultModelW9FormBaseResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -649,9 +649,9 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of forms </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List of forms </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listW9FormsCall(ListW9FormsRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -703,6 +703,10 @@ public class FormsW9Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("count", requestParameters.getCount()));
         }
 
+        if (requestParameters.getCountOnly() != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("countOnly", requestParameters.getCountOnly()));
+        }
+
         if (requestParameters.getAvalaraVersion() != null) {
             localVarHeaderParams.put("avalara-version", localVarApiClient.parameterToString(requestParameters.getAvalaraVersion()));
         }
@@ -750,46 +754,46 @@ public class FormsW9Api {
 
     /**
      * List W9/W4/W8 forms
-     * List W9/W4/W8 forms.
+     * List W9/W4/W8 forms. Filterable/Sortable fields are: \&quot;companyId\&quot;, \&quot;type\&quot;, \&quot;displayName\&quot;, \&quot;entryStatus\&quot;, \&quot;email\&quot;, \&quot;archived\&quot; and \&quot;referenceId\&quot;.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return PaginatedW9FormsModel
+     * @return PaginatedQueryResultModelW9FormBaseResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of forms </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List of forms </td><td>  -  </td></tr>
      </table>
      */
-    public PaginatedW9FormsModel listW9Forms(ListW9FormsRequest requestParameters) throws ApiException {
-        ApiResponse<PaginatedW9FormsModel> localVarResp = listW9FormsWithHttpInfo(requestParameters);
+    public PaginatedQueryResultModelW9FormBaseResponse listW9Forms(ListW9FormsRequest requestParameters) throws ApiException {
+        ApiResponse<PaginatedQueryResultModelW9FormBaseResponse> localVarResp = listW9FormsWithHttpInfo(requestParameters);
         return localVarResp.getData();
     }
 
     /**
      * List W9/W4/W8 forms
-     * List W9/W4/W8 forms.
+     * List W9/W4/W8 forms. Filterable/Sortable fields are: \&quot;companyId\&quot;, \&quot;type\&quot;, \&quot;displayName\&quot;, \&quot;entryStatus\&quot;, \&quot;email\&quot;, \&quot;archived\&quot; and \&quot;referenceId\&quot;.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return ApiResponse&lt;PaginatedW9FormsModel&gt;
+     * @return ApiResponse&lt;PaginatedQueryResultModelW9FormBaseResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of forms </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List of forms </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaginatedW9FormsModel> listW9FormsWithHttpInfo(ListW9FormsRequest requestParameters) throws ApiException {
+    public ApiResponse<PaginatedQueryResultModelW9FormBaseResponse> listW9FormsWithHttpInfo(ListW9FormsRequest requestParameters) throws ApiException {
         okhttp3.Call localVarCall = listW9FormsValidateBeforeCall(requestParameters, null);
-        Type localVarReturnType = new TypeToken<PaginatedW9FormsModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<PaginatedQueryResultModelW9FormBaseResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List W9/W4/W8 forms (asynchronously)
-     * List W9/W4/W8 forms.
+     * List W9/W4/W8 forms. Filterable/Sortable fields are: \&quot;companyId\&quot;, \&quot;type\&quot;, \&quot;displayName\&quot;, \&quot;entryStatus\&quot;, \&quot;email\&quot;, \&quot;archived\&quot; and \&quot;referenceId\&quot;.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -797,15 +801,15 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of forms </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List of forms </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listW9FormsAsync(ListW9FormsRequest requestParameters, final ApiCallback<PaginatedW9FormsModel> _callback) throws ApiException {
+    public okhttp3.Call listW9FormsAsync(ListW9FormsRequest requestParameters, final ApiCallback<PaginatedQueryResultModelW9FormBaseResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listW9FormsValidateBeforeCall(requestParameters, _callback);
-        Type localVarReturnType = new TypeToken<PaginatedW9FormsModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<PaginatedQueryResultModelW9FormBaseResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -813,11 +817,12 @@ public class FormsW9Api {
     * Represents the Request object for the ListW9Forms API
     *
     * @param avalaraVersion API version</param>
-    * @param $filter A filter statement to identify specific records to retrieve. For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>. (optional)</param>
-    * @param $top If nonzero, return no more than this number of results. Used with skip to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. (optional, default to 10)</param>
-    * @param $skip If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional, default to 0)</param>
+    * @param $filter A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>. (optional)</param>
+    * @param $top If zero or greater than 1000, return at most 1000 results.  Otherwise, return this number of results.  Used with skip to provide pagination for large datasets. (optional)</param>
+    * @param $skip If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional)</param>
     * @param $orderBy A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC. (optional)</param>
-    * @param count When true, returns a @recordSetCount in the result set (optional)</param>
+    * @param count If true, return the global count of elements in the collection. (optional)</param>
+    * @param countOnly If true, return ONLY the global count of elements in the collection.  It only applies when count=true. (optional)</param>
     * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
     * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
     */
@@ -828,6 +833,7 @@ public class FormsW9Api {
         private Integer $skip;
         private String $orderBy;
         private Boolean count;
+        private Boolean countOnly;
         private String xCorrelationId;
         private String xAvalaraClient;
 
@@ -846,6 +852,8 @@ public class FormsW9Api {
         public void set$orderBy(String $orderBy) { this.$orderBy = $orderBy; }
         public Boolean getCount() { return count; }
         public void setCount(Boolean count) { this.count = count; }
+        public Boolean getCountOnly() { return countOnly; }
+        public void setCountOnly(Boolean countOnly) { this.countOnly = countOnly; }
         public String getXCorrelationId() { return xCorrelationId; }
         public void setXCorrelationId(String xCorrelationId) { this.xCorrelationId = xCorrelationId; }
         public String getXAvalaraClient() { return xAvalaraClient; }
@@ -1444,7 +1452,7 @@ public class FormsW9Api {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.8.1");
+        this.localVarApiClient.setSdkVersion("25.8.2");
     }
 }
 

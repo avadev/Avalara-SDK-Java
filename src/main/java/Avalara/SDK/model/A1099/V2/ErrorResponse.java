@@ -20,7 +20,7 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
-import Avalara.SDK.model.A1099.V2.ErrorResponseErrorsInner;
+import Avalara.SDK.model.A1099.V2.ErrorResponseItem;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -67,7 +67,7 @@ public class ErrorResponse {
 
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
-  private List<ErrorResponseErrorsInner> errors;
+  private List<ErrorResponseItem> errors;
 
   public ErrorResponse() {
   }
@@ -91,12 +91,12 @@ public class ErrorResponse {
   }
 
 
-  public ErrorResponse errors(List<ErrorResponseErrorsInner> errors) {
+  public ErrorResponse errors(List<ErrorResponseItem> errors) {
     this.errors = errors;
     return this;
   }
 
-  public ErrorResponse addErrorsItem(ErrorResponseErrorsInner errorsItem) {
+  public ErrorResponse addErrorsItem(ErrorResponseItem errorsItem) {
     if (this.errors == null) {
       this.errors = new ArrayList<>();
     }
@@ -109,11 +109,11 @@ public class ErrorResponse {
    * @return errors
    */
   @javax.annotation.Nullable
-  public List<ErrorResponseErrorsInner> getErrors() {
+  public List<ErrorResponseItem> getErrors() {
     return errors;
   }
 
-  public void setErrors(List<ErrorResponseErrorsInner> errors) {
+  public void setErrors(List<ErrorResponseItem> errors) {
     this.errors = errors;
   }
 
@@ -217,7 +217,7 @@ public class ErrorResponse {
 
           // validate the optional field `errors` (array)
           for (int i = 0; i < jsonArrayerrors.size(); i++) {
-            ErrorResponseErrorsInner.validateJsonElement(jsonArrayerrors.get(i));
+            ErrorResponseItem.validateJsonElement(jsonArrayerrors.get(i));
           };
         }
       }

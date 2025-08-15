@@ -21,13 +21,17 @@ package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
 import Avalara.SDK.model.A1099.V2.Data;
+import Avalara.SDK.model.A1099.V2.Form1099ProccessResultProcessedFormsInner;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -62,6 +66,10 @@ public class Form1099ProccessResult {
   @SerializedName(SERIALIZED_NAME_JOB_DATA)
   private Data jobData;
 
+  public static final String SERIALIZED_NAME_PROCESSED_FORMS = "processedForms";
+  @SerializedName(SERIALIZED_NAME_PROCESSED_FORMS)
+  private List<Form1099ProccessResultProcessedFormsInner> processedForms;
+
   public Form1099ProccessResult() {
   }
 
@@ -84,6 +92,33 @@ public class Form1099ProccessResult {
   }
 
 
+  public Form1099ProccessResult processedForms(List<Form1099ProccessResultProcessedFormsInner> processedForms) {
+    this.processedForms = processedForms;
+    return this;
+  }
+
+  public Form1099ProccessResult addProcessedFormsItem(Form1099ProccessResultProcessedFormsInner processedFormsItem) {
+    if (this.processedForms == null) {
+      this.processedForms = new ArrayList<>();
+    }
+    this.processedForms.add(processedFormsItem);
+    return this;
+  }
+
+  /**
+   * Get processedForms
+   * @return processedForms
+   */
+  @javax.annotation.Nullable
+  public List<Form1099ProccessResultProcessedFormsInner> getProcessedForms() {
+    return processedForms;
+  }
+
+  public void setProcessedForms(List<Form1099ProccessResultProcessedFormsInner> processedForms) {
+    this.processedForms = processedForms;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -94,12 +129,24 @@ public class Form1099ProccessResult {
       return false;
     }
     Form1099ProccessResult form1099ProccessResult = (Form1099ProccessResult) o;
-    return Objects.equals(this.jobData, form1099ProccessResult.jobData);
+    return Objects.equals(this.jobData, form1099ProccessResult.jobData) &&
+        Objects.equals(this.processedForms, form1099ProccessResult.processedForms);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(jobData);
+    return Objects.hash(jobData, processedForms);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -107,6 +154,7 @@ public class Form1099ProccessResult {
     StringBuilder sb = new StringBuilder();
     sb.append("class Form1099ProccessResult {\n");
     sb.append("    jobData: ").append(toIndentedString(jobData)).append("\n");
+    sb.append("    processedForms: ").append(toIndentedString(processedForms)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -130,6 +178,7 @@ public class Form1099ProccessResult {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("jobData");
+    openapiFields.add("processedForms");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -159,6 +208,20 @@ public class Form1099ProccessResult {
       // validate the optional field `jobData`
       if (jsonObj.get("jobData") != null && !jsonObj.get("jobData").isJsonNull()) {
         Data.validateJsonElement(jsonObj.get("jobData"));
+      }
+      if (jsonObj.get("processedForms") != null && !jsonObj.get("processedForms").isJsonNull()) {
+        JsonArray jsonArrayprocessedForms = jsonObj.getAsJsonArray("processedForms");
+        if (jsonArrayprocessedForms != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("processedForms").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `processedForms` to be an array in the JSON string but got `%s`", jsonObj.get("processedForms").toString()));
+          }
+
+          // validate the optional field `processedForms` (array)
+          for (int i = 0; i < jsonArrayprocessedForms.size(); i++) {
+            Form1099ProccessResultProcessedFormsInner.validateJsonElement(jsonArrayprocessedForms.get(i));
+          };
+        }
       }
   }
 

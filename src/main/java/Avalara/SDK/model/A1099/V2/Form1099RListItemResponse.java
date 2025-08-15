@@ -137,10 +137,6 @@ public class Form1099RListItemResponse {
   @SerializedName(SERIALIZED_NAME_FIRST_YEAR_DESIGNATED_ROTH_CONTRIB)
   private String firstYearDesignatedRothContrib;
 
-  public static final String SERIALIZED_NAME_FATCA_REQUIREMENT_INDICATOR = "fatcaRequirementIndicator";
-  @SerializedName(SERIALIZED_NAME_FATCA_REQUIREMENT_INDICATOR)
-  private Boolean fatcaRequirementIndicator;
-
   public static final String SERIALIZED_NAME_DATE_OF_PAYMENT = "dateOfPayment";
   @SerializedName(SERIALIZED_NAME_DATE_OF_PAYMENT)
   private String dateOfPayment;
@@ -668,25 +664,6 @@ public class Form1099RListItemResponse {
 
   public void setFirstYearDesignatedRothContrib(String firstYearDesignatedRothContrib) {
     this.firstYearDesignatedRothContrib = firstYearDesignatedRothContrib;
-  }
-
-
-  public Form1099RListItemResponse fatcaRequirementIndicator(Boolean fatcaRequirementIndicator) {
-    this.fatcaRequirementIndicator = fatcaRequirementIndicator;
-    return this;
-  }
-
-  /**
-   * FATCA filing requirement
-   * @return fatcaRequirementIndicator
-   */
-  @javax.annotation.Nullable
-  public Boolean getFatcaRequirementIndicator() {
-    return fatcaRequirementIndicator;
-  }
-
-  public void setFatcaRequirementIndicator(Boolean fatcaRequirementIndicator) {
-    this.fatcaRequirementIndicator = fatcaRequirementIndicator;
   }
 
 
@@ -1398,7 +1375,6 @@ public class Form1099RListItemResponse {
         Objects.equals(this.totalEmployeeContributions, form1099RListItemResponse.totalEmployeeContributions) &&
         Objects.equals(this.amountAllocableToIrr, form1099RListItemResponse.amountAllocableToIrr) &&
         Objects.equals(this.firstYearDesignatedRothContrib, form1099RListItemResponse.firstYearDesignatedRothContrib) &&
-        Objects.equals(this.fatcaRequirementIndicator, form1099RListItemResponse.fatcaRequirementIndicator) &&
         Objects.equals(this.dateOfPayment, form1099RListItemResponse.dateOfPayment) &&
         Objects.equals(this.id, form1099RListItemResponse.id) &&
         Objects.equals(this.type, form1099RListItemResponse.type) &&
@@ -1447,7 +1423,7 @@ public class Form1099RListItemResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(grossDistributions, taxableAmount, taxableAmountNotDetermined, totalDistributionIndicator, capitalGain, fedIncomeTaxWithheld, employeeContributions, netUnrealizedAppreciation, distributionCodeRequired, distributionCodeOptional, iraSepSimpleIndicator, totalIraSepSimpleDistribution, other, otherPercent, percentageTotalDistribution, totalEmployeeContributions, amountAllocableToIrr, firstYearDesignatedRothContrib, fatcaRequirementIndicator, dateOfPayment, id, type, issuerId, issuerReferenceId, issuerTin, taxYear, federalEfile, federalEfileStatus, stateEfile, stateEfileStatus, postalMail, postalMailStatus, tinMatch, tinMatchStatus, addressVerification, addressVerificationStatus, eDeliveryStatus, referenceId, email, tinType, tin, noTin, secondTinNotice, recipientName, recipientSecondName, address, address2, city, state, zip, nonUsProvince, countryCode, accountNumber, officeCode, fatcaFilingRequirement, validationErrors, createdAt, updatedAt, stateAndLocalWithholding);
+    return Objects.hash(grossDistributions, taxableAmount, taxableAmountNotDetermined, totalDistributionIndicator, capitalGain, fedIncomeTaxWithheld, employeeContributions, netUnrealizedAppreciation, distributionCodeRequired, distributionCodeOptional, iraSepSimpleIndicator, totalIraSepSimpleDistribution, other, otherPercent, percentageTotalDistribution, totalEmployeeContributions, amountAllocableToIrr, firstYearDesignatedRothContrib, dateOfPayment, id, type, issuerId, issuerReferenceId, issuerTin, taxYear, federalEfile, federalEfileStatus, stateEfile, stateEfileStatus, postalMail, postalMailStatus, tinMatch, tinMatchStatus, addressVerification, addressVerificationStatus, eDeliveryStatus, referenceId, email, tinType, tin, noTin, secondTinNotice, recipientName, recipientSecondName, address, address2, city, state, zip, nonUsProvince, countryCode, accountNumber, officeCode, fatcaFilingRequirement, validationErrors, createdAt, updatedAt, stateAndLocalWithholding);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1479,7 +1455,6 @@ public class Form1099RListItemResponse {
     sb.append("    totalEmployeeContributions: ").append(toIndentedString(totalEmployeeContributions)).append("\n");
     sb.append("    amountAllocableToIrr: ").append(toIndentedString(amountAllocableToIrr)).append("\n");
     sb.append("    firstYearDesignatedRothContrib: ").append(toIndentedString(firstYearDesignatedRothContrib)).append("\n");
-    sb.append("    fatcaRequirementIndicator: ").append(toIndentedString(fatcaRequirementIndicator)).append("\n");
     sb.append("    dateOfPayment: ").append(toIndentedString(dateOfPayment)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

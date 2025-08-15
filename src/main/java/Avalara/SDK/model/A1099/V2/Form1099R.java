@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -137,10 +137,6 @@ public class Form1099R {
   @SerializedName(SERIALIZED_NAME_FIRST_YEAR_DESIGNATED_ROTH_CONTRIB)
   private String firstYearDesignatedRothContrib;
 
-  public static final String SERIALIZED_NAME_FATCA_REQUIREMENT_INDICATOR = "fatcaRequirementIndicator";
-  @SerializedName(SERIALIZED_NAME_FATCA_REQUIREMENT_INDICATOR)
-  private Boolean fatcaRequirementIndicator;
-
   public static final String SERIALIZED_NAME_DATE_OF_PAYMENT = "dateOfPayment";
   @SerializedName(SERIALIZED_NAME_DATE_OF_PAYMENT)
   private String dateOfPayment;
@@ -209,6 +205,10 @@ public class Form1099R {
   @SerializedName(SERIALIZED_NAME_ADDRESS_VERIFICATION_STATUS)
   private Form1099StatusDetail addressVerificationStatus;
 
+  public static final String SERIALIZED_NAME_E_DELIVERY_STATUS = "eDeliveryStatus";
+  @SerializedName(SERIALIZED_NAME_E_DELIVERY_STATUS)
+  private Form1099StatusDetail eDeliveryStatus;
+
   public static final String SERIALIZED_NAME_REFERENCE_ID = "referenceId";
   @SerializedName(SERIALIZED_NAME_REFERENCE_ID)
   private String referenceId;
@@ -221,9 +221,21 @@ public class Form1099R {
   @SerializedName(SERIALIZED_NAME_TIN_TYPE)
   private String tinType;
 
+  public static final String SERIALIZED_NAME_FATCA_FILING_REQUIREMENT = "fatcaFilingRequirement";
+  @SerializedName(SERIALIZED_NAME_FATCA_FILING_REQUIREMENT)
+  private Boolean fatcaFilingRequirement;
+
   public static final String SERIALIZED_NAME_TIN = "tin";
   @SerializedName(SERIALIZED_NAME_TIN)
   private String tin;
+
+  public static final String SERIALIZED_NAME_NO_TIN = "noTin";
+  @SerializedName(SERIALIZED_NAME_NO_TIN)
+  private Boolean noTin;
+
+  public static final String SERIALIZED_NAME_SECOND_TIN_NOTICE = "secondTinNotice";
+  @SerializedName(SERIALIZED_NAME_SECOND_TIN_NOTICE)
+  private Boolean secondTinNotice;
 
   public static final String SERIALIZED_NAME_RECIPIENT_NAME = "recipientName";
   @SerializedName(SERIALIZED_NAME_RECIPIENT_NAME)
@@ -253,13 +265,21 @@ public class Form1099R {
   @SerializedName(SERIALIZED_NAME_ZIP)
   private String zip;
 
-  public static final String SERIALIZED_NAME_FOREIGN_PROVINCE = "foreignProvince";
-  @SerializedName(SERIALIZED_NAME_FOREIGN_PROVINCE)
-  private String foreignProvince;
+  public static final String SERIALIZED_NAME_NON_US_PROVINCE = "nonUsProvince";
+  @SerializedName(SERIALIZED_NAME_NON_US_PROVINCE)
+  private String nonUsProvince;
 
   public static final String SERIALIZED_NAME_COUNTRY_CODE = "countryCode";
   @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
   private String countryCode;
+
+  public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "accountNumber";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
+  private String accountNumber;
+
+  public static final String SERIALIZED_NAME_OFFICE_CODE = "officeCode";
+  @SerializedName(SERIALIZED_NAME_OFFICE_CODE)
+  private String officeCode;
 
   public static final String SERIALIZED_NAME_VALIDATION_ERRORS = "validationErrors";
   @SerializedName(SERIALIZED_NAME_VALIDATION_ERRORS)
@@ -622,25 +642,6 @@ public class Form1099R {
   }
 
 
-  public Form1099R fatcaRequirementIndicator(Boolean fatcaRequirementIndicator) {
-    this.fatcaRequirementIndicator = fatcaRequirementIndicator;
-    return this;
-  }
-
-  /**
-   * Get fatcaRequirementIndicator
-   * @return fatcaRequirementIndicator
-   */
-  @javax.annotation.Nullable
-  public Boolean getFatcaRequirementIndicator() {
-    return fatcaRequirementIndicator;
-  }
-
-  public void setFatcaRequirementIndicator(Boolean fatcaRequirementIndicator) {
-    this.fatcaRequirementIndicator = fatcaRequirementIndicator;
-  }
-
-
   public Form1099R dateOfPayment(String dateOfPayment) {
     this.dateOfPayment = dateOfPayment;
     return this;
@@ -972,6 +973,25 @@ public class Form1099R {
   }
 
 
+  public Form1099R eDeliveryStatus(Form1099StatusDetail eDeliveryStatus) {
+    this.eDeliveryStatus = eDeliveryStatus;
+    return this;
+  }
+
+  /**
+   * Get eDeliveryStatus
+   * @return eDeliveryStatus
+   */
+  @javax.annotation.Nullable
+  public Form1099StatusDetail geteDeliveryStatus() {
+    return eDeliveryStatus;
+  }
+
+  public void seteDeliveryStatus(Form1099StatusDetail eDeliveryStatus) {
+    this.eDeliveryStatus = eDeliveryStatus;
+  }
+
+
   public Form1099R referenceId(String referenceId) {
     this.referenceId = referenceId;
     return this;
@@ -1029,6 +1049,25 @@ public class Form1099R {
   }
 
 
+  public Form1099R fatcaFilingRequirement(Boolean fatcaFilingRequirement) {
+    this.fatcaFilingRequirement = fatcaFilingRequirement;
+    return this;
+  }
+
+  /**
+   * Get fatcaFilingRequirement
+   * @return fatcaFilingRequirement
+   */
+  @javax.annotation.Nullable
+  public Boolean getFatcaFilingRequirement() {
+    return fatcaFilingRequirement;
+  }
+
+  public void setFatcaFilingRequirement(Boolean fatcaFilingRequirement) {
+    this.fatcaFilingRequirement = fatcaFilingRequirement;
+  }
+
+
   public Form1099R tin(String tin) {
     this.tin = tin;
     return this;
@@ -1045,6 +1084,44 @@ public class Form1099R {
 
   public void setTin(String tin) {
     this.tin = tin;
+  }
+
+
+  public Form1099R noTin(Boolean noTin) {
+    this.noTin = noTin;
+    return this;
+  }
+
+  /**
+   * Get noTin
+   * @return noTin
+   */
+  @javax.annotation.Nullable
+  public Boolean getNoTin() {
+    return noTin;
+  }
+
+  public void setNoTin(Boolean noTin) {
+    this.noTin = noTin;
+  }
+
+
+  public Form1099R secondTinNotice(Boolean secondTinNotice) {
+    this.secondTinNotice = secondTinNotice;
+    return this;
+  }
+
+  /**
+   * Get secondTinNotice
+   * @return secondTinNotice
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecondTinNotice() {
+    return secondTinNotice;
+  }
+
+  public void setSecondTinNotice(Boolean secondTinNotice) {
+    this.secondTinNotice = secondTinNotice;
   }
 
 
@@ -1181,22 +1258,22 @@ public class Form1099R {
   }
 
 
-  public Form1099R foreignProvince(String foreignProvince) {
-    this.foreignProvince = foreignProvince;
+  public Form1099R nonUsProvince(String nonUsProvince) {
+    this.nonUsProvince = nonUsProvince;
     return this;
   }
 
   /**
-   * Get foreignProvince
-   * @return foreignProvince
+   * Get nonUsProvince
+   * @return nonUsProvince
    */
   @javax.annotation.Nullable
-  public String getForeignProvince() {
-    return foreignProvince;
+  public String getNonUsProvince() {
+    return nonUsProvince;
   }
 
-  public void setForeignProvince(String foreignProvince) {
-    this.foreignProvince = foreignProvince;
+  public void setNonUsProvince(String nonUsProvince) {
+    this.nonUsProvince = nonUsProvince;
   }
 
 
@@ -1216,6 +1293,44 @@ public class Form1099R {
 
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
+  }
+
+
+  public Form1099R accountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+    return this;
+  }
+
+  /**
+   * Get accountNumber
+   * @return accountNumber
+   */
+  @javax.annotation.Nullable
+  public String getAccountNumber() {
+    return accountNumber;
+  }
+
+  public void setAccountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+  }
+
+
+  public Form1099R officeCode(String officeCode) {
+    this.officeCode = officeCode;
+    return this;
+  }
+
+  /**
+   * Get officeCode
+   * @return officeCode
+   */
+  @javax.annotation.Nullable
+  public String getOfficeCode() {
+    return officeCode;
+  }
+
+  public void setOfficeCode(String officeCode) {
+    this.officeCode = officeCode;
   }
 
 
@@ -1331,7 +1446,6 @@ public class Form1099R {
         Objects.equals(this.totalEmployeeContributions, form1099R.totalEmployeeContributions) &&
         Objects.equals(this.amountAllocableToIrr, form1099R.amountAllocableToIrr) &&
         Objects.equals(this.firstYearDesignatedRothContrib, form1099R.firstYearDesignatedRothContrib) &&
-        Objects.equals(this.fatcaRequirementIndicator, form1099R.fatcaRequirementIndicator) &&
         Objects.equals(this.dateOfPayment, form1099R.dateOfPayment) &&
         Objects.equals(this.id, form1099R.id) &&
         Objects.equals(this.type, form1099R.type) &&
@@ -1349,10 +1463,14 @@ public class Form1099R {
         Objects.equals(this.tinMatchStatus, form1099R.tinMatchStatus) &&
         Objects.equals(this.addressVerification, form1099R.addressVerification) &&
         Objects.equals(this.addressVerificationStatus, form1099R.addressVerificationStatus) &&
+        Objects.equals(this.eDeliveryStatus, form1099R.eDeliveryStatus) &&
         Objects.equals(this.referenceId, form1099R.referenceId) &&
         Objects.equals(this.email, form1099R.email) &&
         Objects.equals(this.tinType, form1099R.tinType) &&
+        Objects.equals(this.fatcaFilingRequirement, form1099R.fatcaFilingRequirement) &&
         Objects.equals(this.tin, form1099R.tin) &&
+        Objects.equals(this.noTin, form1099R.noTin) &&
+        Objects.equals(this.secondTinNotice, form1099R.secondTinNotice) &&
         Objects.equals(this.recipientName, form1099R.recipientName) &&
         Objects.equals(this.recipientSecondName, form1099R.recipientSecondName) &&
         Objects.equals(this.address, form1099R.address) &&
@@ -1360,8 +1478,10 @@ public class Form1099R {
         Objects.equals(this.city, form1099R.city) &&
         Objects.equals(this.state, form1099R.state) &&
         Objects.equals(this.zip, form1099R.zip) &&
-        Objects.equals(this.foreignProvince, form1099R.foreignProvince) &&
+        Objects.equals(this.nonUsProvince, form1099R.nonUsProvince) &&
         Objects.equals(this.countryCode, form1099R.countryCode) &&
+        Objects.equals(this.accountNumber, form1099R.accountNumber) &&
+        Objects.equals(this.officeCode, form1099R.officeCode) &&
         Objects.equals(this.validationErrors, form1099R.validationErrors) &&
         Objects.equals(this.createdAt, form1099R.createdAt) &&
         Objects.equals(this.updatedAt, form1099R.updatedAt) &&
@@ -1374,7 +1494,7 @@ public class Form1099R {
 
   @Override
   public int hashCode() {
-    return Objects.hash(grossDistributions, taxableAmount, taxableAmountNotDetermined, totalDistributionIndicator, capitalGain, fedIncomeTaxWithheld, employeeContributions, netUnrealizedAppreciation, distributionCodeRequired, distributionCodeOptional, iraSepSimpleIndicator, totalIraSepSimpleDistribution, other, otherPercent, percentageTotalDistribution, totalEmployeeContributions, amountAllocableToIrr, firstYearDesignatedRothContrib, fatcaRequirementIndicator, dateOfPayment, id, type, issuerId, issuerReferenceId, issuerTin, taxYear, federalEfile, federalEfileStatus, stateEfile, stateEfileStatus, postalMail, postalMailStatus, tinMatch, tinMatchStatus, addressVerification, addressVerificationStatus, referenceId, email, tinType, tin, recipientName, recipientSecondName, address, address2, city, state, zip, foreignProvince, countryCode, validationErrors, createdAt, updatedAt, stateAndLocalWithholding);
+    return Objects.hash(grossDistributions, taxableAmount, taxableAmountNotDetermined, totalDistributionIndicator, capitalGain, fedIncomeTaxWithheld, employeeContributions, netUnrealizedAppreciation, distributionCodeRequired, distributionCodeOptional, iraSepSimpleIndicator, totalIraSepSimpleDistribution, other, otherPercent, percentageTotalDistribution, totalEmployeeContributions, amountAllocableToIrr, firstYearDesignatedRothContrib, dateOfPayment, id, type, issuerId, issuerReferenceId, issuerTin, taxYear, federalEfile, federalEfileStatus, stateEfile, stateEfileStatus, postalMail, postalMailStatus, tinMatch, tinMatchStatus, addressVerification, addressVerificationStatus, eDeliveryStatus, referenceId, email, tinType, fatcaFilingRequirement, tin, noTin, secondTinNotice, recipientName, recipientSecondName, address, address2, city, state, zip, nonUsProvince, countryCode, accountNumber, officeCode, validationErrors, createdAt, updatedAt, stateAndLocalWithholding);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1406,7 +1526,6 @@ public class Form1099R {
     sb.append("    totalEmployeeContributions: ").append(toIndentedString(totalEmployeeContributions)).append("\n");
     sb.append("    amountAllocableToIrr: ").append(toIndentedString(amountAllocableToIrr)).append("\n");
     sb.append("    firstYearDesignatedRothContrib: ").append(toIndentedString(firstYearDesignatedRothContrib)).append("\n");
-    sb.append("    fatcaRequirementIndicator: ").append(toIndentedString(fatcaRequirementIndicator)).append("\n");
     sb.append("    dateOfPayment: ").append(toIndentedString(dateOfPayment)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -1424,10 +1543,14 @@ public class Form1099R {
     sb.append("    tinMatchStatus: ").append(toIndentedString(tinMatchStatus)).append("\n");
     sb.append("    addressVerification: ").append(toIndentedString(addressVerification)).append("\n");
     sb.append("    addressVerificationStatus: ").append(toIndentedString(addressVerificationStatus)).append("\n");
+    sb.append("    eDeliveryStatus: ").append(toIndentedString(eDeliveryStatus)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    tinType: ").append(toIndentedString(tinType)).append("\n");
+    sb.append("    fatcaFilingRequirement: ").append(toIndentedString(fatcaFilingRequirement)).append("\n");
     sb.append("    tin: ").append(toIndentedString(tin)).append("\n");
+    sb.append("    noTin: ").append(toIndentedString(noTin)).append("\n");
+    sb.append("    secondTinNotice: ").append(toIndentedString(secondTinNotice)).append("\n");
     sb.append("    recipientName: ").append(toIndentedString(recipientName)).append("\n");
     sb.append("    recipientSecondName: ").append(toIndentedString(recipientSecondName)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
@@ -1435,8 +1558,10 @@ public class Form1099R {
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    zip: ").append(toIndentedString(zip)).append("\n");
-    sb.append("    foreignProvince: ").append(toIndentedString(foreignProvince)).append("\n");
+    sb.append("    nonUsProvince: ").append(toIndentedString(nonUsProvince)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
+    sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
+    sb.append("    officeCode: ").append(toIndentedString(officeCode)).append("\n");
     sb.append("    validationErrors: ").append(toIndentedString(validationErrors)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
@@ -1479,10 +1604,14 @@ public class Form1099R {
     openapiFields.add("tinMatchStatus");
     openapiFields.add("addressVerification");
     openapiFields.add("addressVerificationStatus");
+    openapiFields.add("eDeliveryStatus");
     openapiFields.add("referenceId");
     openapiFields.add("email");
     openapiFields.add("tinType");
+    openapiFields.add("fatcaFilingRequirement");
     openapiFields.add("tin");
+    openapiFields.add("noTin");
+    openapiFields.add("secondTinNotice");
     openapiFields.add("recipientName");
     openapiFields.add("recipientSecondName");
     openapiFields.add("address");
@@ -1490,8 +1619,10 @@ public class Form1099R {
     openapiFields.add("city");
     openapiFields.add("state");
     openapiFields.add("zip");
-    openapiFields.add("foreignProvince");
+    openapiFields.add("nonUsProvince");
     openapiFields.add("countryCode");
+    openapiFields.add("accountNumber");
+    openapiFields.add("officeCode");
     openapiFields.add("validationErrors");
     openapiFields.add("createdAt");
     openapiFields.add("updatedAt");
@@ -1582,6 +1713,10 @@ public class Form1099R {
       if (jsonObj.get("addressVerificationStatus") != null && !jsonObj.get("addressVerificationStatus").isJsonNull()) {
         Form1099StatusDetail.validateJsonElement(jsonObj.get("addressVerificationStatus"));
       }
+      // validate the optional field `eDeliveryStatus`
+      if (jsonObj.get("eDeliveryStatus") != null && !jsonObj.get("eDeliveryStatus").isJsonNull()) {
+        Form1099StatusDetail.validateJsonElement(jsonObj.get("eDeliveryStatus"));
+      }
       if ((jsonObj.get("referenceId") != null && !jsonObj.get("referenceId").isJsonNull()) && !jsonObj.get("referenceId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `referenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referenceId").toString()));
       }
@@ -1615,11 +1750,17 @@ public class Form1099R {
       if ((jsonObj.get("zip") != null && !jsonObj.get("zip").isJsonNull()) && !jsonObj.get("zip").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `zip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zip").toString()));
       }
-      if ((jsonObj.get("foreignProvince") != null && !jsonObj.get("foreignProvince").isJsonNull()) && !jsonObj.get("foreignProvince").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `foreignProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("foreignProvince").toString()));
+      if ((jsonObj.get("nonUsProvince") != null && !jsonObj.get("nonUsProvince").isJsonNull()) && !jsonObj.get("nonUsProvince").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `nonUsProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nonUsProvince").toString()));
       }
       if ((jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonNull()) && !jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
+      }
+      if ((jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonNull()) && !jsonObj.get("accountNumber").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
+      }
+      if ((jsonObj.get("officeCode") != null && !jsonObj.get("officeCode").isJsonNull()) && !jsonObj.get("officeCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `officeCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("officeCode").toString()));
       }
       if (jsonObj.get("validationErrors") != null && !jsonObj.get("validationErrors").isJsonNull()) {
         JsonArray jsonArrayvalidationErrors = jsonObj.getAsJsonArray("validationErrors");

@@ -215,6 +215,10 @@ public class FormRequestListItemBase {
   @SerializedName(SERIALIZED_NAME_SECOND_TIN_NOTICE)
   private Boolean secondTinNotice;
 
+  public static final String SERIALIZED_NAME_FATCA_FILING_REQUIREMENT = "fatcaFilingRequirement";
+  @SerializedName(SERIALIZED_NAME_FATCA_FILING_REQUIREMENT)
+  private Boolean fatcaFilingRequirement;
+
   public static final String SERIALIZED_NAME_ADDRESS_VERIFICATION = "addressVerification";
   @SerializedName(SERIALIZED_NAME_ADDRESS_VERIFICATION)
   private Boolean addressVerification;
@@ -406,7 +410,7 @@ public class FormRequestListItemBase {
    * Address
    * @return address
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getAddress() {
     return address;
   }
@@ -444,7 +448,7 @@ public class FormRequestListItemBase {
    * City
    * @return city
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getCity() {
     return city;
   }
@@ -577,7 +581,7 @@ public class FormRequestListItemBase {
    * Country code, as defined at https://www.irs.gov/e-file-providers/country-codes
    * @return countryCode
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getCountryCode() {
     return countryCode;
   }
@@ -701,6 +705,25 @@ public class FormRequestListItemBase {
   }
 
 
+  public FormRequestListItemBase fatcaFilingRequirement(Boolean fatcaFilingRequirement) {
+    this.fatcaFilingRequirement = fatcaFilingRequirement;
+    return this;
+  }
+
+  /**
+   * Fatca filing requirement
+   * @return fatcaFilingRequirement
+   */
+  @javax.annotation.Nullable
+  public Boolean getFatcaFilingRequirement() {
+    return fatcaFilingRequirement;
+  }
+
+  public void setFatcaFilingRequirement(Boolean fatcaFilingRequirement) {
+    this.fatcaFilingRequirement = fatcaFilingRequirement;
+  }
+
+
   public FormRequestListItemBase addressVerification(Boolean addressVerification) {
     this.addressVerification = addressVerification;
     return this;
@@ -774,6 +797,7 @@ public class FormRequestListItemBase {
         Objects.equals(this.tinMatch, formRequestListItemBase.tinMatch) &&
         Objects.equals(this.noTin, formRequestListItemBase.noTin) &&
         Objects.equals(this.secondTinNotice, formRequestListItemBase.secondTinNotice) &&
+        Objects.equals(this.fatcaFilingRequirement, formRequestListItemBase.fatcaFilingRequirement) &&
         Objects.equals(this.addressVerification, formRequestListItemBase.addressVerification) &&
         Objects.equals(this.stateAndLocalWithholding, formRequestListItemBase.stateAndLocalWithholding);
   }
@@ -784,7 +808,7 @@ public class FormRequestListItemBase {
 
   @Override
   public int hashCode() {
-    return Objects.hash(issuerReferenceId, issuerTin, taxYear, issuerId, referenceId, recipientTin, recipientName, tinType, recipientSecondName, address, address2, city, state, zip, email, accountNumber, officeCode, nonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, noTin, secondTinNotice, addressVerification, stateAndLocalWithholding);
+    return Objects.hash(issuerReferenceId, issuerTin, taxYear, issuerId, referenceId, recipientTin, recipientName, tinType, recipientSecondName, address, address2, city, state, zip, email, accountNumber, officeCode, nonUsProvince, countryCode, federalEFile, postalMail, stateEFile, tinMatch, noTin, secondTinNotice, fatcaFilingRequirement, addressVerification, stateAndLocalWithholding);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -823,6 +847,7 @@ public class FormRequestListItemBase {
     sb.append("    tinMatch: ").append(toIndentedString(tinMatch)).append("\n");
     sb.append("    noTin: ").append(toIndentedString(noTin)).append("\n");
     sb.append("    secondTinNotice: ").append(toIndentedString(secondTinNotice)).append("\n");
+    sb.append("    fatcaFilingRequirement: ").append(toIndentedString(fatcaFilingRequirement)).append("\n");
     sb.append("    addressVerification: ").append(toIndentedString(addressVerification)).append("\n");
     sb.append("    stateAndLocalWithholding: ").append(toIndentedString(stateAndLocalWithholding)).append("\n");
     sb.append("}");
@@ -869,15 +894,13 @@ public class FormRequestListItemBase {
     openapiFields.add("tinMatch");
     openapiFields.add("noTin");
     openapiFields.add("secondTinNotice");
+    openapiFields.add("fatcaFilingRequirement");
     openapiFields.add("addressVerification");
     openapiFields.add("stateAndLocalWithholding");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("taxYear");
-    openapiRequiredFields.add("address");
-    openapiRequiredFields.add("city");
-    openapiRequiredFields.add("countryCode");
   }
 
   /**
@@ -936,13 +959,13 @@ public class FormRequestListItemBase {
       if ((jsonObj.get("recipientSecondName") != null && !jsonObj.get("recipientSecondName").isJsonNull()) && !jsonObj.get("recipientSecondName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientSecondName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientSecondName").toString()));
       }
-      if (!jsonObj.get("address").isJsonPrimitive()) {
+      if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
       }
       if ((jsonObj.get("address2") != null && !jsonObj.get("address2").isJsonNull()) && !jsonObj.get("address2").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address2").toString()));
       }
-      if (!jsonObj.get("city").isJsonPrimitive()) {
+      if ((jsonObj.get("city") != null && !jsonObj.get("city").isJsonNull()) && !jsonObj.get("city").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
       }
       if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
@@ -963,7 +986,7 @@ public class FormRequestListItemBase {
       if ((jsonObj.get("nonUsProvince") != null && !jsonObj.get("nonUsProvince").isJsonNull()) && !jsonObj.get("nonUsProvince").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `nonUsProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nonUsProvince").toString()));
       }
-      if (!jsonObj.get("countryCode").isJsonPrimitive()) {
+      if ((jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonNull()) && !jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
       }
       // validate the optional field `stateAndLocalWithholding`
