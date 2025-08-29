@@ -20,6 +20,7 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
+import Avalara.SDK.model.A1099.V2.EntryStatusResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -65,11 +66,7 @@ public class W9FormBaseResponse {
 
   public static final String SERIALIZED_NAME_ENTRY_STATUS = "entryStatus";
   @SerializedName(SERIALIZED_NAME_ENTRY_STATUS)
-  private String entryStatus;
-
-  public static final String SERIALIZED_NAME_ENTRY_STATUS_DATE = "entryStatusDate";
-  @SerializedName(SERIALIZED_NAME_ENTRY_STATUS_DATE)
-  private OffsetDateTime entryStatusDate;
+  private EntryStatusResponse entryStatus;
 
   public static final String SERIALIZED_NAME_REFERENCE_ID = "referenceId";
   @SerializedName(SERIALIZED_NAME_REFERENCE_ID)
@@ -90,6 +87,10 @@ public class W9FormBaseResponse {
   public static final String SERIALIZED_NAME_ARCHIVED = "archived";
   @SerializedName(SERIALIZED_NAME_ARCHIVED)
   private Boolean archived;
+
+  public static final String SERIALIZED_NAME_ANCESTOR_ID = "ancestorId";
+  @SerializedName(SERIALIZED_NAME_ANCESTOR_ID)
+  private String ancestorId;
 
   public static final String SERIALIZED_NAME_SIGNATURE = "signature";
   @SerializedName(SERIALIZED_NAME_SIGNATURE)
@@ -138,41 +139,22 @@ public class W9FormBaseResponse {
   }
 
 
-  public W9FormBaseResponse entryStatus(String entryStatus) {
+  public W9FormBaseResponse entryStatus(EntryStatusResponse entryStatus) {
     this.entryStatus = entryStatus;
     return this;
   }
 
   /**
-   * The form status.
+   * The entry status information for the form.
    * @return entryStatus
    */
   @javax.annotation.Nullable
-  public String getEntryStatus() {
+  public EntryStatusResponse getEntryStatus() {
     return entryStatus;
   }
 
-  public void setEntryStatus(String entryStatus) {
+  public void setEntryStatus(EntryStatusResponse entryStatus) {
     this.entryStatus = entryStatus;
-  }
-
-
-  public W9FormBaseResponse entryStatusDate(OffsetDateTime entryStatusDate) {
-    this.entryStatusDate = entryStatusDate;
-    return this;
-  }
-
-  /**
-   * The timestamp for the latest status update.
-   * @return entryStatusDate
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getEntryStatusDate() {
-    return entryStatusDate;
-  }
-
-  public void setEntryStatusDate(OffsetDateTime entryStatusDate) {
-    this.entryStatusDate = entryStatusDate;
   }
 
 
@@ -268,6 +250,25 @@ public class W9FormBaseResponse {
 
   public void setArchived(Boolean archived) {
     this.archived = archived;
+  }
+
+
+  public W9FormBaseResponse ancestorId(String ancestorId) {
+    this.ancestorId = ancestorId;
+    return this;
+  }
+
+  /**
+   * Form ID of previous version.
+   * @return ancestorId
+   */
+  @javax.annotation.Nullable
+  public String getAncestorId() {
+    return ancestorId;
+  }
+
+  public void setAncestorId(String ancestorId) {
+    this.ancestorId = ancestorId;
   }
 
 
@@ -397,12 +398,12 @@ public class W9FormBaseResponse {
     W9FormBaseResponse w9FormBaseResponse = (W9FormBaseResponse) o;
     return Objects.equals(this.id, w9FormBaseResponse.id) &&
         Objects.equals(this.entryStatus, w9FormBaseResponse.entryStatus) &&
-        Objects.equals(this.entryStatusDate, w9FormBaseResponse.entryStatusDate) &&
         Objects.equals(this.referenceId, w9FormBaseResponse.referenceId) &&
         Objects.equals(this.companyId, w9FormBaseResponse.companyId) &&
         Objects.equals(this.displayName, w9FormBaseResponse.displayName) &&
         Objects.equals(this.email, w9FormBaseResponse.email) &&
         Objects.equals(this.archived, w9FormBaseResponse.archived) &&
+        Objects.equals(this.ancestorId, w9FormBaseResponse.ancestorId) &&
         Objects.equals(this.signature, w9FormBaseResponse.signature) &&
         Objects.equals(this.signedDate, w9FormBaseResponse.signedDate) &&
         Objects.equals(this.eDeliveryConsentedAt, w9FormBaseResponse.eDeliveryConsentedAt) &&
@@ -417,7 +418,7 @@ public class W9FormBaseResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, entryStatus, entryStatusDate, referenceId, companyId, displayName, email, archived, signature, signedDate, eDeliveryConsentedAt, createdAt, updatedAt, type);
+    return Objects.hash(id, entryStatus, referenceId, companyId, displayName, email, archived, ancestorId, signature, signedDate, eDeliveryConsentedAt, createdAt, updatedAt, type);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -433,12 +434,12 @@ public class W9FormBaseResponse {
     sb.append("class W9FormBaseResponse {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    entryStatus: ").append(toIndentedString(entryStatus)).append("\n");
-    sb.append("    entryStatusDate: ").append(toIndentedString(entryStatusDate)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    archived: ").append(toIndentedString(archived)).append("\n");
+    sb.append("    ancestorId: ").append(toIndentedString(ancestorId)).append("\n");
     sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("    signedDate: ").append(toIndentedString(signedDate)).append("\n");
     sb.append("    eDeliveryConsentedAt: ").append(toIndentedString(eDeliveryConsentedAt)).append("\n");

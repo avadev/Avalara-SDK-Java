@@ -27,7 +27,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,56 +53,56 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * PrimaryWithholdingAgent
+ * Primary withholding agent information for tax forms
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class PrimaryWithholdingAgent {
-  public static final String SERIALIZED_NAME_PRIMARY_WITHHOLDING_AGENT_NAME = "primaryWithholdingAgentName";
-  @SerializedName(SERIALIZED_NAME_PRIMARY_WITHHOLDING_AGENT_NAME)
-  private String primaryWithholdingAgentName;
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public static final String SERIALIZED_NAME_PRIMARY_WITHHOLDING_AGENT_EIN = "primaryWithholdingAgentEin";
-  @SerializedName(SERIALIZED_NAME_PRIMARY_WITHHOLDING_AGENT_EIN)
-  private String primaryWithholdingAgentEin;
+  public static final String SERIALIZED_NAME_EIN = "ein";
+  @SerializedName(SERIALIZED_NAME_EIN)
+  private String ein;
 
   public PrimaryWithholdingAgent() {
   }
 
-  public PrimaryWithholdingAgent primaryWithholdingAgentName(String primaryWithholdingAgentName) {
-    this.primaryWithholdingAgentName = primaryWithholdingAgentName;
+  public PrimaryWithholdingAgent name(String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * Get primaryWithholdingAgentName
-   * @return primaryWithholdingAgentName
+   * Name of the primary withholding agent
+   * @return name
    */
   @javax.annotation.Nullable
-  public String getPrimaryWithholdingAgentName() {
-    return primaryWithholdingAgentName;
+  public String getName() {
+    return name;
   }
 
-  public void setPrimaryWithholdingAgentName(String primaryWithholdingAgentName) {
-    this.primaryWithholdingAgentName = primaryWithholdingAgentName;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
-  public PrimaryWithholdingAgent primaryWithholdingAgentEin(String primaryWithholdingAgentEin) {
-    this.primaryWithholdingAgentEin = primaryWithholdingAgentEin;
+  public PrimaryWithholdingAgent ein(String ein) {
+    this.ein = ein;
     return this;
   }
 
   /**
-   * Get primaryWithholdingAgentEin
-   * @return primaryWithholdingAgentEin
+   * EIN (Employer Identification Number) of the primary withholding agent.
+   * @return ein
    */
   @javax.annotation.Nullable
-  public String getPrimaryWithholdingAgentEin() {
-    return primaryWithholdingAgentEin;
+  public String getEin() {
+    return ein;
   }
 
-  public void setPrimaryWithholdingAgentEin(String primaryWithholdingAgentEin) {
-    this.primaryWithholdingAgentEin = primaryWithholdingAgentEin;
+  public void setEin(String ein) {
+    this.ein = ein;
   }
 
 
@@ -117,32 +116,21 @@ public class PrimaryWithholdingAgent {
       return false;
     }
     PrimaryWithholdingAgent primaryWithholdingAgent = (PrimaryWithholdingAgent) o;
-    return Objects.equals(this.primaryWithholdingAgentName, primaryWithholdingAgent.primaryWithholdingAgentName) &&
-        Objects.equals(this.primaryWithholdingAgentEin, primaryWithholdingAgent.primaryWithholdingAgentEin);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.name, primaryWithholdingAgent.name) &&
+        Objects.equals(this.ein, primaryWithholdingAgent.ein);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(primaryWithholdingAgentName, primaryWithholdingAgentEin);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(name, ein);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PrimaryWithholdingAgent {\n");
-    sb.append("    primaryWithholdingAgentName: ").append(toIndentedString(primaryWithholdingAgentName)).append("\n");
-    sb.append("    primaryWithholdingAgentEin: ").append(toIndentedString(primaryWithholdingAgentEin)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    ein: ").append(toIndentedString(ein)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -165,11 +153,13 @@ public class PrimaryWithholdingAgent {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("primaryWithholdingAgentName");
-    openapiFields.add("primaryWithholdingAgentEin");
+    openapiFields.add("name");
+    openapiFields.add("ein");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("ein");
   }
 
   /**
@@ -192,12 +182,19 @@ public class PrimaryWithholdingAgent {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PrimaryWithholdingAgent` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("primaryWithholdingAgentName") != null && !jsonObj.get("primaryWithholdingAgentName").isJsonNull()) && !jsonObj.get("primaryWithholdingAgentName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `primaryWithholdingAgentName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("primaryWithholdingAgentName").toString()));
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : PrimaryWithholdingAgent.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
       }
-      if ((jsonObj.get("primaryWithholdingAgentEin") != null && !jsonObj.get("primaryWithholdingAgentEin").isJsonNull()) && !jsonObj.get("primaryWithholdingAgentEin").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `primaryWithholdingAgentEin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("primaryWithholdingAgentEin").toString()));
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("ein") != null && !jsonObj.get("ein").isJsonNull()) && !jsonObj.get("ein").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ein` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ein").toString()));
       }
   }
 

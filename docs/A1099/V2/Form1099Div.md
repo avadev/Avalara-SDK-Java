@@ -2,68 +2,98 @@
 
 # Form1099Div
 
+Form 1099-DIV: Dividends and Distributions
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**totalOrdinaryDividends** | **Double** |  |  [optional] |
-|**qualifiedDividends** | **Double** |  |  [optional] |
-|**totalCapitalGainDistributions** | **Double** |  |  [optional] |
-|**unrecapturedSection1250Gain** | **Double** |  |  [optional] |
-|**section1202Gain** | **Double** |  |  [optional] |
-|**collectiblesGain** | **Double** |  |  [optional] |
-|**section897OrdinaryDividends** | **Double** |  |  [optional] |
-|**section897CapitalGain** | **Double** |  |  [optional] |
-|**nondividendDistributions** | **Double** |  |  [optional] |
-|**federalIncomeTaxWithheld** | **Double** |  |  [optional] |
-|**section199ADividends** | **Double** |  |  [optional] |
-|**investmentExpenses** | **Double** |  |  [optional] |
-|**foreignTaxPaid** | **Double** |  |  [optional] |
-|**foreignCountryOrUSPossession** | **String** |  |  [optional] |
-|**cashLiquidationDistributions** | **Double** |  |  [optional] |
-|**noncashLiquidationDistributions** | **Double** |  |  [optional] |
-|**exemptInterestDividends** | **Double** |  |  [optional] |
-|**specifiedPrivateActivityBondInterestDividends** | **Double** |  |  [optional] |
-|**fatcaFilingRequirement** | **Boolean** |  |  [optional] |
-|**id** | **String** |  |  [optional] |
-|**type** | **String** |  |  [optional] |
-|**issuerId** | **Integer** |  |  [optional] |
-|**issuerReferenceId** | **String** |  |  [optional] |
-|**issuerTin** | **String** |  |  [optional] |
-|**taxYear** | **Integer** |  |  [optional] |
-|**federalEfile** | **Boolean** |  |  [optional] |
-|**federalEfileStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) |  |  [optional] |
-|**stateEfile** | **Boolean** |  |  [optional] |
-|**stateEfileStatus** | [**List&lt;StateEfileStatusDetail&gt;**](StateEfileStatusDetail.md) |  |  [optional] |
-|**postalMail** | **Boolean** |  |  [optional] |
-|**postalMailStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) |  |  [optional] |
-|**tinMatch** | **Boolean** |  |  [optional] |
-|**tinMatchStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) |  |  [optional] |
-|**addressVerification** | **Boolean** |  |  [optional] |
-|**addressVerificationStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) |  |  [optional] |
-|**eDeliveryStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) |  |  [optional] |
-|**referenceId** | **String** |  |  [optional] |
-|**email** | **String** |  |  [optional] |
-|**tinType** | **String** |  |  [optional] |
-|**tin** | **String** |  |  [optional] |
-|**noTin** | **Boolean** |  |  [optional] |
-|**secondTinNotice** | **Boolean** |  |  [optional] |
-|**recipientName** | **String** |  |  [optional] |
-|**recipientSecondName** | **String** |  |  [optional] |
-|**address** | **String** |  |  [optional] |
-|**address2** | **String** |  |  [optional] |
-|**city** | **String** |  |  [optional] |
-|**state** | **String** |  |  [optional] |
-|**zip** | **String** |  |  [optional] |
-|**nonUsProvince** | **String** |  |  [optional] |
-|**countryCode** | **String** |  |  [optional] |
-|**accountNumber** | **String** |  |  [optional] |
-|**officeCode** | **String** |  |  [optional] |
-|**validationErrors** | [**List&lt;ValidationError&gt;**](ValidationError.md) |  |  [optional] |
-|**createdAt** | **OffsetDateTime** |  |  [optional] |
-|**updatedAt** | **OffsetDateTime** |  |  [optional] |
-|**stateAndLocalWithholding** | [**StateAndLocalWithholding**](StateAndLocalWithholding.md) |  |  [optional] |
+|**totalOrdinaryDividends** | **Double** | Total ordinary dividends |  [optional] |
+|**qualifiedDividends** | **Double** | Qualified dividends |  [optional] |
+|**totalCapitalGainDistributions** | **Double** | Total capital gain distributions |  [optional] |
+|**unrecapturedSection1250Gain** | **Double** | Unrecaptured Section 1250 gain |  [optional] |
+|**section1202Gain** | **Double** | Section 1202 gain |  [optional] |
+|**collectiblesGain** | **Double** | Collectibles (28%) gain |  [optional] |
+|**section897OrdinaryDividends** | **Double** | Section 897 ordinary dividends |  [optional] |
+|**section897CapitalGain** | **Double** | Section 897 capital gain |  [optional] |
+|**nondividendDistributions** | **Double** | Nondividend distributions |  [optional] |
+|**federalIncomeTaxWithheld** | **Double** | Federal income tax withheld |  [optional] |
+|**section199ADividends** | **Double** | Section 199A dividends |  [optional] |
+|**investmentExpenses** | **Double** | Investment expenses |  [optional] |
+|**foreignTaxPaid** | **Double** | Foreign tax paid |  [optional] |
+|**foreignCountryOrUSPossession** | **String** | Foreign country or U.S. possession |  [optional] |
+|**cashLiquidationDistributions** | **Double** | Cash liquidation distributions |  [optional] |
+|**noncashLiquidationDistributions** | **Double** | Noncash liquidation distributions |  [optional] |
+|**exemptInterestDividends** | **Double** | Exempt-interest dividends |  [optional] |
+|**specifiedPrivateActivityBondInterestDividends** | **Double** | Specified private activity bond interest dividends |  [optional] |
+|**fatcaFilingRequirement** | **Boolean** | FATCA filing requirement |  [optional] |
+|**type** | [**TypeEnum**](#TypeEnum) | Form type |  |
+|**id** | **String** | Form ID. Unique identifier set when the record is created. |  [optional] [readonly] |
+|**issuerId** | **String** | Issuer ID - only required when creating forms |  [optional] |
+|**issuerReferenceId** | **String** | Issuer Reference ID - only required when creating forms |  [optional] |
+|**issuerTin** | **String** | Issuer TIN - readonly |  [optional] |
+|**taxYear** | **Integer** | Tax Year - only required when creating forms |  [optional] |
+|**referenceId** | **String** | Internal reference ID. Never shown to any agency or recipient. |  [optional] |
+|**tin** | **String** | Recipient&#39;s Federal Tax Identification Number (TIN). |  [optional] |
+|**recipientName** | **String** | Recipient name |  |
+|**tinType** | [**TinTypeEnum**](#TinTypeEnum) | Type of TIN (Tax ID Number) |  [optional] |
+|**recipientSecondName** | **String** | Recipient second name |  [optional] |
+|**address** | **String** | Address. |  |
+|**address2** | **String** | Address line 2. |  [optional] |
+|**city** | **String** | City. |  |
+|**state** | **String** | Two-letter US state or Canadian province code (required for US/CA addresses). |  [optional] |
+|**zip** | **String** | ZIP/postal code. |  [optional] |
+|**email** | **String** | Recipient&#39;s Contact email address. |  [optional] |
+|**accountNumber** | **String** | Account number |  [optional] |
+|**officeCode** | **String** | Office code |  [optional] |
+|**nonUsProvince** | **String** | Province or region for non-US/CA addresses. |  [optional] |
+|**countryCode** | **String** | Two-letter IRS country code (e.g., &#39;US&#39;, &#39;CA&#39;), as defined at https://www.irs.gov/e-file-providers/country-codes. |  |
+|**federalEfileDate** | **LocalDate** | Date when federal e-filing should be scheduled for this form |  [optional] |
+|**postalMail** | **Boolean** | Boolean indicating that postal mailing to the recipient should be scheduled for this form |  [optional] |
+|**stateEfileDate** | **LocalDate** | Date when state e-filing should be scheduled for this form |  [optional] |
+|**recipientEdeliveryDate** | **LocalDate** | Date when recipient e-delivery should be scheduled for this form |  [optional] |
+|**tinMatch** | **Boolean** | Boolean indicating that TIN Matching should be scheduled for this form |  [optional] |
+|**noTin** | **Boolean** | No TIN indicator |  [optional] |
+|**addressVerification** | **Boolean** | Boolean indicating that address verification should be scheduled for this form |  [optional] |
+|**stateAndLocalWithholding** | [**StateAndLocalWithholding**](StateAndLocalWithholding.md) | State and local withholding information |  [optional] |
+|**secondTinNotice** | **Boolean** | Second TIN notice |  [optional] |
+|**federalEfileStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | Federal e-file status |  [optional] [readonly] |
+|**stateEfileStatus** | [**List&lt;StateEfileStatusDetail&gt;**](StateEfileStatusDetail.md) | State e-file status |  [optional] [readonly] |
+|**postalMailStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | Postal mail to recipient status |  [optional] [readonly] |
+|**tinMatchStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | TIN Match status |  [optional] [readonly] |
+|**addressVerificationStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | Address verification status |  [optional] [readonly] |
+|**eDeliveryStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | EDelivery status |  [optional] [readonly] |
+|**validationErrors** | [**List&lt;ValidationError&gt;**](ValidationError.md) | Validation errors |  [optional] [readonly] |
+|**createdAt** | **OffsetDateTime** | Date time when the record was created. |  [optional] [readonly] |
+|**updatedAt** | **OffsetDateTime** | Date time when the record was last updated. |  [optional] [readonly] |
+
+
+
+## Enum: TypeEnum
+
+| Name | Value |
+|---- | -----|
+| _1099_NEC | &quot;1099-NEC&quot; |
+| _1099_MISC | &quot;1099-MISC&quot; |
+| _1099_DIV | &quot;1099-DIV&quot; |
+| _1099_R | &quot;1099-R&quot; |
+| _1099_K | &quot;1099-K&quot; |
+| _1095_B | &quot;1095-B&quot; |
+| _1042_S | &quot;1042-S&quot; |
+| _1095_C | &quot;1095-C&quot; |
+| _1099_INT | &quot;1099-INT&quot; |
+
+
+
+## Enum: TinTypeEnum
+
+| Name | Value |
+|---- | -----|
+| EMPTY | &quot;Empty&quot; |
+| EIN | &quot;EIN&quot; |
+| SSN | &quot;SSN&quot; |
+| ITIN | &quot;ITIN&quot; |
+| ATIN | &quot;ATIN&quot; |
 
 
 

@@ -63,13 +63,21 @@ public class IssuerResponse {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
+  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private OffsetDateTime updatedAt;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_NAME_DBA = "nameDba";
-  @SerializedName(SERIALIZED_NAME_NAME_DBA)
-  private String nameDba;
+  public static final String SERIALIZED_NAME_DBA_NAME = "dbaName";
+  @SerializedName(SERIALIZED_NAME_DBA_NAME)
+  private String dbaName;
 
   public static final String SERIALIZED_NAME_TIN = "tin";
   @SerializedName(SERIALIZED_NAME_TIN)
@@ -123,30 +131,16 @@ public class IssuerResponse {
   @SerializedName(SERIALIZED_NAME_LAST_FILING)
   private Boolean lastFiling;
 
-  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
-
-  public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
-  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  private OffsetDateTime updatedAt;
-
   public IssuerResponse() {
   }
 
-  public IssuerResponse(
-     String id, 
-     OffsetDateTime createdAt, 
-     OffsetDateTime updatedAt
-  ) {
-    this();
+  public IssuerResponse id(String id) {
     this.id = id;
-    this.createdAt = createdAt;
-    this.updatedAt = updatedAt;
+    return this;
   }
 
   /**
-   * Unique identifier set when the record is created
+   * Unique identifier set when the record is created.
    * @return id
    */
   @javax.annotation.Nullable
@@ -154,6 +148,47 @@ public class IssuerResponse {
     return id;
   }
 
+  public void setId(String id) {
+    this.id = id;
+  }
+
+
+  public IssuerResponse createdAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+  /**
+   * Date time when the record was created.
+   * @return createdAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public IssuerResponse updatedAt(OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+  /**
+   * Date time when the record was last updated.
+   * @return updatedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
 
 
   public IssuerResponse name(String name) {
@@ -162,7 +197,7 @@ public class IssuerResponse {
   }
 
   /**
-   * Legal name, not DBA
+   * Legal name. Not the DBA name.
    * @return name
    */
   @javax.annotation.Nullable
@@ -175,22 +210,22 @@ public class IssuerResponse {
   }
 
 
-  public IssuerResponse nameDba(String nameDba) {
-    this.nameDba = nameDba;
+  public IssuerResponse dbaName(String dbaName) {
+    this.dbaName = dbaName;
     return this;
   }
 
   /**
-   * Optional DBA name or continuation of a long legal name
-   * @return nameDba
+   * Doing Business As (DBA) name or continuation of a long legal name. Use either this or &#39;transferAgentName&#39;.
+   * @return dbaName
    */
   @javax.annotation.Nullable
-  public String getNameDba() {
-    return nameDba;
+  public String getDbaName() {
+    return dbaName;
   }
 
-  public void setNameDba(String nameDba) {
-    this.nameDba = nameDba;
+  public void setDbaName(String dbaName) {
+    this.dbaName = dbaName;
   }
 
 
@@ -200,7 +235,7 @@ public class IssuerResponse {
   }
 
   /**
-   * Tax identification number
+   * Federal Tax Identification Number (TIN).
    * @return tin
    */
   @javax.annotation.Nullable
@@ -219,7 +254,7 @@ public class IssuerResponse {
   }
 
   /**
-   * Optional identifier for your reference, never shown to any agency or recipient.  We will also prefix download filenames with this value, if present.  Can only include letters, numbers, dashes, underscores and spaces.
+   * Internal reference ID. Never shown to any agency or recipient. If present, it will prefix download filenames. Allowed characters: letters, numbers, dashes, underscores, and spaces.
    * @return referenceId
    */
   @javax.annotation.Nullable
@@ -238,7 +273,7 @@ public class IssuerResponse {
   }
 
   /**
-   * Telephone number
+   * Contact phone number (must contain at least 10 digits, max 15 characters). For recipient inquiries.
    * @return telephone
    */
   @javax.annotation.Nullable
@@ -257,7 +292,7 @@ public class IssuerResponse {
   }
 
   /**
-   * Tax year
+   * Tax year for which the forms are being filed (e.g., 2024). Must be within current tax year and current tax year - 4.
    * @return taxYear
    */
   @javax.annotation.Nullable
@@ -276,7 +311,7 @@ public class IssuerResponse {
   }
 
   /**
-   * If there is a transfer agent, use the address of the transfer agent.
+   * Two-letter IRS country code (e.g., &#39;US&#39;, &#39;CA&#39;), as defined at https://www.irs.gov/e-file-providers/country-codes. If there is a transfer agent, use the transfer agent&#39;s shipping address.
    * @return countryCode
    */
   @javax.annotation.Nullable
@@ -295,7 +330,7 @@ public class IssuerResponse {
   }
 
   /**
-   * Email address
+   * Contact email address. For recipient inquiries.
    * @return email
    */
   @javax.annotation.Nullable
@@ -314,7 +349,7 @@ public class IssuerResponse {
   }
 
   /**
-   * Address
+   * Address.
    * @return address
    */
   @javax.annotation.Nullable
@@ -333,7 +368,7 @@ public class IssuerResponse {
   }
 
   /**
-   * City
+   * City.
    * @return city
    */
   @javax.annotation.Nullable
@@ -352,7 +387,7 @@ public class IssuerResponse {
   }
 
   /**
-   * State
+   * Two-letter US state or Canadian province code (required for US/CA addresses).
    * @return state
    */
   @javax.annotation.Nullable
@@ -371,7 +406,7 @@ public class IssuerResponse {
   }
 
   /**
-   * Zip code
+   * ZIP/postal code.
    * @return zip
    */
   @javax.annotation.Nullable
@@ -390,7 +425,7 @@ public class IssuerResponse {
   }
 
   /**
-   * Foreign province
+   * Province or region for non-US/CA addresses.
    * @return foreignProvince
    */
   @javax.annotation.Nullable
@@ -409,7 +444,7 @@ public class IssuerResponse {
   }
 
   /**
-   * Transfer Agent&#39;s Name
+   * Name of the transfer agent, if applicable — optional; use either this or &#39;dbaName&#39;.
    * @return transferAgentName
    */
   @javax.annotation.Nullable
@@ -428,7 +463,7 @@ public class IssuerResponse {
   }
 
   /**
-   * Last year of filing for this payer
+   * Indicates if this is the issuer&#39;s final year filing.
    * @return lastFiling
    */
   @javax.annotation.Nullable
@@ -439,28 +474,6 @@ public class IssuerResponse {
   public void setLastFiling(Boolean lastFiling) {
     this.lastFiling = lastFiling;
   }
-
-
-  /**
-   * Date time when the issuer was created
-   * @return createdAt
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-
-
-  /**
-   * Date time when the issuer was updated
-   * @return updatedAt
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getUpdatedAt() {
-    return updatedAt;
-  }
-
 
 
 
@@ -474,8 +487,10 @@ public class IssuerResponse {
     }
     IssuerResponse issuerResponse = (IssuerResponse) o;
     return Objects.equals(this.id, issuerResponse.id) &&
+        Objects.equals(this.createdAt, issuerResponse.createdAt) &&
+        Objects.equals(this.updatedAt, issuerResponse.updatedAt) &&
         Objects.equals(this.name, issuerResponse.name) &&
-        Objects.equals(this.nameDba, issuerResponse.nameDba) &&
+        Objects.equals(this.dbaName, issuerResponse.dbaName) &&
         Objects.equals(this.tin, issuerResponse.tin) &&
         Objects.equals(this.referenceId, issuerResponse.referenceId) &&
         Objects.equals(this.telephone, issuerResponse.telephone) &&
@@ -488,9 +503,7 @@ public class IssuerResponse {
         Objects.equals(this.zip, issuerResponse.zip) &&
         Objects.equals(this.foreignProvince, issuerResponse.foreignProvince) &&
         Objects.equals(this.transferAgentName, issuerResponse.transferAgentName) &&
-        Objects.equals(this.lastFiling, issuerResponse.lastFiling) &&
-        Objects.equals(this.createdAt, issuerResponse.createdAt) &&
-        Objects.equals(this.updatedAt, issuerResponse.updatedAt);
+        Objects.equals(this.lastFiling, issuerResponse.lastFiling);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -499,7 +512,7 @@ public class IssuerResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, nameDba, tin, referenceId, telephone, taxYear, countryCode, email, address, city, state, zip, foreignProvince, transferAgentName, lastFiling, createdAt, updatedAt);
+    return Objects.hash(id, createdAt, updatedAt, name, dbaName, tin, referenceId, telephone, taxYear, countryCode, email, address, city, state, zip, foreignProvince, transferAgentName, lastFiling);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -514,8 +527,10 @@ public class IssuerResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class IssuerResponse {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    nameDba: ").append(toIndentedString(nameDba)).append("\n");
+    sb.append("    dbaName: ").append(toIndentedString(dbaName)).append("\n");
     sb.append("    tin: ").append(toIndentedString(tin)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    telephone: ").append(toIndentedString(telephone)).append("\n");
@@ -529,8 +544,6 @@ public class IssuerResponse {
     sb.append("    foreignProvince: ").append(toIndentedString(foreignProvince)).append("\n");
     sb.append("    transferAgentName: ").append(toIndentedString(transferAgentName)).append("\n");
     sb.append("    lastFiling: ").append(toIndentedString(lastFiling)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -553,9 +566,33 @@ public class IssuerResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("name");
+    openapiFields.add("dbaName");
+    openapiFields.add("tin");
+    openapiFields.add("referenceId");
+    openapiFields.add("telephone");
+    openapiFields.add("taxYear");
+    openapiFields.add("countryCode");
+    openapiFields.add("email");
+    openapiFields.add("address");
+    openapiFields.add("city");
+    openapiFields.add("state");
+    openapiFields.add("zip");
+    openapiFields.add("foreignProvince");
+    openapiFields.add("transferAgentName");
+    openapiFields.add("lastFiling");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("telephone");
+    openapiRequiredFields.add("taxYear");
+    openapiRequiredFields.add("email");
+    openapiRequiredFields.add("address");
+    openapiRequiredFields.add("city");
+    openapiRequiredFields.add("state");
+    openapiRequiredFields.add("zip");
+    openapiRequiredFields.add("lastFiling");
   }
 
   /**
@@ -578,6 +615,13 @@ public class IssuerResponse {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `IssuerResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : IssuerResponse.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
@@ -585,8 +629,8 @@ public class IssuerResponse {
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if ((jsonObj.get("nameDba") != null && !jsonObj.get("nameDba").isJsonNull()) && !jsonObj.get("nameDba").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `nameDba` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nameDba").toString()));
+      if ((jsonObj.get("dbaName") != null && !jsonObj.get("dbaName").isJsonNull()) && !jsonObj.get("dbaName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `dbaName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dbaName").toString()));
       }
       if ((jsonObj.get("tin") != null && !jsonObj.get("tin").isJsonNull()) && !jsonObj.get("tin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tin").toString()));

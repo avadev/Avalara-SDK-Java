@@ -99,7 +99,7 @@ public class StateAndLocalWithholding {
   }
 
   /**
-   * Get stateTaxWithheld
+   * Amount of state tax that was withheld
    * @return stateTaxWithheld
    */
   @javax.annotation.Nullable
@@ -118,7 +118,7 @@ public class StateAndLocalWithholding {
   }
 
   /**
-   * Get state
+   * US state
    * @return state
    */
   @javax.annotation.Nullable
@@ -137,7 +137,7 @@ public class StateAndLocalWithholding {
   }
 
   /**
-   * Get stateIdNumber
+   * State ID number of the entity issuing the form
    * @return stateIdNumber
    */
   @javax.annotation.Nullable
@@ -156,7 +156,7 @@ public class StateAndLocalWithholding {
   }
 
   /**
-   * Get stateIncome
+   * Amount of state income
    * @return stateIncome
    */
   @javax.annotation.Nullable
@@ -175,7 +175,7 @@ public class StateAndLocalWithholding {
   }
 
   /**
-   * Get localTaxWithheld
+   * Amount of local tax that was withheld
    * @return localTaxWithheld
    */
   @javax.annotation.Nullable
@@ -194,7 +194,7 @@ public class StateAndLocalWithholding {
   }
 
   /**
-   * Get locality
+   * Locality name
    * @return locality
    */
   @javax.annotation.Nullable
@@ -213,7 +213,7 @@ public class StateAndLocalWithholding {
   }
 
   /**
-   * Get localityIdNumber
+   * Locality ID number of the entity issuing the form
    * @return localityIdNumber
    */
   @javax.annotation.Nullable
@@ -232,7 +232,7 @@ public class StateAndLocalWithholding {
   }
 
   /**
-   * Get localIncome
+   * Amount of local income
    * @return localIncome
    */
   @javax.annotation.Nullable

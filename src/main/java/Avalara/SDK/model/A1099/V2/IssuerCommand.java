@@ -62,9 +62,9 @@ public class IssuerCommand {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_NAME_DBA = "nameDba";
-  @SerializedName(SERIALIZED_NAME_NAME_DBA)
-  private String nameDba;
+  public static final String SERIALIZED_NAME_DBA_NAME = "dbaName";
+  @SerializedName(SERIALIZED_NAME_DBA_NAME)
+  private String dbaName;
 
   public static final String SERIALIZED_NAME_TIN = "tin";
   @SerializedName(SERIALIZED_NAME_TIN)
@@ -127,7 +127,7 @@ public class IssuerCommand {
   }
 
   /**
-   * Legal name, not DBA
+   * Legal name. Not the DBA name.
    * @return name
    */
   @javax.annotation.Nullable
@@ -140,22 +140,22 @@ public class IssuerCommand {
   }
 
 
-  public IssuerCommand nameDba(String nameDba) {
-    this.nameDba = nameDba;
+  public IssuerCommand dbaName(String dbaName) {
+    this.dbaName = dbaName;
     return this;
   }
 
   /**
-   * Optional DBA name or continuation of a long legal name
-   * @return nameDba
+   * Doing Business As (DBA) name or continuation of a long legal name. Use either this or &#39;transferAgentName&#39;.
+   * @return dbaName
    */
   @javax.annotation.Nullable
-  public String getNameDba() {
-    return nameDba;
+  public String getDbaName() {
+    return dbaName;
   }
 
-  public void setNameDba(String nameDba) {
-    this.nameDba = nameDba;
+  public void setDbaName(String dbaName) {
+    this.dbaName = dbaName;
   }
 
 
@@ -165,7 +165,7 @@ public class IssuerCommand {
   }
 
   /**
-   * Tax identification number
+   * Federal Tax Identification Number (TIN).
    * @return tin
    */
   @javax.annotation.Nullable
@@ -184,7 +184,7 @@ public class IssuerCommand {
   }
 
   /**
-   * Optional identifier for your reference, never shown to any agency or recipient.  We will also prefix download filenames with this value, if present.  Can only include letters, numbers, dashes, underscores and spaces.
+   * Internal reference ID. Never shown to any agency or recipient. If present, it will prefix download filenames. Allowed characters: letters, numbers, dashes, underscores, and spaces.
    * @return referenceId
    */
   @javax.annotation.Nullable
@@ -203,7 +203,7 @@ public class IssuerCommand {
   }
 
   /**
-   * Telephone number
+   * Contact phone number (must contain at least 10 digits, max 15 characters). For recipient inquiries.
    * @return telephone
    */
   @javax.annotation.Nullable
@@ -222,7 +222,7 @@ public class IssuerCommand {
   }
 
   /**
-   * Tax year
+   * Tax year for which the forms are being filed (e.g., 2024). Must be within current tax year and current tax year - 4.
    * @return taxYear
    */
   @javax.annotation.Nullable
@@ -241,7 +241,7 @@ public class IssuerCommand {
   }
 
   /**
-   * If there is a transfer agent, use the shipping address of the transfer agent.
+   * Two-letter IRS country code (e.g., &#39;US&#39;, &#39;CA&#39;), as defined at https://www.irs.gov/e-file-providers/country-codes. If there is a transfer agent, use the transfer agent&#39;s shipping address.
    * @return countryCode
    */
   @javax.annotation.Nullable
@@ -260,7 +260,7 @@ public class IssuerCommand {
   }
 
   /**
-   * Email address
+   * Contact email address. For recipient inquiries.
    * @return email
    */
   @javax.annotation.Nullable
@@ -279,7 +279,7 @@ public class IssuerCommand {
   }
 
   /**
-   * Address
+   * Address.
    * @return address
    */
   @javax.annotation.Nullable
@@ -298,7 +298,7 @@ public class IssuerCommand {
   }
 
   /**
-   * City
+   * City.
    * @return city
    */
   @javax.annotation.Nullable
@@ -317,7 +317,7 @@ public class IssuerCommand {
   }
 
   /**
-   * State
+   * Two-letter US state or Canadian province code (required for US/CA addresses).
    * @return state
    */
   @javax.annotation.Nullable
@@ -336,7 +336,7 @@ public class IssuerCommand {
   }
 
   /**
-   * Zip code
+   * ZIP/postal code.
    * @return zip
    */
   @javax.annotation.Nullable
@@ -355,7 +355,7 @@ public class IssuerCommand {
   }
 
   /**
-   * Foreign province
+   * Province or region for non-US/CA addresses.
    * @return foreignProvince
    */
   @javax.annotation.Nullable
@@ -374,7 +374,7 @@ public class IssuerCommand {
   }
 
   /**
-   * Transfer Agent&#39;s Name
+   * Name of the transfer agent, if applicable — optional; use either this or &#39;dbaName&#39;.
    * @return transferAgentName
    */
   @javax.annotation.Nullable
@@ -393,7 +393,7 @@ public class IssuerCommand {
   }
 
   /**
-   * Last year of filing for this payer
+   * Indicates if this is the issuer&#39;s final year filing.
    * @return lastFiling
    */
   @javax.annotation.Nullable
@@ -417,7 +417,7 @@ public class IssuerCommand {
     }
     IssuerCommand issuerCommand = (IssuerCommand) o;
     return Objects.equals(this.name, issuerCommand.name) &&
-        Objects.equals(this.nameDba, issuerCommand.nameDba) &&
+        Objects.equals(this.dbaName, issuerCommand.dbaName) &&
         Objects.equals(this.tin, issuerCommand.tin) &&
         Objects.equals(this.referenceId, issuerCommand.referenceId) &&
         Objects.equals(this.telephone, issuerCommand.telephone) &&
@@ -439,7 +439,7 @@ public class IssuerCommand {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, nameDba, tin, referenceId, telephone, taxYear, countryCode, email, address, city, state, zip, foreignProvince, transferAgentName, lastFiling);
+    return Objects.hash(name, dbaName, tin, referenceId, telephone, taxYear, countryCode, email, address, city, state, zip, foreignProvince, transferAgentName, lastFiling);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -454,7 +454,7 @@ public class IssuerCommand {
     StringBuilder sb = new StringBuilder();
     sb.append("class IssuerCommand {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    nameDba: ").append(toIndentedString(nameDba)).append("\n");
+    sb.append("    dbaName: ").append(toIndentedString(dbaName)).append("\n");
     sb.append("    tin: ").append(toIndentedString(tin)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    telephone: ").append(toIndentedString(telephone)).append("\n");
@@ -491,7 +491,7 @@ public class IssuerCommand {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
-    openapiFields.add("nameDba");
+    openapiFields.add("dbaName");
     openapiFields.add("tin");
     openapiFields.add("referenceId");
     openapiFields.add("telephone");
@@ -508,6 +508,15 @@ public class IssuerCommand {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("telephone");
+    openapiRequiredFields.add("taxYear");
+    openapiRequiredFields.add("email");
+    openapiRequiredFields.add("address");
+    openapiRequiredFields.add("city");
+    openapiRequiredFields.add("state");
+    openapiRequiredFields.add("zip");
+    openapiRequiredFields.add("lastFiling");
   }
 
   /**
@@ -530,12 +539,19 @@ public class IssuerCommand {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `IssuerCommand` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : IssuerCommand.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if ((jsonObj.get("nameDba") != null && !jsonObj.get("nameDba").isJsonNull()) && !jsonObj.get("nameDba").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `nameDba` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nameDba").toString()));
+      if ((jsonObj.get("dbaName") != null && !jsonObj.get("dbaName").isJsonNull()) && !jsonObj.get("dbaName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `dbaName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dbaName").toString()));
       }
       if ((jsonObj.get("tin") != null && !jsonObj.get("tin").isJsonNull()) && !jsonObj.get("tin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tin").toString()));

@@ -36,6 +36,7 @@ import java.io.IOException;
 import java.util.*;
 
 
+import Avalara.SDK.model.A1099.V2.CreateAndSendW9FormEmailRequest;
 import Avalara.SDK.model.A1099.V2.CreateW9Form201Response;
 import Avalara.SDK.model.A1099.V2.CreateW9FormRequest;
 import Avalara.SDK.model.A1099.V2.ErrorModel;
@@ -78,6 +79,190 @@ public class FormsW9Api {
 
     public void setCustomBaseUrl(String customBaseUrl) {
         this.localCustomBaseUrl = customBaseUrl;
+    }
+
+    /**
+     * Build call for createAndSendW9FormEmail
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g. Unknown form type: W10\&quot;) </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createAndSendW9FormEmailCall(CreateAndSendW9FormEmailRequest requestParameters, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        //OAuth2 Scopes
+        String requiredScopes = "";
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = requestParameters.getCreateAndSendW9FormEmailRequest();
+
+        // create path and map variables
+        String localVarPath = "/w9/forms/$create-and-send-email";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (requestParameters.getAvalaraVersion() != null) {
+            localVarHeaderParams.put("avalara-version", localVarApiClient.parameterToString(requestParameters.getAvalaraVersion()));
+        }
+
+        if (requestParameters.getXCorrelationId() != null) {
+            localVarHeaderParams.put("X-Correlation-Id", localVarApiClient.parameterToString(requestParameters.getXCorrelationId()));
+        }
+
+        if (requestParameters.getXAvalaraClient() != null) {
+            localVarHeaderParams.put("X-Avalara-Client", localVarApiClient.parameterToString(requestParameters.getXAvalaraClient()));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/*+json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+        String[] localVarAuthNames = new String[] { "OAuth", "bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes, AvalaraMicroservice.A1099);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createAndSendW9FormEmailValidateBeforeCall(CreateAndSendW9FormEmailRequest requestParameters, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'requestParameters.avalaraVersion' is set
+        if (requestParameters.getAvalaraVersion() == null) {
+            throw new ApiException("Missing the required parameter 'requestParameters.avalaraVersion' when calling createAndSendW9FormEmail(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createAndSendW9FormEmailCall(requestParameters, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Create a minimal W9/W4/W8 form and sends the e-mail request
+     * Create a minimal W9/W4/W8 form and sends the e-mail request.
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @return CreateW9Form201Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g. Unknown form type: W10\&quot;) </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateW9Form201Response createAndSendW9FormEmail(CreateAndSendW9FormEmailRequest requestParameters) throws ApiException {
+        ApiResponse<CreateW9Form201Response> localVarResp = createAndSendW9FormEmailWithHttpInfo(requestParameters);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create a minimal W9/W4/W8 form and sends the e-mail request
+     * Create a minimal W9/W4/W8 form and sends the e-mail request.
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @return ApiResponse&lt;CreateW9Form201Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g. Unknown form type: W10\&quot;) </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateW9Form201Response> createAndSendW9FormEmailWithHttpInfo(CreateAndSendW9FormEmailRequest requestParameters) throws ApiException {
+        okhttp3.Call localVarCall = createAndSendW9FormEmailValidateBeforeCall(requestParameters, null);
+        Type localVarReturnType = new TypeToken<CreateW9Form201Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create a minimal W9/W4/W8 form and sends the e-mail request (asynchronously)
+     * Create a minimal W9/W4/W8 form and sends the e-mail request.
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g. Unknown form type: W10\&quot;) </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createAndSendW9FormEmailAsync(CreateAndSendW9FormEmailRequest requestParameters, final ApiCallback<CreateW9Form201Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createAndSendW9FormEmailValidateBeforeCall(requestParameters, _callback);
+        Type localVarReturnType = new TypeToken<CreateW9Form201Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+    * Represents the Request object for the CreateAndSendW9FormEmail API
+    *
+    * @param avalaraVersion API version</param>
+    * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
+    * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
+    * @param createAndSendW9FormEmailRequest Form to be created (optional)</param>
+    */
+    public class CreateAndSendW9FormEmailRequest {
+        private String avalaraVersion;
+        private String xCorrelationId;
+        private String xAvalaraClient;
+        private CreateAndSendW9FormEmailRequest createAndSendW9FormEmailRequest;
+
+        public CreateAndSendW9FormEmailRequest () {
+        }
+
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "2.0"; }
+        public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
+        public String getXCorrelationId() { return xCorrelationId; }
+        public void setXCorrelationId(String xCorrelationId) { this.xCorrelationId = xCorrelationId; }
+        public String getXAvalaraClient() { return xAvalaraClient; }
+        public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
+        public CreateAndSendW9FormEmailRequest getCreateAndSendW9FormEmailRequest() { return createAndSendW9FormEmailRequest; }
+        public void setCreateAndSendW9FormEmailRequest(CreateAndSendW9FormEmailRequest createAndSendW9FormEmailRequest) { this.createAndSendW9FormEmailRequest = createAndSendW9FormEmailRequest; }
+    }
+
+    /**
+    * Getter function to instantiate Request class
+    * @returns CreateAndSendW9FormEmailRequest
+    */
+    public CreateAndSendW9FormEmailRequest getCreateAndSendW9FormEmailRequest() {
+        return this.new CreateAndSendW9FormEmailRequest();
     }
 
     /**
@@ -139,7 +324,7 @@ public class FormsW9Api {
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
@@ -324,7 +509,7 @@ public class FormsW9Api {
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
@@ -510,7 +695,7 @@ public class FormsW9Api {
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
@@ -651,7 +836,7 @@ public class FormsW9Api {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> List of forms </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> list </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listW9FormsCall(ListW9FormsRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -723,7 +908,7 @@ public class FormsW9Api {
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
@@ -763,7 +948,7 @@ public class FormsW9Api {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> List of forms </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> list </td><td>  -  </td></tr>
      </table>
      */
     public PaginatedQueryResultModelW9FormBaseResponse listW9Forms(ListW9FormsRequest requestParameters) throws ApiException {
@@ -782,7 +967,7 @@ public class FormsW9Api {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> List of forms </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> list </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<PaginatedQueryResultModelW9FormBaseResponse> listW9FormsWithHttpInfo(ListW9FormsRequest requestParameters) throws ApiException {
@@ -803,7 +988,7 @@ public class FormsW9Api {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> List of forms </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> list </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listW9FormsAsync(ListW9FormsRequest requestParameters, final ApiCallback<PaginatedQueryResultModelW9FormBaseResponse> _callback) throws ApiException {
@@ -877,7 +1062,8 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The updated W9/W4/W8 form </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Email sent using existing form (form was already in &#39;Requested&#39; status or descendant found) </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Email sent using newly created minimal form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
@@ -928,7 +1114,7 @@ public class FormsW9Api {
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
@@ -964,46 +1150,48 @@ public class FormsW9Api {
 
     /**
      * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form
-     * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.
+     * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.   If the form is not in &#39;Requested&#39; status, it will either use an existing descendant form   in &#39;Requested&#39; status or create a new minimal form and send the email request.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return IW9FormDataModelsOneOf
+     * @return CreateW9Form201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The updated W9/W4/W8 form </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Email sent using existing form (form was already in &#39;Requested&#39; status or descendant found) </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Email sent using newly created minimal form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
      */
-    public IW9FormDataModelsOneOf sendW9FormEmail(SendW9FormEmailRequest requestParameters) throws ApiException {
-        ApiResponse<IW9FormDataModelsOneOf> localVarResp = sendW9FormEmailWithHttpInfo(requestParameters);
+    public CreateW9Form201Response sendW9FormEmail(SendW9FormEmailRequest requestParameters) throws ApiException {
+        ApiResponse<CreateW9Form201Response> localVarResp = sendW9FormEmailWithHttpInfo(requestParameters);
         return localVarResp.getData();
     }
 
     /**
      * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form
-     * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.
+     * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.   If the form is not in &#39;Requested&#39; status, it will either use an existing descendant form   in &#39;Requested&#39; status or create a new minimal form and send the email request.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return ApiResponse&lt;IW9FormDataModelsOneOf&gt;
+     * @return ApiResponse&lt;CreateW9Form201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The updated W9/W4/W8 form </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Email sent using existing form (form was already in &#39;Requested&#39; status or descendant found) </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Email sent using newly created minimal form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IW9FormDataModelsOneOf> sendW9FormEmailWithHttpInfo(SendW9FormEmailRequest requestParameters) throws ApiException {
+    public ApiResponse<CreateW9Form201Response> sendW9FormEmailWithHttpInfo(SendW9FormEmailRequest requestParameters) throws ApiException {
         okhttp3.Call localVarCall = sendW9FormEmailValidateBeforeCall(requestParameters, null);
-        Type localVarReturnType = new TypeToken<IW9FormDataModelsOneOf>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateW9Form201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form (asynchronously)
-     * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.
+     * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.   If the form is not in &#39;Requested&#39; status, it will either use an existing descendant form   in &#39;Requested&#39; status or create a new minimal form and send the email request.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1011,15 +1199,16 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The updated W9/W4/W8 form </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Email sent using existing form (form was already in &#39;Requested&#39; status or descendant found) </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Email sent using newly created minimal form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call sendW9FormEmailAsync(SendW9FormEmailRequest requestParameters, final ApiCallback<IW9FormDataModelsOneOf> _callback) throws ApiException {
+    public okhttp3.Call sendW9FormEmailAsync(SendW9FormEmailRequest requestParameters, final ApiCallback<CreateW9Form201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = sendW9FormEmailValidateBeforeCall(requestParameters, _callback);
-        Type localVarReturnType = new TypeToken<IW9FormDataModelsOneOf>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateW9Form201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1070,6 +1259,7 @@ public class FormsW9Api {
         <tr><td> 200 </td><td> The updated W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateW9FormCall(UpdateW9FormRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -1118,7 +1308,7 @@ public class FormsW9Api {
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
@@ -1164,6 +1354,7 @@ public class FormsW9Api {
         <tr><td> 200 </td><td> The updated W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
     public IW9FormDataModelsOneOf updateW9Form(UpdateW9FormRequest requestParameters) throws ApiException {
@@ -1183,6 +1374,7 @@ public class FormsW9Api {
         <tr><td> 200 </td><td> The updated W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<IW9FormDataModelsOneOf> updateW9FormWithHttpInfo(UpdateW9FormRequest requestParameters) throws ApiException {
@@ -1204,6 +1396,7 @@ public class FormsW9Api {
         <tr><td> 200 </td><td> The updated W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateW9FormAsync(UpdateW9FormRequest requestParameters, final ApiCallback<IW9FormDataModelsOneOf> _callback) throws ApiException {
@@ -1317,7 +1510,7 @@ public class FormsW9Api {
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
@@ -1452,7 +1645,7 @@ public class FormsW9Api {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.8.2");
+        this.localVarApiClient.setSdkVersion("25.8.3");
     }
 }
 

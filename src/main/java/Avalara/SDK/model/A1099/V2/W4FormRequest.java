@@ -197,6 +197,14 @@ public class W4FormRequest {
   @SerializedName(SERIALIZED_NAME_OFFICE_CODE)
   private String officeCode;
 
+  public static final String SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT = "eDeliveryConsentedAt";
+  @SerializedName(SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT)
+  private OffsetDateTime eDeliveryConsentedAt;
+
+  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
+  @SerializedName(SERIALIZED_NAME_SIGNATURE)
+  private String signature;
+
   public static final String SERIALIZED_NAME_COMPANY_ID = "companyId";
   @SerializedName(SERIALIZED_NAME_COMPANY_ID)
   private String companyId;
@@ -208,14 +216,6 @@ public class W4FormRequest {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
-
-  public static final String SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT = "eDeliveryConsentedAt";
-  @SerializedName(SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT)
-  private OffsetDateTime eDeliveryConsentedAt;
-
-  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
-  @SerializedName(SERIALIZED_NAME_SIGNATURE)
-  private String signature;
 
   public W4FormRequest() {
   }
@@ -599,6 +599,44 @@ public class W4FormRequest {
   }
 
 
+  public W4FormRequest eDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
+    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
+    return this;
+  }
+
+  /**
+   * The date when e-delivery was consented.
+   * @return eDeliveryConsentedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime geteDeliveryConsentedAt() {
+    return eDeliveryConsentedAt;
+  }
+
+  public void seteDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
+    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
+  }
+
+
+  public W4FormRequest signature(String signature) {
+    this.signature = signature;
+    return this;
+  }
+
+  /**
+   * The signature of the form.
+   * @return signature
+   */
+  @javax.annotation.Nullable
+  public String getSignature() {
+    return signature;
+  }
+
+  public void setSignature(String signature) {
+    this.signature = signature;
+  }
+
+
   public W4FormRequest companyId(String companyId) {
     this.companyId = companyId;
     return this;
@@ -608,7 +646,7 @@ public class W4FormRequest {
    * The ID of the associated company.
    * @return companyId
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getCompanyId() {
     return companyId;
   }
@@ -656,44 +694,6 @@ public class W4FormRequest {
   }
 
 
-  public W4FormRequest eDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
-    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
-    return this;
-  }
-
-  /**
-   * The date when e-delivery was consented.
-   * @return eDeliveryConsentedAt
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime geteDeliveryConsentedAt() {
-    return eDeliveryConsentedAt;
-  }
-
-  public void seteDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
-    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
-  }
-
-
-  public W4FormRequest signature(String signature) {
-    this.signature = signature;
-    return this;
-  }
-
-  /**
-   * The signature of the form.
-   * @return signature
-   */
-  @javax.annotation.Nullable
-  public String getSignature() {
-    return signature;
-  }
-
-  public void setSignature(String signature) {
-    this.signature = signature;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -724,11 +724,11 @@ public class W4FormRequest {
         Objects.equals(this.additionalWithheld, w4FormRequest.additionalWithheld) &&
         Objects.equals(this.exemptFromWithholding, w4FormRequest.exemptFromWithholding) &&
         Objects.equals(this.officeCode, w4FormRequest.officeCode) &&
+        Objects.equals(this.eDeliveryConsentedAt, w4FormRequest.eDeliveryConsentedAt) &&
+        Objects.equals(this.signature, w4FormRequest.signature) &&
         Objects.equals(this.companyId, w4FormRequest.companyId) &&
         Objects.equals(this.referenceId, w4FormRequest.referenceId) &&
-        Objects.equals(this.email, w4FormRequest.email) &&
-        Objects.equals(this.eDeliveryConsentedAt, w4FormRequest.eDeliveryConsentedAt) &&
-        Objects.equals(this.signature, w4FormRequest.signature);
+        Objects.equals(this.email, w4FormRequest.email);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -737,7 +737,7 @@ public class W4FormRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, employeeFirstName, employeeMiddleName, employeeLastName, employeeNameSuffix, tinType, tin, address, city, state, zip, maritalStatus, lastNameDiffers, numAllowances, otherDependents, nonJobIncome, deductions, additionalWithheld, exemptFromWithholding, officeCode, companyId, referenceId, email, eDeliveryConsentedAt, signature);
+    return Objects.hash(type, employeeFirstName, employeeMiddleName, employeeLastName, employeeNameSuffix, tinType, tin, address, city, state, zip, maritalStatus, lastNameDiffers, numAllowances, otherDependents, nonJobIncome, deductions, additionalWithheld, exemptFromWithholding, officeCode, eDeliveryConsentedAt, signature, companyId, referenceId, email);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -771,11 +771,11 @@ public class W4FormRequest {
     sb.append("    additionalWithheld: ").append(toIndentedString(additionalWithheld)).append("\n");
     sb.append("    exemptFromWithholding: ").append(toIndentedString(exemptFromWithholding)).append("\n");
     sb.append("    officeCode: ").append(toIndentedString(officeCode)).append("\n");
+    sb.append("    eDeliveryConsentedAt: ").append(toIndentedString(eDeliveryConsentedAt)).append("\n");
+    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    eDeliveryConsentedAt: ").append(toIndentedString(eDeliveryConsentedAt)).append("\n");
-    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -798,15 +798,16 @@ public class W4FormRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("eDeliveryConsentedAt");
+    openapiFields.add("signature");
     openapiFields.add("type");
     openapiFields.add("companyId");
     openapiFields.add("referenceId");
     openapiFields.add("email");
-    openapiFields.add("eDeliveryConsentedAt");
-    openapiFields.add("signature");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("companyId");
   }
 
   /**
@@ -827,6 +828,13 @@ public class W4FormRequest {
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!W4FormRequest.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `W4FormRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : W4FormRequest.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -873,7 +881,10 @@ public class W4FormRequest {
       if ((jsonObj.get("officeCode") != null && !jsonObj.get("officeCode").isJsonNull()) && !jsonObj.get("officeCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `officeCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("officeCode").toString()));
       }
-      if ((jsonObj.get("companyId") != null && !jsonObj.get("companyId").isJsonNull()) && !jsonObj.get("companyId").isJsonPrimitive()) {
+      if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
+      }
+      if (!jsonObj.get("companyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `companyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyId").toString()));
       }
       if ((jsonObj.get("referenceId") != null && !jsonObj.get("referenceId").isJsonNull()) && !jsonObj.get("referenceId").isJsonPrimitive()) {
@@ -881,9 +892,6 @@ public class W4FormRequest {
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
-      }
-      if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
       }
   }
 

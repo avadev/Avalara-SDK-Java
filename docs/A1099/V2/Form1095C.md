@@ -1,0 +1,109 @@
+
+
+# Form1095C
+
+Form 1095-C: Employer-Provided Health Insurance Offer and Coverage
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**employeeFirstName** | **String** | Employee&#39;s first name |  |
+|**employeeMiddleName** | **String** | Employee&#39;s middle name |  [optional] |
+|**employeeLastName** | **String** | Employee&#39;s last name |  |
+|**employeeNameSuffix** | **String** | Employee&#39;s name suffix |  [optional] |
+|**recipientDateOfBirth** | **LocalDate** | Recipient&#39;s date of birth |  [optional] |
+|**planStartMonth** | [**PlanStartMonthEnum**](#PlanStartMonthEnum) | Plan start month.  The calendar month during which the plan year begins of the health plan in which the employee is offered coverage (or would be offered coverage if the employee were eligible to participate in the plan).  Available values:  - 00: None  - 01: January  - 02: February  - 03: March  - 04: April  - 05: May  - 06: June  - 07: July  - 08: August  - 09: September  - 10: October  - 11: November  - 12: December |  |
+|**employerProvidedSiCoverage** | **Boolean** | Employer provided self-insured coverage |  [optional] |
+|**offerAndCoverages** | [**List&lt;OfferAndCoverage&gt;**](OfferAndCoverage.md) | Offer and coverage information |  |
+|**coveredIndividuals** | [**List&lt;CoveredIndividual&gt;**](CoveredIndividual.md) | Covered individuals information |  [optional] |
+|**type** | [**TypeEnum**](#TypeEnum) | Form type |  |
+|**id** | **String** | Form ID. Unique identifier set when the record is created. |  [optional] [readonly] |
+|**issuerId** | **String** | Issuer ID - only required when creating forms |  [optional] |
+|**issuerReferenceId** | **String** | Issuer Reference ID - only required when creating forms |  [optional] |
+|**issuerTin** | **String** | Issuer TIN - readonly |  [optional] |
+|**taxYear** | **Integer** | Tax Year - only required when creating forms |  [optional] |
+|**referenceId** | **String** | Internal reference ID. Never shown to any agency or recipient. |  [optional] |
+|**tin** | **String** | Recipient&#39;s Federal Tax Identification Number (TIN). |  [optional] |
+|**recipientName** | **String** | Recipient name |  |
+|**tinType** | [**TinTypeEnum**](#TinTypeEnum) | Type of TIN (Tax ID Number) |  [optional] |
+|**recipientSecondName** | **String** | Recipient second name |  [optional] |
+|**address** | **String** | Address. |  |
+|**address2** | **String** | Address line 2. |  [optional] |
+|**city** | **String** | City. |  |
+|**state** | **String** | Two-letter US state or Canadian province code (required for US/CA addresses). |  [optional] |
+|**zip** | **String** | ZIP/postal code. |  [optional] |
+|**email** | **String** | Recipient&#39;s Contact email address. |  [optional] |
+|**accountNumber** | **String** | Account number |  [optional] |
+|**officeCode** | **String** | Office code |  [optional] |
+|**nonUsProvince** | **String** | Province or region for non-US/CA addresses. |  [optional] |
+|**countryCode** | **String** | Two-letter IRS country code (e.g., &#39;US&#39;, &#39;CA&#39;), as defined at https://www.irs.gov/e-file-providers/country-codes. |  |
+|**federalEfileDate** | **LocalDate** | Date when federal e-filing should be scheduled for this form |  [optional] |
+|**postalMail** | **Boolean** | Boolean indicating that postal mailing to the recipient should be scheduled for this form |  [optional] |
+|**stateEfileDate** | **LocalDate** | Date when state e-filing should be scheduled for this form |  [optional] |
+|**recipientEdeliveryDate** | **LocalDate** | Date when recipient e-delivery should be scheduled for this form |  [optional] |
+|**tinMatch** | **Boolean** | Boolean indicating that TIN Matching should be scheduled for this form |  [optional] |
+|**noTin** | **Boolean** | No TIN indicator |  [optional] |
+|**addressVerification** | **Boolean** | Boolean indicating that address verification should be scheduled for this form |  [optional] |
+|**stateAndLocalWithholding** | [**StateAndLocalWithholding**](StateAndLocalWithholding.md) | State and local withholding information |  [optional] |
+|**secondTinNotice** | **Boolean** | Second TIN notice |  [optional] |
+|**federalEfileStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | Federal e-file status |  [optional] [readonly] |
+|**stateEfileStatus** | [**List&lt;StateEfileStatusDetail&gt;**](StateEfileStatusDetail.md) | State e-file status |  [optional] [readonly] |
+|**postalMailStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | Postal mail to recipient status |  [optional] [readonly] |
+|**tinMatchStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | TIN Match status |  [optional] [readonly] |
+|**addressVerificationStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | Address verification status |  [optional] [readonly] |
+|**eDeliveryStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | EDelivery status |  [optional] [readonly] |
+|**validationErrors** | [**List&lt;ValidationError&gt;**](ValidationError.md) | Validation errors |  [optional] [readonly] |
+|**createdAt** | **OffsetDateTime** | Date time when the record was created. |  [optional] [readonly] |
+|**updatedAt** | **OffsetDateTime** | Date time when the record was last updated. |  [optional] [readonly] |
+
+
+
+## Enum: PlanStartMonthEnum
+
+| Name | Value |
+|---- | -----|
+| _00 | &quot;00&quot; |
+| _01 | &quot;01&quot; |
+| _02 | &quot;02&quot; |
+| _03 | &quot;03&quot; |
+| _04 | &quot;04&quot; |
+| _05 | &quot;05&quot; |
+| _06 | &quot;06&quot; |
+| _07 | &quot;07&quot; |
+| _08 | &quot;08&quot; |
+| _09 | &quot;09&quot; |
+| _10 | &quot;10&quot; |
+| _11 | &quot;11&quot; |
+| _12 | &quot;12&quot; |
+
+
+
+## Enum: TypeEnum
+
+| Name | Value |
+|---- | -----|
+| _1099_NEC | &quot;1099-NEC&quot; |
+| _1099_MISC | &quot;1099-MISC&quot; |
+| _1099_DIV | &quot;1099-DIV&quot; |
+| _1099_R | &quot;1099-R&quot; |
+| _1099_K | &quot;1099-K&quot; |
+| _1095_B | &quot;1095-B&quot; |
+| _1042_S | &quot;1042-S&quot; |
+| _1095_C | &quot;1095-C&quot; |
+| _1099_INT | &quot;1099-INT&quot; |
+
+
+
+## Enum: TinTypeEnum
+
+| Name | Value |
+|---- | -----|
+| EMPTY | &quot;Empty&quot; |
+| EIN | &quot;EIN&quot; |
+| SSN | &quot;SSN&quot; |
+| ITIN | &quot;ITIN&quot; |
+| ATIN | &quot;ATIN&quot; |
+
+
+
