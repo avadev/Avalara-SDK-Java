@@ -59,6 +59,14 @@ import Avalara.SDK.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class W9FormBaseRequest {
+  public static final String SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT = "eDeliveryConsentedAt";
+  @SerializedName(SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT)
+  private OffsetDateTime eDeliveryConsentedAt;
+
+  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
+  @SerializedName(SERIALIZED_NAME_SIGNATURE)
+  private String signature;
+
   /**
    * The form type.
    */
@@ -133,14 +141,6 @@ public class W9FormBaseRequest {
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
 
-  public static final String SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT = "eDeliveryConsentedAt";
-  @SerializedName(SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT)
-  private OffsetDateTime eDeliveryConsentedAt;
-
-  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
-  @SerializedName(SERIALIZED_NAME_SIGNATURE)
-  private String signature;
-
   public W9FormBaseRequest() {
   }
 
@@ -150,6 +150,44 @@ public class W9FormBaseRequest {
     this();
     this.type = type;
   }
+
+  public W9FormBaseRequest eDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
+    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
+    return this;
+  }
+
+  /**
+   * The date when e-delivery was consented.
+   * @return eDeliveryConsentedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime geteDeliveryConsentedAt() {
+    return eDeliveryConsentedAt;
+  }
+
+  public void seteDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
+    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
+  }
+
+
+  public W9FormBaseRequest signature(String signature) {
+    this.signature = signature;
+    return this;
+  }
+
+  /**
+   * The signature of the form.
+   * @return signature
+   */
+  @javax.annotation.Nullable
+  public String getSignature() {
+    return signature;
+  }
+
+  public void setSignature(String signature) {
+    this.signature = signature;
+  }
+
 
   /**
    * The form type.
@@ -171,7 +209,7 @@ public class W9FormBaseRequest {
    * The ID of the associated company.
    * @return companyId
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getCompanyId() {
     return companyId;
   }
@@ -219,44 +257,6 @@ public class W9FormBaseRequest {
   }
 
 
-  public W9FormBaseRequest eDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
-    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
-    return this;
-  }
-
-  /**
-   * The date when e-delivery was consented.
-   * @return eDeliveryConsentedAt
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime geteDeliveryConsentedAt() {
-    return eDeliveryConsentedAt;
-  }
-
-  public void seteDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
-    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
-  }
-
-
-  public W9FormBaseRequest signature(String signature) {
-    this.signature = signature;
-    return this;
-  }
-
-  /**
-   * The signature of the form.
-   * @return signature
-   */
-  @javax.annotation.Nullable
-  public String getSignature() {
-    return signature;
-  }
-
-  public void setSignature(String signature) {
-    this.signature = signature;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -267,12 +267,12 @@ public class W9FormBaseRequest {
       return false;
     }
     W9FormBaseRequest w9FormBaseRequest = (W9FormBaseRequest) o;
-    return Objects.equals(this.type, w9FormBaseRequest.type) &&
+    return Objects.equals(this.eDeliveryConsentedAt, w9FormBaseRequest.eDeliveryConsentedAt) &&
+        Objects.equals(this.signature, w9FormBaseRequest.signature) &&
+        Objects.equals(this.type, w9FormBaseRequest.type) &&
         Objects.equals(this.companyId, w9FormBaseRequest.companyId) &&
         Objects.equals(this.referenceId, w9FormBaseRequest.referenceId) &&
-        Objects.equals(this.email, w9FormBaseRequest.email) &&
-        Objects.equals(this.eDeliveryConsentedAt, w9FormBaseRequest.eDeliveryConsentedAt) &&
-        Objects.equals(this.signature, w9FormBaseRequest.signature);
+        Objects.equals(this.email, w9FormBaseRequest.email);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -281,7 +281,7 @@ public class W9FormBaseRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, companyId, referenceId, email, eDeliveryConsentedAt, signature);
+    return Objects.hash(eDeliveryConsentedAt, signature, type, companyId, referenceId, email);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -295,12 +295,12 @@ public class W9FormBaseRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class W9FormBaseRequest {\n");
+    sb.append("    eDeliveryConsentedAt: ").append(toIndentedString(eDeliveryConsentedAt)).append("\n");
+    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    eDeliveryConsentedAt: ").append(toIndentedString(eDeliveryConsentedAt)).append("\n");
-    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -327,11 +327,10 @@ public class W9FormBaseRequest {
     openapiFields.add("companyId");
     openapiFields.add("referenceId");
     openapiFields.add("email");
-    openapiFields.add("eDeliveryConsentedAt");
-    openapiFields.add("signature");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("companyId");
   }
 
   /**
@@ -354,7 +353,17 @@ public class W9FormBaseRequest {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `W9FormBaseRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : W9FormBaseRequest.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
+      }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
@@ -362,7 +371,7 @@ public class W9FormBaseRequest {
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
         TypeEnum.validateJsonElement(jsonObj.get("type"));
       }
-      if ((jsonObj.get("companyId") != null && !jsonObj.get("companyId").isJsonNull()) && !jsonObj.get("companyId").isJsonPrimitive()) {
+      if (!jsonObj.get("companyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `companyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyId").toString()));
       }
       if ((jsonObj.get("referenceId") != null && !jsonObj.get("referenceId").isJsonNull()) && !jsonObj.get("referenceId").isJsonPrimitive()) {
@@ -370,9 +379,6 @@ public class W9FormBaseRequest {
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
-      }
-      if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
       }
   }
 

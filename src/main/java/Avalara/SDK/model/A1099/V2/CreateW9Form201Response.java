@@ -20,6 +20,7 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
+import Avalara.SDK.model.A1099.V2.EntryStatusResponse;
 import Avalara.SDK.model.A1099.V2.SubstantialUsOwnerResponse;
 import Avalara.SDK.model.A1099.V2.TinMatchStatusResponse;
 import Avalara.SDK.model.A1099.V2.W4FormResponse;

@@ -26,11 +26,11 @@
 |**tin** | **String** | The taxpayer identification number (TIN). |  [optional] |
 |**backupWithholding** | **Boolean** | Indicates whether backup withholding applies. |  [optional] |
 |**is1099able** | **Boolean** | Indicates whether the individual or entity should be issued a 1099 form. |  [optional] |
-|**companyId** | **String** | The ID of the associated company. |  [optional] |
-|**referenceId** | **String** | A reference identifier for the form. |  [optional] |
-|**email** | **String** | The email address of the individual associated with the form. |  [optional] |
 |**eDeliveryConsentedAt** | **OffsetDateTime** | The date when e-delivery was consented. |  [optional] |
 |**signature** | **String** | The signature of the form. |  [optional] |
+|**companyId** | **String** | The ID of the associated company. |  |
+|**referenceId** | **String** | A reference identifier for the form. |  [optional] |
+|**email** | **String** | The email address of the individual associated with the form. |  [optional] |
 |**citizenshipCountry** | **String** | The country of citizenship. |  [optional] |
 |**disregardedEntity** | **String** | The name of the disregarded entity receiving the payment (if applicable). |  [optional] |
 |**entityType** | **String** | The entity type. |  [optional] |

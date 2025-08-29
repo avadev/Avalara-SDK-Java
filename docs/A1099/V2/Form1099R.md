@@ -2,69 +2,99 @@
 
 # Form1099R
 
+Form 1099-R: Distributions From Pensions, Annuities, Retirement or Profit-Sharing Plans, IRAs, Insurance Contracts, etc.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**grossDistributions** | **Double** |  |  [optional] |
-|**taxableAmount** | **Double** |  |  [optional] |
-|**taxableAmountNotDetermined** | **Boolean** |  |  [optional] |
-|**totalDistributionIndicator** | **Boolean** |  |  [optional] |
-|**capitalGain** | **Double** |  |  [optional] |
-|**fedIncomeTaxWithheld** | **Double** |  |  [optional] |
-|**employeeContributions** | **Double** |  |  [optional] |
-|**netUnrealizedAppreciation** | **Double** |  |  [optional] |
-|**distributionCodeRequired** | **String** |  |  [optional] |
-|**distributionCodeOptional** | **String** |  |  [optional] |
-|**iraSepSimpleIndicator** | **Boolean** |  |  [optional] |
-|**totalIraSepSimpleDistribution** | **Double** |  |  [optional] |
-|**other** | **Double** |  |  [optional] |
-|**otherPercent** | **String** |  |  [optional] |
-|**percentageTotalDistribution** | **String** |  |  [optional] |
-|**totalEmployeeContributions** | **Double** |  |  [optional] |
-|**amountAllocableToIrr** | **Double** |  |  [optional] |
-|**firstYearDesignatedRothContrib** | **String** |  |  [optional] |
-|**dateOfPayment** | **String** |  |  [optional] |
-|**id** | **String** |  |  [optional] |
-|**type** | **String** |  |  [optional] |
-|**issuerId** | **Integer** |  |  [optional] |
-|**issuerReferenceId** | **String** |  |  [optional] |
-|**issuerTin** | **String** |  |  [optional] |
-|**taxYear** | **Integer** |  |  [optional] |
-|**federalEfile** | **Boolean** |  |  [optional] |
-|**federalEfileStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) |  |  [optional] |
-|**stateEfile** | **Boolean** |  |  [optional] |
-|**stateEfileStatus** | [**List&lt;StateEfileStatusDetail&gt;**](StateEfileStatusDetail.md) |  |  [optional] |
-|**postalMail** | **Boolean** |  |  [optional] |
-|**postalMailStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) |  |  [optional] |
-|**tinMatch** | **Boolean** |  |  [optional] |
-|**tinMatchStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) |  |  [optional] |
-|**addressVerification** | **Boolean** |  |  [optional] |
-|**addressVerificationStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) |  |  [optional] |
-|**eDeliveryStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) |  |  [optional] |
-|**referenceId** | **String** |  |  [optional] |
-|**email** | **String** |  |  [optional] |
-|**tinType** | **String** |  |  [optional] |
-|**fatcaFilingRequirement** | **Boolean** |  |  [optional] |
-|**tin** | **String** |  |  [optional] |
-|**noTin** | **Boolean** |  |  [optional] |
-|**secondTinNotice** | **Boolean** |  |  [optional] |
-|**recipientName** | **String** |  |  [optional] |
-|**recipientSecondName** | **String** |  |  [optional] |
-|**address** | **String** |  |  [optional] |
-|**address2** | **String** |  |  [optional] |
-|**city** | **String** |  |  [optional] |
-|**state** | **String** |  |  [optional] |
-|**zip** | **String** |  |  [optional] |
-|**nonUsProvince** | **String** |  |  [optional] |
-|**countryCode** | **String** |  |  [optional] |
-|**accountNumber** | **String** |  |  [optional] |
-|**officeCode** | **String** |  |  [optional] |
-|**validationErrors** | [**List&lt;ValidationError&gt;**](ValidationError.md) |  |  [optional] |
-|**createdAt** | **OffsetDateTime** |  |  [optional] |
-|**updatedAt** | **OffsetDateTime** |  |  [optional] |
-|**stateAndLocalWithholding** | [**StateAndLocalWithholding**](StateAndLocalWithholding.md) |  |  [optional] |
+|**grossDistribution** | **Double** | Gross distribution |  [optional] |
+|**taxableAmount** | **Double** | Taxable amount |  [optional] |
+|**taxableAmountNotDetermined** | **Boolean** | Taxable amount not determined |  [optional] |
+|**totalDistributionDetermined** | **Boolean** | Total distribution |  [optional] |
+|**capitalGain** | **Double** | Capital gain (included in Box 2a) |  [optional] |
+|**federalIncomeTaxWithheld** | **Double** | Federal income tax withheld |  [optional] |
+|**employeeContributionsOrDesignatedRothOrInsurancePremiums** | **Double** | Employee contributions/Designated Roth contributions or insurance premiums |  [optional] |
+|**netUnrealizedAppreciationInEmployerSecurities** | **Double** | Net unrealized appreciation in employer&#39;s securities |  [optional] |
+|**distributionCode** | **String** | Distribution code |  [optional] |
+|**secondDistributionCode** | **String** | Second distribution code |  [optional] |
+|**iraSepSimple** | **Boolean** | IRA/SEP/SIMPLE |  [optional] |
+|**traditionalIraSepSimpleOrRothConversionAmount** | **Double** | Traditional IRA/SEP/SIMPLE or Roth conversion amount |  [optional] |
+|**otherAmount** | **Double** | Other amount |  [optional] |
+|**otherPercentage** | **String** | Other percentage |  [optional] |
+|**totalDistributionPercentage** | **String** | Total distribution percentage |  [optional] |
+|**totalEmployeeContributions** | **Double** | Total employee contributions |  [optional] |
+|**amountAllocableToIrrWithin5Years** | **Double** | Amount allocable to IRR within 5 years |  [optional] |
+|**firstYearOfDesignatedRothContribution** | **String** | First year of designated Roth contribution |  [optional] |
+|**dateOfPayment** | **LocalDate** | Date of payment |  [optional] |
+|**fatcaFilingRequirement** | **Boolean** | FATCA filing requirement |  [optional] |
+|**type** | [**TypeEnum**](#TypeEnum) | Form type |  |
+|**id** | **String** | Form ID. Unique identifier set when the record is created. |  [optional] [readonly] |
+|**issuerId** | **String** | Issuer ID - only required when creating forms |  [optional] |
+|**issuerReferenceId** | **String** | Issuer Reference ID - only required when creating forms |  [optional] |
+|**issuerTin** | **String** | Issuer TIN - readonly |  [optional] |
+|**taxYear** | **Integer** | Tax Year - only required when creating forms |  [optional] |
+|**referenceId** | **String** | Internal reference ID. Never shown to any agency or recipient. |  [optional] |
+|**tin** | **String** | Recipient&#39;s Federal Tax Identification Number (TIN). |  [optional] |
+|**recipientName** | **String** | Recipient name |  |
+|**tinType** | [**TinTypeEnum**](#TinTypeEnum) | Type of TIN (Tax ID Number) |  [optional] |
+|**recipientSecondName** | **String** | Recipient second name |  [optional] |
+|**address** | **String** | Address. |  |
+|**address2** | **String** | Address line 2. |  [optional] |
+|**city** | **String** | City. |  |
+|**state** | **String** | Two-letter US state or Canadian province code (required for US/CA addresses). |  [optional] |
+|**zip** | **String** | ZIP/postal code. |  [optional] |
+|**email** | **String** | Recipient&#39;s Contact email address. |  [optional] |
+|**accountNumber** | **String** | Account number |  [optional] |
+|**officeCode** | **String** | Office code |  [optional] |
+|**nonUsProvince** | **String** | Province or region for non-US/CA addresses. |  [optional] |
+|**countryCode** | **String** | Two-letter IRS country code (e.g., &#39;US&#39;, &#39;CA&#39;), as defined at https://www.irs.gov/e-file-providers/country-codes. |  |
+|**federalEfileDate** | **LocalDate** | Date when federal e-filing should be scheduled for this form |  [optional] |
+|**postalMail** | **Boolean** | Boolean indicating that postal mailing to the recipient should be scheduled for this form |  [optional] |
+|**stateEfileDate** | **LocalDate** | Date when state e-filing should be scheduled for this form |  [optional] |
+|**recipientEdeliveryDate** | **LocalDate** | Date when recipient e-delivery should be scheduled for this form |  [optional] |
+|**tinMatch** | **Boolean** | Boolean indicating that TIN Matching should be scheduled for this form |  [optional] |
+|**noTin** | **Boolean** | No TIN indicator |  [optional] |
+|**addressVerification** | **Boolean** | Boolean indicating that address verification should be scheduled for this form |  [optional] |
+|**stateAndLocalWithholding** | [**StateAndLocalWithholding**](StateAndLocalWithholding.md) | State and local withholding information |  [optional] |
+|**secondTinNotice** | **Boolean** | Second TIN notice |  [optional] |
+|**federalEfileStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | Federal e-file status |  [optional] [readonly] |
+|**stateEfileStatus** | [**List&lt;StateEfileStatusDetail&gt;**](StateEfileStatusDetail.md) | State e-file status |  [optional] [readonly] |
+|**postalMailStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | Postal mail to recipient status |  [optional] [readonly] |
+|**tinMatchStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | TIN Match status |  [optional] [readonly] |
+|**addressVerificationStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | Address verification status |  [optional] [readonly] |
+|**eDeliveryStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | EDelivery status |  [optional] [readonly] |
+|**validationErrors** | [**List&lt;ValidationError&gt;**](ValidationError.md) | Validation errors |  [optional] [readonly] |
+|**createdAt** | **OffsetDateTime** | Date time when the record was created. |  [optional] [readonly] |
+|**updatedAt** | **OffsetDateTime** | Date time when the record was last updated. |  [optional] [readonly] |
+
+
+
+## Enum: TypeEnum
+
+| Name | Value |
+|---- | -----|
+| _1099_NEC | &quot;1099-NEC&quot; |
+| _1099_MISC | &quot;1099-MISC&quot; |
+| _1099_DIV | &quot;1099-DIV&quot; |
+| _1099_R | &quot;1099-R&quot; |
+| _1099_K | &quot;1099-K&quot; |
+| _1095_B | &quot;1095-B&quot; |
+| _1042_S | &quot;1042-S&quot; |
+| _1095_C | &quot;1095-C&quot; |
+| _1099_INT | &quot;1099-INT&quot; |
+
+
+
+## Enum: TinTypeEnum
+
+| Name | Value |
+|---- | -----|
+| EMPTY | &quot;Empty&quot; |
+| EIN | &quot;EIN&quot; |
+| SSN | &quot;SSN&quot; |
+| ITIN | &quot;ITIN&quot; |
+| ATIN | &quot;ATIN&quot; |
 
 
 
