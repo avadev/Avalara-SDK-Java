@@ -54,7 +54,7 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * IntermediaryOrFlowThrough
+ * Intermediary or flow-through entity information for tax forms
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class IntermediaryOrFlowThrough {
@@ -111,7 +111,7 @@ public class IntermediaryOrFlowThrough {
   }
 
   /**
-   * Get ein
+   * EIN (Employer Identification Number) of the intermediary or flow-through entity
    * @return ein
    */
   @javax.annotation.Nullable
@@ -130,7 +130,7 @@ public class IntermediaryOrFlowThrough {
   }
 
   /**
-   * Get chap3StatusCode
+   * Chapter 3 status code for the intermediary or flow-through entity
    * @return chap3StatusCode
    */
   @javax.annotation.Nullable
@@ -149,7 +149,7 @@ public class IntermediaryOrFlowThrough {
   }
 
   /**
-   * Get chap4StatusCode
+   * Chapter 4 status code for the intermediary or flow-through entity
    * @return chap4StatusCode
    */
   @javax.annotation.Nullable
@@ -168,7 +168,7 @@ public class IntermediaryOrFlowThrough {
   }
 
   /**
-   * Get name
+   * Name of the intermediary or flow-through entity
    * @return name
    */
   @javax.annotation.Nullable
@@ -187,7 +187,7 @@ public class IntermediaryOrFlowThrough {
   }
 
   /**
-   * Get giin
+   * GIIN (Global Intermediary Identification Number) of the intermediary or flow-through entity
    * @return giin
    */
   @javax.annotation.Nullable
@@ -206,7 +206,7 @@ public class IntermediaryOrFlowThrough {
   }
 
   /**
-   * Get countryCode
+   * Country code for the intermediary or flow-through entity
    * @return countryCode
    */
   @javax.annotation.Nullable
@@ -225,7 +225,7 @@ public class IntermediaryOrFlowThrough {
   }
 
   /**
-   * Get foreignTin
+   * Foreign TIN of the intermediary or flow-through entity
    * @return foreignTin
    */
   @javax.annotation.Nullable
@@ -244,7 +244,7 @@ public class IntermediaryOrFlowThrough {
   }
 
   /**
-   * Get address
+   * Address of the intermediary or flow-through entity
    * @return address
    */
   @javax.annotation.Nullable
@@ -263,7 +263,7 @@ public class IntermediaryOrFlowThrough {
   }
 
   /**
-   * Get city
+   * City of the intermediary or flow-through entity
    * @return city
    */
   @javax.annotation.Nullable
@@ -282,7 +282,7 @@ public class IntermediaryOrFlowThrough {
   }
 
   /**
-   * Get state
+   * State of the intermediary or flow-through entity
    * @return state
    */
   @javax.annotation.Nullable
@@ -301,7 +301,7 @@ public class IntermediaryOrFlowThrough {
   }
 
   /**
-   * Get zip
+   * Zip code of the intermediary or flow-through entity
    * @return zip
    */
   @javax.annotation.Nullable

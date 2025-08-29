@@ -36,8 +36,8 @@ import java.io.IOException;
 import java.util.*;
 
 
+import Avalara.SDK.model.A1099.V2.CreateIssuerRequest;
 import Avalara.SDK.model.A1099.V2.ErrorResponse;
-import Avalara.SDK.model.A1099.V2.IssuerCommand;
 import Avalara.SDK.model.A1099.V2.IssuerResponse;
 import Avalara.SDK.model.A1099.V2.PaginatedQueryResultModelIssuerResponse;
 
@@ -109,7 +109,7 @@ public class Issuers1099Api {
             basePath = null;
         }
 
-        Object localVarPostBody = requestParameters.getIssuerCommand();
+        Object localVarPostBody = requestParameters.getCreateIssuerRequest();
 
         // create path and map variables
         String localVarPath = "/1099/issuers";
@@ -136,7 +136,7 @@ public class Issuers1099Api {
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
@@ -232,13 +232,13 @@ public class Issuers1099Api {
     * @param avalaraVersion API version</param>
     * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
     * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
-    * @param issuerCommand The issuer to create (optional)</param>
+    * @param createIssuerRequest The issuer to create (optional)</param>
     */
     public class CreateIssuerRequest {
         private String avalaraVersion;
         private String xCorrelationId;
         private String xAvalaraClient;
-        private IssuerCommand issuerCommand;
+        private CreateIssuerRequest createIssuerRequest;
 
         public CreateIssuerRequest () {
         }
@@ -249,8 +249,8 @@ public class Issuers1099Api {
         public void setXCorrelationId(String xCorrelationId) { this.xCorrelationId = xCorrelationId; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
-        public IssuerCommand getIssuerCommand() { return issuerCommand; }
-        public void setIssuerCommand(IssuerCommand issuerCommand) { this.issuerCommand = issuerCommand; }
+        public CreateIssuerRequest getCreateIssuerRequest() { return createIssuerRequest; }
+        public void setCreateIssuerRequest(CreateIssuerRequest createIssuerRequest) { this.createIssuerRequest = createIssuerRequest; }
     }
 
     /**
@@ -321,7 +321,7 @@ public class Issuers1099Api {
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
@@ -507,7 +507,7 @@ public class Issuers1099Api {
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
@@ -722,7 +722,7 @@ public class Issuers1099Api {
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
@@ -906,7 +906,7 @@ public class Issuers1099Api {
             basePath = null;
         }
 
-        Object localVarPostBody = requestParameters.getIssuerCommand();
+        Object localVarPostBody = requestParameters.getCreateIssuerRequest();
 
         // create path and map variables
         String localVarPath = "/1099/issuers/{id}"
@@ -934,7 +934,7 @@ public class Issuers1099Api {
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
@@ -1035,14 +1035,14 @@ public class Issuers1099Api {
     * @param avalaraVersion API version</param>
     * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
     * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
-    * @param issuerCommand The issuer to update (optional)</param>
+    * @param createIssuerRequest The issuer to update (optional)</param>
     */
     public class UpdateIssuerRequest {
         private String id;
         private String avalaraVersion;
         private String xCorrelationId;
         private String xAvalaraClient;
-        private IssuerCommand issuerCommand;
+        private CreateIssuerRequest createIssuerRequest;
 
         public UpdateIssuerRequest () {
         }
@@ -1055,8 +1055,8 @@ public class Issuers1099Api {
         public void setXCorrelationId(String xCorrelationId) { this.xCorrelationId = xCorrelationId; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
-        public IssuerCommand getIssuerCommand() { return issuerCommand; }
-        public void setIssuerCommand(IssuerCommand issuerCommand) { this.issuerCommand = issuerCommand; }
+        public CreateIssuerRequest getCreateIssuerRequest() { return createIssuerRequest; }
+        public void setCreateIssuerRequest(CreateIssuerRequest createIssuerRequest) { this.createIssuerRequest = createIssuerRequest; }
     }
 
     /**
@@ -1069,7 +1069,7 @@ public class Issuers1099Api {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.8.2");
+        this.localVarApiClient.setSdkVersion("25.8.3");
     }
 }
 

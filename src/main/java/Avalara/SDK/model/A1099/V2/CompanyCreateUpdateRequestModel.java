@@ -62,6 +62,10 @@ public class CompanyCreateUpdateRequestModel {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_DBA_NAME = "dbaName";
+  @SerializedName(SERIALIZED_NAME_DBA_NAME)
+  private String dbaName;
+
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
@@ -89,10 +93,6 @@ public class CompanyCreateUpdateRequestModel {
   public static final String SERIALIZED_NAME_TIN = "tin";
   @SerializedName(SERIALIZED_NAME_TIN)
   private String tin;
-
-  public static final String SERIALIZED_NAME_DBA_NAME = "dbaName";
-  @SerializedName(SERIALIZED_NAME_DBA_NAME)
-  private String dbaName;
 
   public static final String SERIALIZED_NAME_REFERENCE_ID = "referenceId";
   @SerializedName(SERIALIZED_NAME_REFERENCE_ID)
@@ -135,7 +135,7 @@ public class CompanyCreateUpdateRequestModel {
   }
 
   /**
-   * Get name
+   * Legal name. Not the DBA name.
    * @return name
    */
   @javax.annotation.Nullable
@@ -148,13 +148,32 @@ public class CompanyCreateUpdateRequestModel {
   }
 
 
+  public CompanyCreateUpdateRequestModel dbaName(String dbaName) {
+    this.dbaName = dbaName;
+    return this;
+  }
+
+  /**
+   * Doing Business As (DBA) name or continuation of a long legal name.
+   * @return dbaName
+   */
+  @javax.annotation.Nullable
+  public String getDbaName() {
+    return dbaName;
+  }
+
+  public void setDbaName(String dbaName) {
+    this.dbaName = dbaName;
+  }
+
+
   public CompanyCreateUpdateRequestModel email(String email) {
     this.email = email;
     return this;
   }
 
   /**
-   * Get email
+   * Contact email address. For inquiries by vendors/employees.
    * @return email
    */
   @javax.annotation.Nullable
@@ -173,7 +192,7 @@ public class CompanyCreateUpdateRequestModel {
   }
 
   /**
-   * Get address
+   * Address.
    * @return address
    */
   @javax.annotation.Nullable
@@ -192,7 +211,7 @@ public class CompanyCreateUpdateRequestModel {
   }
 
   /**
-   * Get city
+   * City.
    * @return city
    */
   @javax.annotation.Nullable
@@ -211,7 +230,7 @@ public class CompanyCreateUpdateRequestModel {
   }
 
   /**
-   * Get state
+   * Two-letter US state or Canadian province code (required for US/CA addresses).
    * @return state
    */
   @javax.annotation.Nullable
@@ -230,7 +249,7 @@ public class CompanyCreateUpdateRequestModel {
   }
 
   /**
-   * Get zip
+   * ZIP/postal code.
    * @return zip
    */
   @javax.annotation.Nullable
@@ -249,7 +268,7 @@ public class CompanyCreateUpdateRequestModel {
   }
 
   /**
-   * Get telephone
+   * Contact phone number (must contain at least 10 digits, max 15 characters).
    * @return telephone
    */
   @javax.annotation.Nullable
@@ -268,7 +287,7 @@ public class CompanyCreateUpdateRequestModel {
   }
 
   /**
-   * Get tin
+   * Federal Tax Identification Number (TIN). EIN/Tax ID (required for US companies).
    * @return tin
    */
   @javax.annotation.Nullable
@@ -281,32 +300,13 @@ public class CompanyCreateUpdateRequestModel {
   }
 
 
-  public CompanyCreateUpdateRequestModel dbaName(String dbaName) {
-    this.dbaName = dbaName;
-    return this;
-  }
-
-  /**
-   * Get dbaName
-   * @return dbaName
-   */
-  @javax.annotation.Nullable
-  public String getDbaName() {
-    return dbaName;
-  }
-
-  public void setDbaName(String dbaName) {
-    this.dbaName = dbaName;
-  }
-
-
   public CompanyCreateUpdateRequestModel referenceId(String referenceId) {
     this.referenceId = referenceId;
     return this;
   }
 
   /**
-   * Get referenceId
+   * Internal reference ID. Never shown to any agency or recipient.
    * @return referenceId
    */
   @javax.annotation.Nullable
@@ -325,7 +325,7 @@ public class CompanyCreateUpdateRequestModel {
   }
 
   /**
-   * Get doTinMatch
+   * Indicates whether the company authorizes IRS TIN matching.
    * @return doTinMatch
    */
   @javax.annotation.Nullable
@@ -344,7 +344,7 @@ public class CompanyCreateUpdateRequestModel {
   }
 
   /**
-   * Get groupName
+   * Group name for organizing companies (creates or finds group by name).
    * @return groupName
    */
   @javax.annotation.Nullable
@@ -363,7 +363,7 @@ public class CompanyCreateUpdateRequestModel {
   }
 
   /**
-   * Get foreignProvince
+   * Province or region for non-US/CA addresses.
    * @return foreignProvince
    */
   @javax.annotation.Nullable
@@ -382,7 +382,7 @@ public class CompanyCreateUpdateRequestModel {
   }
 
   /**
-   * Get countryCode
+   * Two-letter IRS country code (e.g., &#39;US&#39;, &#39;CA&#39;), as defined at https://www.irs.gov/e-file-providers/country-codes.
    * @return countryCode
    */
   @javax.annotation.Nullable
@@ -401,7 +401,7 @@ public class CompanyCreateUpdateRequestModel {
   }
 
   /**
-   * Get resendRequests
+   * Boolean to enable automatic reminder emails (default: false).
    * @return resendRequests
    */
   @javax.annotation.Nullable
@@ -420,7 +420,7 @@ public class CompanyCreateUpdateRequestModel {
   }
 
   /**
-   * Get resendIntervalDays
+   * Days between reminder emails (7-365, required if resendRequests is true).
    * @return resendIntervalDays
    */
   @javax.annotation.Nullable
@@ -439,7 +439,7 @@ public class CompanyCreateUpdateRequestModel {
   }
 
   /**
-   * Get maxReminderAttempts
+   * Maximum number of reminder attempts (1-52, required if resendRequests is true).
    * @return maxReminderAttempts
    */
   @javax.annotation.Nullable
@@ -463,6 +463,7 @@ public class CompanyCreateUpdateRequestModel {
     }
     CompanyCreateUpdateRequestModel companyCreateUpdateRequestModel = (CompanyCreateUpdateRequestModel) o;
     return Objects.equals(this.name, companyCreateUpdateRequestModel.name) &&
+        Objects.equals(this.dbaName, companyCreateUpdateRequestModel.dbaName) &&
         Objects.equals(this.email, companyCreateUpdateRequestModel.email) &&
         Objects.equals(this.address, companyCreateUpdateRequestModel.address) &&
         Objects.equals(this.city, companyCreateUpdateRequestModel.city) &&
@@ -470,7 +471,6 @@ public class CompanyCreateUpdateRequestModel {
         Objects.equals(this.zip, companyCreateUpdateRequestModel.zip) &&
         Objects.equals(this.telephone, companyCreateUpdateRequestModel.telephone) &&
         Objects.equals(this.tin, companyCreateUpdateRequestModel.tin) &&
-        Objects.equals(this.dbaName, companyCreateUpdateRequestModel.dbaName) &&
         Objects.equals(this.referenceId, companyCreateUpdateRequestModel.referenceId) &&
         Objects.equals(this.doTinMatch, companyCreateUpdateRequestModel.doTinMatch) &&
         Objects.equals(this.groupName, companyCreateUpdateRequestModel.groupName) &&
@@ -487,7 +487,7 @@ public class CompanyCreateUpdateRequestModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, email, address, city, state, zip, telephone, tin, dbaName, referenceId, doTinMatch, groupName, foreignProvince, countryCode, resendRequests, resendIntervalDays, maxReminderAttempts);
+    return Objects.hash(name, dbaName, email, address, city, state, zip, telephone, tin, referenceId, doTinMatch, groupName, foreignProvince, countryCode, resendRequests, resendIntervalDays, maxReminderAttempts);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -502,6 +502,7 @@ public class CompanyCreateUpdateRequestModel {
     StringBuilder sb = new StringBuilder();
     sb.append("class CompanyCreateUpdateRequestModel {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    dbaName: ").append(toIndentedString(dbaName)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
@@ -509,7 +510,6 @@ public class CompanyCreateUpdateRequestModel {
     sb.append("    zip: ").append(toIndentedString(zip)).append("\n");
     sb.append("    telephone: ").append(toIndentedString(telephone)).append("\n");
     sb.append("    tin: ").append(toIndentedString(tin)).append("\n");
-    sb.append("    dbaName: ").append(toIndentedString(dbaName)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    doTinMatch: ").append(toIndentedString(doTinMatch)).append("\n");
     sb.append("    groupName: ").append(toIndentedString(groupName)).append("\n");
@@ -541,6 +541,7 @@ public class CompanyCreateUpdateRequestModel {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
+    openapiFields.add("dbaName");
     openapiFields.add("email");
     openapiFields.add("address");
     openapiFields.add("city");
@@ -548,7 +549,6 @@ public class CompanyCreateUpdateRequestModel {
     openapiFields.add("zip");
     openapiFields.add("telephone");
     openapiFields.add("tin");
-    openapiFields.add("dbaName");
     openapiFields.add("referenceId");
     openapiFields.add("doTinMatch");
     openapiFields.add("groupName");
@@ -560,6 +560,14 @@ public class CompanyCreateUpdateRequestModel {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("email");
+    openapiRequiredFields.add("address");
+    openapiRequiredFields.add("city");
+    openapiRequiredFields.add("zip");
+    openapiRequiredFields.add("telephone");
+    openapiRequiredFields.add("tin");
+    openapiRequiredFields.add("countryCode");
   }
 
   /**
@@ -582,9 +590,19 @@ public class CompanyCreateUpdateRequestModel {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CompanyCreateUpdateRequestModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : CompanyCreateUpdateRequestModel.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("dbaName") != null && !jsonObj.get("dbaName").isJsonNull()) && !jsonObj.get("dbaName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `dbaName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dbaName").toString()));
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
@@ -606,9 +624,6 @@ public class CompanyCreateUpdateRequestModel {
       }
       if ((jsonObj.get("tin") != null && !jsonObj.get("tin").isJsonNull()) && !jsonObj.get("tin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tin").toString()));
-      }
-      if ((jsonObj.get("dbaName") != null && !jsonObj.get("dbaName").isJsonNull()) && !jsonObj.get("dbaName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `dbaName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dbaName").toString()));
       }
       if ((jsonObj.get("referenceId") != null && !jsonObj.get("referenceId").isJsonNull()) && !jsonObj.get("referenceId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `referenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referenceId").toString()));

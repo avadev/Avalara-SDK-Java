@@ -20,6 +20,7 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
+import Avalara.SDK.model.A1099.V2.EntryStatusResponse;
 import Avalara.SDK.model.A1099.V2.TinMatchStatusResponse;
 import Avalara.SDK.model.A1099.V2.W9FormBaseResponse;
 import com.google.gson.TypeAdapter;
@@ -598,12 +599,12 @@ public class W9FormResponse extends W9FormBaseResponse {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("entryStatus");
-    openapiFields.add("entryStatusDate");
     openapiFields.add("referenceId");
     openapiFields.add("companyId");
     openapiFields.add("displayName");
     openapiFields.add("email");
     openapiFields.add("archived");
+    openapiFields.add("ancestorId");
     openapiFields.add("signature");
     openapiFields.add("signedDate");
     openapiFields.add("eDeliveryConsentedAt");

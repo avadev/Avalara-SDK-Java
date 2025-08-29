@@ -119,11 +119,11 @@
 |**sponsoredDirectReportingNffeCertification** | **Boolean** | Certifies that the entity is a sponsored direct reporting NFFE. |  [optional] |
 |**directReportingNffeSponsoringEntity** | **String** | The name of the entity that sponsors the direct reporting NFFE. |  [optional] |
 |**signerName** | **String** | The name of the signer. |  [optional] |
-|**companyId** | **String** | The ID of the associated company. |  [optional] |
-|**referenceId** | **String** | A reference identifier for the form. |  [optional] |
-|**email** | **String** | The email address of the individual associated with the form. |  [optional] |
 |**eDeliveryConsentedAt** | **OffsetDateTime** | The date when e-delivery was consented. |  [optional] |
 |**signature** | **String** | The signature of the form. |  [optional] |
+|**companyId** | **String** | The ID of the associated company. |  |
+|**referenceId** | **String** | A reference identifier for the form. |  [optional] |
+|**email** | **String** | The email address of the individual associated with the form. |  [optional] |
 
 
 
