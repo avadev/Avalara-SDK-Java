@@ -77,7 +77,7 @@ public class ValidationError {
   }
 
   /**
-   * Get field
+   * The field containing the error
    * @return field
    */
   @javax.annotation.Nullable
@@ -104,7 +104,7 @@ public class ValidationError {
   }
 
   /**
-   * Get errors
+   * The list of error messages
    * @return errors
    */
   @javax.annotation.Nullable

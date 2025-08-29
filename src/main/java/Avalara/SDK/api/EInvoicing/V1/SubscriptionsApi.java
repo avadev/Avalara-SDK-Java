@@ -138,7 +138,7 @@ public class SubscriptionsApi {
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
@@ -332,7 +332,7 @@ public class SubscriptionsApi {
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
@@ -522,7 +522,7 @@ public class SubscriptionsApi {
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
@@ -731,7 +731,7 @@ public class SubscriptionsApi {
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
@@ -873,7 +873,7 @@ public class SubscriptionsApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.8.2");
+        this.localVarApiClient.setSdkVersion("25.8.3");
     }
 }
 

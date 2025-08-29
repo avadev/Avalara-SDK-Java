@@ -566,6 +566,14 @@ public class W8ImyFormRequest {
   @SerializedName(SERIALIZED_NAME_SIGNER_NAME)
   private String signerName;
 
+  public static final String SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT = "eDeliveryConsentedAt";
+  @SerializedName(SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT)
+  private OffsetDateTime eDeliveryConsentedAt;
+
+  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
+  @SerializedName(SERIALIZED_NAME_SIGNATURE)
+  private String signature;
+
   public static final String SERIALIZED_NAME_COMPANY_ID = "companyId";
   @SerializedName(SERIALIZED_NAME_COMPANY_ID)
   private String companyId;
@@ -577,14 +585,6 @@ public class W8ImyFormRequest {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
-
-  public static final String SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT = "eDeliveryConsentedAt";
-  @SerializedName(SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT)
-  private OffsetDateTime eDeliveryConsentedAt;
-
-  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
-  @SerializedName(SERIALIZED_NAME_SIGNATURE)
-  private String signature;
 
   public W8ImyFormRequest() {
   }
@@ -2716,6 +2716,44 @@ public class W8ImyFormRequest {
   }
 
 
+  public W8ImyFormRequest eDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
+    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
+    return this;
+  }
+
+  /**
+   * The date when e-delivery was consented.
+   * @return eDeliveryConsentedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime geteDeliveryConsentedAt() {
+    return eDeliveryConsentedAt;
+  }
+
+  public void seteDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
+    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
+  }
+
+
+  public W8ImyFormRequest signature(String signature) {
+    this.signature = signature;
+    return this;
+  }
+
+  /**
+   * The signature of the form.
+   * @return signature
+   */
+  @javax.annotation.Nullable
+  public String getSignature() {
+    return signature;
+  }
+
+  public void setSignature(String signature) {
+    this.signature = signature;
+  }
+
+
   public W8ImyFormRequest companyId(String companyId) {
     this.companyId = companyId;
     return this;
@@ -2725,7 +2763,7 @@ public class W8ImyFormRequest {
    * The ID of the associated company.
    * @return companyId
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getCompanyId() {
     return companyId;
   }
@@ -2770,44 +2808,6 @@ public class W8ImyFormRequest {
 
   public void setEmail(String email) {
     this.email = email;
-  }
-
-
-  public W8ImyFormRequest eDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
-    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
-    return this;
-  }
-
-  /**
-   * The date when e-delivery was consented.
-   * @return eDeliveryConsentedAt
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime geteDeliveryConsentedAt() {
-    return eDeliveryConsentedAt;
-  }
-
-  public void seteDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
-    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
-  }
-
-
-  public W8ImyFormRequest signature(String signature) {
-    this.signature = signature;
-    return this;
-  }
-
-  /**
-   * The signature of the form.
-   * @return signature
-   */
-  @javax.annotation.Nullable
-  public String getSignature() {
-    return signature;
-  }
-
-  public void setSignature(String signature) {
-    this.signature = signature;
   }
 
 
@@ -2933,11 +2933,11 @@ public class W8ImyFormRequest {
         Objects.equals(this.sponsoredDirectReportingNffeCertification, w8ImyFormRequest.sponsoredDirectReportingNffeCertification) &&
         Objects.equals(this.directReportingNffeSponsoringEntity, w8ImyFormRequest.directReportingNffeSponsoringEntity) &&
         Objects.equals(this.signerName, w8ImyFormRequest.signerName) &&
+        Objects.equals(this.eDeliveryConsentedAt, w8ImyFormRequest.eDeliveryConsentedAt) &&
+        Objects.equals(this.signature, w8ImyFormRequest.signature) &&
         Objects.equals(this.companyId, w8ImyFormRequest.companyId) &&
         Objects.equals(this.referenceId, w8ImyFormRequest.referenceId) &&
-        Objects.equals(this.email, w8ImyFormRequest.email) &&
-        Objects.equals(this.eDeliveryConsentedAt, w8ImyFormRequest.eDeliveryConsentedAt) &&
-        Objects.equals(this.signature, w8ImyFormRequest.signature);
+        Objects.equals(this.email, w8ImyFormRequest.email);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -2946,7 +2946,7 @@ public class W8ImyFormRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, name, citizenshipCountry, disregardedEntity, entityType, fatcaStatus, residenceAddress, residenceCity, residenceState, residenceZip, residenceCountry, residenceIsMailing, mailingAddress, mailingCity, mailingState, mailingZip, mailingCountry, tinType, tin, giin, foreignTin, referenceNumber, disregardedEntityFatcaStatus, disregardedAddress, disregardedCity, disregardedState, disregardedZip, disregardedCountry, disregardedEntityGiin, qualifiedIntermediaryCertification, qiPrimaryWithholdingResponsibilityCertification, qiWithholdingResponsibilityForPtpSalesCertification, qiNomineeWithholdingResponsibilityForPtpDistributionsCertification, qiSecuritiesLenderSubstituteDividendWithholdingCertification, qiWithholdingAnd1099ReportingResponsibilityCertification, qiForm1099OrFatcaReportingResponsibilityCertification, qiOptOutOfForm1099ReportingCertification, qiWithholdingRatePoolCertification, qiIntermediaryOrFlowThroughEntityDocumentationCertification, qualifiedDerivativesDealerCertification, qddCorporation, qddPartnership, qddDisregardedEntity, nonqualifiedIntermediaryCertification, nqiWithholdingStatementTransmissionCertification, nqiWithholdingRatePoolComplianceCertification, nqiQualifiedSecuritiesLenderCertification, nqiAlternativeWithholdingStatementVerificationCertification, territoryFinancialInstitutionCertification, tfiTreatedAsUsPersonCertification, tfiWithholdingStatementTransmissionCertification, tfiTreatedAsUsPersonForPtpSalesCertification, tfiNomineeUsPersonForPtpDistributionsCertification, tfiNotNomineeForPtpDistributionsCertification, usBranchNonEffectivelyConnectedIncomeCertification, usBranchAgreementToBeTreatedAsUsPersonCertification, usBranchWithholdingStatementAndComplianceCertification, usBranchActingAsUsPersonForPtpSalesCertification, usBranchNomineeForPtpDistributionsCertification, usBranchNotNomineeForPtpDistributionsCertification, withholdingForeignPartnershipOrTrustCertification, nonwithholdingForeignEntityWithholdingStatementCertification, foreignEntityPartnerInLowerTierPartnershipCertification, foreignPartnershipAmountRealizedSection1446FCertification, foreignPartnershipModifiedAmountRealizedCertification, foreignGrantorTrustAmountRealizedAllocationCertification, alternativeWithholdingStatementRelianceCertification, npFfiWithExemptBeneficialOwnersCertification, ffiSponsoringEntity, investmentEntityCertification, controlledForeignCorporationCertification, ownerDocumentedFfiCertification, ownerDocumentedFfiReportingStatementCertification, ownerDocumentedFfiAuditorLetterCertification, compliantNonregisteringLocalBankCertification, compliantFfiLowValueAccountsCertification, sponsoredCloselyHeldEntitySponsoringEntity, sponsoredCloselyHeldInvestmentVehicleCertification, compliantLimitedLifeDebtEntityCertification, investmentEntityNoFinancialAccountsCertification, restrictedDistributorCertification, restrictedDistributorAgreementCertification, restrictedDistributorPreexistingSalesComplianceCertification, foreignCentralBankOfIssueCertification, nonreportingIgaFfiCertification, igaCountry, igaModel, igaLegalStatusTreatment, igaFfiTrusteeOrSponsor, igaFfiTrusteeIsForeign, treatyQualifiedPensionFundCertification, qualifiedRetirementFundCertification, narrowParticipationRetirementFundCertification, section401AEquivalentPensionPlanCertification, investmentEntityForRetirementFundsCertification, exemptBeneficialOwnerSponsoredRetirementFundCertification, exceptedNonfinancialGroupEntityCertification, exceptedNonfinancialStartUpCertification, startupFormationOrResolutionDate, exceptedNonfinancialEntityInLiquidationOrBankruptcyCertification, nonfinancialEntityFilingDate, publiclyTradedNffeCertification, publiclyTradedNffeSecuritiesMarket, nffeAffiliateOfPubliclyTradedEntityCertification, publiclyTradedEntity, nffeAffiliateOfPubliclyTradedEntitySecuritiesMarket, exceptedTerritoryNffeCertification, activeNffeCertification, passiveNffeCertification, sponsoredDirectReportingNffeCertification, directReportingNffeSponsoringEntity, signerName, companyId, referenceId, email, eDeliveryConsentedAt, signature);
+    return Objects.hash(type, name, citizenshipCountry, disregardedEntity, entityType, fatcaStatus, residenceAddress, residenceCity, residenceState, residenceZip, residenceCountry, residenceIsMailing, mailingAddress, mailingCity, mailingState, mailingZip, mailingCountry, tinType, tin, giin, foreignTin, referenceNumber, disregardedEntityFatcaStatus, disregardedAddress, disregardedCity, disregardedState, disregardedZip, disregardedCountry, disregardedEntityGiin, qualifiedIntermediaryCertification, qiPrimaryWithholdingResponsibilityCertification, qiWithholdingResponsibilityForPtpSalesCertification, qiNomineeWithholdingResponsibilityForPtpDistributionsCertification, qiSecuritiesLenderSubstituteDividendWithholdingCertification, qiWithholdingAnd1099ReportingResponsibilityCertification, qiForm1099OrFatcaReportingResponsibilityCertification, qiOptOutOfForm1099ReportingCertification, qiWithholdingRatePoolCertification, qiIntermediaryOrFlowThroughEntityDocumentationCertification, qualifiedDerivativesDealerCertification, qddCorporation, qddPartnership, qddDisregardedEntity, nonqualifiedIntermediaryCertification, nqiWithholdingStatementTransmissionCertification, nqiWithholdingRatePoolComplianceCertification, nqiQualifiedSecuritiesLenderCertification, nqiAlternativeWithholdingStatementVerificationCertification, territoryFinancialInstitutionCertification, tfiTreatedAsUsPersonCertification, tfiWithholdingStatementTransmissionCertification, tfiTreatedAsUsPersonForPtpSalesCertification, tfiNomineeUsPersonForPtpDistributionsCertification, tfiNotNomineeForPtpDistributionsCertification, usBranchNonEffectivelyConnectedIncomeCertification, usBranchAgreementToBeTreatedAsUsPersonCertification, usBranchWithholdingStatementAndComplianceCertification, usBranchActingAsUsPersonForPtpSalesCertification, usBranchNomineeForPtpDistributionsCertification, usBranchNotNomineeForPtpDistributionsCertification, withholdingForeignPartnershipOrTrustCertification, nonwithholdingForeignEntityWithholdingStatementCertification, foreignEntityPartnerInLowerTierPartnershipCertification, foreignPartnershipAmountRealizedSection1446FCertification, foreignPartnershipModifiedAmountRealizedCertification, foreignGrantorTrustAmountRealizedAllocationCertification, alternativeWithholdingStatementRelianceCertification, npFfiWithExemptBeneficialOwnersCertification, ffiSponsoringEntity, investmentEntityCertification, controlledForeignCorporationCertification, ownerDocumentedFfiCertification, ownerDocumentedFfiReportingStatementCertification, ownerDocumentedFfiAuditorLetterCertification, compliantNonregisteringLocalBankCertification, compliantFfiLowValueAccountsCertification, sponsoredCloselyHeldEntitySponsoringEntity, sponsoredCloselyHeldInvestmentVehicleCertification, compliantLimitedLifeDebtEntityCertification, investmentEntityNoFinancialAccountsCertification, restrictedDistributorCertification, restrictedDistributorAgreementCertification, restrictedDistributorPreexistingSalesComplianceCertification, foreignCentralBankOfIssueCertification, nonreportingIgaFfiCertification, igaCountry, igaModel, igaLegalStatusTreatment, igaFfiTrusteeOrSponsor, igaFfiTrusteeIsForeign, treatyQualifiedPensionFundCertification, qualifiedRetirementFundCertification, narrowParticipationRetirementFundCertification, section401AEquivalentPensionPlanCertification, investmentEntityForRetirementFundsCertification, exemptBeneficialOwnerSponsoredRetirementFundCertification, exceptedNonfinancialGroupEntityCertification, exceptedNonfinancialStartUpCertification, startupFormationOrResolutionDate, exceptedNonfinancialEntityInLiquidationOrBankruptcyCertification, nonfinancialEntityFilingDate, publiclyTradedNffeCertification, publiclyTradedNffeSecuritiesMarket, nffeAffiliateOfPubliclyTradedEntityCertification, publiclyTradedEntity, nffeAffiliateOfPubliclyTradedEntitySecuritiesMarket, exceptedTerritoryNffeCertification, activeNffeCertification, passiveNffeCertification, sponsoredDirectReportingNffeCertification, directReportingNffeSponsoringEntity, signerName, eDeliveryConsentedAt, signature, companyId, referenceId, email);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -3072,11 +3072,11 @@ public class W8ImyFormRequest {
     sb.append("    sponsoredDirectReportingNffeCertification: ").append(toIndentedString(sponsoredDirectReportingNffeCertification)).append("\n");
     sb.append("    directReportingNffeSponsoringEntity: ").append(toIndentedString(directReportingNffeSponsoringEntity)).append("\n");
     sb.append("    signerName: ").append(toIndentedString(signerName)).append("\n");
+    sb.append("    eDeliveryConsentedAt: ").append(toIndentedString(eDeliveryConsentedAt)).append("\n");
+    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    eDeliveryConsentedAt: ").append(toIndentedString(eDeliveryConsentedAt)).append("\n");
-    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -3099,15 +3099,16 @@ public class W8ImyFormRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("eDeliveryConsentedAt");
+    openapiFields.add("signature");
     openapiFields.add("type");
     openapiFields.add("companyId");
     openapiFields.add("referenceId");
     openapiFields.add("email");
-    openapiFields.add("eDeliveryConsentedAt");
-    openapiFields.add("signature");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("companyId");
   }
 
   /**
@@ -3128,6 +3129,13 @@ public class W8ImyFormRequest {
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!W8ImyFormRequest.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `W8ImyFormRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : W8ImyFormRequest.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -3252,7 +3260,10 @@ public class W8ImyFormRequest {
       if ((jsonObj.get("signerName") != null && !jsonObj.get("signerName").isJsonNull()) && !jsonObj.get("signerName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `signerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signerName").toString()));
       }
-      if ((jsonObj.get("companyId") != null && !jsonObj.get("companyId").isJsonNull()) && !jsonObj.get("companyId").isJsonPrimitive()) {
+      if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
+      }
+      if (!jsonObj.get("companyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `companyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyId").toString()));
       }
       if ((jsonObj.get("referenceId") != null && !jsonObj.get("referenceId").isJsonNull()) && !jsonObj.get("referenceId").isJsonPrimitive()) {
@@ -3260,9 +3271,6 @@ public class W8ImyFormRequest {
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
-      }
-      if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
       }
   }
 

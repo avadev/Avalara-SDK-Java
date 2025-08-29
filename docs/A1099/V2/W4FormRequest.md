@@ -27,11 +27,11 @@
 |**additionalWithheld** | **Float** | The additional amount withheld. |  [optional] |
 |**exemptFromWithholding** | **Boolean** | Indicates whether the employee is exempt from withholding. |  [optional] |
 |**officeCode** | **String** | The office code associated with the form. |  [optional] |
-|**companyId** | **String** | The ID of the associated company. |  [optional] |
-|**referenceId** | **String** | A reference identifier for the form. |  [optional] |
-|**email** | **String** | The email address of the individual associated with the form. |  [optional] |
 |**eDeliveryConsentedAt** | **OffsetDateTime** | The date when e-delivery was consented. |  [optional] |
 |**signature** | **String** | The signature of the form. |  [optional] |
+|**companyId** | **String** | The ID of the associated company. |  |
+|**referenceId** | **String** | A reference identifier for the form. |  [optional] |
+|**email** | **String** | The email address of the individual associated with the form. |  [optional] |
 
 
 

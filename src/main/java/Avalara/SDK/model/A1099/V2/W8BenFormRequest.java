@@ -218,6 +218,14 @@ public class W8BenFormRequest {
   @SerializedName(SERIALIZED_NAME_SIGNER_NAME)
   private String signerName;
 
+  public static final String SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT = "eDeliveryConsentedAt";
+  @SerializedName(SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT)
+  private OffsetDateTime eDeliveryConsentedAt;
+
+  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
+  @SerializedName(SERIALIZED_NAME_SIGNATURE)
+  private String signature;
+
   public static final String SERIALIZED_NAME_COMPANY_ID = "companyId";
   @SerializedName(SERIALIZED_NAME_COMPANY_ID)
   private String companyId;
@@ -229,14 +237,6 @@ public class W8BenFormRequest {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
-
-  public static final String SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT = "eDeliveryConsentedAt";
-  @SerializedName(SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT)
-  private OffsetDateTime eDeliveryConsentedAt;
-
-  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
-  @SerializedName(SERIALIZED_NAME_SIGNATURE)
-  private String signature;
 
   public W8BenFormRequest() {
   }
@@ -715,6 +715,44 @@ public class W8BenFormRequest {
   }
 
 
+  public W8BenFormRequest eDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
+    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
+    return this;
+  }
+
+  /**
+   * The date when e-delivery was consented.
+   * @return eDeliveryConsentedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime geteDeliveryConsentedAt() {
+    return eDeliveryConsentedAt;
+  }
+
+  public void seteDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
+    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
+  }
+
+
+  public W8BenFormRequest signature(String signature) {
+    this.signature = signature;
+    return this;
+  }
+
+  /**
+   * The signature of the form.
+   * @return signature
+   */
+  @javax.annotation.Nullable
+  public String getSignature() {
+    return signature;
+  }
+
+  public void setSignature(String signature) {
+    this.signature = signature;
+  }
+
+
   public W8BenFormRequest companyId(String companyId) {
     this.companyId = companyId;
     return this;
@@ -724,7 +762,7 @@ public class W8BenFormRequest {
    * The ID of the associated company.
    * @return companyId
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getCompanyId() {
     return companyId;
   }
@@ -772,44 +810,6 @@ public class W8BenFormRequest {
   }
 
 
-  public W8BenFormRequest eDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
-    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
-    return this;
-  }
-
-  /**
-   * The date when e-delivery was consented.
-   * @return eDeliveryConsentedAt
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime geteDeliveryConsentedAt() {
-    return eDeliveryConsentedAt;
-  }
-
-  public void seteDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
-    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
-  }
-
-
-  public W8BenFormRequest signature(String signature) {
-    this.signature = signature;
-    return this;
-  }
-
-  /**
-   * The signature of the form.
-   * @return signature
-   */
-  @javax.annotation.Nullable
-  public String getSignature() {
-    return signature;
-  }
-
-  public void setSignature(String signature) {
-    this.signature = signature;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -845,11 +845,11 @@ public class W8BenFormRequest {
         Objects.equals(this.withholdingRate, w8BenFormRequest.withholdingRate) &&
         Objects.equals(this.incomeType, w8BenFormRequest.incomeType) &&
         Objects.equals(this.signerName, w8BenFormRequest.signerName) &&
+        Objects.equals(this.eDeliveryConsentedAt, w8BenFormRequest.eDeliveryConsentedAt) &&
+        Objects.equals(this.signature, w8BenFormRequest.signature) &&
         Objects.equals(this.companyId, w8BenFormRequest.companyId) &&
         Objects.equals(this.referenceId, w8BenFormRequest.referenceId) &&
-        Objects.equals(this.email, w8BenFormRequest.email) &&
-        Objects.equals(this.eDeliveryConsentedAt, w8BenFormRequest.eDeliveryConsentedAt) &&
-        Objects.equals(this.signature, w8BenFormRequest.signature);
+        Objects.equals(this.email, w8BenFormRequest.email);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -858,7 +858,7 @@ public class W8BenFormRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, name, citizenshipCountry, residenceAddress, residenceCity, residenceState, residenceZip, residenceCountry, residenceIsMailing, mailingAddress, mailingCity, mailingState, mailingZip, mailingCountry, tin, foreignTinNotRequired, foreignTin, referenceNumber, birthday, treatyCountry, treatyArticle, treatyReasons, withholdingRate, incomeType, signerName, companyId, referenceId, email, eDeliveryConsentedAt, signature);
+    return Objects.hash(type, name, citizenshipCountry, residenceAddress, residenceCity, residenceState, residenceZip, residenceCountry, residenceIsMailing, mailingAddress, mailingCity, mailingState, mailingZip, mailingCountry, tin, foreignTinNotRequired, foreignTin, referenceNumber, birthday, treatyCountry, treatyArticle, treatyReasons, withholdingRate, incomeType, signerName, eDeliveryConsentedAt, signature, companyId, referenceId, email);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -897,11 +897,11 @@ public class W8BenFormRequest {
     sb.append("    withholdingRate: ").append(toIndentedString(withholdingRate)).append("\n");
     sb.append("    incomeType: ").append(toIndentedString(incomeType)).append("\n");
     sb.append("    signerName: ").append(toIndentedString(signerName)).append("\n");
+    sb.append("    eDeliveryConsentedAt: ").append(toIndentedString(eDeliveryConsentedAt)).append("\n");
+    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    eDeliveryConsentedAt: ").append(toIndentedString(eDeliveryConsentedAt)).append("\n");
-    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -924,15 +924,16 @@ public class W8BenFormRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("eDeliveryConsentedAt");
+    openapiFields.add("signature");
     openapiFields.add("type");
     openapiFields.add("companyId");
     openapiFields.add("referenceId");
     openapiFields.add("email");
-    openapiFields.add("eDeliveryConsentedAt");
-    openapiFields.add("signature");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("companyId");
   }
 
   /**
@@ -953,6 +954,13 @@ public class W8BenFormRequest {
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!W8BenFormRequest.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `W8BenFormRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : W8BenFormRequest.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -1026,7 +1034,10 @@ public class W8BenFormRequest {
       if ((jsonObj.get("signerName") != null && !jsonObj.get("signerName").isJsonNull()) && !jsonObj.get("signerName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `signerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signerName").toString()));
       }
-      if ((jsonObj.get("companyId") != null && !jsonObj.get("companyId").isJsonNull()) && !jsonObj.get("companyId").isJsonPrimitive()) {
+      if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
+      }
+      if (!jsonObj.get("companyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `companyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyId").toString()));
       }
       if ((jsonObj.get("referenceId") != null && !jsonObj.get("referenceId").isJsonNull()) && !jsonObj.get("referenceId").isJsonPrimitive()) {
@@ -1034,9 +1045,6 @@ public class W8BenFormRequest {
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
-      }
-      if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
       }
   }
 
