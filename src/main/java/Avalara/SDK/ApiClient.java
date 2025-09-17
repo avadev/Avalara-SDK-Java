@@ -62,7 +62,7 @@ import java.util.regex.Pattern;
  */
 public class ApiClient {
 
-    private final String AVALARA_CLIENT_HEADER = "X-Avalara-Client";
+    private final String AVALARA_CLIENT_HEADER = "X-Avalara-SDK-Client";
     private final String AVALARA_VERSION = "avalara-version";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
