@@ -247,7 +247,7 @@ public class W4FormRequest {
    * The first name of the employee.
    * @return employeeFirstName
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getEmployeeFirstName() {
     return employeeFirstName;
   }
@@ -285,7 +285,7 @@ public class W4FormRequest {
    * The last name of the employee.
    * @return employeeLastName
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getEmployeeLastName() {
     return employeeLastName;
   }
@@ -320,10 +320,10 @@ public class W4FormRequest {
   }
 
   /**
-   * The type of TIN provided.
+   * Tax Identification Number (TIN) type.
    * @return tinType
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getTinType() {
     return tinType;
   }
@@ -342,7 +342,7 @@ public class W4FormRequest {
    * The taxpayer identification number (TIN).
    * @return tin
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getTin() {
     return tin;
   }
@@ -358,7 +358,7 @@ public class W4FormRequest {
   }
 
   /**
-   * The address of the employee.
+   * The address of the employee. Required unless exempt.
    * @return address
    */
   @javax.annotation.Nullable
@@ -377,7 +377,7 @@ public class W4FormRequest {
   }
 
   /**
-   * The city of residence of the employee.
+   * The city of residence of the employee. Required unless exempt.
    * @return city
    */
   @javax.annotation.Nullable
@@ -396,7 +396,7 @@ public class W4FormRequest {
   }
 
   /**
-   * The state of residence of the employee.
+   * The state of residence of the employee. Required unless exempt.
    * @return state
    */
   @javax.annotation.Nullable
@@ -415,7 +415,7 @@ public class W4FormRequest {
   }
 
   /**
-   * The ZIP code of residence of the employee.
+   * The ZIP code of residence of the employee. Required unless exempt.
    * @return zip
    */
   @javax.annotation.Nullable
@@ -434,7 +434,7 @@ public class W4FormRequest {
   }
 
   /**
-   * The marital status of the employee.
+   * The marital status of the employee. Required unless exempt.  Available values:  - Single: Single or Married filing separately  - Married: Married filing jointly or qualifying surviving spouse  - MarriedBut: Head of household. Check only if you&#39;re unmarried and pay more than half the costs of keeping up a home for yourself and a qualifying individual.
    * @return maritalStatus
    */
   @javax.annotation.Nullable
@@ -643,10 +643,10 @@ public class W4FormRequest {
   }
 
   /**
-   * The ID of the associated company.
+   * The ID of the associated company. Required when creating a form.
    * @return companyId
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getCompanyId() {
     return companyId;
   }
@@ -807,7 +807,10 @@ public class W4FormRequest {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("companyId");
+    openapiRequiredFields.add("employeeFirstName");
+    openapiRequiredFields.add("employeeLastName");
+    openapiRequiredFields.add("tinType");
+    openapiRequiredFields.add("tin");
   }
 
   /**
@@ -845,22 +848,22 @@ public class W4FormRequest {
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
         TypeEnum.validateJsonElement(jsonObj.get("type"));
       }
-      if ((jsonObj.get("employeeFirstName") != null && !jsonObj.get("employeeFirstName").isJsonNull()) && !jsonObj.get("employeeFirstName").isJsonPrimitive()) {
+      if (!jsonObj.get("employeeFirstName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `employeeFirstName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("employeeFirstName").toString()));
       }
       if ((jsonObj.get("employeeMiddleName") != null && !jsonObj.get("employeeMiddleName").isJsonNull()) && !jsonObj.get("employeeMiddleName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `employeeMiddleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("employeeMiddleName").toString()));
       }
-      if ((jsonObj.get("employeeLastName") != null && !jsonObj.get("employeeLastName").isJsonNull()) && !jsonObj.get("employeeLastName").isJsonPrimitive()) {
+      if (!jsonObj.get("employeeLastName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `employeeLastName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("employeeLastName").toString()));
       }
       if ((jsonObj.get("employeeNameSuffix") != null && !jsonObj.get("employeeNameSuffix").isJsonNull()) && !jsonObj.get("employeeNameSuffix").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `employeeNameSuffix` to be a primitive type in the JSON string but got `%s`", jsonObj.get("employeeNameSuffix").toString()));
       }
-      if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
+      if (!jsonObj.get("tinType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tinType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tinType").toString()));
       }
-      if ((jsonObj.get("tin") != null && !jsonObj.get("tin").isJsonNull()) && !jsonObj.get("tin").isJsonPrimitive()) {
+      if (!jsonObj.get("tin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tin").toString()));
       }
       if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
@@ -884,7 +887,7 @@ public class W4FormRequest {
       if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
       }
-      if (!jsonObj.get("companyId").isJsonPrimitive()) {
+      if ((jsonObj.get("companyId") != null && !jsonObj.get("companyId").isJsonNull()) && !jsonObj.get("companyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `companyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyId").toString()));
       }
       if ((jsonObj.get("referenceId") != null && !jsonObj.get("referenceId").isJsonNull()) && !jsonObj.get("referenceId").isJsonPrimitive()) {

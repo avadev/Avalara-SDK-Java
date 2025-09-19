@@ -175,7 +175,7 @@ public class Forms1099Api {
 
     /**
      * Create or update multiple 1099/1095/W2/1042S forms
-     * This endpoint allows you to create or update multiple 1099/1095/W2/1042S forms.  Maximum of 5000 forms can be processed in a single bulk request.
+     * This endpoint allows you to create or update multiple 1099/1095/W2/1042S forms.  Maximum of 5000 forms can be processed in a single bulk request.    **Date Scheduling Rules:**    If federalEfileDate, stateEfileDate, or recipientEdeliveryDate are between current date and beginning of blackout period, scheduled to that date.  If dates are in the past or blackout period, scheduled to next available date.  For blackout period information, see https://www.track1099.com/info/IRS_info.  StateEfileDate must be on or after federalEfileDate.  Set dates to null to leave unscheduled.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return JobResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -196,7 +196,7 @@ public class Forms1099Api {
 
     /**
      * Create or update multiple 1099/1095/W2/1042S forms
-     * This endpoint allows you to create or update multiple 1099/1095/W2/1042S forms.  Maximum of 5000 forms can be processed in a single bulk request.
+     * This endpoint allows you to create or update multiple 1099/1095/W2/1042S forms.  Maximum of 5000 forms can be processed in a single bulk request.    **Date Scheduling Rules:**    If federalEfileDate, stateEfileDate, or recipientEdeliveryDate are between current date and beginning of blackout period, scheduled to that date.  If dates are in the past or blackout period, scheduled to next available date.  For blackout period information, see https://www.track1099.com/info/IRS_info.  StateEfileDate must be on or after federalEfileDate.  Set dates to null to leave unscheduled.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;JobResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -218,7 +218,7 @@ public class Forms1099Api {
 
     /**
      * Create or update multiple 1099/1095/W2/1042S forms (asynchronously)
-     * This endpoint allows you to create or update multiple 1099/1095/W2/1042S forms.  Maximum of 5000 forms can be processed in a single bulk request.
+     * This endpoint allows you to create or update multiple 1099/1095/W2/1042S forms.  Maximum of 5000 forms can be processed in a single bulk request.    **Date Scheduling Rules:**    If federalEfileDate, stateEfileDate, or recipientEdeliveryDate are between current date and beginning of blackout period, scheduled to that date.  If dates are in the past or blackout period, scheduled to next available date.  For blackout period information, see https://www.track1099.com/info/IRS_info.  StateEfileDate must be on or after federalEfileDate.  Set dates to null to leave unscheduled.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -370,7 +370,7 @@ public class Forms1099Api {
 
     /**
      * Create a 1099/1095/W2/1042S form
-     * Create a 1099/1095/W2/1042S form.
+     * Create a 1099/1095/W2/1042S form.    **Date Scheduling Rules:**    If federalEfileDate, stateEfileDate, or recipientEdeliveryDate are between current date and beginning of blackout period, scheduled to that date.  If dates are in the past or blackout period, scheduled to next available date.  For blackout period information, see https://www.track1099.com/info/IRS_info.  StateEfileDate must be on or after federalEfileDate.  Set dates to null to leave unscheduled.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return Get1099Form200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -390,7 +390,7 @@ public class Forms1099Api {
 
     /**
      * Create a 1099/1095/W2/1042S form
-     * Create a 1099/1095/W2/1042S form.
+     * Create a 1099/1095/W2/1042S form.    **Date Scheduling Rules:**    If federalEfileDate, stateEfileDate, or recipientEdeliveryDate are between current date and beginning of blackout period, scheduled to that date.  If dates are in the past or blackout period, scheduled to next available date.  For blackout period information, see https://www.track1099.com/info/IRS_info.  StateEfileDate must be on or after federalEfileDate.  Set dates to null to leave unscheduled.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;Get1099Form200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -411,7 +411,7 @@ public class Forms1099Api {
 
     /**
      * Create a 1099/1095/W2/1042S form (asynchronously)
-     * Create a 1099/1095/W2/1042S form.
+     * Create a 1099/1095/W2/1042S form.    **Date Scheduling Rules:**    If federalEfileDate, stateEfileDate, or recipientEdeliveryDate are between current date and beginning of blackout period, scheduled to that date.  If dates are in the past or blackout period, scheduled to next available date.  For blackout period information, see https://www.track1099.com/info/IRS_info.  StateEfileDate must be on or after federalEfileDate.  Set dates to null to leave unscheduled.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1403,7 +1403,7 @@ public class Forms1099Api {
 
     /**
      * Update a 1099/1095/W2/1042S form
-     * Update a 1099/1095/W2/1042S form.
+     * Update a 1099/1095/W2/1042S form.    **Date Update Rules:**    Possible to update scheduled dates (same validation rules apply).  Cannot change from scheduled to unscheduled status - must delete form and create new one.  If dates are between current date and blackout period, scheduled to that date.  If dates are in past or blackout period, scheduled to next available date.  For blackout period information, see https://www.track1099.com/info/IRS_info.  StateEfileDate must be on or after federalEfileDate.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return Get1099Form200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1424,7 +1424,7 @@ public class Forms1099Api {
 
     /**
      * Update a 1099/1095/W2/1042S form
-     * Update a 1099/1095/W2/1042S form.
+     * Update a 1099/1095/W2/1042S form.    **Date Update Rules:**    Possible to update scheduled dates (same validation rules apply).  Cannot change from scheduled to unscheduled status - must delete form and create new one.  If dates are between current date and blackout period, scheduled to that date.  If dates are in past or blackout period, scheduled to next available date.  For blackout period information, see https://www.track1099.com/info/IRS_info.  StateEfileDate must be on or after federalEfileDate.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;Get1099Form200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1446,7 +1446,7 @@ public class Forms1099Api {
 
     /**
      * Update a 1099/1095/W2/1042S form (asynchronously)
-     * Update a 1099/1095/W2/1042S form.
+     * Update a 1099/1095/W2/1042S form.    **Date Update Rules:**    Possible to update scheduled dates (same validation rules apply).  Cannot change from scheduled to unscheduled status - must delete form and create new one.  If dates are between current date and blackout period, scheduled to that date.  If dates are in past or blackout period, scheduled to next available date.  For blackout period information, see https://www.track1099.com/info/IRS_info.  StateEfileDate must be on or after federalEfileDate.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1509,7 +1509,7 @@ public class Forms1099Api {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.8.3");
+        this.localVarApiClient.setSdkVersion("25.9.0");
     }
 }
 

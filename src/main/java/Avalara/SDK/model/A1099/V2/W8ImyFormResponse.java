@@ -21,7 +21,6 @@ package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
 import Avalara.SDK.model.A1099.V2.EntryStatusResponse;
-import Avalara.SDK.model.A1099.V2.W9FormBaseResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -61,7 +60,69 @@ import Avalara.SDK.JSON;
  * W8ImyFormResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
-public class W8ImyFormResponse extends W9FormBaseResponse {
+public class W8ImyFormResponse {
+  /**
+   * The form type (always \&quot;W8Imy\&quot; for this model).
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    W4("W4"),
+    
+    W8_BEN("W8Ben"),
+    
+    W8_BEN_E("W8BenE"),
+    
+    W8_IMY("W8Imy"),
+    
+    W9("W9");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      TypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private TypeEnum type;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -506,9 +567,78 @@ public class W8ImyFormResponse extends W9FormBaseResponse {
   @SerializedName(SERIALIZED_NAME_SIGNER_NAME)
   private String signerName;
 
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
+  public static final String SERIALIZED_NAME_ENTRY_STATUS = "entryStatus";
+  @SerializedName(SERIALIZED_NAME_ENTRY_STATUS)
+  private EntryStatusResponse entryStatus;
+
+  public static final String SERIALIZED_NAME_REFERENCE_ID = "referenceId";
+  @SerializedName(SERIALIZED_NAME_REFERENCE_ID)
+  private String referenceId;
+
+  public static final String SERIALIZED_NAME_COMPANY_ID = "companyId";
+  @SerializedName(SERIALIZED_NAME_COMPANY_ID)
+  private String companyId;
+
+  public static final String SERIALIZED_NAME_DISPLAY_NAME = "displayName";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
+  private String displayName;
+
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
+
+  public static final String SERIALIZED_NAME_ARCHIVED = "archived";
+  @SerializedName(SERIALIZED_NAME_ARCHIVED)
+  private Boolean archived;
+
+  public static final String SERIALIZED_NAME_ANCESTOR_ID = "ancestorId";
+  @SerializedName(SERIALIZED_NAME_ANCESTOR_ID)
+  private String ancestorId;
+
+  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
+  @SerializedName(SERIALIZED_NAME_SIGNATURE)
+  private String signature;
+
+  public static final String SERIALIZED_NAME_SIGNED_DATE = "signedDate";
+  @SerializedName(SERIALIZED_NAME_SIGNED_DATE)
+  private OffsetDateTime signedDate;
+
+  public static final String SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT = "eDeliveryConsentedAt";
+  @SerializedName(SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT)
+  private OffsetDateTime eDeliveryConsentedAt;
+
+  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private OffsetDateTime updatedAt;
+
   public W8ImyFormResponse() {
-    this.type = this.getClass().getSimpleName();
   }
+
+  public W8ImyFormResponse(
+     TypeEnum type
+  ) {
+    this();
+    this.type = type;
+  }
+
+  /**
+   * The form type (always \&quot;W8Imy\&quot; for this model).
+   * @return type
+   */
+  @javax.annotation.Nullable
+  public TypeEnum getType() {
+    return type;
+  }
+
+
 
   public W8ImyFormResponse name(String name) {
     this.name = name;
@@ -820,7 +950,7 @@ public class W8ImyFormResponse extends W9FormBaseResponse {
   }
 
   /**
-   * The type of TIN provided.
+   * Tax Identification Number (TIN) type.
    * @return tinType
    */
   @javax.annotation.Nullable
@@ -2619,6 +2749,253 @@ public class W8ImyFormResponse extends W9FormBaseResponse {
   }
 
 
+  public W8ImyFormResponse id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The unique identifier for the form.
+   * @return id
+   */
+  @javax.annotation.Nullable
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+
+  public W8ImyFormResponse entryStatus(EntryStatusResponse entryStatus) {
+    this.entryStatus = entryStatus;
+    return this;
+  }
+
+  /**
+   * The entry status information for the form.
+   * @return entryStatus
+   */
+  @javax.annotation.Nullable
+  public EntryStatusResponse getEntryStatus() {
+    return entryStatus;
+  }
+
+  public void setEntryStatus(EntryStatusResponse entryStatus) {
+    this.entryStatus = entryStatus;
+  }
+
+
+  public W8ImyFormResponse referenceId(String referenceId) {
+    this.referenceId = referenceId;
+    return this;
+  }
+
+  /**
+   * A reference identifier for the form.
+   * @return referenceId
+   */
+  @javax.annotation.Nullable
+  public String getReferenceId() {
+    return referenceId;
+  }
+
+  public void setReferenceId(String referenceId) {
+    this.referenceId = referenceId;
+  }
+
+
+  public W8ImyFormResponse companyId(String companyId) {
+    this.companyId = companyId;
+    return this;
+  }
+
+  /**
+   * The ID of the associated company.
+   * @return companyId
+   */
+  @javax.annotation.Nullable
+  public String getCompanyId() {
+    return companyId;
+  }
+
+  public void setCompanyId(String companyId) {
+    this.companyId = companyId;
+  }
+
+
+  public W8ImyFormResponse displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+  /**
+   * The display name associated with the form.
+   * @return displayName
+   */
+  @javax.annotation.Nullable
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
+  }
+
+
+  public W8ImyFormResponse email(String email) {
+    this.email = email;
+    return this;
+  }
+
+  /**
+   * The email address of the individual associated with the form.
+   * @return email
+   */
+  @javax.annotation.Nullable
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+
+  public W8ImyFormResponse archived(Boolean archived) {
+    this.archived = archived;
+    return this;
+  }
+
+  /**
+   * Indicates whether the form is archived.
+   * @return archived
+   */
+  @javax.annotation.Nullable
+  public Boolean getArchived() {
+    return archived;
+  }
+
+  public void setArchived(Boolean archived) {
+    this.archived = archived;
+  }
+
+
+  public W8ImyFormResponse ancestorId(String ancestorId) {
+    this.ancestorId = ancestorId;
+    return this;
+  }
+
+  /**
+   * Form ID of previous version.
+   * @return ancestorId
+   */
+  @javax.annotation.Nullable
+  public String getAncestorId() {
+    return ancestorId;
+  }
+
+  public void setAncestorId(String ancestorId) {
+    this.ancestorId = ancestorId;
+  }
+
+
+  public W8ImyFormResponse signature(String signature) {
+    this.signature = signature;
+    return this;
+  }
+
+  /**
+   * The signature of the form.
+   * @return signature
+   */
+  @javax.annotation.Nullable
+  public String getSignature() {
+    return signature;
+  }
+
+  public void setSignature(String signature) {
+    this.signature = signature;
+  }
+
+
+  public W8ImyFormResponse signedDate(OffsetDateTime signedDate) {
+    this.signedDate = signedDate;
+    return this;
+  }
+
+  /**
+   * The date the form was signed.
+   * @return signedDate
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getSignedDate() {
+    return signedDate;
+  }
+
+  public void setSignedDate(OffsetDateTime signedDate) {
+    this.signedDate = signedDate;
+  }
+
+
+  public W8ImyFormResponse eDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
+    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
+    return this;
+  }
+
+  /**
+   * The date when e-delivery was consented.
+   * @return eDeliveryConsentedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime geteDeliveryConsentedAt() {
+    return eDeliveryConsentedAt;
+  }
+
+  public void seteDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
+    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
+  }
+
+
+  public W8ImyFormResponse createdAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+  /**
+   * The creation date of the form.
+   * @return createdAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public W8ImyFormResponse updatedAt(OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+  /**
+   * The last updated date of the form.
+   * @return updatedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -2629,7 +3006,8 @@ public class W8ImyFormResponse extends W9FormBaseResponse {
       return false;
     }
     W8ImyFormResponse w8ImyFormResponse = (W8ImyFormResponse) o;
-    return Objects.equals(this.name, w8ImyFormResponse.name) &&
+    return Objects.equals(this.type, w8ImyFormResponse.type) &&
+        Objects.equals(this.name, w8ImyFormResponse.name) &&
         Objects.equals(this.citizenshipCountry, w8ImyFormResponse.citizenshipCountry) &&
         Objects.equals(this.disregardedEntity, w8ImyFormResponse.disregardedEntity) &&
         Objects.equals(this.entityType, w8ImyFormResponse.entityType) &&
@@ -2740,7 +3118,19 @@ public class W8ImyFormResponse extends W9FormBaseResponse {
         Objects.equals(this.sponsoredDirectReportingNffeCertification, w8ImyFormResponse.sponsoredDirectReportingNffeCertification) &&
         Objects.equals(this.directReportingNffeSponsoringEntity, w8ImyFormResponse.directReportingNffeSponsoringEntity) &&
         Objects.equals(this.signerName, w8ImyFormResponse.signerName) &&
-        super.equals(o);
+        Objects.equals(this.id, w8ImyFormResponse.id) &&
+        Objects.equals(this.entryStatus, w8ImyFormResponse.entryStatus) &&
+        Objects.equals(this.referenceId, w8ImyFormResponse.referenceId) &&
+        Objects.equals(this.companyId, w8ImyFormResponse.companyId) &&
+        Objects.equals(this.displayName, w8ImyFormResponse.displayName) &&
+        Objects.equals(this.email, w8ImyFormResponse.email) &&
+        Objects.equals(this.archived, w8ImyFormResponse.archived) &&
+        Objects.equals(this.ancestorId, w8ImyFormResponse.ancestorId) &&
+        Objects.equals(this.signature, w8ImyFormResponse.signature) &&
+        Objects.equals(this.signedDate, w8ImyFormResponse.signedDate) &&
+        Objects.equals(this.eDeliveryConsentedAt, w8ImyFormResponse.eDeliveryConsentedAt) &&
+        Objects.equals(this.createdAt, w8ImyFormResponse.createdAt) &&
+        Objects.equals(this.updatedAt, w8ImyFormResponse.updatedAt);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -2749,7 +3139,7 @@ public class W8ImyFormResponse extends W9FormBaseResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, citizenshipCountry, disregardedEntity, entityType, fatcaStatus, residenceAddress, residenceCity, residenceState, residenceZip, residenceCountry, residenceIsMailing, mailingAddress, mailingCity, mailingState, mailingZip, mailingCountry, tinType, tin, giin, foreignTin, referenceNumber, disregardedEntityFatcaStatus, disregardedAddress, disregardedCity, disregardedState, disregardedZip, disregardedCountry, disregardedEntityGiin, qualifiedIntermediaryCertification, qiPrimaryWithholdingResponsibilityCertification, qiWithholdingResponsibilityForPtpSalesCertification, qiNomineeWithholdingResponsibilityForPtpDistributionsCertification, qiSecuritiesLenderSubstituteDividendWithholdingCertification, qiWithholdingAnd1099ReportingResponsibilityCertification, qiForm1099OrFatcaReportingResponsibilityCertification, qiOptOutOfForm1099ReportingCertification, qiWithholdingRatePoolCertification, qiIntermediaryOrFlowThroughEntityDocumentationCertification, qualifiedDerivativesDealerCertification, qddCorporation, qddPartnership, qddDisregardedEntity, nonqualifiedIntermediaryCertification, nqiWithholdingStatementTransmissionCertification, nqiWithholdingRatePoolComplianceCertification, nqiQualifiedSecuritiesLenderCertification, nqiAlternativeWithholdingStatementVerificationCertification, territoryFinancialInstitutionCertification, tfiTreatedAsUsPersonCertification, tfiWithholdingStatementTransmissionCertification, tfiTreatedAsUsPersonForPtpSalesCertification, tfiNomineeUsPersonForPtpDistributionsCertification, tfiNotNomineeForPtpDistributionsCertification, usBranchNonEffectivelyConnectedIncomeCertification, usBranchAgreementToBeTreatedAsUsPersonCertification, usBranchWithholdingStatementAndComplianceCertification, usBranchActingAsUsPersonForPtpSalesCertification, usBranchNomineeForPtpDistributionsCertification, usBranchNotNomineeForPtpDistributionsCertification, withholdingForeignPartnershipOrTrustCertification, nonwithholdingForeignEntityWithholdingStatementCertification, foreignEntityPartnerInLowerTierPartnershipCertification, foreignPartnershipAmountRealizedSection1446FCertification, foreignPartnershipModifiedAmountRealizedCertification, foreignGrantorTrustAmountRealizedAllocationCertification, alternativeWithholdingStatementRelianceCertification, npFfiWithExemptBeneficialOwnersCertification, ffiSponsoringEntity, investmentEntityCertification, controlledForeignCorporationCertification, ownerDocumentedFfiCertification, ownerDocumentedFfiReportingStatementCertification, ownerDocumentedFfiAuditorLetterCertification, compliantNonregisteringLocalBankCertification, compliantFfiLowValueAccountsCertification, sponsoredCloselyHeldEntitySponsoringEntity, sponsoredCloselyHeldInvestmentVehicleCertification, compliantLimitedLifeDebtEntityCertification, investmentEntityNoFinancialAccountsCertification, restrictedDistributorCertification, restrictedDistributorAgreementCertification, restrictedDistributorPreexistingSalesComplianceCertification, foreignCentralBankOfIssueCertification, nonreportingIgaFfiCertification, igaCountry, igaModel, igaLegalStatusTreatment, igaFfiTrusteeOrSponsor, igaFfiTrusteeIsForeign, treatyQualifiedPensionFundCertification, qualifiedRetirementFundCertification, narrowParticipationRetirementFundCertification, section401AEquivalentPensionPlanCertification, investmentEntityForRetirementFundsCertification, exemptBeneficialOwnerSponsoredRetirementFundCertification, exceptedNonfinancialGroupEntityCertification, exceptedNonfinancialStartUpCertification, startupFormationOrResolutionDate, exceptedNonfinancialEntityInLiquidationOrBankruptcyCertification, nonfinancialEntityFilingDate, publiclyTradedNffeCertification, publiclyTradedNffeSecuritiesMarket, nffeAffiliateOfPubliclyTradedEntityCertification, publiclyTradedEntity, nffeAffiliateOfPubliclyTradedEntitySecuritiesMarket, exceptedTerritoryNffeCertification, activeNffeCertification, passiveNffeCertification, sponsoredDirectReportingNffeCertification, directReportingNffeSponsoringEntity, signerName, super.hashCode());
+    return Objects.hash(type, name, citizenshipCountry, disregardedEntity, entityType, fatcaStatus, residenceAddress, residenceCity, residenceState, residenceZip, residenceCountry, residenceIsMailing, mailingAddress, mailingCity, mailingState, mailingZip, mailingCountry, tinType, tin, giin, foreignTin, referenceNumber, disregardedEntityFatcaStatus, disregardedAddress, disregardedCity, disregardedState, disregardedZip, disregardedCountry, disregardedEntityGiin, qualifiedIntermediaryCertification, qiPrimaryWithholdingResponsibilityCertification, qiWithholdingResponsibilityForPtpSalesCertification, qiNomineeWithholdingResponsibilityForPtpDistributionsCertification, qiSecuritiesLenderSubstituteDividendWithholdingCertification, qiWithholdingAnd1099ReportingResponsibilityCertification, qiForm1099OrFatcaReportingResponsibilityCertification, qiOptOutOfForm1099ReportingCertification, qiWithholdingRatePoolCertification, qiIntermediaryOrFlowThroughEntityDocumentationCertification, qualifiedDerivativesDealerCertification, qddCorporation, qddPartnership, qddDisregardedEntity, nonqualifiedIntermediaryCertification, nqiWithholdingStatementTransmissionCertification, nqiWithholdingRatePoolComplianceCertification, nqiQualifiedSecuritiesLenderCertification, nqiAlternativeWithholdingStatementVerificationCertification, territoryFinancialInstitutionCertification, tfiTreatedAsUsPersonCertification, tfiWithholdingStatementTransmissionCertification, tfiTreatedAsUsPersonForPtpSalesCertification, tfiNomineeUsPersonForPtpDistributionsCertification, tfiNotNomineeForPtpDistributionsCertification, usBranchNonEffectivelyConnectedIncomeCertification, usBranchAgreementToBeTreatedAsUsPersonCertification, usBranchWithholdingStatementAndComplianceCertification, usBranchActingAsUsPersonForPtpSalesCertification, usBranchNomineeForPtpDistributionsCertification, usBranchNotNomineeForPtpDistributionsCertification, withholdingForeignPartnershipOrTrustCertification, nonwithholdingForeignEntityWithholdingStatementCertification, foreignEntityPartnerInLowerTierPartnershipCertification, foreignPartnershipAmountRealizedSection1446FCertification, foreignPartnershipModifiedAmountRealizedCertification, foreignGrantorTrustAmountRealizedAllocationCertification, alternativeWithholdingStatementRelianceCertification, npFfiWithExemptBeneficialOwnersCertification, ffiSponsoringEntity, investmentEntityCertification, controlledForeignCorporationCertification, ownerDocumentedFfiCertification, ownerDocumentedFfiReportingStatementCertification, ownerDocumentedFfiAuditorLetterCertification, compliantNonregisteringLocalBankCertification, compliantFfiLowValueAccountsCertification, sponsoredCloselyHeldEntitySponsoringEntity, sponsoredCloselyHeldInvestmentVehicleCertification, compliantLimitedLifeDebtEntityCertification, investmentEntityNoFinancialAccountsCertification, restrictedDistributorCertification, restrictedDistributorAgreementCertification, restrictedDistributorPreexistingSalesComplianceCertification, foreignCentralBankOfIssueCertification, nonreportingIgaFfiCertification, igaCountry, igaModel, igaLegalStatusTreatment, igaFfiTrusteeOrSponsor, igaFfiTrusteeIsForeign, treatyQualifiedPensionFundCertification, qualifiedRetirementFundCertification, narrowParticipationRetirementFundCertification, section401AEquivalentPensionPlanCertification, investmentEntityForRetirementFundsCertification, exemptBeneficialOwnerSponsoredRetirementFundCertification, exceptedNonfinancialGroupEntityCertification, exceptedNonfinancialStartUpCertification, startupFormationOrResolutionDate, exceptedNonfinancialEntityInLiquidationOrBankruptcyCertification, nonfinancialEntityFilingDate, publiclyTradedNffeCertification, publiclyTradedNffeSecuritiesMarket, nffeAffiliateOfPubliclyTradedEntityCertification, publiclyTradedEntity, nffeAffiliateOfPubliclyTradedEntitySecuritiesMarket, exceptedTerritoryNffeCertification, activeNffeCertification, passiveNffeCertification, sponsoredDirectReportingNffeCertification, directReportingNffeSponsoringEntity, signerName, id, entryStatus, referenceId, companyId, displayName, email, archived, ancestorId, signature, signedDate, eDeliveryConsentedAt, createdAt, updatedAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -2763,7 +3153,7 @@ public class W8ImyFormResponse extends W9FormBaseResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class W8ImyFormResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    citizenshipCountry: ").append(toIndentedString(citizenshipCountry)).append("\n");
     sb.append("    disregardedEntity: ").append(toIndentedString(disregardedEntity)).append("\n");
@@ -2875,6 +3265,19 @@ public class W8ImyFormResponse extends W9FormBaseResponse {
     sb.append("    sponsoredDirectReportingNffeCertification: ").append(toIndentedString(sponsoredDirectReportingNffeCertification)).append("\n");
     sb.append("    directReportingNffeSponsoringEntity: ").append(toIndentedString(directReportingNffeSponsoringEntity)).append("\n");
     sb.append("    signerName: ").append(toIndentedString(signerName)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    entryStatus: ").append(toIndentedString(entryStatus)).append("\n");
+    sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
+    sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    archived: ").append(toIndentedString(archived)).append("\n");
+    sb.append("    ancestorId: ").append(toIndentedString(ancestorId)).append("\n");
+    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
+    sb.append("    signedDate: ").append(toIndentedString(signedDate)).append("\n");
+    sb.append("    eDeliveryConsentedAt: ").append(toIndentedString(eDeliveryConsentedAt)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -2897,6 +3300,7 @@ public class W8ImyFormResponse extends W9FormBaseResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("type");
     openapiFields.add("id");
     openapiFields.add("entryStatus");
     openapiFields.add("referenceId");
@@ -2910,7 +3314,6 @@ public class W8ImyFormResponse extends W9FormBaseResponse {
     openapiFields.add("eDeliveryConsentedAt");
     openapiFields.add("createdAt");
     openapiFields.add("updatedAt");
-    openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -2935,6 +3338,153 @@ public class W8ImyFormResponse extends W9FormBaseResponse {
         if (!W8ImyFormResponse.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `W8ImyFormResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      // validate the optional field `type`
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
+        TypeEnum.validateJsonElement(jsonObj.get("type"));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("citizenshipCountry") != null && !jsonObj.get("citizenshipCountry").isJsonNull()) && !jsonObj.get("citizenshipCountry").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `citizenshipCountry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("citizenshipCountry").toString()));
+      }
+      if ((jsonObj.get("disregardedEntity") != null && !jsonObj.get("disregardedEntity").isJsonNull()) && !jsonObj.get("disregardedEntity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `disregardedEntity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disregardedEntity").toString()));
+      }
+      if ((jsonObj.get("entityType") != null && !jsonObj.get("entityType").isJsonNull()) && !jsonObj.get("entityType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `entityType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entityType").toString()));
+      }
+      if ((jsonObj.get("fatcaStatus") != null && !jsonObj.get("fatcaStatus").isJsonNull()) && !jsonObj.get("fatcaStatus").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fatcaStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fatcaStatus").toString()));
+      }
+      if ((jsonObj.get("residenceAddress") != null && !jsonObj.get("residenceAddress").isJsonNull()) && !jsonObj.get("residenceAddress").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `residenceAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("residenceAddress").toString()));
+      }
+      if ((jsonObj.get("residenceCity") != null && !jsonObj.get("residenceCity").isJsonNull()) && !jsonObj.get("residenceCity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `residenceCity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("residenceCity").toString()));
+      }
+      if ((jsonObj.get("residenceState") != null && !jsonObj.get("residenceState").isJsonNull()) && !jsonObj.get("residenceState").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `residenceState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("residenceState").toString()));
+      }
+      if ((jsonObj.get("residenceZip") != null && !jsonObj.get("residenceZip").isJsonNull()) && !jsonObj.get("residenceZip").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `residenceZip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("residenceZip").toString()));
+      }
+      if ((jsonObj.get("residenceCountry") != null && !jsonObj.get("residenceCountry").isJsonNull()) && !jsonObj.get("residenceCountry").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `residenceCountry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("residenceCountry").toString()));
+      }
+      if ((jsonObj.get("mailingAddress") != null && !jsonObj.get("mailingAddress").isJsonNull()) && !jsonObj.get("mailingAddress").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mailingAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mailingAddress").toString()));
+      }
+      if ((jsonObj.get("mailingCity") != null && !jsonObj.get("mailingCity").isJsonNull()) && !jsonObj.get("mailingCity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mailingCity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mailingCity").toString()));
+      }
+      if ((jsonObj.get("mailingState") != null && !jsonObj.get("mailingState").isJsonNull()) && !jsonObj.get("mailingState").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mailingState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mailingState").toString()));
+      }
+      if ((jsonObj.get("mailingZip") != null && !jsonObj.get("mailingZip").isJsonNull()) && !jsonObj.get("mailingZip").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mailingZip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mailingZip").toString()));
+      }
+      if ((jsonObj.get("mailingCountry") != null && !jsonObj.get("mailingCountry").isJsonNull()) && !jsonObj.get("mailingCountry").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mailingCountry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mailingCountry").toString()));
+      }
+      if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tinType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tinType").toString()));
+      }
+      if ((jsonObj.get("tin") != null && !jsonObj.get("tin").isJsonNull()) && !jsonObj.get("tin").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tin").toString()));
+      }
+      if ((jsonObj.get("giin") != null && !jsonObj.get("giin").isJsonNull()) && !jsonObj.get("giin").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `giin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("giin").toString()));
+      }
+      if ((jsonObj.get("foreignTin") != null && !jsonObj.get("foreignTin").isJsonNull()) && !jsonObj.get("foreignTin").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `foreignTin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("foreignTin").toString()));
+      }
+      if ((jsonObj.get("referenceNumber") != null && !jsonObj.get("referenceNumber").isJsonNull()) && !jsonObj.get("referenceNumber").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `referenceNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referenceNumber").toString()));
+      }
+      if ((jsonObj.get("disregardedEntityFatcaStatus") != null && !jsonObj.get("disregardedEntityFatcaStatus").isJsonNull()) && !jsonObj.get("disregardedEntityFatcaStatus").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `disregardedEntityFatcaStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disregardedEntityFatcaStatus").toString()));
+      }
+      if ((jsonObj.get("disregardedAddress") != null && !jsonObj.get("disregardedAddress").isJsonNull()) && !jsonObj.get("disregardedAddress").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `disregardedAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disregardedAddress").toString()));
+      }
+      if ((jsonObj.get("disregardedCity") != null && !jsonObj.get("disregardedCity").isJsonNull()) && !jsonObj.get("disregardedCity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `disregardedCity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disregardedCity").toString()));
+      }
+      if ((jsonObj.get("disregardedState") != null && !jsonObj.get("disregardedState").isJsonNull()) && !jsonObj.get("disregardedState").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `disregardedState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disregardedState").toString()));
+      }
+      if ((jsonObj.get("disregardedZip") != null && !jsonObj.get("disregardedZip").isJsonNull()) && !jsonObj.get("disregardedZip").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `disregardedZip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disregardedZip").toString()));
+      }
+      if ((jsonObj.get("disregardedCountry") != null && !jsonObj.get("disregardedCountry").isJsonNull()) && !jsonObj.get("disregardedCountry").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `disregardedCountry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disregardedCountry").toString()));
+      }
+      if ((jsonObj.get("disregardedEntityGiin") != null && !jsonObj.get("disregardedEntityGiin").isJsonNull()) && !jsonObj.get("disregardedEntityGiin").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `disregardedEntityGiin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disregardedEntityGiin").toString()));
+      }
+      if ((jsonObj.get("ffiSponsoringEntity") != null && !jsonObj.get("ffiSponsoringEntity").isJsonNull()) && !jsonObj.get("ffiSponsoringEntity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ffiSponsoringEntity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ffiSponsoringEntity").toString()));
+      }
+      if ((jsonObj.get("sponsoredCloselyHeldEntitySponsoringEntity") != null && !jsonObj.get("sponsoredCloselyHeldEntitySponsoringEntity").isJsonNull()) && !jsonObj.get("sponsoredCloselyHeldEntitySponsoringEntity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sponsoredCloselyHeldEntitySponsoringEntity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sponsoredCloselyHeldEntitySponsoringEntity").toString()));
+      }
+      if ((jsonObj.get("igaCountry") != null && !jsonObj.get("igaCountry").isJsonNull()) && !jsonObj.get("igaCountry").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `igaCountry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("igaCountry").toString()));
+      }
+      if ((jsonObj.get("igaModel") != null && !jsonObj.get("igaModel").isJsonNull()) && !jsonObj.get("igaModel").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `igaModel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("igaModel").toString()));
+      }
+      if ((jsonObj.get("igaLegalStatusTreatment") != null && !jsonObj.get("igaLegalStatusTreatment").isJsonNull()) && !jsonObj.get("igaLegalStatusTreatment").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `igaLegalStatusTreatment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("igaLegalStatusTreatment").toString()));
+      }
+      if ((jsonObj.get("igaFfiTrusteeOrSponsor") != null && !jsonObj.get("igaFfiTrusteeOrSponsor").isJsonNull()) && !jsonObj.get("igaFfiTrusteeOrSponsor").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `igaFfiTrusteeOrSponsor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("igaFfiTrusteeOrSponsor").toString()));
+      }
+      if ((jsonObj.get("publiclyTradedNffeSecuritiesMarket") != null && !jsonObj.get("publiclyTradedNffeSecuritiesMarket").isJsonNull()) && !jsonObj.get("publiclyTradedNffeSecuritiesMarket").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `publiclyTradedNffeSecuritiesMarket` to be a primitive type in the JSON string but got `%s`", jsonObj.get("publiclyTradedNffeSecuritiesMarket").toString()));
+      }
+      if ((jsonObj.get("publiclyTradedEntity") != null && !jsonObj.get("publiclyTradedEntity").isJsonNull()) && !jsonObj.get("publiclyTradedEntity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `publiclyTradedEntity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("publiclyTradedEntity").toString()));
+      }
+      if ((jsonObj.get("nffeAffiliateOfPubliclyTradedEntitySecuritiesMarket") != null && !jsonObj.get("nffeAffiliateOfPubliclyTradedEntitySecuritiesMarket").isJsonNull()) && !jsonObj.get("nffeAffiliateOfPubliclyTradedEntitySecuritiesMarket").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `nffeAffiliateOfPubliclyTradedEntitySecuritiesMarket` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nffeAffiliateOfPubliclyTradedEntitySecuritiesMarket").toString()));
+      }
+      if ((jsonObj.get("directReportingNffeSponsoringEntity") != null && !jsonObj.get("directReportingNffeSponsoringEntity").isJsonNull()) && !jsonObj.get("directReportingNffeSponsoringEntity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `directReportingNffeSponsoringEntity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("directReportingNffeSponsoringEntity").toString()));
+      }
+      if ((jsonObj.get("signerName") != null && !jsonObj.get("signerName").isJsonNull()) && !jsonObj.get("signerName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `signerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signerName").toString()));
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      // validate the optional field `entryStatus`
+      if (jsonObj.get("entryStatus") != null && !jsonObj.get("entryStatus").isJsonNull()) {
+        EntryStatusResponse.validateJsonElement(jsonObj.get("entryStatus"));
+      }
+      if ((jsonObj.get("referenceId") != null && !jsonObj.get("referenceId").isJsonNull()) && !jsonObj.get("referenceId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `referenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referenceId").toString()));
+      }
+      if ((jsonObj.get("companyId") != null && !jsonObj.get("companyId").isJsonNull()) && !jsonObj.get("companyId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `companyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyId").toString()));
+      }
+      if ((jsonObj.get("displayName") != null && !jsonObj.get("displayName").isJsonNull()) && !jsonObj.get("displayName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `displayName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayName").toString()));
+      }
+      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      }
+      if ((jsonObj.get("ancestorId") != null && !jsonObj.get("ancestorId").isJsonNull()) && !jsonObj.get("ancestorId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ancestorId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ancestorId").toString()));
+      }
+      if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
       }
   }
 

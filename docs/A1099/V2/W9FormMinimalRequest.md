@@ -11,7 +11,7 @@
 |**email** | **String** | The email address of the individual associated with the form. |  |
 |**name** | **String** | The name of the individual or entity associated with the form. |  |
 |**accountNumber** | **String** | The account number associated with the form. |  [optional] |
-|**companyId** | **String** | The ID of the associated company. |  |
+|**companyId** | **String** | The ID of the associated company. Required when creating a form. |  [optional] |
 |**referenceId** | **String** | A reference identifier for the form. |  [optional] |
 
 

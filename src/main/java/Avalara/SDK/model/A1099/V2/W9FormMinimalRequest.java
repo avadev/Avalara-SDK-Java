@@ -224,10 +224,10 @@ public class W9FormMinimalRequest {
   }
 
   /**
-   * The ID of the associated company.
+   * The ID of the associated company. Required when creating a form.
    * @return companyId
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getCompanyId() {
     return companyId;
   }
@@ -331,7 +331,6 @@ public class W9FormMinimalRequest {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("email");
     openapiRequiredFields.add("name");
-    openapiRequiredFields.add("companyId");
   }
 
   /**
@@ -378,7 +377,7 @@ public class W9FormMinimalRequest {
       if ((jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonNull()) && !jsonObj.get("accountNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
       }
-      if (!jsonObj.get("companyId").isJsonPrimitive()) {
+      if ((jsonObj.get("companyId") != null && !jsonObj.get("companyId").isJsonNull()) && !jsonObj.get("companyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `companyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyId").toString()));
       }
       if ((jsonObj.get("referenceId") != null && !jsonObj.get("referenceId").isJsonNull()) && !jsonObj.get("referenceId").isJsonPrimitive()) {

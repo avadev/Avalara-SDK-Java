@@ -8,17 +8,17 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**type** | [**TypeEnum**](#TypeEnum) | The form type (always \&quot;w8bene\&quot; for this model). |  [optional] [readonly] |
-|**name** | **String** | The name of the individual or entity associated with the form. |  [optional] |
-|**citizenshipCountry** | **String** | The country of citizenship. |  [optional] |
+|**name** | **String** | The name of the individual or entity associated with the form. |  |
+|**citizenshipCountry** | **String** | The country of citizenship. |  |
 |**disregardedEntity** | **String** | The name of the disregarded entity receiving the payment (if applicable). |  [optional] |
-|**entityType** | **String** | The entity type. |  [optional] |
+|**entityType** | **String** | The entity type.  Available values:  - 1: Corporation  - 2: Disregarded entity  - 3: Partnership  - 4: Simple trust  - 5: Grantor trust  - 6: Complex trust  - 7: Estate  - 8: Foreign Government - Controlled Entity  - 9: Central Bank of Issue  - 10: Tax-exempt organization  - 11: Private foundation  - 12: International organization  - 13: Foreign Government - Controlled Integral Part |  |
 |**makingTreatyClaim** | **Boolean** | Indicates whether the entity is making a treaty claim. |  [optional] |
-|**fatcaStatus** | **String** | The FATCA status. |  [optional] |
+|**fatcaStatus** | **String** | The FATCA status.  Available values:  - 1: Nonparticipating FFI (including a limited FFI or an FFI related to a Reporting IGA FFI other than a deemed-compliant FFI, participating FFI, or exempt beneficial owner)  - 2: Participating FFI  - 3: Reporting Model 1 FFI  - 4: Reporting Model 2 FFI  - 5: Registered deemed-compliant FFI (other than a reporting Model 1 FFI, sponsored FFI, or nonreporting IGA FFI covered in Part XII)  - 6: Sponsored FFI that has not obtained a GIIN  - 7: Certified deemed-compliant nonregistering local bank  - 8: Certified deemed-compliant FFI with only low-value accounts  - 9: Certified deemed-compliant sponsored, closely held investment vehicle  - 10: Certified deemed-compliant limited life debt investment entity  - 11: Certified deemed-compliant investment advisors and investment managers  - 12: Owner-documented FFI  - 13: Restricted distributor  - 14: Nonreporting IGA FFI  - 15: Foreign government, government of a U.S. possession, or foreign central bank of issue  - 16: International organization  - 17: Exempt retirement plans  - 18: Entity wholly owned by exempt beneficial owners  - 19: Territory financial institution  - 20: Nonfinancial group entity  - 21: Excepted nonfinancial start-up company  - 22: Excepted nonfinancial entity in liquidation or bankruptcy  - 23: 501(c) organization  - 24: Nonprofit organization  - 25: Publicly traded NFFE or NFFE affiliate of a publicly traded corporation  - 26: Excepted territory NFFE  - 27: Active NFFE  - 28: Passive NFFE  - 29: Excepted inter-affiliate FFI  - 30: Direct reporting NFFE  - 31: Sponsored direct reporting NFFE  - 32: Account that is not a financial account |  |
 |**residenceAddress** | **String** | The residential address of the individual or entity. |  [optional] |
 |**residenceCity** | **String** | The city of residence. |  [optional] |
 |**residenceState** | **String** | The state of residence. |  [optional] |
 |**residenceZip** | **String** | The ZIP code of the residence. |  [optional] |
-|**residenceCountry** | **String** | The country of residence. |  [optional] |
+|**residenceCountry** | **String** | The country of residence. |  |
 |**residenceIsMailing** | **Boolean** | Indicates whether the residence address is also the mailing address. |  [optional] |
 |**mailingAddress** | **String** | The mailing address. |  [optional] |
 |**mailingCity** | **String** | The city of the mailing address. |  [optional] |
@@ -30,7 +30,7 @@
 |**foreignTinNotRequired** | **Boolean** | Indicates whether a foreign TIN is not required. |  [optional] |
 |**foreignTin** | **String** | The foreign taxpayer identification number (TIN). |  [optional] |
 |**referenceNumber** | **String** | A reference number for the form. |  [optional] |
-|**disregardedEntityFatcaStatus** | **String** | The FATCA status of disregarded entity or branch receiving payment. |  [optional] |
+|**disregardedEntityFatcaStatus** | **String** | The FATCA status of disregarded entity or branch receiving payment.  Available values:  - 1: Limited Branch  - 2: U.S. Branch  - 3: Participating FFI  - 4: Reporting Model 1 FFI  - 5: Reporting Model 2 FFI |  [optional] |
 |**disregardedAddress** | **String** | The address for disregarded entities. |  [optional] |
 |**disregardedCity** | **String** | The city for disregarded entities. |  [optional] |
 |**disregardedState** | **String** | The state for disregarded entities. |  [optional] |
@@ -40,7 +40,7 @@
 |**treatyCountryCertification** | **Boolean** | Certifies the beneficial owner&#39;s country under the U.S. tax treaty. |  [optional] |
 |**treatyCountry** | **String** | The treaty country of the beneficial owner. |  [optional] |
 |**benefitLimitationCertification** | **Boolean** | Certifies that the beneficial owner is eligible for treaty benefits and meets any limitation on benefits requirements. |  [optional] |
-|**benefitLimitation** | **String** | The benefit limitation for tax treaty claims. |  [optional] |
+|**benefitLimitation** | **String** | The benefit limitation for tax treaty claims.  Available values:  - 1: Government  - 2: Tax exempt pension trust or pension fund  - 3: Other tax exempt organization  - 4: Publicly traded corporation  - 5: Subsidiary of a publicly traded corporation  - 6: Company that meets the ownership and base erosion test  - 7: Company that meets the derivative benefits test  - 8: Company with an item of income that meets active trade or business test  - 9: Favorable discretionary determination by the U.S. competent authority received  - 10: Other |  [optional] |
 |**qualifiedResidentStatusCertification** | **Boolean** | Certifies that the beneficial owner claims treaty benefits and meets the qualified resident status for specific U.S. source income. |  [optional] |
 |**treatyArticle** | **String** | Indicates the specific article and paragraph of the tax treaty under which the beneficial owner is claiming benefits. |  [optional] |
 |**withholdingRate** | **String** | Specifies the reduced withholding rate claimed under the applicable tax treaty. |  [optional] |
@@ -64,7 +64,7 @@
 |**restrictedDistributorPreexistingSalesComplianceCertification** | **Boolean** | Certifies that the entity complies with distribution restrictions for U.S.-linked investors  and has addressed any preexisting sales in accordance with FATCA regulations. |  [optional] |
 |**nonreportingIgaFfiCertification** | **Boolean** | Certifies that the entity meets the requirements to be considered a nonreporting financial institution to an applicable IGA. |  [optional] |
 |**igaCountry** | **String** | The country for the applicable IGA with the United States. |  [optional] |
-|**igaModel** | **String** | The applicable IGA model. |  [optional] |
+|**igaModel** | **String** | The applicable IGA model.  Available values:  - 1: Model 1 IGA  - 2: Model 2 IGA |  [optional] |
 |**igaLegalStatusTreatment** | **String** | Specifies how the applicable IGA is treated under the IGA provisions or Treasury regulations. |  [optional] |
 |**igaFfiTrusteeOrSponsor** | **String** | The trustee or sponsor name for the nonreporting IGA FFI. |  [optional] |
 |**igaFfiTrusteeIsForeign** | **Boolean** | Indicates whether the trustee for the nonreporting IGA FFI is foreign. |  [optional] |
@@ -105,7 +105,7 @@
 |**capacityToSignCertification** | **Boolean** | Certifies signer has the capacity to sign for the beneficial owner. |  [optional] |
 |**eDeliveryConsentedAt** | **OffsetDateTime** | The date when e-delivery was consented. |  [optional] |
 |**signature** | **String** | The signature of the form. |  [optional] |
-|**companyId** | **String** | The ID of the associated company. |  |
+|**companyId** | **String** | The ID of the associated company. Required when creating a form. |  [optional] |
 |**referenceId** | **String** | A reference identifier for the form. |  [optional] |
 |**email** | **String** | The email address of the individual associated with the form. |  [optional] |
 

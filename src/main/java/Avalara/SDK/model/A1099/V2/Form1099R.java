@@ -62,7 +62,7 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * Form 1099-R: Distributions From Pensions, Annuities, Retirement or Profit-Sharing Plans, IRAs, Insurance Contracts, etc.
+ * Form 1099-R: Distributions From Pensions, Annuities, Retirement or Profit-Sharing Plans, IRAs, Insurance Contracts, etc.                *At least one of the following amounts must be provided:*   Gross distribution, Taxable amount, Capital gain, Employee contributions/Designated Roth contributions or insurance premiums,  Net unrealized appreciation in employer&#39;s securities, Other amount, Total employee contributions,  Traditional IRA/SEP/SIMPLE or Roth conversion amount, or Amount allocable to IRR within 5 years
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Form1099R {
@@ -98,13 +98,225 @@ public class Form1099R {
   @SerializedName(SERIALIZED_NAME_NET_UNREALIZED_APPRECIATION_IN_EMPLOYER_SECURITIES)
   private Double netUnrealizedAppreciationInEmployerSecurities;
 
+  /**
+   * Distribution code.    Available values:  - 1: Early distribution, no known exception (in most cases, under age 59½)  - 2: Early distribution, exception applies (under age 59½)  - 3: Disability  - 4: Death  - 5: Prohibited transaction  - 6: Section 1035 exchange (a tax-free exchange of life insurance, annuity, qualified long-term care insurance, or endowment contracts)  - 7: Normal distribution  - 8: Excess contributions plus earnings/excess deferrals (and/or earnings) taxable in payment year  - 9: Cost of current life insurance protection (premiums paid by a trustee or custodian for current insurance protection)  - A: May be eligible for 10-year tax option  - B: Designated Roth account distribution  - C: Reportable Death Benefits Under Section 6050Y(c)  - D: Annuity payments from nonqualified annuity payments and distributions from life insurance contracts that may be subject to tax under section 1411  - E: Distribution under Employee Plans Compliance Resolution System (EPCRS)  - F: Charitable gift annuity  - G: Direct rollover and rollover contribution  - H: Direct rollover of distribution from a designated Roth account to a Roth IRA  - J: Early distribution from a Roth IRA (This code may be used with a Code 8 or P)  - K: Distribution of IRA Assets Not Having A Readily Available FMV  - L: Loans treated as deemed distributions under section 72(p)  - M: Qualified Plan Loan Offsets  - N: Recharacterized IRA contribution made for year following payment year  - P: Excess contributions plus earnings/excess deferrals taxable for year prior to payment year  - Q: Qualified distribution from a Roth IRA (Distribution from a Roth IRA when the 5-year holding period has been met, and the recipient has reached 59½, has died, or is disabled)  - R: Recharacterized IRA contribution made for year prior to payment year  - S: Early distribution from a SIMPLE IRA in first 2 years no known exceptions  - T: Roth IRA distribution exception applies because participant has reached 59½, died or is disabled, but it is unknown if the 5-year period has been met  - U: Distribution from ESOP under Section 404(k)  - W: Charges or payments for purchasing qualified long-term care insurance contracts under combined arrangements
+   */
+  @JsonAdapter(DistributionCodeEnum.Adapter.class)
+  public enum DistributionCodeEnum {
+    _1("1"),
+    
+    _2("2"),
+    
+    _3("3"),
+    
+    _4("4"),
+    
+    _5("5"),
+    
+    _6("6"),
+    
+    _7("7"),
+    
+    _8("8"),
+    
+    _9("9"),
+    
+    A("A"),
+    
+    B("B"),
+    
+    C("C"),
+    
+    D("D"),
+    
+    E("E"),
+    
+    F("F"),
+    
+    G("G"),
+    
+    H("H"),
+    
+    J("J"),
+    
+    K("K"),
+    
+    L("L"),
+    
+    M("M"),
+    
+    N("N"),
+    
+    P("P"),
+    
+    Q("Q"),
+    
+    R("R"),
+    
+    S("S"),
+    
+    T("T"),
+    
+    U("U"),
+    
+    W("W");
+
+    private String value;
+
+    DistributionCodeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DistributionCodeEnum fromValue(String value) {
+      for (DistributionCodeEnum b : DistributionCodeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<DistributionCodeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DistributionCodeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DistributionCodeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return DistributionCodeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      DistributionCodeEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_DISTRIBUTION_CODE = "distributionCode";
   @SerializedName(SERIALIZED_NAME_DISTRIBUTION_CODE)
-  private String distributionCode;
+  private DistributionCodeEnum distributionCode;
+
+  /**
+   * Second distribution code. Must be a valid combination with the first distribution code.  See DistributionCode property documentation for code descriptions.    Valid combinations based on first distribution code:  - 1: _, 8, B, D, K, L, M, P  - 2: _, 8, B, D, K, L, M, P  - 3: _, D  - 4: _, 8, A, B, D, G, H, K, L, M, P  - 5: _  - 6: _, W  - 7: _, A, B, D, K, L, M  - 8: _, 1, 2, 4, B, J, K  - 9: _  - A: 4, 7  - B: _, 1, 2, 4, 7, 8, G, L, M, P, U  - C: _, D  - D: 1, 2, 3, 4, 7, C  - E: _  - F: _  - G: _, 4, B, K  - H: _, 4  - J: _, 8, P  - K: 1, 2, 4, 7, 8, G  - L: _, 1, 2, 4, 7, B  - M: _, 1, 2, 4, 7, B  - N: _  - P: _, 1, 2, 4, B, J  - Q: _  - R: _  - S: _  - T: _  - U: _, B  - W: _, 6                (_ indicates no second distribution code)    (format: firstDistributionCode: availableSecondDistributionCodes)
+   */
+  @JsonAdapter(SecondDistributionCodeEnum.Adapter.class)
+  public enum SecondDistributionCodeEnum {
+    _1("1"),
+    
+    _2("2"),
+    
+    _3("3"),
+    
+    _4("4"),
+    
+    _5("5"),
+    
+    _6("6"),
+    
+    _7("7"),
+    
+    _8("8"),
+    
+    _9("9"),
+    
+    A("A"),
+    
+    B("B"),
+    
+    C("C"),
+    
+    D("D"),
+    
+    E("E"),
+    
+    F("F"),
+    
+    G("G"),
+    
+    H("H"),
+    
+    J("J"),
+    
+    K("K"),
+    
+    L("L"),
+    
+    M("M"),
+    
+    N("N"),
+    
+    P("P"),
+    
+    Q("Q"),
+    
+    R("R"),
+    
+    S("S"),
+    
+    T("T"),
+    
+    U("U"),
+    
+    W("W");
+
+    private String value;
+
+    SecondDistributionCodeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SecondDistributionCodeEnum fromValue(String value) {
+      for (SecondDistributionCodeEnum b : SecondDistributionCodeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<SecondDistributionCodeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SecondDistributionCodeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SecondDistributionCodeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return SecondDistributionCodeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      SecondDistributionCodeEnum.fromValue(value);
+    }
+  }
 
   public static final String SERIALIZED_NAME_SECOND_DISTRIBUTION_CODE = "secondDistributionCode";
   @SerializedName(SERIALIZED_NAME_SECOND_DISTRIBUTION_CODE)
-  private String secondDistributionCode;
+  private SecondDistributionCodeEnum secondDistributionCode;
 
   public static final String SERIALIZED_NAME_IRA_SEP_SIMPLE = "iraSepSimple";
   @SerializedName(SERIALIZED_NAME_IRA_SEP_SIMPLE)
@@ -147,27 +359,27 @@ public class Form1099R {
   private Boolean fatcaFilingRequirement;
 
   /**
-   * Form type
+   * Form type.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    _1099_NEC("1099-NEC"),
+    FORM1099_NEC("Form1099Nec"),
     
-    _1099_MISC("1099-MISC"),
+    FORM1099_MISC("Form1099Misc"),
     
-    _1099_DIV("1099-DIV"),
+    FORM1099_DIV("Form1099Div"),
     
-    _1099_R("1099-R"),
+    FORM1099_R("Form1099R"),
     
-    _1099_K("1099-K"),
+    FORM1099_K("Form1099K"),
     
-    _1095_B("1095-B"),
+    FORM1095_B("Form1095B"),
     
-    _1042_S("1042-S"),
+    FORM1042_S("Form1042S"),
     
-    _1095_C("1095-C"),
+    FORM1095_C("Form1095C"),
     
-    _1099_INT("1099-INT");
+    FORM1099_INT("Form1099Int");
 
     private String value;
 
@@ -249,12 +461,10 @@ public class Form1099R {
   private String recipientName;
 
   /**
-   * Type of TIN (Tax ID Number)
+   * Tax Identification Number (TIN) type.  Available values: - EIN: Employer Identification Number - SSN: Social Security Number - ITIN: Individual Taxpayer Identification Number - ATIN: Adoption Taxpayer Identification Number
    */
   @JsonAdapter(TinTypeEnum.Adapter.class)
   public enum TinTypeEnum {
-    EMPTY("Empty"),
-    
     EIN("EIN"),
     
     SSN("SSN"),
@@ -606,40 +816,40 @@ public class Form1099R {
   }
 
 
-  public Form1099R distributionCode(String distributionCode) {
+  public Form1099R distributionCode(DistributionCodeEnum distributionCode) {
     this.distributionCode = distributionCode;
     return this;
   }
 
   /**
-   * Distribution code
+   * Distribution code.    Available values:  - 1: Early distribution, no known exception (in most cases, under age 59½)  - 2: Early distribution, exception applies (under age 59½)  - 3: Disability  - 4: Death  - 5: Prohibited transaction  - 6: Section 1035 exchange (a tax-free exchange of life insurance, annuity, qualified long-term care insurance, or endowment contracts)  - 7: Normal distribution  - 8: Excess contributions plus earnings/excess deferrals (and/or earnings) taxable in payment year  - 9: Cost of current life insurance protection (premiums paid by a trustee or custodian for current insurance protection)  - A: May be eligible for 10-year tax option  - B: Designated Roth account distribution  - C: Reportable Death Benefits Under Section 6050Y(c)  - D: Annuity payments from nonqualified annuity payments and distributions from life insurance contracts that may be subject to tax under section 1411  - E: Distribution under Employee Plans Compliance Resolution System (EPCRS)  - F: Charitable gift annuity  - G: Direct rollover and rollover contribution  - H: Direct rollover of distribution from a designated Roth account to a Roth IRA  - J: Early distribution from a Roth IRA (This code may be used with a Code 8 or P)  - K: Distribution of IRA Assets Not Having A Readily Available FMV  - L: Loans treated as deemed distributions under section 72(p)  - M: Qualified Plan Loan Offsets  - N: Recharacterized IRA contribution made for year following payment year  - P: Excess contributions plus earnings/excess deferrals taxable for year prior to payment year  - Q: Qualified distribution from a Roth IRA (Distribution from a Roth IRA when the 5-year holding period has been met, and the recipient has reached 59½, has died, or is disabled)  - R: Recharacterized IRA contribution made for year prior to payment year  - S: Early distribution from a SIMPLE IRA in first 2 years no known exceptions  - T: Roth IRA distribution exception applies because participant has reached 59½, died or is disabled, but it is unknown if the 5-year period has been met  - U: Distribution from ESOP under Section 404(k)  - W: Charges or payments for purchasing qualified long-term care insurance contracts under combined arrangements
    * @return distributionCode
    */
   @javax.annotation.Nullable
-  public String getDistributionCode() {
+  public DistributionCodeEnum getDistributionCode() {
     return distributionCode;
   }
 
-  public void setDistributionCode(String distributionCode) {
+  public void setDistributionCode(DistributionCodeEnum distributionCode) {
     this.distributionCode = distributionCode;
   }
 
 
-  public Form1099R secondDistributionCode(String secondDistributionCode) {
+  public Form1099R secondDistributionCode(SecondDistributionCodeEnum secondDistributionCode) {
     this.secondDistributionCode = secondDistributionCode;
     return this;
   }
 
   /**
-   * Second distribution code
+   * Second distribution code. Must be a valid combination with the first distribution code.  See DistributionCode property documentation for code descriptions.    Valid combinations based on first distribution code:  - 1: _, 8, B, D, K, L, M, P  - 2: _, 8, B, D, K, L, M, P  - 3: _, D  - 4: _, 8, A, B, D, G, H, K, L, M, P  - 5: _  - 6: _, W  - 7: _, A, B, D, K, L, M  - 8: _, 1, 2, 4, B, J, K  - 9: _  - A: 4, 7  - B: _, 1, 2, 4, 7, 8, G, L, M, P, U  - C: _, D  - D: 1, 2, 3, 4, 7, C  - E: _  - F: _  - G: _, 4, B, K  - H: _, 4  - J: _, 8, P  - K: 1, 2, 4, 7, 8, G  - L: _, 1, 2, 4, 7, B  - M: _, 1, 2, 4, 7, B  - N: _  - P: _, 1, 2, 4, B, J  - Q: _  - R: _  - S: _  - T: _  - U: _, B  - W: _, 6                (_ indicates no second distribution code)    (format: firstDistributionCode: availableSecondDistributionCodes)
    * @return secondDistributionCode
    */
   @javax.annotation.Nullable
-  public String getSecondDistributionCode() {
+  public SecondDistributionCodeEnum getSecondDistributionCode() {
     return secondDistributionCode;
   }
 
-  public void setSecondDistributionCode(String secondDistributionCode) {
+  public void setSecondDistributionCode(SecondDistributionCodeEnum secondDistributionCode) {
     this.secondDistributionCode = secondDistributionCode;
   }
 
@@ -821,7 +1031,7 @@ public class Form1099R {
   }
 
   /**
-   * FATCA filing requirement
+   * FATCA filing requirement.
    * @return fatcaFilingRequirement
    */
   @javax.annotation.Nullable
@@ -840,7 +1050,7 @@ public class Form1099R {
   }
 
   /**
-   * Form type
+   * Form type.
    * @return type
    */
   @javax.annotation.Nonnull
@@ -889,7 +1099,7 @@ public class Form1099R {
   }
 
   /**
-   * Issuer Reference ID - only required when creating forms
+   * Issuer Reference ID - only required when creating forms via $bulk-upsert
    * @return issuerReferenceId
    */
   @javax.annotation.Nullable
@@ -927,7 +1137,7 @@ public class Form1099R {
   }
 
   /**
-   * Tax Year - only required when creating forms
+   * Tax Year - only required when creating forms via $bulk-upsert
    * @return taxYear
    */
   @javax.annotation.Nullable
@@ -1003,7 +1213,7 @@ public class Form1099R {
   }
 
   /**
-   * Type of TIN (Tax ID Number)
+   * Tax Identification Number (TIN) type.  Available values: - EIN: Employer Identification Number - SSN: Social Security Number - ITIN: Individual Taxpayer Identification Number - ATIN: Adoption Taxpayer Identification Number
    * @return tinType
    */
   @javax.annotation.Nullable
@@ -1231,7 +1441,7 @@ public class Form1099R {
   }
 
   /**
-   * Date when federal e-filing should be scheduled for this form
+   * Date when federal e-filing should be scheduled. If set between current date and beginning of blackout period, scheduled to that date. If in the past or blackout period, scheduled to next available date. For blackout period information, see https://www.track1099.com/info/IRS_info. Set to null to leave unscheduled.
    * @return federalEfileDate
    */
   @javax.annotation.Nullable
@@ -1269,7 +1479,7 @@ public class Form1099R {
   }
 
   /**
-   * Date when state e-filing should be scheduled for this form
+   * Date when state e-filing should be scheduled. Must be on or after federalEfileDate. If set between current date and beginning of blackout period, scheduled to that date. If in the past or blackout period, scheduled to next available date. For blackout period information, see https://www.track1099.com/info/IRS_info. Set to null to leave unscheduled.
    * @return stateEfileDate
    */
   @javax.annotation.Nullable
@@ -1288,7 +1498,7 @@ public class Form1099R {
   }
 
   /**
-   * Date when recipient e-delivery should be scheduled for this form
+   * Date when recipient e-delivery should be scheduled. If set between current date and beginning of blackout period, scheduled to that date. If in the past or blackout period, scheduled to next available date. For blackout period information, see https://www.track1099.com/info/IRS_info. Set to null to leave unscheduled.
    * @return recipientEdeliveryDate
    */
   @javax.annotation.Nullable
@@ -1397,7 +1607,7 @@ public class Form1099R {
 
 
   /**
-   * Federal e-file status
+   * Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states)
    * @return federalEfileStatus
    */
   @javax.annotation.Nullable
@@ -1408,7 +1618,7 @@ public class Form1099R {
 
 
   /**
-   * State e-file status
+   * State e-file status.  Available values:  - unscheduled: Form has not been scheduled for state e-filing  - scheduled: Form is scheduled for state e-filing  - airlocked: Form is in process of being uploaded to the state  - sent: Form has been sent to the state  - rejected: Form was rejected by the state  - accepted: Form was accepted by the state  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlocked: Correction is in process of being uploaded to the state  - corrected_sent: Correction has been sent to the state  - corrected_rejected: Correction was rejected by the state  - corrected_accepted: Correction was accepted by the state
    * @return stateEfileStatus
    */
   @javax.annotation.Nullable
@@ -1419,7 +1629,7 @@ public class Form1099R {
 
 
   /**
-   * Postal mail to recipient status
+   * Postal mail to recipient status.  Available values:  - unscheduled: Postal mail has not been scheduled  - pending: Postal mail is pending to be sent  - sent: Postal mail has been sent  - delivered: Postal mail has been delivered
    * @return postalMailStatus
    */
   @javax.annotation.Nullable
@@ -1430,7 +1640,7 @@ public class Form1099R {
 
 
   /**
-   * TIN Match status
+   * TIN Match status.  Available values:  - none: TIN matching has not been performed  - pending: TIN matching request is pending  - matched: Name/TIN combination matches IRS records  - unknown: TIN is missing, invalid, or request contains errors  - rejected: Name/TIN combination does not match IRS records or TIN not currently issued
    * @return tinMatchStatus
    */
   @javax.annotation.Nullable
@@ -1441,7 +1651,7 @@ public class Form1099R {
 
 
   /**
-   * Address verification status
+   * Address verification status.  Available values:  - unknown: Address verification has not been checked  - pending: Address verification is in progress  - failed: Address verification failed  - incomplete: Address verification is incomplete  - unchanged: User declined address changes  - verified: Address has been verified and accepted
    * @return addressVerificationStatus
    */
   @javax.annotation.Nullable
@@ -1452,7 +1662,7 @@ public class Form1099R {
 
 
   /**
-   * EDelivery status
+   * EDelivery status.  Available values:  - unscheduled: E-delivery has not been scheduled  - scheduled: E-delivery is scheduled to be sent  - sent: E-delivery has been sent to recipient  - bounced: E-delivery bounced back (invalid email)  - refused: E-delivery was refused by recipient  - bad_verify: E-delivery failed verification  - accepted: E-delivery was accepted by recipient  - bad_verify_limit: E-delivery failed verification limit reached  - second_delivery: Second e-delivery attempt  - undelivered: E-delivery is undelivered (temporary state allowing resend)
    * @return eDeliveryStatus
    */
   @javax.annotation.Nullable
@@ -1709,6 +1919,7 @@ public class Form1099R {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("distributionCode");
     openapiRequiredFields.add("type");
     openapiRequiredFields.add("recipientName");
     openapiRequiredFields.add("address");
@@ -1747,8 +1958,14 @@ public class Form1099R {
       if ((jsonObj.get("distributionCode") != null && !jsonObj.get("distributionCode").isJsonNull()) && !jsonObj.get("distributionCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `distributionCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("distributionCode").toString()));
       }
+      // validate the required field `distributionCode`
+      DistributionCodeEnum.validateJsonElement(jsonObj.get("distributionCode"));
       if ((jsonObj.get("secondDistributionCode") != null && !jsonObj.get("secondDistributionCode").isJsonNull()) && !jsonObj.get("secondDistributionCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `secondDistributionCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secondDistributionCode").toString()));
+      }
+      // validate the optional field `secondDistributionCode`
+      if (jsonObj.get("secondDistributionCode") != null && !jsonObj.get("secondDistributionCode").isJsonNull()) {
+        SecondDistributionCodeEnum.validateJsonElement(jsonObj.get("secondDistributionCode"));
       }
       if ((jsonObj.get("otherPercentage") != null && !jsonObj.get("otherPercentage").isJsonNull()) && !jsonObj.get("otherPercentage").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `otherPercentage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("otherPercentage").toString()));

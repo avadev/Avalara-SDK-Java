@@ -616,7 +616,7 @@ public class W8ImyFormRequest {
    * The name of the individual or entity associated with the form.
    * @return name
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -635,7 +635,7 @@ public class W8ImyFormRequest {
    * The country of citizenship.
    * @return citizenshipCountry
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getCitizenshipCountry() {
     return citizenshipCountry;
   }
@@ -670,10 +670,10 @@ public class W8ImyFormRequest {
   }
 
   /**
-   * The entity type.
+   * The entity type.  Available values:  - 1: QI (including a QDD). Complete Part III.  - 2: Nonqualified intermediary. Complete Part IV.  - 3: Territory financial institution. Complete Part V.  - 4: U.S. branch. Complete Part VI.  - 5: Withholding foreign partnership. Complete Part VII.  - 6: Withholding foreign trust. Complete Part VII.  - 7: Nonwithholding foreign partnership. Complete Part VIII.  - 8: Nonwithholding foreign simple trust. Complete Part VIII.  - 9: Nonwithholding foreign grantor trust. Complete Part VIII.
    * @return entityType
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getEntityType() {
     return entityType;
   }
@@ -689,7 +689,7 @@ public class W8ImyFormRequest {
   }
 
   /**
-   * The FATCA status.
+   * The FATCA status.  Available values:  - 1: Nonparticipating foreign financial institution (FFI) (including an FFI related to a Reporting IGA FFI other than a deemed-compliant FFI, participating FFI, or exempt beneficial owner). Complete Part IX (if applicable).  - 2: Participating FFI.  - 3: Reporting Model 1 FFI.  - 4: Reporting Model 2 FFI.  - 5: Registered deemed-compliant FFI (other than a reporting Model 1 FFI, sponsored FFI, or nonreporting IGA FFI covered in Part XIX).  - 6: Territory financial institution. Complete Part V.  - 7: Sponsored FFI (other than a certified deemed-compliant sponsored, closely held investment vehicle). Complete Part X.  - 8: Certified deemed-compliant nonregistering local bank. Complete Part XII.  - 9: Certified deemed-compliant FFI with only low-value accounts. Complete Part XIII.  - 10: Certified deemed-compliant sponsored, closely held investment vehicle. Complete Part XIV.  - 11: Certified deemed-compliant limited life debt investment entity. Complete Part XV.  - 12: Certain investment entities that do not maintain financial accounts. Complete Part XVI.  - 13: Owner-documented FFI. Complete Part XI.  - 14: Restricted distributor. Complete Part XVII.  - 15: Foreign central bank of issue. Complete Part XVIII.  - 16: Nonreporting IGA FFI. Complete Part XIX.  - 17: Exempt retirement plans. Complete Part XX.  - 18: Excepted nonfinancial group entity. Complete Part XXI.  - 19: Excepted nonfinancial start-up company. Complete Part XXII.  - 20: Excepted nonfinancial entity in liquidation or bankruptcy. Complete Part XXIII.  - 21: Publicly traded NFFE or NFFE affiliate of a publicly traded corporation. Complete Part XXIV.  - 22: Excepted territory NFFE. Complete Part XXV.  - 23: Active NFFE. Complete Part XXVI.  - 24: Passive NFFE. Complete Part XXVII.  - 25: Direct reporting NFFE.  - 26: Sponsored direct reporting NFFE. Complete Part XXVIII.
    * @return fatcaStatus
    */
   @javax.annotation.Nullable
@@ -787,7 +787,7 @@ public class W8ImyFormRequest {
    * The country of residence.
    * @return residenceCountry
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getResidenceCountry() {
     return residenceCountry;
   }
@@ -917,7 +917,7 @@ public class W8ImyFormRequest {
   }
 
   /**
-   * The type of TIN provided.
+   * Tax Identification Number (TIN) type.  Available values: - QI-EIN: Qualified Intermediary EIN - WP-EIN: Withholding Partnership EIN - WT-EIN: Withholding Trust EIN - EIN: Employer Identification Number
    * @return tinType
    */
   @javax.annotation.Nullable
@@ -1012,7 +1012,7 @@ public class W8ImyFormRequest {
   }
 
   /**
-   * The FATCA status of disregarded entity or branch receiving payment.
+   * The FATCA status of disregarded entity or branch receiving payment.  Available values:  - 1: Branch treated as nonparticipating FFI.  - 2: Participating FFI.  - 3: Reporting Model 1 FFI.  - 4: Reporting Model 2 FFI.  - 5: U.S. Branch
    * @return disregardedEntityFatcaStatus
    */
   @javax.annotation.Nullable
@@ -2228,7 +2228,7 @@ public class W8ImyFormRequest {
   }
 
   /**
-   * The applicable IGA model.
+   * The applicable IGA model.  Available values:  - 1: Model 1 IGA  - 2: Model 2 IGA
    * @return igaModel
    */
   @javax.annotation.Nullable
@@ -2760,10 +2760,10 @@ public class W8ImyFormRequest {
   }
 
   /**
-   * The ID of the associated company.
+   * The ID of the associated company. Required when creating a form.
    * @return companyId
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getCompanyId() {
     return companyId;
   }
@@ -3108,7 +3108,10 @@ public class W8ImyFormRequest {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("companyId");
+    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("citizenshipCountry");
+    openapiRequiredFields.add("entityType");
+    openapiRequiredFields.add("residenceCountry");
   }
 
   /**
@@ -3146,16 +3149,16 @@ public class W8ImyFormRequest {
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
         TypeEnum.validateJsonElement(jsonObj.get("type"));
       }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+      if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if ((jsonObj.get("citizenshipCountry") != null && !jsonObj.get("citizenshipCountry").isJsonNull()) && !jsonObj.get("citizenshipCountry").isJsonPrimitive()) {
+      if (!jsonObj.get("citizenshipCountry").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `citizenshipCountry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("citizenshipCountry").toString()));
       }
       if ((jsonObj.get("disregardedEntity") != null && !jsonObj.get("disregardedEntity").isJsonNull()) && !jsonObj.get("disregardedEntity").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `disregardedEntity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disregardedEntity").toString()));
       }
-      if ((jsonObj.get("entityType") != null && !jsonObj.get("entityType").isJsonNull()) && !jsonObj.get("entityType").isJsonPrimitive()) {
+      if (!jsonObj.get("entityType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `entityType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entityType").toString()));
       }
       if ((jsonObj.get("fatcaStatus") != null && !jsonObj.get("fatcaStatus").isJsonNull()) && !jsonObj.get("fatcaStatus").isJsonPrimitive()) {
@@ -3173,7 +3176,7 @@ public class W8ImyFormRequest {
       if ((jsonObj.get("residenceZip") != null && !jsonObj.get("residenceZip").isJsonNull()) && !jsonObj.get("residenceZip").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `residenceZip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("residenceZip").toString()));
       }
-      if ((jsonObj.get("residenceCountry") != null && !jsonObj.get("residenceCountry").isJsonNull()) && !jsonObj.get("residenceCountry").isJsonPrimitive()) {
+      if (!jsonObj.get("residenceCountry").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `residenceCountry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("residenceCountry").toString()));
       }
       if ((jsonObj.get("mailingAddress") != null && !jsonObj.get("mailingAddress").isJsonNull()) && !jsonObj.get("mailingAddress").isJsonPrimitive()) {
@@ -3263,7 +3266,7 @@ public class W8ImyFormRequest {
       if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
       }
-      if (!jsonObj.get("companyId").isJsonPrimitive()) {
+      if ((jsonObj.get("companyId") != null && !jsonObj.get("companyId").isJsonNull()) && !jsonObj.get("companyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `companyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyId").toString()));
       }
       if ((jsonObj.get("referenceId") != null && !jsonObj.get("referenceId").isJsonNull()) && !jsonObj.get("referenceId").isJsonPrimitive()) {

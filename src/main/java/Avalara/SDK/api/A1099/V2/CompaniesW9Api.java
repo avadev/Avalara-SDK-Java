@@ -36,9 +36,8 @@ import java.io.IOException;
 import java.util.*;
 
 
+import Avalara.SDK.model.A1099.V2.CompanyRequest;
 import Avalara.SDK.model.A1099.V2.CompanyResponse;
-import Avalara.SDK.model.A1099.V2.CreateCompanyRequest;
-import Avalara.SDK.model.A1099.V2.ErrorModel;
 import Avalara.SDK.model.A1099.V2.ErrorResponse;
 import Avalara.SDK.model.A1099.V2.PaginatedQueryResultModelCompanyResponse;
 
@@ -110,7 +109,7 @@ public class CompaniesW9Api {
             basePath = null;
         }
 
-        Object localVarPostBody = requestParameters.getCreateCompanyRequest();
+        Object localVarPostBody = requestParameters.getCompanyRequest();
 
         // create path and map variables
         String localVarPath = "/w9/companies";
@@ -233,13 +232,13 @@ public class CompaniesW9Api {
     * @param avalaraVersion API version</param>
     * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
     * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
-    * @param createCompanyRequest The company to create (optional)</param>
+    * @param companyRequest The company to create (optional)</param>
     */
     public class CreateCompanyRequest {
         private String avalaraVersion;
         private String xCorrelationId;
         private String xAvalaraClient;
-        private CreateCompanyRequest createCompanyRequest;
+        private CompanyRequest companyRequest;
 
         public CreateCompanyRequest () {
         }
@@ -250,8 +249,8 @@ public class CompaniesW9Api {
         public void setXCorrelationId(String xCorrelationId) { this.xCorrelationId = xCorrelationId; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
-        public CreateCompanyRequest getCreateCompanyRequest() { return createCompanyRequest; }
-        public void setCreateCompanyRequest(CreateCompanyRequest createCompanyRequest) { this.createCompanyRequest = createCompanyRequest; }
+        public CompanyRequest getCompanyRequest() { return companyRequest; }
+        public void setCompanyRequest(CompanyRequest companyRequest) { this.companyRequest = companyRequest; }
     }
 
     /**
@@ -923,7 +922,7 @@ public class CompaniesW9Api {
             basePath = null;
         }
 
-        Object localVarPostBody = requestParameters.getCreateCompanyRequest();
+        Object localVarPostBody = requestParameters.getCompanyRequest();
 
         // create path and map variables
         String localVarPath = "/w9/companies/{id}"
@@ -1056,14 +1055,14 @@ public class CompaniesW9Api {
     * @param avalaraVersion API version</param>
     * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
     * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
-    * @param createCompanyRequest The updated company data (optional)</param>
+    * @param companyRequest The updated company data (optional)</param>
     */
     public class UpdateCompanyRequest {
         private String id;
         private String avalaraVersion;
         private String xCorrelationId;
         private String xAvalaraClient;
-        private CreateCompanyRequest createCompanyRequest;
+        private CompanyRequest companyRequest;
 
         public UpdateCompanyRequest () {
         }
@@ -1076,8 +1075,8 @@ public class CompaniesW9Api {
         public void setXCorrelationId(String xCorrelationId) { this.xCorrelationId = xCorrelationId; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
-        public CreateCompanyRequest getCreateCompanyRequest() { return createCompanyRequest; }
-        public void setCreateCompanyRequest(CreateCompanyRequest createCompanyRequest) { this.createCompanyRequest = createCompanyRequest; }
+        public CompanyRequest getCompanyRequest() { return companyRequest; }
+        public void setCompanyRequest(CompanyRequest companyRequest) { this.companyRequest = companyRequest; }
     }
 
     /**
@@ -1090,7 +1089,7 @@ public class CompaniesW9Api {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.8.3");
+        this.localVarApiClient.setSdkVersion("25.9.0");
     }
 }
 

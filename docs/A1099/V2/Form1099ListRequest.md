@@ -16,15 +16,15 @@
 
 | Name | Value |
 |---- | -----|
-| _1099_NEC | &quot;1099-NEC&quot; |
-| _1099_MISC | &quot;1099-MISC&quot; |
-| _1099_DIV | &quot;1099-DIV&quot; |
-| _1099_R | &quot;1099-R&quot; |
-| _1099_K | &quot;1099-K&quot; |
-| _1095_B | &quot;1095-B&quot; |
-| _1042_S | &quot;1042-S&quot; |
-| _1095_C | &quot;1095-C&quot; |
-| _1099_INT | &quot;1099-INT&quot; |
+| FORM1099_NEC | &quot;Form1099Nec&quot; |
+| FORM1099_MISC | &quot;Form1099Misc&quot; |
+| FORM1099_DIV | &quot;Form1099Div&quot; |
+| FORM1099_R | &quot;Form1099R&quot; |
+| FORM1099_K | &quot;Form1099K&quot; |
+| FORM1095_B | &quot;Form1095B&quot; |
+| FORM1042_S | &quot;Form1042S&quot; |
+| FORM1095_C | &quot;Form1095C&quot; |
+| FORM1099_INT | &quot;Form1099Int&quot; |
 
 
 

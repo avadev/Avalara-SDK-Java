@@ -88,7 +88,7 @@ public class Form1095B {
   private LocalDate employeeDateOfBirth;
 
   /**
-   * Origin of health coverage code  Available values:  - A: Small Business Health Options Program (SHOP)  - B: Employer-sponsored coverage  - C: Government-sponsored program  - D: Individual market insurance  - E: Multiemployer plan  - F: Other designated minimum essential coverage  - G: Employer-sponsored coverage that is an individual coverage HRA (valid for tax years 2020 and later)
+   * Origin of health coverage code.    Available values:  - A: Small Business Health Options Program (SHOP)  - B: Employer-sponsored coverage  - C: Government-sponsored program  - D: Individual market insurance  - E: Multiemployer plan  - F: Other designated minimum essential coverage  - G: Employer-sponsored coverage that is an individual coverage HRA (valid for tax years 2020 and later)
    */
   @JsonAdapter(OriginOfHealthCoverageCodeEnum.Adapter.class)
   public enum OriginOfHealthCoverageCodeEnum {
@@ -158,27 +158,27 @@ public class Form1095B {
   private List<CoveredIndividual> coveredIndividuals;
 
   /**
-   * Form type
+   * Form type.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    _1099_NEC("1099-NEC"),
+    FORM1099_NEC("Form1099Nec"),
     
-    _1099_MISC("1099-MISC"),
+    FORM1099_MISC("Form1099Misc"),
     
-    _1099_DIV("1099-DIV"),
+    FORM1099_DIV("Form1099Div"),
     
-    _1099_R("1099-R"),
+    FORM1099_R("Form1099R"),
     
-    _1099_K("1099-K"),
+    FORM1099_K("Form1099K"),
     
-    _1095_B("1095-B"),
+    FORM1095_B("Form1095B"),
     
-    _1042_S("1042-S"),
+    FORM1042_S("Form1042S"),
     
-    _1095_C("1095-C"),
+    FORM1095_C("Form1095C"),
     
-    _1099_INT("1099-INT");
+    FORM1099_INT("Form1099Int");
 
     private String value;
 
@@ -260,12 +260,10 @@ public class Form1095B {
   private String recipientName;
 
   /**
-   * Type of TIN (Tax ID Number)
+   * Tax Identification Number (TIN) type.  Available values: - EIN: Employer Identification Number - SSN: Social Security Number - ITIN: Individual Taxpayer Identification Number - ATIN: Adoption Taxpayer Identification Number
    */
   @JsonAdapter(TinTypeEnum.Adapter.class)
   public enum TinTypeEnum {
-    EMPTY("Empty"),
-    
     EIN("EIN"),
     
     SSN("SSN"),
@@ -566,7 +564,7 @@ public class Form1095B {
   }
 
   /**
-   * Origin of health coverage code  Available values:  - A: Small Business Health Options Program (SHOP)  - B: Employer-sponsored coverage  - C: Government-sponsored program  - D: Individual market insurance  - E: Multiemployer plan  - F: Other designated minimum essential coverage  - G: Employer-sponsored coverage that is an individual coverage HRA (valid for tax years 2020 and later)
+   * Origin of health coverage code.    Available values:  - A: Small Business Health Options Program (SHOP)  - B: Employer-sponsored coverage  - C: Government-sponsored program  - D: Individual market insurance  - E: Multiemployer plan  - F: Other designated minimum essential coverage  - G: Employer-sponsored coverage that is an individual coverage HRA (valid for tax years 2020 and later)
    * @return originOfHealthCoverageCode
    */
   @javax.annotation.Nullable
@@ -612,7 +610,7 @@ public class Form1095B {
   }
 
   /**
-   * Form type
+   * Form type.
    * @return type
    */
   @javax.annotation.Nonnull
@@ -661,7 +659,7 @@ public class Form1095B {
   }
 
   /**
-   * Issuer Reference ID - only required when creating forms
+   * Issuer Reference ID - only required when creating forms via $bulk-upsert
    * @return issuerReferenceId
    */
   @javax.annotation.Nullable
@@ -699,7 +697,7 @@ public class Form1095B {
   }
 
   /**
-   * Tax Year - only required when creating forms
+   * Tax Year - only required when creating forms via $bulk-upsert
    * @return taxYear
    */
   @javax.annotation.Nullable
@@ -775,7 +773,7 @@ public class Form1095B {
   }
 
   /**
-   * Type of TIN (Tax ID Number)
+   * Tax Identification Number (TIN) type.  Available values: - EIN: Employer Identification Number - SSN: Social Security Number - ITIN: Individual Taxpayer Identification Number - ATIN: Adoption Taxpayer Identification Number
    * @return tinType
    */
   @javax.annotation.Nullable
@@ -1003,7 +1001,7 @@ public class Form1095B {
   }
 
   /**
-   * Date when federal e-filing should be scheduled for this form
+   * Date when federal e-filing should be scheduled. If set between current date and beginning of blackout period, scheduled to that date. If in the past or blackout period, scheduled to next available date. For blackout period information, see https://www.track1099.com/info/IRS_info. Set to null to leave unscheduled.
    * @return federalEfileDate
    */
   @javax.annotation.Nullable
@@ -1041,7 +1039,7 @@ public class Form1095B {
   }
 
   /**
-   * Date when state e-filing should be scheduled for this form
+   * Date when state e-filing should be scheduled. Must be on or after federalEfileDate. If set between current date and beginning of blackout period, scheduled to that date. If in the past or blackout period, scheduled to next available date. For blackout period information, see https://www.track1099.com/info/IRS_info. Set to null to leave unscheduled.
    * @return stateEfileDate
    */
   @javax.annotation.Nullable
@@ -1060,7 +1058,7 @@ public class Form1095B {
   }
 
   /**
-   * Date when recipient e-delivery should be scheduled for this form
+   * Date when recipient e-delivery should be scheduled. If set between current date and beginning of blackout period, scheduled to that date. If in the past or blackout period, scheduled to next available date. For blackout period information, see https://www.track1099.com/info/IRS_info. Set to null to leave unscheduled.
    * @return recipientEdeliveryDate
    */
   @javax.annotation.Nullable
@@ -1169,7 +1167,7 @@ public class Form1095B {
 
 
   /**
-   * Federal e-file status
+   * Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states)
    * @return federalEfileStatus
    */
   @javax.annotation.Nullable
@@ -1180,7 +1178,7 @@ public class Form1095B {
 
 
   /**
-   * State e-file status
+   * State e-file status.  Available values:  - unscheduled: Form has not been scheduled for state e-filing  - scheduled: Form is scheduled for state e-filing  - airlocked: Form is in process of being uploaded to the state  - sent: Form has been sent to the state  - rejected: Form was rejected by the state  - accepted: Form was accepted by the state  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlocked: Correction is in process of being uploaded to the state  - corrected_sent: Correction has been sent to the state  - corrected_rejected: Correction was rejected by the state  - corrected_accepted: Correction was accepted by the state
    * @return stateEfileStatus
    */
   @javax.annotation.Nullable
@@ -1191,7 +1189,7 @@ public class Form1095B {
 
 
   /**
-   * Postal mail to recipient status
+   * Postal mail to recipient status.  Available values:  - unscheduled: Postal mail has not been scheduled  - pending: Postal mail is pending to be sent  - sent: Postal mail has been sent  - delivered: Postal mail has been delivered
    * @return postalMailStatus
    */
   @javax.annotation.Nullable
@@ -1202,7 +1200,7 @@ public class Form1095B {
 
 
   /**
-   * TIN Match status
+   * TIN Match status.  Available values:  - none: TIN matching has not been performed  - pending: TIN matching request is pending  - matched: Name/TIN combination matches IRS records  - unknown: TIN is missing, invalid, or request contains errors  - rejected: Name/TIN combination does not match IRS records or TIN not currently issued
    * @return tinMatchStatus
    */
   @javax.annotation.Nullable
@@ -1213,7 +1211,7 @@ public class Form1095B {
 
 
   /**
-   * Address verification status
+   * Address verification status.  Available values:  - unknown: Address verification has not been checked  - pending: Address verification is in progress  - failed: Address verification failed  - incomplete: Address verification is incomplete  - unchanged: User declined address changes  - verified: Address has been verified and accepted
    * @return addressVerificationStatus
    */
   @javax.annotation.Nullable
@@ -1224,7 +1222,7 @@ public class Form1095B {
 
 
   /**
-   * EDelivery status
+   * EDelivery status.  Available values:  - unscheduled: E-delivery has not been scheduled  - scheduled: E-delivery is scheduled to be sent  - sent: E-delivery has been sent to recipient  - bounced: E-delivery bounced back (invalid email)  - refused: E-delivery was refused by recipient  - bad_verify: E-delivery failed verification  - accepted: E-delivery was accepted by recipient  - bad_verify_limit: E-delivery failed verification limit reached  - second_delivery: Second e-delivery attempt  - undelivered: E-delivery is undelivered (temporary state allowing resend)
    * @return eDeliveryStatus
    */
   @javax.annotation.Nullable
