@@ -12,7 +12,7 @@
 |**employeeFirstName** | **String** | The first name of the employee. |  |
 |**employeeLastName** | **String** | The last name of the employee. |  |
 |**officeCode** | **String** | The office code associated with the form. |  [optional] |
-|**companyId** | **String** | The ID of the associated company. |  |
+|**companyId** | **String** | The ID of the associated company. Required when creating a form. |  [optional] |
 |**referenceId** | **String** | A reference identifier for the form. |  [optional] |
 |**name** | **String** | The name of the individual or entity associated with the form. |  |
 |**referenceNumber** | **String** | A reference number for the form. |  [optional] |

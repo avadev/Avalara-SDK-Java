@@ -243,7 +243,7 @@ public class W9FormRequest {
    * The name of the individual or entity associated with the form.
    * @return name
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -278,10 +278,10 @@ public class W9FormRequest {
   }
 
   /**
-   * The classification of the business.
+   * The classification of the business.  Available values:  - Individual: Individual/sole proprietor  - C Corporation: C Corporation  - S Corporation: S Corporation  - Partnership: Partnership  - Trust/estate: Trust/estate  - LLC-C: Limited liability company (C Corporation)  - LLC-S: Limited liability company (S Corporation)  - LLC-P: Limited liability company (Partnership)  - Other: Other (requires BusinessOther field to be populated)
    * @return businessClassification
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getBusinessClassification() {
     return businessClassification;
   }
@@ -395,7 +395,7 @@ public class W9FormRequest {
    * The address of the individual or entity.
    * @return address
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getAddress() {
     return address;
   }
@@ -506,10 +506,10 @@ public class W9FormRequest {
   }
 
   /**
-   * The type of TIN provided.
+   * Tax Identification Number (TIN) type. SSN/ITIN (for individuals) and EIN (for businesses).
    * @return tinType
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getTinType() {
     return tinType;
   }
@@ -528,7 +528,7 @@ public class W9FormRequest {
    * The taxpayer identification number (TIN).
    * @return tin
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getTin() {
     return tin;
   }
@@ -620,10 +620,10 @@ public class W9FormRequest {
   }
 
   /**
-   * The ID of the associated company.
+   * The ID of the associated company. Required when creating a form.
    * @return companyId
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getCompanyId() {
     return companyId;
   }
@@ -782,7 +782,14 @@ public class W9FormRequest {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("companyId");
+    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("businessClassification");
+    openapiRequiredFields.add("address");
+    openapiRequiredFields.add("city");
+    openapiRequiredFields.add("state");
+    openapiRequiredFields.add("zip");
+    openapiRequiredFields.add("tinType");
+    openapiRequiredFields.add("tin");
   }
 
   /**
@@ -820,13 +827,13 @@ public class W9FormRequest {
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
         TypeEnum.validateJsonElement(jsonObj.get("type"));
       }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+      if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("businessName") != null && !jsonObj.get("businessName").isJsonNull()) && !jsonObj.get("businessName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `businessName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessName").toString()));
       }
-      if ((jsonObj.get("businessClassification") != null && !jsonObj.get("businessClassification").isJsonNull()) && !jsonObj.get("businessClassification").isJsonPrimitive()) {
+      if (!jsonObj.get("businessClassification").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `businessClassification` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessClassification").toString()));
       }
       if ((jsonObj.get("businessOther") != null && !jsonObj.get("businessOther").isJsonNull()) && !jsonObj.get("businessOther").isJsonPrimitive()) {
@@ -838,7 +845,7 @@ public class W9FormRequest {
       if ((jsonObj.get("exemptFatcaCode") != null && !jsonObj.get("exemptFatcaCode").isJsonNull()) && !jsonObj.get("exemptFatcaCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `exemptFatcaCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("exemptFatcaCode").toString()));
       }
-      if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
+      if (!jsonObj.get("address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
       }
       if ((jsonObj.get("foreignAddress") != null && !jsonObj.get("foreignAddress").isJsonNull()) && !jsonObj.get("foreignAddress").isJsonPrimitive()) {
@@ -856,16 +863,16 @@ public class W9FormRequest {
       if ((jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonNull()) && !jsonObj.get("accountNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
       }
-      if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
+      if (!jsonObj.get("tinType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tinType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tinType").toString()));
       }
-      if ((jsonObj.get("tin") != null && !jsonObj.get("tin").isJsonNull()) && !jsonObj.get("tin").isJsonPrimitive()) {
+      if (!jsonObj.get("tin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tin").toString()));
       }
       if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
       }
-      if (!jsonObj.get("companyId").isJsonPrimitive()) {
+      if ((jsonObj.get("companyId") != null && !jsonObj.get("companyId").isJsonNull()) && !jsonObj.get("companyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `companyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyId").toString()));
       }
       if ((jsonObj.get("referenceId") != null && !jsonObj.get("referenceId").isJsonNull()) && !jsonObj.get("referenceId").isJsonPrimitive()) {

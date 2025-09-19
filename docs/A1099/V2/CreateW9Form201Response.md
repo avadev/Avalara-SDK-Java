@@ -7,6 +7,39 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**type** | [**TypeEnum**](#TypeEnum) | The form type. |  [optional] [readonly] |
+|**employeeFirstName** | **String** | The first name of the employee. |  [optional] |
+|**employeeMiddleName** | **String** | The middle name of the employee. |  [optional] |
+|**employeeLastName** | **String** | The last name of the employee. |  [optional] |
+|**employeeNameSuffix** | **String** | The name suffix of the employee. |  [optional] |
+|**tinType** | **String** | Tax Identification Number (TIN) type. |  [optional] |
+|**tin** | **String** | The taxpayer identification number (TIN). |  [optional] |
+|**address** | **String** | The address of the individual or entity. |  [optional] |
+|**city** | **String** | The city of the address. |  [optional] |
+|**state** | **String** | The state of the address. |  [optional] |
+|**zip** | **String** | The ZIP code of the address. |  [optional] |
+|**maritalStatus** | **String** | The marital status of the employee. |  [optional] |
+|**lastNameDiffers** | **Boolean** | Indicates whether the last name differs from prior records. |  [optional] |
+|**numAllowances** | **Integer** | The number of allowances claimed by the employee. |  [optional] |
+|**otherDependents** | **Integer** | The number of dependents other than allowances. |  [optional] |
+|**nonJobIncome** | **Float** | The amount of non-job income. |  [optional] |
+|**deductions** | **Float** | The amount of deductions claimed. |  [optional] |
+|**additionalWithheld** | **Float** | The additional amount withheld. |  [optional] |
+|**exemptFromWithholding** | **Boolean** | Indicates whether the employee is exempt from withholding. |  [optional] |
+|**officeCode** | **String** | The office code associated with the form. |  [optional] |
+|**id** | **String** | The unique identifier for the form. |  [optional] |
+|**entryStatus** | [**EntryStatusResponse**](EntryStatusResponse.md) | The entry status information for the form. |  [optional] |
+|**referenceId** | **String** | A reference identifier for the form. |  [optional] |
+|**companyId** | **String** | The ID of the associated company. |  [optional] |
+|**displayName** | **String** | The display name associated with the form. |  [optional] |
+|**email** | **String** | The email address of the individual associated with the form. |  [optional] |
+|**archived** | **Boolean** | Indicates whether the form is archived. |  [optional] |
+|**ancestorId** | **String** | Form ID of previous version. |  [optional] |
+|**signature** | **String** | The signature of the form. |  [optional] |
+|**signedDate** | **OffsetDateTime** | The date the form was signed. |  [optional] |
+|**eDeliveryConsentedAt** | **OffsetDateTime** | The date when e-delivery was consented. |  [optional] |
+|**createdAt** | **OffsetDateTime** | The creation date of the form. |  [optional] |
+|**updatedAt** | **OffsetDateTime** | The last updated date of the form. |  [optional] |
 |**name** | **String** | The name of the individual or entity associated with the form. |  [optional] |
 |**citizenshipCountry** | **String** | The country of citizenship. |  [optional] |
 |**disregardedEntity** | **String** | The name of the disregarded entity receiving the payment (if applicable). |  [optional] |
@@ -24,8 +57,6 @@
 |**mailingState** | **String** | The state of the mailing address. |  [optional] |
 |**mailingZip** | **String** | The ZIP code of the mailing address. |  [optional] |
 |**mailingCountry** | **String** | The country of the mailing address. |  [optional] |
-|**tinType** | **String** | The type of TIN provided. |  [optional] |
-|**tin** | **String** | The taxpayer identification number (TIN). |  [optional] |
 |**giin** | **String** | The global intermediary identification number (GIIN). |  [optional] |
 |**foreignTinNotRequired** | **Boolean** | Indicates whether a foreign TIN is not required. |  [optional] |
 |**foreignTin** | **String** | The foreign taxpayer identification number (TIN). |  [optional] |
@@ -103,20 +134,6 @@
 |**substantialUsOwners** | [**List&lt;SubstantialUsOwnerResponse&gt;**](SubstantialUsOwnerResponse.md) | The list of substantial U.S. owners of passive NFFE. |  [optional] |
 |**signerName** | **String** | The name of the signer. |  [optional] |
 |**capacityToSignCertification** | **Boolean** | Certifies signer has the capacity to sign for the beneficial owner. |  [optional] |
-|**id** | **String** | The unique identifier for the form. |  [optional] |
-|**entryStatus** | [**EntryStatusResponse**](EntryStatusResponse.md) | The entry status information for the form. |  [optional] |
-|**referenceId** | **String** | A reference identifier for the form. |  [optional] |
-|**companyId** | **String** | The ID of the associated company. |  [optional] |
-|**displayName** | **String** | The display name associated with the form. |  [optional] |
-|**email** | **String** | The email address of the individual associated with the form. |  [optional] |
-|**archived** | **Boolean** | Indicates whether the form is archived. |  [optional] |
-|**ancestorId** | **String** | Form ID of previous version. |  [optional] |
-|**signature** | **String** | The signature of the form. |  [optional] |
-|**signedDate** | **OffsetDateTime** | The date the form was signed. |  [optional] |
-|**eDeliveryConsentedAt** | **OffsetDateTime** | The date when e-delivery was consented. |  [optional] |
-|**createdAt** | **OffsetDateTime** | The creation date of the form. |  [optional] |
-|**updatedAt** | **OffsetDateTime** | The last updated date of the form. |  [optional] |
-|**type** | **String** | The type of the response object. |  [optional] |
 |**birthday** | **LocalDate** | The birthday of the individual associated with the form. |  [optional] |
 |**signerCapacity** | **String** | The capacity in which the signer is signing the form. |  [optional] |
 |**qualifiedIntermediaryCertification** | **Boolean** | Certifies that the entity is a Qualified Intermediary (QI) acting in accordance with its QI Agreement,  providing required withholding statements and documentation for relevant tax withholding purposes. |  [optional] |
@@ -165,15 +182,23 @@
 |**exemptPayeeCode** | **String** | The exempt payee code. |  [optional] |
 |**exemptFatcaCode** | **String** | The exemption from FATCA reporting code. |  [optional] |
 |**foreignCountryIndicator** | **Boolean** | Indicates whether the individual or entity is in a foreign country. |  [optional] |
-|**address** | **String** | The address of the individual or entity. |  [optional] |
 |**foreignAddress** | **String** | The foreign address of the individual or entity. |  [optional] |
-|**city** | **String** | The city of the address. |  [optional] |
-|**state** | **String** | The state of the address. |  [optional] |
-|**zip** | **String** | The ZIP code of the address. |  [optional] |
 |**accountNumber** | **String** | The account number associated with the form. |  [optional] |
 |**backupWithholding** | **Boolean** | Indicates whether backup withholding applies. |  [optional] |
 |**is1099able** | **Boolean** | Indicates whether the individual or entity should be issued a 1099 form. |  [optional] |
 |**tinMatchStatus** | [**TinMatchStatusResponse**](TinMatchStatusResponse.md) | The TIN Match status from IRS. |  [optional] |
+
+
+
+## Enum: TypeEnum
+
+| Name | Value |
+|---- | -----|
+| W4 | &quot;W4&quot; |
+| W8_BEN | &quot;W8Ben&quot; |
+| W8_BEN_E | &quot;W8BenE&quot; |
+| W8_IMY | &quot;W8Imy&quot; |
+| W9 | &quot;W9&quot; |
 
 
 

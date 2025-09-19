@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**type** | [**TypeEnum**](#TypeEnum) | The form type. |  [optional] [readonly] |
-|**companyId** | **String** | The ID of the associated company. |  |
+|**companyId** | **String** | The ID of the associated company. Required when creating a form. |  [optional] |
 |**referenceId** | **String** | A reference identifier for the form. |  [optional] |
 |**email** | **String** | The email address of the individual associated with the form. |  [optional] |
 

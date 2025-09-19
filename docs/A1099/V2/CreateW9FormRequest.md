@@ -8,48 +8,48 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**type** | [**TypeEnum**](#TypeEnum) | The form type. |  [optional] [readonly] |
-|**name** | **String** | The name of the individual or entity associated with the form. |  [optional] |
+|**name** | **String** | The name of the individual or entity associated with the form. |  |
 |**businessName** | **String** | The name of the business associated with the form. |  [optional] |
-|**businessClassification** | **String** | The classification of the business. |  [optional] |
+|**businessClassification** | **String** | The classification of the business.  Available values:  - Individual: Individual/sole proprietor  - C Corporation: C Corporation  - S Corporation: S Corporation  - Partnership: Partnership  - Trust/estate: Trust/estate  - LLC-C: Limited liability company (C Corporation)  - LLC-S: Limited liability company (S Corporation)  - LLC-P: Limited liability company (Partnership)  - Other: Other (requires BusinessOther field to be populated) |  |
 |**businessOther** | **String** | The classification description when \&quot;businessClassification\&quot; is \&quot;Other\&quot;. |  [optional] |
 |**foreignPartnerOwnerOrBeneficiary** | **Boolean** | Indicates whether the individual is a foreign partner, owner, or beneficiary. |  [optional] |
 |**exemptPayeeCode** | **String** | The exempt payee code. |  [optional] |
 |**exemptFatcaCode** | **String** | The exemption from FATCA reporting code. |  [optional] |
 |**foreignCountryIndicator** | **Boolean** | Indicates whether the individual or entity is in a foreign country. |  [optional] |
-|**address** | **String** | The address of the employee. |  [optional] |
+|**address** | **String** | The address of the employee. Required unless exempt. |  |
 |**foreignAddress** | **String** | The foreign address of the individual or entity. |  [optional] |
-|**city** | **String** | The city of residence of the employee. |  [optional] |
-|**state** | **String** | The state of residence of the employee. |  [optional] |
-|**zip** | **String** | The ZIP code of residence of the employee. |  [optional] |
+|**city** | **String** | The city of residence of the employee. Required unless exempt. |  |
+|**state** | **String** | The state of residence of the employee. Required unless exempt. |  |
+|**zip** | **String** | The ZIP code of residence of the employee. Required unless exempt. |  |
 |**accountNumber** | **String** | The account number associated with the form. |  [optional] |
-|**tinType** | **String** | The type of TIN provided. |  [optional] |
-|**tin** | **String** | The taxpayer identification number (TIN). |  [optional] |
+|**tinType** | **String** | Tax Identification Number (TIN) type. |  |
+|**tin** | **String** | The taxpayer identification number (TIN). |  |
 |**backupWithholding** | **Boolean** | Indicates whether backup withholding applies. |  [optional] |
 |**is1099able** | **Boolean** | Indicates whether the individual or entity should be issued a 1099 form. |  [optional] |
 |**eDeliveryConsentedAt** | **OffsetDateTime** | The date when e-delivery was consented. |  [optional] |
 |**signature** | **String** | The signature of the form. |  [optional] |
-|**companyId** | **String** | The ID of the associated company. |  |
+|**companyId** | **String** | The ID of the associated company. Required when creating a form. |  [optional] |
 |**referenceId** | **String** | A reference identifier for the form. |  [optional] |
 |**email** | **String** | The email address of the individual associated with the form. |  [optional] |
-|**citizenshipCountry** | **String** | The country of citizenship. |  [optional] |
+|**citizenshipCountry** | **String** | The country of citizenship. |  |
 |**disregardedEntity** | **String** | The name of the disregarded entity receiving the payment (if applicable). |  [optional] |
-|**entityType** | **String** | The entity type. |  [optional] |
-|**fatcaStatus** | **String** | The FATCA status. |  [optional] |
+|**entityType** | **String** | The entity type.  Available values:  - 1: Corporation  - 2: Disregarded entity  - 3: Partnership  - 4: Simple trust  - 5: Grantor trust  - 6: Complex trust  - 7: Estate  - 8: Foreign Government - Controlled Entity  - 9: Central Bank of Issue  - 10: Tax-exempt organization  - 11: Private foundation  - 12: International organization  - 13: Foreign Government - Controlled Integral Part |  |
+|**fatcaStatus** | **String** | The FATCA status.  Available values:  - 1: Nonparticipating FFI (including a limited FFI or an FFI related to a Reporting IGA FFI other than a deemed-compliant FFI, participating FFI, or exempt beneficial owner)  - 2: Participating FFI  - 3: Reporting Model 1 FFI  - 4: Reporting Model 2 FFI  - 5: Registered deemed-compliant FFI (other than a reporting Model 1 FFI, sponsored FFI, or nonreporting IGA FFI covered in Part XII)  - 6: Sponsored FFI that has not obtained a GIIN  - 7: Certified deemed-compliant nonregistering local bank  - 8: Certified deemed-compliant FFI with only low-value accounts  - 9: Certified deemed-compliant sponsored, closely held investment vehicle  - 10: Certified deemed-compliant limited life debt investment entity  - 11: Certified deemed-compliant investment advisors and investment managers  - 12: Owner-documented FFI  - 13: Restricted distributor  - 14: Nonreporting IGA FFI  - 15: Foreign government, government of a U.S. possession, or foreign central bank of issue  - 16: International organization  - 17: Exempt retirement plans  - 18: Entity wholly owned by exempt beneficial owners  - 19: Territory financial institution  - 20: Nonfinancial group entity  - 21: Excepted nonfinancial start-up company  - 22: Excepted nonfinancial entity in liquidation or bankruptcy  - 23: 501(c) organization  - 24: Nonprofit organization  - 25: Publicly traded NFFE or NFFE affiliate of a publicly traded corporation  - 26: Excepted territory NFFE  - 27: Active NFFE  - 28: Passive NFFE  - 29: Excepted inter-affiliate FFI  - 30: Direct reporting NFFE  - 31: Sponsored direct reporting NFFE  - 32: Account that is not a financial account |  |
 |**residenceAddress** | **String** | The residential address of the individual or entity. |  [optional] |
 |**residenceCity** | **String** | The city of residence. |  [optional] |
 |**residenceState** | **String** | The state of residence. |  [optional] |
 |**residenceZip** | **String** | The ZIP code of the residence. |  [optional] |
-|**residenceCountry** | **String** | The country of residence. |  [optional] |
+|**residenceCountry** | **String** | The country of residence. |  |
 |**residenceIsMailing** | **Boolean** | Indicates whether the residence address is the mailing address. |  [optional] |
 |**mailingAddress** | **String** | The mailing address. |  [optional] |
 |**mailingCity** | **String** | The city of the mailing address. |  [optional] |
 |**mailingState** | **String** | The state of the mailing address. |  [optional] |
 |**mailingZip** | **String** | The ZIP code of the mailing address. |  [optional] |
-|**mailingCountry** | **String** | The country of the mailing address. |  [optional] |
+|**mailingCountry** | **String** | The country of the mailing address. |  |
 |**giin** | **String** | The global intermediary identification number (GIIN). |  [optional] |
 |**foreignTin** | **String** | The foreign taxpayer identification number (TIN). |  [optional] |
 |**referenceNumber** | **String** | A reference number for the form. |  [optional] |
-|**disregardedEntityFatcaStatus** | **String** | The FATCA status of disregarded entity or branch receiving payment. |  [optional] |
+|**disregardedEntityFatcaStatus** | **String** | The FATCA status of disregarded entity or branch receiving payment.  Available values:  - 1: Limited Branch  - 2: U.S. Branch  - 3: Participating FFI  - 4: Reporting Model 1 FFI  - 5: Reporting Model 2 FFI |  [optional] |
 |**disregardedAddress** | **String** | The address for disregarded entities. |  [optional] |
 |**disregardedCity** | **String** | The city for disregarded entities. |  [optional] |
 |**disregardedState** | **String** | The state for disregarded entities. |  [optional] |
@@ -113,7 +113,7 @@
 |**foreignCentralBankOfIssueCertification** | **Boolean** | Certifies that the entity is treated as the beneficial owner of the payment solely  for purposes of chapter 4 under Regulations section 1.1471-6(d)(4). |  [optional] |
 |**nonreportingIgaFfiCertification** | **Boolean** | Certifies that the entity meets the requirements to be considered a nonreporting financial institution to an applicable IGA. |  [optional] |
 |**igaCountry** | **String** | The country for the applicable IGA with the United States. |  [optional] |
-|**igaModel** | **String** | The applicable IGA model. |  [optional] |
+|**igaModel** | **String** | The applicable IGA model.  Available values:  - 1: Model 1 IGA  - 2: Model 2 IGA |  [optional] |
 |**igaLegalStatusTreatment** | **String** | Specifies how the applicable IGA is treated under the IGA provisions or Treasury regulations. |  [optional] |
 |**igaFfiTrusteeOrSponsor** | **String** | The trustee or sponsor name for the nonreporting IGA FFI. |  [optional] |
 |**igaFfiTrusteeIsForeign** | **Boolean** | Indicates whether the trustee for the nonreporting IGA FFI is foreign. |  [optional] |
@@ -144,7 +144,7 @@
 |**treatyCountryCertification** | **Boolean** | Certifies the beneficial owner&#39;s country under the U.S. tax treaty. |  [optional] |
 |**treatyCountry** | **String** | The country for which the treaty applies. |  [optional] |
 |**benefitLimitationCertification** | **Boolean** | Certifies that the beneficial owner is eligible for treaty benefits and meets any limitation on benefits requirements. |  [optional] |
-|**benefitLimitation** | **String** | The benefit limitation for tax treaty claims. |  [optional] |
+|**benefitLimitation** | **String** | The benefit limitation for tax treaty claims.  Available values:  - 1: Government  - 2: Tax exempt pension trust or pension fund  - 3: Other tax exempt organization  - 4: Publicly traded corporation  - 5: Subsidiary of a publicly traded corporation  - 6: Company that meets the ownership and base erosion test  - 7: Company that meets the derivative benefits test  - 8: Company with an item of income that meets active trade or business test  - 9: Favorable discretionary determination by the U.S. competent authority received  - 10: Other |  [optional] |
 |**qualifiedResidentStatusCertification** | **Boolean** | Certifies that the beneficial owner claims treaty benefits and meets the qualified resident status for specific U.S. source income. |  [optional] |
 |**treatyArticle** | **String** | The specific article of the treaty being claimed. |  [optional] |
 |**withholdingRate** | **String** | The withholding rate applied as per the treaty. |  [optional] |
@@ -164,11 +164,11 @@
 |**substantialUsOwners** | [**List&lt;SubstantialUsOwnerRequest&gt;**](SubstantialUsOwnerRequest.md) | The list of substantial U.S. owners of passive NFFE. |  [optional] |
 |**capacityToSignCertification** | **Boolean** | Certifies signer has the capacity to sign for the beneficial owner. |  [optional] |
 |**birthday** | **LocalDate** | The birthday of the individual associated with the form. |  [optional] |
-|**employeeFirstName** | **String** | The first name of the employee. |  [optional] |
+|**employeeFirstName** | **String** | The first name of the employee. |  |
 |**employeeMiddleName** | **String** | The middle name of the employee. |  [optional] |
-|**employeeLastName** | **String** | The last name of the employee. |  [optional] |
+|**employeeLastName** | **String** | The last name of the employee. |  |
 |**employeeNameSuffix** | **String** | The name suffix of the employee. |  [optional] |
-|**maritalStatus** | **String** | The marital status of the employee. |  [optional] |
+|**maritalStatus** | **String** | The marital status of the employee. Required unless exempt.  Available values:  - Single: Single or Married filing separately  - Married: Married filing jointly or qualifying surviving spouse  - MarriedBut: Head of household. Check only if you&#39;re unmarried and pay more than half the costs of keeping up a home for yourself and a qualifying individual. |  [optional] |
 |**lastNameDiffers** | **Boolean** | Indicates whether the last name differs from prior records. |  [optional] |
 |**numAllowances** | **Integer** | The number of allowances claimed by the employee. |  [optional] |
 |**otherDependents** | **Integer** | The number of dependents other than allowances. |  [optional] |

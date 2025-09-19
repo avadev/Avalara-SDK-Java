@@ -22,7 +22,6 @@ package Avalara.SDK.model.A1099.V2;
 import java.util.Objects;
 import Avalara.SDK.model.A1099.V2.EntryStatusResponse;
 import Avalara.SDK.model.A1099.V2.TinMatchStatusResponse;
-import Avalara.SDK.model.A1099.V2.W9FormBaseResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -61,7 +60,69 @@ import Avalara.SDK.JSON;
  * W9FormResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
-public class W9FormResponse extends W9FormBaseResponse {
+public class W9FormResponse {
+  /**
+   * The form type (always \&quot;W9\&quot; for this model).
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    W4("W4"),
+    
+    W8_BEN("W8Ben"),
+    
+    W8_BEN_E("W8BenE"),
+    
+    W8_IMY("W8Imy"),
+    
+    W9("W9");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      TypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private TypeEnum type;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -138,9 +199,78 @@ public class W9FormResponse extends W9FormBaseResponse {
   @SerializedName(SERIALIZED_NAME_TIN_MATCH_STATUS)
   private TinMatchStatusResponse tinMatchStatus;
 
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
+  public static final String SERIALIZED_NAME_ENTRY_STATUS = "entryStatus";
+  @SerializedName(SERIALIZED_NAME_ENTRY_STATUS)
+  private EntryStatusResponse entryStatus;
+
+  public static final String SERIALIZED_NAME_REFERENCE_ID = "referenceId";
+  @SerializedName(SERIALIZED_NAME_REFERENCE_ID)
+  private String referenceId;
+
+  public static final String SERIALIZED_NAME_COMPANY_ID = "companyId";
+  @SerializedName(SERIALIZED_NAME_COMPANY_ID)
+  private String companyId;
+
+  public static final String SERIALIZED_NAME_DISPLAY_NAME = "displayName";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
+  private String displayName;
+
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
+
+  public static final String SERIALIZED_NAME_ARCHIVED = "archived";
+  @SerializedName(SERIALIZED_NAME_ARCHIVED)
+  private Boolean archived;
+
+  public static final String SERIALIZED_NAME_ANCESTOR_ID = "ancestorId";
+  @SerializedName(SERIALIZED_NAME_ANCESTOR_ID)
+  private String ancestorId;
+
+  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
+  @SerializedName(SERIALIZED_NAME_SIGNATURE)
+  private String signature;
+
+  public static final String SERIALIZED_NAME_SIGNED_DATE = "signedDate";
+  @SerializedName(SERIALIZED_NAME_SIGNED_DATE)
+  private OffsetDateTime signedDate;
+
+  public static final String SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT = "eDeliveryConsentedAt";
+  @SerializedName(SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT)
+  private OffsetDateTime eDeliveryConsentedAt;
+
+  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private OffsetDateTime updatedAt;
+
   public W9FormResponse() {
-    this.type = this.getClass().getSimpleName();
   }
+
+  public W9FormResponse(
+     TypeEnum type
+  ) {
+    this();
+    this.type = type;
+  }
+
+  /**
+   * The form type (always \&quot;W9\&quot; for this model).
+   * @return type
+   */
+  @javax.annotation.Nullable
+  public TypeEnum getType() {
+    return type;
+  }
+
+
 
   public W9FormResponse name(String name) {
     this.name = name;
@@ -414,7 +544,7 @@ public class W9FormResponse extends W9FormBaseResponse {
   }
 
   /**
-   * The type of TIN provided.
+   * Tax Identification Number (TIN) type.
    * @return tinType
    */
   @javax.annotation.Nullable
@@ -503,6 +633,253 @@ public class W9FormResponse extends W9FormBaseResponse {
   }
 
 
+  public W9FormResponse id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The unique identifier for the form.
+   * @return id
+   */
+  @javax.annotation.Nullable
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+
+  public W9FormResponse entryStatus(EntryStatusResponse entryStatus) {
+    this.entryStatus = entryStatus;
+    return this;
+  }
+
+  /**
+   * The entry status information for the form.
+   * @return entryStatus
+   */
+  @javax.annotation.Nullable
+  public EntryStatusResponse getEntryStatus() {
+    return entryStatus;
+  }
+
+  public void setEntryStatus(EntryStatusResponse entryStatus) {
+    this.entryStatus = entryStatus;
+  }
+
+
+  public W9FormResponse referenceId(String referenceId) {
+    this.referenceId = referenceId;
+    return this;
+  }
+
+  /**
+   * A reference identifier for the form.
+   * @return referenceId
+   */
+  @javax.annotation.Nullable
+  public String getReferenceId() {
+    return referenceId;
+  }
+
+  public void setReferenceId(String referenceId) {
+    this.referenceId = referenceId;
+  }
+
+
+  public W9FormResponse companyId(String companyId) {
+    this.companyId = companyId;
+    return this;
+  }
+
+  /**
+   * The ID of the associated company.
+   * @return companyId
+   */
+  @javax.annotation.Nullable
+  public String getCompanyId() {
+    return companyId;
+  }
+
+  public void setCompanyId(String companyId) {
+    this.companyId = companyId;
+  }
+
+
+  public W9FormResponse displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+  /**
+   * The display name associated with the form.
+   * @return displayName
+   */
+  @javax.annotation.Nullable
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
+  }
+
+
+  public W9FormResponse email(String email) {
+    this.email = email;
+    return this;
+  }
+
+  /**
+   * The email address of the individual associated with the form.
+   * @return email
+   */
+  @javax.annotation.Nullable
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+
+  public W9FormResponse archived(Boolean archived) {
+    this.archived = archived;
+    return this;
+  }
+
+  /**
+   * Indicates whether the form is archived.
+   * @return archived
+   */
+  @javax.annotation.Nullable
+  public Boolean getArchived() {
+    return archived;
+  }
+
+  public void setArchived(Boolean archived) {
+    this.archived = archived;
+  }
+
+
+  public W9FormResponse ancestorId(String ancestorId) {
+    this.ancestorId = ancestorId;
+    return this;
+  }
+
+  /**
+   * Form ID of previous version.
+   * @return ancestorId
+   */
+  @javax.annotation.Nullable
+  public String getAncestorId() {
+    return ancestorId;
+  }
+
+  public void setAncestorId(String ancestorId) {
+    this.ancestorId = ancestorId;
+  }
+
+
+  public W9FormResponse signature(String signature) {
+    this.signature = signature;
+    return this;
+  }
+
+  /**
+   * The signature of the form.
+   * @return signature
+   */
+  @javax.annotation.Nullable
+  public String getSignature() {
+    return signature;
+  }
+
+  public void setSignature(String signature) {
+    this.signature = signature;
+  }
+
+
+  public W9FormResponse signedDate(OffsetDateTime signedDate) {
+    this.signedDate = signedDate;
+    return this;
+  }
+
+  /**
+   * The date the form was signed.
+   * @return signedDate
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getSignedDate() {
+    return signedDate;
+  }
+
+  public void setSignedDate(OffsetDateTime signedDate) {
+    this.signedDate = signedDate;
+  }
+
+
+  public W9FormResponse eDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
+    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
+    return this;
+  }
+
+  /**
+   * The date when e-delivery was consented.
+   * @return eDeliveryConsentedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime geteDeliveryConsentedAt() {
+    return eDeliveryConsentedAt;
+  }
+
+  public void seteDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
+    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
+  }
+
+
+  public W9FormResponse createdAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+  /**
+   * The creation date of the form.
+   * @return createdAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public W9FormResponse updatedAt(OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+  /**
+   * The last updated date of the form.
+   * @return updatedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -513,7 +890,8 @@ public class W9FormResponse extends W9FormBaseResponse {
       return false;
     }
     W9FormResponse w9FormResponse = (W9FormResponse) o;
-    return Objects.equals(this.name, w9FormResponse.name) &&
+    return Objects.equals(this.type, w9FormResponse.type) &&
+        Objects.equals(this.name, w9FormResponse.name) &&
         Objects.equals(this.businessName, w9FormResponse.businessName) &&
         Objects.equals(this.businessClassification, w9FormResponse.businessClassification) &&
         Objects.equals(this.businessOther, w9FormResponse.businessOther) &&
@@ -532,7 +910,19 @@ public class W9FormResponse extends W9FormBaseResponse {
         Objects.equals(this.backupWithholding, w9FormResponse.backupWithholding) &&
         Objects.equals(this.is1099able, w9FormResponse.is1099able) &&
         Objects.equals(this.tinMatchStatus, w9FormResponse.tinMatchStatus) &&
-        super.equals(o);
+        Objects.equals(this.id, w9FormResponse.id) &&
+        Objects.equals(this.entryStatus, w9FormResponse.entryStatus) &&
+        Objects.equals(this.referenceId, w9FormResponse.referenceId) &&
+        Objects.equals(this.companyId, w9FormResponse.companyId) &&
+        Objects.equals(this.displayName, w9FormResponse.displayName) &&
+        Objects.equals(this.email, w9FormResponse.email) &&
+        Objects.equals(this.archived, w9FormResponse.archived) &&
+        Objects.equals(this.ancestorId, w9FormResponse.ancestorId) &&
+        Objects.equals(this.signature, w9FormResponse.signature) &&
+        Objects.equals(this.signedDate, w9FormResponse.signedDate) &&
+        Objects.equals(this.eDeliveryConsentedAt, w9FormResponse.eDeliveryConsentedAt) &&
+        Objects.equals(this.createdAt, w9FormResponse.createdAt) &&
+        Objects.equals(this.updatedAt, w9FormResponse.updatedAt);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -541,7 +931,7 @@ public class W9FormResponse extends W9FormBaseResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, businessName, businessClassification, businessOther, foreignPartnerOwnerOrBeneficiary, exemptPayeeCode, exemptFatcaCode, foreignCountryIndicator, address, foreignAddress, city, state, zip, accountNumber, tinType, tin, backupWithholding, is1099able, tinMatchStatus, super.hashCode());
+    return Objects.hash(type, name, businessName, businessClassification, businessOther, foreignPartnerOwnerOrBeneficiary, exemptPayeeCode, exemptFatcaCode, foreignCountryIndicator, address, foreignAddress, city, state, zip, accountNumber, tinType, tin, backupWithholding, is1099able, tinMatchStatus, id, entryStatus, referenceId, companyId, displayName, email, archived, ancestorId, signature, signedDate, eDeliveryConsentedAt, createdAt, updatedAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -555,7 +945,7 @@ public class W9FormResponse extends W9FormBaseResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class W9FormResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    businessName: ").append(toIndentedString(businessName)).append("\n");
     sb.append("    businessClassification: ").append(toIndentedString(businessClassification)).append("\n");
@@ -575,6 +965,19 @@ public class W9FormResponse extends W9FormBaseResponse {
     sb.append("    backupWithholding: ").append(toIndentedString(backupWithholding)).append("\n");
     sb.append("    is1099able: ").append(toIndentedString(is1099able)).append("\n");
     sb.append("    tinMatchStatus: ").append(toIndentedString(tinMatchStatus)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    entryStatus: ").append(toIndentedString(entryStatus)).append("\n");
+    sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
+    sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    archived: ").append(toIndentedString(archived)).append("\n");
+    sb.append("    ancestorId: ").append(toIndentedString(ancestorId)).append("\n");
+    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
+    sb.append("    signedDate: ").append(toIndentedString(signedDate)).append("\n");
+    sb.append("    eDeliveryConsentedAt: ").append(toIndentedString(eDeliveryConsentedAt)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -597,6 +1000,7 @@ public class W9FormResponse extends W9FormBaseResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("type");
     openapiFields.add("id");
     openapiFields.add("entryStatus");
     openapiFields.add("referenceId");
@@ -610,7 +1014,6 @@ public class W9FormResponse extends W9FormBaseResponse {
     openapiFields.add("eDeliveryConsentedAt");
     openapiFields.add("createdAt");
     openapiFields.add("updatedAt");
-    openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -635,6 +1038,85 @@ public class W9FormResponse extends W9FormBaseResponse {
         if (!W9FormResponse.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `W9FormResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      // validate the optional field `type`
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
+        TypeEnum.validateJsonElement(jsonObj.get("type"));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("businessName") != null && !jsonObj.get("businessName").isJsonNull()) && !jsonObj.get("businessName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `businessName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessName").toString()));
+      }
+      if ((jsonObj.get("businessClassification") != null && !jsonObj.get("businessClassification").isJsonNull()) && !jsonObj.get("businessClassification").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `businessClassification` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessClassification").toString()));
+      }
+      if ((jsonObj.get("businessOther") != null && !jsonObj.get("businessOther").isJsonNull()) && !jsonObj.get("businessOther").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `businessOther` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessOther").toString()));
+      }
+      if ((jsonObj.get("exemptPayeeCode") != null && !jsonObj.get("exemptPayeeCode").isJsonNull()) && !jsonObj.get("exemptPayeeCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `exemptPayeeCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("exemptPayeeCode").toString()));
+      }
+      if ((jsonObj.get("exemptFatcaCode") != null && !jsonObj.get("exemptFatcaCode").isJsonNull()) && !jsonObj.get("exemptFatcaCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `exemptFatcaCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("exemptFatcaCode").toString()));
+      }
+      if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
+      }
+      if ((jsonObj.get("foreignAddress") != null && !jsonObj.get("foreignAddress").isJsonNull()) && !jsonObj.get("foreignAddress").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `foreignAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("foreignAddress").toString()));
+      }
+      if ((jsonObj.get("city") != null && !jsonObj.get("city").isJsonNull()) && !jsonObj.get("city").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
+      }
+      if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
+      }
+      if ((jsonObj.get("zip") != null && !jsonObj.get("zip").isJsonNull()) && !jsonObj.get("zip").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `zip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zip").toString()));
+      }
+      if ((jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonNull()) && !jsonObj.get("accountNumber").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
+      }
+      if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tinType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tinType").toString()));
+      }
+      if ((jsonObj.get("tin") != null && !jsonObj.get("tin").isJsonNull()) && !jsonObj.get("tin").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tin").toString()));
+      }
+      // validate the optional field `tinMatchStatus`
+      if (jsonObj.get("tinMatchStatus") != null && !jsonObj.get("tinMatchStatus").isJsonNull()) {
+        TinMatchStatusResponse.validateJsonElement(jsonObj.get("tinMatchStatus"));
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      // validate the optional field `entryStatus`
+      if (jsonObj.get("entryStatus") != null && !jsonObj.get("entryStatus").isJsonNull()) {
+        EntryStatusResponse.validateJsonElement(jsonObj.get("entryStatus"));
+      }
+      if ((jsonObj.get("referenceId") != null && !jsonObj.get("referenceId").isJsonNull()) && !jsonObj.get("referenceId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `referenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referenceId").toString()));
+      }
+      if ((jsonObj.get("companyId") != null && !jsonObj.get("companyId").isJsonNull()) && !jsonObj.get("companyId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `companyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyId").toString()));
+      }
+      if ((jsonObj.get("displayName") != null && !jsonObj.get("displayName").isJsonNull()) && !jsonObj.get("displayName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `displayName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayName").toString()));
+      }
+      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      }
+      if ((jsonObj.get("ancestorId") != null && !jsonObj.get("ancestorId").isJsonNull()) && !jsonObj.get("ancestorId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ancestorId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ancestorId").toString()));
+      }
+      if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
       }
   }
 

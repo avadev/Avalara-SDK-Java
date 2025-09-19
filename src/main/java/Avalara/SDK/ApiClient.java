@@ -1224,10 +1224,18 @@ public class ApiClient {
         String contentType = headerParams.get("Content-Type");
 
         // Set X-Avalara-Client header
-        String clientId = this.configuration.getAppName() + "; " + this.configuration.getAppVersion()
+        String sdkClientHeader = this.configuration.getAppName() + "; " + this.configuration.getAppVersion()
                 + "; JavaRestClient; " + this.sdkVersion + "; "
                 + this.configuration.getMachineName();
-        headerParams.put(AVALARA_CLIENT_HEADER, clientId);
+
+        // Always set X-Avalara-SDK-Client to SDK info
+        headerParams.put("X-Avalara-SDK-Client", sdkClientHeader);
+
+        // If X-Avalara-Client is null/empty, set it to SDK info as well
+        if (!headerParams.containsKey(AVALARA_CLIENT_HEADER) || headerParams.get(AVALARA_CLIENT_HEADER) == null
+                || headerParams.get(AVALARA_CLIENT_HEADER).trim().isEmpty()) {
+            headerParams.put(AVALARA_CLIENT_HEADER, sdkClientHeader);
+        }
         if (headerParams.get(AVALARA_VERSION) == null) {
             headerParams.put(AVALARA_VERSION, "2.0");
         }

@@ -39,10 +39,8 @@ import java.util.*;
 import Avalara.SDK.model.A1099.V2.CreateAndSendW9FormEmailRequest;
 import Avalara.SDK.model.A1099.V2.CreateW9Form201Response;
 import Avalara.SDK.model.A1099.V2.CreateW9FormRequest;
-import Avalara.SDK.model.A1099.V2.ErrorModel;
 import Avalara.SDK.model.A1099.V2.ErrorResponse;
 import java.io.File;
-import Avalara.SDK.model.A1099.V2.IW9FormDataModelsOneOf;
 import Avalara.SDK.model.A1099.V2.PaginatedQueryResultModelW9FormBaseResponse;
 
 import java.lang.reflect.Type;
@@ -275,7 +273,7 @@ public class FormsW9Api {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., missing required field) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
      */
@@ -363,7 +361,7 @@ public class FormsW9Api {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., missing required field) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
      */
@@ -382,7 +380,7 @@ public class FormsW9Api {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., missing required field) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
      */
@@ -403,7 +401,7 @@ public class FormsW9Api {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., missing required field) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
      */
@@ -459,8 +457,8 @@ public class FormsW9Api {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Empty response </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteW9FormCall(DeleteW9FormRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -552,8 +550,8 @@ public class FormsW9Api {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Empty response </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
     public void deleteW9Form(DeleteW9FormRequest requestParameters) throws ApiException {
@@ -570,8 +568,8 @@ public class FormsW9Api {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Empty response </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> deleteW9FormWithHttpInfo(DeleteW9FormRequest requestParameters) throws ApiException {
@@ -590,8 +588,8 @@ public class FormsW9Api {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Empty response </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteW9FormAsync(DeleteW9FormRequest requestParameters, final ApiCallback<Void> _callback) throws ApiException {
@@ -834,9 +832,9 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> list </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> list </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listW9FormsCall(ListW9FormsRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -946,9 +944,9 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> list </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> list </td><td>  -  </td></tr>
      </table>
      */
     public PaginatedQueryResultModelW9FormBaseResponse listW9Forms(ListW9FormsRequest requestParameters) throws ApiException {
@@ -965,9 +963,9 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> list </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> list </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<PaginatedQueryResultModelW9FormBaseResponse> listW9FormsWithHttpInfo(ListW9FormsRequest requestParameters) throws ApiException {
@@ -986,9 +984,9 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> list </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> list </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listW9FormsAsync(ListW9FormsRequest requestParameters, final ApiCallback<PaginatedQueryResultModelW9FormBaseResponse> _callback) throws ApiException {
@@ -1064,8 +1062,9 @@ public class FormsW9Api {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Email sent using existing form (form was already in &#39;Requested&#39; status or descendant found) </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Email sent using newly created minimal form </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., missing vendor e-mail) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call sendW9FormEmailCall(SendW9FormEmailRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -1150,7 +1149,7 @@ public class FormsW9Api {
 
     /**
      * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form
-     * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.   If the form is not in &#39;Requested&#39; status, it will either use an existing descendant form   in &#39;Requested&#39; status or create a new minimal form and send the email request.
+     * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.  If the form is not in &#39;Requested&#39; status, it will either use an existing descendant form  in &#39;Requested&#39; status or create a new minimal form and send the email request.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return CreateW9Form201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1159,8 +1158,9 @@ public class FormsW9Api {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Email sent using existing form (form was already in &#39;Requested&#39; status or descendant found) </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Email sent using newly created minimal form </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., missing vendor e-mail) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
     public CreateW9Form201Response sendW9FormEmail(SendW9FormEmailRequest requestParameters) throws ApiException {
@@ -1170,7 +1170,7 @@ public class FormsW9Api {
 
     /**
      * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form
-     * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.   If the form is not in &#39;Requested&#39; status, it will either use an existing descendant form   in &#39;Requested&#39; status or create a new minimal form and send the email request.
+     * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.  If the form is not in &#39;Requested&#39; status, it will either use an existing descendant form  in &#39;Requested&#39; status or create a new minimal form and send the email request.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;CreateW9Form201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1179,8 +1179,9 @@ public class FormsW9Api {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Email sent using existing form (form was already in &#39;Requested&#39; status or descendant found) </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Email sent using newly created minimal form </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., missing vendor e-mail) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CreateW9Form201Response> sendW9FormEmailWithHttpInfo(SendW9FormEmailRequest requestParameters) throws ApiException {
@@ -1191,7 +1192,7 @@ public class FormsW9Api {
 
     /**
      * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form (asynchronously)
-     * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.   If the form is not in &#39;Requested&#39; status, it will either use an existing descendant form   in &#39;Requested&#39; status or create a new minimal form and send the email request.
+     * Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.  If the form is not in &#39;Requested&#39; status, it will either use an existing descendant form  in &#39;Requested&#39; status or create a new minimal form and send the email request.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1201,8 +1202,9 @@ public class FormsW9Api {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Email sent using existing form (form was already in &#39;Requested&#39; status or descendant found) </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Email sent using newly created minimal form </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., missing vendor e-mail) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call sendW9FormEmailAsync(SendW9FormEmailRequest requestParameters, final ApiCallback<CreateW9Form201Response> _callback) throws ApiException {
@@ -1257,7 +1259,7 @@ public class FormsW9Api {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The updated W9/W4/W8 form </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., missing required field) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
@@ -1280,7 +1282,7 @@ public class FormsW9Api {
             basePath = null;
         }
 
-        Object localVarPostBody = requestParameters.getIw9FormDataModelsOneOf();
+        Object localVarPostBody = requestParameters.getCreateW9FormRequest();
 
         // create path and map variables
         String localVarPath = "/w9/forms/{id}"
@@ -1346,19 +1348,19 @@ public class FormsW9Api {
      * Update a W9/W4/W8 form
      * Update a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return IW9FormDataModelsOneOf
+     * @return CreateW9Form201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The updated W9/W4/W8 form </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., missing required field) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
-    public IW9FormDataModelsOneOf updateW9Form(UpdateW9FormRequest requestParameters) throws ApiException {
-        ApiResponse<IW9FormDataModelsOneOf> localVarResp = updateW9FormWithHttpInfo(requestParameters);
+    public CreateW9Form201Response updateW9Form(UpdateW9FormRequest requestParameters) throws ApiException {
+        ApiResponse<CreateW9Form201Response> localVarResp = updateW9FormWithHttpInfo(requestParameters);
         return localVarResp.getData();
     }
 
@@ -1366,20 +1368,20 @@ public class FormsW9Api {
      * Update a W9/W4/W8 form
      * Update a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return ApiResponse&lt;IW9FormDataModelsOneOf&gt;
+     * @return ApiResponse&lt;CreateW9Form201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The updated W9/W4/W8 form </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., missing required field) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IW9FormDataModelsOneOf> updateW9FormWithHttpInfo(UpdateW9FormRequest requestParameters) throws ApiException {
+    public ApiResponse<CreateW9Form201Response> updateW9FormWithHttpInfo(UpdateW9FormRequest requestParameters) throws ApiException {
         okhttp3.Call localVarCall = updateW9FormValidateBeforeCall(requestParameters, null);
-        Type localVarReturnType = new TypeToken<IW9FormDataModelsOneOf>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateW9Form201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1394,15 +1396,15 @@ public class FormsW9Api {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The updated W9/W4/W8 form </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., missing required field) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateW9FormAsync(UpdateW9FormRequest requestParameters, final ApiCallback<IW9FormDataModelsOneOf> _callback) throws ApiException {
+    public okhttp3.Call updateW9FormAsync(UpdateW9FormRequest requestParameters, final ApiCallback<CreateW9Form201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateW9FormValidateBeforeCall(requestParameters, _callback);
-        Type localVarReturnType = new TypeToken<IW9FormDataModelsOneOf>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateW9Form201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1413,14 +1415,14 @@ public class FormsW9Api {
     * @param avalaraVersion API version</param>
     * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
     * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
-    * @param iw9FormDataModelsOneOf Form to be updated (optional)</param>
+    * @param createW9FormRequest Form to be updated (optional)</param>
     */
     public class UpdateW9FormRequest {
         private String id;
         private String avalaraVersion;
         private String xCorrelationId;
         private String xAvalaraClient;
-        private IW9FormDataModelsOneOf iw9FormDataModelsOneOf;
+        private CreateW9FormRequest createW9FormRequest;
 
         public UpdateW9FormRequest () {
         }
@@ -1433,8 +1435,8 @@ public class FormsW9Api {
         public void setXCorrelationId(String xCorrelationId) { this.xCorrelationId = xCorrelationId; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
-        public IW9FormDataModelsOneOf getIw9FormDataModelsOneOf() { return iw9FormDataModelsOneOf; }
-        public void setIw9FormDataModelsOneOf(IW9FormDataModelsOneOf iw9FormDataModelsOneOf) { this.iw9FormDataModelsOneOf = iw9FormDataModelsOneOf; }
+        public CreateW9FormRequest getCreateW9FormRequest() { return createW9FormRequest; }
+        public void setCreateW9FormRequest(CreateW9FormRequest createW9FormRequest) { this.createW9FormRequest = createW9FormRequest; }
     }
 
     /**
@@ -1455,9 +1457,9 @@ public class FormsW9Api {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., Only .pdf files are allowed.) </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., only .pdf files are allowed.) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call uploadW9FilesCall(UploadW9FilesRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -1553,9 +1555,9 @@ public class FormsW9Api {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., Only .pdf files are allowed.) </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., only .pdf files are allowed.) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
     public void uploadW9Files(UploadW9FilesRequest requestParameters) throws ApiException {
@@ -1572,9 +1574,9 @@ public class FormsW9Api {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., Only .pdf files are allowed.) </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., only .pdf files are allowed.) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> uploadW9FilesWithHttpInfo(UploadW9FilesRequest requestParameters) throws ApiException {
@@ -1593,9 +1595,9 @@ public class FormsW9Api {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., Only .pdf files are allowed.) </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., only .pdf files are allowed.) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call uploadW9FilesAsync(UploadW9FilesRequest requestParameters, final ApiCallback<Void> _callback) throws ApiException {
@@ -1645,7 +1647,7 @@ public class FormsW9Api {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.8.3");
+        this.localVarApiClient.setSdkVersion("25.9.0");
     }
 }
 

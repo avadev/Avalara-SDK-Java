@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createIssuer
 
-> IssuerResponse createIssuer(avalaraVersion, xCorrelationId, xAvalaraClient, createIssuerRequest)
+> IssuerResponse createIssuer(avalaraVersion, xCorrelationId, xAvalaraClient, issuerRequest)
 
 Create an issuer
 
@@ -49,11 +49,11 @@ public class Example {
 
         Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "26a8ae54-5655-49b3-b01a-f4203094a5ef"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "5c70e4f3-3885-4757-84f3-86323c1af033"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-        CreateIssuerRequest createIssuerRequest = new CreateIssuerRequest(); // CreateIssuerRequest | The issuer to create
+        IssuerRequest issuerRequest = new IssuerRequest(); // IssuerRequest | The issuer to create
         try {
-            IssuerResponse result = apiInstance.createIssuer(avalaraVersion, xCorrelationId, xAvalaraClient, createIssuerRequest);
+            IssuerResponse result = apiInstance.createIssuer(avalaraVersion, xCorrelationId, xAvalaraClient, issuerRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling Issuers1099Api#createIssuer");
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
  **avalaraVersion** | **String**| API version |
  **xCorrelationId** | **String**| Unique correlation Id in a GUID format | [optional]
  **xAvalaraClient** | **String**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
- **createIssuerRequest** | [**CreateIssuerRequest**](CreateIssuerRequest.md)| The issuer to create | [optional]
+ **issuerRequest** | [**IssuerRequest**](IssuerRequest.md)| The issuer to create | [optional]
 
 ### Return type
 
@@ -136,7 +136,7 @@ public class Example {
         Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
         String id = "id_example"; // String | Id of the issuer to delete
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "b8d102b3-3e63-4e6e-9735-25f17b0c69a7"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "ebe59aa0-745c-44da-b86b-67ad7994619c"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             apiInstance.deleteIssuer(id, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -221,7 +221,7 @@ public class Example {
         Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
         String id = "id_example"; // String | Id of the issuer to retrieve
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "fc90ea70-0e20-46ed-a73c-80e99e89f3d5"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "cfc604e9-15ae-4c65-a59f-123475fad2ef"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             IssuerResponse result = apiInstance.getIssuer(id, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -312,7 +312,7 @@ public class Example {
         String $orderBy = "$orderBy_example"; // String | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
         Boolean count = true; // Boolean | If true, return the global count of elements in the collection.
         Boolean countOnly = true; // Boolean | If true, return ONLY the global count of elements in the collection.  It only applies when count=true.
-        String xCorrelationId = "8c33cfd6-f102-4192-9001-24fed7baee29"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "3302a30f-61fc-4b94-af04-c683c6064eed"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             PaginatedQueryResultModelIssuerResponse result = apiInstance.getIssuers(avalaraVersion, $filter, $top, $skip, $orderBy, count, countOnly, xCorrelationId, xAvalaraClient);
@@ -369,7 +369,7 @@ Name | Type | Description  | Notes
 
 ## updateIssuer
 
-> updateIssuer(id, avalaraVersion, xCorrelationId, xAvalaraClient, createIssuerRequest)
+> updateIssuer(id, avalaraVersion, xCorrelationId, xAvalaraClient, issuerRequest)
 
 Update an issuer
 
@@ -405,11 +405,11 @@ public class Example {
         Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
         String id = "id_example"; // String | Id of the issuer to update
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "c353a7ba-0386-49f8-97a8-378cd39452ea"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "4f30c58e-f8fd-4635-99d4-ea710f1d0182"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
-        CreateIssuerRequest createIssuerRequest = new CreateIssuerRequest(); // CreateIssuerRequest | The issuer to update
+        IssuerRequest issuerRequest = new IssuerRequest(); // IssuerRequest | The issuer to update
         try {
-            apiInstance.updateIssuer(id, avalaraVersion, xCorrelationId, xAvalaraClient, createIssuerRequest);
+            apiInstance.updateIssuer(id, avalaraVersion, xCorrelationId, xAvalaraClient, issuerRequest);
         } catch (ApiException e) {
             System.err.println("Exception when calling Issuers1099Api#updateIssuer");
             System.err.println("Status code: " + e.getCode());
@@ -430,7 +430,7 @@ Name | Type | Description  | Notes
  **avalaraVersion** | **String**| API version |
  **xCorrelationId** | **String**| Unique correlation Id in a GUID format | [optional]
  **xAvalaraClient** | **String**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
- **createIssuerRequest** | [**CreateIssuerRequest**](CreateIssuerRequest.md)| The issuer to update | [optional]
+ **issuerRequest** | [**IssuerRequest**](IssuerRequest.md)| The issuer to update | [optional]
 
 ### Return type
 
