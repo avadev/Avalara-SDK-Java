@@ -75,7 +75,7 @@ public class ErrorResponseItem {
   }
 
   /**
-   * Get type
+   * An identifier for this occurrence of the problem.  It is the name of a request&#39;s field when specific to that field.  Otherwise, for other types of errors, its value is empty.
    * @return type
    */
   @javax.annotation.Nullable
@@ -94,7 +94,7 @@ public class ErrorResponseItem {
   }
 
   /**
-   * Get detail
+   * An explanation specific to this occurrence of the problem.
    * @return detail
    */
   @javax.annotation.Nullable

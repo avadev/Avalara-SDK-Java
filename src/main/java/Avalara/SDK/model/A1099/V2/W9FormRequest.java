@@ -129,9 +129,75 @@ public class W9FormRequest {
   @SerializedName(SERIALIZED_NAME_BUSINESS_NAME)
   private String businessName;
 
+  /**
+   * The classification of the business.  Available values:  - Individual: Individual/sole proprietor  - C Corporation: C Corporation  - S Corporation: S Corporation  - Partnership: Partnership  - Trust/estate: Trust/estate  - LLC-C: Limited liability company (C Corporation)  - LLC-S: Limited liability company (S Corporation)  - LLC-P: Limited liability company (Partnership)  - Other: Other (requires BusinessOther field to be populated)
+   */
+  @JsonAdapter(BusinessClassificationEnum.Adapter.class)
+  public enum BusinessClassificationEnum {
+    INDIVIDUAL("Individual"),
+    
+    C_CORPORATION("CCorporation"),
+    
+    S_CORPORATION("SCorporation"),
+    
+    PARTNERSHIP("Partnership"),
+    
+    TRUST_ESTATE("TrustEstate"),
+    
+    LLC_C("LlcC"),
+    
+    LLC_S("LlcS"),
+    
+    LLC_P("LlcP"),
+    
+    OTHER("Other");
+
+    private String value;
+
+    BusinessClassificationEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static BusinessClassificationEnum fromValue(String value) {
+      for (BusinessClassificationEnum b : BusinessClassificationEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<BusinessClassificationEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BusinessClassificationEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public BusinessClassificationEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return BusinessClassificationEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      BusinessClassificationEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_BUSINESS_CLASSIFICATION = "businessClassification";
   @SerializedName(SERIALIZED_NAME_BUSINESS_CLASSIFICATION)
-  private String businessClassification;
+  private BusinessClassificationEnum businessClassification;
 
   public static final String SERIALIZED_NAME_BUSINESS_OTHER = "businessOther";
   @SerializedName(SERIALIZED_NAME_BUSINESS_OTHER)
@@ -165,9 +231,181 @@ public class W9FormRequest {
   @SerializedName(SERIALIZED_NAME_CITY)
   private String city;
 
+  /**
+   * The state of the address.
+   */
+  @JsonAdapter(StateEnum.Adapter.class)
+  public enum StateEnum {
+    AA("AA"),
+    
+    AE("AE"),
+    
+    AK("AK"),
+    
+    AL("AL"),
+    
+    AP("AP"),
+    
+    AR("AR"),
+    
+    AS("AS"),
+    
+    AZ("AZ"),
+    
+    CA("CA"),
+    
+    CO("CO"),
+    
+    CT("CT"),
+    
+    DC("DC"),
+    
+    DE("DE"),
+    
+    FL("FL"),
+    
+    FM("FM"),
+    
+    GA("GA"),
+    
+    GU("GU"),
+    
+    HI("HI"),
+    
+    IA("IA"),
+    
+    ID("ID"),
+    
+    IL("IL"),
+    
+    IN("IN"),
+    
+    KS("KS"),
+    
+    KY("KY"),
+    
+    LA("LA"),
+    
+    MA("MA"),
+    
+    MD("MD"),
+    
+    ME("ME"),
+    
+    MH("MH"),
+    
+    MI("MI"),
+    
+    MN("MN"),
+    
+    MO("MO"),
+    
+    MP("MP"),
+    
+    MS("MS"),
+    
+    MT("MT"),
+    
+    NC("NC"),
+    
+    ND("ND"),
+    
+    NE("NE"),
+    
+    NH("NH"),
+    
+    NJ("NJ"),
+    
+    NM("NM"),
+    
+    NV("NV"),
+    
+    NY("NY"),
+    
+    OH("OH"),
+    
+    OK("OK"),
+    
+    OR("OR"),
+    
+    PA("PA"),
+    
+    PR("PR"),
+    
+    PW("PW"),
+    
+    RI("RI"),
+    
+    SC("SC"),
+    
+    SD("SD"),
+    
+    TN("TN"),
+    
+    TX("TX"),
+    
+    UT("UT"),
+    
+    VA("VA"),
+    
+    VI("VI"),
+    
+    VT("VT"),
+    
+    WA("WA"),
+    
+    WI("WI"),
+    
+    WV("WV"),
+    
+    WY("WY");
+
+    private String value;
+
+    StateEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StateEnum fromValue(String value) {
+      for (StateEnum b : StateEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<StateEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StateEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StateEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return StateEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      StateEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
-  private String state;
+  private StateEnum state;
 
   public static final String SERIALIZED_NAME_ZIP = "zip";
   @SerializedName(SERIALIZED_NAME_ZIP)
@@ -272,7 +510,7 @@ public class W9FormRequest {
   }
 
 
-  public W9FormRequest businessClassification(String businessClassification) {
+  public W9FormRequest businessClassification(BusinessClassificationEnum businessClassification) {
     this.businessClassification = businessClassification;
     return this;
   }
@@ -282,11 +520,11 @@ public class W9FormRequest {
    * @return businessClassification
    */
   @javax.annotation.Nonnull
-  public String getBusinessClassification() {
+  public BusinessClassificationEnum getBusinessClassification() {
     return businessClassification;
   }
 
-  public void setBusinessClassification(String businessClassification) {
+  public void setBusinessClassification(BusinessClassificationEnum businessClassification) {
     this.businessClassification = businessClassification;
   }
 
@@ -335,7 +573,7 @@ public class W9FormRequest {
   }
 
   /**
-   * The exempt payee code.
+   * The exempt payee code. Allowed values (1–13):  - 1 — Organization exempt under §501(a) or IRA; custodial account under §403(b)(7)  - 2 — U.S. government or its agencies/instrumentalities  - 3 — U.S. state, DC, U.S. territory/possession, or their political subdivisions/agencies/instrumentalities  - 4 — Foreign government or its political subdivisions/agencies/instrumentalities  - 5 — Corporation  - 6 — Dealer in securities or commodities required to register in the U.S., DC, or U.S. territory/possession  - 7 — Futures commission merchant registered with the CFTC  - 8 — Real estate investment trust (REIT)  - 9 — Entity registered at all times during the tax year under the Investment Company Act of 1940  - 10 — Common trust fund operated by a bank under §584(a)  - 11 — Financial institution (see §581)  - 12 — Broker (nominee/custodian)  - 13 — Trust exempt under §664 or described in §4947
    * @return exemptPayeeCode
    */
   @javax.annotation.Nullable
@@ -354,7 +592,7 @@ public class W9FormRequest {
   }
 
   /**
-   * The exemption from FATCA reporting code.
+   * The exemption from FATCA reporting code. Allowed values (A–M):  - A — Tax‑exempt organization under §501(a) or IRA (§7701(a)(37))  - B — U.S. government or any of its agencies/instrumentalities  - C — U.S. state, DC, territory/possession, or their political subdivisions/instrumentalities  - D — Corporation whose stock is regularly traded on an established securities market  - E — Corporation that is a member of the same expanded affiliated group as a D corporation  - F — Registered dealer in securities/commodities/derivatives  - G — REIT (Real Estate Investment Trust)  - H — Regulated investment company (§851) or entity registered all year under the Investment Company Act of 1940  - I — Common trust fund (§584(a))  - J — Bank (§581)  - K — Broker  - L — Charitable remainder trust (§664) or trust described in §4947(a)(1)  - M — Trust under §403(b) plan or §457(g) plan
    * @return exemptFatcaCode
    */
   @javax.annotation.Nullable
@@ -443,7 +681,7 @@ public class W9FormRequest {
   }
 
 
-  public W9FormRequest state(String state) {
+  public W9FormRequest state(StateEnum state) {
     this.state = state;
     return this;
   }
@@ -453,11 +691,11 @@ public class W9FormRequest {
    * @return state
    */
   @javax.annotation.Nullable
-  public String getState() {
+  public StateEnum getState() {
     return state;
   }
 
-  public void setState(String state) {
+  public void setState(StateEnum state) {
     this.state = state;
   }
 
@@ -836,6 +1074,8 @@ public class W9FormRequest {
       if (!jsonObj.get("businessClassification").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `businessClassification` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessClassification").toString()));
       }
+      // validate the required field `businessClassification`
+      BusinessClassificationEnum.validateJsonElement(jsonObj.get("businessClassification"));
       if ((jsonObj.get("businessOther") != null && !jsonObj.get("businessOther").isJsonNull()) && !jsonObj.get("businessOther").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `businessOther` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessOther").toString()));
       }
@@ -857,6 +1097,8 @@ public class W9FormRequest {
       if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
+      // validate the required field `state`
+      StateEnum.validateJsonElement(jsonObj.get("state"));
       if ((jsonObj.get("zip") != null && !jsonObj.get("zip").isJsonNull()) && !jsonObj.get("zip").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `zip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zip").toString()));
       }

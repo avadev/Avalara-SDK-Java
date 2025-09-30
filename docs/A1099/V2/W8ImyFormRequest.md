@@ -11,8 +11,8 @@
 |**name** | **String** | The name of the individual or entity associated with the form. |  |
 |**citizenshipCountry** | **String** | The country of citizenship. |  |
 |**disregardedEntity** | **String** | The name of the disregarded entity receiving the payment (if applicable). |  [optional] |
-|**entityType** | **String** | The entity type.  Available values:  - 1: QI (including a QDD). Complete Part III.  - 2: Nonqualified intermediary. Complete Part IV.  - 3: Territory financial institution. Complete Part V.  - 4: U.S. branch. Complete Part VI.  - 5: Withholding foreign partnership. Complete Part VII.  - 6: Withholding foreign trust. Complete Part VII.  - 7: Nonwithholding foreign partnership. Complete Part VIII.  - 8: Nonwithholding foreign simple trust. Complete Part VIII.  - 9: Nonwithholding foreign grantor trust. Complete Part VIII. |  |
-|**fatcaStatus** | **String** | The FATCA status.  Available values:  - 1: Nonparticipating foreign financial institution (FFI) (including an FFI related to a Reporting IGA FFI other than a deemed-compliant FFI, participating FFI, or exempt beneficial owner). Complete Part IX (if applicable).  - 2: Participating FFI.  - 3: Reporting Model 1 FFI.  - 4: Reporting Model 2 FFI.  - 5: Registered deemed-compliant FFI (other than a reporting Model 1 FFI, sponsored FFI, or nonreporting IGA FFI covered in Part XIX).  - 6: Territory financial institution. Complete Part V.  - 7: Sponsored FFI (other than a certified deemed-compliant sponsored, closely held investment vehicle). Complete Part X.  - 8: Certified deemed-compliant nonregistering local bank. Complete Part XII.  - 9: Certified deemed-compliant FFI with only low-value accounts. Complete Part XIII.  - 10: Certified deemed-compliant sponsored, closely held investment vehicle. Complete Part XIV.  - 11: Certified deemed-compliant limited life debt investment entity. Complete Part XV.  - 12: Certain investment entities that do not maintain financial accounts. Complete Part XVI.  - 13: Owner-documented FFI. Complete Part XI.  - 14: Restricted distributor. Complete Part XVII.  - 15: Foreign central bank of issue. Complete Part XVIII.  - 16: Nonreporting IGA FFI. Complete Part XIX.  - 17: Exempt retirement plans. Complete Part XX.  - 18: Excepted nonfinancial group entity. Complete Part XXI.  - 19: Excepted nonfinancial start-up company. Complete Part XXII.  - 20: Excepted nonfinancial entity in liquidation or bankruptcy. Complete Part XXIII.  - 21: Publicly traded NFFE or NFFE affiliate of a publicly traded corporation. Complete Part XXIV.  - 22: Excepted territory NFFE. Complete Part XXV.  - 23: Active NFFE. Complete Part XXVI.  - 24: Passive NFFE. Complete Part XXVII.  - 25: Direct reporting NFFE.  - 26: Sponsored direct reporting NFFE. Complete Part XXVIII. |  [optional] |
+|**entityType** | [**EntityTypeEnum**](#EntityTypeEnum) | Represents the entity type for W-8IMY tax forms.  W-8IMY forms only accept entity types 1-9, which is a subset of the full EntityType enum. |  |
+|**fatcaStatus** | [**FatcaStatusEnum**](#FatcaStatusEnum) | Represents the FATCA status types specifically for W8-IMY forms.  This is a subset of the full FatcaStatus enum, restricted to values 1-26 for W8-IMY forms. |  [optional] |
 |**residenceAddress** | **String** | The residential address of the individual or entity. |  [optional] |
 |**residenceCity** | **String** | The city of residence. |  [optional] |
 |**residenceState** | **String** | The state of residence. |  [optional] |
@@ -29,7 +29,7 @@
 |**giin** | **String** | The global intermediary identification number (GIIN). |  [optional] |
 |**foreignTin** | **String** | The foreign taxpayer identification number (TIN). |  [optional] |
 |**referenceNumber** | **String** | A reference number for the form. |  [optional] |
-|**disregardedEntityFatcaStatus** | **String** | The FATCA status of disregarded entity or branch receiving payment.  Available values:  - 1: Branch treated as nonparticipating FFI.  - 2: Participating FFI.  - 3: Reporting Model 1 FFI.  - 4: Reporting Model 2 FFI.  - 5: U.S. Branch |  [optional] |
+|**disregardedEntityFatcaStatus** | [**DisregardedEntityFatcaStatusEnum**](#DisregardedEntityFatcaStatusEnum) | The FATCA status of disregarded entity or branch receiving payment.  Available values:  - 1: Branch treated as nonparticipating FFI.  - 2: Participating FFI.  - 3: Reporting Model 1 FFI.  - 4: Reporting Model 2 FFI.  - 5: U.S. Branch |  [optional] |
 |**disregardedAddress** | **String** | The address for disregarded entities. |  [optional] |
 |**disregardedCity** | **String** | The city for disregarded entities. |  [optional] |
 |**disregardedState** | **String** | The state for disregarded entities. |  [optional] |
@@ -93,7 +93,7 @@
 |**foreignCentralBankOfIssueCertification** | **Boolean** | Certifies that the entity is treated as the beneficial owner of the payment solely  for purposes of chapter 4 under Regulations section 1.1471-6(d)(4). |  [optional] |
 |**nonreportingIgaFfiCertification** | **Boolean** | Certifies that the entity meets the requirements to be considered a nonreporting financial institution to an applicable IGA. |  [optional] |
 |**igaCountry** | **String** | The country for the applicable IGA with the United States. |  [optional] |
-|**igaModel** | **String** | The applicable IGA model.  Available values:  - 1: Model 1 IGA  - 2: Model 2 IGA |  [optional] |
+|**igaModel** | [**IgaModelEnum**](#IgaModelEnum) | The applicable IGA model.  Available values:  - 1: Model 1 IGA  - 2: Model 2 IGA |  [optional] |
 |**igaLegalStatusTreatment** | **String** | Specifies how the applicable IGA is treated under the IGA provisions or Treasury regulations. |  [optional] |
 |**igaFfiTrusteeOrSponsor** | **String** | The trustee or sponsor name for the nonreporting IGA FFI. |  [optional] |
 |**igaFfiTrusteeIsForeign** | **Boolean** | Indicates whether the trustee for the nonreporting IGA FFI is foreign. |  [optional] |
@@ -136,6 +136,76 @@
 | W8_BEN_E | &quot;W8BenE&quot; |
 | W8_IMY | &quot;W8Imy&quot; |
 | W9 | &quot;W9&quot; |
+
+
+
+## Enum: EntityTypeEnum
+
+| Name | Value |
+|---- | -----|
+| QI | &quot;QI&quot; |
+| NONQUALIFIED_INTERMEDIARY | &quot;NonqualifiedIntermediary&quot; |
+| TERRITORY_FINANCIAL_INSTITUTION | &quot;TerritoryFinancialInstitution&quot; |
+| US_BRANCH | &quot;USBranch&quot; |
+| WITHHOLDING_FOREIGN_PARTNERSHIP | &quot;WithholdingForeignPartnership&quot; |
+| WITHHOLDING_FOREIGN_TRUST | &quot;WithholdingForeignTrust&quot; |
+| NONWITHHOLDING_FOREIGN_PARTNERSHIP | &quot;NonwithholdingForeignPartnership&quot; |
+| NONWITHHOLDING_FOREIGN_SIMPLE_TRUST | &quot;NonwithholdingForeignSimpleTrust&quot; |
+| NONWITHHOLDING_FOREIGN_GRANTOR_TRUST | &quot;NonwithholdingForeignGrantorTrust&quot; |
+
+
+
+## Enum: FatcaStatusEnum
+
+| Name | Value |
+|---- | -----|
+| NONPARTICIPATING_FFI | &quot;NonparticipatingFFI&quot; |
+| PARTICIPATING_FFI | &quot;ParticipatingFFI&quot; |
+| REPORTING_MODEL1_FFI | &quot;ReportingModel1FFI&quot; |
+| REPORTING_MODEL2_FFI | &quot;ReportingModel2FFI&quot; |
+| REGISTERED_DEEMED_COMPLIANT_FFI | &quot;RegisteredDeemedCompliantFFI&quot; |
+| TERRITORY_FINANCIAL_INSTITUTION | &quot;TerritoryFinancialInstitution&quot; |
+| SPONSORED_FFI | &quot;SponsoredFFI&quot; |
+| CERTIFIED_DEEMED_COMPLIANT_NONREGISTERING_LOCAL_BANK | &quot;CertifiedDeemedCompliantNonregisteringLocalBank&quot; |
+| CERTIFIED_DEEMED_COMPLIANT_FFI_WITH_LOW_VALUE_ACCOUNTS | &quot;CertifiedDeemedCompliantFFIWithLowValueAccounts&quot; |
+| CERTIFIED_DEEMED_COMPLIANT_SPONSORED_CLOSELY_HELD_INVESTMENT_VEHICLE | &quot;CertifiedDeemedCompliantSponsoredCloselyHeldInvestmentVehicle&quot; |
+| CERTIFIED_DEEMED_COMPLIANT_LIMITED_LIFE_DEBT_INVESTMENT_ENTITY | &quot;CertifiedDeemedCompliantLimitedLifeDebtInvestmentEntity&quot; |
+| CERTAIN_INVESTMENT_ENTITIES_WITHOUT_FINANCIAL_ACCOUNTS | &quot;CertainInvestmentEntitiesWithoutFinancialAccounts&quot; |
+| OWNER_DOCUMENTED_FFI | &quot;OwnerDocumentedFFI&quot; |
+| RESTRICTED_DISTRIBUTOR | &quot;RestrictedDistributor&quot; |
+| FOREIGN_CENTRAL_BANK_OF_ISSUE | &quot;ForeignCentralBankOfIssue&quot; |
+| NONREPORTING_IGAFFI | &quot;NonreportingIGAFFI&quot; |
+| EXEMPT_RETIREMENT_PLANS | &quot;ExemptRetirementPlans&quot; |
+| EXCEPTED_NONFINANCIAL_GROUP_ENTITY | &quot;ExceptedNonfinancialGroupEntity&quot; |
+| EXCEPTED_NONFINANCIAL_START_UP_COMPANY | &quot;ExceptedNonfinancialStartUpCompany&quot; |
+| EXCEPTED_NONFINANCIAL_ENTITY_IN_LIQUIDATION_OR_BANKRUPTCY | &quot;ExceptedNonfinancialEntityInLiquidationOrBankruptcy&quot; |
+| PUBLICLY_TRADED_NFFEOR_AFFILIATE_OF_PUBLICLY_TRADED_CORPORATION | &quot;PubliclyTradedNFFEOrAffiliateOfPubliclyTradedCorporation&quot; |
+| EXCEPTED_TERRITORY_NFFE | &quot;ExceptedTerritoryNFFE&quot; |
+| ACTIVE_NFFE | &quot;ActiveNFFE&quot; |
+| PASSIVE_NFFE | &quot;PassiveNFFE&quot; |
+| DIRECT_REPORTING_NFFE | &quot;DirectReportingNFFE&quot; |
+| SPONSORED_DIRECT_REPORTING_NFFE | &quot;SponsoredDirectReportingNFFE&quot; |
+
+
+
+## Enum: DisregardedEntityFatcaStatusEnum
+
+| Name | Value |
+|---- | -----|
+| _1 | &quot;1&quot; |
+| _2 | &quot;2&quot; |
+| _3 | &quot;3&quot; |
+| _4 | &quot;4&quot; |
+| _5 | &quot;5&quot; |
+
+
+
+## Enum: IgaModelEnum
+
+| Name | Value |
+|---- | -----|
+| _1 | &quot;1&quot; |
+| _2 | &quot;2&quot; |
 
 
 
