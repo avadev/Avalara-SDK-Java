@@ -153,17 +153,243 @@ public class W4FormRequest {
   @SerializedName(SERIALIZED_NAME_CITY)
   private String city;
 
+  /**
+   * The state of residence of the employee. Required unless exempt.
+   */
+  @JsonAdapter(StateEnum.Adapter.class)
+  public enum StateEnum {
+    AA("AA"),
+    
+    AE("AE"),
+    
+    AK("AK"),
+    
+    AL("AL"),
+    
+    AP("AP"),
+    
+    AR("AR"),
+    
+    AS("AS"),
+    
+    AZ("AZ"),
+    
+    CA("CA"),
+    
+    CO("CO"),
+    
+    CT("CT"),
+    
+    DC("DC"),
+    
+    DE("DE"),
+    
+    FL("FL"),
+    
+    FM("FM"),
+    
+    GA("GA"),
+    
+    GU("GU"),
+    
+    HI("HI"),
+    
+    IA("IA"),
+    
+    ID("ID"),
+    
+    IL("IL"),
+    
+    IN("IN"),
+    
+    KS("KS"),
+    
+    KY("KY"),
+    
+    LA("LA"),
+    
+    MA("MA"),
+    
+    MD("MD"),
+    
+    ME("ME"),
+    
+    MH("MH"),
+    
+    MI("MI"),
+    
+    MN("MN"),
+    
+    MO("MO"),
+    
+    MP("MP"),
+    
+    MS("MS"),
+    
+    MT("MT"),
+    
+    NC("NC"),
+    
+    ND("ND"),
+    
+    NE("NE"),
+    
+    NH("NH"),
+    
+    NJ("NJ"),
+    
+    NM("NM"),
+    
+    NV("NV"),
+    
+    NY("NY"),
+    
+    OH("OH"),
+    
+    OK("OK"),
+    
+    OR("OR"),
+    
+    PA("PA"),
+    
+    PR("PR"),
+    
+    PW("PW"),
+    
+    RI("RI"),
+    
+    SC("SC"),
+    
+    SD("SD"),
+    
+    TN("TN"),
+    
+    TX("TX"),
+    
+    UT("UT"),
+    
+    VA("VA"),
+    
+    VI("VI"),
+    
+    VT("VT"),
+    
+    WA("WA"),
+    
+    WI("WI"),
+    
+    WV("WV"),
+    
+    WY("WY");
+
+    private String value;
+
+    StateEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StateEnum fromValue(String value) {
+      for (StateEnum b : StateEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<StateEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StateEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StateEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return StateEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      StateEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
-  private String state;
+  private StateEnum state;
 
   public static final String SERIALIZED_NAME_ZIP = "zip";
   @SerializedName(SERIALIZED_NAME_ZIP)
   private String zip;
 
+  /**
+   * The marital status of the employee. Required unless exempt.  Available values:  - Single: Single or Married filing separately  - Married: Married filing jointly or qualifying surviving spouse  - MarriedBut: Head of household. Check only if you&#39;re unmarried and pay more than half the costs of keeping up a home for yourself and a qualifying individual.
+   */
+  @JsonAdapter(MaritalStatusEnum.Adapter.class)
+  public enum MaritalStatusEnum {
+    SINGLE("Single"),
+    
+    MARRIED("Married"),
+    
+    MARRIED_BUT("MarriedBut");
+
+    private String value;
+
+    MaritalStatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static MaritalStatusEnum fromValue(String value) {
+      for (MaritalStatusEnum b : MaritalStatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<MaritalStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MaritalStatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public MaritalStatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return MaritalStatusEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      MaritalStatusEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_MARITAL_STATUS = "maritalStatus";
   @SerializedName(SERIALIZED_NAME_MARITAL_STATUS)
-  private String maritalStatus;
+  private MaritalStatusEnum maritalStatus;
 
   public static final String SERIALIZED_NAME_LAST_NAME_DIFFERS = "lastNameDiffers";
   @SerializedName(SERIALIZED_NAME_LAST_NAME_DIFFERS)
@@ -390,7 +616,7 @@ public class W4FormRequest {
   }
 
 
-  public W4FormRequest state(String state) {
+  public W4FormRequest state(StateEnum state) {
     this.state = state;
     return this;
   }
@@ -400,11 +626,11 @@ public class W4FormRequest {
    * @return state
    */
   @javax.annotation.Nullable
-  public String getState() {
+  public StateEnum getState() {
     return state;
   }
 
-  public void setState(String state) {
+  public void setState(StateEnum state) {
     this.state = state;
   }
 
@@ -428,7 +654,7 @@ public class W4FormRequest {
   }
 
 
-  public W4FormRequest maritalStatus(String maritalStatus) {
+  public W4FormRequest maritalStatus(MaritalStatusEnum maritalStatus) {
     this.maritalStatus = maritalStatus;
     return this;
   }
@@ -438,11 +664,11 @@ public class W4FormRequest {
    * @return maritalStatus
    */
   @javax.annotation.Nullable
-  public String getMaritalStatus() {
+  public MaritalStatusEnum getMaritalStatus() {
     return maritalStatus;
   }
 
-  public void setMaritalStatus(String maritalStatus) {
+  public void setMaritalStatus(MaritalStatusEnum maritalStatus) {
     this.maritalStatus = maritalStatus;
   }
 
@@ -875,11 +1101,19 @@ public class W4FormRequest {
       if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
+      // validate the optional field `state`
+      if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) {
+        StateEnum.validateJsonElement(jsonObj.get("state"));
+      }
       if ((jsonObj.get("zip") != null && !jsonObj.get("zip").isJsonNull()) && !jsonObj.get("zip").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `zip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zip").toString()));
       }
       if ((jsonObj.get("maritalStatus") != null && !jsonObj.get("maritalStatus").isJsonNull()) && !jsonObj.get("maritalStatus").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `maritalStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("maritalStatus").toString()));
+      }
+      // validate the optional field `maritalStatus`
+      if (jsonObj.get("maritalStatus") != null && !jsonObj.get("maritalStatus").isJsonNull()) {
+        MaritalStatusEnum.validateJsonElement(jsonObj.get("maritalStatus"));
       }
       if ((jsonObj.get("officeCode") != null && !jsonObj.get("officeCode").isJsonNull()) && !jsonObj.get("officeCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `officeCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("officeCode").toString()));

@@ -294,7 +294,7 @@ public class DataInputFieldsApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.9.0");
+        this.localVarApiClient.setSdkVersion("25.10.0");
     }
 }
 

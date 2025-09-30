@@ -134,13 +134,179 @@ public class W8ImyFormRequest {
   @SerializedName(SERIALIZED_NAME_DISREGARDED_ENTITY)
   private String disregardedEntity;
 
+  /**
+   * Represents the entity type for W-8IMY tax forms.  W-8IMY forms only accept entity types 1-9, which is a subset of the full EntityType enum.
+   */
+  @JsonAdapter(EntityTypeEnum.Adapter.class)
+  public enum EntityTypeEnum {
+    QI("QI"),
+    
+    NONQUALIFIED_INTERMEDIARY("NonqualifiedIntermediary"),
+    
+    TERRITORY_FINANCIAL_INSTITUTION("TerritoryFinancialInstitution"),
+    
+    US_BRANCH("USBranch"),
+    
+    WITHHOLDING_FOREIGN_PARTNERSHIP("WithholdingForeignPartnership"),
+    
+    WITHHOLDING_FOREIGN_TRUST("WithholdingForeignTrust"),
+    
+    NONWITHHOLDING_FOREIGN_PARTNERSHIP("NonwithholdingForeignPartnership"),
+    
+    NONWITHHOLDING_FOREIGN_SIMPLE_TRUST("NonwithholdingForeignSimpleTrust"),
+    
+    NONWITHHOLDING_FOREIGN_GRANTOR_TRUST("NonwithholdingForeignGrantorTrust");
+
+    private String value;
+
+    EntityTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EntityTypeEnum fromValue(String value) {
+      for (EntityTypeEnum b : EntityTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<EntityTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EntityTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EntityTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return EntityTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      EntityTypeEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_ENTITY_TYPE = "entityType";
   @SerializedName(SERIALIZED_NAME_ENTITY_TYPE)
-  private String entityType;
+  private EntityTypeEnum entityType;
+
+  /**
+   * Represents the FATCA status types specifically for W8-IMY forms.  This is a subset of the full FatcaStatus enum, restricted to values 1-26 for W8-IMY forms.
+   */
+  @JsonAdapter(FatcaStatusEnum.Adapter.class)
+  public enum FatcaStatusEnum {
+    NONPARTICIPATING_FFI("NonparticipatingFFI"),
+    
+    PARTICIPATING_FFI("ParticipatingFFI"),
+    
+    REPORTING_MODEL1_FFI("ReportingModel1FFI"),
+    
+    REPORTING_MODEL2_FFI("ReportingModel2FFI"),
+    
+    REGISTERED_DEEMED_COMPLIANT_FFI("RegisteredDeemedCompliantFFI"),
+    
+    TERRITORY_FINANCIAL_INSTITUTION("TerritoryFinancialInstitution"),
+    
+    SPONSORED_FFI("SponsoredFFI"),
+    
+    CERTIFIED_DEEMED_COMPLIANT_NONREGISTERING_LOCAL_BANK("CertifiedDeemedCompliantNonregisteringLocalBank"),
+    
+    CERTIFIED_DEEMED_COMPLIANT_FFI_WITH_LOW_VALUE_ACCOUNTS("CertifiedDeemedCompliantFFIWithLowValueAccounts"),
+    
+    CERTIFIED_DEEMED_COMPLIANT_SPONSORED_CLOSELY_HELD_INVESTMENT_VEHICLE("CertifiedDeemedCompliantSponsoredCloselyHeldInvestmentVehicle"),
+    
+    CERTIFIED_DEEMED_COMPLIANT_LIMITED_LIFE_DEBT_INVESTMENT_ENTITY("CertifiedDeemedCompliantLimitedLifeDebtInvestmentEntity"),
+    
+    CERTAIN_INVESTMENT_ENTITIES_WITHOUT_FINANCIAL_ACCOUNTS("CertainInvestmentEntitiesWithoutFinancialAccounts"),
+    
+    OWNER_DOCUMENTED_FFI("OwnerDocumentedFFI"),
+    
+    RESTRICTED_DISTRIBUTOR("RestrictedDistributor"),
+    
+    FOREIGN_CENTRAL_BANK_OF_ISSUE("ForeignCentralBankOfIssue"),
+    
+    NONREPORTING_IGAFFI("NonreportingIGAFFI"),
+    
+    EXEMPT_RETIREMENT_PLANS("ExemptRetirementPlans"),
+    
+    EXCEPTED_NONFINANCIAL_GROUP_ENTITY("ExceptedNonfinancialGroupEntity"),
+    
+    EXCEPTED_NONFINANCIAL_START_UP_COMPANY("ExceptedNonfinancialStartUpCompany"),
+    
+    EXCEPTED_NONFINANCIAL_ENTITY_IN_LIQUIDATION_OR_BANKRUPTCY("ExceptedNonfinancialEntityInLiquidationOrBankruptcy"),
+    
+    PUBLICLY_TRADED_NFFEOR_AFFILIATE_OF_PUBLICLY_TRADED_CORPORATION("PubliclyTradedNFFEOrAffiliateOfPubliclyTradedCorporation"),
+    
+    EXCEPTED_TERRITORY_NFFE("ExceptedTerritoryNFFE"),
+    
+    ACTIVE_NFFE("ActiveNFFE"),
+    
+    PASSIVE_NFFE("PassiveNFFE"),
+    
+    DIRECT_REPORTING_NFFE("DirectReportingNFFE"),
+    
+    SPONSORED_DIRECT_REPORTING_NFFE("SponsoredDirectReportingNFFE");
+
+    private String value;
+
+    FatcaStatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static FatcaStatusEnum fromValue(String value) {
+      for (FatcaStatusEnum b : FatcaStatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<FatcaStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FatcaStatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public FatcaStatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return FatcaStatusEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      FatcaStatusEnum.fromValue(value);
+    }
+  }
 
   public static final String SERIALIZED_NAME_FATCA_STATUS = "fatcaStatus";
   @SerializedName(SERIALIZED_NAME_FATCA_STATUS)
-  private String fatcaStatus;
+  private FatcaStatusEnum fatcaStatus;
 
   public static final String SERIALIZED_NAME_RESIDENCE_ADDRESS = "residenceAddress";
   @SerializedName(SERIALIZED_NAME_RESIDENCE_ADDRESS)
@@ -206,9 +372,67 @@ public class W8ImyFormRequest {
   @SerializedName(SERIALIZED_NAME_REFERENCE_NUMBER)
   private String referenceNumber;
 
+  /**
+   * The FATCA status of disregarded entity or branch receiving payment.  Available values:  - 1: Branch treated as nonparticipating FFI.  - 2: Participating FFI.  - 3: Reporting Model 1 FFI.  - 4: Reporting Model 2 FFI.  - 5: U.S. Branch
+   */
+  @JsonAdapter(DisregardedEntityFatcaStatusEnum.Adapter.class)
+  public enum DisregardedEntityFatcaStatusEnum {
+    _1("1"),
+    
+    _2("2"),
+    
+    _3("3"),
+    
+    _4("4"),
+    
+    _5("5");
+
+    private String value;
+
+    DisregardedEntityFatcaStatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DisregardedEntityFatcaStatusEnum fromValue(String value) {
+      for (DisregardedEntityFatcaStatusEnum b : DisregardedEntityFatcaStatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<DisregardedEntityFatcaStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DisregardedEntityFatcaStatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DisregardedEntityFatcaStatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return DisregardedEntityFatcaStatusEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      DisregardedEntityFatcaStatusEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_DISREGARDED_ENTITY_FATCA_STATUS = "disregardedEntityFatcaStatus";
   @SerializedName(SERIALIZED_NAME_DISREGARDED_ENTITY_FATCA_STATUS)
-  private String disregardedEntityFatcaStatus;
+  private DisregardedEntityFatcaStatusEnum disregardedEntityFatcaStatus;
 
   public static final String SERIALIZED_NAME_DISREGARDED_ADDRESS = "disregardedAddress";
   @SerializedName(SERIALIZED_NAME_DISREGARDED_ADDRESS)
@@ -462,9 +686,61 @@ public class W8ImyFormRequest {
   @SerializedName(SERIALIZED_NAME_IGA_COUNTRY)
   private String igaCountry;
 
+  /**
+   * The applicable IGA model.  Available values:  - 1: Model 1 IGA  - 2: Model 2 IGA
+   */
+  @JsonAdapter(IgaModelEnum.Adapter.class)
+  public enum IgaModelEnum {
+    _1("1"),
+    
+    _2("2");
+
+    private String value;
+
+    IgaModelEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static IgaModelEnum fromValue(String value) {
+      for (IgaModelEnum b : IgaModelEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<IgaModelEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final IgaModelEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public IgaModelEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return IgaModelEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      IgaModelEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_IGA_MODEL = "igaModel";
   @SerializedName(SERIALIZED_NAME_IGA_MODEL)
-  private String igaModel;
+  private IgaModelEnum igaModel;
 
   public static final String SERIALIZED_NAME_IGA_LEGAL_STATUS_TREATMENT = "igaLegalStatusTreatment";
   @SerializedName(SERIALIZED_NAME_IGA_LEGAL_STATUS_TREATMENT)
@@ -664,40 +940,40 @@ public class W8ImyFormRequest {
   }
 
 
-  public W8ImyFormRequest entityType(String entityType) {
+  public W8ImyFormRequest entityType(EntityTypeEnum entityType) {
     this.entityType = entityType;
     return this;
   }
 
   /**
-   * The entity type.  Available values:  - 1: QI (including a QDD). Complete Part III.  - 2: Nonqualified intermediary. Complete Part IV.  - 3: Territory financial institution. Complete Part V.  - 4: U.S. branch. Complete Part VI.  - 5: Withholding foreign partnership. Complete Part VII.  - 6: Withholding foreign trust. Complete Part VII.  - 7: Nonwithholding foreign partnership. Complete Part VIII.  - 8: Nonwithholding foreign simple trust. Complete Part VIII.  - 9: Nonwithholding foreign grantor trust. Complete Part VIII.
+   * Represents the entity type for W-8IMY tax forms.  W-8IMY forms only accept entity types 1-9, which is a subset of the full EntityType enum.
    * @return entityType
    */
   @javax.annotation.Nonnull
-  public String getEntityType() {
+  public EntityTypeEnum getEntityType() {
     return entityType;
   }
 
-  public void setEntityType(String entityType) {
+  public void setEntityType(EntityTypeEnum entityType) {
     this.entityType = entityType;
   }
 
 
-  public W8ImyFormRequest fatcaStatus(String fatcaStatus) {
+  public W8ImyFormRequest fatcaStatus(FatcaStatusEnum fatcaStatus) {
     this.fatcaStatus = fatcaStatus;
     return this;
   }
 
   /**
-   * The FATCA status.  Available values:  - 1: Nonparticipating foreign financial institution (FFI) (including an FFI related to a Reporting IGA FFI other than a deemed-compliant FFI, participating FFI, or exempt beneficial owner). Complete Part IX (if applicable).  - 2: Participating FFI.  - 3: Reporting Model 1 FFI.  - 4: Reporting Model 2 FFI.  - 5: Registered deemed-compliant FFI (other than a reporting Model 1 FFI, sponsored FFI, or nonreporting IGA FFI covered in Part XIX).  - 6: Territory financial institution. Complete Part V.  - 7: Sponsored FFI (other than a certified deemed-compliant sponsored, closely held investment vehicle). Complete Part X.  - 8: Certified deemed-compliant nonregistering local bank. Complete Part XII.  - 9: Certified deemed-compliant FFI with only low-value accounts. Complete Part XIII.  - 10: Certified deemed-compliant sponsored, closely held investment vehicle. Complete Part XIV.  - 11: Certified deemed-compliant limited life debt investment entity. Complete Part XV.  - 12: Certain investment entities that do not maintain financial accounts. Complete Part XVI.  - 13: Owner-documented FFI. Complete Part XI.  - 14: Restricted distributor. Complete Part XVII.  - 15: Foreign central bank of issue. Complete Part XVIII.  - 16: Nonreporting IGA FFI. Complete Part XIX.  - 17: Exempt retirement plans. Complete Part XX.  - 18: Excepted nonfinancial group entity. Complete Part XXI.  - 19: Excepted nonfinancial start-up company. Complete Part XXII.  - 20: Excepted nonfinancial entity in liquidation or bankruptcy. Complete Part XXIII.  - 21: Publicly traded NFFE or NFFE affiliate of a publicly traded corporation. Complete Part XXIV.  - 22: Excepted territory NFFE. Complete Part XXV.  - 23: Active NFFE. Complete Part XXVI.  - 24: Passive NFFE. Complete Part XXVII.  - 25: Direct reporting NFFE.  - 26: Sponsored direct reporting NFFE. Complete Part XXVIII.
+   * Represents the FATCA status types specifically for W8-IMY forms.  This is a subset of the full FatcaStatus enum, restricted to values 1-26 for W8-IMY forms.
    * @return fatcaStatus
    */
   @javax.annotation.Nullable
-  public String getFatcaStatus() {
+  public FatcaStatusEnum getFatcaStatus() {
     return fatcaStatus;
   }
 
-  public void setFatcaStatus(String fatcaStatus) {
+  public void setFatcaStatus(FatcaStatusEnum fatcaStatus) {
     this.fatcaStatus = fatcaStatus;
   }
 
@@ -1006,7 +1282,7 @@ public class W8ImyFormRequest {
   }
 
 
-  public W8ImyFormRequest disregardedEntityFatcaStatus(String disregardedEntityFatcaStatus) {
+  public W8ImyFormRequest disregardedEntityFatcaStatus(DisregardedEntityFatcaStatusEnum disregardedEntityFatcaStatus) {
     this.disregardedEntityFatcaStatus = disregardedEntityFatcaStatus;
     return this;
   }
@@ -1016,11 +1292,11 @@ public class W8ImyFormRequest {
    * @return disregardedEntityFatcaStatus
    */
   @javax.annotation.Nullable
-  public String getDisregardedEntityFatcaStatus() {
+  public DisregardedEntityFatcaStatusEnum getDisregardedEntityFatcaStatus() {
     return disregardedEntityFatcaStatus;
   }
 
-  public void setDisregardedEntityFatcaStatus(String disregardedEntityFatcaStatus) {
+  public void setDisregardedEntityFatcaStatus(DisregardedEntityFatcaStatusEnum disregardedEntityFatcaStatus) {
     this.disregardedEntityFatcaStatus = disregardedEntityFatcaStatus;
   }
 
@@ -2222,7 +2498,7 @@ public class W8ImyFormRequest {
   }
 
 
-  public W8ImyFormRequest igaModel(String igaModel) {
+  public W8ImyFormRequest igaModel(IgaModelEnum igaModel) {
     this.igaModel = igaModel;
     return this;
   }
@@ -2232,11 +2508,11 @@ public class W8ImyFormRequest {
    * @return igaModel
    */
   @javax.annotation.Nullable
-  public String getIgaModel() {
+  public IgaModelEnum getIgaModel() {
     return igaModel;
   }
 
-  public void setIgaModel(String igaModel) {
+  public void setIgaModel(IgaModelEnum igaModel) {
     this.igaModel = igaModel;
   }
 
@@ -3161,8 +3437,14 @@ public class W8ImyFormRequest {
       if (!jsonObj.get("entityType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `entityType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entityType").toString()));
       }
+      // validate the required field `entityType`
+      EntityTypeEnum.validateJsonElement(jsonObj.get("entityType"));
       if ((jsonObj.get("fatcaStatus") != null && !jsonObj.get("fatcaStatus").isJsonNull()) && !jsonObj.get("fatcaStatus").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fatcaStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fatcaStatus").toString()));
+      }
+      // validate the optional field `fatcaStatus`
+      if (jsonObj.get("fatcaStatus") != null && !jsonObj.get("fatcaStatus").isJsonNull()) {
+        FatcaStatusEnum.validateJsonElement(jsonObj.get("fatcaStatus"));
       }
       if ((jsonObj.get("residenceAddress") != null && !jsonObj.get("residenceAddress").isJsonNull()) && !jsonObj.get("residenceAddress").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `residenceAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("residenceAddress").toString()));
@@ -3212,6 +3494,10 @@ public class W8ImyFormRequest {
       if ((jsonObj.get("disregardedEntityFatcaStatus") != null && !jsonObj.get("disregardedEntityFatcaStatus").isJsonNull()) && !jsonObj.get("disregardedEntityFatcaStatus").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `disregardedEntityFatcaStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disregardedEntityFatcaStatus").toString()));
       }
+      // validate the optional field `disregardedEntityFatcaStatus`
+      if (jsonObj.get("disregardedEntityFatcaStatus") != null && !jsonObj.get("disregardedEntityFatcaStatus").isJsonNull()) {
+        DisregardedEntityFatcaStatusEnum.validateJsonElement(jsonObj.get("disregardedEntityFatcaStatus"));
+      }
       if ((jsonObj.get("disregardedAddress") != null && !jsonObj.get("disregardedAddress").isJsonNull()) && !jsonObj.get("disregardedAddress").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `disregardedAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disregardedAddress").toString()));
       }
@@ -3241,6 +3527,10 @@ public class W8ImyFormRequest {
       }
       if ((jsonObj.get("igaModel") != null && !jsonObj.get("igaModel").isJsonNull()) && !jsonObj.get("igaModel").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `igaModel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("igaModel").toString()));
+      }
+      // validate the optional field `igaModel`
+      if (jsonObj.get("igaModel") != null && !jsonObj.get("igaModel").isJsonNull()) {
+        IgaModelEnum.validateJsonElement(jsonObj.get("igaModel"));
       }
       if ((jsonObj.get("igaLegalStatusTreatment") != null && !jsonObj.get("igaLegalStatusTreatment").isJsonNull()) && !jsonObj.get("igaLegalStatusTreatment").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `igaLegalStatusTreatment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("igaLegalStatusTreatment").toString()));

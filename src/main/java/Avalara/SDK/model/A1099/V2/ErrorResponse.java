@@ -78,7 +78,7 @@ public class ErrorResponse {
   }
 
   /**
-   * Get title
+   * A summary of the problem type.
    * @return title
    */
   @javax.annotation.Nullable
@@ -105,7 +105,7 @@ public class ErrorResponse {
   }
 
   /**
-   * Get errors
+   * A list of errors detailing the problem type.
    * @return errors
    */
   @javax.annotation.Nullable
