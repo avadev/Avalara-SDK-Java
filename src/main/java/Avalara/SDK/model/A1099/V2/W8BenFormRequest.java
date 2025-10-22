@@ -126,9 +126,573 @@ public class W8BenFormRequest {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  /**
+   * The country of citizenship.. Allowed values: US, AF, AX, AL, AG, AQ, AN, AO, AV, AY (and 248 more)
+   */
+  @JsonAdapter(CitizenshipCountryEnum.Adapter.class)
+  public enum CitizenshipCountryEnum {
+    US("US"),
+    
+    AF("AF"),
+    
+    AX("AX"),
+    
+    AL("AL"),
+    
+    AG("AG"),
+    
+    AQ("AQ"),
+    
+    AN("AN"),
+    
+    AO("AO"),
+    
+    AV("AV"),
+    
+    AY("AY"),
+    
+    AC("AC"),
+    
+    AR("AR"),
+    
+    AM("AM"),
+    
+    AA("AA"),
+    
+    AT("AT"),
+    
+    AS("AS"),
+    
+    AU("AU"),
+    
+    AJ("AJ"),
+    
+    BF("BF"),
+    
+    BA("BA"),
+    
+    FQ("FQ"),
+    
+    BG("BG"),
+    
+    BB("BB"),
+    
+    BO("BO"),
+    
+    BE("BE"),
+    
+    BH("BH"),
+    
+    BN("BN"),
+    
+    BD("BD"),
+    
+    BT("BT"),
+    
+    BL("BL"),
+    
+    BK("BK"),
+    
+    BC("BC"),
+    
+    BV("BV"),
+    
+    BR("BR"),
+    
+    IO("IO"),
+    
+    VI("VI"),
+    
+    BX("BX"),
+    
+    BU("BU"),
+    
+    UV("UV"),
+    
+    BM("BM"),
+    
+    BY("BY"),
+    
+    CB("CB"),
+    
+    CM("CM"),
+    
+    CA("CA"),
+    
+    CV("CV"),
+    
+    CJ("CJ"),
+    
+    CT("CT"),
+    
+    CD("CD"),
+    
+    CI("CI"),
+    
+    CH("CH"),
+    
+    KT("KT"),
+    
+    IP("IP"),
+    
+    CK("CK"),
+    
+    CO("CO"),
+    
+    CN("CN"),
+    
+    CF("CF"),
+    
+    CG("CG"),
+    
+    CW("CW"),
+    
+    CR("CR"),
+    
+    CS("CS"),
+    
+    IV("IV"),
+    
+    HR("HR"),
+    
+    CU("CU"),
+    
+    UC("UC"),
+    
+    CY("CY"),
+    
+    EZ("EZ"),
+    
+    DA("DA"),
+    
+    DX("DX"),
+    
+    DJ("DJ"),
+    
+    DO("DO"),
+    
+    DR("DR"),
+    
+    TT("TT"),
+    
+    EC("EC"),
+    
+    EG("EG"),
+    
+    ES("ES"),
+    
+    EK("EK"),
+    
+    ER("ER"),
+    
+    EN("EN"),
+    
+    ET("ET"),
+    
+    FK("FK"),
+    
+    FO("FO"),
+    
+    FM("FM"),
+    
+    FJ("FJ"),
+    
+    FI("FI"),
+    
+    FR("FR"),
+    
+    FP("FP"),
+    
+    FS("FS"),
+    
+    GB("GB"),
+    
+    GA("GA"),
+    
+    GG("GG"),
+    
+    GM("GM"),
+    
+    GH("GH"),
+    
+    GI("GI"),
+    
+    GR("GR"),
+    
+    GL("GL"),
+    
+    GJ("GJ"),
+    
+    GQ("GQ"),
+    
+    GT("GT"),
+    
+    GK("GK"),
+    
+    GV("GV"),
+    
+    PU("PU"),
+    
+    GY("GY"),
+    
+    HA("HA"),
+    
+    HM("HM"),
+    
+    VT("VT"),
+    
+    HO("HO"),
+    
+    HK("HK"),
+    
+    HQ("HQ"),
+    
+    HU("HU"),
+    
+    IC("IC"),
+    
+    IN("IN"),
+    
+    ID("ID"),
+    
+    IR("IR"),
+    
+    IZ("IZ"),
+    
+    EI("EI"),
+    
+    IS("IS"),
+    
+    IT("IT"),
+    
+    JM("JM"),
+    
+    JN("JN"),
+    
+    JA("JA"),
+    
+    DQ("DQ"),
+    
+    JE("JE"),
+    
+    JQ("JQ"),
+    
+    JO("JO"),
+    
+    KZ("KZ"),
+    
+    KE("KE"),
+    
+    KQ("KQ"),
+    
+    KR("KR"),
+    
+    KN("KN"),
+    
+    KS("KS"),
+    
+    KV("KV"),
+    
+    KU("KU"),
+    
+    KG("KG"),
+    
+    LA("LA"),
+    
+    LG("LG"),
+    
+    LE("LE"),
+    
+    LT("LT"),
+    
+    LI("LI"),
+    
+    LY("LY"),
+    
+    LS("LS"),
+    
+    LH("LH"),
+    
+    LU("LU"),
+    
+    MC("MC"),
+    
+    MK("MK"),
+    
+    MA("MA"),
+    
+    MI("MI"),
+    
+    MY("MY"),
+    
+    MV("MV"),
+    
+    ML("ML"),
+    
+    MT("MT"),
+    
+    IM("IM"),
+    
+    RM("RM"),
+    
+    MR("MR"),
+    
+    MP("MP"),
+    
+    MX("MX"),
+    
+    MQ("MQ"),
+    
+    MD("MD"),
+    
+    MN("MN"),
+    
+    MG("MG"),
+    
+    MJ("MJ"),
+    
+    MH("MH"),
+    
+    MO("MO"),
+    
+    MZ("MZ"),
+    
+    WA("WA"),
+    
+    NR("NR"),
+    
+    BQ("BQ"),
+    
+    NP("NP"),
+    
+    NL("NL"),
+    
+    NC("NC"),
+    
+    NZ("NZ"),
+    
+    NU("NU"),
+    
+    NG("NG"),
+    
+    NI("NI"),
+    
+    NE("NE"),
+    
+    NF("NF"),
+    
+    CQ("CQ"),
+    
+    NO("NO"),
+    
+    MU("MU"),
+    
+    OC("OC"),
+    
+    PK("PK"),
+    
+    PS("PS"),
+    
+    LQ("LQ"),
+    
+    PM("PM"),
+    
+    PP("PP"),
+    
+    PF("PF"),
+    
+    PA("PA"),
+    
+    PE("PE"),
+    
+    RP("RP"),
+    
+    PC("PC"),
+    
+    PL("PL"),
+    
+    PO("PO"),
+    
+    RQ("RQ"),
+    
+    QA("QA"),
+    
+    RO("RO"),
+    
+    RS("RS"),
+    
+    RW("RW"),
+    
+    TB("TB"),
+    
+    RN("RN"),
+    
+    WS("WS"),
+    
+    SM("SM"),
+    
+    TP("TP"),
+    
+    SA("SA"),
+    
+    SG("SG"),
+    
+    RI("RI"),
+    
+    SE("SE"),
+    
+    SL("SL"),
+    
+    SN("SN"),
+    
+    NN("NN"),
+    
+    LO("LO"),
+    
+    SI("SI"),
+    
+    BP("BP"),
+    
+    SO("SO"),
+    
+    SF("SF"),
+    
+    SX("SX"),
+    
+    SP("SP"),
+    
+    PG("PG"),
+    
+    CE("CE"),
+    
+    SH("SH"),
+    
+    SC("SC"),
+    
+    ST("ST"),
+    
+    SB("SB"),
+    
+    VC("VC"),
+    
+    SU("SU"),
+    
+    NS("NS"),
+    
+    SV("SV"),
+    
+    WZ("WZ"),
+    
+    SW("SW"),
+    
+    SZ("SZ"),
+    
+    SY("SY"),
+    
+    TW("TW"),
+    
+    TI("TI"),
+    
+    TZ("TZ"),
+    
+    TH("TH"),
+    
+    TO("TO"),
+    
+    TL("TL"),
+    
+    TN("TN"),
+    
+    TD("TD"),
+    
+    TS("TS"),
+    
+    TU("TU"),
+    
+    TX("TX"),
+    
+    TK("TK"),
+    
+    TV("TV"),
+    
+    UG("UG"),
+    
+    UP("UP"),
+    
+    AE("AE"),
+    
+    UK("UK"),
+    
+    UY("UY"),
+    
+    UZ("UZ"),
+    
+    NH("NH"),
+    
+    VE("VE"),
+    
+    VM("VM"),
+    
+    VQ("VQ"),
+    
+    WQ("WQ"),
+    
+    WF("WF"),
+    
+    WI("WI"),
+    
+    YM("YM"),
+    
+    ZA("ZA"),
+    
+    ZI("ZI");
+
+    private String value;
+
+    CitizenshipCountryEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static CitizenshipCountryEnum fromValue(String value) {
+      for (CitizenshipCountryEnum b : CitizenshipCountryEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<CitizenshipCountryEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final CitizenshipCountryEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public CitizenshipCountryEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return CitizenshipCountryEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      CitizenshipCountryEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_CITIZENSHIP_COUNTRY = "citizenshipCountry";
   @SerializedName(SERIALIZED_NAME_CITIZENSHIP_COUNTRY)
-  private String citizenshipCountry;
+  private CitizenshipCountryEnum citizenshipCountry;
 
   public static final String SERIALIZED_NAME_RESIDENCE_ADDRESS = "residenceAddress";
   @SerializedName(SERIALIZED_NAME_RESIDENCE_ADDRESS)
@@ -138,17 +702,779 @@ public class W8BenFormRequest {
   @SerializedName(SERIALIZED_NAME_RESIDENCE_CITY)
   private String residenceCity;
 
+  /**
+   * The state of residence. Required for US and Canada.. Allowed values: AA, AE, AK, AL, AP, AR, AS, AZ, CA, CO (and 65 more)
+   */
+  @JsonAdapter(ResidenceStateEnum.Adapter.class)
+  public enum ResidenceStateEnum {
+    AA("AA"),
+    
+    AE("AE"),
+    
+    AK("AK"),
+    
+    AL("AL"),
+    
+    AP("AP"),
+    
+    AR("AR"),
+    
+    AS("AS"),
+    
+    AZ("AZ"),
+    
+    CA("CA"),
+    
+    CO("CO"),
+    
+    CT("CT"),
+    
+    DC("DC"),
+    
+    DE("DE"),
+    
+    FL("FL"),
+    
+    FM("FM"),
+    
+    GA("GA"),
+    
+    GU("GU"),
+    
+    HI("HI"),
+    
+    IA("IA"),
+    
+    ID("ID"),
+    
+    IL("IL"),
+    
+    IN("IN"),
+    
+    KS("KS"),
+    
+    KY("KY"),
+    
+    LA("LA"),
+    
+    MA("MA"),
+    
+    MD("MD"),
+    
+    ME("ME"),
+    
+    MH("MH"),
+    
+    MI("MI"),
+    
+    MN("MN"),
+    
+    MO("MO"),
+    
+    MP("MP"),
+    
+    MS("MS"),
+    
+    MT("MT"),
+    
+    NC("NC"),
+    
+    ND("ND"),
+    
+    NE("NE"),
+    
+    NH("NH"),
+    
+    NJ("NJ"),
+    
+    NM("NM"),
+    
+    NV("NV"),
+    
+    NY("NY"),
+    
+    OH("OH"),
+    
+    OK("OK"),
+    
+    OR("OR"),
+    
+    PA("PA"),
+    
+    PR("PR"),
+    
+    PW("PW"),
+    
+    RI("RI"),
+    
+    SC("SC"),
+    
+    SD("SD"),
+    
+    TN("TN"),
+    
+    TX("TX"),
+    
+    UT("UT"),
+    
+    VA("VA"),
+    
+    VI("VI"),
+    
+    VT("VT"),
+    
+    WA("WA"),
+    
+    WI("WI"),
+    
+    WV("WV"),
+    
+    WY("WY"),
+    
+    AB("AB"),
+    
+    BC("BC"),
+    
+    MB("MB"),
+    
+    NB("NB"),
+    
+    NL("NL"),
+    
+    NS("NS"),
+    
+    NT("NT"),
+    
+    NU("NU"),
+    
+    ON("ON"),
+    
+    PE("PE"),
+    
+    QC("QC"),
+    
+    SK("SK"),
+    
+    YT("YT");
+
+    private String value;
+
+    ResidenceStateEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ResidenceStateEnum fromValue(String value) {
+      for (ResidenceStateEnum b : ResidenceStateEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ResidenceStateEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ResidenceStateEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ResidenceStateEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ResidenceStateEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ResidenceStateEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_RESIDENCE_STATE = "residenceState";
   @SerializedName(SERIALIZED_NAME_RESIDENCE_STATE)
-  private String residenceState;
+  private ResidenceStateEnum residenceState;
 
   public static final String SERIALIZED_NAME_RESIDENCE_ZIP = "residenceZip";
   @SerializedName(SERIALIZED_NAME_RESIDENCE_ZIP)
   private String residenceZip;
 
+  /**
+   * The country of residence.. Allowed values: US, AF, AX, AL, AG, AQ, AN, AO, AV, AY (and 248 more)
+   */
+  @JsonAdapter(ResidenceCountryEnum.Adapter.class)
+  public enum ResidenceCountryEnum {
+    US("US"),
+    
+    AF("AF"),
+    
+    AX("AX"),
+    
+    AL("AL"),
+    
+    AG("AG"),
+    
+    AQ("AQ"),
+    
+    AN("AN"),
+    
+    AO("AO"),
+    
+    AV("AV"),
+    
+    AY("AY"),
+    
+    AC("AC"),
+    
+    AR("AR"),
+    
+    AM("AM"),
+    
+    AA("AA"),
+    
+    AT("AT"),
+    
+    AS("AS"),
+    
+    AU("AU"),
+    
+    AJ("AJ"),
+    
+    BF("BF"),
+    
+    BA("BA"),
+    
+    FQ("FQ"),
+    
+    BG("BG"),
+    
+    BB("BB"),
+    
+    BO("BO"),
+    
+    BE("BE"),
+    
+    BH("BH"),
+    
+    BN("BN"),
+    
+    BD("BD"),
+    
+    BT("BT"),
+    
+    BL("BL"),
+    
+    BK("BK"),
+    
+    BC("BC"),
+    
+    BV("BV"),
+    
+    BR("BR"),
+    
+    IO("IO"),
+    
+    VI("VI"),
+    
+    BX("BX"),
+    
+    BU("BU"),
+    
+    UV("UV"),
+    
+    BM("BM"),
+    
+    BY("BY"),
+    
+    CB("CB"),
+    
+    CM("CM"),
+    
+    CA("CA"),
+    
+    CV("CV"),
+    
+    CJ("CJ"),
+    
+    CT("CT"),
+    
+    CD("CD"),
+    
+    CI("CI"),
+    
+    CH("CH"),
+    
+    KT("KT"),
+    
+    IP("IP"),
+    
+    CK("CK"),
+    
+    CO("CO"),
+    
+    CN("CN"),
+    
+    CF("CF"),
+    
+    CG("CG"),
+    
+    CW("CW"),
+    
+    CR("CR"),
+    
+    CS("CS"),
+    
+    IV("IV"),
+    
+    HR("HR"),
+    
+    CU("CU"),
+    
+    UC("UC"),
+    
+    CY("CY"),
+    
+    EZ("EZ"),
+    
+    DA("DA"),
+    
+    DX("DX"),
+    
+    DJ("DJ"),
+    
+    DO("DO"),
+    
+    DR("DR"),
+    
+    TT("TT"),
+    
+    EC("EC"),
+    
+    EG("EG"),
+    
+    ES("ES"),
+    
+    EK("EK"),
+    
+    ER("ER"),
+    
+    EN("EN"),
+    
+    ET("ET"),
+    
+    FK("FK"),
+    
+    FO("FO"),
+    
+    FM("FM"),
+    
+    FJ("FJ"),
+    
+    FI("FI"),
+    
+    FR("FR"),
+    
+    FP("FP"),
+    
+    FS("FS"),
+    
+    GB("GB"),
+    
+    GA("GA"),
+    
+    GG("GG"),
+    
+    GM("GM"),
+    
+    GH("GH"),
+    
+    GI("GI"),
+    
+    GR("GR"),
+    
+    GL("GL"),
+    
+    GJ("GJ"),
+    
+    GQ("GQ"),
+    
+    GT("GT"),
+    
+    GK("GK"),
+    
+    GV("GV"),
+    
+    PU("PU"),
+    
+    GY("GY"),
+    
+    HA("HA"),
+    
+    HM("HM"),
+    
+    VT("VT"),
+    
+    HO("HO"),
+    
+    HK("HK"),
+    
+    HQ("HQ"),
+    
+    HU("HU"),
+    
+    IC("IC"),
+    
+    IN("IN"),
+    
+    ID("ID"),
+    
+    IR("IR"),
+    
+    IZ("IZ"),
+    
+    EI("EI"),
+    
+    IS("IS"),
+    
+    IT("IT"),
+    
+    JM("JM"),
+    
+    JN("JN"),
+    
+    JA("JA"),
+    
+    DQ("DQ"),
+    
+    JE("JE"),
+    
+    JQ("JQ"),
+    
+    JO("JO"),
+    
+    KZ("KZ"),
+    
+    KE("KE"),
+    
+    KQ("KQ"),
+    
+    KR("KR"),
+    
+    KN("KN"),
+    
+    KS("KS"),
+    
+    KV("KV"),
+    
+    KU("KU"),
+    
+    KG("KG"),
+    
+    LA("LA"),
+    
+    LG("LG"),
+    
+    LE("LE"),
+    
+    LT("LT"),
+    
+    LI("LI"),
+    
+    LY("LY"),
+    
+    LS("LS"),
+    
+    LH("LH"),
+    
+    LU("LU"),
+    
+    MC("MC"),
+    
+    MK("MK"),
+    
+    MA("MA"),
+    
+    MI("MI"),
+    
+    MY("MY"),
+    
+    MV("MV"),
+    
+    ML("ML"),
+    
+    MT("MT"),
+    
+    IM("IM"),
+    
+    RM("RM"),
+    
+    MR("MR"),
+    
+    MP("MP"),
+    
+    MX("MX"),
+    
+    MQ("MQ"),
+    
+    MD("MD"),
+    
+    MN("MN"),
+    
+    MG("MG"),
+    
+    MJ("MJ"),
+    
+    MH("MH"),
+    
+    MO("MO"),
+    
+    MZ("MZ"),
+    
+    WA("WA"),
+    
+    NR("NR"),
+    
+    BQ("BQ"),
+    
+    NP("NP"),
+    
+    NL("NL"),
+    
+    NC("NC"),
+    
+    NZ("NZ"),
+    
+    NU("NU"),
+    
+    NG("NG"),
+    
+    NI("NI"),
+    
+    NE("NE"),
+    
+    NF("NF"),
+    
+    CQ("CQ"),
+    
+    NO("NO"),
+    
+    MU("MU"),
+    
+    OC("OC"),
+    
+    PK("PK"),
+    
+    PS("PS"),
+    
+    LQ("LQ"),
+    
+    PM("PM"),
+    
+    PP("PP"),
+    
+    PF("PF"),
+    
+    PA("PA"),
+    
+    PE("PE"),
+    
+    RP("RP"),
+    
+    PC("PC"),
+    
+    PL("PL"),
+    
+    PO("PO"),
+    
+    RQ("RQ"),
+    
+    QA("QA"),
+    
+    RO("RO"),
+    
+    RS("RS"),
+    
+    RW("RW"),
+    
+    TB("TB"),
+    
+    RN("RN"),
+    
+    WS("WS"),
+    
+    SM("SM"),
+    
+    TP("TP"),
+    
+    SA("SA"),
+    
+    SG("SG"),
+    
+    RI("RI"),
+    
+    SE("SE"),
+    
+    SL("SL"),
+    
+    SN("SN"),
+    
+    NN("NN"),
+    
+    LO("LO"),
+    
+    SI("SI"),
+    
+    BP("BP"),
+    
+    SO("SO"),
+    
+    SF("SF"),
+    
+    SX("SX"),
+    
+    SP("SP"),
+    
+    PG("PG"),
+    
+    CE("CE"),
+    
+    SH("SH"),
+    
+    SC("SC"),
+    
+    ST("ST"),
+    
+    SB("SB"),
+    
+    VC("VC"),
+    
+    SU("SU"),
+    
+    NS("NS"),
+    
+    SV("SV"),
+    
+    WZ("WZ"),
+    
+    SW("SW"),
+    
+    SZ("SZ"),
+    
+    SY("SY"),
+    
+    TW("TW"),
+    
+    TI("TI"),
+    
+    TZ("TZ"),
+    
+    TH("TH"),
+    
+    TO("TO"),
+    
+    TL("TL"),
+    
+    TN("TN"),
+    
+    TD("TD"),
+    
+    TS("TS"),
+    
+    TU("TU"),
+    
+    TX("TX"),
+    
+    TK("TK"),
+    
+    TV("TV"),
+    
+    UG("UG"),
+    
+    UP("UP"),
+    
+    AE("AE"),
+    
+    UK("UK"),
+    
+    UY("UY"),
+    
+    UZ("UZ"),
+    
+    NH("NH"),
+    
+    VE("VE"),
+    
+    VM("VM"),
+    
+    VQ("VQ"),
+    
+    WQ("WQ"),
+    
+    WF("WF"),
+    
+    WI("WI"),
+    
+    YM("YM"),
+    
+    ZA("ZA"),
+    
+    ZI("ZI");
+
+    private String value;
+
+    ResidenceCountryEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ResidenceCountryEnum fromValue(String value) {
+      for (ResidenceCountryEnum b : ResidenceCountryEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<ResidenceCountryEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ResidenceCountryEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ResidenceCountryEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ResidenceCountryEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ResidenceCountryEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_RESIDENCE_COUNTRY = "residenceCountry";
   @SerializedName(SERIALIZED_NAME_RESIDENCE_COUNTRY)
-  private String residenceCountry;
+  private ResidenceCountryEnum residenceCountry;
 
   public static final String SERIALIZED_NAME_RESIDENCE_IS_MAILING = "residenceIsMailing";
   @SerializedName(SERIALIZED_NAME_RESIDENCE_IS_MAILING)
@@ -162,17 +1488,779 @@ public class W8BenFormRequest {
   @SerializedName(SERIALIZED_NAME_MAILING_CITY)
   private String mailingCity;
 
+  /**
+   * The state of the mailing address. Required for US and Canada.. Allowed values: AA, AE, AK, AL, AP, AR, AS, AZ, CA, CO (and 65 more)
+   */
+  @JsonAdapter(MailingStateEnum.Adapter.class)
+  public enum MailingStateEnum {
+    AA("AA"),
+    
+    AE("AE"),
+    
+    AK("AK"),
+    
+    AL("AL"),
+    
+    AP("AP"),
+    
+    AR("AR"),
+    
+    AS("AS"),
+    
+    AZ("AZ"),
+    
+    CA("CA"),
+    
+    CO("CO"),
+    
+    CT("CT"),
+    
+    DC("DC"),
+    
+    DE("DE"),
+    
+    FL("FL"),
+    
+    FM("FM"),
+    
+    GA("GA"),
+    
+    GU("GU"),
+    
+    HI("HI"),
+    
+    IA("IA"),
+    
+    ID("ID"),
+    
+    IL("IL"),
+    
+    IN("IN"),
+    
+    KS("KS"),
+    
+    KY("KY"),
+    
+    LA("LA"),
+    
+    MA("MA"),
+    
+    MD("MD"),
+    
+    ME("ME"),
+    
+    MH("MH"),
+    
+    MI("MI"),
+    
+    MN("MN"),
+    
+    MO("MO"),
+    
+    MP("MP"),
+    
+    MS("MS"),
+    
+    MT("MT"),
+    
+    NC("NC"),
+    
+    ND("ND"),
+    
+    NE("NE"),
+    
+    NH("NH"),
+    
+    NJ("NJ"),
+    
+    NM("NM"),
+    
+    NV("NV"),
+    
+    NY("NY"),
+    
+    OH("OH"),
+    
+    OK("OK"),
+    
+    OR("OR"),
+    
+    PA("PA"),
+    
+    PR("PR"),
+    
+    PW("PW"),
+    
+    RI("RI"),
+    
+    SC("SC"),
+    
+    SD("SD"),
+    
+    TN("TN"),
+    
+    TX("TX"),
+    
+    UT("UT"),
+    
+    VA("VA"),
+    
+    VI("VI"),
+    
+    VT("VT"),
+    
+    WA("WA"),
+    
+    WI("WI"),
+    
+    WV("WV"),
+    
+    WY("WY"),
+    
+    AB("AB"),
+    
+    BC("BC"),
+    
+    MB("MB"),
+    
+    NB("NB"),
+    
+    NL("NL"),
+    
+    NS("NS"),
+    
+    NT("NT"),
+    
+    NU("NU"),
+    
+    ON("ON"),
+    
+    PE("PE"),
+    
+    QC("QC"),
+    
+    SK("SK"),
+    
+    YT("YT");
+
+    private String value;
+
+    MailingStateEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static MailingStateEnum fromValue(String value) {
+      for (MailingStateEnum b : MailingStateEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<MailingStateEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MailingStateEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public MailingStateEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return MailingStateEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      MailingStateEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_MAILING_STATE = "mailingState";
   @SerializedName(SERIALIZED_NAME_MAILING_STATE)
-  private String mailingState;
+  private MailingStateEnum mailingState;
 
   public static final String SERIALIZED_NAME_MAILING_ZIP = "mailingZip";
   @SerializedName(SERIALIZED_NAME_MAILING_ZIP)
   private String mailingZip;
 
+  /**
+   * The country of the mailing address.. Allowed values: US, AF, AX, AL, AG, AQ, AN, AO, AV, AY (and 248 more)
+   */
+  @JsonAdapter(MailingCountryEnum.Adapter.class)
+  public enum MailingCountryEnum {
+    US("US"),
+    
+    AF("AF"),
+    
+    AX("AX"),
+    
+    AL("AL"),
+    
+    AG("AG"),
+    
+    AQ("AQ"),
+    
+    AN("AN"),
+    
+    AO("AO"),
+    
+    AV("AV"),
+    
+    AY("AY"),
+    
+    AC("AC"),
+    
+    AR("AR"),
+    
+    AM("AM"),
+    
+    AA("AA"),
+    
+    AT("AT"),
+    
+    AS("AS"),
+    
+    AU("AU"),
+    
+    AJ("AJ"),
+    
+    BF("BF"),
+    
+    BA("BA"),
+    
+    FQ("FQ"),
+    
+    BG("BG"),
+    
+    BB("BB"),
+    
+    BO("BO"),
+    
+    BE("BE"),
+    
+    BH("BH"),
+    
+    BN("BN"),
+    
+    BD("BD"),
+    
+    BT("BT"),
+    
+    BL("BL"),
+    
+    BK("BK"),
+    
+    BC("BC"),
+    
+    BV("BV"),
+    
+    BR("BR"),
+    
+    IO("IO"),
+    
+    VI("VI"),
+    
+    BX("BX"),
+    
+    BU("BU"),
+    
+    UV("UV"),
+    
+    BM("BM"),
+    
+    BY("BY"),
+    
+    CB("CB"),
+    
+    CM("CM"),
+    
+    CA("CA"),
+    
+    CV("CV"),
+    
+    CJ("CJ"),
+    
+    CT("CT"),
+    
+    CD("CD"),
+    
+    CI("CI"),
+    
+    CH("CH"),
+    
+    KT("KT"),
+    
+    IP("IP"),
+    
+    CK("CK"),
+    
+    CO("CO"),
+    
+    CN("CN"),
+    
+    CF("CF"),
+    
+    CG("CG"),
+    
+    CW("CW"),
+    
+    CR("CR"),
+    
+    CS("CS"),
+    
+    IV("IV"),
+    
+    HR("HR"),
+    
+    CU("CU"),
+    
+    UC("UC"),
+    
+    CY("CY"),
+    
+    EZ("EZ"),
+    
+    DA("DA"),
+    
+    DX("DX"),
+    
+    DJ("DJ"),
+    
+    DO("DO"),
+    
+    DR("DR"),
+    
+    TT("TT"),
+    
+    EC("EC"),
+    
+    EG("EG"),
+    
+    ES("ES"),
+    
+    EK("EK"),
+    
+    ER("ER"),
+    
+    EN("EN"),
+    
+    ET("ET"),
+    
+    FK("FK"),
+    
+    FO("FO"),
+    
+    FM("FM"),
+    
+    FJ("FJ"),
+    
+    FI("FI"),
+    
+    FR("FR"),
+    
+    FP("FP"),
+    
+    FS("FS"),
+    
+    GB("GB"),
+    
+    GA("GA"),
+    
+    GG("GG"),
+    
+    GM("GM"),
+    
+    GH("GH"),
+    
+    GI("GI"),
+    
+    GR("GR"),
+    
+    GL("GL"),
+    
+    GJ("GJ"),
+    
+    GQ("GQ"),
+    
+    GT("GT"),
+    
+    GK("GK"),
+    
+    GV("GV"),
+    
+    PU("PU"),
+    
+    GY("GY"),
+    
+    HA("HA"),
+    
+    HM("HM"),
+    
+    VT("VT"),
+    
+    HO("HO"),
+    
+    HK("HK"),
+    
+    HQ("HQ"),
+    
+    HU("HU"),
+    
+    IC("IC"),
+    
+    IN("IN"),
+    
+    ID("ID"),
+    
+    IR("IR"),
+    
+    IZ("IZ"),
+    
+    EI("EI"),
+    
+    IS("IS"),
+    
+    IT("IT"),
+    
+    JM("JM"),
+    
+    JN("JN"),
+    
+    JA("JA"),
+    
+    DQ("DQ"),
+    
+    JE("JE"),
+    
+    JQ("JQ"),
+    
+    JO("JO"),
+    
+    KZ("KZ"),
+    
+    KE("KE"),
+    
+    KQ("KQ"),
+    
+    KR("KR"),
+    
+    KN("KN"),
+    
+    KS("KS"),
+    
+    KV("KV"),
+    
+    KU("KU"),
+    
+    KG("KG"),
+    
+    LA("LA"),
+    
+    LG("LG"),
+    
+    LE("LE"),
+    
+    LT("LT"),
+    
+    LI("LI"),
+    
+    LY("LY"),
+    
+    LS("LS"),
+    
+    LH("LH"),
+    
+    LU("LU"),
+    
+    MC("MC"),
+    
+    MK("MK"),
+    
+    MA("MA"),
+    
+    MI("MI"),
+    
+    MY("MY"),
+    
+    MV("MV"),
+    
+    ML("ML"),
+    
+    MT("MT"),
+    
+    IM("IM"),
+    
+    RM("RM"),
+    
+    MR("MR"),
+    
+    MP("MP"),
+    
+    MX("MX"),
+    
+    MQ("MQ"),
+    
+    MD("MD"),
+    
+    MN("MN"),
+    
+    MG("MG"),
+    
+    MJ("MJ"),
+    
+    MH("MH"),
+    
+    MO("MO"),
+    
+    MZ("MZ"),
+    
+    WA("WA"),
+    
+    NR("NR"),
+    
+    BQ("BQ"),
+    
+    NP("NP"),
+    
+    NL("NL"),
+    
+    NC("NC"),
+    
+    NZ("NZ"),
+    
+    NU("NU"),
+    
+    NG("NG"),
+    
+    NI("NI"),
+    
+    NE("NE"),
+    
+    NF("NF"),
+    
+    CQ("CQ"),
+    
+    NO("NO"),
+    
+    MU("MU"),
+    
+    OC("OC"),
+    
+    PK("PK"),
+    
+    PS("PS"),
+    
+    LQ("LQ"),
+    
+    PM("PM"),
+    
+    PP("PP"),
+    
+    PF("PF"),
+    
+    PA("PA"),
+    
+    PE("PE"),
+    
+    RP("RP"),
+    
+    PC("PC"),
+    
+    PL("PL"),
+    
+    PO("PO"),
+    
+    RQ("RQ"),
+    
+    QA("QA"),
+    
+    RO("RO"),
+    
+    RS("RS"),
+    
+    RW("RW"),
+    
+    TB("TB"),
+    
+    RN("RN"),
+    
+    WS("WS"),
+    
+    SM("SM"),
+    
+    TP("TP"),
+    
+    SA("SA"),
+    
+    SG("SG"),
+    
+    RI("RI"),
+    
+    SE("SE"),
+    
+    SL("SL"),
+    
+    SN("SN"),
+    
+    NN("NN"),
+    
+    LO("LO"),
+    
+    SI("SI"),
+    
+    BP("BP"),
+    
+    SO("SO"),
+    
+    SF("SF"),
+    
+    SX("SX"),
+    
+    SP("SP"),
+    
+    PG("PG"),
+    
+    CE("CE"),
+    
+    SH("SH"),
+    
+    SC("SC"),
+    
+    ST("ST"),
+    
+    SB("SB"),
+    
+    VC("VC"),
+    
+    SU("SU"),
+    
+    NS("NS"),
+    
+    SV("SV"),
+    
+    WZ("WZ"),
+    
+    SW("SW"),
+    
+    SZ("SZ"),
+    
+    SY("SY"),
+    
+    TW("TW"),
+    
+    TI("TI"),
+    
+    TZ("TZ"),
+    
+    TH("TH"),
+    
+    TO("TO"),
+    
+    TL("TL"),
+    
+    TN("TN"),
+    
+    TD("TD"),
+    
+    TS("TS"),
+    
+    TU("TU"),
+    
+    TX("TX"),
+    
+    TK("TK"),
+    
+    TV("TV"),
+    
+    UG("UG"),
+    
+    UP("UP"),
+    
+    AE("AE"),
+    
+    UK("UK"),
+    
+    UY("UY"),
+    
+    UZ("UZ"),
+    
+    NH("NH"),
+    
+    VE("VE"),
+    
+    VM("VM"),
+    
+    VQ("VQ"),
+    
+    WQ("WQ"),
+    
+    WF("WF"),
+    
+    WI("WI"),
+    
+    YM("YM"),
+    
+    ZA("ZA"),
+    
+    ZI("ZI");
+
+    private String value;
+
+    MailingCountryEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static MailingCountryEnum fromValue(String value) {
+      for (MailingCountryEnum b : MailingCountryEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<MailingCountryEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MailingCountryEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public MailingCountryEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return MailingCountryEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      MailingCountryEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_MAILING_COUNTRY = "mailingCountry";
   @SerializedName(SERIALIZED_NAME_MAILING_COUNTRY)
-  private String mailingCountry;
+  private MailingCountryEnum mailingCountry;
 
   public static final String SERIALIZED_NAME_TIN = "tin";
   @SerializedName(SERIALIZED_NAME_TIN)
@@ -194,9 +2282,573 @@ public class W8BenFormRequest {
   @SerializedName(SERIALIZED_NAME_BIRTHDAY)
   private LocalDate birthday;
 
+  /**
+   * The country for which the treaty applies.. Allowed values: US, AF, AX, AL, AG, AQ, AN, AO, AV, AY (and 248 more)
+   */
+  @JsonAdapter(TreatyCountryEnum.Adapter.class)
+  public enum TreatyCountryEnum {
+    US("US"),
+    
+    AF("AF"),
+    
+    AX("AX"),
+    
+    AL("AL"),
+    
+    AG("AG"),
+    
+    AQ("AQ"),
+    
+    AN("AN"),
+    
+    AO("AO"),
+    
+    AV("AV"),
+    
+    AY("AY"),
+    
+    AC("AC"),
+    
+    AR("AR"),
+    
+    AM("AM"),
+    
+    AA("AA"),
+    
+    AT("AT"),
+    
+    AS("AS"),
+    
+    AU("AU"),
+    
+    AJ("AJ"),
+    
+    BF("BF"),
+    
+    BA("BA"),
+    
+    FQ("FQ"),
+    
+    BG("BG"),
+    
+    BB("BB"),
+    
+    BO("BO"),
+    
+    BE("BE"),
+    
+    BH("BH"),
+    
+    BN("BN"),
+    
+    BD("BD"),
+    
+    BT("BT"),
+    
+    BL("BL"),
+    
+    BK("BK"),
+    
+    BC("BC"),
+    
+    BV("BV"),
+    
+    BR("BR"),
+    
+    IO("IO"),
+    
+    VI("VI"),
+    
+    BX("BX"),
+    
+    BU("BU"),
+    
+    UV("UV"),
+    
+    BM("BM"),
+    
+    BY("BY"),
+    
+    CB("CB"),
+    
+    CM("CM"),
+    
+    CA("CA"),
+    
+    CV("CV"),
+    
+    CJ("CJ"),
+    
+    CT("CT"),
+    
+    CD("CD"),
+    
+    CI("CI"),
+    
+    CH("CH"),
+    
+    KT("KT"),
+    
+    IP("IP"),
+    
+    CK("CK"),
+    
+    CO("CO"),
+    
+    CN("CN"),
+    
+    CF("CF"),
+    
+    CG("CG"),
+    
+    CW("CW"),
+    
+    CR("CR"),
+    
+    CS("CS"),
+    
+    IV("IV"),
+    
+    HR("HR"),
+    
+    CU("CU"),
+    
+    UC("UC"),
+    
+    CY("CY"),
+    
+    EZ("EZ"),
+    
+    DA("DA"),
+    
+    DX("DX"),
+    
+    DJ("DJ"),
+    
+    DO("DO"),
+    
+    DR("DR"),
+    
+    TT("TT"),
+    
+    EC("EC"),
+    
+    EG("EG"),
+    
+    ES("ES"),
+    
+    EK("EK"),
+    
+    ER("ER"),
+    
+    EN("EN"),
+    
+    ET("ET"),
+    
+    FK("FK"),
+    
+    FO("FO"),
+    
+    FM("FM"),
+    
+    FJ("FJ"),
+    
+    FI("FI"),
+    
+    FR("FR"),
+    
+    FP("FP"),
+    
+    FS("FS"),
+    
+    GB("GB"),
+    
+    GA("GA"),
+    
+    GG("GG"),
+    
+    GM("GM"),
+    
+    GH("GH"),
+    
+    GI("GI"),
+    
+    GR("GR"),
+    
+    GL("GL"),
+    
+    GJ("GJ"),
+    
+    GQ("GQ"),
+    
+    GT("GT"),
+    
+    GK("GK"),
+    
+    GV("GV"),
+    
+    PU("PU"),
+    
+    GY("GY"),
+    
+    HA("HA"),
+    
+    HM("HM"),
+    
+    VT("VT"),
+    
+    HO("HO"),
+    
+    HK("HK"),
+    
+    HQ("HQ"),
+    
+    HU("HU"),
+    
+    IC("IC"),
+    
+    IN("IN"),
+    
+    ID("ID"),
+    
+    IR("IR"),
+    
+    IZ("IZ"),
+    
+    EI("EI"),
+    
+    IS("IS"),
+    
+    IT("IT"),
+    
+    JM("JM"),
+    
+    JN("JN"),
+    
+    JA("JA"),
+    
+    DQ("DQ"),
+    
+    JE("JE"),
+    
+    JQ("JQ"),
+    
+    JO("JO"),
+    
+    KZ("KZ"),
+    
+    KE("KE"),
+    
+    KQ("KQ"),
+    
+    KR("KR"),
+    
+    KN("KN"),
+    
+    KS("KS"),
+    
+    KV("KV"),
+    
+    KU("KU"),
+    
+    KG("KG"),
+    
+    LA("LA"),
+    
+    LG("LG"),
+    
+    LE("LE"),
+    
+    LT("LT"),
+    
+    LI("LI"),
+    
+    LY("LY"),
+    
+    LS("LS"),
+    
+    LH("LH"),
+    
+    LU("LU"),
+    
+    MC("MC"),
+    
+    MK("MK"),
+    
+    MA("MA"),
+    
+    MI("MI"),
+    
+    MY("MY"),
+    
+    MV("MV"),
+    
+    ML("ML"),
+    
+    MT("MT"),
+    
+    IM("IM"),
+    
+    RM("RM"),
+    
+    MR("MR"),
+    
+    MP("MP"),
+    
+    MX("MX"),
+    
+    MQ("MQ"),
+    
+    MD("MD"),
+    
+    MN("MN"),
+    
+    MG("MG"),
+    
+    MJ("MJ"),
+    
+    MH("MH"),
+    
+    MO("MO"),
+    
+    MZ("MZ"),
+    
+    WA("WA"),
+    
+    NR("NR"),
+    
+    BQ("BQ"),
+    
+    NP("NP"),
+    
+    NL("NL"),
+    
+    NC("NC"),
+    
+    NZ("NZ"),
+    
+    NU("NU"),
+    
+    NG("NG"),
+    
+    NI("NI"),
+    
+    NE("NE"),
+    
+    NF("NF"),
+    
+    CQ("CQ"),
+    
+    NO("NO"),
+    
+    MU("MU"),
+    
+    OC("OC"),
+    
+    PK("PK"),
+    
+    PS("PS"),
+    
+    LQ("LQ"),
+    
+    PM("PM"),
+    
+    PP("PP"),
+    
+    PF("PF"),
+    
+    PA("PA"),
+    
+    PE("PE"),
+    
+    RP("RP"),
+    
+    PC("PC"),
+    
+    PL("PL"),
+    
+    PO("PO"),
+    
+    RQ("RQ"),
+    
+    QA("QA"),
+    
+    RO("RO"),
+    
+    RS("RS"),
+    
+    RW("RW"),
+    
+    TB("TB"),
+    
+    RN("RN"),
+    
+    WS("WS"),
+    
+    SM("SM"),
+    
+    TP("TP"),
+    
+    SA("SA"),
+    
+    SG("SG"),
+    
+    RI("RI"),
+    
+    SE("SE"),
+    
+    SL("SL"),
+    
+    SN("SN"),
+    
+    NN("NN"),
+    
+    LO("LO"),
+    
+    SI("SI"),
+    
+    BP("BP"),
+    
+    SO("SO"),
+    
+    SF("SF"),
+    
+    SX("SX"),
+    
+    SP("SP"),
+    
+    PG("PG"),
+    
+    CE("CE"),
+    
+    SH("SH"),
+    
+    SC("SC"),
+    
+    ST("ST"),
+    
+    SB("SB"),
+    
+    VC("VC"),
+    
+    SU("SU"),
+    
+    NS("NS"),
+    
+    SV("SV"),
+    
+    WZ("WZ"),
+    
+    SW("SW"),
+    
+    SZ("SZ"),
+    
+    SY("SY"),
+    
+    TW("TW"),
+    
+    TI("TI"),
+    
+    TZ("TZ"),
+    
+    TH("TH"),
+    
+    TO("TO"),
+    
+    TL("TL"),
+    
+    TN("TN"),
+    
+    TD("TD"),
+    
+    TS("TS"),
+    
+    TU("TU"),
+    
+    TX("TX"),
+    
+    TK("TK"),
+    
+    TV("TV"),
+    
+    UG("UG"),
+    
+    UP("UP"),
+    
+    AE("AE"),
+    
+    UK("UK"),
+    
+    UY("UY"),
+    
+    UZ("UZ"),
+    
+    NH("NH"),
+    
+    VE("VE"),
+    
+    VM("VM"),
+    
+    VQ("VQ"),
+    
+    WQ("WQ"),
+    
+    WF("WF"),
+    
+    WI("WI"),
+    
+    YM("YM"),
+    
+    ZA("ZA"),
+    
+    ZI("ZI");
+
+    private String value;
+
+    TreatyCountryEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TreatyCountryEnum fromValue(String value) {
+      for (TreatyCountryEnum b : TreatyCountryEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TreatyCountryEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TreatyCountryEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TreatyCountryEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TreatyCountryEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      TreatyCountryEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_TREATY_COUNTRY = "treatyCountry";
   @SerializedName(SERIALIZED_NAME_TREATY_COUNTRY)
-  private String treatyCountry;
+  private TreatyCountryEnum treatyCountry;
 
   public static final String SERIALIZED_NAME_TREATY_ARTICLE = "treatyArticle";
   @SerializedName(SERIALIZED_NAME_TREATY_ARTICLE)
@@ -206,9 +2858,79 @@ public class W8BenFormRequest {
   @SerializedName(SERIALIZED_NAME_TREATY_REASONS)
   private String treatyReasons;
 
+  /**
+   * The withholding rate applied as per the treaty. Must be a percentage with up to two decimals (e.g., 12.50, 0).. Allowed values: 0, 0.0, 0.00, 5, 5.5, 10, 12.50, 15, 20, 25 (and 1 more)
+   */
+  @JsonAdapter(WithholdingRateEnum.Adapter.class)
+  public enum WithholdingRateEnum {
+    _0("0"),
+    
+    _0_0("0.0"),
+    
+    _0_00("0.00"),
+    
+    _5("5"),
+    
+    _5_5("5.5"),
+    
+    _10("10"),
+    
+    _12_50("12.50"),
+    
+    _15("15"),
+    
+    _20("20"),
+    
+    _25("25"),
+    
+    _30("30");
+
+    private String value;
+
+    WithholdingRateEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static WithholdingRateEnum fromValue(String value) {
+      for (WithholdingRateEnum b : WithholdingRateEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<WithholdingRateEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final WithholdingRateEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public WithholdingRateEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return WithholdingRateEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      WithholdingRateEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_WITHHOLDING_RATE = "withholdingRate";
   @SerializedName(SERIALIZED_NAME_WITHHOLDING_RATE)
-  private String withholdingRate;
+  private WithholdingRateEnum withholdingRate;
 
   public static final String SERIALIZED_NAME_INCOME_TYPE = "incomeType";
   @SerializedName(SERIALIZED_NAME_INCOME_TYPE)
@@ -278,21 +3000,21 @@ public class W8BenFormRequest {
   }
 
 
-  public W8BenFormRequest citizenshipCountry(String citizenshipCountry) {
+  public W8BenFormRequest citizenshipCountry(CitizenshipCountryEnum citizenshipCountry) {
     this.citizenshipCountry = citizenshipCountry;
     return this;
   }
 
   /**
-   * The country of citizenship.
+   * The country of citizenship.. Allowed values: US, AF, AX, AL, AG, AQ, AN, AO, AV, AY (and 248 more)
    * @return citizenshipCountry
    */
   @javax.annotation.Nonnull
-  public String getCitizenshipCountry() {
+  public CitizenshipCountryEnum getCitizenshipCountry() {
     return citizenshipCountry;
   }
 
-  public void setCitizenshipCountry(String citizenshipCountry) {
+  public void setCitizenshipCountry(CitizenshipCountryEnum citizenshipCountry) {
     this.citizenshipCountry = citizenshipCountry;
   }
 
@@ -335,21 +3057,21 @@ public class W8BenFormRequest {
   }
 
 
-  public W8BenFormRequest residenceState(String residenceState) {
+  public W8BenFormRequest residenceState(ResidenceStateEnum residenceState) {
     this.residenceState = residenceState;
     return this;
   }
 
   /**
-   * The state of residence.
+   * The state of residence. Required for US and Canada.. Allowed values: AA, AE, AK, AL, AP, AR, AS, AZ, CA, CO (and 65 more)
    * @return residenceState
    */
   @javax.annotation.Nullable
-  public String getResidenceState() {
+  public ResidenceStateEnum getResidenceState() {
     return residenceState;
   }
 
-  public void setResidenceState(String residenceState) {
+  public void setResidenceState(ResidenceStateEnum residenceState) {
     this.residenceState = residenceState;
   }
 
@@ -373,21 +3095,21 @@ public class W8BenFormRequest {
   }
 
 
-  public W8BenFormRequest residenceCountry(String residenceCountry) {
+  public W8BenFormRequest residenceCountry(ResidenceCountryEnum residenceCountry) {
     this.residenceCountry = residenceCountry;
     return this;
   }
 
   /**
-   * The country of residence.
+   * The country of residence.. Allowed values: US, AF, AX, AL, AG, AQ, AN, AO, AV, AY (and 248 more)
    * @return residenceCountry
    */
   @javax.annotation.Nonnull
-  public String getResidenceCountry() {
+  public ResidenceCountryEnum getResidenceCountry() {
     return residenceCountry;
   }
 
-  public void setResidenceCountry(String residenceCountry) {
+  public void setResidenceCountry(ResidenceCountryEnum residenceCountry) {
     this.residenceCountry = residenceCountry;
   }
 
@@ -449,21 +3171,21 @@ public class W8BenFormRequest {
   }
 
 
-  public W8BenFormRequest mailingState(String mailingState) {
+  public W8BenFormRequest mailingState(MailingStateEnum mailingState) {
     this.mailingState = mailingState;
     return this;
   }
 
   /**
-   * The state of the mailing address.
+   * The state of the mailing address. Required for US and Canada.. Allowed values: AA, AE, AK, AL, AP, AR, AS, AZ, CA, CO (and 65 more)
    * @return mailingState
    */
   @javax.annotation.Nullable
-  public String getMailingState() {
+  public MailingStateEnum getMailingState() {
     return mailingState;
   }
 
-  public void setMailingState(String mailingState) {
+  public void setMailingState(MailingStateEnum mailingState) {
     this.mailingState = mailingState;
   }
 
@@ -487,21 +3209,21 @@ public class W8BenFormRequest {
   }
 
 
-  public W8BenFormRequest mailingCountry(String mailingCountry) {
+  public W8BenFormRequest mailingCountry(MailingCountryEnum mailingCountry) {
     this.mailingCountry = mailingCountry;
     return this;
   }
 
   /**
-   * The country of the mailing address.
+   * The country of the mailing address.. Allowed values: US, AF, AX, AL, AG, AQ, AN, AO, AV, AY (and 248 more)
    * @return mailingCountry
    */
   @javax.annotation.Nullable
-  public String getMailingCountry() {
+  public MailingCountryEnum getMailingCountry() {
     return mailingCountry;
   }
 
-  public void setMailingCountry(String mailingCountry) {
+  public void setMailingCountry(MailingCountryEnum mailingCountry) {
     this.mailingCountry = mailingCountry;
   }
 
@@ -601,21 +3323,21 @@ public class W8BenFormRequest {
   }
 
 
-  public W8BenFormRequest treatyCountry(String treatyCountry) {
+  public W8BenFormRequest treatyCountry(TreatyCountryEnum treatyCountry) {
     this.treatyCountry = treatyCountry;
     return this;
   }
 
   /**
-   * The country for which the treaty applies.
+   * The country for which the treaty applies.. Allowed values: US, AF, AX, AL, AG, AQ, AN, AO, AV, AY (and 248 more)
    * @return treatyCountry
    */
   @javax.annotation.Nullable
-  public String getTreatyCountry() {
+  public TreatyCountryEnum getTreatyCountry() {
     return treatyCountry;
   }
 
-  public void setTreatyCountry(String treatyCountry) {
+  public void setTreatyCountry(TreatyCountryEnum treatyCountry) {
     this.treatyCountry = treatyCountry;
   }
 
@@ -658,21 +3380,21 @@ public class W8BenFormRequest {
   }
 
 
-  public W8BenFormRequest withholdingRate(String withholdingRate) {
+  public W8BenFormRequest withholdingRate(WithholdingRateEnum withholdingRate) {
     this.withholdingRate = withholdingRate;
     return this;
   }
 
   /**
-   * The withholding rate applied as per the treaty.
+   * The withholding rate applied as per the treaty. Must be a percentage with up to two decimals (e.g., 12.50, 0).. Allowed values: 0, 0.0, 0.00, 5, 5.5, 10, 12.50, 15, 20, 25 (and 1 more)
    * @return withholdingRate
    */
   @javax.annotation.Nullable
-  public String getWithholdingRate() {
+  public WithholdingRateEnum getWithholdingRate() {
     return withholdingRate;
   }
 
-  public void setWithholdingRate(String withholdingRate) {
+  public void setWithholdingRate(WithholdingRateEnum withholdingRate) {
     this.withholdingRate = withholdingRate;
   }
 
@@ -980,6 +3702,8 @@ public class W8BenFormRequest {
       if (!jsonObj.get("citizenshipCountry").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `citizenshipCountry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("citizenshipCountry").toString()));
       }
+      // validate the required field `citizenshipCountry`
+      CitizenshipCountryEnum.validateJsonElement(jsonObj.get("citizenshipCountry"));
       if ((jsonObj.get("residenceAddress") != null && !jsonObj.get("residenceAddress").isJsonNull()) && !jsonObj.get("residenceAddress").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `residenceAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("residenceAddress").toString()));
       }
@@ -989,12 +3713,18 @@ public class W8BenFormRequest {
       if ((jsonObj.get("residenceState") != null && !jsonObj.get("residenceState").isJsonNull()) && !jsonObj.get("residenceState").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `residenceState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("residenceState").toString()));
       }
+      // validate the optional field `residenceState`
+      if (jsonObj.get("residenceState") != null && !jsonObj.get("residenceState").isJsonNull()) {
+        ResidenceStateEnum.validateJsonElement(jsonObj.get("residenceState"));
+      }
       if ((jsonObj.get("residenceZip") != null && !jsonObj.get("residenceZip").isJsonNull()) && !jsonObj.get("residenceZip").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `residenceZip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("residenceZip").toString()));
       }
       if (!jsonObj.get("residenceCountry").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `residenceCountry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("residenceCountry").toString()));
       }
+      // validate the required field `residenceCountry`
+      ResidenceCountryEnum.validateJsonElement(jsonObj.get("residenceCountry"));
       if ((jsonObj.get("mailingAddress") != null && !jsonObj.get("mailingAddress").isJsonNull()) && !jsonObj.get("mailingAddress").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mailingAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mailingAddress").toString()));
       }
@@ -1004,12 +3734,18 @@ public class W8BenFormRequest {
       if ((jsonObj.get("mailingState") != null && !jsonObj.get("mailingState").isJsonNull()) && !jsonObj.get("mailingState").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mailingState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mailingState").toString()));
       }
+      // validate the optional field `mailingState`
+      if (jsonObj.get("mailingState") != null && !jsonObj.get("mailingState").isJsonNull()) {
+        MailingStateEnum.validateJsonElement(jsonObj.get("mailingState"));
+      }
       if ((jsonObj.get("mailingZip") != null && !jsonObj.get("mailingZip").isJsonNull()) && !jsonObj.get("mailingZip").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mailingZip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mailingZip").toString()));
       }
       if ((jsonObj.get("mailingCountry") != null && !jsonObj.get("mailingCountry").isJsonNull()) && !jsonObj.get("mailingCountry").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mailingCountry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mailingCountry").toString()));
       }
+      // validate the required field `mailingCountry`
+      MailingCountryEnum.validateJsonElement(jsonObj.get("mailingCountry"));
       if ((jsonObj.get("tin") != null && !jsonObj.get("tin").isJsonNull()) && !jsonObj.get("tin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tin").toString()));
       }
@@ -1022,6 +3758,10 @@ public class W8BenFormRequest {
       if ((jsonObj.get("treatyCountry") != null && !jsonObj.get("treatyCountry").isJsonNull()) && !jsonObj.get("treatyCountry").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `treatyCountry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("treatyCountry").toString()));
       }
+      // validate the optional field `treatyCountry`
+      if (jsonObj.get("treatyCountry") != null && !jsonObj.get("treatyCountry").isJsonNull()) {
+        TreatyCountryEnum.validateJsonElement(jsonObj.get("treatyCountry"));
+      }
       if ((jsonObj.get("treatyArticle") != null && !jsonObj.get("treatyArticle").isJsonNull()) && !jsonObj.get("treatyArticle").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `treatyArticle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("treatyArticle").toString()));
       }
@@ -1030,6 +3770,10 @@ public class W8BenFormRequest {
       }
       if ((jsonObj.get("withholdingRate") != null && !jsonObj.get("withholdingRate").isJsonNull()) && !jsonObj.get("withholdingRate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `withholdingRate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("withholdingRate").toString()));
+      }
+      // validate the optional field `withholdingRate`
+      if (jsonObj.get("withholdingRate") != null && !jsonObj.get("withholdingRate").isJsonNull()) {
+        WithholdingRateEnum.validateJsonElement(jsonObj.get("withholdingRate"));
       }
       if ((jsonObj.get("incomeType") != null && !jsonObj.get("incomeType").isJsonNull()) && !jsonObj.get("incomeType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `incomeType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("incomeType").toString()));

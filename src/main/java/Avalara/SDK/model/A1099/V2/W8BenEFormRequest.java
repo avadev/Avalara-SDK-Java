@@ -137,17 +137,203 @@ public class W8BenEFormRequest {
   @SerializedName(SERIALIZED_NAME_DISREGARDED_ENTITY)
   private String disregardedEntity;
 
+  /**
+   * Represents the entity type for tax forms.  Each value corresponds to a specific entity classification.  - 1: Corporation  - 2: Disregarded entity  - 3: Partnership  - 4: Simple trust  - 5: Grantor trust  - 6: Complex trust  - 7: Estate  - 8: Foreign Government - Controlled Entity  - 9: Central Bank of Issue  - 10: Tax-exempt organization  - 11: Private foundation  - 12: International organization  - 13: Foreign Government - Controlled Integral Part
+   */
+  @JsonAdapter(EntityTypeEnum.Adapter.class)
+  public enum EntityTypeEnum {
+    CORPORATION("Corporation"),
+    
+    DISREGARDED_ENTITY("DisregardedEntity"),
+    
+    PARTNERSHIP("Partnership"),
+    
+    SIMPLE_TRUST("SimpleTrust"),
+    
+    GRANTOR_TRUST("GrantorTrust"),
+    
+    COMPLEX_TRUST("ComplexTrust"),
+    
+    ESTATE("Estate"),
+    
+    FOREIGN_GOVERNMENT_CONTROLLED_ENTITY("ForeignGovernmentControlledEntity"),
+    
+    CENTRAL_BANK_OF_ISSUE("CentralBankOfIssue"),
+    
+    TAX_EXEMPT_ORGANIZATION("TaxExemptOrganization"),
+    
+    PRIVATE_FOUNDATION("PrivateFoundation"),
+    
+    INTERNATIONAL_ORGANIZATION("InternationalOrganization"),
+    
+    FOREIGN_GOVERNMENT_CONTROLLED_INTEGRAL_PART("ForeignGovernmentControlledIntegralPart");
+
+    private String value;
+
+    EntityTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EntityTypeEnum fromValue(String value) {
+      for (EntityTypeEnum b : EntityTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<EntityTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EntityTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EntityTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return EntityTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      EntityTypeEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_ENTITY_TYPE = "entityType";
   @SerializedName(SERIALIZED_NAME_ENTITY_TYPE)
-  private String entityType;
+  private EntityTypeEnum entityType;
 
   public static final String SERIALIZED_NAME_MAKING_TREATY_CLAIM = "makingTreatyClaim";
   @SerializedName(SERIALIZED_NAME_MAKING_TREATY_CLAIM)
   private Boolean makingTreatyClaim;
 
+  /**
+   * Represents the FATCA status types for tax forms.  Used for W8-BEN-E forms and FATCA compliance validations.  Values correspond to numeric identifiers used in forms.  - 1: Nonparticipating FFI (including a limited FFI or an FFI related to a Reporting IGA FFI other than a deemed-compliant FFI, participating FFI, or exempt beneficial owner)  - 2: Participating FFI  - 3: Reporting Model 1 FFI  - 4: Reporting Model 2 FFI  - 5: Registered deemed-compliant FFI (other than a reporting Model 1 FFI, sponsored FFI, or nonreporting IGA FFI covered in Part XII)  - 6: Sponsored FFI that has not obtained a GIIN  - 7: Certified deemed-compliant nonregistering local bank  - 8: Certified deemed-compliant FFI with only low-value accounts  - 9: Certified deemed-compliant sponsored, closely held investment vehicle  - 10: Certified deemed-compliant limited life debt investment entity  - 11: Certified deemed-compliant investment advisors and investment managers  - 12: Owner-documented FFI  - 13: Restricted distributor  - 14: Nonreporting IGA FFI  - 15: Foreign government, government of a U.S. possession, or foreign central bank of issue  - 16: International organization  - 17: Exempt retirement plans  - 18: Entity wholly owned by exempt beneficial owners  - 19: Territory financial institution  - 20: Nonfinancial group entity  - 21: Excepted nonfinancial start-up company  - 22: Excepted nonfinancial entity in liquidation or bankruptcy  - 23: 501(c) organization  - 24: Nonprofit organization  - 25: Publicly traded NFFE or NFFE affiliate of a publicly traded corporation  - 26: Excepted territory NFFE  - 27: Active NFFE  - 28: Passive NFFE  - 29: Excepted inter-affiliate FFI  - 30: Direct reporting NFFE  - 31: Sponsored direct reporting NFFE  - 32: Account that is not a financial account
+   */
+  @JsonAdapter(FatcaStatusEnum.Adapter.class)
+  public enum FatcaStatusEnum {
+    NONPARTICIPATING_FFI("NonparticipatingFFI"),
+    
+    PARTICIPATING_FFI("ParticipatingFFI"),
+    
+    REPORTING_MODEL1_FFI("ReportingModel1FFI"),
+    
+    REPORTING_MODEL2_FFI("ReportingModel2FFI"),
+    
+    REGISTERED_DEEMED_COMPLIANT_FFI("RegisteredDeemedCompliantFFI"),
+    
+    SPONSORED_FFI_WITHOUT_GIIN("SponsoredFFIWithoutGIIN"),
+    
+    CERTIFIED_DEEMED_COMPLIANT_NONREGISTERING_LOCAL_BANK("CertifiedDeemedCompliantNonregisteringLocalBank"),
+    
+    CERTIFIED_DEEMED_COMPLIANT_FFI_WITH_LOW_VALUE_ACCOUNTS("CertifiedDeemedCompliantFFIWithLowValueAccounts"),
+    
+    CERTIFIED_DEEMED_COMPLIANT_SPONSORED_CLOSELY_HELD_INVESTMENT_VEHICLE("CertifiedDeemedCompliantSponsoredCloselyHeldInvestmentVehicle"),
+    
+    CERTIFIED_DEEMED_COMPLIANT_LIMITED_LIFE_DEBT_INVESTMENT_ENTITY("CertifiedDeemedCompliantLimitedLifeDebtInvestmentEntity"),
+    
+    CERTAIN_INVESTMENT_ENTITIES_WITHOUT_FINANCIAL_ACCOUNTS("CertainInvestmentEntitiesWithoutFinancialAccounts"),
+    
+    OWNER_DOCUMENTED_FFI("OwnerDocumentedFFI"),
+    
+    RESTRICTED_DISTRIBUTOR("RestrictedDistributor"),
+    
+    NONREPORTING_IGAFFI("NonreportingIGAFFI"),
+    
+    FOREIGN_GOVERNMENT_OR_US_POSSESSION_OR_FOREIGN_CENTRAL_BANK("ForeignGovernmentOrUSPossessionOrForeignCentralBank"),
+    
+    INTERNATIONAL_ORGANIZATION("InternationalOrganization"),
+    
+    EXEMPT_RETIREMENT_PLANS("ExemptRetirementPlans"),
+    
+    ENTITY_WHOLLY_OWNED_BY_EXEMPT_BENEFICIAL_OWNERS("EntityWhollyOwnedByExemptBeneficialOwners"),
+    
+    TERRITORY_FINANCIAL_INSTITUTION("TerritoryFinancialInstitution"),
+    
+    NONFINANCIAL_GROUP_ENTITY("NonfinancialGroupEntity"),
+    
+    EXCEPTED_NONFINANCIAL_START_UP_COMPANY("ExceptedNonfinancialStartUpCompany"),
+    
+    EXCEPTED_NONFINANCIAL_ENTITY_IN_LIQUIDATION_OR_BANKRUPTCY("ExceptedNonfinancialEntityInLiquidationOrBankruptcy"),
+    
+    ORGANIZATION501C("Organization501c"),
+    
+    NONPROFIT_ORGANIZATION("NonprofitOrganization"),
+    
+    PUBLICLY_TRADED_NFFEOR_AFFILIATE_OF_PUBLICLY_TRADED_CORPORATION("PubliclyTradedNFFEOrAffiliateOfPubliclyTradedCorporation"),
+    
+    EXCEPTED_TERRITORY_NFFE("ExceptedTerritoryNFFE"),
+    
+    ACTIVE_NFFE("ActiveNFFE"),
+    
+    PASSIVE_NFFE("PassiveNFFE"),
+    
+    EXCEPTED_INTER_AFFILIATE_FFI("ExceptedInterAffiliateFFI"),
+    
+    DIRECT_REPORTING_NFFE("DirectReportingNFFE"),
+    
+    SPONSORED_DIRECT_REPORTING_NFFE("SponsoredDirectReportingNFFE"),
+    
+    ACCOUNT_THAT_IS_NOT_FINANCIAL_ACCOUNT("AccountThatIsNotFinancialAccount");
+
+    private String value;
+
+    FatcaStatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static FatcaStatusEnum fromValue(String value) {
+      for (FatcaStatusEnum b : FatcaStatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<FatcaStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FatcaStatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public FatcaStatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return FatcaStatusEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      FatcaStatusEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_FATCA_STATUS = "fatcaStatus";
   @SerializedName(SERIALIZED_NAME_FATCA_STATUS)
-  private String fatcaStatus;
+  private FatcaStatusEnum fatcaStatus;
 
   public static final String SERIALIZED_NAME_RESIDENCE_ADDRESS = "residenceAddress";
   @SerializedName(SERIALIZED_NAME_RESIDENCE_ADDRESS)
@@ -157,9 +343,181 @@ public class W8BenEFormRequest {
   @SerializedName(SERIALIZED_NAME_RESIDENCE_CITY)
   private String residenceCity;
 
+  /**
+   * The state of residence.
+   */
+  @JsonAdapter(ResidenceStateEnum.Adapter.class)
+  public enum ResidenceStateEnum {
+    AA("AA"),
+    
+    AE("AE"),
+    
+    AK("AK"),
+    
+    AL("AL"),
+    
+    AP("AP"),
+    
+    AR("AR"),
+    
+    AS("AS"),
+    
+    AZ("AZ"),
+    
+    CA("CA"),
+    
+    CO("CO"),
+    
+    CT("CT"),
+    
+    DC("DC"),
+    
+    DE("DE"),
+    
+    FL("FL"),
+    
+    FM("FM"),
+    
+    GA("GA"),
+    
+    GU("GU"),
+    
+    HI("HI"),
+    
+    IA("IA"),
+    
+    ID("ID"),
+    
+    IL("IL"),
+    
+    IN("IN"),
+    
+    KS("KS"),
+    
+    KY("KY"),
+    
+    LA("LA"),
+    
+    MA("MA"),
+    
+    MD("MD"),
+    
+    ME("ME"),
+    
+    MH("MH"),
+    
+    MI("MI"),
+    
+    MN("MN"),
+    
+    MO("MO"),
+    
+    MP("MP"),
+    
+    MS("MS"),
+    
+    MT("MT"),
+    
+    NC("NC"),
+    
+    ND("ND"),
+    
+    NE("NE"),
+    
+    NH("NH"),
+    
+    NJ("NJ"),
+    
+    NM("NM"),
+    
+    NV("NV"),
+    
+    NY("NY"),
+    
+    OH("OH"),
+    
+    OK("OK"),
+    
+    OR("OR"),
+    
+    PA("PA"),
+    
+    PR("PR"),
+    
+    PW("PW"),
+    
+    RI("RI"),
+    
+    SC("SC"),
+    
+    SD("SD"),
+    
+    TN("TN"),
+    
+    TX("TX"),
+    
+    UT("UT"),
+    
+    VA("VA"),
+    
+    VI("VI"),
+    
+    VT("VT"),
+    
+    WA("WA"),
+    
+    WI("WI"),
+    
+    WV("WV"),
+    
+    WY("WY");
+
+    private String value;
+
+    ResidenceStateEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ResidenceStateEnum fromValue(String value) {
+      for (ResidenceStateEnum b : ResidenceStateEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ResidenceStateEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ResidenceStateEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ResidenceStateEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ResidenceStateEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ResidenceStateEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_RESIDENCE_STATE = "residenceState";
   @SerializedName(SERIALIZED_NAME_RESIDENCE_STATE)
-  private String residenceState;
+  private ResidenceStateEnum residenceState;
 
   public static final String SERIALIZED_NAME_RESIDENCE_ZIP = "residenceZip";
   @SerializedName(SERIALIZED_NAME_RESIDENCE_ZIP)
@@ -181,9 +539,181 @@ public class W8BenEFormRequest {
   @SerializedName(SERIALIZED_NAME_MAILING_CITY)
   private String mailingCity;
 
+  /**
+   * The state of the mailing address.
+   */
+  @JsonAdapter(MailingStateEnum.Adapter.class)
+  public enum MailingStateEnum {
+    AA("AA"),
+    
+    AE("AE"),
+    
+    AK("AK"),
+    
+    AL("AL"),
+    
+    AP("AP"),
+    
+    AR("AR"),
+    
+    AS("AS"),
+    
+    AZ("AZ"),
+    
+    CA("CA"),
+    
+    CO("CO"),
+    
+    CT("CT"),
+    
+    DC("DC"),
+    
+    DE("DE"),
+    
+    FL("FL"),
+    
+    FM("FM"),
+    
+    GA("GA"),
+    
+    GU("GU"),
+    
+    HI("HI"),
+    
+    IA("IA"),
+    
+    ID("ID"),
+    
+    IL("IL"),
+    
+    IN("IN"),
+    
+    KS("KS"),
+    
+    KY("KY"),
+    
+    LA("LA"),
+    
+    MA("MA"),
+    
+    MD("MD"),
+    
+    ME("ME"),
+    
+    MH("MH"),
+    
+    MI("MI"),
+    
+    MN("MN"),
+    
+    MO("MO"),
+    
+    MP("MP"),
+    
+    MS("MS"),
+    
+    MT("MT"),
+    
+    NC("NC"),
+    
+    ND("ND"),
+    
+    NE("NE"),
+    
+    NH("NH"),
+    
+    NJ("NJ"),
+    
+    NM("NM"),
+    
+    NV("NV"),
+    
+    NY("NY"),
+    
+    OH("OH"),
+    
+    OK("OK"),
+    
+    OR("OR"),
+    
+    PA("PA"),
+    
+    PR("PR"),
+    
+    PW("PW"),
+    
+    RI("RI"),
+    
+    SC("SC"),
+    
+    SD("SD"),
+    
+    TN("TN"),
+    
+    TX("TX"),
+    
+    UT("UT"),
+    
+    VA("VA"),
+    
+    VI("VI"),
+    
+    VT("VT"),
+    
+    WA("WA"),
+    
+    WI("WI"),
+    
+    WV("WV"),
+    
+    WY("WY");
+
+    private String value;
+
+    MailingStateEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static MailingStateEnum fromValue(String value) {
+      for (MailingStateEnum b : MailingStateEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<MailingStateEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MailingStateEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public MailingStateEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return MailingStateEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      MailingStateEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_MAILING_STATE = "mailingState";
   @SerializedName(SERIALIZED_NAME_MAILING_STATE)
-  private String mailingState;
+  private MailingStateEnum mailingState;
 
   public static final String SERIALIZED_NAME_MAILING_ZIP = "mailingZip";
   @SerializedName(SERIALIZED_NAME_MAILING_ZIP)
@@ -213,9 +743,67 @@ public class W8BenEFormRequest {
   @SerializedName(SERIALIZED_NAME_REFERENCE_NUMBER)
   private String referenceNumber;
 
+  /**
+   * The FATCA status of disregarded entity or branch receiving payment.  Available values:  - 1: Branch treated as nonparticipating FFI  - 2: U.S. Branch  - 3: Participating FFI  - 4: Reporting Model 1 FFI  - 5: Reporting Model 2 FFI
+   */
+  @JsonAdapter(DisregardedEntityFatcaStatusEnum.Adapter.class)
+  public enum DisregardedEntityFatcaStatusEnum {
+    BRANCH_TREATED_AS_NONPARTICIPATING_FFI("BranchTreatedAsNonparticipatingFFI"),
+    
+    US_BRANCH("USBranch"),
+    
+    PARTICIPATING_FFI("ParticipatingFFI"),
+    
+    REPORTING_MODEL1_FFI("ReportingModel1FFI"),
+    
+    REPORTING_MODEL2_FFI("ReportingModel2FFI");
+
+    private String value;
+
+    DisregardedEntityFatcaStatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DisregardedEntityFatcaStatusEnum fromValue(String value) {
+      for (DisregardedEntityFatcaStatusEnum b : DisregardedEntityFatcaStatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<DisregardedEntityFatcaStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DisregardedEntityFatcaStatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DisregardedEntityFatcaStatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return DisregardedEntityFatcaStatusEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      DisregardedEntityFatcaStatusEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_DISREGARDED_ENTITY_FATCA_STATUS = "disregardedEntityFatcaStatus";
   @SerializedName(SERIALIZED_NAME_DISREGARDED_ENTITY_FATCA_STATUS)
-  private String disregardedEntityFatcaStatus;
+  private DisregardedEntityFatcaStatusEnum disregardedEntityFatcaStatus;
 
   public static final String SERIALIZED_NAME_DISREGARDED_ADDRESS = "disregardedAddress";
   @SerializedName(SERIALIZED_NAME_DISREGARDED_ADDRESS)
@@ -225,9 +813,181 @@ public class W8BenEFormRequest {
   @SerializedName(SERIALIZED_NAME_DISREGARDED_CITY)
   private String disregardedCity;
 
+  /**
+   * The state for disregarded entities.
+   */
+  @JsonAdapter(DisregardedStateEnum.Adapter.class)
+  public enum DisregardedStateEnum {
+    AA("AA"),
+    
+    AE("AE"),
+    
+    AK("AK"),
+    
+    AL("AL"),
+    
+    AP("AP"),
+    
+    AR("AR"),
+    
+    AS("AS"),
+    
+    AZ("AZ"),
+    
+    CA("CA"),
+    
+    CO("CO"),
+    
+    CT("CT"),
+    
+    DC("DC"),
+    
+    DE("DE"),
+    
+    FL("FL"),
+    
+    FM("FM"),
+    
+    GA("GA"),
+    
+    GU("GU"),
+    
+    HI("HI"),
+    
+    IA("IA"),
+    
+    ID("ID"),
+    
+    IL("IL"),
+    
+    IN("IN"),
+    
+    KS("KS"),
+    
+    KY("KY"),
+    
+    LA("LA"),
+    
+    MA("MA"),
+    
+    MD("MD"),
+    
+    ME("ME"),
+    
+    MH("MH"),
+    
+    MI("MI"),
+    
+    MN("MN"),
+    
+    MO("MO"),
+    
+    MP("MP"),
+    
+    MS("MS"),
+    
+    MT("MT"),
+    
+    NC("NC"),
+    
+    ND("ND"),
+    
+    NE("NE"),
+    
+    NH("NH"),
+    
+    NJ("NJ"),
+    
+    NM("NM"),
+    
+    NV("NV"),
+    
+    NY("NY"),
+    
+    OH("OH"),
+    
+    OK("OK"),
+    
+    OR("OR"),
+    
+    PA("PA"),
+    
+    PR("PR"),
+    
+    PW("PW"),
+    
+    RI("RI"),
+    
+    SC("SC"),
+    
+    SD("SD"),
+    
+    TN("TN"),
+    
+    TX("TX"),
+    
+    UT("UT"),
+    
+    VA("VA"),
+    
+    VI("VI"),
+    
+    VT("VT"),
+    
+    WA("WA"),
+    
+    WI("WI"),
+    
+    WV("WV"),
+    
+    WY("WY");
+
+    private String value;
+
+    DisregardedStateEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DisregardedStateEnum fromValue(String value) {
+      for (DisregardedStateEnum b : DisregardedStateEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<DisregardedStateEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DisregardedStateEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DisregardedStateEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return DisregardedStateEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      DisregardedStateEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_DISREGARDED_STATE = "disregardedState";
   @SerializedName(SERIALIZED_NAME_DISREGARDED_STATE)
-  private String disregardedState;
+  private DisregardedStateEnum disregardedState;
 
   public static final String SERIALIZED_NAME_DISREGARDED_ZIP = "disregardedZip";
   @SerializedName(SERIALIZED_NAME_DISREGARDED_ZIP)
@@ -253,9 +1013,79 @@ public class W8BenEFormRequest {
   @SerializedName(SERIALIZED_NAME_BENEFIT_LIMITATION_CERTIFICATION)
   private Boolean benefitLimitationCertification;
 
+  /**
+   * The benefit limitation for tax treaty claims.  Available values:  - 1: Government  - 2: Tax exempt pension trust or pension fund  - 3: Other tax exempt organization  - 4: Publicly traded corporation  - 5: Subsidiary of a publicly traded corporation  - 6: Company that meets the ownership and base erosion test  - 7: Company that meets the derivative benefits test  - 8: Company with an item of income that meets active trade or business test  - 9: Favorable discretionary determination by the U.S. competent authority received  - 10: Other  - 11: No LOB article in treaty
+   */
+  @JsonAdapter(BenefitLimitationEnum.Adapter.class)
+  public enum BenefitLimitationEnum {
+    GOVERNMENT("Government"),
+    
+    TAX_EXEMPT_PENSION_TRUST_OR_PENSION_FUND("TaxExemptPensionTrustOrPensionFund"),
+    
+    OTHER_TAX_EXEMPT_ORGANIZATION("OtherTaxExemptOrganization"),
+    
+    PUBLICLY_TRADED_CORPORATION("PubliclyTradedCorporation"),
+    
+    SUBSIDIARY_OF_PUBLICLY_TRADED_CORPORATION("SubsidiaryOfPubliclyTradedCorporation"),
+    
+    COMPANY_THAT_MEETS_OWNERSHIP_AND_BASE_EROSION_TEST("CompanyThatMeetsOwnershipAndBaseErosionTest"),
+    
+    COMPANY_THAT_MEETS_DERIVATIVE_BENEFITS_TEST("CompanyThatMeetsDerivativeBenefitsTest"),
+    
+    COMPANY_WITH_ITEM_OF_INCOME_THAT_MEETS_ACTIVE_TRADE_OR_BUSINESS_TEST("CompanyWithItemOfIncomeThatMeetsActiveTradeOrBusinessTest"),
+    
+    FAVORABLE_DISCRETIONARY_DETERMINATION_BY_US_COMPETENT_AUTHORITY_RECEIVED("FavorableDiscretionaryDeterminationByUSCompetentAuthorityReceived"),
+    
+    OTHER("Other"),
+    
+    NO_LOB_ARTICLE_IN_TREATY("NoLOBArticleInTreaty");
+
+    private String value;
+
+    BenefitLimitationEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static BenefitLimitationEnum fromValue(String value) {
+      for (BenefitLimitationEnum b : BenefitLimitationEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<BenefitLimitationEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BenefitLimitationEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public BenefitLimitationEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return BenefitLimitationEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      BenefitLimitationEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_BENEFIT_LIMITATION = "benefitLimitation";
   @SerializedName(SERIALIZED_NAME_BENEFIT_LIMITATION)
-  private String benefitLimitation;
+  private BenefitLimitationEnum benefitLimitation;
 
   public static final String SERIALIZED_NAME_QUALIFIED_RESIDENT_STATUS_CERTIFICATION = "qualifiedResidentStatusCertification";
   @SerializedName(SERIALIZED_NAME_QUALIFIED_RESIDENT_STATUS_CERTIFICATION)
@@ -349,9 +1179,61 @@ public class W8BenEFormRequest {
   @SerializedName(SERIALIZED_NAME_IGA_COUNTRY)
   private String igaCountry;
 
+  /**
+   * The applicable IGA model.  Available values:  - 1: Model 1 IGA  - 2: Model 2 IGA
+   */
+  @JsonAdapter(IgaModelEnum.Adapter.class)
+  public enum IgaModelEnum {
+    MODEL1_IGA("Model1IGA"),
+    
+    MODEL2_IGA("Model2IGA");
+
+    private String value;
+
+    IgaModelEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static IgaModelEnum fromValue(String value) {
+      for (IgaModelEnum b : IgaModelEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<IgaModelEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final IgaModelEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public IgaModelEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return IgaModelEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      IgaModelEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_IGA_MODEL = "igaModel";
   @SerializedName(SERIALIZED_NAME_IGA_MODEL)
-  private String igaModel;
+  private IgaModelEnum igaModel;
 
   public static final String SERIALIZED_NAME_IGA_LEGAL_STATUS_TREATMENT = "igaLegalStatusTreatment";
   @SerializedName(SERIALIZED_NAME_IGA_LEGAL_STATUS_TREATMENT)
@@ -603,21 +1485,21 @@ public class W8BenEFormRequest {
   }
 
 
-  public W8BenEFormRequest entityType(String entityType) {
+  public W8BenEFormRequest entityType(EntityTypeEnum entityType) {
     this.entityType = entityType;
     return this;
   }
 
   /**
-   * The entity type.  Available values:  - 1: Corporation  - 2: Disregarded entity  - 3: Partnership  - 4: Simple trust  - 5: Grantor trust  - 6: Complex trust  - 7: Estate  - 8: Foreign Government - Controlled Entity  - 9: Central Bank of Issue  - 10: Tax-exempt organization  - 11: Private foundation  - 12: International organization  - 13: Foreign Government - Controlled Integral Part
+   * Represents the entity type for tax forms.  Each value corresponds to a specific entity classification.  - 1: Corporation  - 2: Disregarded entity  - 3: Partnership  - 4: Simple trust  - 5: Grantor trust  - 6: Complex trust  - 7: Estate  - 8: Foreign Government - Controlled Entity  - 9: Central Bank of Issue  - 10: Tax-exempt organization  - 11: Private foundation  - 12: International organization  - 13: Foreign Government - Controlled Integral Part
    * @return entityType
    */
   @javax.annotation.Nonnull
-  public String getEntityType() {
+  public EntityTypeEnum getEntityType() {
     return entityType;
   }
 
-  public void setEntityType(String entityType) {
+  public void setEntityType(EntityTypeEnum entityType) {
     this.entityType = entityType;
   }
 
@@ -641,21 +1523,21 @@ public class W8BenEFormRequest {
   }
 
 
-  public W8BenEFormRequest fatcaStatus(String fatcaStatus) {
+  public W8BenEFormRequest fatcaStatus(FatcaStatusEnum fatcaStatus) {
     this.fatcaStatus = fatcaStatus;
     return this;
   }
 
   /**
-   * The FATCA status.  Available values:  - 1: Nonparticipating FFI (including a limited FFI or an FFI related to a Reporting IGA FFI other than a deemed-compliant FFI, participating FFI, or exempt beneficial owner)  - 2: Participating FFI  - 3: Reporting Model 1 FFI  - 4: Reporting Model 2 FFI  - 5: Registered deemed-compliant FFI (other than a reporting Model 1 FFI, sponsored FFI, or nonreporting IGA FFI covered in Part XII)  - 6: Sponsored FFI that has not obtained a GIIN  - 7: Certified deemed-compliant nonregistering local bank  - 8: Certified deemed-compliant FFI with only low-value accounts  - 9: Certified deemed-compliant sponsored, closely held investment vehicle  - 10: Certified deemed-compliant limited life debt investment entity  - 11: Certified deemed-compliant investment advisors and investment managers  - 12: Owner-documented FFI  - 13: Restricted distributor  - 14: Nonreporting IGA FFI  - 15: Foreign government, government of a U.S. possession, or foreign central bank of issue  - 16: International organization  - 17: Exempt retirement plans  - 18: Entity wholly owned by exempt beneficial owners  - 19: Territory financial institution  - 20: Nonfinancial group entity  - 21: Excepted nonfinancial start-up company  - 22: Excepted nonfinancial entity in liquidation or bankruptcy  - 23: 501(c) organization  - 24: Nonprofit organization  - 25: Publicly traded NFFE or NFFE affiliate of a publicly traded corporation  - 26: Excepted territory NFFE  - 27: Active NFFE  - 28: Passive NFFE  - 29: Excepted inter-affiliate FFI  - 30: Direct reporting NFFE  - 31: Sponsored direct reporting NFFE  - 32: Account that is not a financial account
+   * Represents the FATCA status types for tax forms.  Used for W8-BEN-E forms and FATCA compliance validations.  Values correspond to numeric identifiers used in forms.  - 1: Nonparticipating FFI (including a limited FFI or an FFI related to a Reporting IGA FFI other than a deemed-compliant FFI, participating FFI, or exempt beneficial owner)  - 2: Participating FFI  - 3: Reporting Model 1 FFI  - 4: Reporting Model 2 FFI  - 5: Registered deemed-compliant FFI (other than a reporting Model 1 FFI, sponsored FFI, or nonreporting IGA FFI covered in Part XII)  - 6: Sponsored FFI that has not obtained a GIIN  - 7: Certified deemed-compliant nonregistering local bank  - 8: Certified deemed-compliant FFI with only low-value accounts  - 9: Certified deemed-compliant sponsored, closely held investment vehicle  - 10: Certified deemed-compliant limited life debt investment entity  - 11: Certified deemed-compliant investment advisors and investment managers  - 12: Owner-documented FFI  - 13: Restricted distributor  - 14: Nonreporting IGA FFI  - 15: Foreign government, government of a U.S. possession, or foreign central bank of issue  - 16: International organization  - 17: Exempt retirement plans  - 18: Entity wholly owned by exempt beneficial owners  - 19: Territory financial institution  - 20: Nonfinancial group entity  - 21: Excepted nonfinancial start-up company  - 22: Excepted nonfinancial entity in liquidation or bankruptcy  - 23: 501(c) organization  - 24: Nonprofit organization  - 25: Publicly traded NFFE or NFFE affiliate of a publicly traded corporation  - 26: Excepted territory NFFE  - 27: Active NFFE  - 28: Passive NFFE  - 29: Excepted inter-affiliate FFI  - 30: Direct reporting NFFE  - 31: Sponsored direct reporting NFFE  - 32: Account that is not a financial account
    * @return fatcaStatus
    */
   @javax.annotation.Nonnull
-  public String getFatcaStatus() {
+  public FatcaStatusEnum getFatcaStatus() {
     return fatcaStatus;
   }
 
-  public void setFatcaStatus(String fatcaStatus) {
+  public void setFatcaStatus(FatcaStatusEnum fatcaStatus) {
     this.fatcaStatus = fatcaStatus;
   }
 
@@ -698,7 +1580,7 @@ public class W8BenEFormRequest {
   }
 
 
-  public W8BenEFormRequest residenceState(String residenceState) {
+  public W8BenEFormRequest residenceState(ResidenceStateEnum residenceState) {
     this.residenceState = residenceState;
     return this;
   }
@@ -708,11 +1590,11 @@ public class W8BenEFormRequest {
    * @return residenceState
    */
   @javax.annotation.Nullable
-  public String getResidenceState() {
+  public ResidenceStateEnum getResidenceState() {
     return residenceState;
   }
 
-  public void setResidenceState(String residenceState) {
+  public void setResidenceState(ResidenceStateEnum residenceState) {
     this.residenceState = residenceState;
   }
 
@@ -812,7 +1694,7 @@ public class W8BenEFormRequest {
   }
 
 
-  public W8BenEFormRequest mailingState(String mailingState) {
+  public W8BenEFormRequest mailingState(MailingStateEnum mailingState) {
     this.mailingState = mailingState;
     return this;
   }
@@ -822,11 +1704,11 @@ public class W8BenEFormRequest {
    * @return mailingState
    */
   @javax.annotation.Nullable
-  public String getMailingState() {
+  public MailingStateEnum getMailingState() {
     return mailingState;
   }
 
-  public void setMailingState(String mailingState) {
+  public void setMailingState(MailingStateEnum mailingState) {
     this.mailingState = mailingState;
   }
 
@@ -964,21 +1846,21 @@ public class W8BenEFormRequest {
   }
 
 
-  public W8BenEFormRequest disregardedEntityFatcaStatus(String disregardedEntityFatcaStatus) {
+  public W8BenEFormRequest disregardedEntityFatcaStatus(DisregardedEntityFatcaStatusEnum disregardedEntityFatcaStatus) {
     this.disregardedEntityFatcaStatus = disregardedEntityFatcaStatus;
     return this;
   }
 
   /**
-   * The FATCA status of disregarded entity or branch receiving payment.  Available values:  - 1: Limited Branch  - 2: U.S. Branch  - 3: Participating FFI  - 4: Reporting Model 1 FFI  - 5: Reporting Model 2 FFI
+   * The FATCA status of disregarded entity or branch receiving payment.  Available values:  - 1: Branch treated as nonparticipating FFI  - 2: U.S. Branch  - 3: Participating FFI  - 4: Reporting Model 1 FFI  - 5: Reporting Model 2 FFI
    * @return disregardedEntityFatcaStatus
    */
   @javax.annotation.Nullable
-  public String getDisregardedEntityFatcaStatus() {
+  public DisregardedEntityFatcaStatusEnum getDisregardedEntityFatcaStatus() {
     return disregardedEntityFatcaStatus;
   }
 
-  public void setDisregardedEntityFatcaStatus(String disregardedEntityFatcaStatus) {
+  public void setDisregardedEntityFatcaStatus(DisregardedEntityFatcaStatusEnum disregardedEntityFatcaStatus) {
     this.disregardedEntityFatcaStatus = disregardedEntityFatcaStatus;
   }
 
@@ -1021,7 +1903,7 @@ public class W8BenEFormRequest {
   }
 
 
-  public W8BenEFormRequest disregardedState(String disregardedState) {
+  public W8BenEFormRequest disregardedState(DisregardedStateEnum disregardedState) {
     this.disregardedState = disregardedState;
     return this;
   }
@@ -1031,11 +1913,11 @@ public class W8BenEFormRequest {
    * @return disregardedState
    */
   @javax.annotation.Nullable
-  public String getDisregardedState() {
+  public DisregardedStateEnum getDisregardedState() {
     return disregardedState;
   }
 
-  public void setDisregardedState(String disregardedState) {
+  public void setDisregardedState(DisregardedStateEnum disregardedState) {
     this.disregardedState = disregardedState;
   }
 
@@ -1154,21 +2036,21 @@ public class W8BenEFormRequest {
   }
 
 
-  public W8BenEFormRequest benefitLimitation(String benefitLimitation) {
+  public W8BenEFormRequest benefitLimitation(BenefitLimitationEnum benefitLimitation) {
     this.benefitLimitation = benefitLimitation;
     return this;
   }
 
   /**
-   * The benefit limitation for tax treaty claims.  Available values:  - 1: Government  - 2: Tax exempt pension trust or pension fund  - 3: Other tax exempt organization  - 4: Publicly traded corporation  - 5: Subsidiary of a publicly traded corporation  - 6: Company that meets the ownership and base erosion test  - 7: Company that meets the derivative benefits test  - 8: Company with an item of income that meets active trade or business test  - 9: Favorable discretionary determination by the U.S. competent authority received  - 10: Other
+   * The benefit limitation for tax treaty claims.  Available values:  - 1: Government  - 2: Tax exempt pension trust or pension fund  - 3: Other tax exempt organization  - 4: Publicly traded corporation  - 5: Subsidiary of a publicly traded corporation  - 6: Company that meets the ownership and base erosion test  - 7: Company that meets the derivative benefits test  - 8: Company with an item of income that meets active trade or business test  - 9: Favorable discretionary determination by the U.S. competent authority received  - 10: Other  - 11: No LOB article in treaty
    * @return benefitLimitation
    */
   @javax.annotation.Nullable
-  public String getBenefitLimitation() {
+  public BenefitLimitationEnum getBenefitLimitation() {
     return benefitLimitation;
   }
 
-  public void setBenefitLimitation(String benefitLimitation) {
+  public void setBenefitLimitation(BenefitLimitationEnum benefitLimitation) {
     this.benefitLimitation = benefitLimitation;
   }
 
@@ -1610,7 +2492,7 @@ public class W8BenEFormRequest {
   }
 
 
-  public W8BenEFormRequest igaModel(String igaModel) {
+  public W8BenEFormRequest igaModel(IgaModelEnum igaModel) {
     this.igaModel = igaModel;
     return this;
   }
@@ -1620,11 +2502,11 @@ public class W8BenEFormRequest {
    * @return igaModel
    */
   @javax.annotation.Nullable
-  public String getIgaModel() {
+  public IgaModelEnum getIgaModel() {
     return igaModel;
   }
 
-  public void setIgaModel(String igaModel) {
+  public void setIgaModel(IgaModelEnum igaModel) {
     this.igaModel = igaModel;
   }
 
@@ -2773,9 +3655,13 @@ public class W8BenEFormRequest {
       if (!jsonObj.get("entityType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `entityType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entityType").toString()));
       }
+      // validate the required field `entityType`
+      EntityTypeEnum.validateJsonElement(jsonObj.get("entityType"));
       if (!jsonObj.get("fatcaStatus").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fatcaStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fatcaStatus").toString()));
       }
+      // validate the required field `fatcaStatus`
+      FatcaStatusEnum.validateJsonElement(jsonObj.get("fatcaStatus"));
       if ((jsonObj.get("residenceAddress") != null && !jsonObj.get("residenceAddress").isJsonNull()) && !jsonObj.get("residenceAddress").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `residenceAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("residenceAddress").toString()));
       }
@@ -2784,6 +3670,10 @@ public class W8BenEFormRequest {
       }
       if ((jsonObj.get("residenceState") != null && !jsonObj.get("residenceState").isJsonNull()) && !jsonObj.get("residenceState").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `residenceState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("residenceState").toString()));
+      }
+      // validate the optional field `residenceState`
+      if (jsonObj.get("residenceState") != null && !jsonObj.get("residenceState").isJsonNull()) {
+        ResidenceStateEnum.validateJsonElement(jsonObj.get("residenceState"));
       }
       if ((jsonObj.get("residenceZip") != null && !jsonObj.get("residenceZip").isJsonNull()) && !jsonObj.get("residenceZip").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `residenceZip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("residenceZip").toString()));
@@ -2799,6 +3689,10 @@ public class W8BenEFormRequest {
       }
       if ((jsonObj.get("mailingState") != null && !jsonObj.get("mailingState").isJsonNull()) && !jsonObj.get("mailingState").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mailingState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mailingState").toString()));
+      }
+      // validate the optional field `mailingState`
+      if (jsonObj.get("mailingState") != null && !jsonObj.get("mailingState").isJsonNull()) {
+        MailingStateEnum.validateJsonElement(jsonObj.get("mailingState"));
       }
       if ((jsonObj.get("mailingZip") != null && !jsonObj.get("mailingZip").isJsonNull()) && !jsonObj.get("mailingZip").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mailingZip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mailingZip").toString()));
@@ -2821,6 +3715,10 @@ public class W8BenEFormRequest {
       if ((jsonObj.get("disregardedEntityFatcaStatus") != null && !jsonObj.get("disregardedEntityFatcaStatus").isJsonNull()) && !jsonObj.get("disregardedEntityFatcaStatus").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `disregardedEntityFatcaStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disregardedEntityFatcaStatus").toString()));
       }
+      // validate the optional field `disregardedEntityFatcaStatus`
+      if (jsonObj.get("disregardedEntityFatcaStatus") != null && !jsonObj.get("disregardedEntityFatcaStatus").isJsonNull()) {
+        DisregardedEntityFatcaStatusEnum.validateJsonElement(jsonObj.get("disregardedEntityFatcaStatus"));
+      }
       if ((jsonObj.get("disregardedAddress") != null && !jsonObj.get("disregardedAddress").isJsonNull()) && !jsonObj.get("disregardedAddress").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `disregardedAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disregardedAddress").toString()));
       }
@@ -2829,6 +3727,10 @@ public class W8BenEFormRequest {
       }
       if ((jsonObj.get("disregardedState") != null && !jsonObj.get("disregardedState").isJsonNull()) && !jsonObj.get("disregardedState").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `disregardedState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disregardedState").toString()));
+      }
+      // validate the optional field `disregardedState`
+      if (jsonObj.get("disregardedState") != null && !jsonObj.get("disregardedState").isJsonNull()) {
+        DisregardedStateEnum.validateJsonElement(jsonObj.get("disregardedState"));
       }
       if ((jsonObj.get("disregardedZip") != null && !jsonObj.get("disregardedZip").isJsonNull()) && !jsonObj.get("disregardedZip").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `disregardedZip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disregardedZip").toString()));
@@ -2844,6 +3746,10 @@ public class W8BenEFormRequest {
       }
       if ((jsonObj.get("benefitLimitation") != null && !jsonObj.get("benefitLimitation").isJsonNull()) && !jsonObj.get("benefitLimitation").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `benefitLimitation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("benefitLimitation").toString()));
+      }
+      // validate the optional field `benefitLimitation`
+      if (jsonObj.get("benefitLimitation") != null && !jsonObj.get("benefitLimitation").isJsonNull()) {
+        BenefitLimitationEnum.validateJsonElement(jsonObj.get("benefitLimitation"));
       }
       if ((jsonObj.get("treatyArticle") != null && !jsonObj.get("treatyArticle").isJsonNull()) && !jsonObj.get("treatyArticle").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `treatyArticle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("treatyArticle").toString()));
@@ -2868,6 +3774,10 @@ public class W8BenEFormRequest {
       }
       if ((jsonObj.get("igaModel") != null && !jsonObj.get("igaModel").isJsonNull()) && !jsonObj.get("igaModel").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `igaModel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("igaModel").toString()));
+      }
+      // validate the optional field `igaModel`
+      if (jsonObj.get("igaModel") != null && !jsonObj.get("igaModel").isJsonNull()) {
+        IgaModelEnum.validateJsonElement(jsonObj.get("igaModel"));
       }
       if ((jsonObj.get("igaLegalStatusTreatment") != null && !jsonObj.get("igaLegalStatusTreatment").isJsonNull()) && !jsonObj.get("igaLegalStatusTreatment").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `igaLegalStatusTreatment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("igaLegalStatusTreatment").toString()));
