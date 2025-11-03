@@ -10,6 +10,7 @@ Form 1099-NEC: Nonemployee Compensation
 |------------ | ------------- | ------------- | -------------|
 |**nonemployeeCompensation** | **Double** | Nonemployee compensation. Required if DirectSalesIndicator is false. |  |
 |**directSalesIndicator** | **Boolean** | Payer made direct sales totaling $5,000 or more of consumer products to recipient for resale. Should be true if Nonemployee compensation is not provided. |  [optional] |
+|**excessGoldenParachutePayments** | **Double** | Excess golden parachute payments - Available only for tax year 2025 and later |  [optional] |
 |**federalIncomeTaxWithheld** | **Double** | Federal income tax withheld. |  [optional] |
 |**type** | [**TypeEnum**](#TypeEnum) | Form type. |  |
 |**id** | **String** | Form ID. Unique identifier set when the record is created. |  [optional] [readonly] |

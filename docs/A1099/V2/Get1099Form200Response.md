@@ -139,7 +139,7 @@
 |**grossProceedsPaidToAttorney** | **Double** | Gross proceeds paid to an attorney |  [optional] |
 |**fishPurchasedForResale** | **Double** | Fish purchased for resale |  [optional] |
 |**section409ADeferrals** | **Double** | Section 409A deferrals |  [optional] |
-|**excessGoldenParachutePayments** | **Double** | (Legacy field) Excess golden parachute payments |  [optional] |
+|**excessGoldenParachutePayments** | **Double** | Excess golden parachute payments - Available only for tax year 2025 and later |  [optional] |
 |**nonqualifiedDeferredCompensation** | **Double** | Nonqualified deferred compensation |  [optional] |
 |**nonemployeeCompensation** | **Double** | Nonemployee compensation. Required if DirectSalesIndicator is false. |  |
 |**grossDistribution** | **Double** | Gross distribution |  [optional] |

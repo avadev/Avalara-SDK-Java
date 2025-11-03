@@ -666,7 +666,7 @@ public class Form1099Misc {
   }
 
   /**
-   * (Legacy field) Excess golden parachute payments
+   * Excess golden parachute payments - Available only for tax year 2024 and earlier
    * @return excessGoldenParachutePayments
    */
   @javax.annotation.Nullable
