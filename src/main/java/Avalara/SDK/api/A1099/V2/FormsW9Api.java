@@ -832,10 +832,10 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> PDF stream </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid id) </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getW9FormPdfCall(GetW9FormPdfRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -922,38 +922,41 @@ public class FormsW9Api {
      * Download the PDF for a W9/W4/W8 form.
      * Returns the PDF file for a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> PDF stream </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid id) </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public void getW9FormPdf(GetW9FormPdfRequest requestParameters) throws ApiException {
-        getW9FormPdfWithHttpInfo(requestParameters);
+    public File getW9FormPdf(GetW9FormPdfRequest requestParameters) throws ApiException {
+        ApiResponse<File> localVarResp = getW9FormPdfWithHttpInfo(requestParameters);
+        return localVarResp.getData();
     }
 
     /**
      * Download the PDF for a W9/W4/W8 form.
      * Returns the PDF file for a W9/W4/W8 form.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> PDF stream </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid id) </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getW9FormPdfWithHttpInfo(GetW9FormPdfRequest requestParameters) throws ApiException {
+    public ApiResponse<File> getW9FormPdfWithHttpInfo(GetW9FormPdfRequest requestParameters) throws ApiException {
         okhttp3.Call localVarCall = getW9FormPdfValidateBeforeCall(requestParameters, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -966,16 +969,17 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> PDF stream </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid id) </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getW9FormPdfAsync(GetW9FormPdfRequest requestParameters, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getW9FormPdfAsync(GetW9FormPdfRequest requestParameters, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getW9FormPdfValidateBeforeCall(requestParameters, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -1837,7 +1841,7 @@ public class FormsW9Api {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.10.1");
+        this.localVarApiClient.setSdkVersion("25.11.0");
     }
 }
 

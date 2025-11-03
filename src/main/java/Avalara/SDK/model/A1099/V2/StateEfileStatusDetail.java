@@ -70,6 +70,10 @@ public class StateEfileStatusDetail {
   @SerializedName(SERIALIZED_NAME_JURISDICTION)
   private String jurisdiction;
 
+  public static final String SERIALIZED_NAME_REJECTED_REASON = "rejectedReason";
+  @SerializedName(SERIALIZED_NAME_REJECTED_REASON)
+  private String rejectedReason;
+
   public StateEfileStatusDetail() {
   }
 
@@ -130,6 +134,25 @@ public class StateEfileStatusDetail {
   }
 
 
+  public StateEfileStatusDetail rejectedReason(String rejectedReason) {
+    this.rejectedReason = rejectedReason;
+    return this;
+  }
+
+  /**
+   * Get rejectedReason
+   * @return rejectedReason
+   */
+  @javax.annotation.Nullable
+  public String getRejectedReason() {
+    return rejectedReason;
+  }
+
+  public void setRejectedReason(String rejectedReason) {
+    this.rejectedReason = rejectedReason;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -142,7 +165,8 @@ public class StateEfileStatusDetail {
     StateEfileStatusDetail stateEfileStatusDetail = (StateEfileStatusDetail) o;
     return Objects.equals(this.status, stateEfileStatusDetail.status) &&
         Objects.equals(this.time, stateEfileStatusDetail.time) &&
-        Objects.equals(this.jurisdiction, stateEfileStatusDetail.jurisdiction);
+        Objects.equals(this.jurisdiction, stateEfileStatusDetail.jurisdiction) &&
+        Objects.equals(this.rejectedReason, stateEfileStatusDetail.rejectedReason);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -151,7 +175,7 @@ public class StateEfileStatusDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, time, jurisdiction);
+    return Objects.hash(status, time, jurisdiction, rejectedReason);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -168,6 +192,7 @@ public class StateEfileStatusDetail {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    jurisdiction: ").append(toIndentedString(jurisdiction)).append("\n");
+    sb.append("    rejectedReason: ").append(toIndentedString(rejectedReason)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -193,6 +218,7 @@ public class StateEfileStatusDetail {
     openapiFields.add("status");
     openapiFields.add("time");
     openapiFields.add("jurisdiction");
+    openapiFields.add("rejectedReason");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -227,6 +253,9 @@ public class StateEfileStatusDetail {
       }
       if ((jsonObj.get("jurisdiction") != null && !jsonObj.get("jurisdiction").isJsonNull()) && !jsonObj.get("jurisdiction").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `jurisdiction` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jurisdiction").toString()));
+      }
+      if ((jsonObj.get("rejectedReason") != null && !jsonObj.get("rejectedReason").isJsonNull()) && !jsonObj.get("rejectedReason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `rejectedReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rejectedReason").toString()));
       }
   }
 

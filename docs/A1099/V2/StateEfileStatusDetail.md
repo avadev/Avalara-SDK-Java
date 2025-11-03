@@ -10,6 +10,7 @@
 |**status** | **String** |  |  [optional] |
 |**time** | **String** |  |  [optional] |
 |**jurisdiction** | **String** |  |  [optional] |
+|**rejectedReason** | **String** |  |  [optional] |
 
 
 

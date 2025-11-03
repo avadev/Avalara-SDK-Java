@@ -20,7 +20,7 @@ Form 1099-MISC: Miscellaneous Income    *At least one of the following amounts m
 |**grossProceedsPaidToAttorney** | **Double** | Gross proceeds paid to an attorney |  [optional] |
 |**fishPurchasedForResale** | **Double** | Fish purchased for resale |  [optional] |
 |**section409ADeferrals** | **Double** | Section 409A deferrals |  [optional] |
-|**excessGoldenParachutePayments** | **Double** | (Legacy field) Excess golden parachute payments |  [optional] |
+|**excessGoldenParachutePayments** | **Double** | Excess golden parachute payments - Available only for tax year 2024 and earlier |  [optional] |
 |**nonqualifiedDeferredCompensation** | **Double** | Nonqualified deferred compensation |  [optional] |
 |**fatcaFilingRequirement** | **Boolean** | FATCA filing requirement. |  [optional] |
 |**type** | [**TypeEnum**](#TypeEnum) | Form type. |  |

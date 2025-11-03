@@ -74,6 +74,10 @@ public class Form1099Nec {
   @SerializedName(SERIALIZED_NAME_DIRECT_SALES_INDICATOR)
   private Boolean directSalesIndicator;
 
+  public static final String SERIALIZED_NAME_EXCESS_GOLDEN_PARACHUTE_PAYMENTS = "excessGoldenParachutePayments";
+  @SerializedName(SERIALIZED_NAME_EXCESS_GOLDEN_PARACHUTE_PAYMENTS)
+  private Double excessGoldenParachutePayments;
+
   public static final String SERIALIZED_NAME_FEDERAL_INCOME_TAX_WITHHELD = "federalIncomeTaxWithheld";
   @SerializedName(SERIALIZED_NAME_FEDERAL_INCOME_TAX_WITHHELD)
   private Double federalIncomeTaxWithheld;
@@ -419,6 +423,25 @@ public class Form1099Nec {
 
   public void setDirectSalesIndicator(Boolean directSalesIndicator) {
     this.directSalesIndicator = directSalesIndicator;
+  }
+
+
+  public Form1099Nec excessGoldenParachutePayments(Double excessGoldenParachutePayments) {
+    this.excessGoldenParachutePayments = excessGoldenParachutePayments;
+    return this;
+  }
+
+  /**
+   * Excess golden parachute payments - Available only for tax year 2025 and later
+   * @return excessGoldenParachutePayments
+   */
+  @javax.annotation.Nullable
+  public Double getExcessGoldenParachutePayments() {
+    return excessGoldenParachutePayments;
+  }
+
+  public void setExcessGoldenParachutePayments(Double excessGoldenParachutePayments) {
+    this.excessGoldenParachutePayments = excessGoldenParachutePayments;
   }
 
 
@@ -1114,6 +1137,7 @@ public class Form1099Nec {
     Form1099Nec form1099Nec = (Form1099Nec) o;
     return Objects.equals(this.nonemployeeCompensation, form1099Nec.nonemployeeCompensation) &&
         Objects.equals(this.directSalesIndicator, form1099Nec.directSalesIndicator) &&
+        Objects.equals(this.excessGoldenParachutePayments, form1099Nec.excessGoldenParachutePayments) &&
         Objects.equals(this.federalIncomeTaxWithheld, form1099Nec.federalIncomeTaxWithheld) &&
         Objects.equals(this.type, form1099Nec.type) &&
         Objects.equals(this.id, form1099Nec.id) &&
@@ -1162,7 +1186,7 @@ public class Form1099Nec {
 
   @Override
   public int hashCode() {
-    return Objects.hash(nonemployeeCompensation, directSalesIndicator, federalIncomeTaxWithheld, type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, tinType, recipientSecondName, address, address2, city, state, zip, email, accountNumber, officeCode, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, noTin, addressVerification, stateAndLocalWithholding, secondTinNotice, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt);
+    return Objects.hash(nonemployeeCompensation, directSalesIndicator, excessGoldenParachutePayments, federalIncomeTaxWithheld, type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, tinType, recipientSecondName, address, address2, city, state, zip, email, accountNumber, officeCode, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, noTin, addressVerification, stateAndLocalWithholding, secondTinNotice, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1178,6 +1202,7 @@ public class Form1099Nec {
     sb.append("class Form1099Nec {\n");
     sb.append("    nonemployeeCompensation: ").append(toIndentedString(nonemployeeCompensation)).append("\n");
     sb.append("    directSalesIndicator: ").append(toIndentedString(directSalesIndicator)).append("\n");
+    sb.append("    excessGoldenParachutePayments: ").append(toIndentedString(excessGoldenParachutePayments)).append("\n");
     sb.append("    federalIncomeTaxWithheld: ").append(toIndentedString(federalIncomeTaxWithheld)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
