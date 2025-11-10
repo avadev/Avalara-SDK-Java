@@ -87,10 +87,6 @@ public class CoveredIndividual {
   @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
   private LocalDate birthDate;
 
-  public static final String SERIALIZED_NAME_COVERED_ALL_MONTHS = "coveredAllMonths";
-  @SerializedName(SERIALIZED_NAME_COVERED_ALL_MONTHS)
-  private Boolean coveredAllMonths;
-
   public static final String SERIALIZED_NAME_COVERED_JANUARY = "coveredJanuary";
   @SerializedName(SERIALIZED_NAME_COVERED_JANUARY)
   private Boolean coveredJanuary;
@@ -271,25 +267,6 @@ public class CoveredIndividual {
 
   public void setBirthDate(LocalDate birthDate) {
     this.birthDate = birthDate;
-  }
-
-
-  public CoveredIndividual coveredAllMonths(Boolean coveredAllMonths) {
-    this.coveredAllMonths = coveredAllMonths;
-    return this;
-  }
-
-  /**
-   * Coverage indicator for all 12 months
-   * @return coveredAllMonths
-   */
-  @javax.annotation.Nullable
-  public Boolean getCoveredAllMonths() {
-    return coveredAllMonths;
-  }
-
-  public void setCoveredAllMonths(Boolean coveredAllMonths) {
-    this.coveredAllMonths = coveredAllMonths;
   }
 
 
@@ -538,7 +515,6 @@ public class CoveredIndividual {
         Objects.equals(this.nameSuffix, coveredIndividual.nameSuffix) &&
         Objects.equals(this.tin, coveredIndividual.tin) &&
         Objects.equals(this.birthDate, coveredIndividual.birthDate) &&
-        Objects.equals(this.coveredAllMonths, coveredIndividual.coveredAllMonths) &&
         Objects.equals(this.coveredJanuary, coveredIndividual.coveredJanuary) &&
         Objects.equals(this.coveredFebruary, coveredIndividual.coveredFebruary) &&
         Objects.equals(this.coveredMarch, coveredIndividual.coveredMarch) &&
@@ -559,7 +535,7 @@ public class CoveredIndividual {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, firstName, middleName, lastName, nameSuffix, tin, birthDate, coveredAllMonths, coveredJanuary, coveredFebruary, coveredMarch, coveredApril, coveredMay, coveredJune, coveredJuly, coveredAugust, coveredSeptember, coveredOctober, coveredNovember, coveredDecember);
+    return Objects.hash(id, firstName, middleName, lastName, nameSuffix, tin, birthDate, coveredJanuary, coveredFebruary, coveredMarch, coveredApril, coveredMay, coveredJune, coveredJuly, coveredAugust, coveredSeptember, coveredOctober, coveredNovember, coveredDecember);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -580,7 +556,6 @@ public class CoveredIndividual {
     sb.append("    nameSuffix: ").append(toIndentedString(nameSuffix)).append("\n");
     sb.append("    tin: ").append(toIndentedString(tin)).append("\n");
     sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
-    sb.append("    coveredAllMonths: ").append(toIndentedString(coveredAllMonths)).append("\n");
     sb.append("    coveredJanuary: ").append(toIndentedString(coveredJanuary)).append("\n");
     sb.append("    coveredFebruary: ").append(toIndentedString(coveredFebruary)).append("\n");
     sb.append("    coveredMarch: ").append(toIndentedString(coveredMarch)).append("\n");
@@ -622,7 +597,6 @@ public class CoveredIndividual {
     openapiFields.add("nameSuffix");
     openapiFields.add("tin");
     openapiFields.add("birthDate");
-    openapiFields.add("coveredAllMonths");
     openapiFields.add("coveredJanuary");
     openapiFields.add("coveredFebruary");
     openapiFields.add("coveredMarch");

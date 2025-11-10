@@ -15,7 +15,6 @@ Covered individual information for health coverage forms
 |**nameSuffix** | **String** | Covered individual&#39;s name suffix |  [optional] |
 |**tin** | **String** | Covered individual&#39;s Federal Tax Identification Number (TIN).. SSN or ITIN. Required unless unavailable. |  [optional] |
 |**birthDate** | **LocalDate** | Covered individual&#39;s date of birth - Required when SSN is missing. |  [optional] |
-|**coveredAllMonths** | **Boolean** | Coverage indicator for all 12 months |  [optional] |
 |**coveredJanuary** | **Boolean** | Coverage indicator for January |  [optional] |
 |**coveredFebruary** | **Boolean** | Coverage indicator for February |  [optional] |
 |**coveredMarch** | **Boolean** | Coverage indicator for March |  [optional] |
