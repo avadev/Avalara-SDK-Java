@@ -87,23 +87,23 @@ public class Form1099Nec {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    FORM1099_NEC("Form1099Nec"),
+    _1042_S("1042-S"),
     
-    FORM1099_MISC("Form1099Misc"),
+    _1095_B("1095-B"),
     
-    FORM1099_DIV("Form1099Div"),
+    _1095_C("1095-C"),
     
-    FORM1099_R("Form1099R"),
+    _1099_DIV("1099-DIV"),
     
-    FORM1099_K("Form1099K"),
+    _1099_INT("1099-INT"),
     
-    FORM1095_B("Form1095B"),
+    _1099_K("1099-K"),
     
-    FORM1042_S("Form1042S"),
+    _1099_MISC("1099-MISC"),
     
-    FORM1095_C("Form1095C"),
+    _1099_NEC("1099-NEC"),
     
-    FORM1099_INT("Form1099Int");
+    _1099_R("1099-R");
 
     private String value;
 
