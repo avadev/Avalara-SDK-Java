@@ -68,6 +68,10 @@ public class ValidationError {
   @SerializedName(SERIALIZED_NAME_ERRORS)
   private List<String> errors;
 
+  public static final String SERIALIZED_NAME_ERROR_CODES = "errorCodes";
+  @SerializedName(SERIALIZED_NAME_ERROR_CODES)
+  private List<String> errorCodes;
+
   public ValidationError() {
   }
 
@@ -117,6 +121,33 @@ public class ValidationError {
   }
 
 
+  public ValidationError errorCodes(List<String> errorCodes) {
+    this.errorCodes = errorCodes;
+    return this;
+  }
+
+  public ValidationError addErrorCodesItem(String errorCodesItem) {
+    if (this.errorCodes == null) {
+      this.errorCodes = new ArrayList<>();
+    }
+    this.errorCodes.add(errorCodesItem);
+    return this;
+  }
+
+  /**
+   * The list of error codes (only present when api_error_codes flag is enabled)
+   * @return errorCodes
+   */
+  @javax.annotation.Nullable
+  public List<String> getErrorCodes() {
+    return errorCodes;
+  }
+
+  public void setErrorCodes(List<String> errorCodes) {
+    this.errorCodes = errorCodes;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -128,7 +159,8 @@ public class ValidationError {
     }
     ValidationError validationError = (ValidationError) o;
     return Objects.equals(this.field, validationError.field) &&
-        Objects.equals(this.errors, validationError.errors);
+        Objects.equals(this.errors, validationError.errors) &&
+        Objects.equals(this.errorCodes, validationError.errorCodes);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -137,7 +169,7 @@ public class ValidationError {
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, errors);
+    return Objects.hash(field, errors, errorCodes);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -153,6 +185,7 @@ public class ValidationError {
     sb.append("class ValidationError {\n");
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    errorCodes: ").append(toIndentedString(errorCodes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -177,6 +210,7 @@ public class ValidationError {
     openapiFields = new HashSet<String>();
     openapiFields.add("field");
     openapiFields.add("errors");
+    openapiFields.add("errorCodes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -209,6 +243,10 @@ public class ValidationError {
       // ensure the optional json data is an array if present
       if (jsonObj.get("errors") != null && !jsonObj.get("errors").isJsonNull() && !jsonObj.get("errors").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `errors` to be an array in the JSON string but got `%s`", jsonObj.get("errors").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("errorCodes") != null && !jsonObj.get("errorCodes").isJsonNull() && !jsonObj.get("errorCodes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `errorCodes` to be an array in the JSON string but got `%s`", jsonObj.get("errorCodes").toString()));
       }
   }
 

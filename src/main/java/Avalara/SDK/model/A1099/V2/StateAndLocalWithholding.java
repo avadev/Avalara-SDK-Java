@@ -66,9 +66,9 @@ public class StateAndLocalWithholding {
   @SerializedName(SERIALIZED_NAME_STATE)
   private String state;
 
-  public static final String SERIALIZED_NAME_STATE_ID_NUMBER = "stateIdNumber";
-  @SerializedName(SERIALIZED_NAME_STATE_ID_NUMBER)
-  private String stateIdNumber;
+  public static final String SERIALIZED_NAME_STATE_ID = "stateId";
+  @SerializedName(SERIALIZED_NAME_STATE_ID)
+  private String stateId;
 
   public static final String SERIALIZED_NAME_STATE_INCOME = "stateIncome";
   @SerializedName(SERIALIZED_NAME_STATE_INCOME)
@@ -82,9 +82,9 @@ public class StateAndLocalWithholding {
   @SerializedName(SERIALIZED_NAME_LOCALITY)
   private String locality;
 
-  public static final String SERIALIZED_NAME_LOCALITY_ID_NUMBER = "localityIdNumber";
-  @SerializedName(SERIALIZED_NAME_LOCALITY_ID_NUMBER)
-  private String localityIdNumber;
+  public static final String SERIALIZED_NAME_LOCALITY_ID = "localityId";
+  @SerializedName(SERIALIZED_NAME_LOCALITY_ID)
+  private String localityId;
 
   public static final String SERIALIZED_NAME_LOCAL_INCOME = "localIncome";
   @SerializedName(SERIALIZED_NAME_LOCAL_INCOME)
@@ -131,22 +131,22 @@ public class StateAndLocalWithholding {
   }
 
 
-  public StateAndLocalWithholding stateIdNumber(String stateIdNumber) {
-    this.stateIdNumber = stateIdNumber;
+  public StateAndLocalWithholding stateId(String stateId) {
+    this.stateId = stateId;
     return this;
   }
 
   /**
-   * State ID number of the entity issuing the form
-   * @return stateIdNumber
+   * State ID of the entity issuing the form
+   * @return stateId
    */
   @javax.annotation.Nullable
-  public String getStateIdNumber() {
-    return stateIdNumber;
+  public String getStateId() {
+    return stateId;
   }
 
-  public void setStateIdNumber(String stateIdNumber) {
-    this.stateIdNumber = stateIdNumber;
+  public void setStateId(String stateId) {
+    this.stateId = stateId;
   }
 
 
@@ -207,22 +207,22 @@ public class StateAndLocalWithholding {
   }
 
 
-  public StateAndLocalWithholding localityIdNumber(String localityIdNumber) {
-    this.localityIdNumber = localityIdNumber;
+  public StateAndLocalWithholding localityId(String localityId) {
+    this.localityId = localityId;
     return this;
   }
 
   /**
-   * Locality ID number of the entity issuing the form
-   * @return localityIdNumber
+   * Locality ID of the entity issuing the form
+   * @return localityId
    */
   @javax.annotation.Nullable
-  public String getLocalityIdNumber() {
-    return localityIdNumber;
+  public String getLocalityId() {
+    return localityId;
   }
 
-  public void setLocalityIdNumber(String localityIdNumber) {
-    this.localityIdNumber = localityIdNumber;
+  public void setLocalityId(String localityId) {
+    this.localityId = localityId;
   }
 
 
@@ -257,11 +257,11 @@ public class StateAndLocalWithholding {
     StateAndLocalWithholding stateAndLocalWithholding = (StateAndLocalWithholding) o;
     return Objects.equals(this.stateTaxWithheld, stateAndLocalWithholding.stateTaxWithheld) &&
         Objects.equals(this.state, stateAndLocalWithholding.state) &&
-        Objects.equals(this.stateIdNumber, stateAndLocalWithholding.stateIdNumber) &&
+        Objects.equals(this.stateId, stateAndLocalWithholding.stateId) &&
         Objects.equals(this.stateIncome, stateAndLocalWithholding.stateIncome) &&
         Objects.equals(this.localTaxWithheld, stateAndLocalWithholding.localTaxWithheld) &&
         Objects.equals(this.locality, stateAndLocalWithholding.locality) &&
-        Objects.equals(this.localityIdNumber, stateAndLocalWithholding.localityIdNumber) &&
+        Objects.equals(this.localityId, stateAndLocalWithholding.localityId) &&
         Objects.equals(this.localIncome, stateAndLocalWithholding.localIncome);
   }
 
@@ -271,7 +271,7 @@ public class StateAndLocalWithholding {
 
   @Override
   public int hashCode() {
-    return Objects.hash(stateTaxWithheld, state, stateIdNumber, stateIncome, localTaxWithheld, locality, localityIdNumber, localIncome);
+    return Objects.hash(stateTaxWithheld, state, stateId, stateIncome, localTaxWithheld, locality, localityId, localIncome);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -287,11 +287,11 @@ public class StateAndLocalWithholding {
     sb.append("class StateAndLocalWithholding {\n");
     sb.append("    stateTaxWithheld: ").append(toIndentedString(stateTaxWithheld)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    stateIdNumber: ").append(toIndentedString(stateIdNumber)).append("\n");
+    sb.append("    stateId: ").append(toIndentedString(stateId)).append("\n");
     sb.append("    stateIncome: ").append(toIndentedString(stateIncome)).append("\n");
     sb.append("    localTaxWithheld: ").append(toIndentedString(localTaxWithheld)).append("\n");
     sb.append("    locality: ").append(toIndentedString(locality)).append("\n");
-    sb.append("    localityIdNumber: ").append(toIndentedString(localityIdNumber)).append("\n");
+    sb.append("    localityId: ").append(toIndentedString(localityId)).append("\n");
     sb.append("    localIncome: ").append(toIndentedString(localIncome)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -317,11 +317,11 @@ public class StateAndLocalWithholding {
     openapiFields = new HashSet<String>();
     openapiFields.add("stateTaxWithheld");
     openapiFields.add("state");
-    openapiFields.add("stateIdNumber");
+    openapiFields.add("stateId");
     openapiFields.add("stateIncome");
     openapiFields.add("localTaxWithheld");
     openapiFields.add("locality");
-    openapiFields.add("localityIdNumber");
+    openapiFields.add("localityId");
     openapiFields.add("localIncome");
 
     // a set of required properties/fields (JSON key names)
@@ -352,14 +352,14 @@ public class StateAndLocalWithholding {
       if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
-      if ((jsonObj.get("stateIdNumber") != null && !jsonObj.get("stateIdNumber").isJsonNull()) && !jsonObj.get("stateIdNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `stateIdNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stateIdNumber").toString()));
+      if ((jsonObj.get("stateId") != null && !jsonObj.get("stateId").isJsonNull()) && !jsonObj.get("stateId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `stateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stateId").toString()));
       }
       if ((jsonObj.get("locality") != null && !jsonObj.get("locality").isJsonNull()) && !jsonObj.get("locality").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `locality` to be a primitive type in the JSON string but got `%s`", jsonObj.get("locality").toString()));
       }
-      if ((jsonObj.get("localityIdNumber") != null && !jsonObj.get("localityIdNumber").isJsonNull()) && !jsonObj.get("localityIdNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `localityIdNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("localityIdNumber").toString()));
+      if ((jsonObj.get("localityId") != null && !jsonObj.get("localityId").isJsonNull()) && !jsonObj.get("localityId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `localityId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("localityId").toString()));
       }
   }
 

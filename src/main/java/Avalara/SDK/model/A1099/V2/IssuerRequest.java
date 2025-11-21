@@ -222,7 +222,7 @@ public class IssuerRequest {
   }
 
   /**
-   * Tax year for which the forms are being filed (e.g., 2024). Must be within current tax year and current tax year - 4.
+   * Tax year for which the forms are being filed (e.g., 2024). Must be within current tax year and current tax year - 4. It&#39;s only required on creation, and cannot be modified on update.
    * @return taxYear
    */
   @javax.annotation.Nullable
@@ -260,7 +260,7 @@ public class IssuerRequest {
   }
 
   /**
-   * Contact email address. For recipient inquiries.
+   * Contact email address. For recipient inquiries. Phone will be used on communications if you don&#39;t specify an email
    * @return email
    */
   @javax.annotation.Nullable
@@ -511,7 +511,7 @@ public class IssuerRequest {
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("telephone");
     openapiRequiredFields.add("taxYear");
-    openapiRequiredFields.add("email");
+    openapiRequiredFields.add("countryCode");
     openapiRequiredFields.add("address");
     openapiRequiredFields.add("city");
     openapiRequiredFields.add("state");
