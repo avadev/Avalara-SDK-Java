@@ -46,7 +46,7 @@ public class Example {
         JobsApi apiInstance = new JobsApi(apiClient);
         String id = "id_example"; // String | Job id obtained from other API responses, like `/1099/bulk-upsert`.
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "120bb5f5-b0ca-4c10-8790-142f997e8336"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "404add46-17ce-4740-8684-de29503d6500"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             JobResponse result = apiInstance.getJob(id, avalaraVersion, xCorrelationId, xAvalaraClient);
