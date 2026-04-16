@@ -13,8 +13,8 @@ import io.gsonfire.TypeSelector;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
-import Avalara.SDK.model.EInvoicing.V1*;
-import Avalara.SDK.model.A1099.V2*;
+import Avalara.SDK.model.EInvoicing.V1.*;
+import Avalara.SDK.model.A1099.V2.*;
 
 import okio.ByteString;
 
