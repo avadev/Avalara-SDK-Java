@@ -61,6 +61,10 @@ public class TaxIdentifierSchemaByCountry200Response {
   @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
   private String countryCode;
 
+  public static final String SERIALIZED_NAME_SCHEMA_TYPE = "schemaType";
+  @SerializedName(SERIALIZED_NAME_SCHEMA_TYPE)
+  private String schemaType;
+
   public static final String SERIALIZED_NAME_SCHEMA = "schema";
   @SerializedName(SERIALIZED_NAME_SCHEMA)
   private Object schema;
@@ -84,6 +88,25 @@ public class TaxIdentifierSchemaByCountry200Response {
 
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
+  }
+
+
+  public TaxIdentifierSchemaByCountry200Response schemaType(String schemaType) {
+    this.schemaType = schemaType;
+    return this;
+  }
+
+  /**
+   * The type of schema returned: \&quot;request\&quot; or \&quot;response\&quot;.
+   * @return schemaType
+   */
+  @javax.annotation.Nonnull
+  public String getSchemaType() {
+    return schemaType;
+  }
+
+  public void setSchemaType(String schemaType) {
+    this.schemaType = schemaType;
   }
 
 
@@ -117,12 +140,13 @@ public class TaxIdentifierSchemaByCountry200Response {
     }
     TaxIdentifierSchemaByCountry200Response taxIdentifierSchemaByCountry200Response = (TaxIdentifierSchemaByCountry200Response) o;
     return Objects.equals(this.countryCode, taxIdentifierSchemaByCountry200Response.countryCode) &&
+        Objects.equals(this.schemaType, taxIdentifierSchemaByCountry200Response.schemaType) &&
         Objects.equals(this.schema, taxIdentifierSchemaByCountry200Response.schema);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryCode, schema);
+    return Objects.hash(countryCode, schemaType, schema);
   }
 
   @Override
@@ -130,6 +154,7 @@ public class TaxIdentifierSchemaByCountry200Response {
     StringBuilder sb = new StringBuilder();
     sb.append("class TaxIdentifierSchemaByCountry200Response {\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
+    sb.append("    schemaType: ").append(toIndentedString(schemaType)).append("\n");
     sb.append("    schema: ").append(toIndentedString(schema)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -154,11 +179,13 @@ public class TaxIdentifierSchemaByCountry200Response {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("countryCode");
+    openapiFields.add("schemaType");
     openapiFields.add("schema");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("countryCode");
+    openapiRequiredFields.add("schemaType");
     openapiRequiredFields.add("schema");
   }
 
@@ -192,6 +219,9 @@ public class TaxIdentifierSchemaByCountry200Response {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
+      }
+      if (!jsonObj.get("schemaType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `schemaType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("schemaType").toString()));
       }
   }
 

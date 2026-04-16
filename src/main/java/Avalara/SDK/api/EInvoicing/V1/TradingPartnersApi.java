@@ -93,11 +93,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Batch search file accepted for processing the search. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 202 </td><td> Batch search file accepted for processing the search. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call batchSearchParticipantsCall(BatchSearchParticipantsRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -210,11 +210,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Batch search file accepted for processing the search. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 202 </td><td> Batch search file accepted for processing the search. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public BatchSearchParticipants202Response batchSearchParticipants(BatchSearchParticipantsRequest requestParameters) throws ApiException {
@@ -231,11 +231,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Batch search file accepted for processing the search. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 202 </td><td> Batch search file accepted for processing the search. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public ApiResponse<BatchSearchParticipants202Response> batchSearchParticipantsWithHttpInfo(BatchSearchParticipantsRequest requestParameters) throws ApiException {
@@ -254,11 +254,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Batch search file accepted for processing the search. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 202 </td><td> Batch search file accepted for processing the search. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call batchSearchParticipantsAsync(BatchSearchParticipantsRequest requestParameters, final ApiCallback<BatchSearchParticipants202Response> _callback) throws ApiException {
@@ -271,12 +271,12 @@ public class TradingPartnersApi {
     /**
     * Represents the Request object for the BatchSearchParticipants API
     *
-    * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used.</param>
-    * @param name A <b>human-readable</b> name for the batch search.</param>
+    * @param avalaraVersion Header that specifies the API version to use (for example \"1.6\").</param>
+    * @param name A human-readable name for the batch search.</param>
     * @param notificationEmail The email address to which a notification will be sent once the batch search is complete.</param>
     * @param _file CSV file containing search parameters.  Input Constraints: - Maximum file size: 1 MB - File Header: Must be less than 500 KB - Total number of lines (including header): Must be 101 or fewer</param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\". (optional)</param>
-    * @param xCorrelationID The caller can use this as an identifier to use as a correlation id to trace the call. (optional)</param>
+    * @param xAvalaraClient Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\"). (optional)</param>
+    * @param xCorrelationID Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\"). (optional)</param>
     */
     public class BatchSearchParticipantsRequest {
         private String avalaraVersion;
@@ -289,7 +289,7 @@ public class TradingPartnersApi {
         public BatchSearchParticipantsRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getName() { return name; }
         public void setName(String name) { this.name = name; }
@@ -320,12 +320,12 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The trading partner has been successfully created. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 201 </td><td> The trading partner has been successfully created. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call createTradingPartnerCall(CreateTradingPartnerRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -416,12 +416,12 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The trading partner has been successfully created. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 201 </td><td> The trading partner has been successfully created. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public CreateTradingPartner201Response createTradingPartner(CreateTradingPartnerRequest requestParameters) throws ApiException {
@@ -438,12 +438,12 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The trading partner has been successfully created. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 201 </td><td> The trading partner has been successfully created. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public ApiResponse<CreateTradingPartner201Response> createTradingPartnerWithHttpInfo(CreateTradingPartnerRequest requestParameters) throws ApiException {
@@ -462,12 +462,12 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The trading partner has been successfully created. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 201 </td><td> The trading partner has been successfully created. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call createTradingPartnerAsync(CreateTradingPartnerRequest requestParameters, final ApiCallback<CreateTradingPartner201Response> _callback) throws ApiException {
@@ -480,10 +480,10 @@ public class TradingPartnersApi {
     /**
     * Represents the Request object for the CreateTradingPartner API
     *
-    * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used.</param>
+    * @param avalaraVersion Header that specifies the API version to use (for example \"1.6\").</param>
     * @param tradingPartner </param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\". (optional)</param>
-    * @param xCorrelationID The caller can use this as an identifier to use as a correlation id to trace the call. (optional)</param>
+    * @param xAvalaraClient Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\"). (optional)</param>
+    * @param xCorrelationID Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\"). (optional)</param>
     */
     public class CreateTradingPartnerRequest {
         private String avalaraVersion;
@@ -494,7 +494,7 @@ public class TradingPartnersApi {
         public CreateTradingPartnerRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public TradingPartner getTradingPartner() { return tradingPartner; }
         public void setTradingPartner(TradingPartner tradingPartner) { this.tradingPartner = tradingPartner; }
@@ -521,13 +521,13 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch processing completed </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 413 </td><td> ContentTooLarge </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Batch processing completed. Returns a list of created trading partners. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 413 </td><td> ContentTooLarge </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call createTradingPartnersBatchCall(CreateTradingPartnersBatchRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -611,20 +611,20 @@ public class TradingPartnersApi {
 
     /**
      * Creates a batch of multiple trading partners.
-     * This endpoint creates multiple trading partners in a single batch request. It accepts an array of trading partners and processes them synchronously. Supports a maximum of 100 records or 1 MB request payload. The batch is processed atomically and partial success is not allowed.
+     * This endpoint creates multiple trading partners in a single batch request. It accepts an array of trading partners and processes them synchronously. Supports a maximum of 100 records or a 1 MB request payload.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return CreateTradingPartnersBatch200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch processing completed </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 413 </td><td> ContentTooLarge </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Batch processing completed. Returns a list of created trading partners. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 413 </td><td> ContentTooLarge </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public CreateTradingPartnersBatch200Response createTradingPartnersBatch(CreateTradingPartnersBatchRequest requestParameters) throws ApiException {
@@ -634,20 +634,20 @@ public class TradingPartnersApi {
 
     /**
      * Creates a batch of multiple trading partners.
-     * This endpoint creates multiple trading partners in a single batch request. It accepts an array of trading partners and processes them synchronously. Supports a maximum of 100 records or 1 MB request payload. The batch is processed atomically and partial success is not allowed.
+     * This endpoint creates multiple trading partners in a single batch request. It accepts an array of trading partners and processes them synchronously. Supports a maximum of 100 records or a 1 MB request payload.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;CreateTradingPartnersBatch200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch processing completed </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 413 </td><td> ContentTooLarge </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Batch processing completed. Returns a list of created trading partners. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 413 </td><td> ContentTooLarge </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public ApiResponse<CreateTradingPartnersBatch200Response> createTradingPartnersBatchWithHttpInfo(CreateTradingPartnersBatchRequest requestParameters) throws ApiException {
@@ -658,7 +658,7 @@ public class TradingPartnersApi {
 
     /**
      * Creates a batch of multiple trading partners. (asynchronously)
-     * This endpoint creates multiple trading partners in a single batch request. It accepts an array of trading partners and processes them synchronously. Supports a maximum of 100 records or 1 MB request payload. The batch is processed atomically and partial success is not allowed.
+     * This endpoint creates multiple trading partners in a single batch request. It accepts an array of trading partners and processes them synchronously. Supports a maximum of 100 records or a 1 MB request payload.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -666,13 +666,13 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch processing completed </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 413 </td><td> ContentTooLarge </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Batch processing completed. Returns a list of created trading partners. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 413 </td><td> ContentTooLarge </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call createTradingPartnersBatchAsync(CreateTradingPartnersBatchRequest requestParameters, final ApiCallback<CreateTradingPartnersBatch200Response> _callback) throws ApiException {
@@ -685,10 +685,10 @@ public class TradingPartnersApi {
     /**
     * Represents the Request object for the CreateTradingPartnersBatch API
     *
-    * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used.</param>
+    * @param avalaraVersion Header that specifies the API version to use (for example \"1.6\").</param>
     * @param createTradingPartnersBatchRequest </param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\". (optional)</param>
-    * @param xCorrelationID The caller can use this as an identifier to use as a correlation id to trace the call. (optional)</param>
+    * @param xAvalaraClient Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\"). (optional)</param>
+    * @param xCorrelationID Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\"). (optional)</param>
     */
     public class CreateTradingPartnersBatchRequest {
         private String avalaraVersion;
@@ -699,7 +699,7 @@ public class TradingPartnersApi {
         public CreateTradingPartnersBatchRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public CreateTradingPartnersBatchRequest getCreateTradingPartnersBatchRequest() { return createTradingPartnersBatchRequest; }
         public void setCreateTradingPartnersBatchRequest(CreateTradingPartnersBatchRequest createTradingPartnersBatchRequest) { this.createTradingPartnersBatchRequest = createTradingPartnersBatchRequest; }
@@ -726,11 +726,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Trading partner deleted successfully. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 404 </td><td> NotFound </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 204 </td><td> Trading partner deleted successfully. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 404 </td><td> NotFound </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call deleteTradingPartnerCall(DeleteTradingPartnerRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -821,11 +821,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Trading partner deleted successfully. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 404 </td><td> NotFound </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 204 </td><td> Trading partner deleted successfully. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 404 </td><td> NotFound </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public void deleteTradingPartner(DeleteTradingPartnerRequest requestParameters) throws ApiException {
@@ -841,11 +841,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Trading partner deleted successfully. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 404 </td><td> NotFound </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 204 </td><td> Trading partner deleted successfully. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 404 </td><td> NotFound </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public ApiResponse<Void> deleteTradingPartnerWithHttpInfo(DeleteTradingPartnerRequest requestParameters) throws ApiException {
@@ -863,11 +863,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Trading partner deleted successfully. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 404 </td><td> NotFound </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 204 </td><td> Trading partner deleted successfully. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 404 </td><td> NotFound </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call deleteTradingPartnerAsync(DeleteTradingPartnerRequest requestParameters, final ApiCallback<Void> _callback) throws ApiException {
@@ -879,10 +879,10 @@ public class TradingPartnersApi {
     /**
     * Represents the Request object for the DeleteTradingPartner API
     *
-    * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used.</param>
-    * @param id The ID of the trading partner which is being deleted.</param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\". (optional)</param>
-    * @param xCorrelationID The caller can use this as an identifier to use as a correlation id to trace the call. (optional)</param>
+    * @param avalaraVersion Header that specifies the API version to use (for example \"1.6\").</param>
+    * @param id Unique identifier of the trading partner.</param>
+    * @param xAvalaraClient Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\"). (optional)</param>
+    * @param xCorrelationID Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\"). (optional)</param>
     */
     public class DeleteTradingPartnerRequest {
         private String avalaraVersion;
@@ -893,7 +893,7 @@ public class TradingPartnersApi {
         public DeleteTradingPartnerRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getId() { return id; }
         public void setId(String id) { this.id = id; }
@@ -920,11 +920,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful report download  Output Constraints: - Maximum of 1000 query results returned in the CSV </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Successful report download. Returns a CSV file containing up to 1,000 query results. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call downloadBatchSearchReportCall(DownloadBatchSearchReportRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -1016,11 +1016,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful report download  Output Constraints: - Maximum of 1000 query results returned in the CSV </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Successful report download. Returns a CSV file containing up to 1,000 query results. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public File downloadBatchSearchReport(DownloadBatchSearchReportRequest requestParameters) throws ApiException {
@@ -1037,11 +1037,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful report download  Output Constraints: - Maximum of 1000 query results returned in the CSV </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Successful report download. Returns a CSV file containing up to 1,000 query results. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public ApiResponse<File> downloadBatchSearchReportWithHttpInfo(DownloadBatchSearchReportRequest requestParameters) throws ApiException {
@@ -1060,11 +1060,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful report download  Output Constraints: - Maximum of 1000 query results returned in the CSV </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Successful report download. Returns a CSV file containing up to 1,000 query results. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call downloadBatchSearchReportAsync(DownloadBatchSearchReportRequest requestParameters, final ApiCallback<File> _callback) throws ApiException {
@@ -1077,10 +1077,10 @@ public class TradingPartnersApi {
     /**
     * Represents the Request object for the DownloadBatchSearchReport API
     *
-    * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used.</param>
-    * @param id The ID of the batch search for which the report should be downloaded.</param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\". (optional)</param>
-    * @param xCorrelationID The caller can use this as an identifier to use as a correlation id to trace the call. (optional)</param>
+    * @param avalaraVersion Header that specifies the API version to use (for example \"1.6\").</param>
+    * @param id Unique identifier of the batch search for which to download the report.</param>
+    * @param xAvalaraClient Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\"). (optional)</param>
+    * @param xCorrelationID Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\"). (optional)</param>
     */
     public class DownloadBatchSearchReportRequest {
         private String avalaraVersion;
@@ -1091,7 +1091,7 @@ public class TradingPartnersApi {
         public DownloadBatchSearchReportRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getId() { return id; }
         public void setId(String id) { this.id = id; }
@@ -1118,11 +1118,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The batch search details for a given ID. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns the batch search details for the specified ID. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call getBatchSearchDetailCall(GetBatchSearchDetailRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -1214,11 +1214,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The batch search details for a given ID. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns the batch search details for the specified ID. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public BatchSearch getBatchSearchDetail(GetBatchSearchDetailRequest requestParameters) throws ApiException {
@@ -1235,11 +1235,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The batch search details for a given ID. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns the batch search details for the specified ID. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public ApiResponse<BatchSearch> getBatchSearchDetailWithHttpInfo(GetBatchSearchDetailRequest requestParameters) throws ApiException {
@@ -1258,11 +1258,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The batch search details for a given ID. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns the batch search details for the specified ID. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call getBatchSearchDetailAsync(GetBatchSearchDetailRequest requestParameters, final ApiCallback<BatchSearch> _callback) throws ApiException {
@@ -1275,10 +1275,10 @@ public class TradingPartnersApi {
     /**
     * Represents the Request object for the GetBatchSearchDetail API
     *
-    * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used.</param>
-    * @param id The ID of the batch search that was submitted earlier.</param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\". (optional)</param>
-    * @param xCorrelationID The caller can use this as an identifier to use as a correlation id to trace the call. (optional)</param>
+    * @param avalaraVersion Header that specifies the API version to use (for example \"1.6\").</param>
+    * @param id Unique identifier of the batch search.</param>
+    * @param xAvalaraClient Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\"). (optional)</param>
+    * @param xCorrelationID Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\"). (optional)</param>
     */
     public class GetBatchSearchDetailRequest {
         private String avalaraVersion;
@@ -1289,7 +1289,7 @@ public class TradingPartnersApi {
         public GetBatchSearchDetailRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getId() { return id; }
         public void setId(String id) { this.id = id; }
@@ -1316,11 +1316,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of batch searches </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns a collection of batch searches. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call listBatchSearchesCall(ListBatchSearchesRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -1426,11 +1426,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of batch searches </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns a collection of batch searches. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public BatchSearchListResponse listBatchSearches(ListBatchSearchesRequest requestParameters) throws ApiException {
@@ -1447,11 +1447,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of batch searches </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns a collection of batch searches. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public ApiResponse<BatchSearchListResponse> listBatchSearchesWithHttpInfo(ListBatchSearchesRequest requestParameters) throws ApiException {
@@ -1470,11 +1470,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of batch searches </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns a collection of batch searches. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call listBatchSearchesAsync(ListBatchSearchesRequest requestParameters, final ApiCallback<BatchSearchListResponse> _callback) throws ApiException {
@@ -1487,14 +1487,14 @@ public class TradingPartnersApi {
     /**
     * Represents the Request object for the ListBatchSearches API
     *
-    * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used.</param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\". (optional)</param>
-    * @param $filter Filters the results by field name. Only the <code>eq</code> operator and the name field is supported. For more information, refer to [AvaTax filtering guide](https://developer.avalara.com/avatax/filtering-in-rest/). (optional)</param>
+    * @param avalaraVersion Header that specifies the API version to use (for example \"1.6\").</param>
+    * @param xAvalaraClient Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\"). (optional)</param>
+    * @param $filter Filters the results by field name. Only the eq operator and the name field are supported. For more information, refer to the Avalara filtering guide. (optional)</param>
     * @param count When set to <code>true</code>, returns the total count of matching records included as <code>@recordSetCount</code> in the response body. (optional)</param>
     * @param $top The number of items to include in the result. (optional)</param>
     * @param $skip The number of items to skip in the result. (optional)</param>
     * @param $orderBy The <code>$orderBy</code> query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space. (optional)</param>
-    * @param xCorrelationID The caller can use this as an identifier to use as a correlation id to trace the call. (optional)</param>
+    * @param xCorrelationID Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\"). (optional)</param>
     */
     public class ListBatchSearchesRequest {
         private String avalaraVersion;
@@ -1509,7 +1509,7 @@ public class TradingPartnersApi {
         public ListBatchSearchesRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
@@ -1544,11 +1544,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns a collection of trading partners matching the specified search criteria. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call searchParticipantsCall(SearchParticipantsRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -1663,11 +1663,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns a collection of trading partners matching the specified search criteria. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public SearchParticipants200Response searchParticipants(SearchParticipantsRequest requestParameters) throws ApiException {
@@ -1684,11 +1684,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns a collection of trading partners matching the specified search criteria. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public ApiResponse<SearchParticipants200Response> searchParticipantsWithHttpInfo(SearchParticipantsRequest requestParameters) throws ApiException {
@@ -1707,11 +1707,11 @@ public class TradingPartnersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns a collection of trading partners matching the specified search criteria. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call searchParticipantsAsync(SearchParticipantsRequest requestParameters, final ApiCallback<SearchParticipants200Response> _callback) throws ApiException {
@@ -1724,15 +1724,15 @@ public class TradingPartnersApi {
     /**
     * Represents the Request object for the SearchParticipants API
     *
-    * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used.</param>
-    * @param $search Search by value supports logical <code>AND</code> / <code>OR</code> operators. Search is performed only over the name and identifier value fields. For more information, refer to [Query options overview - OData.](https://learn.microsoft.com/en-us/odata/concepts/queryoptions-overview#search).</param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\". (optional)</param>
-    * @param count When set to <code>true</code>, returns the total count of matching records included as <code>@recordSetCount</code> in the response body. (optional)</param>
-    * @param $filter Filters the results using the <code>eq</code> operator. Supported fields: <code>network</code>, <code>country</code>, <code>documentType</code>, <code>idType</code>. For more information, refer to [AvaTax filtering guide](https://developer.avalara.com/avatax/filtering-in-rest/). (optional)</param>
+    * @param avalaraVersion Header that specifies the API version to use (for example \"1.6\").</param>
+    * @param $search Search by value supports logical AND and OR operators (case-sensitive). Search is performed only over the name and identifier value fields. For more information, refer to the OData query options overview documentation.</param>
+    * @param xAvalaraClient Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\"). (optional)</param>
+    * @param count When set to true, returns the total count of matching records included as @recordSetCount in the response body. (optional)</param>
+    * @param $filter Filters the results using the eq operator. Supported fields include network, country, documentType, and idType. For more information, refer to the Avalara filtering guide. (optional)</param>
     * @param $top The number of items to include in the result. (optional)</param>
     * @param $skip The number of items to skip in the result. (optional)</param>
-    * @param $orderBy The <code>$orderBy</code> query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space. (optional)</param>
-    * @param xCorrelationID The caller can use this as an identifier to use as a correlation id to trace the call. (optional)</param>
+    * @param $orderBy The $orderBy query parameter specifies the field and sorting direction for ordering the result set. The value combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space. (optional)</param>
+    * @param xCorrelationID Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\"). (optional)</param>
     */
     public class SearchParticipantsRequest {
         private String avalaraVersion;
@@ -1748,7 +1748,7 @@ public class TradingPartnersApi {
         public SearchParticipantsRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String get$search() { return $search; }
         public void set$search(String $search) { this.$search = $search; }
@@ -1786,12 +1786,12 @@ public class TradingPartnersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The trading partner has been successfully created. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 404 </td><td> NotFound </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 404 </td><td> NotFound </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call updateTradingPartnerCall(UpdateTradingPartnerRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -1889,12 +1889,12 @@ public class TradingPartnersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The trading partner has been successfully created. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 404 </td><td> NotFound </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 404 </td><td> NotFound </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public UpdateTradingPartner200Response updateTradingPartner(UpdateTradingPartnerRequest requestParameters) throws ApiException {
@@ -1912,12 +1912,12 @@ public class TradingPartnersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The trading partner has been successfully created. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 404 </td><td> NotFound </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 404 </td><td> NotFound </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public ApiResponse<UpdateTradingPartner200Response> updateTradingPartnerWithHttpInfo(UpdateTradingPartnerRequest requestParameters) throws ApiException {
@@ -1937,12 +1937,12 @@ public class TradingPartnersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The trading partner has been successfully created. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 404 </td><td> NotFound </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 404 </td><td> NotFound </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call updateTradingPartnerAsync(UpdateTradingPartnerRequest requestParameters, final ApiCallback<UpdateTradingPartner200Response> _callback) throws ApiException {
@@ -1955,11 +1955,11 @@ public class TradingPartnersApi {
     /**
     * Represents the Request object for the UpdateTradingPartner API
     *
-    * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used.</param>
-    * @param id The ID of the trading partner which is being updated.</param>
+    * @param avalaraVersion Header that specifies the API version to use (for example \"1.6\").</param>
+    * @param id Unique identifier of the trading partner.</param>
     * @param tradingPartner </param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\". (optional)</param>
-    * @param xCorrelationID The caller can use this as an identifier to use as a correlation id to trace the call. (optional)</param>
+    * @param xAvalaraClient Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\"). (optional)</param>
+    * @param xCorrelationID Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\"). (optional)</param>
     */
     public class UpdateTradingPartnerRequest {
         private String avalaraVersion;
@@ -1971,7 +1971,7 @@ public class TradingPartnersApi {
         public UpdateTradingPartnerRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getId() { return id; }
         public void setId(String id) { this.id = id; }
@@ -1993,7 +1993,7 @@ public class TradingPartnersApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.11.2");
+        this.localVarApiClient.setSdkVersion("26.4.0");
     }
 }
 

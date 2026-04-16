@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Returns the optionality of document fields for different country mandates
 
-This endpoint provides a list of required, conditional, and optional fields for each country mandate. You can use the &lt;code&gt;mandates&lt;/code&gt; endpoint to retrieve all available country mandates. You can use the $filter query parameter to retrieve fields for a particular mandate
+This endpoint returns a list of required, conditional, and optional fields for each country mandate. Use the mandates endpoint to retrieve all available country mandates. Use the $filter query parameter to retrieve fields for a specific mandate.
 
 ### Example
 
@@ -44,13 +44,13 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         DataInputFieldsApi apiInstance = new DataInputFieldsApi(apiClient);
-        String avalaraVersion = "1.4"; // String | The HTTP Header meant to specify the version of the API intended to be used
-        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
-        String $filter = "requiredFor/countryMandate eq AU-B2G-PEPPOL"; // String | Filter by field name and value. This filter only supports <code>eq</code> and <code>contains</code>. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering.
+        String avalaraVersion = "1.6"; // String | Header that specifies the API version to use (for example \"1.6\").
+        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
+        String $filter = "requiredFor/countryMandate eq AU-B2G-PEPPOL"; // String | Filter by field name and value. This filter supports only eq and contains. For more information, refer to the Avalara filtering guide.
         Integer $top = 56; // Integer | The number of items to include in the result.
         Integer $skip = 56; // Integer | The number of items to skip in the result.
-        Boolean $count = true; // Boolean | When set to true, the count of the collection is also returned in the response body
-        Boolean $countOnly = true; // Boolean | When set to true, only the count of the collection is returned
+        Boolean $count = true; // Boolean | When set to true, the response body also includes the count of items in the collection.
+        Boolean $countOnly = true; // Boolean | When set to true, the response returns only the count of items in the collection.
         try {
             DataInputFieldsResponse result = apiInstance.getDataInputFields(avalaraVersion, xAvalaraClient, $filter, $top, $skip, $count, $countOnly);
             System.out.println(result);
@@ -70,13 +70,13 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalaraVersion** | **String**| The HTTP Header meant to specify the version of the API intended to be used |
- **xAvalaraClient** | **String**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. | [optional]
- **$filter** | **String**| Filter by field name and value. This filter only supports &lt;code&gt;eq&lt;/code&gt; and &lt;code&gt;contains&lt;/code&gt;. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. | [optional]
+ **avalaraVersion** | **String**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
+ **xAvalaraClient** | **String**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
+ **$filter** | **String**| Filter by field name and value. This filter supports only eq and contains. For more information, refer to the Avalara filtering guide. | [optional]
  **$top** | **Integer**| The number of items to include in the result. | [optional]
  **$skip** | **Integer**| The number of items to skip in the result. | [optional]
- **$count** | **Boolean**| When set to true, the count of the collection is also returned in the response body | [optional]
- **$countOnly** | **Boolean**| When set to true, only the count of the collection is returned | [optional]
+ **$count** | **Boolean**| When set to true, the response body also includes the count of items in the collection. | [optional]
+ **$countOnly** | **Boolean**| When set to true, the response returns only the count of items in the collection. | [optional]
 
 ### Return type
 
@@ -95,8 +95,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **500** | Internal Server Error |  -  |
+| **200** | Returns a DataInputFieldsResponse object containing the data input fields and their optionality for the requested mandate. |  -  |
+| **401** | Unauthorized. |  -  |
+| **403** | Forbidden. |  -  |
+| **500** | Internal server error. |  -  |
 

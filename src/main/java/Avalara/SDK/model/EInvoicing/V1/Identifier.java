@@ -20,13 +20,16 @@
 package Avalara.SDK.model.EInvoicing.V1;
 
 import java.util.Objects;
+import Avalara.SDK.model.EInvoicing.V1.Extension;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -68,6 +71,10 @@ public class Identifier {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
+
+  public static final String SERIALIZED_NAME_EXTENSIONS = "extensions";
+  @SerializedName(SERIALIZED_NAME_EXTENSIONS)
+  private List<Extension> extensions;
 
   public Identifier() {
   }
@@ -129,6 +136,33 @@ public class Identifier {
   }
 
 
+  public Identifier extensions(List<Extension> extensions) {
+    this.extensions = extensions;
+    return this;
+  }
+
+  public Identifier addExtensionsItem(Extension extensionsItem) {
+    if (this.extensions == null) {
+      this.extensions = new ArrayList<>();
+    }
+    this.extensions.add(extensionsItem);
+    return this;
+  }
+
+  /**
+   * Optional array used to carry additional metadata or configuration values for the identifier.
+   * @return extensions
+   */
+  @javax.annotation.Nullable
+  public List<Extension> getExtensions() {
+    return extensions;
+  }
+
+  public void setExtensions(List<Extension> extensions) {
+    this.extensions = extensions;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -141,12 +175,13 @@ public class Identifier {
     Identifier identifier = (Identifier) o;
     return Objects.equals(this.name, identifier.name) &&
         Objects.equals(this.displayName, identifier.displayName) &&
-        Objects.equals(this.value, identifier.value);
+        Objects.equals(this.value, identifier.value) &&
+        Objects.equals(this.extensions, identifier.extensions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, displayName, value);
+    return Objects.hash(name, displayName, value, extensions);
   }
 
   @Override
@@ -156,6 +191,7 @@ public class Identifier {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -181,6 +217,7 @@ public class Identifier {
     openapiFields.add("name");
     openapiFields.add("displayName");
     openapiFields.add("value");
+    openapiFields.add("extensions");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -224,6 +261,20 @@ public class Identifier {
       }
       if (!jsonObj.get("value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+      }
+      if (jsonObj.get("extensions") != null && !jsonObj.get("extensions").isJsonNull()) {
+        JsonArray jsonArrayextensions = jsonObj.getAsJsonArray("extensions");
+        if (jsonArrayextensions != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("extensions").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `extensions` to be an array in the JSON string but got `%s`", jsonObj.get("extensions").toString()));
+          }
+
+          // validate the optional field `extensions` (array)
+          for (int i = 0; i < jsonArrayextensions.size(); i++) {
+            Extension.validateJsonElement(jsonArrayextensions.get(i));
+          };
+        }
       }
   }
 

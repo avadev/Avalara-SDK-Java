@@ -22,6 +22,7 @@ package Avalara.SDK.model.EInvoicing.V1;
 import java.util.Objects;
 import Avalara.SDK.model.EInvoicing.V1.InputDataFormats;
 import Avalara.SDK.model.EInvoicing.V1.OutputDataFormats;
+import Avalara.SDK.model.EInvoicing.V1.SupportedDocumentStatuses;
 import Avalara.SDK.model.EInvoicing.V1.WorkflowIds;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -113,6 +114,10 @@ public class Mandate {
   public static final String SERIALIZED_NAME_WORKFLOW_IDS = "workflowIds";
   @SerializedName(SERIALIZED_NAME_WORKFLOW_IDS)
   private List<WorkflowIds> workflowIds;
+
+  public static final String SERIALIZED_NAME_SUPPORTED_DOCUMENT_STATUSES = "supportedDocumentStatuses";
+  @SerializedName(SERIALIZED_NAME_SUPPORTED_DOCUMENT_STATUSES)
+  private List<SupportedDocumentStatuses> supportedDocumentStatuses;
 
   public Mandate() {
   }
@@ -396,6 +401,33 @@ public class Mandate {
   }
 
 
+  public Mandate supportedDocumentStatuses(List<SupportedDocumentStatuses> supportedDocumentStatuses) {
+    this.supportedDocumentStatuses = supportedDocumentStatuses;
+    return this;
+  }
+
+  public Mandate addSupportedDocumentStatusesItem(SupportedDocumentStatuses supportedDocumentStatusesItem) {
+    if (this.supportedDocumentStatuses == null) {
+      this.supportedDocumentStatuses = new ArrayList<>();
+    }
+    this.supportedDocumentStatuses.add(supportedDocumentStatusesItem);
+    return this;
+  }
+
+  /**
+   * List of document statuses defined by the mandate.
+   * @return supportedDocumentStatuses
+   */
+  @javax.annotation.Nullable
+  public List<SupportedDocumentStatuses> getSupportedDocumentStatuses() {
+    return supportedDocumentStatuses;
+  }
+
+  public void setSupportedDocumentStatuses(List<SupportedDocumentStatuses> supportedDocumentStatuses) {
+    this.supportedDocumentStatuses = supportedDocumentStatuses;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -418,12 +450,13 @@ public class Mandate {
         Objects.equals(this.supportsInboundDigitalDocument, mandate.supportsInboundDigitalDocument) &&
         Objects.equals(this.inputDataFormats, mandate.inputDataFormats) &&
         Objects.equals(this.outputDataFormats, mandate.outputDataFormats) &&
-        Objects.equals(this.workflowIds, mandate.workflowIds);
+        Objects.equals(this.workflowIds, mandate.workflowIds) &&
+        Objects.equals(this.supportedDocumentStatuses, mandate.supportedDocumentStatuses);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mandateId, countryMandate, countryCode, description, supportedByELRAPI, mandateFormat, eInvoicingFlow, eInvoicingFlowDocumentationLink, getInvoiceAvailableMediaType, supportsInboundDigitalDocument, inputDataFormats, outputDataFormats, workflowIds);
+    return Objects.hash(mandateId, countryMandate, countryCode, description, supportedByELRAPI, mandateFormat, eInvoicingFlow, eInvoicingFlowDocumentationLink, getInvoiceAvailableMediaType, supportsInboundDigitalDocument, inputDataFormats, outputDataFormats, workflowIds, supportedDocumentStatuses);
   }
 
   @Override
@@ -443,6 +476,7 @@ public class Mandate {
     sb.append("    inputDataFormats: ").append(toIndentedString(inputDataFormats)).append("\n");
     sb.append("    outputDataFormats: ").append(toIndentedString(outputDataFormats)).append("\n");
     sb.append("    workflowIds: ").append(toIndentedString(workflowIds)).append("\n");
+    sb.append("    supportedDocumentStatuses: ").append(toIndentedString(supportedDocumentStatuses)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -478,6 +512,7 @@ public class Mandate {
     openapiFields.add("inputDataFormats");
     openapiFields.add("outputDataFormats");
     openapiFields.add("workflowIds");
+    openapiFields.add("supportedDocumentStatuses");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -571,6 +606,20 @@ public class Mandate {
           // validate the optional field `workflowIds` (array)
           for (int i = 0; i < jsonArrayworkflowIds.size(); i++) {
             WorkflowIds.validateJsonElement(jsonArrayworkflowIds.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("supportedDocumentStatuses") != null && !jsonObj.get("supportedDocumentStatuses").isJsonNull()) {
+        JsonArray jsonArraysupportedDocumentStatuses = jsonObj.getAsJsonArray("supportedDocumentStatuses");
+        if (jsonArraysupportedDocumentStatuses != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("supportedDocumentStatuses").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `supportedDocumentStatuses` to be an array in the JSON string but got `%s`", jsonObj.get("supportedDocumentStatuses").toString()));
+          }
+
+          // validate the optional field `supportedDocumentStatuses` (array)
+          for (int i = 0; i < jsonArraysupportedDocumentStatuses.size(); i++) {
+            SupportedDocumentStatuses.validateJsonElement(jsonArraysupportedDocumentStatuses.get(i));
           };
         }
       }

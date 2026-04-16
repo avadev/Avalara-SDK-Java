@@ -5,8 +5,8 @@ All URIs are relative to *https://api.sbx.avalara.com/einvoicing*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createWebhookSubscription**](SubscriptionsApi.md#createWebhookSubscription) | **POST** /webhooks/subscriptions | Create a subscription to events
-[**deleteWebhookSubscription**](SubscriptionsApi.md#deleteWebhookSubscription) | **DELETE** /webhooks/subscriptions/{subscription-id} | Unsubscribe from events
-[**getWebhookSubscription**](SubscriptionsApi.md#getWebhookSubscription) | **GET** /webhooks/subscriptions/{subscription-id} | Get details of a subscription
+[**deleteWebhookSubscription**](SubscriptionsApi.md#deleteWebhookSubscription) | **DELETE** /webhooks/subscriptions/{subscriptionId} | Unsubscribe from events
+[**getWebhookSubscription**](SubscriptionsApi.md#getWebhookSubscription) | **GET** /webhooks/subscriptions/{subscriptionId} | Get details of a subscription
 [**listWebhookSubscriptions**](SubscriptionsApi.md#listWebhookSubscriptions) | **GET** /webhooks/subscriptions | List all subscriptions
 
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Create a subscription to events
 
-Create a subscription to events exposed by registered systems.
+Create a new webhook subscription and return the created subscription details.
 
 ### Example
 
@@ -47,7 +47,7 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         SubscriptionsApi apiInstance = new SubscriptionsApi(apiClient);
-        String avalaraVersion = "avalaraVersion_example"; // String | The version of the API to use, e.g., \"1.4\".
+        String avalaraVersion = "avalaraVersion_example"; // String | The version of the API to use, e.g., \"1.6\".
         SubscriptionRegistration subscriptionRegistration = new SubscriptionRegistration(); // SubscriptionRegistration | 
         String xCorrelationID = "xCorrelationID_example"; // String | A unique identifier for tracking the request and its response
         String xAvalaraClient = "xAvalaraClient_example"; // String | Client application identification
@@ -70,7 +70,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalaraVersion** | **String**| The version of the API to use, e.g., \&quot;1.4\&quot;. |
+ **avalaraVersion** | **String**| The version of the API to use, e.g., \&quot;1.6\&quot;. |
  **subscriptionRegistration** | [**SubscriptionRegistration**](SubscriptionRegistration.md)|  |
  **xCorrelationID** | **String**| A unique identifier for tracking the request and its response | [optional]
  **xAvalaraClient** | **String**| Client application identification | [optional]
@@ -92,10 +92,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Subscribed successfully |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
-| **400** | Invalid input |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
-| **401** | Not authenticated |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
-| **403** | Access token does not have the required scope |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
+| **201** | Subscription created successfully. Returns the created SubscriptionDetail object. |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
+| **400** | Bad request. The request payload is invalid or contains missing required fields. |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
+| **401** | Unauthorized. |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
+| **403** | Forbidden. |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
 
 
 ## deleteWebhookSubscription
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 Unsubscribe from events
 
-Remove a subscription from the webhooks dispatch service. All events and subscriptions are also deleted.
+Delete the specified webhook subscription.
 
 ### Example
 
@@ -134,8 +134,8 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         SubscriptionsApi apiInstance = new SubscriptionsApi(apiClient);
-        String subscriptionId = "subscriptionId_example"; // String | 
-        String avalaraVersion = "avalaraVersion_example"; // String | The version of the API to use, e.g., \"1.4\".
+        String subscriptionId = "subscriptionId_example"; // String | Unique identifier of the subscription.
+        String avalaraVersion = "avalaraVersion_example"; // String | The version of the API to use, e.g., \"1.6\".
         String xCorrelationID = "xCorrelationID_example"; // String | A unique identifier for tracking the request and its response
         String xAvalaraClient = "xAvalaraClient_example"; // String | Client application identification
         try {
@@ -156,8 +156,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscriptionId** | **String**|  |
- **avalaraVersion** | **String**| The version of the API to use, e.g., \&quot;1.4\&quot;. |
+ **subscriptionId** | **String**| Unique identifier of the subscription. |
+ **avalaraVersion** | **String**| The version of the API to use, e.g., \&quot;1.6\&quot;. |
  **xCorrelationID** | **String**| A unique identifier for tracking the request and its response | [optional]
  **xAvalaraClient** | **String**| Client application identification | [optional]
 
@@ -178,10 +178,10 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Unsubscribed successfully |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
-| **401** | Not authenticated |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
-| **403** | Access token does not have the required scope |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
-| **404** | Subscription not found |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
+| **204** | Subscription deleted successfully. |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
+| **401** | Unauthorized. |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
+| **403** | Forbidden. |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
+| **404** | Subscription not found for the specified subscriptionId. |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
 
 
 ## getWebhookSubscription
@@ -220,8 +220,8 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         SubscriptionsApi apiInstance = new SubscriptionsApi(apiClient);
-        String subscriptionId = "subscriptionId_example"; // String | 
-        String avalaraVersion = "avalaraVersion_example"; // String | The version of the API to use, e.g., \"1.4\".
+        String subscriptionId = "subscriptionId_example"; // String | Unique identifier of the subscription.
+        String avalaraVersion = "avalaraVersion_example"; // String | The version of the API to use, e.g., \"1.6\".
         String xCorrelationID = "xCorrelationID_example"; // String | A unique identifier for tracking the request and its response
         String xAvalaraClient = "xAvalaraClient_example"; // String | Client application identification
         try {
@@ -243,8 +243,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscriptionId** | **String**|  |
- **avalaraVersion** | **String**| The version of the API to use, e.g., \&quot;1.4\&quot;. |
+ **subscriptionId** | **String**| Unique identifier of the subscription. |
+ **avalaraVersion** | **String**| The version of the API to use, e.g., \&quot;1.6\&quot;. |
  **xCorrelationID** | **String**| A unique identifier for tracking the request and its response | [optional]
  **xAvalaraClient** | **String**| Client application identification | [optional]
 
@@ -265,10 +265,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Subscription details retrieved successfully |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
-| **401** | Not authenticated |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
-| **403** | Access token does not have the required scope |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
-| **404** | Subscription not found |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
+| **200** | Returns the SubscriptionDetail object for the specified subscriptionId. |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
+| **401** | Unauthorized. |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
+| **403** | Forbidden. |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
+| **404** | Subscription not found for the specified subscriptionId. |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
 
 
 ## listWebhookSubscriptions
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 List all subscriptions
 
-Retrieve a list of all subscriptions.
+Retrieve a list of webhook subscriptions.
 
 ### Example
 
@@ -307,7 +307,7 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         SubscriptionsApi apiInstance = new SubscriptionsApi(apiClient);
-        String avalaraVersion = "avalaraVersion_example"; // String | The version of the API to use, e.g., \"1.4\".
+        String avalaraVersion = "avalaraVersion_example"; // String | The version of the API to use, e.g., \"1.6\".
         String xCorrelationID = "xCorrelationID_example"; // String | A unique identifier for tracking the request and its response
         String xAvalaraClient = "xAvalaraClient_example"; // String | Client application identification
         Integer $top = 56; // Integer | The number of items to include in the result.
@@ -333,7 +333,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalaraVersion** | **String**| The version of the API to use, e.g., \&quot;1.4\&quot;. |
+ **avalaraVersion** | **String**| The version of the API to use, e.g., \&quot;1.6\&quot;. |
  **xCorrelationID** | **String**| A unique identifier for tracking the request and its response | [optional]
  **xAvalaraClient** | **String**| Client application identification | [optional]
  **$top** | **Integer**| The number of items to include in the result. | [optional]
@@ -358,8 +358,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | A list of subscriptions |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
-| **401** | Not authenticated |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
-| **403** | Access token does not have the required scope |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
-| **500** | Internal server error |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
+| **200** | Returns a list of webhook subscriptions in a SubscriptionListResponse object. |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
+| **401** | Unauthorized. |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
+| **403** | Forbidden. |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
+| **500** | Internal server error. |  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  |
 

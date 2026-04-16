@@ -87,10 +87,10 @@ public class SubscriptionsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Subscribed successfully </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 400 </td><td> Invalid input </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 401 </td><td> Not authenticated </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 403 </td><td> Access token does not have the required scope </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 201 </td><td> Subscription created successfully. Returns the created SubscriptionDetail object. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request. The request payload is invalid or contains missing required fields. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
      </table>
      */
     public okhttp3.Call createWebhookSubscriptionCall(CreateWebhookSubscriptionRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -174,17 +174,17 @@ public class SubscriptionsApi {
 
     /**
      * Create a subscription to events
-     * Create a subscription to events exposed by registered systems.
+     * Create a new webhook subscription and return the created subscription details.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return SuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Subscribed successfully </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 400 </td><td> Invalid input </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 401 </td><td> Not authenticated </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 403 </td><td> Access token does not have the required scope </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 201 </td><td> Subscription created successfully. Returns the created SubscriptionDetail object. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request. The request payload is invalid or contains missing required fields. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
      </table>
      */
     public SuccessResponse createWebhookSubscription(CreateWebhookSubscriptionRequest requestParameters) throws ApiException {
@@ -194,17 +194,17 @@ public class SubscriptionsApi {
 
     /**
      * Create a subscription to events
-     * Create a subscription to events exposed by registered systems.
+     * Create a new webhook subscription and return the created subscription details.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;SuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Subscribed successfully </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 400 </td><td> Invalid input </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 401 </td><td> Not authenticated </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 403 </td><td> Access token does not have the required scope </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 201 </td><td> Subscription created successfully. Returns the created SubscriptionDetail object. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request. The request payload is invalid or contains missing required fields. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
      </table>
      */
     public ApiResponse<SuccessResponse> createWebhookSubscriptionWithHttpInfo(CreateWebhookSubscriptionRequest requestParameters) throws ApiException {
@@ -215,7 +215,7 @@ public class SubscriptionsApi {
 
     /**
      * Create a subscription to events (asynchronously)
-     * Create a subscription to events exposed by registered systems.
+     * Create a new webhook subscription and return the created subscription details.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -223,10 +223,10 @@ public class SubscriptionsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Subscribed successfully </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 400 </td><td> Invalid input </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 401 </td><td> Not authenticated </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 403 </td><td> Access token does not have the required scope </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 201 </td><td> Subscription created successfully. Returns the created SubscriptionDetail object. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request. The request payload is invalid or contains missing required fields. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
      </table>
      */
     public okhttp3.Call createWebhookSubscriptionAsync(CreateWebhookSubscriptionRequest requestParameters, final ApiCallback<SuccessResponse> _callback) throws ApiException {
@@ -239,7 +239,7 @@ public class SubscriptionsApi {
     /**
     * Represents the Request object for the CreateWebhookSubscription API
     *
-    * @param avalaraVersion The version of the API to use, e.g., \"1.4\".</param>
+    * @param avalaraVersion The version of the API to use, e.g., \"1.6\".</param>
     * @param subscriptionRegistration </param>
     * @param xCorrelationID A unique identifier for tracking the request and its response (optional)</param>
     * @param xAvalaraClient Client application identification (optional)</param>
@@ -253,7 +253,7 @@ public class SubscriptionsApi {
         public CreateWebhookSubscriptionRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public SubscriptionRegistration getSubscriptionRegistration() { return subscriptionRegistration; }
         public void setSubscriptionRegistration(SubscriptionRegistration subscriptionRegistration) { this.subscriptionRegistration = subscriptionRegistration; }
@@ -280,10 +280,10 @@ public class SubscriptionsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Unsubscribed successfully </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 401 </td><td> Not authenticated </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 403 </td><td> Access token does not have the required scope </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 404 </td><td> Subscription not found </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 204 </td><td> Subscription deleted successfully. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 404 </td><td> Subscription not found for the specified subscriptionId. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
      </table>
      */
     public okhttp3.Call deleteWebhookSubscriptionCall(DeleteWebhookSubscriptionRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -307,8 +307,8 @@ public class SubscriptionsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/einvoicing/webhooks/subscriptions/{subscription-id}"
-            .replaceAll("\\{" + "subscription-id" + "\\}", localVarApiClient.escapeString(requestParameters.subscriptionId.toString()));
+        String localVarPath = "/einvoicing/webhooks/subscriptions/{subscriptionId}"
+            .replaceAll("\\{" + "subscriptionId" + "\\}", localVarApiClient.escapeString(requestParameters.subscriptionId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -368,16 +368,16 @@ public class SubscriptionsApi {
 
     /**
      * Unsubscribe from events
-     * Remove a subscription from the webhooks dispatch service. All events and subscriptions are also deleted.
+     * Delete the specified webhook subscription.
      * @param requestOptions Object which represents the options available for a given API/request
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Unsubscribed successfully </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 401 </td><td> Not authenticated </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 403 </td><td> Access token does not have the required scope </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 404 </td><td> Subscription not found </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 204 </td><td> Subscription deleted successfully. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 404 </td><td> Subscription not found for the specified subscriptionId. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
      </table>
      */
     public void deleteWebhookSubscription(DeleteWebhookSubscriptionRequest requestParameters) throws ApiException {
@@ -386,17 +386,17 @@ public class SubscriptionsApi {
 
     /**
      * Unsubscribe from events
-     * Remove a subscription from the webhooks dispatch service. All events and subscriptions are also deleted.
+     * Delete the specified webhook subscription.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Unsubscribed successfully </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 401 </td><td> Not authenticated </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 403 </td><td> Access token does not have the required scope </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 404 </td><td> Subscription not found </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 204 </td><td> Subscription deleted successfully. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 404 </td><td> Subscription not found for the specified subscriptionId. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
      </table>
      */
     public ApiResponse<Void> deleteWebhookSubscriptionWithHttpInfo(DeleteWebhookSubscriptionRequest requestParameters) throws ApiException {
@@ -406,7 +406,7 @@ public class SubscriptionsApi {
 
     /**
      * Unsubscribe from events (asynchronously)
-     * Remove a subscription from the webhooks dispatch service. All events and subscriptions are also deleted.
+     * Delete the specified webhook subscription.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -414,10 +414,10 @@ public class SubscriptionsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Unsubscribed successfully </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 401 </td><td> Not authenticated </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 403 </td><td> Access token does not have the required scope </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 404 </td><td> Subscription not found </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 204 </td><td> Subscription deleted successfully. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 404 </td><td> Subscription not found for the specified subscriptionId. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
      </table>
      */
     public okhttp3.Call deleteWebhookSubscriptionAsync(DeleteWebhookSubscriptionRequest requestParameters, final ApiCallback<Void> _callback) throws ApiException {
@@ -429,8 +429,8 @@ public class SubscriptionsApi {
     /**
     * Represents the Request object for the DeleteWebhookSubscription API
     *
-    * @param subscriptionId </param>
-    * @param avalaraVersion The version of the API to use, e.g., \"1.4\".</param>
+    * @param subscriptionId Unique identifier of the subscription.</param>
+    * @param avalaraVersion The version of the API to use, e.g., \"1.6\".</param>
     * @param xCorrelationID A unique identifier for tracking the request and its response (optional)</param>
     * @param xAvalaraClient Client application identification (optional)</param>
     */
@@ -445,7 +445,7 @@ public class SubscriptionsApi {
 
         public String getSubscriptionId() { return subscriptionId; }
         public void setSubscriptionId(String subscriptionId) { this.subscriptionId = subscriptionId; }
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXCorrelationID() { return xCorrelationID; }
         public void setXCorrelationID(String xCorrelationID) { this.xCorrelationID = xCorrelationID; }
@@ -470,10 +470,10 @@ public class SubscriptionsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Subscription details retrieved successfully </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 401 </td><td> Not authenticated </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 403 </td><td> Access token does not have the required scope </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 404 </td><td> Subscription not found </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns the SubscriptionDetail object for the specified subscriptionId. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 404 </td><td> Subscription not found for the specified subscriptionId. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
      </table>
      */
     public okhttp3.Call getWebhookSubscriptionCall(GetWebhookSubscriptionRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -497,8 +497,8 @@ public class SubscriptionsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/einvoicing/webhooks/subscriptions/{subscription-id}"
-            .replaceAll("\\{" + "subscription-id" + "\\}", localVarApiClient.escapeString(requestParameters.subscriptionId.toString()));
+        String localVarPath = "/einvoicing/webhooks/subscriptions/{subscriptionId}"
+            .replaceAll("\\{" + "subscriptionId" + "\\}", localVarApiClient.escapeString(requestParameters.subscriptionId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -565,10 +565,10 @@ public class SubscriptionsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Subscription details retrieved successfully </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 401 </td><td> Not authenticated </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 403 </td><td> Access token does not have the required scope </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 404 </td><td> Subscription not found </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns the SubscriptionDetail object for the specified subscriptionId. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 404 </td><td> Subscription not found for the specified subscriptionId. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
      </table>
      */
     public SubscriptionDetail getWebhookSubscription(GetWebhookSubscriptionRequest requestParameters) throws ApiException {
@@ -585,10 +585,10 @@ public class SubscriptionsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Subscription details retrieved successfully </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 401 </td><td> Not authenticated </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 403 </td><td> Access token does not have the required scope </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 404 </td><td> Subscription not found </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns the SubscriptionDetail object for the specified subscriptionId. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 404 </td><td> Subscription not found for the specified subscriptionId. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
      </table>
      */
     public ApiResponse<SubscriptionDetail> getWebhookSubscriptionWithHttpInfo(GetWebhookSubscriptionRequest requestParameters) throws ApiException {
@@ -607,10 +607,10 @@ public class SubscriptionsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Subscription details retrieved successfully </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 401 </td><td> Not authenticated </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 403 </td><td> Access token does not have the required scope </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 404 </td><td> Subscription not found </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns the SubscriptionDetail object for the specified subscriptionId. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 404 </td><td> Subscription not found for the specified subscriptionId. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
      </table>
      */
     public okhttp3.Call getWebhookSubscriptionAsync(GetWebhookSubscriptionRequest requestParameters, final ApiCallback<SubscriptionDetail> _callback) throws ApiException {
@@ -623,8 +623,8 @@ public class SubscriptionsApi {
     /**
     * Represents the Request object for the GetWebhookSubscription API
     *
-    * @param subscriptionId </param>
-    * @param avalaraVersion The version of the API to use, e.g., \"1.4\".</param>
+    * @param subscriptionId Unique identifier of the subscription.</param>
+    * @param avalaraVersion The version of the API to use, e.g., \"1.6\".</param>
     * @param xCorrelationID A unique identifier for tracking the request and its response (optional)</param>
     * @param xAvalaraClient Client application identification (optional)</param>
     */
@@ -639,7 +639,7 @@ public class SubscriptionsApi {
 
         public String getSubscriptionId() { return subscriptionId; }
         public void setSubscriptionId(String subscriptionId) { this.subscriptionId = subscriptionId; }
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXCorrelationID() { return xCorrelationID; }
         public void setXCorrelationID(String xCorrelationID) { this.xCorrelationID = xCorrelationID; }
@@ -664,10 +664,10 @@ public class SubscriptionsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A list of subscriptions </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 401 </td><td> Not authenticated </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 403 </td><td> Access token does not have the required scope </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns a list of webhook subscriptions in a SubscriptionListResponse object. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
      </table>
      */
     public okhttp3.Call listWebhookSubscriptionsCall(ListWebhookSubscriptionsRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -762,17 +762,17 @@ public class SubscriptionsApi {
 
     /**
      * List all subscriptions
-     * Retrieve a list of all subscriptions.
+     * Retrieve a list of webhook subscriptions.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return SubscriptionListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A list of subscriptions </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 401 </td><td> Not authenticated </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 403 </td><td> Access token does not have the required scope </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns a list of webhook subscriptions in a SubscriptionListResponse object. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
      </table>
      */
     public SubscriptionListResponse listWebhookSubscriptions(ListWebhookSubscriptionsRequest requestParameters) throws ApiException {
@@ -782,17 +782,17 @@ public class SubscriptionsApi {
 
     /**
      * List all subscriptions
-     * Retrieve a list of all subscriptions.
+     * Retrieve a list of webhook subscriptions.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;SubscriptionListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A list of subscriptions </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 401 </td><td> Not authenticated </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 403 </td><td> Access token does not have the required scope </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns a list of webhook subscriptions in a SubscriptionListResponse object. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
      </table>
      */
     public ApiResponse<SubscriptionListResponse> listWebhookSubscriptionsWithHttpInfo(ListWebhookSubscriptionsRequest requestParameters) throws ApiException {
@@ -803,7 +803,7 @@ public class SubscriptionsApi {
 
     /**
      * List all subscriptions (asynchronously)
-     * Retrieve a list of all subscriptions.
+     * Retrieve a list of webhook subscriptions.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -811,10 +811,10 @@ public class SubscriptionsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A list of subscriptions </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 401 </td><td> Not authenticated </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 403 </td><td> Access token does not have the required scope </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns a list of webhook subscriptions in a SubscriptionListResponse object. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID - Correlation ID from the request, or a new one if not provided in request <br>  </td></tr>
      </table>
      */
     public okhttp3.Call listWebhookSubscriptionsAsync(ListWebhookSubscriptionsRequest requestParameters, final ApiCallback<SubscriptionListResponse> _callback) throws ApiException {
@@ -827,7 +827,7 @@ public class SubscriptionsApi {
     /**
     * Represents the Request object for the ListWebhookSubscriptions API
     *
-    * @param avalaraVersion The version of the API to use, e.g., \"1.4\".</param>
+    * @param avalaraVersion The version of the API to use, e.g., \"1.6\".</param>
     * @param xCorrelationID A unique identifier for tracking the request and its response (optional)</param>
     * @param xAvalaraClient Client application identification (optional)</param>
     * @param $top The number of items to include in the result. (optional)</param>
@@ -847,7 +847,7 @@ public class SubscriptionsApi {
         public ListWebhookSubscriptionsRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXCorrelationID() { return xCorrelationID; }
         public void setXCorrelationID(String xCorrelationID) { this.xCorrelationID = xCorrelationID; }
@@ -873,7 +873,7 @@ public class SubscriptionsApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.11.2");
+        this.localVarApiClient.setSdkVersion("26.4.0");
     }
 }
 

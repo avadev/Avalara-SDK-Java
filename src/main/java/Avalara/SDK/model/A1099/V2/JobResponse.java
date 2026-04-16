@@ -394,7 +394,7 @@ public class JobResponse {
   }
 
   /**
-   * Number of forms skipped because they would have made a form invalid and the form is already e-filed or scheduled for e-filing. Value can be 0 or another value based on what the job has available
+   * Number of forms skipped because they would have made a form invalid and the form is already e-filed or scheduled for e-filing, or because you do not have permission to update forms that have been scheduled. Value can be 0 or another value based on what the job has available
    * @return skippedInvalid
    */
   @javax.annotation.Nullable

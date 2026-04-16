@@ -4,7 +4,7 @@ All URIs are relative to *https://api.sbx.avalara.com/einvoicing*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**taxIdentifierSchemaByCountry**](TaxIdentifiersApi.md#taxIdentifierSchemaByCountry) | **GET** /tax-identifiers/schema | Returns the tax identifier request &amp; response schema for a specific country.
+[**taxIdentifierSchemaByCountry**](TaxIdentifiersApi.md#taxIdentifierSchemaByCountry) | **GET** /tax-identifiers/schema | Returns the tax identifier request and response schema for a specific country.
 [**validateTaxIdentifier**](TaxIdentifiersApi.md#validateTaxIdentifier) | **POST** /tax-identifiers/validate | Validates a tax identifier.
 
 
@@ -13,9 +13,9 @@ Method | HTTP request | Description
 
 > TaxIdentifierSchemaByCountry200Response taxIdentifierSchemaByCountry(avalaraVersion, countryCode, xAvalaraClient, xCorrelationID, type)
 
-Returns the tax identifier request &amp; response schema for a specific country.
+Returns the tax identifier request and response schema for a specific country.
 
-This endpoint retrieves the request and response schema required to validate tax identifiers based on a specific country&#39;s requirements. This can include both standard fields and any additional parameters required by the respective country&#39;s tax authority.
+Returns the tax identifier request and response schema for a specific country.
 
 ### Example
 
@@ -45,11 +45,11 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         TaxIdentifiersApi apiInstance = new TaxIdentifiersApi(apiClient);
-        String avalaraVersion = "1.4"; // String | The HTTP Header meant to specify the version of the API intended to be used.
-        String countryCode = "DE"; // String | The two-letter ISO-3166 country code for which the schema should be retrieved.
-        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\".
-        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | The caller can use this as an identifier to use as a correlation id to trace the call.
-        String type = "request"; // String | Specifies whether to return the request or response schema.
+        String avalaraVersion = "1.6"; // String | Header that specifies the API version to use (for example \"1.6\").
+        String countryCode = "DE"; // String | Two-letter ISO 3166 country code for which to retrieve the schema (for example \"DE\").
+        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
+        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\").
+        String type = "request"; // String | Specifies which schema to return: \"request\" to receive the request validation schema or \"response\" to receive the response validation schema.
         try {
             TaxIdentifierSchemaByCountry200Response result = apiInstance.taxIdentifierSchemaByCountry(avalaraVersion, countryCode, xAvalaraClient, xCorrelationID, type);
             System.out.println(result);
@@ -69,11 +69,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalaraVersion** | **String**| The HTTP Header meant to specify the version of the API intended to be used. |
- **countryCode** | **String**| The two-letter ISO-3166 country code for which the schema should be retrieved. |
- **xAvalaraClient** | **String**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. | [optional]
- **xCorrelationID** | **String**| The caller can use this as an identifier to use as a correlation id to trace the call. | [optional]
- **type** | **String**| Specifies whether to return the request or response schema. | [optional] [enum: request, response]
+ **avalaraVersion** | **String**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
+ **countryCode** | **String**| Two-letter ISO 3166 country code for which to retrieve the schema (for example \&quot;DE\&quot;). |
+ **xAvalaraClient** | **String**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
+ **xCorrelationID** | **String**| Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). | [optional]
+ **type** | **String**| Specifies which schema to return: \&quot;request\&quot; to receive the request validation schema or \&quot;response\&quot; to receive the response validation schema. | [optional] [enum: request, response]
 
 ### Return type
 
@@ -92,11 +92,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-Correlation-Id -  <br>  |
-| **400** | Invalid request |  * X-Correlation-Id -  <br>  |
-| **401** | Unauthorized |  * X-Correlation-Id -  <br>  |
-| **403** | Forbidden |  * X-Correlation-Id -  <br>  |
-| **500** | Internal server error |  * X-Correlation-Id -  <br>  |
+| **200** | Returns an object containing countryCode, schemaType, and schema. The schema property contains a JSON Schema (Draft-07) used to validate tax identifier requests or responses for the specified country. |  * X-Correlation-ID -  <br>  |
+| **400** | Invalid request |  * X-Correlation-ID -  <br>  |
+| **401** | Unauthorized. |  * X-Correlation-ID -  <br>  |
+| **403** | Forbidden. |  * X-Correlation-ID -  <br>  |
+| **500** | Internal server error. |  * X-Correlation-ID -  <br>  |
 
 
 ## validateTaxIdentifier
@@ -135,10 +135,10 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         TaxIdentifiersApi apiInstance = new TaxIdentifiersApi(apiClient);
-        String avalaraVersion = "1.4"; // String | The HTTP Header meant to specify the version of the API intended to be used.
+        String avalaraVersion = "1.6"; // String | Header that specifies the API version to use (for example \"1.6\").
         TaxIdentifierRequest taxIdentifierRequest = new TaxIdentifierRequest(); // TaxIdentifierRequest | 
-        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\".
-        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | The caller can use this as an identifier to use as a correlation id to trace the call.
+        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
+        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\").
         try {
             TaxIdentifierResponse result = apiInstance.validateTaxIdentifier(avalaraVersion, taxIdentifierRequest, xAvalaraClient, xCorrelationID);
             System.out.println(result);
@@ -158,10 +158,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalaraVersion** | **String**| The HTTP Header meant to specify the version of the API intended to be used. |
+ **avalaraVersion** | **String**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
  **taxIdentifierRequest** | [**TaxIdentifierRequest**](TaxIdentifierRequest.md)|  |
- **xAvalaraClient** | **String**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. | [optional]
- **xCorrelationID** | **String**| The caller can use this as an identifier to use as a correlation id to trace the call. | [optional]
+ **xAvalaraClient** | **String**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
+ **xCorrelationID** | **String**| Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). | [optional]
 
 ### Return type
 
@@ -180,10 +180,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success response. |  * X-Correlation-Id -  <br>  |
-| **400** | Invalid request |  * X-Correlation-Id -  <br>  |
-| **401** | Unauthorized |  * X-Correlation-Id -  <br>  |
-| **403** | Forbidden |  * X-Correlation-Id -  <br>  |
-| **429** | Rate limit exceeded |  * X-Correlation-Id -  <br>  |
-| **500** | Internal server error |  * X-Correlation-Id -  <br>  |
+| **200** | Validation completed. Returns a TaxIdentifierResponse object that includes countryCode and a value object with identifierType, identifier, and optional extensions when available. |  * X-Correlation-ID -  <br>  |
+| **400** | Bad request. The request is invalid or contains missing or incorrect parameters. |  * X-Correlation-ID -  <br>  |
+| **401** | Unauthorized. |  * X-Correlation-ID -  <br>  |
+| **403** | Forbidden. |  * X-Correlation-ID -  <br>  |
+| **429** | Rate limit exceeded. |  * X-Correlation-ID -  <br>  |
+| **500** | Internal server error. |  * X-Correlation-ID -  <br>  |
 

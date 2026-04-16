@@ -85,11 +85,11 @@ public class InteropApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Document Accepted. This doesn&#39;t mean it is processed. This is just a transport ack. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad/Invalid Request. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 202 </td><td> Document accepted for processing. Returns the interchange ID and acceptance message. This is a transport acknowledgment; processing occurs asynchronously. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request. The request is invalid or contains missing or incorrect parameters. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call submitInteropDocumentCall(SubmitInteropDocumentRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -190,18 +190,18 @@ public class InteropApi {
 
     /**
      * Submit a document
-     * This API used by the interoperability partners to submit a document to  their trading partners in Avalara on behalf of their customers. 
+     * Upload documents on behalf of interoperability partners and submit them to trading partners through the Avalara platform.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return SubmitInteropDocument202Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Document Accepted. This doesn&#39;t mean it is processed. This is just a transport ack. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad/Invalid Request. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 202 </td><td> Document accepted for processing. Returns the interchange ID and acceptance message. This is a transport acknowledgment; processing occurs asynchronously. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request. The request is invalid or contains missing or incorrect parameters. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public SubmitInteropDocument202Response submitInteropDocument(SubmitInteropDocumentRequest requestParameters) throws ApiException {
@@ -211,18 +211,18 @@ public class InteropApi {
 
     /**
      * Submit a document
-     * This API used by the interoperability partners to submit a document to  their trading partners in Avalara on behalf of their customers. 
+     * Upload documents on behalf of interoperability partners and submit them to trading partners through the Avalara platform.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;SubmitInteropDocument202Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Document Accepted. This doesn&#39;t mean it is processed. This is just a transport ack. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad/Invalid Request. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 202 </td><td> Document accepted for processing. Returns the interchange ID and acceptance message. This is a transport acknowledgment; processing occurs asynchronously. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request. The request is invalid or contains missing or incorrect parameters. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public ApiResponse<SubmitInteropDocument202Response> submitInteropDocumentWithHttpInfo(SubmitInteropDocumentRequest requestParameters) throws ApiException {
@@ -233,7 +233,7 @@ public class InteropApi {
 
     /**
      * Submit a document (asynchronously)
-     * This API used by the interoperability partners to submit a document to  their trading partners in Avalara on behalf of their customers. 
+     * Upload documents on behalf of interoperability partners and submit them to trading partners through the Avalara platform.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -241,11 +241,11 @@ public class InteropApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Document Accepted. This doesn&#39;t mean it is processed. This is just a transport ack. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Bad/Invalid Request. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 202 </td><td> Document accepted for processing. Returns the interchange ID and acceptance message. This is a transport acknowledgment; processing occurs asynchronously. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request. The request is invalid or contains missing or incorrect parameters. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call submitInteropDocumentAsync(SubmitInteropDocumentRequest requestParameters, final ApiCallback<SubmitInteropDocument202Response> _callback) throws ApiException {
@@ -260,9 +260,9 @@ public class InteropApi {
     *
     * @param documentType Type of the document being uploaded. Partners will be configured in Avalara system to send only certain types of documents.</param>
     * @param interchangeType Type of interchange (codes in Avalara system that uniquely identifies a type of interchange). Partners will be configured in Avalara system to send documents belonging to certain types of interchanges.</param>
-    * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used</param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\" (optional)</param>
-    * @param xCorrelationID The caller can use this as an identifier to use as a correlation id to trace the call. (optional)</param>
+    * @param avalaraVersion Header that specifies the API version to use (for example \"1.6\").</param>
+    * @param xAvalaraClient Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\"). (optional)</param>
+    * @param xCorrelationID Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\"). (optional)</param>
     * @param fileName The file to be uploaded (e.g., UBL XML, CII XML). (optional)</param>
     */
     public class SubmitInteropDocumentRequest {
@@ -280,7 +280,7 @@ public class InteropApi {
         public void setDocumentType(String documentType) { this.documentType = documentType; }
         public String getInterchangeType() { return interchangeType; }
         public void setInterchangeType(String interchangeType) { this.interchangeType = interchangeType; }
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
@@ -300,7 +300,7 @@ public class InteropApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.11.2");
+        this.localVarApiClient.setSdkVersion("26.4.0");
     }
 }
 

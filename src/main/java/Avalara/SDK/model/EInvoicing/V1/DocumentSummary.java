@@ -20,13 +20,17 @@
 package Avalara.SDK.model.EInvoicing.V1;
 
 import java.util.Objects;
+import Avalara.SDK.model.EInvoicing.V1.StatusEvent;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -73,6 +77,10 @@ public class DocumentSummary {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private String status;
 
+  public static final String SERIALIZED_NAME_BUSINESS_STATUS = "businessStatus";
+  @SerializedName(SERIALIZED_NAME_BUSINESS_STATUS)
+  private String businessStatus;
+
   public static final String SERIALIZED_NAME_SUPPLIER_NAME = "supplierName";
   @SerializedName(SERIALIZED_NAME_SUPPLIER_NAME)
   private String supplierName;
@@ -116,6 +124,18 @@ public class DocumentSummary {
   public static final String SERIALIZED_NAME_RECEIVER = "receiver";
   @SerializedName(SERIALIZED_NAME_RECEIVER)
   private String receiver;
+
+  public static final String SERIALIZED_NAME_EVENTS = "events";
+  @SerializedName(SERIALIZED_NAME_EVENTS)
+  private List<StatusEvent> events;
+
+  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private String createdAt;
+
+  public static final String SERIALIZED_NAME_LAST_UPDATED_AT = "lastUpdatedAt";
+  @SerializedName(SERIALIZED_NAME_LAST_UPDATED_AT)
+  private String lastUpdatedAt;
 
   public DocumentSummary() {
   }
@@ -193,6 +213,25 @@ public class DocumentSummary {
 
   public void setStatus(String status) {
     this.status = status;
+  }
+
+
+  public DocumentSummary businessStatus(String businessStatus) {
+    this.businessStatus = businessStatus;
+    return this;
+  }
+
+  /**
+   * Represents the document&#39;s business lifecycle state based on responses from external actors (Tax Authority, PDP, or ERP), such as acceptance, rejection, or validation.
+   * @return businessStatus
+   */
+  @javax.annotation.Nullable
+  public String getBusinessStatus() {
+    return businessStatus;
+  }
+
+  public void setBusinessStatus(String businessStatus) {
+    this.businessStatus = businessStatus;
   }
 
 
@@ -405,6 +444,71 @@ public class DocumentSummary {
   }
 
 
+  public DocumentSummary events(List<StatusEvent> events) {
+    this.events = events;
+    return this;
+  }
+
+  public DocumentSummary addEventsItem(StatusEvent eventsItem) {
+    if (this.events == null) {
+      this.events = new ArrayList<>();
+    }
+    this.events.add(eventsItem);
+    return this;
+  }
+
+  /**
+   * Array of status events associated with this document. Events are included in each document in the response only when the query parameter $include&#x3D;events is passed; otherwise the events array is not populated.
+   * @return events
+   */
+  @javax.annotation.Nullable
+  public List<StatusEvent> getEvents() {
+    return events;
+  }
+
+  public void setEvents(List<StatusEvent> events) {
+    this.events = events;
+  }
+
+
+  public DocumentSummary createdAt(String createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+  /**
+   * The date and time when the document was created in the system, displayed in ISO 8601 format with timezone
+   * @return createdAt
+   */
+  @javax.annotation.Nullable
+  public String getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public DocumentSummary lastUpdatedAt(String lastUpdatedAt) {
+    this.lastUpdatedAt = lastUpdatedAt;
+    return this;
+  }
+
+  /**
+   * The date and time when the document was last updated in the system, displayed in ISO 8601 format with timezone
+   * @return lastUpdatedAt
+   */
+  @javax.annotation.Nullable
+  public String getLastUpdatedAt() {
+    return lastUpdatedAt;
+  }
+
+  public void setLastUpdatedAt(String lastUpdatedAt) {
+    this.lastUpdatedAt = lastUpdatedAt;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -419,6 +523,7 @@ public class DocumentSummary {
         Objects.equals(this.companyId, documentSummary.companyId) &&
         Objects.equals(this.processDateTime, documentSummary.processDateTime) &&
         Objects.equals(this.status, documentSummary.status) &&
+        Objects.equals(this.businessStatus, documentSummary.businessStatus) &&
         Objects.equals(this.supplierName, documentSummary.supplierName) &&
         Objects.equals(this.customerName, documentSummary.customerName) &&
         Objects.equals(this.documentType, documentSummary.documentType) &&
@@ -429,12 +534,26 @@ public class DocumentSummary {
         Objects.equals(this.countryCode, documentSummary.countryCode) &&
         Objects.equals(this.countryMandate, documentSummary.countryMandate) &&
         Objects.equals(this._interface, documentSummary._interface) &&
-        Objects.equals(this.receiver, documentSummary.receiver);
+        Objects.equals(this.receiver, documentSummary.receiver) &&
+        Objects.equals(this.events, documentSummary.events) &&
+        Objects.equals(this.createdAt, documentSummary.createdAt) &&
+        Objects.equals(this.lastUpdatedAt, documentSummary.lastUpdatedAt);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, companyId, processDateTime, status, supplierName, customerName, documentType, documentVersion, documentNumber, documentDate, flow, countryCode, countryMandate, _interface, receiver);
+    return Objects.hash(id, companyId, processDateTime, status, businessStatus, supplierName, customerName, documentType, documentVersion, documentNumber, documentDate, flow, countryCode, countryMandate, _interface, receiver, events, createdAt, lastUpdatedAt);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -445,6 +564,7 @@ public class DocumentSummary {
     sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
     sb.append("    processDateTime: ").append(toIndentedString(processDateTime)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    supplierName: ").append(toIndentedString(supplierName)).append("\n");
     sb.append("    customerName: ").append(toIndentedString(customerName)).append("\n");
     sb.append("    documentType: ").append(toIndentedString(documentType)).append("\n");
@@ -456,6 +576,9 @@ public class DocumentSummary {
     sb.append("    countryMandate: ").append(toIndentedString(countryMandate)).append("\n");
     sb.append("    _interface: ").append(toIndentedString(_interface)).append("\n");
     sb.append("    receiver: ").append(toIndentedString(receiver)).append("\n");
+    sb.append("    events: ").append(toIndentedString(events)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    lastUpdatedAt: ").append(toIndentedString(lastUpdatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -482,6 +605,7 @@ public class DocumentSummary {
     openapiFields.add("companyId");
     openapiFields.add("processDateTime");
     openapiFields.add("status");
+    openapiFields.add("businessStatus");
     openapiFields.add("supplierName");
     openapiFields.add("customerName");
     openapiFields.add("documentType");
@@ -493,6 +617,9 @@ public class DocumentSummary {
     openapiFields.add("countryMandate");
     openapiFields.add("interface");
     openapiFields.add("receiver");
+    openapiFields.add("events");
+    openapiFields.add("createdAt");
+    openapiFields.add("lastUpdatedAt");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -531,6 +658,9 @@ public class DocumentSummary {
       if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
+      if ((jsonObj.get("businessStatus") != null && !jsonObj.get("businessStatus").isJsonNull()) && !jsonObj.get("businessStatus").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `businessStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessStatus").toString()));
+      }
       if ((jsonObj.get("supplierName") != null && !jsonObj.get("supplierName").isJsonNull()) && !jsonObj.get("supplierName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `supplierName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("supplierName").toString()));
       }
@@ -563,6 +693,26 @@ public class DocumentSummary {
       }
       if ((jsonObj.get("receiver") != null && !jsonObj.get("receiver").isJsonNull()) && !jsonObj.get("receiver").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `receiver` to be a primitive type in the JSON string but got `%s`", jsonObj.get("receiver").toString()));
+      }
+      if (jsonObj.get("events") != null && !jsonObj.get("events").isJsonNull()) {
+        JsonArray jsonArrayevents = jsonObj.getAsJsonArray("events");
+        if (jsonArrayevents != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("events").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `events` to be an array in the JSON string but got `%s`", jsonObj.get("events").toString()));
+          }
+
+          // validate the optional field `events` (array)
+          for (int i = 0; i < jsonArrayevents.size(); i++) {
+            StatusEvent.validateJsonElement(jsonArrayevents.get(i));
+          };
+        }
+      }
+      if ((jsonObj.get("createdAt") != null && !jsonObj.get("createdAt").isJsonNull()) && !jsonObj.get("createdAt").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `createdAt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdAt").toString()));
+      }
+      if ((jsonObj.get("lastUpdatedAt") != null && !jsonObj.get("lastUpdatedAt").isJsonNull()) && !jsonObj.get("lastUpdatedAt").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `lastUpdatedAt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastUpdatedAt").toString()));
       }
   }
 
