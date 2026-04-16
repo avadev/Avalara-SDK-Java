@@ -85,10 +85,10 @@ public class DataInputFieldsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Returns a DataInputFieldsResponse object containing the data input fields and their optionality for the requested mandate. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getDataInputFieldsCall(GetDataInputFieldsRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -183,17 +183,17 @@ public class DataInputFieldsApi {
 
     /**
      * Returns the optionality of document fields for different country mandates
-     * This endpoint provides a list of required, conditional, and optional fields for each country mandate. You can use the &lt;code&gt;mandates&lt;/code&gt; endpoint to retrieve all available country mandates. You can use the $filter query parameter to retrieve fields for a particular mandate
+     * This endpoint returns a list of required, conditional, and optional fields for each country mandate. Use the mandates endpoint to retrieve all available country mandates. Use the $filter query parameter to retrieve fields for a specific mandate.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return DataInputFieldsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Returns a DataInputFieldsResponse object containing the data input fields and their optionality for the requested mandate. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
     public DataInputFieldsResponse getDataInputFields(GetDataInputFieldsRequest requestParameters) throws ApiException {
@@ -203,17 +203,17 @@ public class DataInputFieldsApi {
 
     /**
      * Returns the optionality of document fields for different country mandates
-     * This endpoint provides a list of required, conditional, and optional fields for each country mandate. You can use the &lt;code&gt;mandates&lt;/code&gt; endpoint to retrieve all available country mandates. You can use the $filter query parameter to retrieve fields for a particular mandate
+     * This endpoint returns a list of required, conditional, and optional fields for each country mandate. Use the mandates endpoint to retrieve all available country mandates. Use the $filter query parameter to retrieve fields for a specific mandate.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;DataInputFieldsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Returns a DataInputFieldsResponse object containing the data input fields and their optionality for the requested mandate. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<DataInputFieldsResponse> getDataInputFieldsWithHttpInfo(GetDataInputFieldsRequest requestParameters) throws ApiException {
@@ -224,7 +224,7 @@ public class DataInputFieldsApi {
 
     /**
      * Returns the optionality of document fields for different country mandates (asynchronously)
-     * This endpoint provides a list of required, conditional, and optional fields for each country mandate. You can use the &lt;code&gt;mandates&lt;/code&gt; endpoint to retrieve all available country mandates. You can use the $filter query parameter to retrieve fields for a particular mandate
+     * This endpoint returns a list of required, conditional, and optional fields for each country mandate. Use the mandates endpoint to retrieve all available country mandates. Use the $filter query parameter to retrieve fields for a specific mandate.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -232,10 +232,10 @@ public class DataInputFieldsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Returns a DataInputFieldsResponse object containing the data input fields and their optionality for the requested mandate. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getDataInputFieldsAsync(GetDataInputFieldsRequest requestParameters, final ApiCallback<DataInputFieldsResponse> _callback) throws ApiException {
@@ -248,13 +248,13 @@ public class DataInputFieldsApi {
     /**
     * Represents the Request object for the GetDataInputFields API
     *
-    * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used</param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)</param>
-    * @param $filter Filter by field name and value. This filter only supports <code>eq</code> and <code>contains</code>. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. (optional)</param>
+    * @param avalaraVersion Header that specifies the API version to use (for example \"1.6\").</param>
+    * @param xAvalaraClient Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\"). (optional)</param>
+    * @param $filter Filter by field name and value. This filter supports only eq and contains. For more information, refer to the Avalara filtering guide. (optional)</param>
     * @param $top The number of items to include in the result. (optional)</param>
     * @param $skip The number of items to skip in the result. (optional)</param>
-    * @param $count When set to true, the count of the collection is also returned in the response body (optional)</param>
-    * @param $countOnly When set to true, only the count of the collection is returned (optional)</param>
+    * @param $count When set to true, the response body also includes the count of items in the collection. (optional)</param>
+    * @param $countOnly When set to true, the response returns only the count of items in the collection. (optional)</param>
     */
     public class GetDataInputFieldsRequest {
         private String avalaraVersion;
@@ -268,7 +268,7 @@ public class DataInputFieldsApi {
         public GetDataInputFieldsRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
@@ -294,7 +294,7 @@ public class DataInputFieldsApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.11.2");
+        this.localVarApiClient.setSdkVersion("26.4.0");
     }
 }
 

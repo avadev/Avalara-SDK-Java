@@ -109,6 +109,8 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CodeListsApi* | [**getCodeList**](docs/EInvoicing/V1/CodeListsApi.md#getcodelist) | **GET** /codelists/{codelistId} | Retrieves a code list by ID for a specific country
+*CodeListsApi* | [**getCodeListList**](docs/EInvoicing/V1/CodeListsApi.md#getcodelistlist) | **GET** /codelists | Returns a list of code lists for a specific country
 *DataInputFieldsApi* | [**getDataInputFields**](docs/EInvoicing/V1/DataInputFieldsApi.md#getdatainputfields) | **GET** /data-input-fields | Returns the optionality of document fields for different country mandates
 *DocumentsApi* | [**downloadDocument**](docs/EInvoicing/V1/DocumentsApi.md#downloaddocument) | **GET** /documents/{documentId}/$download | Returns a copy of the document
 *DocumentsApi* | [**fetchDocuments**](docs/EInvoicing/V1/DocumentsApi.md#fetchdocuments) | **POST** /documents/$fetch | Fetch the inbound document from a tax authority
@@ -118,11 +120,14 @@ Class | Method | HTTP request | Description
 *InteropApi* | [**submitInteropDocument**](docs/EInvoicing/V1/InteropApi.md#submitinteropdocument) | **POST** /interop/documents | Submit a document
 *MandatesApi* | [**getMandateDataInputFields**](docs/EInvoicing/V1/MandatesApi.md#getmandatedatainputfields) | **GET** /mandates/{mandateId}/data-input-fields | Returns document field information for a country mandate, a selected document type, and its version
 *MandatesApi* | [**getMandates**](docs/EInvoicing/V1/MandatesApi.md#getmandates) | **GET** /mandates | List country mandates that are supported by the Avalara E-Invoicing platform
+*ReportsApi* | [**downloadReport**](docs/EInvoicing/V1/ReportsApi.md#downloadreport) | **GET** /reports/{reportId}/$download | Returns a pre-signed download URL for a report
+*ReportsApi* | [**getReportById**](docs/EInvoicing/V1/ReportsApi.md#getreportbyid) | **GET** /reports/{reportId}/status | Retrieves a report by its unique ID
+*ReportsApi* | [**getReports**](docs/EInvoicing/V1/ReportsApi.md#getreports) | **GET** /reports | Returns a list of reports
 *SubscriptionsApi* | [**createWebhookSubscription**](docs/EInvoicing/V1/SubscriptionsApi.md#createwebhooksubscription) | **POST** /webhooks/subscriptions | Create a subscription to events
-*SubscriptionsApi* | [**deleteWebhookSubscription**](docs/EInvoicing/V1/SubscriptionsApi.md#deletewebhooksubscription) | **DELETE** /webhooks/subscriptions/{subscription-id} | Unsubscribe from events
-*SubscriptionsApi* | [**getWebhookSubscription**](docs/EInvoicing/V1/SubscriptionsApi.md#getwebhooksubscription) | **GET** /webhooks/subscriptions/{subscription-id} | Get details of a subscription
+*SubscriptionsApi* | [**deleteWebhookSubscription**](docs/EInvoicing/V1/SubscriptionsApi.md#deletewebhooksubscription) | **DELETE** /webhooks/subscriptions/{subscriptionId} | Unsubscribe from events
+*SubscriptionsApi* | [**getWebhookSubscription**](docs/EInvoicing/V1/SubscriptionsApi.md#getwebhooksubscription) | **GET** /webhooks/subscriptions/{subscriptionId} | Get details of a subscription
 *SubscriptionsApi* | [**listWebhookSubscriptions**](docs/EInvoicing/V1/SubscriptionsApi.md#listwebhooksubscriptions) | **GET** /webhooks/subscriptions | List all subscriptions
-*TaxIdentifiersApi* | [**taxIdentifierSchemaByCountry**](docs/EInvoicing/V1/TaxIdentifiersApi.md#taxidentifierschemabycountry) | **GET** /tax-identifiers/schema | Returns the tax identifier request & response schema for a specific country.
+*TaxIdentifiersApi* | [**taxIdentifierSchemaByCountry**](docs/EInvoicing/V1/TaxIdentifiersApi.md#taxidentifierschemabycountry) | **GET** /tax-identifiers/schema | Returns the tax identifier request and response schema for a specific country.
 *TaxIdentifiersApi* | [**validateTaxIdentifier**](docs/EInvoicing/V1/TaxIdentifiersApi.md#validatetaxidentifier) | **POST** /tax-identifiers/validate | Validates a tax identifier.
 *TradingPartnersApi* | [**batchSearchParticipants**](docs/EInvoicing/V1/TradingPartnersApi.md#batchsearchparticipants) | **POST** /trading-partners/batch-searches | Handles batch search requests by uploading a file containing search parameters.
 *TradingPartnersApi* | [**createTradingPartner**](docs/EInvoicing/V1/TradingPartnersApi.md#createtradingpartner) | **POST** /trading-partners | Creates a new trading partner.
@@ -133,39 +138,6 @@ Class | Method | HTTP request | Description
 *TradingPartnersApi* | [**listBatchSearches**](docs/EInvoicing/V1/TradingPartnersApi.md#listbatchsearches) | **GET** /trading-partners/batch-searches | Lists all batch searches that were previously submitted.
 *TradingPartnersApi* | [**searchParticipants**](docs/EInvoicing/V1/TradingPartnersApi.md#searchparticipants) | **GET** /trading-partners | Returns a list of participants matching the input query.
 *TradingPartnersApi* | [**updateTradingPartner**](docs/EInvoicing/V1/TradingPartnersApi.md#updatetradingpartner) | **PUT** /trading-partners/{id} | Updates a trading partner using ID.
-
-<a name="documentation-for-A1099-V2-api-endpoints"></a>
-### A1099 V2 API Documentation
-
-Class | Method | HTTP request | Description
------------- | ------------- | ------------- | -------------
-*CompaniesW9Api* | [**createCompany**](docs/A1099/V2/CompaniesW9Api.md#createcompany) | **POST** /w9/companies | Create a company
-*CompaniesW9Api* | [**deleteCompany**](docs/A1099/V2/CompaniesW9Api.md#deletecompany) | **DELETE** /w9/companies/{id} | Delete a company
-*CompaniesW9Api* | [**getCompanies**](docs/A1099/V2/CompaniesW9Api.md#getcompanies) | **GET** /w9/companies | List companies
-*CompaniesW9Api* | [**getCompany**](docs/A1099/V2/CompaniesW9Api.md#getcompany) | **GET** /w9/companies/{id} | Retrieve a company
-*CompaniesW9Api* | [**updateCompany**](docs/A1099/V2/CompaniesW9Api.md#updatecompany) | **PUT** /w9/companies/{id} | Update a company
-*Forms1099Api* | [**bulkUpsert1099Forms**](docs/A1099/V2/Forms1099Api.md#bulkupsert1099forms) | **POST** /1099/forms/$bulk-upsert | Create or update multiple 1099/1095/W2/1042S forms
-*Forms1099Api* | [**create1099Form**](docs/A1099/V2/Forms1099Api.md#create1099form) | **POST** /1099/forms | Create a 1099/1095/W2/1042S form
-*Forms1099Api* | [**delete1099Form**](docs/A1099/V2/Forms1099Api.md#delete1099form) | **DELETE** /1099/forms/{id} | Delete a 1099/1095/W2/1042S form
-*Forms1099Api* | [**get1099Form**](docs/A1099/V2/Forms1099Api.md#get1099form) | **GET** /1099/forms/{id} | Retrieve a 1099/1095/W2/1042S form
-*Forms1099Api* | [**get1099FormPdf**](docs/A1099/V2/Forms1099Api.md#get1099formpdf) | **GET** /1099/forms/{id}/pdf | Retrieve the PDF file for a 1099/1095/W2/1042S form
-*Forms1099Api* | [**list1099Forms**](docs/A1099/V2/Forms1099Api.md#list1099forms) | **GET** /1099/forms | List 1099/1095/W2/1042S forms
-*Forms1099Api* | [**update1099Form**](docs/A1099/V2/Forms1099Api.md#update1099form) | **PUT** /1099/forms/{id} | Update a 1099/1095/W2/1042S form
-*FormsW9Api* | [**createAndSendW9FormEmail**](docs/A1099/V2/FormsW9Api.md#createandsendw9formemail) | **POST** /w9/forms/$create-and-send-email | Create a minimal W9/W4/W8 form and sends the e-mail request
-*FormsW9Api* | [**createW9Form**](docs/A1099/V2/FormsW9Api.md#createw9form) | **POST** /w9/forms | Create a W9/W4/W8 form
-*FormsW9Api* | [**deleteW9Form**](docs/A1099/V2/FormsW9Api.md#deletew9form) | **DELETE** /w9/forms/{id} | Delete a W9/W4/W8 form
-*FormsW9Api* | [**getW9Form**](docs/A1099/V2/FormsW9Api.md#getw9form) | **GET** /w9/forms/{id} | Retrieve a W9/W4/W8 form
-*FormsW9Api* | [**getW9FormPdf**](docs/A1099/V2/FormsW9Api.md#getw9formpdf) | **GET** /w9/forms/{id}/pdf | Download the PDF for a W9/W4/W8 form.
-*FormsW9Api* | [**listW9Forms**](docs/A1099/V2/FormsW9Api.md#listw9forms) | **GET** /w9/forms | List W9/W4/W8 forms
-*FormsW9Api* | [**sendW9FormEmail**](docs/A1099/V2/FormsW9Api.md#sendw9formemail) | **POST** /w9/forms/{id}/$send-email | Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form
-*FormsW9Api* | [**updateW9Form**](docs/A1099/V2/FormsW9Api.md#updatew9form) | **PUT** /w9/forms/{id} | Update a W9/W4/W8 form
-*FormsW9Api* | [**uploadW9Files**](docs/A1099/V2/FormsW9Api.md#uploadw9files) | **POST** /w9/forms/{id}/attachment | Replace the PDF file for a W9/W4/W8 form
-*Issuers1099Api* | [**createIssuer**](docs/A1099/V2/Issuers1099Api.md#createissuer) | **POST** /1099/issuers | Create an issuer
-*Issuers1099Api* | [**deleteIssuer**](docs/A1099/V2/Issuers1099Api.md#deleteissuer) | **DELETE** /1099/issuers/{id} | Delete an issuer
-*Issuers1099Api* | [**getIssuer**](docs/A1099/V2/Issuers1099Api.md#getissuer) | **GET** /1099/issuers/{id} | Retrieve an issuer
-*Issuers1099Api* | [**getIssuers**](docs/A1099/V2/Issuers1099Api.md#getissuers) | **GET** /1099/issuers | List issuers
-*Issuers1099Api* | [**updateIssuer**](docs/A1099/V2/Issuers1099Api.md#updateissuer) | **PUT** /1099/issuers/{id} | Update an issuer
-*JobsApi* | [**getJob**](docs/A1099/V2/JobsApi.md#getjob) | **GET** /jobs/{id} | Retrieves information about the job
 
 <a name="documentation-for-models"></a>
 ## Documentation for Models
@@ -180,6 +152,11 @@ Class | Method | HTTP request | Description
  - [Avalara.SDK.model.EInvoicing.V1.BatchSearch](docs/EInvoicing/V1/BatchSearch.md)
  - [Avalara.SDK.model.EInvoicing.V1.BatchSearchListResponse](docs/EInvoicing/V1/BatchSearchListResponse.md)
  - [Avalara.SDK.model.EInvoicing.V1.BatchSearchParticipants202Response](docs/EInvoicing/V1/BatchSearchParticipants202Response.md)
+ - [Avalara.SDK.model.EInvoicing.V1.CodeListListResponse](docs/EInvoicing/V1/CodeListListResponse.md)
+ - [Avalara.SDK.model.EInvoicing.V1.CodeListResponse](docs/EInvoicing/V1/CodeListResponse.md)
+ - [Avalara.SDK.model.EInvoicing.V1.CodeListSummary](docs/EInvoicing/V1/CodeListSummary.md)
+ - [Avalara.SDK.model.EInvoicing.V1.CodeListValue](docs/EInvoicing/V1/CodeListValue.md)
+ - [Avalara.SDK.model.EInvoicing.V1.CodeListVersion](docs/EInvoicing/V1/CodeListVersion.md)
  - [Avalara.SDK.model.EInvoicing.V1.ConditionalForField](docs/EInvoicing/V1/ConditionalForField.md)
  - [Avalara.SDK.model.EInvoicing.V1.Consents](docs/EInvoicing/V1/Consents.md)
  - [Avalara.SDK.model.EInvoicing.V1.CreateTradingPartner201Response](docs/EInvoicing/V1/CreateTradingPartner201Response.md)
@@ -221,6 +198,9 @@ Class | Method | HTTP request | Description
  - [Avalara.SDK.model.EInvoicing.V1.NotUsedForField](docs/EInvoicing/V1/NotUsedForField.md)
  - [Avalara.SDK.model.EInvoicing.V1.OutputDataFormats](docs/EInvoicing/V1/OutputDataFormats.md)
  - [Avalara.SDK.model.EInvoicing.V1.Pagination](docs/EInvoicing/V1/Pagination.md)
+ - [Avalara.SDK.model.EInvoicing.V1.ReportDownloadResponse](docs/EInvoicing/V1/ReportDownloadResponse.md)
+ - [Avalara.SDK.model.EInvoicing.V1.ReportItem](docs/EInvoicing/V1/ReportItem.md)
+ - [Avalara.SDK.model.EInvoicing.V1.ReportListResponse](docs/EInvoicing/V1/ReportListResponse.md)
  - [Avalara.SDK.model.EInvoicing.V1.RequiredWhenField](docs/EInvoicing/V1/RequiredWhenField.md)
  - [Avalara.SDK.model.EInvoicing.V1.SearchParticipants200Response](docs/EInvoicing/V1/SearchParticipants200Response.md)
  - [Avalara.SDK.model.EInvoicing.V1.Signature](docs/EInvoicing/V1/Signature.md)
@@ -235,6 +215,7 @@ Class | Method | HTTP request | Description
  - [Avalara.SDK.model.EInvoicing.V1.SubscriptionListResponse](docs/EInvoicing/V1/SubscriptionListResponse.md)
  - [Avalara.SDK.model.EInvoicing.V1.SubscriptionRegistration](docs/EInvoicing/V1/SubscriptionRegistration.md)
  - [Avalara.SDK.model.EInvoicing.V1.SuccessResponse](docs/EInvoicing/V1/SuccessResponse.md)
+ - [Avalara.SDK.model.EInvoicing.V1.SupportedDocumentStatuses](docs/EInvoicing/V1/SupportedDocumentStatuses.md)
  - [Avalara.SDK.model.EInvoicing.V1.SupportedDocumentTypes](docs/EInvoicing/V1/SupportedDocumentTypes.md)
  - [Avalara.SDK.model.EInvoicing.V1.TaxIdentifierRequest](docs/EInvoicing/V1/TaxIdentifierRequest.md)
  - [Avalara.SDK.model.EInvoicing.V1.TaxIdentifierResponse](docs/EInvoicing/V1/TaxIdentifierResponse.md)
@@ -247,67 +228,3 @@ Class | Method | HTTP request | Description
  - [Avalara.SDK.model.EInvoicing.V1.WebhooksErrorInfo](docs/EInvoicing/V1/WebhooksErrorInfo.md)
  - [Avalara.SDK.model.EInvoicing.V1.WebhooksErrorResponse](docs/EInvoicing/V1/WebhooksErrorResponse.md)
  - [Avalara.SDK.model.EInvoicing.V1.WorkflowIds](docs/EInvoicing/V1/WorkflowIds.md)
-
-
-<a name="documentation-for-A1099-V2-models"></a>
-### A1099 V2 Model Documentation
-
- - [Avalara.SDK.model.A1099.V2.CompanyBase](docs/A1099/V2/CompanyBase.md)
- - [Avalara.SDK.model.A1099.V2.CompanyRequest](docs/A1099/V2/CompanyRequest.md)
- - [Avalara.SDK.model.A1099.V2.CompanyResponse](docs/A1099/V2/CompanyResponse.md)
- - [Avalara.SDK.model.A1099.V2.CoveredIndividual](docs/A1099/V2/CoveredIndividual.md)
- - [Avalara.SDK.model.A1099.V2.CreateAndSendW9FormEmailRequest](docs/A1099/V2/CreateAndSendW9FormEmailRequest.md)
- - [Avalara.SDK.model.A1099.V2.CreateW9Form201Response](docs/A1099/V2/CreateW9Form201Response.md)
- - [Avalara.SDK.model.A1099.V2.CreateW9FormRequest](docs/A1099/V2/CreateW9FormRequest.md)
- - [Avalara.SDK.model.A1099.V2.EntryStatusResponse](docs/A1099/V2/EntryStatusResponse.md)
- - [Avalara.SDK.model.A1099.V2.ErrorResponse](docs/A1099/V2/ErrorResponse.md)
- - [Avalara.SDK.model.A1099.V2.ErrorResponseItem](docs/A1099/V2/ErrorResponseItem.md)
- - [Avalara.SDK.model.A1099.V2.Form1042S](docs/A1099/V2/Form1042S.md)
- - [Avalara.SDK.model.A1099.V2.Form1095B](docs/A1099/V2/Form1095B.md)
- - [Avalara.SDK.model.A1099.V2.Form1095C](docs/A1099/V2/Form1095C.md)
- - [Avalara.SDK.model.A1099.V2.Form1099Base](docs/A1099/V2/Form1099Base.md)
- - [Avalara.SDK.model.A1099.V2.Form1099Div](docs/A1099/V2/Form1099Div.md)
- - [Avalara.SDK.model.A1099.V2.Form1099Int](docs/A1099/V2/Form1099Int.md)
- - [Avalara.SDK.model.A1099.V2.Form1099K](docs/A1099/V2/Form1099K.md)
- - [Avalara.SDK.model.A1099.V2.Form1099ListRequest](docs/A1099/V2/Form1099ListRequest.md)
- - [Avalara.SDK.model.A1099.V2.Form1099Misc](docs/A1099/V2/Form1099Misc.md)
- - [Avalara.SDK.model.A1099.V2.Form1099Nec](docs/A1099/V2/Form1099Nec.md)
- - [Avalara.SDK.model.A1099.V2.Form1099R](docs/A1099/V2/Form1099R.md)
- - [Avalara.SDK.model.A1099.V2.Form1099StatusDetail](docs/A1099/V2/Form1099StatusDetail.md)
- - [Avalara.SDK.model.A1099.V2.Get1099Form200Response](docs/A1099/V2/Get1099Form200Response.md)
- - [Avalara.SDK.model.A1099.V2.IntermediaryOrFlowThrough](docs/A1099/V2/IntermediaryOrFlowThrough.md)
- - [Avalara.SDK.model.A1099.V2.IrsResponse](docs/A1099/V2/IrsResponse.md)
- - [Avalara.SDK.model.A1099.V2.IssuerBase](docs/A1099/V2/IssuerBase.md)
- - [Avalara.SDK.model.A1099.V2.IssuerRequest](docs/A1099/V2/IssuerRequest.md)
- - [Avalara.SDK.model.A1099.V2.IssuerResponse](docs/A1099/V2/IssuerResponse.md)
- - [Avalara.SDK.model.A1099.V2.JobResponse](docs/A1099/V2/JobResponse.md)
- - [Avalara.SDK.model.A1099.V2.OfferAndCoverage](docs/A1099/V2/OfferAndCoverage.md)
- - [Avalara.SDK.model.A1099.V2.PaginatedQueryResultModelCompanyResponse](docs/A1099/V2/PaginatedQueryResultModelCompanyResponse.md)
- - [Avalara.SDK.model.A1099.V2.PaginatedQueryResultModelForm1099Base](docs/A1099/V2/PaginatedQueryResultModelForm1099Base.md)
- - [Avalara.SDK.model.A1099.V2.PaginatedQueryResultModelIssuerResponse](docs/A1099/V2/PaginatedQueryResultModelIssuerResponse.md)
- - [Avalara.SDK.model.A1099.V2.PaginatedQueryResultModelW9FormBaseResponse](docs/A1099/V2/PaginatedQueryResultModelW9FormBaseResponse.md)
- - [Avalara.SDK.model.A1099.V2.PrimaryWithholdingAgent](docs/A1099/V2/PrimaryWithholdingAgent.md)
- - [Avalara.SDK.model.A1099.V2.StateAndLocalWithholding](docs/A1099/V2/StateAndLocalWithholding.md)
- - [Avalara.SDK.model.A1099.V2.StateEfileStatusDetail](docs/A1099/V2/StateEfileStatusDetail.md)
- - [Avalara.SDK.model.A1099.V2.SubstantialUsOwnerRequest](docs/A1099/V2/SubstantialUsOwnerRequest.md)
- - [Avalara.SDK.model.A1099.V2.SubstantialUsOwnerResponse](docs/A1099/V2/SubstantialUsOwnerResponse.md)
- - [Avalara.SDK.model.A1099.V2.TinMatchStatusResponse](docs/A1099/V2/TinMatchStatusResponse.md)
- - [Avalara.SDK.model.A1099.V2.ValidationError](docs/A1099/V2/ValidationError.md)
- - [Avalara.SDK.model.A1099.V2.W4FormMinimalRequest](docs/A1099/V2/W4FormMinimalRequest.md)
- - [Avalara.SDK.model.A1099.V2.W4FormRequest](docs/A1099/V2/W4FormRequest.md)
- - [Avalara.SDK.model.A1099.V2.W4FormResponse](docs/A1099/V2/W4FormResponse.md)
- - [Avalara.SDK.model.A1099.V2.W8BenEFormMinimalRequest](docs/A1099/V2/W8BenEFormMinimalRequest.md)
- - [Avalara.SDK.model.A1099.V2.W8BenEFormRequest](docs/A1099/V2/W8BenEFormRequest.md)
- - [Avalara.SDK.model.A1099.V2.W8BenEFormResponse](docs/A1099/V2/W8BenEFormResponse.md)
- - [Avalara.SDK.model.A1099.V2.W8BenFormMinimalRequest](docs/A1099/V2/W8BenFormMinimalRequest.md)
- - [Avalara.SDK.model.A1099.V2.W8BenFormRequest](docs/A1099/V2/W8BenFormRequest.md)
- - [Avalara.SDK.model.A1099.V2.W8BenFormResponse](docs/A1099/V2/W8BenFormResponse.md)
- - [Avalara.SDK.model.A1099.V2.W8ImyFormMinimalRequest](docs/A1099/V2/W8ImyFormMinimalRequest.md)
- - [Avalara.SDK.model.A1099.V2.W8ImyFormRequest](docs/A1099/V2/W8ImyFormRequest.md)
- - [Avalara.SDK.model.A1099.V2.W8ImyFormResponse](docs/A1099/V2/W8ImyFormResponse.md)
- - [Avalara.SDK.model.A1099.V2.W9FormBaseMinimalRequest](docs/A1099/V2/W9FormBaseMinimalRequest.md)
- - [Avalara.SDK.model.A1099.V2.W9FormBaseRequest](docs/A1099/V2/W9FormBaseRequest.md)
- - [Avalara.SDK.model.A1099.V2.W9FormBaseResponse](docs/A1099/V2/W9FormBaseResponse.md)
- - [Avalara.SDK.model.A1099.V2.W9FormMinimalRequest](docs/A1099/V2/W9FormMinimalRequest.md)
- - [Avalara.SDK.model.A1099.V2.W9FormRequest](docs/A1099/V2/W9FormRequest.md)
- - [Avalara.SDK.model.A1099.V2.W9FormResponse](docs/A1099/V2/W9FormResponse.md)

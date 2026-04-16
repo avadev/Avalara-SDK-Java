@@ -68,6 +68,10 @@ public class DocumentStatusResponse {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private String status;
 
+  public static final String SERIALIZED_NAME_BUSINESS_STATUS = "businessStatus";
+  @SerializedName(SERIALIZED_NAME_BUSINESS_STATUS)
+  private String businessStatus;
+
   public static final String SERIALIZED_NAME_EVENTS = "events";
   @SerializedName(SERIALIZED_NAME_EVENTS)
   private List<StatusEvent> events;
@@ -100,7 +104,7 @@ public class DocumentStatusResponse {
   }
 
   /**
-   * Status of the document
+   * Document status. See the &#x60;supportedDocumentStatuses&#x60; field in the GET /mandates response for full status definitions.
    * @return status
    */
   @javax.annotation.Nullable
@@ -110,6 +114,25 @@ public class DocumentStatusResponse {
 
   public void setStatus(String status) {
     this.status = status;
+  }
+
+
+  public DocumentStatusResponse businessStatus(String businessStatus) {
+    this.businessStatus = businessStatus;
+    return this;
+  }
+
+  /**
+   * Represents the document&#39;s business lifecycle state based on responses from external actors (Tax Authority, PDP, or ERP), such as acceptance, rejection, or validation.
+   * @return businessStatus
+   */
+  @javax.annotation.Nullable
+  public String getBusinessStatus() {
+    return businessStatus;
+  }
+
+  public void setBusinessStatus(String businessStatus) {
+    this.businessStatus = businessStatus;
   }
 
 
@@ -152,12 +175,13 @@ public class DocumentStatusResponse {
     DocumentStatusResponse documentStatusResponse = (DocumentStatusResponse) o;
     return Objects.equals(this.id, documentStatusResponse.id) &&
         Objects.equals(this.status, documentStatusResponse.status) &&
+        Objects.equals(this.businessStatus, documentStatusResponse.businessStatus) &&
         Objects.equals(this.events, documentStatusResponse.events);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, status, events);
+    return Objects.hash(id, status, businessStatus, events);
   }
 
   @Override
@@ -166,6 +190,7 @@ public class DocumentStatusResponse {
     sb.append("class DocumentStatusResponse {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -191,6 +216,7 @@ public class DocumentStatusResponse {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("status");
+    openapiFields.add("businessStatus");
     openapiFields.add("events");
 
     // a set of required properties/fields (JSON key names)
@@ -223,6 +249,9 @@ public class DocumentStatusResponse {
       }
       if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      }
+      if ((jsonObj.get("businessStatus") != null && !jsonObj.get("businessStatus").isJsonNull()) && !jsonObj.get("businessStatus").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `businessStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessStatus").toString()));
       }
       if (jsonObj.get("events") != null && !jsonObj.get("events").isJsonNull()) {
         JsonArray jsonArrayevents = jsonObj.getAsJsonArray("events");

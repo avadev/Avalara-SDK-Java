@@ -52,12 +52,12 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         TradingPartnersApi apiInstance = new TradingPartnersApi(apiClient);
-        String avalaraVersion = "1.4"; // String | The HTTP Header meant to specify the version of the API intended to be used.
-        String name = "Automotive Companies in London Search"; // String | A <b>human-readable</b> name for the batch search.
+        String avalaraVersion = "1.6"; // String | Header that specifies the API version to use (for example \"1.6\").
+        String name = "Automotive Companies in London Search"; // String | A human-readable name for the batch search.
         String notificationEmail = "user@example.com"; // String | The email address to which a notification will be sent once the batch search is complete.
         File _file = new File("/path/to/file"); // File | CSV file containing search parameters.  Input Constraints: - Maximum file size: 1 MB - File Header: Must be less than 500 KB - Total number of lines (including header): Must be 101 or fewer
-        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\".
-        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | The caller can use this as an identifier to use as a correlation id to trace the call.
+        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
+        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\").
         try {
             BatchSearchParticipants202Response result = apiInstance.batchSearchParticipants(avalaraVersion, name, notificationEmail, _file, xAvalaraClient, xCorrelationID);
             System.out.println(result);
@@ -77,12 +77,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalaraVersion** | **String**| The HTTP Header meant to specify the version of the API intended to be used. |
- **name** | **String**| A &lt;b&gt;human-readable&lt;/b&gt; name for the batch search. |
+ **avalaraVersion** | **String**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
+ **name** | **String**| A human-readable name for the batch search. |
  **notificationEmail** | **String**| The email address to which a notification will be sent once the batch search is complete. |
  **_file** | **File**| CSV file containing search parameters.  Input Constraints: - Maximum file size: 1 MB - File Header: Must be less than 500 KB - Total number of lines (including header): Must be 101 or fewer |
- **xAvalaraClient** | **String**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. | [optional]
- **xCorrelationID** | **String**| The caller can use this as an identifier to use as a correlation id to trace the call. | [optional]
+ **xAvalaraClient** | **String**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
+ **xCorrelationID** | **String**| Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). | [optional]
 
 ### Return type
 
@@ -101,11 +101,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Batch search file accepted for processing the search. |  * X-Correlation-Id -  <br>  |
-| **400** | Invalid request |  * X-Correlation-Id -  <br>  |
-| **401** | Unauthorized |  * X-Correlation-Id -  <br>  |
-| **403** | Forbidden |  * X-Correlation-Id -  <br>  |
-| **500** | Internal server error |  * X-Correlation-Id -  <br>  |
+| **202** | Batch search file accepted for processing the search. |  * X-Correlation-ID -  <br>  |
+| **400** | Invalid request |  * X-Correlation-ID -  <br>  |
+| **401** | Unauthorized |  * X-Correlation-ID -  <br>  |
+| **403** | Forbidden |  * X-Correlation-ID -  <br>  |
+| **500** | Internal server error. |  * X-Correlation-ID -  <br>  |
 
 
 ## createTradingPartner
@@ -144,10 +144,10 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         TradingPartnersApi apiInstance = new TradingPartnersApi(apiClient);
-        String avalaraVersion = "1.4"; // String | The HTTP Header meant to specify the version of the API intended to be used.
+        String avalaraVersion = "1.6"; // String | Header that specifies the API version to use (for example \"1.6\").
         TradingPartner tradingPartner = new TradingPartner(); // TradingPartner | 
-        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\".
-        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | The caller can use this as an identifier to use as a correlation id to trace the call.
+        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
+        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\").
         try {
             CreateTradingPartner201Response result = apiInstance.createTradingPartner(avalaraVersion, tradingPartner, xAvalaraClient, xCorrelationID);
             System.out.println(result);
@@ -167,10 +167,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalaraVersion** | **String**| The HTTP Header meant to specify the version of the API intended to be used. |
+ **avalaraVersion** | **String**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
  **tradingPartner** | [**TradingPartner**](TradingPartner.md)|  |
- **xAvalaraClient** | **String**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. | [optional]
- **xCorrelationID** | **String**| The caller can use this as an identifier to use as a correlation id to trace the call. | [optional]
+ **xAvalaraClient** | **String**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
+ **xCorrelationID** | **String**| Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). | [optional]
 
 ### Return type
 
@@ -189,12 +189,12 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | The trading partner has been successfully created. |  * X-Correlation-Id -  <br>  |
-| **400** | Bad request |  * X-Correlation-Id -  <br>  |
-| **401** | Unauthorized |  * X-Correlation-Id -  <br>  |
-| **403** | Forbidden |  * X-Correlation-Id -  <br>  |
-| **409** | Conflict |  * X-Correlation-Id -  <br>  |
-| **500** | Internal server error |  * X-Correlation-Id -  <br>  |
+| **201** | The trading partner has been successfully created. |  * X-Correlation-ID -  <br>  |
+| **400** | Bad request |  * X-Correlation-ID -  <br>  |
+| **401** | Unauthorized. |  * X-Correlation-ID -  <br>  |
+| **403** | Forbidden. |  * X-Correlation-ID -  <br>  |
+| **409** | Conflict |  * X-Correlation-ID -  <br>  |
+| **500** | Internal server error. |  * X-Correlation-ID -  <br>  |
 
 
 ## createTradingPartnersBatch
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 Creates a batch of multiple trading partners.
 
-This endpoint creates multiple trading partners in a single batch request. It accepts an array of trading partners and processes them synchronously. Supports a maximum of 100 records or 1 MB request payload. The batch is processed atomically and partial success is not allowed.
+This endpoint creates multiple trading partners in a single batch request. It accepts an array of trading partners and processes them synchronously. Supports a maximum of 100 records or a 1 MB request payload.
 
 ### Example
 
@@ -233,10 +233,10 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         TradingPartnersApi apiInstance = new TradingPartnersApi(apiClient);
-        String avalaraVersion = "1.4"; // String | The HTTP Header meant to specify the version of the API intended to be used.
+        String avalaraVersion = "1.6"; // String | Header that specifies the API version to use (for example \"1.6\").
         CreateTradingPartnersBatchRequest createTradingPartnersBatchRequest = new CreateTradingPartnersBatchRequest(); // CreateTradingPartnersBatchRequest | 
-        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\".
-        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | The caller can use this as an identifier to use as a correlation id to trace the call.
+        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
+        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\").
         try {
             CreateTradingPartnersBatch200Response result = apiInstance.createTradingPartnersBatch(avalaraVersion, createTradingPartnersBatchRequest, xAvalaraClient, xCorrelationID);
             System.out.println(result);
@@ -256,10 +256,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalaraVersion** | **String**| The HTTP Header meant to specify the version of the API intended to be used. |
+ **avalaraVersion** | **String**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
  **createTradingPartnersBatchRequest** | [**CreateTradingPartnersBatchRequest**](CreateTradingPartnersBatchRequest.md)|  |
- **xAvalaraClient** | **String**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. | [optional]
- **xCorrelationID** | **String**| The caller can use this as an identifier to use as a correlation id to trace the call. | [optional]
+ **xAvalaraClient** | **String**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
+ **xCorrelationID** | **String**| Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). | [optional]
 
 ### Return type
 
@@ -278,13 +278,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Batch processing completed |  * X-Correlation-Id -  <br>  |
-| **400** | Bad request |  * X-Correlation-Id -  <br>  |
-| **401** | Unauthorized |  * X-Correlation-Id -  <br>  |
-| **403** | Forbidden |  * X-Correlation-Id -  <br>  |
-| **409** | Conflict |  * X-Correlation-Id -  <br>  |
-| **413** | ContentTooLarge |  * X-Correlation-Id -  <br>  |
-| **500** | Internal server error |  * X-Correlation-Id -  <br>  |
+| **200** | Batch processing completed. Returns a list of created trading partners. |  * X-Correlation-ID -  <br>  |
+| **400** | Bad request |  * X-Correlation-ID -  <br>  |
+| **401** | Unauthorized. |  * X-Correlation-ID -  <br>  |
+| **403** | Forbidden. |  * X-Correlation-ID -  <br>  |
+| **409** | Conflict |  * X-Correlation-ID -  <br>  |
+| **413** | ContentTooLarge |  * X-Correlation-ID -  <br>  |
+| **500** | Internal server error |  * X-Correlation-ID -  <br>  |
 
 
 ## deleteTradingPartner
@@ -323,10 +323,10 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         TradingPartnersApi apiInstance = new TradingPartnersApi(apiClient);
-        String avalaraVersion = "1.4"; // String | The HTTP Header meant to specify the version of the API intended to be used.
-        String id = "id_example"; // String | The ID of the trading partner which is being deleted.
-        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\".
-        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | The caller can use this as an identifier to use as a correlation id to trace the call.
+        String avalaraVersion = "1.6"; // String | Header that specifies the API version to use (for example \"1.6\").
+        String id = "id_example"; // String | Unique identifier of the trading partner.
+        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
+        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\").
         try {
             apiInstance.deleteTradingPartner(avalaraVersion, id, xAvalaraClient, xCorrelationID);
         } catch (ApiException e) {
@@ -345,10 +345,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalaraVersion** | **String**| The HTTP Header meant to specify the version of the API intended to be used. |
- **id** | **String**| The ID of the trading partner which is being deleted. |
- **xAvalaraClient** | **String**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. | [optional]
- **xCorrelationID** | **String**| The caller can use this as an identifier to use as a correlation id to trace the call. | [optional]
+ **avalaraVersion** | **String**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
+ **id** | **String**| Unique identifier of the trading partner. |
+ **xAvalaraClient** | **String**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
+ **xCorrelationID** | **String**| Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). | [optional]
 
 ### Return type
 
@@ -367,11 +367,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Trading partner deleted successfully. |  * X-Correlation-Id -  <br>  |
-| **401** | Unauthorized |  * X-Correlation-Id -  <br>  |
-| **403** | Forbidden |  * X-Correlation-Id -  <br>  |
-| **404** | NotFound |  * X-Correlation-Id -  <br>  |
-| **500** | Internal server error |  * X-Correlation-Id -  <br>  |
+| **204** | Trading partner deleted successfully. |  * X-Correlation-ID -  <br>  |
+| **401** | Unauthorized |  * X-Correlation-ID -  <br>  |
+| **403** | Forbidden |  * X-Correlation-ID -  <br>  |
+| **404** | NotFound |  * X-Correlation-ID -  <br>  |
+| **500** | Internal server error |  * X-Correlation-ID -  <br>  |
 
 
 ## downloadBatchSearchReport
@@ -410,10 +410,10 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         TradingPartnersApi apiInstance = new TradingPartnersApi(apiClient);
-        String avalaraVersion = "1.4"; // String | The HTTP Header meant to specify the version of the API intended to be used.
-        String id = "2f5ea4b5-4dae-445a-b3e4-9f65a61eaa99"; // String | The ID of the batch search for which the report should be downloaded.
-        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\".
-        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | The caller can use this as an identifier to use as a correlation id to trace the call.
+        String avalaraVersion = "1.6"; // String | Header that specifies the API version to use (for example \"1.6\").
+        String id = "2f5ea4b5-4dae-445a-b3e4-9f65a61eaa99"; // String | Unique identifier of the batch search for which to download the report.
+        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
+        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\").
         try {
             File result = apiInstance.downloadBatchSearchReport(avalaraVersion, id, xAvalaraClient, xCorrelationID);
             System.out.println(result);
@@ -433,10 +433,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalaraVersion** | **String**| The HTTP Header meant to specify the version of the API intended to be used. |
- **id** | **String**| The ID of the batch search for which the report should be downloaded. |
- **xAvalaraClient** | **String**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. | [optional]
- **xCorrelationID** | **String**| The caller can use this as an identifier to use as a correlation id to trace the call. | [optional]
+ **avalaraVersion** | **String**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
+ **id** | **String**| Unique identifier of the batch search for which to download the report. |
+ **xAvalaraClient** | **String**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
+ **xCorrelationID** | **String**| Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). | [optional]
 
 ### Return type
 
@@ -455,11 +455,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful report download  Output Constraints: - Maximum of 1000 query results returned in the CSV |  * X-Correlation-Id -  <br>  |
-| **401** | Unauthorized |  * X-Correlation-Id -  <br>  |
-| **403** | Forbidden |  * X-Correlation-Id -  <br>  |
-| **404** | Report not found |  * X-Correlation-Id -  <br>  |
-| **500** | Internal server error |  * X-Correlation-Id -  <br>  |
+| **200** | Successful report download. Returns a CSV file containing up to 1,000 query results. |  * X-Correlation-ID -  <br>  |
+| **401** | Unauthorized. |  * X-Correlation-ID -  <br>  |
+| **403** | Forbidden. |  * X-Correlation-ID -  <br>  |
+| **404** | Report not found |  * X-Correlation-ID -  <br>  |
+| **500** | Internal server error. |  * X-Correlation-ID -  <br>  |
 
 
 ## getBatchSearchDetail
@@ -498,10 +498,10 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         TradingPartnersApi apiInstance = new TradingPartnersApi(apiClient);
-        String avalaraVersion = "1.4"; // String | The HTTP Header meant to specify the version of the API intended to be used.
-        String id = "2f5ea4b5-4dae-445a-b3e4-9f65a61eaa99"; // String | The ID of the batch search that was submitted earlier.
-        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\".
-        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | The caller can use this as an identifier to use as a correlation id to trace the call.
+        String avalaraVersion = "1.6"; // String | Header that specifies the API version to use (for example \"1.6\").
+        String id = "2f5ea4b5-4dae-445a-b3e4-9f65a61eaa99"; // String | Unique identifier of the batch search.
+        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
+        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\").
         try {
             BatchSearch result = apiInstance.getBatchSearchDetail(avalaraVersion, id, xAvalaraClient, xCorrelationID);
             System.out.println(result);
@@ -521,10 +521,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalaraVersion** | **String**| The HTTP Header meant to specify the version of the API intended to be used. |
- **id** | **String**| The ID of the batch search that was submitted earlier. |
- **xAvalaraClient** | **String**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. | [optional]
- **xCorrelationID** | **String**| The caller can use this as an identifier to use as a correlation id to trace the call. | [optional]
+ **avalaraVersion** | **String**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
+ **id** | **String**| Unique identifier of the batch search. |
+ **xAvalaraClient** | **String**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
+ **xCorrelationID** | **String**| Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). | [optional]
 
 ### Return type
 
@@ -543,11 +543,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The batch search details for a given ID. |  * X-Correlation-Id -  <br>  |
-| **401** | Unauthorized |  * X-Correlation-Id -  <br>  |
-| **403** | Forbidden |  * X-Correlation-Id -  <br>  |
-| **404** | Report not found |  * X-Correlation-Id -  <br>  |
-| **500** | Internal server error |  * X-Correlation-Id -  <br>  |
+| **200** | Returns the batch search details for the specified ID. |  * X-Correlation-ID -  <br>  |
+| **401** | Unauthorized |  * X-Correlation-ID -  <br>  |
+| **403** | Forbidden |  * X-Correlation-ID -  <br>  |
+| **404** | Report not found |  * X-Correlation-ID -  <br>  |
+| **500** | Internal server error. |  * X-Correlation-ID -  <br>  |
 
 
 ## listBatchSearches
@@ -586,14 +586,14 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         TradingPartnersApi apiInstance = new TradingPartnersApi(apiClient);
-        String avalaraVersion = "1.4"; // String | The HTTP Header meant to specify the version of the API intended to be used.
-        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\".
-        String $filter = "name eq 'Batch_Search_Import_V4'"; // String | Filters the results by field name. Only the <code>eq</code> operator and the name field is supported. For more information, refer to [AvaTax filtering guide](https://developer.avalara.com/avatax/filtering-in-rest/).
+        String avalaraVersion = "1.6"; // String | Header that specifies the API version to use (for example \"1.6\").
+        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
+        String $filter = "name eq 'Batch_Search_Import_V4'"; // String | Filters the results by field name. Only the eq operator and the name field are supported. For more information, refer to the Avalara filtering guide.
         Boolean count = true; // Boolean | When set to <code>true</code>, returns the total count of matching records included as <code>@recordSetCount</code> in the response body.
         Integer $top = 56; // Integer | The number of items to include in the result.
         Integer $skip = 56; // Integer | The number of items to skip in the result.
         String $orderBy = "name desc"; // String | The <code>$orderBy</code> query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space.
-        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | The caller can use this as an identifier to use as a correlation id to trace the call.
+        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\").
         try {
             BatchSearchListResponse result = apiInstance.listBatchSearches(avalaraVersion, xAvalaraClient, $filter, count, $top, $skip, $orderBy, xCorrelationID);
             System.out.println(result);
@@ -613,14 +613,14 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalaraVersion** | **String**| The HTTP Header meant to specify the version of the API intended to be used. |
- **xAvalaraClient** | **String**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. | [optional]
- **$filter** | **String**| Filters the results by field name. Only the &lt;code&gt;eq&lt;/code&gt; operator and the name field is supported. For more information, refer to [AvaTax filtering guide](https://developer.avalara.com/avatax/filtering-in-rest/). | [optional]
+ **avalaraVersion** | **String**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
+ **xAvalaraClient** | **String**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
+ **$filter** | **String**| Filters the results by field name. Only the eq operator and the name field are supported. For more information, refer to the Avalara filtering guide. | [optional]
  **count** | **Boolean**| When set to &lt;code&gt;true&lt;/code&gt;, returns the total count of matching records included as &lt;code&gt;@recordSetCount&lt;/code&gt; in the response body. | [optional]
  **$top** | **Integer**| The number of items to include in the result. | [optional]
  **$skip** | **Integer**| The number of items to skip in the result. | [optional]
  **$orderBy** | **String**| The &lt;code&gt;$orderBy&lt;/code&gt; query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space. | [optional]
- **xCorrelationID** | **String**| The caller can use this as an identifier to use as a correlation id to trace the call. | [optional]
+ **xCorrelationID** | **String**| Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). | [optional]
 
 ### Return type
 
@@ -639,11 +639,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of batch searches |  * X-Correlation-Id -  <br>  |
-| **400** | Bad request |  * X-Correlation-Id -  <br>  |
-| **401** | Unauthorized |  * X-Correlation-Id -  <br>  |
-| **403** | Forbidden |  * X-Correlation-Id -  <br>  |
-| **500** | Internal server error |  * X-Correlation-Id -  <br>  |
+| **200** | Returns a collection of batch searches. |  * X-Correlation-ID -  <br>  |
+| **400** | Bad request |  * X-Correlation-ID -  <br>  |
+| **401** | Unauthorized |  * X-Correlation-ID -  <br>  |
+| **403** | Forbidden |  * X-Correlation-ID -  <br>  |
+| **500** | Internal server error. |  * X-Correlation-ID -  <br>  |
 
 
 ## searchParticipants
@@ -682,15 +682,15 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         TradingPartnersApi apiInstance = new TradingPartnersApi(apiClient);
-        String avalaraVersion = "1.4"; // String | The HTTP Header meant to specify the version of the API intended to be used.
-        String $search = "Acme and 7726627177 or BMW"; // String | Search by value supports logical <code>AND</code> / <code>OR</code> operators. Search is performed only over the name and identifier value fields. For more information, refer to [Query options overview - OData.](https://learn.microsoft.com/en-us/odata/concepts/queryoptions-overview#search).
-        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\".
-        Boolean count = true; // Boolean | When set to <code>true</code>, returns the total count of matching records included as <code>@recordSetCount</code> in the response body.
-        String $filter = "network eq 'Peppol' and country eq 'Australia'"; // String | Filters the results using the <code>eq</code> operator. Supported fields: <code>network</code>, <code>country</code>, <code>documentType</code>, <code>idType</code>. For more information, refer to [AvaTax filtering guide](https://developer.avalara.com/avatax/filtering-in-rest/).
+        String avalaraVersion = "1.6"; // String | Header that specifies the API version to use (for example \"1.6\").
+        String $search = "Acme AND 7726627177 OR BMW"; // String | Search by value supports logical AND and OR operators (case-sensitive). Search is performed only over the name and identifier value fields. For more information, refer to the OData query options overview documentation.
+        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
+        Boolean count = true; // Boolean | When set to true, returns the total count of matching records included as @recordSetCount in the response body.
+        String $filter = "network eq 'Peppol' and country eq 'Australia'"; // String | Filters the results using the eq operator. Supported fields include network, country, documentType, and idType. For more information, refer to the Avalara filtering guide.
         Integer $top = 56; // Integer | The number of items to include in the result.
         Integer $skip = 56; // Integer | The number of items to skip in the result.
-        String $orderBy = "name desc"; // String | The <code>$orderBy</code> query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space.
-        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | The caller can use this as an identifier to use as a correlation id to trace the call.
+        String $orderBy = "name desc"; // String | The $orderBy query parameter specifies the field and sorting direction for ordering the result set. The value combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space.
+        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\").
         try {
             SearchParticipants200Response result = apiInstance.searchParticipants(avalaraVersion, $search, xAvalaraClient, count, $filter, $top, $skip, $orderBy, xCorrelationID);
             System.out.println(result);
@@ -710,15 +710,15 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalaraVersion** | **String**| The HTTP Header meant to specify the version of the API intended to be used. |
- **$search** | **String**| Search by value supports logical &lt;code&gt;AND&lt;/code&gt; / &lt;code&gt;OR&lt;/code&gt; operators. Search is performed only over the name and identifier value fields. For more information, refer to [Query options overview - OData.](https://learn.microsoft.com/en-us/odata/concepts/queryoptions-overview#search). |
- **xAvalaraClient** | **String**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. | [optional]
- **count** | **Boolean**| When set to &lt;code&gt;true&lt;/code&gt;, returns the total count of matching records included as &lt;code&gt;@recordSetCount&lt;/code&gt; in the response body. | [optional]
- **$filter** | **String**| Filters the results using the &lt;code&gt;eq&lt;/code&gt; operator. Supported fields: &lt;code&gt;network&lt;/code&gt;, &lt;code&gt;country&lt;/code&gt;, &lt;code&gt;documentType&lt;/code&gt;, &lt;code&gt;idType&lt;/code&gt;. For more information, refer to [AvaTax filtering guide](https://developer.avalara.com/avatax/filtering-in-rest/). | [optional]
+ **avalaraVersion** | **String**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
+ **$search** | **String**| Search by value supports logical AND and OR operators (case-sensitive). Search is performed only over the name and identifier value fields. For more information, refer to the OData query options overview documentation. |
+ **xAvalaraClient** | **String**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
+ **count** | **Boolean**| When set to true, returns the total count of matching records included as @recordSetCount in the response body. | [optional]
+ **$filter** | **String**| Filters the results using the eq operator. Supported fields include network, country, documentType, and idType. For more information, refer to the Avalara filtering guide. | [optional]
  **$top** | **Integer**| The number of items to include in the result. | [optional]
  **$skip** | **Integer**| The number of items to skip in the result. | [optional]
- **$orderBy** | **String**| The &lt;code&gt;$orderBy&lt;/code&gt; query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space. | [optional]
- **xCorrelationID** | **String**| The caller can use this as an identifier to use as a correlation id to trace the call. | [optional]
+ **$orderBy** | **String**| The $orderBy query parameter specifies the field and sorting direction for ordering the result set. The value combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space. | [optional]
+ **xCorrelationID** | **String**| Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). | [optional]
 
 ### Return type
 
@@ -737,11 +737,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-Correlation-Id -  <br>  |
-| **400** | Bad request |  * X-Correlation-Id -  <br>  |
-| **401** | Unauthorized |  * X-Correlation-Id -  <br>  |
-| **403** | Forbidden |  * X-Correlation-Id -  <br>  |
-| **500** | Internal server error |  * X-Correlation-Id -  <br>  |
+| **200** | Returns a collection of trading partners matching the specified search criteria. |  * X-Correlation-ID -  <br>  |
+| **400** | Bad request. |  * X-Correlation-ID -  <br>  |
+| **401** | Unauthorized. |  * X-Correlation-ID -  <br>  |
+| **403** | Forbidden. |  * X-Correlation-ID -  <br>  |
+| **500** | Internal server error. |  * X-Correlation-ID -  <br>  |
 
 
 ## updateTradingPartner
@@ -780,11 +780,11 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         TradingPartnersApi apiInstance = new TradingPartnersApi(apiClient);
-        String avalaraVersion = "1.4"; // String | The HTTP Header meant to specify the version of the API intended to be used.
-        String id = "id_example"; // String | The ID of the trading partner which is being updated.
+        String avalaraVersion = "1.6"; // String | Header that specifies the API version to use (for example \"1.6\").
+        String id = "id_example"; // String | Unique identifier of the trading partner.
         TradingPartner tradingPartner = new TradingPartner(); // TradingPartner | 
-        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\".
-        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | The caller can use this as an identifier to use as a correlation id to trace the call.
+        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
+        String xCorrelationID = "f3f0d19a-01a1-4748-8a58-f000d0424f43"; // String | Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\").
         try {
             UpdateTradingPartner200Response result = apiInstance.updateTradingPartner(avalaraVersion, id, tradingPartner, xAvalaraClient, xCorrelationID);
             System.out.println(result);
@@ -804,11 +804,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalaraVersion** | **String**| The HTTP Header meant to specify the version of the API intended to be used. |
- **id** | **String**| The ID of the trading partner which is being updated. |
+ **avalaraVersion** | **String**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
+ **id** | **String**| Unique identifier of the trading partner. |
  **tradingPartner** | [**TradingPartner**](TradingPartner.md)|  |
- **xAvalaraClient** | **String**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;. | [optional]
- **xCorrelationID** | **String**| The caller can use this as an identifier to use as a correlation id to trace the call. | [optional]
+ **xAvalaraClient** | **String**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
+ **xCorrelationID** | **String**| Optional correlation identifier provided by the caller to trace the call (for example \&quot;f3f0d19a-01a1-4748-8a58-f000d0424f43\&quot;). | [optional]
 
 ### Return type
 
@@ -828,10 +828,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The trading partner has been successfully created. |  -  |
-| **400** | Bad request |  * X-Correlation-Id -  <br>  |
-| **401** | Unauthorized |  * X-Correlation-Id -  <br>  |
-| **403** | Forbidden |  * X-Correlation-Id -  <br>  |
-| **404** | NotFound |  * X-Correlation-Id -  <br>  |
-| **409** | Conflict |  * X-Correlation-Id -  <br>  |
-| **500** | Internal server error |  * X-Correlation-Id -  <br>  |
+| **400** | Bad request |  * X-Correlation-ID -  <br>  |
+| **401** | Unauthorized |  * X-Correlation-ID -  <br>  |
+| **403** | Forbidden |  * X-Correlation-ID -  <br>  |
+| **404** | NotFound |  * X-Correlation-ID -  <br>  |
+| **409** | Conflict |  * X-Correlation-ID -  <br>  |
+| **500** | Internal server error. |  * X-Correlation-ID -  <br>  |
 

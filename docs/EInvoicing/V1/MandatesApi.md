@@ -45,11 +45,11 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         MandatesApi apiInstance = new MandatesApi(apiClient);
-        String avalaraVersion = "1.4"; // String | The HTTP Header meant to specify the version of the API intended to be used
-        String mandateId = "AD-B2G-PEPPOL"; // String | The unique ID for the mandate that was returned in the GET /einvoicing/mandates response body
+        String avalaraVersion = "1.6"; // String | Header that specifies the API version to use (for example \"1.6\").
+        String mandateId = "AD-B2G-PEPPOL"; // String | Unique identifier of the mandate returned by the GET /mandates endpoint.
         String documentType = "ubl-invoice"; // String | Select the documentType for which you wish to view the data-input-fields (You may obtain the supported documentTypes from the GET /mandates endpoint)
         String documentVersion = "2.1"; // String | Select the document version of the documentType (You may obtain the supported documentVersion from the GET /mandates endpoint)
-        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
+        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
         try {
             List<MandateDataInputField> result = apiInstance.getMandateDataInputFields(avalaraVersion, mandateId, documentType, documentVersion, xAvalaraClient);
             System.out.println(result);
@@ -69,11 +69,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalaraVersion** | **String**| The HTTP Header meant to specify the version of the API intended to be used |
- **mandateId** | **String**| The unique ID for the mandate that was returned in the GET /einvoicing/mandates response body |
+ **avalaraVersion** | **String**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
+ **mandateId** | **String**| Unique identifier of the mandate returned by the GET /mandates endpoint. |
  **documentType** | **String**| Select the documentType for which you wish to view the data-input-fields (You may obtain the supported documentTypes from the GET /mandates endpoint) |
  **documentVersion** | **String**| Select the document version of the documentType (You may obtain the supported documentVersion from the GET /mandates endpoint) |
- **xAvalaraClient** | **String**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. | [optional]
+ **xAvalaraClient** | **String**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
 
 ### Return type
 
@@ -92,10 +92,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
+| **200** | Returns a MandateDataInputFieldsResponse object containing the input fields and their optionality for the specified mandate, document type, and document version. |  -  |
+| **400** | Bad request. |  -  |
+| **401** | Unauthorized. |  -  |
+| **403** | Forbidden. |  -  |
 | **404** | Resource not found |  -  |
 | **500** | Internal Server Error |  -  |
 
@@ -136,13 +136,13 @@ public class Example {
         ApiClient apiClient = new ApiClient(configuration);
 
         MandatesApi apiInstance = new MandatesApi(apiClient);
-        String avalaraVersion = "1.4"; // String | The HTTP Header meant to specify the version of the API intended to be used
-        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
+        String avalaraVersion = "1.6"; // String | Header that specifies the API version to use (for example \"1.6\").
+        String xAvalaraClient = "John's E-Invoicing-API Client"; // String | Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\").
         String $filter = "countryMandate eq DE-B2G-PEPPOL"; // String | Filter by field name and value. This filter only supports <code>eq</code> and <code>contains</code>. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering.
         Integer $top = 56; // Integer | The number of items to include in the result.
         Integer $skip = 56; // Integer | The number of items to skip in the result.
         Boolean $count = true; // Boolean | When set to true, the count of the collection is also returned in the response body.
-        Boolean $countOnly = true; // Boolean | When set to true, only the count of the collection is returned
+        Boolean $countOnly = true; // Boolean | When set to true, only the count of the collection is returned.
         try {
             MandatesResponse result = apiInstance.getMandates(avalaraVersion, xAvalaraClient, $filter, $top, $skip, $count, $countOnly);
             System.out.println(result);
@@ -162,13 +162,13 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **avalaraVersion** | **String**| The HTTP Header meant to specify the version of the API intended to be used |
- **xAvalaraClient** | **String**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. | [optional]
+ **avalaraVersion** | **String**| Header that specifies the API version to use (for example \&quot;1.6\&quot;). |
+ **xAvalaraClient** | **String**| Optional header for a client identifier string used for diagnostics (for example \&quot;Fingerprint\&quot;). | [optional]
  **$filter** | **String**| Filter by field name and value. This filter only supports &lt;code&gt;eq&lt;/code&gt; and &lt;code&gt;contains&lt;/code&gt;. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. | [optional]
  **$top** | **Integer**| The number of items to include in the result. | [optional]
  **$skip** | **Integer**| The number of items to skip in the result. | [optional]
  **$count** | **Boolean**| When set to true, the count of the collection is also returned in the response body. | [optional]
- **$countOnly** | **Boolean**| When set to true, only the count of the collection is returned | [optional]
+ **$countOnly** | **Boolean**| When set to true, only the count of the collection is returned. | [optional]
 
 ### Return type
 
@@ -187,9 +187,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
+| **200** | Returns a MandatesResponse object containing the supported country mandates. |  -  |
+| **401** | Unauthorized. |  -  |
+| **403** | Forbidden. |  -  |
 | **404** | Resource not found |  -  |
-| **500** | Internal Server Error |  -  |
+| **500** | Internal server error. |  -  |
 

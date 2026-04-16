@@ -96,11 +96,11 @@ public class DocumentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  * Content-type -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Returns the document content in the format specified by the Accept header. </td><td>  * Content-type -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A document for the specified ID was not found. </td><td>  -  </td></tr>
-        <tr><td> 406 </td><td> Unsupported document format was requested in the Accept header </td><td>  -  </td></tr>
+        <tr><td> 406 </td><td> Unsupported document format was requested in the Accept header. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call downloadDocumentCall(DownloadDocumentRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -190,18 +190,18 @@ public class DocumentsApi {
 
     /**
      * Returns a copy of the document
-     * When the document is available, use this endpoint to download it as text, XML, or PDF. The output format needs to be specified in the Accept header, and it will vary depending on the mandate. If the file has not yet been created, then status code 404 (not found) is returned.
+     * Downloads the document when it is available. Specify the output format in the Accept header. Returns 404 if the file has not been created.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  * Content-type -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Returns the document content in the format specified by the Accept header. </td><td>  * Content-type -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A document for the specified ID was not found. </td><td>  -  </td></tr>
-        <tr><td> 406 </td><td> Unsupported document format was requested in the Accept header </td><td>  -  </td></tr>
+        <tr><td> 406 </td><td> Unsupported document format was requested in the Accept header. </td><td>  -  </td></tr>
      </table>
      */
     public File downloadDocument(DownloadDocumentRequest requestParameters) throws ApiException {
@@ -211,18 +211,18 @@ public class DocumentsApi {
 
     /**
      * Returns a copy of the document
-     * When the document is available, use this endpoint to download it as text, XML, or PDF. The output format needs to be specified in the Accept header, and it will vary depending on the mandate. If the file has not yet been created, then status code 404 (not found) is returned.
+     * Downloads the document when it is available. Specify the output format in the Accept header. Returns 404 if the file has not been created.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  * Content-type -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Returns the document content in the format specified by the Accept header. </td><td>  * Content-type -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A document for the specified ID was not found. </td><td>  -  </td></tr>
-        <tr><td> 406 </td><td> Unsupported document format was requested in the Accept header </td><td>  -  </td></tr>
+        <tr><td> 406 </td><td> Unsupported document format was requested in the Accept header. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<File> downloadDocumentWithHttpInfo(DownloadDocumentRequest requestParameters) throws ApiException {
@@ -233,7 +233,7 @@ public class DocumentsApi {
 
     /**
      * Returns a copy of the document (asynchronously)
-     * When the document is available, use this endpoint to download it as text, XML, or PDF. The output format needs to be specified in the Accept header, and it will vary depending on the mandate. If the file has not yet been created, then status code 404 (not found) is returned.
+     * Downloads the document when it is available. Specify the output format in the Accept header. Returns 404 if the file has not been created.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -241,11 +241,11 @@ public class DocumentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  * Content-type -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Returns the document content in the format specified by the Accept header. </td><td>  * Content-type -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A document for the specified ID was not found. </td><td>  -  </td></tr>
-        <tr><td> 406 </td><td> Unsupported document format was requested in the Accept header </td><td>  -  </td></tr>
+        <tr><td> 406 </td><td> Unsupported document format was requested in the Accept header. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call downloadDocumentAsync(DownloadDocumentRequest requestParameters, final ApiCallback<File> _callback) throws ApiException {
@@ -258,10 +258,10 @@ public class DocumentsApi {
     /**
     * Represents the Request object for the DownloadDocument API
     *
-    * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used</param>
-    * @param accept This header indicates the MIME type of the document</param>
-    * @param documentId The unique ID for this document that was returned in the POST /einvoicing/document response body</param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)</param>
+    * @param avalaraVersion Header that specifies the API version to use (for example \"1.6\").</param>
+    * @param accept Header that specifies the MIME type of the returned document.</param>
+    * @param documentId The unique documentId returned in the POST /documents response body.</param>
+    * @param xAvalaraClient Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\"). (optional)</param>
     */
     public class DownloadDocumentRequest {
         private String avalaraVersion;
@@ -272,7 +272,7 @@ public class DocumentsApi {
         public DownloadDocumentRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getAccept() { return accept; }
         public void setAccept(String accept) { this.accept = accept; }
@@ -299,10 +299,10 @@ public class DocumentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Accepted DocumentFetch Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Response from the inbound document fetch endpoint. Contains the platform documentId for status checks and downloads, the returned status (e.g. Accepted), and eventDateTime when the document was accepted. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call fetchDocumentsCall(FetchDocumentsRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -382,17 +382,17 @@ public class DocumentsApi {
 
     /**
      * Fetch the inbound document from a tax authority
-     * This API allows you to retrieve an inbound document. Pass key-value pairs as parameters in the request, such as the confirmation number, supplier number, and buyer VAT number.
+     * Retrieves an inbound document. Provide key-value pairs as request parameters. Supported parameters vary by tax authority and country.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return DocumentFetch
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Accepted DocumentFetch Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Response from the inbound document fetch endpoint. Contains the platform documentId for status checks and downloads, the returned status (e.g. Accepted), and eventDateTime when the document was accepted. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
     public DocumentFetch fetchDocuments(FetchDocumentsRequest requestParameters) throws ApiException {
@@ -402,17 +402,17 @@ public class DocumentsApi {
 
     /**
      * Fetch the inbound document from a tax authority
-     * This API allows you to retrieve an inbound document. Pass key-value pairs as parameters in the request, such as the confirmation number, supplier number, and buyer VAT number.
+     * Retrieves an inbound document. Provide key-value pairs as request parameters. Supported parameters vary by tax authority and country.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;DocumentFetch&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Accepted DocumentFetch Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Response from the inbound document fetch endpoint. Contains the platform documentId for status checks and downloads, the returned status (e.g. Accepted), and eventDateTime when the document was accepted. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<DocumentFetch> fetchDocumentsWithHttpInfo(FetchDocumentsRequest requestParameters) throws ApiException {
@@ -423,7 +423,7 @@ public class DocumentsApi {
 
     /**
      * Fetch the inbound document from a tax authority (asynchronously)
-     * This API allows you to retrieve an inbound document. Pass key-value pairs as parameters in the request, such as the confirmation number, supplier number, and buyer VAT number.
+     * Retrieves an inbound document. Provide key-value pairs as request parameters. Supported parameters vary by tax authority and country.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -431,10 +431,10 @@ public class DocumentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Accepted DocumentFetch Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Response from the inbound document fetch endpoint. Contains the platform documentId for status checks and downloads, the returned status (e.g. Accepted), and eventDateTime when the document was accepted. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call fetchDocumentsAsync(FetchDocumentsRequest requestParameters, final ApiCallback<DocumentFetch> _callback) throws ApiException {
@@ -447,9 +447,9 @@ public class DocumentsApi {
     /**
     * Represents the Request object for the FetchDocuments API
     *
-    * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used</param>
+    * @param avalaraVersion Header that specifies the API version to use (for example \"1.6\").</param>
     * @param fetchDocumentsRequest </param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)</param>
+    * @param xAvalaraClient Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\"). (optional)</param>
     */
     public class FetchDocumentsRequest {
         private String avalaraVersion;
@@ -459,7 +459,7 @@ public class DocumentsApi {
         public FetchDocumentsRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public FetchDocumentsRequest getFetchDocumentsRequest() { return fetchDocumentsRequest; }
         public void setFetchDocumentsRequest(FetchDocumentsRequest fetchDocumentsRequest) { this.fetchDocumentsRequest = fetchDocumentsRequest; }
@@ -484,10 +484,10 @@ public class DocumentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Returns a collection of document summaries for the specified date range. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getDocumentListCall(GetDocumentListRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -543,6 +543,10 @@ public class DocumentsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("$filter", requestParameters.get$filter()));
         }
 
+        if (requestParameters.get$include() != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$include", requestParameters.get$include()));
+        }
+
         if (requestParameters.get$top() != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("$top", requestParameters.get$top()));
         }
@@ -594,17 +598,17 @@ public class DocumentsApi {
 
     /**
      * Returns a summary of documents for a date range
-     * Get a list of documents on the Avalara E-Invoicing platform that have a processing date within the specified date range.
+     * Returns a list of document summaries with a processing date within the specified date range.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return DocumentListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Returns a collection of document summaries for the specified date range. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
      </table>
      */
     public DocumentListResponse getDocumentList(GetDocumentListRequest requestParameters) throws ApiException {
@@ -614,17 +618,17 @@ public class DocumentsApi {
 
     /**
      * Returns a summary of documents for a date range
-     * Get a list of documents on the Avalara E-Invoicing platform that have a processing date within the specified date range.
+     * Returns a list of document summaries with a processing date within the specified date range.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;DocumentListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Returns a collection of document summaries for the specified date range. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<DocumentListResponse> getDocumentListWithHttpInfo(GetDocumentListRequest requestParameters) throws ApiException {
@@ -635,7 +639,7 @@ public class DocumentsApi {
 
     /**
      * Returns a summary of documents for a date range (asynchronously)
-     * Get a list of documents on the Avalara E-Invoicing platform that have a processing date within the specified date range.
+     * Returns a list of document summaries with a processing date within the specified date range.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -643,10 +647,10 @@ public class DocumentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Returns a collection of document summaries for the specified date range. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getDocumentListAsync(GetDocumentListRequest requestParameters, final ApiCallback<DocumentListResponse> _callback) throws ApiException {
@@ -659,14 +663,15 @@ public class DocumentsApi {
     /**
     * Represents the Request object for the GetDocumentList API
     *
-    * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used</param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)</param>
-    * @param startDate Start date of documents to return. This defaults to the previous month. (optional)</param>
-    * @param endDate End date of documents to return. This defaults to the current date. (optional)</param>
-    * @param flow Optionally filter by document direction, where issued = `out` and received = `in` (optional)</param>
-    * @param $count When set to true, the count of the collection is also returned in the response body (optional)</param>
-    * @param $countOnly When set to true, only the count of the collection is returned (optional)</param>
-    * @param $filter Filter by field name and value. This filter only supports <code>eq</code> . Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. Filtering will be done over the provided startDate and endDate. If no startDate or endDate is provided, defaults will be assumed. (optional)</param>
+    * @param avalaraVersion Header that specifies the API version to use (for example \"1.6\").</param>
+    * @param xAvalaraClient Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\"). (optional)</param>
+    * @param startDate Start date for documents to return. Defaults to the previous month. Format: \"YYYY-MM-DDThh:mm:ss\". (optional)</param>
+    * @param endDate End date for documents to return. Defaults to the current date. Format: \"YYYY-MM-DDThh:mm:ss\". (optional)</param>
+    * @param flow Optional filter for document direction: issued uses \"out\" and received uses \"in\". (optional)</param>
+    * @param $count When set to true, the response body also includes the count of items in the collection. (optional)</param>
+    * @param $countOnly When set to true, the response returns only the count of items in the collection. (optional)</param>
+    * @param $filter Filter by field name and value. This filter supports only eq. For more information, refer to the Avalara filtering guide. (optional)</param>
+    * @param $include When set to `events`, each document in the response includes its events array. Omit this parameter or use any other value to exclude events from the response. (optional)</param>
     * @param $top The number of items to include in the result. (optional)</param>
     * @param $skip The number of items to skip in the result. (optional)</param>
     */
@@ -679,13 +684,14 @@ public class DocumentsApi {
         private String $count;
         private String $countOnly;
         private String $filter;
+        private String $include;
         private Integer $top;
         private Integer $skip;
 
         public GetDocumentListRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getXAvalaraClient() { return xAvalaraClient; }
         public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
@@ -701,6 +707,8 @@ public class DocumentsApi {
         public void set$countOnly(String $countOnly) { this.$countOnly = $countOnly; }
         public String get$filter() { return $filter; }
         public void set$filter(String $filter) { this.$filter = $filter; }
+        public String get$include() { return $include; }
+        public void set$include(String $include) { this.$include = $include; }
         public Integer get$top() { return $top; }
         public void set$top(Integer $top) { this.$top = $top; }
         public Integer get$skip() { return $skip; }
@@ -724,9 +732,9 @@ public class DocumentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Returns the current status for the specified documentId. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A document for the specified ID was not found. </td><td>  -  </td></tr>
      </table>
      */
@@ -808,16 +816,16 @@ public class DocumentsApi {
 
     /**
      * Checks the status of a document
-     * Using the unique ID from POST /einvoicing/documents response body, request the current status of a document.
+     * Uses the documentId from the POST /documents response body to return the current status of a document.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return DocumentStatusResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Returns the current status for the specified documentId. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A document for the specified ID was not found. </td><td>  -  </td></tr>
      </table>
      */
@@ -828,16 +836,16 @@ public class DocumentsApi {
 
     /**
      * Checks the status of a document
-     * Using the unique ID from POST /einvoicing/documents response body, request the current status of a document.
+     * Uses the documentId from the POST /documents response body to return the current status of a document.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;DocumentStatusResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Returns the current status for the specified documentId. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A document for the specified ID was not found. </td><td>  -  </td></tr>
      </table>
      */
@@ -849,7 +857,7 @@ public class DocumentsApi {
 
     /**
      * Checks the status of a document (asynchronously)
-     * Using the unique ID from POST /einvoicing/documents response body, request the current status of a document.
+     * Uses the documentId from the POST /documents response body to return the current status of a document.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -857,9 +865,9 @@ public class DocumentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Returns the current status for the specified documentId. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> A document for the specified ID was not found. </td><td>  -  </td></tr>
      </table>
      */
@@ -873,9 +881,9 @@ public class DocumentsApi {
     /**
     * Represents the Request object for the GetDocumentStatus API
     *
-    * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used</param>
-    * @param documentId The unique ID for this document that was returned in the POST /einvoicing/documents response body</param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)</param>
+    * @param avalaraVersion Header that specifies the API version to use (for example \"1.6\").</param>
+    * @param documentId The unique documentId returned in the POST /documents response body.</param>
+    * @param xAvalaraClient Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\"). (optional)</param>
     */
     public class GetDocumentStatusRequest {
         private String avalaraVersion;
@@ -885,7 +893,7 @@ public class DocumentsApi {
         public GetDocumentStatusRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getDocumentId() { return documentId; }
         public void setDocumentId(String documentId) { this.documentId = documentId; }
@@ -910,10 +918,10 @@ public class DocumentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Returns a unique documentId for the submitted document. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call submitDocumentCall(SubmitDocumentRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -1013,10 +1021,10 @@ public class DocumentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Returns a unique documentId for the submitted document. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
      </table>
      */
     public DocumentSubmitResponse submitDocument(SubmitDocumentRequest requestParameters) throws ApiException {
@@ -1033,10 +1041,10 @@ public class DocumentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Returns a unique documentId for the submitted document. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<DocumentSubmitResponse> submitDocumentWithHttpInfo(SubmitDocumentRequest requestParameters) throws ApiException {
@@ -1055,10 +1063,10 @@ public class DocumentsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Returns a unique documentId for the submitted document. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call submitDocumentAsync(SubmitDocumentRequest requestParameters, final ApiCallback<DocumentSubmitResponse> _callback) throws ApiException {
@@ -1071,10 +1079,10 @@ public class DocumentsApi {
     /**
     * Represents the Request object for the SubmitDocument API
     *
-    * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used</param>
+    * @param avalaraVersion Header that specifies the API version to use (for example \"1.6\").</param>
     * @param metadata </param>
     * @param data The document to be submitted, as indicated by the metadata fields 'dataFormat' and 'dataFormatVersion'</param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional)</param>
+    * @param xAvalaraClient Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\"). (optional)</param>
     */
     public class SubmitDocumentRequest {
         private String avalaraVersion;
@@ -1085,7 +1093,7 @@ public class DocumentsApi {
         public SubmitDocumentRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public SubmitDocumentMetadata getMetadata() { return metadata; }
         public void setMetadata(SubmitDocumentMetadata metadata) { this.metadata = metadata; }
@@ -1105,7 +1113,7 @@ public class DocumentsApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.11.2");
+        this.localVarApiClient.setSdkVersion("26.4.0");
     }
 }
 

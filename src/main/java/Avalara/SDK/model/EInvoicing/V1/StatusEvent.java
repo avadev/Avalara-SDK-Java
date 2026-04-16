@@ -74,6 +74,10 @@ public class StatusEvent {
   @SerializedName(SERIALIZED_NAME_RESPONSE_VALUE)
   private String responseValue;
 
+  public static final String SERIALIZED_NAME_CATEGORY = "category";
+  @SerializedName(SERIALIZED_NAME_CATEGORY)
+  private String category;
+
   public StatusEvent() {
   }
 
@@ -83,7 +87,7 @@ public class StatusEvent {
   }
 
   /**
-   * The date and time when the status event occured, displayed in the format YYYY-MM-DDThh:mm:ss
+   * The date and time when the status event occurred, displayed in the format YYYY-MM-DDThh:mm:ss
    * @return eventDateTime
    */
   @javax.annotation.Nullable
@@ -153,6 +157,25 @@ public class StatusEvent {
   }
 
 
+  public StatusEvent category(String category) {
+    this.category = category;
+    return this;
+  }
+
+  /**
+   * Represents the functional area or process stage where the status event occurred. Useful for grouping related events such as document processing, transmission, or validation.
+   * @return category
+   */
+  @javax.annotation.Nullable
+  public String getCategory() {
+    return category;
+  }
+
+  public void setCategory(String category) {
+    this.category = category;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -166,7 +189,8 @@ public class StatusEvent {
     return Objects.equals(this.eventDateTime, statusEvent.eventDateTime) &&
         Objects.equals(this.message, statusEvent.message) &&
         Objects.equals(this.responseKey, statusEvent.responseKey) &&
-        Objects.equals(this.responseValue, statusEvent.responseValue);
+        Objects.equals(this.responseValue, statusEvent.responseValue) &&
+        Objects.equals(this.category, statusEvent.category);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -175,7 +199,7 @@ public class StatusEvent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(eventDateTime, message, responseKey, responseValue);
+    return Objects.hash(eventDateTime, message, responseKey, responseValue, category);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -193,6 +217,7 @@ public class StatusEvent {
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    responseKey: ").append(toIndentedString(responseKey)).append("\n");
     sb.append("    responseValue: ").append(toIndentedString(responseValue)).append("\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -219,6 +244,7 @@ public class StatusEvent {
     openapiFields.add("message");
     openapiFields.add("responseKey");
     openapiFields.add("responseValue");
+    openapiFields.add("category");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -256,6 +282,9 @@ public class StatusEvent {
       }
       if ((jsonObj.get("responseValue") != null && !jsonObj.get("responseValue").isJsonNull()) && !jsonObj.get("responseValue").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `responseValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("responseValue").toString()));
+      }
+      if ((jsonObj.get("category") != null && !jsonObj.get("category").isJsonNull()) && !jsonObj.get("category").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `category` to be a primitive type in the JSON string but got `%s`", jsonObj.get("category").toString()));
       }
   }
 

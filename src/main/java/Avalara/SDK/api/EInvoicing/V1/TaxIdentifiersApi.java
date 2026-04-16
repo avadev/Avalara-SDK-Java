@@ -86,11 +86,11 @@ public class TaxIdentifiersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns an object containing countryCode, schemaType, and schema. The schema property contains a JSON Schema (Draft-07) used to validate tax identifier requests or responses for the specified country. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call taxIdentifierSchemaByCountryCall(TaxIdentifierSchemaByCountryRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -181,19 +181,19 @@ public class TaxIdentifiersApi {
     }
 
     /**
-     * Returns the tax identifier request &amp; response schema for a specific country.
-     * This endpoint retrieves the request and response schema required to validate tax identifiers based on a specific country&#39;s requirements. This can include both standard fields and any additional parameters required by the respective country&#39;s tax authority.
+     * Returns the tax identifier request and response schema for a specific country.
+     * Returns the tax identifier request and response schema for a specific country.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return TaxIdentifierSchemaByCountry200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns an object containing countryCode, schemaType, and schema. The schema property contains a JSON Schema (Draft-07) used to validate tax identifier requests or responses for the specified country. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public TaxIdentifierSchemaByCountry200Response taxIdentifierSchemaByCountry(TaxIdentifierSchemaByCountryRequest requestParameters) throws ApiException {
@@ -202,19 +202,19 @@ public class TaxIdentifiersApi {
     }
 
     /**
-     * Returns the tax identifier request &amp; response schema for a specific country.
-     * This endpoint retrieves the request and response schema required to validate tax identifiers based on a specific country&#39;s requirements. This can include both standard fields and any additional parameters required by the respective country&#39;s tax authority.
+     * Returns the tax identifier request and response schema for a specific country.
+     * Returns the tax identifier request and response schema for a specific country.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;TaxIdentifierSchemaByCountry200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns an object containing countryCode, schemaType, and schema. The schema property contains a JSON Schema (Draft-07) used to validate tax identifier requests or responses for the specified country. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public ApiResponse<TaxIdentifierSchemaByCountry200Response> taxIdentifierSchemaByCountryWithHttpInfo(TaxIdentifierSchemaByCountryRequest requestParameters) throws ApiException {
@@ -224,8 +224,8 @@ public class TaxIdentifiersApi {
     }
 
     /**
-     * Returns the tax identifier request &amp; response schema for a specific country. (asynchronously)
-     * This endpoint retrieves the request and response schema required to validate tax identifiers based on a specific country&#39;s requirements. This can include both standard fields and any additional parameters required by the respective country&#39;s tax authority.
+     * Returns the tax identifier request and response schema for a specific country. (asynchronously)
+     * Returns the tax identifier request and response schema for a specific country.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -233,11 +233,11 @@ public class TaxIdentifiersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Returns an object containing countryCode, schemaType, and schema. The schema property contains a JSON Schema (Draft-07) used to validate tax identifier requests or responses for the specified country. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call taxIdentifierSchemaByCountryAsync(TaxIdentifierSchemaByCountryRequest requestParameters, final ApiCallback<TaxIdentifierSchemaByCountry200Response> _callback) throws ApiException {
@@ -250,11 +250,11 @@ public class TaxIdentifiersApi {
     /**
     * Represents the Request object for the TaxIdentifierSchemaByCountry API
     *
-    * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used.</param>
-    * @param countryCode The two-letter ISO-3166 country code for which the schema should be retrieved.</param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\". (optional)</param>
-    * @param xCorrelationID The caller can use this as an identifier to use as a correlation id to trace the call. (optional)</param>
-    * @param type Specifies whether to return the request or response schema. (optional)</param>
+    * @param avalaraVersion Header that specifies the API version to use (for example \"1.6\").</param>
+    * @param countryCode Two-letter ISO 3166 country code for which to retrieve the schema (for example \"DE\").</param>
+    * @param xAvalaraClient Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\"). (optional)</param>
+    * @param xCorrelationID Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\"). (optional)</param>
+    * @param type Specifies which schema to return: \"request\" to receive the request validation schema or \"response\" to receive the response validation schema. (optional)</param>
     */
     public class TaxIdentifierSchemaByCountryRequest {
         private String avalaraVersion;
@@ -266,7 +266,7 @@ public class TaxIdentifiersApi {
         public TaxIdentifierSchemaByCountryRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public String getCountryCode() { return countryCode; }
         public void setCountryCode(String countryCode) { this.countryCode = countryCode; }
@@ -295,12 +295,12 @@ public class TaxIdentifiersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 429 </td><td> Rate limit exceeded </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Validation completed. Returns a TaxIdentifierResponse object that includes countryCode and a value object with identifierType, identifier, and optional extensions when available. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request. The request is invalid or contains missing or incorrect parameters. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 429 </td><td> Rate limit exceeded. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call validateTaxIdentifierCall(ValidateTaxIdentifierRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -391,12 +391,12 @@ public class TaxIdentifiersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 429 </td><td> Rate limit exceeded </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Validation completed. Returns a TaxIdentifierResponse object that includes countryCode and a value object with identifierType, identifier, and optional extensions when available. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request. The request is invalid or contains missing or incorrect parameters. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 429 </td><td> Rate limit exceeded. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public TaxIdentifierResponse validateTaxIdentifier(ValidateTaxIdentifierRequest requestParameters) throws ApiException {
@@ -413,12 +413,12 @@ public class TaxIdentifiersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 429 </td><td> Rate limit exceeded </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Validation completed. Returns a TaxIdentifierResponse object that includes countryCode and a value object with identifierType, identifier, and optional extensions when available. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request. The request is invalid or contains missing or incorrect parameters. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 429 </td><td> Rate limit exceeded. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public ApiResponse<TaxIdentifierResponse> validateTaxIdentifierWithHttpInfo(ValidateTaxIdentifierRequest requestParameters) throws ApiException {
@@ -437,12 +437,12 @@ public class TaxIdentifiersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success response. </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 429 </td><td> Rate limit exceeded </td><td>  * X-Correlation-Id -  <br>  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  * X-Correlation-Id -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Validation completed. Returns a TaxIdentifierResponse object that includes countryCode and a value object with identifierType, identifier, and optional extensions when available. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad request. The request is invalid or contains missing or incorrect parameters. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 429 </td><td> Rate limit exceeded. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
+        <tr><td> 500 </td><td> Internal server error. </td><td>  * X-Correlation-ID -  <br>  </td></tr>
      </table>
      */
     public okhttp3.Call validateTaxIdentifierAsync(ValidateTaxIdentifierRequest requestParameters, final ApiCallback<TaxIdentifierResponse> _callback) throws ApiException {
@@ -455,10 +455,10 @@ public class TaxIdentifiersApi {
     /**
     * Represents the Request object for the ValidateTaxIdentifier API
     *
-    * @param avalaraVersion The HTTP Header meant to specify the version of the API intended to be used.</param>
+    * @param avalaraVersion Header that specifies the API version to use (for example \"1.6\").</param>
     * @param taxIdentifierRequest </param>
-    * @param xAvalaraClient You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\". (optional)</param>
-    * @param xCorrelationID The caller can use this as an identifier to use as a correlation id to trace the call. (optional)</param>
+    * @param xAvalaraClient Optional header for a client identifier string used for diagnostics (for example \"Fingerprint\"). (optional)</param>
+    * @param xCorrelationID Optional correlation identifier provided by the caller to trace the call (for example \"f3f0d19a-01a1-4748-8a58-f000d0424f43\"). (optional)</param>
     */
     public class ValidateTaxIdentifierRequest {
         private String avalaraVersion;
@@ -469,7 +469,7 @@ public class TaxIdentifiersApi {
         public ValidateTaxIdentifierRequest () {
         }
 
-        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.4"; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "1.6"; }
         public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
         public TaxIdentifierRequest getTaxIdentifierRequest() { return taxIdentifierRequest; }
         public void setTaxIdentifierRequest(TaxIdentifierRequest taxIdentifierRequest) { this.taxIdentifierRequest = taxIdentifierRequest; }
@@ -489,7 +489,7 @@ public class TaxIdentifiersApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("25.11.2");
+        this.localVarApiClient.setSdkVersion("26.4.0");
     }
 }
 
