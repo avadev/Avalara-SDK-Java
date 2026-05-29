@@ -82,6 +82,7 @@ Form 1099-DIV: Dividends and Distributions                *At least one of the f
 | _1099_MISC | &quot;1099-MISC&quot; |
 | _1099_NEC | &quot;1099-NEC&quot; |
 | _1099_R | &quot;1099-R&quot; |
+| W_2 | &quot;W-2&quot; |
 
 
 

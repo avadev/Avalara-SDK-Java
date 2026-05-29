@@ -53,7 +53,7 @@ public class Example {
 
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "4d29bf91-6be1-4a09-bd76-947e39261873"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "0b0e88b5-6443-4c90-a5c9-28bde5a4d4a0"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         CreateAndSendW9FormEmailRequest createAndSendW9FormEmailRequest = new CreateAndSendW9FormEmailRequest(); // CreateAndSendW9FormEmailRequest | Form to be created
         try {
@@ -139,7 +139,7 @@ public class Example {
 
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "c9a65bdc-4b34-4939-8390-0745224fc66f"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "3439cc97-e4ae-482a-8d89-ed3bee63a053"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         CreateW9FormRequest createW9FormRequest = new CreateW9FormRequest(); // CreateW9FormRequest | Form to be created
         try {
@@ -226,7 +226,7 @@ public class Example {
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String id = "id_example"; // String | ID of the form to delete
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "de36a366-a0c7-4737-b8b3-3e7dc439eeba"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "f712b02e-1b2f-482f-89ac-c809e42238f4"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             apiInstance.deleteW9Form(id, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -311,7 +311,7 @@ public class Example {
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String id = "id_example"; // String | ID of the form
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "41f07c7e-6c04-47f0-8128-2435ddabd6d2"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "636fe950-3af0-42df-95ed-0868ba340628"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             CreateW9Form201Response result = apiInstance.getW9Form(id, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -397,7 +397,7 @@ public class Example {
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String id = "id_example"; // String | Id of the form
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "49aef38a-c6e6-4cd3-9ae2-fc4ed665b4da"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "378b0ba7-8d33-499d-a7d4-8bdc3a3648f8"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             File result = apiInstance.getW9FormPdf(id, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -489,7 +489,7 @@ public class Example {
         String $orderBy = "$orderBy_example"; // String | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
         Boolean count = true; // Boolean | If true, return the global count of elements in the collection.
         Boolean countOnly = true; // Boolean | If true, return ONLY the global count of elements in the collection.  It only applies when count=true.
-        String xCorrelationId = "cff54571-fafe-44b4-99e0-37026ce17a01"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "6a525897-0868-4606-bad3-04892c61a573"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             PaginatedQueryResultModelW9FormBaseResponse result = apiInstance.listW9Forms(avalaraVersion, $filter, $top, $skip, $orderBy, count, countOnly, xCorrelationId, xAvalaraClient);
@@ -580,7 +580,7 @@ public class Example {
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String id = "id_example"; // String | The ID of the W9/W4/W8 form.
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "72c78ed0-b02b-45a5-a37a-472f6d418e59"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "1f36d8fe-d804-4194-b4be-31a5b02ae9f9"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             CreateW9Form201Response result = apiInstance.sendW9FormEmail(id, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -668,7 +668,7 @@ public class Example {
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String id = "id_example"; // String | ID of the form to update
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "bc850418-16cb-4f71-9a01-811ae3893214"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "ffdf8c9a-cf07-4fe0-b737-38d1c044a0dc"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         CreateW9FormRequest createW9FormRequest = new CreateW9FormRequest(); // CreateW9FormRequest | Form to be updated
         try {
@@ -757,7 +757,7 @@ public class Example {
         FormsW9Api apiInstance = new FormsW9Api(apiClient);
         String id = "id_example"; // String | Id of the form
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "394e168a-5a3b-4544-b400-5c58fef28209"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "d669f88f-c57a-4a17-9f05-cabe7ebe0b5b"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         File _file = new File("/path/to/file"); // File | 
         try {

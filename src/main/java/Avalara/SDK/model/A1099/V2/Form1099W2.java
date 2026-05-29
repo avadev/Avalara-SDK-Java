@@ -62,69 +62,133 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * Form 1099-MISC: Miscellaneous Income    *At least one of the following amounts must be provided:*   Rents, Royalties, Other income, Fishing boat proceeds, Medical and health care payments,  Substitute payments in lieu of dividends or interest, Crop insurance proceeds, Gross proceeds paid to an attorney,  Fish purchased for resale, Section 409A deferrals, Excess golden parachute payments, Nonqualified deferred compensation,  Payer made direct sales totaling $5,000 or more of consumer products to recipient for resale
+ * Form W-2: Wage and Tax Statement.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
-public class Form1099Misc {
-  public static final String SERIALIZED_NAME_RENTS = "rents";
-  @SerializedName(SERIALIZED_NAME_RENTS)
-  private Double rents;
+public class Form1099W2 {
+  public static final String SERIALIZED_NAME_EMPLOYEE_FIRST_NAME = "employeeFirstName";
+  @SerializedName(SERIALIZED_NAME_EMPLOYEE_FIRST_NAME)
+  private String employeeFirstName;
 
-  public static final String SERIALIZED_NAME_ROYALTIES = "royalties";
-  @SerializedName(SERIALIZED_NAME_ROYALTIES)
-  private Double royalties;
+  public static final String SERIALIZED_NAME_EMPLOYEE_MIDDLE_NAME = "employeeMiddleName";
+  @SerializedName(SERIALIZED_NAME_EMPLOYEE_MIDDLE_NAME)
+  private String employeeMiddleName;
 
-  public static final String SERIALIZED_NAME_OTHER_INCOME = "otherIncome";
-  @SerializedName(SERIALIZED_NAME_OTHER_INCOME)
-  private Double otherIncome;
+  public static final String SERIALIZED_NAME_EMPLOYEE_LAST_NAME = "employeeLastName";
+  @SerializedName(SERIALIZED_NAME_EMPLOYEE_LAST_NAME)
+  private String employeeLastName;
+
+  public static final String SERIALIZED_NAME_EMPLOYEE_NAME_SUFFIX = "employeeNameSuffix";
+  @SerializedName(SERIALIZED_NAME_EMPLOYEE_NAME_SUFFIX)
+  private String employeeNameSuffix;
+
+  public static final String SERIALIZED_NAME_WAGES = "wages";
+  @SerializedName(SERIALIZED_NAME_WAGES)
+  private Double wages;
 
   public static final String SERIALIZED_NAME_FEDERAL_INCOME_TAX_WITHHELD = "federalIncomeTaxWithheld";
   @SerializedName(SERIALIZED_NAME_FEDERAL_INCOME_TAX_WITHHELD)
   private Double federalIncomeTaxWithheld;
 
-  public static final String SERIALIZED_NAME_FISHING_BOAT_PROCEEDS = "fishingBoatProceeds";
-  @SerializedName(SERIALIZED_NAME_FISHING_BOAT_PROCEEDS)
-  private Double fishingBoatProceeds;
+  public static final String SERIALIZED_NAME_SOCIAL_SECURITY_WAGES = "socialSecurityWages";
+  @SerializedName(SERIALIZED_NAME_SOCIAL_SECURITY_WAGES)
+  private Double socialSecurityWages;
 
-  public static final String SERIALIZED_NAME_MEDICAL_AND_HEALTH_CARE_PAYMENTS = "medicalAndHealthCarePayments";
-  @SerializedName(SERIALIZED_NAME_MEDICAL_AND_HEALTH_CARE_PAYMENTS)
-  private Double medicalAndHealthCarePayments;
+  public static final String SERIALIZED_NAME_SOCIAL_SECURITY_TAX_WITHHELD = "socialSecurityTaxWithheld";
+  @SerializedName(SERIALIZED_NAME_SOCIAL_SECURITY_TAX_WITHHELD)
+  private Double socialSecurityTaxWithheld;
 
-  public static final String SERIALIZED_NAME_DIRECT_SALES_INDICATOR = "directSalesIndicator";
-  @SerializedName(SERIALIZED_NAME_DIRECT_SALES_INDICATOR)
-  private Boolean directSalesIndicator;
+  public static final String SERIALIZED_NAME_MEDICARE_WAGES = "medicareWages";
+  @SerializedName(SERIALIZED_NAME_MEDICARE_WAGES)
+  private Double medicareWages;
 
-  public static final String SERIALIZED_NAME_SUBSTITUTE_PAYMENTS = "substitutePayments";
-  @SerializedName(SERIALIZED_NAME_SUBSTITUTE_PAYMENTS)
-  private Double substitutePayments;
+  public static final String SERIALIZED_NAME_MEDICARE_TAX_WITHHELD = "medicareTaxWithheld";
+  @SerializedName(SERIALIZED_NAME_MEDICARE_TAX_WITHHELD)
+  private Double medicareTaxWithheld;
 
-  public static final String SERIALIZED_NAME_CROP_INSURANCE_PROCEEDS = "cropInsuranceProceeds";
-  @SerializedName(SERIALIZED_NAME_CROP_INSURANCE_PROCEEDS)
-  private Double cropInsuranceProceeds;
+  public static final String SERIALIZED_NAME_SOCIAL_SECURITY_TIPS = "socialSecurityTips";
+  @SerializedName(SERIALIZED_NAME_SOCIAL_SECURITY_TIPS)
+  private Double socialSecurityTips;
 
-  public static final String SERIALIZED_NAME_GROSS_PROCEEDS_PAID_TO_ATTORNEY = "grossProceedsPaidToAttorney";
-  @SerializedName(SERIALIZED_NAME_GROSS_PROCEEDS_PAID_TO_ATTORNEY)
-  private Double grossProceedsPaidToAttorney;
+  public static final String SERIALIZED_NAME_ALLOCATED_TIPS = "allocatedTips";
+  @SerializedName(SERIALIZED_NAME_ALLOCATED_TIPS)
+  private Double allocatedTips;
 
-  public static final String SERIALIZED_NAME_FISH_PURCHASED_FOR_RESALE = "fishPurchasedForResale";
-  @SerializedName(SERIALIZED_NAME_FISH_PURCHASED_FOR_RESALE)
-  private Double fishPurchasedForResale;
+  public static final String SERIALIZED_NAME_DEPENDENT_CARE_BENEFITS = "dependentCareBenefits";
+  @SerializedName(SERIALIZED_NAME_DEPENDENT_CARE_BENEFITS)
+  private Double dependentCareBenefits;
 
-  public static final String SERIALIZED_NAME_SECTION409_A_DEFERRALS = "section409ADeferrals";
-  @SerializedName(SERIALIZED_NAME_SECTION409_A_DEFERRALS)
-  private Double section409ADeferrals;
+  public static final String SERIALIZED_NAME_NONQUALIFIED_PLANS_SECTION457 = "nonqualifiedPlansSection457";
+  @SerializedName(SERIALIZED_NAME_NONQUALIFIED_PLANS_SECTION457)
+  private Double nonqualifiedPlansSection457;
 
-  public static final String SERIALIZED_NAME_EXCESS_GOLDEN_PARACHUTE_PAYMENTS = "excessGoldenParachutePayments";
-  @SerializedName(SERIALIZED_NAME_EXCESS_GOLDEN_PARACHUTE_PAYMENTS)
-  private Double excessGoldenParachutePayments;
+  public static final String SERIALIZED_NAME_NONQUALIFIED_PLANS_NOT_SECTION457 = "nonqualifiedPlansNotSection457";
+  @SerializedName(SERIALIZED_NAME_NONQUALIFIED_PLANS_NOT_SECTION457)
+  private Double nonqualifiedPlansNotSection457;
 
-  public static final String SERIALIZED_NAME_NONQUALIFIED_DEFERRED_COMPENSATION = "nonqualifiedDeferredCompensation";
-  @SerializedName(SERIALIZED_NAME_NONQUALIFIED_DEFERRED_COMPENSATION)
-  private Double nonqualifiedDeferredCompensation;
+  public static final String SERIALIZED_NAME_CODE12A = "code12a";
+  @SerializedName(SERIALIZED_NAME_CODE12A)
+  private String code12a;
 
-  public static final String SERIALIZED_NAME_FATCA_FILING_REQUIREMENT = "fatcaFilingRequirement";
-  @SerializedName(SERIALIZED_NAME_FATCA_FILING_REQUIREMENT)
-  private Boolean fatcaFilingRequirement;
+  public static final String SERIALIZED_NAME_AMOUNT12A = "amount12a";
+  @SerializedName(SERIALIZED_NAME_AMOUNT12A)
+  private Double amount12a;
+
+  public static final String SERIALIZED_NAME_CODE12B = "code12b";
+  @SerializedName(SERIALIZED_NAME_CODE12B)
+  private String code12b;
+
+  public static final String SERIALIZED_NAME_AMOUNT12B = "amount12b";
+  @SerializedName(SERIALIZED_NAME_AMOUNT12B)
+  private Double amount12b;
+
+  public static final String SERIALIZED_NAME_CODE12C = "code12c";
+  @SerializedName(SERIALIZED_NAME_CODE12C)
+  private String code12c;
+
+  public static final String SERIALIZED_NAME_AMOUNT12C = "amount12c";
+  @SerializedName(SERIALIZED_NAME_AMOUNT12C)
+  private Double amount12c;
+
+  public static final String SERIALIZED_NAME_CODE12D = "code12d";
+  @SerializedName(SERIALIZED_NAME_CODE12D)
+  private String code12d;
+
+  public static final String SERIALIZED_NAME_AMOUNT12D = "amount12d";
+  @SerializedName(SERIALIZED_NAME_AMOUNT12D)
+  private Double amount12d;
+
+  public static final String SERIALIZED_NAME_STATUTORY_EMPLOYEE_INDICATOR = "statutoryEmployeeIndicator";
+  @SerializedName(SERIALIZED_NAME_STATUTORY_EMPLOYEE_INDICATOR)
+  private Boolean statutoryEmployeeIndicator;
+
+  public static final String SERIALIZED_NAME_RETIREMENT_PLAN_INDICATOR = "retirementPlanIndicator";
+  @SerializedName(SERIALIZED_NAME_RETIREMENT_PLAN_INDICATOR)
+  private Boolean retirementPlanIndicator;
+
+  public static final String SERIALIZED_NAME_THIRD_PARTY_SICK_PAY_INDICATOR = "thirdPartySickPayIndicator";
+  @SerializedName(SERIALIZED_NAME_THIRD_PARTY_SICK_PAY_INDICATOR)
+  private Boolean thirdPartySickPayIndicator;
+
+  public static final String SERIALIZED_NAME_THIRD_PARTY_SICK_PAY_WITHHOLDING = "thirdPartySickPayWithholding";
+  @SerializedName(SERIALIZED_NAME_THIRD_PARTY_SICK_PAY_WITHHOLDING)
+  private Double thirdPartySickPayWithholding;
+
+  public static final String SERIALIZED_NAME_OTHER14A = "other14a";
+  @SerializedName(SERIALIZED_NAME_OTHER14A)
+  private String other14a;
+
+  public static final String SERIALIZED_NAME_OTHER14B = "other14b";
+  @SerializedName(SERIALIZED_NAME_OTHER14B)
+  private String other14b;
+
+  public static final String SERIALIZED_NAME_OTHER14C = "other14c";
+  @SerializedName(SERIALIZED_NAME_OTHER14C)
+  private String other14c;
+
+  public static final String SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING_SECONDARY = "stateAndLocalWithholdingSecondary";
+  @SerializedName(SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING_SECONDARY)
+  private StateAndLocalWithholding stateAndLocalWithholdingSecondary;
 
   /**
    * Form type.
@@ -406,10 +470,10 @@ public class Form1099Misc {
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
 
-  public Form1099Misc() {
+  public Form1099W2() {
   }
 
-  public Form1099Misc(
+  public Form1099W2(
      String id, 
      Form1099StatusDetail federalEfileStatus, 
      List<StateEfileStatusDetail> stateEfileStatus, 
@@ -434,70 +498,108 @@ public class Form1099Misc {
     this.updatedAt = updatedAt;
   }
 
-  public Form1099Misc rents(Double rents) {
-    this.rents = rents;
+  public Form1099W2 employeeFirstName(String employeeFirstName) {
+    this.employeeFirstName = employeeFirstName;
     return this;
   }
 
   /**
-   * Rents
-   * @return rents
+   * Employee first name (max 15 chars).
+   * @return employeeFirstName
    */
   @javax.annotation.Nullable
-  public Double getRents() {
-    return rents;
+  public String getEmployeeFirstName() {
+    return employeeFirstName;
   }
 
-  public void setRents(Double rents) {
-    this.rents = rents;
+  public void setEmployeeFirstName(String employeeFirstName) {
+    this.employeeFirstName = employeeFirstName;
   }
 
 
-  public Form1099Misc royalties(Double royalties) {
-    this.royalties = royalties;
+  public Form1099W2 employeeMiddleName(String employeeMiddleName) {
+    this.employeeMiddleName = employeeMiddleName;
     return this;
   }
 
   /**
-   * Royalties
-   * @return royalties
+   * Employee middle name (max 15 chars, optional).
+   * @return employeeMiddleName
    */
   @javax.annotation.Nullable
-  public Double getRoyalties() {
-    return royalties;
+  public String getEmployeeMiddleName() {
+    return employeeMiddleName;
   }
 
-  public void setRoyalties(Double royalties) {
-    this.royalties = royalties;
+  public void setEmployeeMiddleName(String employeeMiddleName) {
+    this.employeeMiddleName = employeeMiddleName;
   }
 
 
-  public Form1099Misc otherIncome(Double otherIncome) {
-    this.otherIncome = otherIncome;
+  public Form1099W2 employeeLastName(String employeeLastName) {
+    this.employeeLastName = employeeLastName;
     return this;
   }
 
   /**
-   * Other income
-   * @return otherIncome
+   * Employee last name (max 20 chars).
+   * @return employeeLastName
    */
   @javax.annotation.Nullable
-  public Double getOtherIncome() {
-    return otherIncome;
+  public String getEmployeeLastName() {
+    return employeeLastName;
   }
 
-  public void setOtherIncome(Double otherIncome) {
-    this.otherIncome = otherIncome;
+  public void setEmployeeLastName(String employeeLastName) {
+    this.employeeLastName = employeeLastName;
   }
 
 
-  public Form1099Misc federalIncomeTaxWithheld(Double federalIncomeTaxWithheld) {
+  public Form1099W2 employeeNameSuffix(String employeeNameSuffix) {
+    this.employeeNameSuffix = employeeNameSuffix;
+    return this;
+  }
+
+  /**
+   * Employee name suffix (Jr, Sr, III, etc — max 4 chars, optional).
+   * @return employeeNameSuffix
+   */
+  @javax.annotation.Nullable
+  public String getEmployeeNameSuffix() {
+    return employeeNameSuffix;
+  }
+
+  public void setEmployeeNameSuffix(String employeeNameSuffix) {
+    this.employeeNameSuffix = employeeNameSuffix;
+  }
+
+
+  public Form1099W2 wages(Double wages) {
+    this.wages = wages;
+    return this;
+  }
+
+  /**
+   * Wages, tips, other compensation.
+   * @return wages
+   */
+  @javax.annotation.Nullable
+  public Double getWages() {
+    return wages;
+  }
+
+  public void setWages(Double wages) {
+    this.wages = wages;
+  }
+
+
+  public Form1099W2 federalIncomeTaxWithheld(Double federalIncomeTaxWithheld) {
     this.federalIncomeTaxWithheld = federalIncomeTaxWithheld;
     return this;
   }
 
   /**
-   * Federal income tax withheld
+   * Federal income tax withheld.
    * @return federalIncomeTaxWithheld
    */
   @javax.annotation.Nullable
@@ -510,216 +612,482 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc fishingBoatProceeds(Double fishingBoatProceeds) {
-    this.fishingBoatProceeds = fishingBoatProceeds;
+  public Form1099W2 socialSecurityWages(Double socialSecurityWages) {
+    this.socialSecurityWages = socialSecurityWages;
     return this;
   }
 
   /**
-   * Fishing boat proceeds
-   * @return fishingBoatProceeds
+   * Social security wages.
+   * @return socialSecurityWages
    */
   @javax.annotation.Nullable
-  public Double getFishingBoatProceeds() {
-    return fishingBoatProceeds;
+  public Double getSocialSecurityWages() {
+    return socialSecurityWages;
   }
 
-  public void setFishingBoatProceeds(Double fishingBoatProceeds) {
-    this.fishingBoatProceeds = fishingBoatProceeds;
+  public void setSocialSecurityWages(Double socialSecurityWages) {
+    this.socialSecurityWages = socialSecurityWages;
   }
 
 
-  public Form1099Misc medicalAndHealthCarePayments(Double medicalAndHealthCarePayments) {
-    this.medicalAndHealthCarePayments = medicalAndHealthCarePayments;
+  public Form1099W2 socialSecurityTaxWithheld(Double socialSecurityTaxWithheld) {
+    this.socialSecurityTaxWithheld = socialSecurityTaxWithheld;
     return this;
   }
 
   /**
-   * Medical and health care payments
-   * @return medicalAndHealthCarePayments
+   * Social security tax withheld.
+   * @return socialSecurityTaxWithheld
    */
   @javax.annotation.Nullable
-  public Double getMedicalAndHealthCarePayments() {
-    return medicalAndHealthCarePayments;
+  public Double getSocialSecurityTaxWithheld() {
+    return socialSecurityTaxWithheld;
   }
 
-  public void setMedicalAndHealthCarePayments(Double medicalAndHealthCarePayments) {
-    this.medicalAndHealthCarePayments = medicalAndHealthCarePayments;
+  public void setSocialSecurityTaxWithheld(Double socialSecurityTaxWithheld) {
+    this.socialSecurityTaxWithheld = socialSecurityTaxWithheld;
   }
 
 
-  public Form1099Misc directSalesIndicator(Boolean directSalesIndicator) {
-    this.directSalesIndicator = directSalesIndicator;
+  public Form1099W2 medicareWages(Double medicareWages) {
+    this.medicareWages = medicareWages;
     return this;
   }
 
   /**
-   * Payer made direct sales totaling $5,000 or more of consumer products to recipient for resale
-   * @return directSalesIndicator
+   * Medicare wages and tips.
+   * @return medicareWages
    */
   @javax.annotation.Nullable
-  public Boolean getDirectSalesIndicator() {
-    return directSalesIndicator;
+  public Double getMedicareWages() {
+    return medicareWages;
   }
 
-  public void setDirectSalesIndicator(Boolean directSalesIndicator) {
-    this.directSalesIndicator = directSalesIndicator;
+  public void setMedicareWages(Double medicareWages) {
+    this.medicareWages = medicareWages;
   }
 
 
-  public Form1099Misc substitutePayments(Double substitutePayments) {
-    this.substitutePayments = substitutePayments;
+  public Form1099W2 medicareTaxWithheld(Double medicareTaxWithheld) {
+    this.medicareTaxWithheld = medicareTaxWithheld;
     return this;
   }
 
   /**
-   * Substitute payments in lieu of dividends or interest
-   * @return substitutePayments
+   * Medicare tax withheld.
+   * @return medicareTaxWithheld
    */
   @javax.annotation.Nullable
-  public Double getSubstitutePayments() {
-    return substitutePayments;
+  public Double getMedicareTaxWithheld() {
+    return medicareTaxWithheld;
   }
 
-  public void setSubstitutePayments(Double substitutePayments) {
-    this.substitutePayments = substitutePayments;
+  public void setMedicareTaxWithheld(Double medicareTaxWithheld) {
+    this.medicareTaxWithheld = medicareTaxWithheld;
   }
 
 
-  public Form1099Misc cropInsuranceProceeds(Double cropInsuranceProceeds) {
-    this.cropInsuranceProceeds = cropInsuranceProceeds;
+  public Form1099W2 socialSecurityTips(Double socialSecurityTips) {
+    this.socialSecurityTips = socialSecurityTips;
     return this;
   }
 
   /**
-   * Crop insurance proceeds
-   * @return cropInsuranceProceeds
+   * Social security tips.
+   * @return socialSecurityTips
    */
   @javax.annotation.Nullable
-  public Double getCropInsuranceProceeds() {
-    return cropInsuranceProceeds;
+  public Double getSocialSecurityTips() {
+    return socialSecurityTips;
   }
 
-  public void setCropInsuranceProceeds(Double cropInsuranceProceeds) {
-    this.cropInsuranceProceeds = cropInsuranceProceeds;
+  public void setSocialSecurityTips(Double socialSecurityTips) {
+    this.socialSecurityTips = socialSecurityTips;
   }
 
 
-  public Form1099Misc grossProceedsPaidToAttorney(Double grossProceedsPaidToAttorney) {
-    this.grossProceedsPaidToAttorney = grossProceedsPaidToAttorney;
+  public Form1099W2 allocatedTips(Double allocatedTips) {
+    this.allocatedTips = allocatedTips;
     return this;
   }
 
   /**
-   * Gross proceeds paid to an attorney
-   * @return grossProceedsPaidToAttorney
+   * Allocated tips.
+   * @return allocatedTips
    */
   @javax.annotation.Nullable
-  public Double getGrossProceedsPaidToAttorney() {
-    return grossProceedsPaidToAttorney;
+  public Double getAllocatedTips() {
+    return allocatedTips;
   }
 
-  public void setGrossProceedsPaidToAttorney(Double grossProceedsPaidToAttorney) {
-    this.grossProceedsPaidToAttorney = grossProceedsPaidToAttorney;
+  public void setAllocatedTips(Double allocatedTips) {
+    this.allocatedTips = allocatedTips;
   }
 
 
-  public Form1099Misc fishPurchasedForResale(Double fishPurchasedForResale) {
-    this.fishPurchasedForResale = fishPurchasedForResale;
+  public Form1099W2 dependentCareBenefits(Double dependentCareBenefits) {
+    this.dependentCareBenefits = dependentCareBenefits;
     return this;
   }
 
   /**
-   * Fish purchased for resale
-   * @return fishPurchasedForResale
+   * Dependent care benefits.
+   * @return dependentCareBenefits
    */
   @javax.annotation.Nullable
-  public Double getFishPurchasedForResale() {
-    return fishPurchasedForResale;
+  public Double getDependentCareBenefits() {
+    return dependentCareBenefits;
   }
 
-  public void setFishPurchasedForResale(Double fishPurchasedForResale) {
-    this.fishPurchasedForResale = fishPurchasedForResale;
+  public void setDependentCareBenefits(Double dependentCareBenefits) {
+    this.dependentCareBenefits = dependentCareBenefits;
   }
 
 
-  public Form1099Misc section409ADeferrals(Double section409ADeferrals) {
-    this.section409ADeferrals = section409ADeferrals;
+  public Form1099W2 nonqualifiedPlansSection457(Double nonqualifiedPlansSection457) {
+    this.nonqualifiedPlansSection457 = nonqualifiedPlansSection457;
     return this;
   }
 
   /**
-   * Section 409A deferrals
-   * @return section409ADeferrals
+   * Non-qualified plan Section 457 distributions or contributions.
+   * @return nonqualifiedPlansSection457
    */
   @javax.annotation.Nullable
-  public Double getSection409ADeferrals() {
-    return section409ADeferrals;
+  public Double getNonqualifiedPlansSection457() {
+    return nonqualifiedPlansSection457;
   }
 
-  public void setSection409ADeferrals(Double section409ADeferrals) {
-    this.section409ADeferrals = section409ADeferrals;
+  public void setNonqualifiedPlansSection457(Double nonqualifiedPlansSection457) {
+    this.nonqualifiedPlansSection457 = nonqualifiedPlansSection457;
   }
 
 
-  public Form1099Misc excessGoldenParachutePayments(Double excessGoldenParachutePayments) {
-    this.excessGoldenParachutePayments = excessGoldenParachutePayments;
+  public Form1099W2 nonqualifiedPlansNotSection457(Double nonqualifiedPlansNotSection457) {
+    this.nonqualifiedPlansNotSection457 = nonqualifiedPlansNotSection457;
     return this;
   }
 
   /**
-   * Excess golden parachute payments - Available only for tax year 2024 and earlier
-   * @return excessGoldenParachutePayments
+   * Non-qualified plan NOT Section 457 distributions or contributions.
+   * @return nonqualifiedPlansNotSection457
    */
   @javax.annotation.Nullable
-  public Double getExcessGoldenParachutePayments() {
-    return excessGoldenParachutePayments;
+  public Double getNonqualifiedPlansNotSection457() {
+    return nonqualifiedPlansNotSection457;
   }
 
-  public void setExcessGoldenParachutePayments(Double excessGoldenParachutePayments) {
-    this.excessGoldenParachutePayments = excessGoldenParachutePayments;
+  public void setNonqualifiedPlansNotSection457(Double nonqualifiedPlansNotSection457) {
+    this.nonqualifiedPlansNotSection457 = nonqualifiedPlansNotSection457;
   }
 
 
-  public Form1099Misc nonqualifiedDeferredCompensation(Double nonqualifiedDeferredCompensation) {
-    this.nonqualifiedDeferredCompensation = nonqualifiedDeferredCompensation;
+  public Form1099W2 code12a(String code12a) {
+    this.code12a = code12a;
     return this;
   }
 
   /**
-   * Nonqualified deferred compensation
-   * @return nonqualifiedDeferredCompensation
+   * Letter code (A-Z, AA, BB, etc) for slot a.
+   * @return code12a
    */
   @javax.annotation.Nullable
-  public Double getNonqualifiedDeferredCompensation() {
-    return nonqualifiedDeferredCompensation;
+  public String getCode12a() {
+    return code12a;
   }
 
-  public void setNonqualifiedDeferredCompensation(Double nonqualifiedDeferredCompensation) {
-    this.nonqualifiedDeferredCompensation = nonqualifiedDeferredCompensation;
+  public void setCode12a(String code12a) {
+    this.code12a = code12a;
   }
 
 
-  public Form1099Misc fatcaFilingRequirement(Boolean fatcaFilingRequirement) {
-    this.fatcaFilingRequirement = fatcaFilingRequirement;
+  public Form1099W2 amount12a(Double amount12a) {
+    this.amount12a = amount12a;
     return this;
   }
 
   /**
-   * FATCA filing requirement.
-   * @return fatcaFilingRequirement
+   * Amount for slot a.
+   * @return amount12a
    */
   @javax.annotation.Nullable
-  public Boolean getFatcaFilingRequirement() {
-    return fatcaFilingRequirement;
+  public Double getAmount12a() {
+    return amount12a;
   }
 
-  public void setFatcaFilingRequirement(Boolean fatcaFilingRequirement) {
-    this.fatcaFilingRequirement = fatcaFilingRequirement;
+  public void setAmount12a(Double amount12a) {
+    this.amount12a = amount12a;
   }
 
 
-  public Form1099Misc type(TypeEnum type) {
+  public Form1099W2 code12b(String code12b) {
+    this.code12b = code12b;
+    return this;
+  }
+
+  /**
+   * Letter code for slot b.
+   * @return code12b
+   */
+  @javax.annotation.Nullable
+  public String getCode12b() {
+    return code12b;
+  }
+
+  public void setCode12b(String code12b) {
+    this.code12b = code12b;
+  }
+
+
+  public Form1099W2 amount12b(Double amount12b) {
+    this.amount12b = amount12b;
+    return this;
+  }
+
+  /**
+   * Amount for slot b.
+   * @return amount12b
+   */
+  @javax.annotation.Nullable
+  public Double getAmount12b() {
+    return amount12b;
+  }
+
+  public void setAmount12b(Double amount12b) {
+    this.amount12b = amount12b;
+  }
+
+
+  public Form1099W2 code12c(String code12c) {
+    this.code12c = code12c;
+    return this;
+  }
+
+  /**
+   * Letter code for slot c.
+   * @return code12c
+   */
+  @javax.annotation.Nullable
+  public String getCode12c() {
+    return code12c;
+  }
+
+  public void setCode12c(String code12c) {
+    this.code12c = code12c;
+  }
+
+
+  public Form1099W2 amount12c(Double amount12c) {
+    this.amount12c = amount12c;
+    return this;
+  }
+
+  /**
+   * Amount for slot c.
+   * @return amount12c
+   */
+  @javax.annotation.Nullable
+  public Double getAmount12c() {
+    return amount12c;
+  }
+
+  public void setAmount12c(Double amount12c) {
+    this.amount12c = amount12c;
+  }
+
+
+  public Form1099W2 code12d(String code12d) {
+    this.code12d = code12d;
+    return this;
+  }
+
+  /**
+   * Letter code for slot d.
+   * @return code12d
+   */
+  @javax.annotation.Nullable
+  public String getCode12d() {
+    return code12d;
+  }
+
+  public void setCode12d(String code12d) {
+    this.code12d = code12d;
+  }
+
+
+  public Form1099W2 amount12d(Double amount12d) {
+    this.amount12d = amount12d;
+    return this;
+  }
+
+  /**
+   * Amount for slot d.
+   * @return amount12d
+   */
+  @javax.annotation.Nullable
+  public Double getAmount12d() {
+    return amount12d;
+  }
+
+  public void setAmount12d(Double amount12d) {
+    this.amount12d = amount12d;
+  }
+
+
+  public Form1099W2 statutoryEmployeeIndicator(Boolean statutoryEmployeeIndicator) {
+    this.statutoryEmployeeIndicator = statutoryEmployeeIndicator;
+    return this;
+  }
+
+  /**
+   * Statutory employee indicator.
+   * @return statutoryEmployeeIndicator
+   */
+  @javax.annotation.Nullable
+  public Boolean getStatutoryEmployeeIndicator() {
+    return statutoryEmployeeIndicator;
+  }
+
+  public void setStatutoryEmployeeIndicator(Boolean statutoryEmployeeIndicator) {
+    this.statutoryEmployeeIndicator = statutoryEmployeeIndicator;
+  }
+
+
+  public Form1099W2 retirementPlanIndicator(Boolean retirementPlanIndicator) {
+    this.retirementPlanIndicator = retirementPlanIndicator;
+    return this;
+  }
+
+  /**
+   * Retirement plan indicator.
+   * @return retirementPlanIndicator
+   */
+  @javax.annotation.Nullable
+  public Boolean getRetirementPlanIndicator() {
+    return retirementPlanIndicator;
+  }
+
+  public void setRetirementPlanIndicator(Boolean retirementPlanIndicator) {
+    this.retirementPlanIndicator = retirementPlanIndicator;
+  }
+
+
+  public Form1099W2 thirdPartySickPayIndicator(Boolean thirdPartySickPayIndicator) {
+    this.thirdPartySickPayIndicator = thirdPartySickPayIndicator;
+    return this;
+  }
+
+  /**
+   * Third-party sick pay indicator.
+   * @return thirdPartySickPayIndicator
+   */
+  @javax.annotation.Nullable
+  public Boolean getThirdPartySickPayIndicator() {
+    return thirdPartySickPayIndicator;
+  }
+
+  public void setThirdPartySickPayIndicator(Boolean thirdPartySickPayIndicator) {
+    this.thirdPartySickPayIndicator = thirdPartySickPayIndicator;
+  }
+
+
+  public Form1099W2 thirdPartySickPayWithholding(Double thirdPartySickPayWithholding) {
+    this.thirdPartySickPayWithholding = thirdPartySickPayWithholding;
+    return this;
+  }
+
+  /**
+   * Third-party sick pay federal income tax withheld  (only effective when Avalara1099.Application.Forms1099.Models.Form1099W2.ThirdPartySickPayIndicator is true).
+   * @return thirdPartySickPayWithholding
+   */
+  @javax.annotation.Nullable
+  public Double getThirdPartySickPayWithholding() {
+    return thirdPartySickPayWithholding;
+  }
+
+  public void setThirdPartySickPayWithholding(Double thirdPartySickPayWithholding) {
+    this.thirdPartySickPayWithholding = thirdPartySickPayWithholding;
+  }
+
+
+  public Form1099W2 other14a(String other14a) {
+    this.other14a = other14a;
+    return this;
+  }
+
+  /**
+   * Other (max 30 chars) for slot a.
+   * @return other14a
+   */
+  @javax.annotation.Nullable
+  public String getOther14a() {
+    return other14a;
+  }
+
+  public void setOther14a(String other14a) {
+    this.other14a = other14a;
+  }
+
+
+  public Form1099W2 other14b(String other14b) {
+    this.other14b = other14b;
+    return this;
+  }
+
+  /**
+   * Other (max 30 chars) for slot b.
+   * @return other14b
+   */
+  @javax.annotation.Nullable
+  public String getOther14b() {
+    return other14b;
+  }
+
+  public void setOther14b(String other14b) {
+    this.other14b = other14b;
+  }
+
+
+  public Form1099W2 other14c(String other14c) {
+    this.other14c = other14c;
+    return this;
+  }
+
+  /**
+   * Other (max 30 chars) for slot c.
+   * @return other14c
+   */
+  @javax.annotation.Nullable
+  public String getOther14c() {
+    return other14c;
+  }
+
+  public void setOther14c(String other14c) {
+    this.other14c = other14c;
+  }
+
+
+  public Form1099W2 stateAndLocalWithholdingSecondary(StateAndLocalWithholding stateAndLocalWithholdingSecondary) {
+    this.stateAndLocalWithholdingSecondary = stateAndLocalWithholdingSecondary;
+    return this;
+  }
+
+  /**
+   * Secondary state and local withholding slot.
+   * @return stateAndLocalWithholdingSecondary
+   */
+  @javax.annotation.Nullable
+  public StateAndLocalWithholding getStateAndLocalWithholdingSecondary() {
+    return stateAndLocalWithholdingSecondary;
+  }
+
+  public void setStateAndLocalWithholdingSecondary(StateAndLocalWithholding stateAndLocalWithholdingSecondary) {
+    this.stateAndLocalWithholdingSecondary = stateAndLocalWithholdingSecondary;
+  }
+
+
+  public Form1099W2 type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -749,7 +1117,7 @@ public class Form1099Misc {
 
 
 
-  public Form1099Misc issuerId(String issuerId) {
+  public Form1099W2 issuerId(String issuerId) {
     this.issuerId = issuerId;
     return this;
   }
@@ -768,7 +1136,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc issuerReferenceId(String issuerReferenceId) {
+  public Form1099W2 issuerReferenceId(String issuerReferenceId) {
     this.issuerReferenceId = issuerReferenceId;
     return this;
   }
@@ -787,7 +1155,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc issuerTin(String issuerTin) {
+  public Form1099W2 issuerTin(String issuerTin) {
     this.issuerTin = issuerTin;
     return this;
   }
@@ -806,7 +1174,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc taxYear(Integer taxYear) {
+  public Form1099W2 taxYear(Integer taxYear) {
     this.taxYear = taxYear;
     return this;
   }
@@ -825,7 +1193,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc referenceId(String referenceId) {
+  public Form1099W2 referenceId(String referenceId) {
     this.referenceId = referenceId;
     return this;
   }
@@ -844,7 +1212,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc tin(String tin) {
+  public Form1099W2 tin(String tin) {
     this.tin = tin;
     return this;
   }
@@ -863,7 +1231,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc recipientName(String recipientName) {
+  public Form1099W2 recipientName(String recipientName) {
     this.recipientName = recipientName;
     return this;
   }
@@ -882,7 +1250,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc tinType(TinTypeEnum tinType) {
+  public Form1099W2 tinType(TinTypeEnum tinType) {
     this.tinType = tinType;
     return this;
   }
@@ -901,7 +1269,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc recipientSecondName(String recipientSecondName) {
+  public Form1099W2 recipientSecondName(String recipientSecondName) {
     this.recipientSecondName = recipientSecondName;
     return this;
   }
@@ -920,7 +1288,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc address(String address) {
+  public Form1099W2 address(String address) {
     this.address = address;
     return this;
   }
@@ -939,7 +1307,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc address2(String address2) {
+  public Form1099W2 address2(String address2) {
     this.address2 = address2;
     return this;
   }
@@ -958,7 +1326,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc city(String city) {
+  public Form1099W2 city(String city) {
     this.city = city;
     return this;
   }
@@ -977,7 +1345,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc state(String state) {
+  public Form1099W2 state(String state) {
     this.state = state;
     return this;
   }
@@ -996,7 +1364,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc zip(String zip) {
+  public Form1099W2 zip(String zip) {
     this.zip = zip;
     return this;
   }
@@ -1015,7 +1383,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc email(String email) {
+  public Form1099W2 email(String email) {
     this.email = email;
     return this;
   }
@@ -1034,7 +1402,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc accountNumber(String accountNumber) {
+  public Form1099W2 accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
@@ -1053,7 +1421,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc officeCode(String officeCode) {
+  public Form1099W2 officeCode(String officeCode) {
     this.officeCode = officeCode;
     return this;
   }
@@ -1072,7 +1440,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc nonUsProvince(String nonUsProvince) {
+  public Form1099W2 nonUsProvince(String nonUsProvince) {
     this.nonUsProvince = nonUsProvince;
     return this;
   }
@@ -1091,7 +1459,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc countryCode(String countryCode) {
+  public Form1099W2 countryCode(String countryCode) {
     this.countryCode = countryCode;
     return this;
   }
@@ -1110,7 +1478,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc federalEfileDate(LocalDate federalEfileDate) {
+  public Form1099W2 federalEfileDate(LocalDate federalEfileDate) {
     this.federalEfileDate = federalEfileDate;
     return this;
   }
@@ -1129,7 +1497,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc postalMail(Boolean postalMail) {
+  public Form1099W2 postalMail(Boolean postalMail) {
     this.postalMail = postalMail;
     return this;
   }
@@ -1148,7 +1516,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc stateEfileDate(LocalDate stateEfileDate) {
+  public Form1099W2 stateEfileDate(LocalDate stateEfileDate) {
     this.stateEfileDate = stateEfileDate;
     return this;
   }
@@ -1167,7 +1535,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc recipientEdeliveryDate(LocalDate recipientEdeliveryDate) {
+  public Form1099W2 recipientEdeliveryDate(LocalDate recipientEdeliveryDate) {
     this.recipientEdeliveryDate = recipientEdeliveryDate;
     return this;
   }
@@ -1186,7 +1554,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc tinMatch(Boolean tinMatch) {
+  public Form1099W2 tinMatch(Boolean tinMatch) {
     this.tinMatch = tinMatch;
     return this;
   }
@@ -1205,7 +1573,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc noTin(Boolean noTin) {
+  public Form1099W2 noTin(Boolean noTin) {
     this.noTin = noTin;
     return this;
   }
@@ -1224,7 +1592,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc addressVerification(Boolean addressVerification) {
+  public Form1099W2 addressVerification(Boolean addressVerification) {
     this.addressVerification = addressVerification;
     return this;
   }
@@ -1243,7 +1611,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc stateAndLocalWithholding(StateAndLocalWithholding stateAndLocalWithholding) {
+  public Form1099W2 stateAndLocalWithholding(StateAndLocalWithholding stateAndLocalWithholding) {
     this.stateAndLocalWithholding = stateAndLocalWithholding;
     return this;
   }
@@ -1262,7 +1630,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc secondTinNotice(Boolean secondTinNotice) {
+  public Form1099W2 secondTinNotice(Boolean secondTinNotice) {
     this.secondTinNotice = secondTinNotice;
     return this;
   }
@@ -1392,9 +1760,9 @@ public class Form1099Misc {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the Form1099Misc instance itself
+   * @return the Form1099W2 instance itself
    */
-  public Form1099Misc putAdditionalProperty(String key, Object value) {
+  public Form1099W2 putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -1433,62 +1801,78 @@ public class Form1099Misc {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Form1099Misc form1099Misc = (Form1099Misc) o;
-    return Objects.equals(this.rents, form1099Misc.rents) &&
-        Objects.equals(this.royalties, form1099Misc.royalties) &&
-        Objects.equals(this.otherIncome, form1099Misc.otherIncome) &&
-        Objects.equals(this.federalIncomeTaxWithheld, form1099Misc.federalIncomeTaxWithheld) &&
-        Objects.equals(this.fishingBoatProceeds, form1099Misc.fishingBoatProceeds) &&
-        Objects.equals(this.medicalAndHealthCarePayments, form1099Misc.medicalAndHealthCarePayments) &&
-        Objects.equals(this.directSalesIndicator, form1099Misc.directSalesIndicator) &&
-        Objects.equals(this.substitutePayments, form1099Misc.substitutePayments) &&
-        Objects.equals(this.cropInsuranceProceeds, form1099Misc.cropInsuranceProceeds) &&
-        Objects.equals(this.grossProceedsPaidToAttorney, form1099Misc.grossProceedsPaidToAttorney) &&
-        Objects.equals(this.fishPurchasedForResale, form1099Misc.fishPurchasedForResale) &&
-        Objects.equals(this.section409ADeferrals, form1099Misc.section409ADeferrals) &&
-        Objects.equals(this.excessGoldenParachutePayments, form1099Misc.excessGoldenParachutePayments) &&
-        Objects.equals(this.nonqualifiedDeferredCompensation, form1099Misc.nonqualifiedDeferredCompensation) &&
-        Objects.equals(this.fatcaFilingRequirement, form1099Misc.fatcaFilingRequirement) &&
-        Objects.equals(this.type, form1099Misc.type) &&
-        Objects.equals(this.id, form1099Misc.id) &&
-        Objects.equals(this.issuerId, form1099Misc.issuerId) &&
-        Objects.equals(this.issuerReferenceId, form1099Misc.issuerReferenceId) &&
-        Objects.equals(this.issuerTin, form1099Misc.issuerTin) &&
-        Objects.equals(this.taxYear, form1099Misc.taxYear) &&
-        Objects.equals(this.referenceId, form1099Misc.referenceId) &&
-        Objects.equals(this.tin, form1099Misc.tin) &&
-        Objects.equals(this.recipientName, form1099Misc.recipientName) &&
-        Objects.equals(this.tinType, form1099Misc.tinType) &&
-        Objects.equals(this.recipientSecondName, form1099Misc.recipientSecondName) &&
-        Objects.equals(this.address, form1099Misc.address) &&
-        Objects.equals(this.address2, form1099Misc.address2) &&
-        Objects.equals(this.city, form1099Misc.city) &&
-        Objects.equals(this.state, form1099Misc.state) &&
-        Objects.equals(this.zip, form1099Misc.zip) &&
-        Objects.equals(this.email, form1099Misc.email) &&
-        Objects.equals(this.accountNumber, form1099Misc.accountNumber) &&
-        Objects.equals(this.officeCode, form1099Misc.officeCode) &&
-        Objects.equals(this.nonUsProvince, form1099Misc.nonUsProvince) &&
-        Objects.equals(this.countryCode, form1099Misc.countryCode) &&
-        Objects.equals(this.federalEfileDate, form1099Misc.federalEfileDate) &&
-        Objects.equals(this.postalMail, form1099Misc.postalMail) &&
-        Objects.equals(this.stateEfileDate, form1099Misc.stateEfileDate) &&
-        Objects.equals(this.recipientEdeliveryDate, form1099Misc.recipientEdeliveryDate) &&
-        Objects.equals(this.tinMatch, form1099Misc.tinMatch) &&
-        Objects.equals(this.noTin, form1099Misc.noTin) &&
-        Objects.equals(this.addressVerification, form1099Misc.addressVerification) &&
-        Objects.equals(this.stateAndLocalWithholding, form1099Misc.stateAndLocalWithholding) &&
-        Objects.equals(this.secondTinNotice, form1099Misc.secondTinNotice) &&
-        Objects.equals(this.federalEfileStatus, form1099Misc.federalEfileStatus) &&
-        Objects.equals(this.stateEfileStatus, form1099Misc.stateEfileStatus) &&
-        Objects.equals(this.postalMailStatus, form1099Misc.postalMailStatus) &&
-        Objects.equals(this.tinMatchStatus, form1099Misc.tinMatchStatus) &&
-        Objects.equals(this.addressVerificationStatus, form1099Misc.addressVerificationStatus) &&
-        Objects.equals(this.eDeliveryStatus, form1099Misc.eDeliveryStatus) &&
-        Objects.equals(this.validationErrors, form1099Misc.validationErrors) &&
-        Objects.equals(this.createdAt, form1099Misc.createdAt) &&
-        Objects.equals(this.updatedAt, form1099Misc.updatedAt)&&
-        Objects.equals(this.additionalProperties, form1099Misc.additionalProperties);
+    Form1099W2 form1099W2 = (Form1099W2) o;
+    return Objects.equals(this.employeeFirstName, form1099W2.employeeFirstName) &&
+        Objects.equals(this.employeeMiddleName, form1099W2.employeeMiddleName) &&
+        Objects.equals(this.employeeLastName, form1099W2.employeeLastName) &&
+        Objects.equals(this.employeeNameSuffix, form1099W2.employeeNameSuffix) &&
+        Objects.equals(this.wages, form1099W2.wages) &&
+        Objects.equals(this.federalIncomeTaxWithheld, form1099W2.federalIncomeTaxWithheld) &&
+        Objects.equals(this.socialSecurityWages, form1099W2.socialSecurityWages) &&
+        Objects.equals(this.socialSecurityTaxWithheld, form1099W2.socialSecurityTaxWithheld) &&
+        Objects.equals(this.medicareWages, form1099W2.medicareWages) &&
+        Objects.equals(this.medicareTaxWithheld, form1099W2.medicareTaxWithheld) &&
+        Objects.equals(this.socialSecurityTips, form1099W2.socialSecurityTips) &&
+        Objects.equals(this.allocatedTips, form1099W2.allocatedTips) &&
+        Objects.equals(this.dependentCareBenefits, form1099W2.dependentCareBenefits) &&
+        Objects.equals(this.nonqualifiedPlansSection457, form1099W2.nonqualifiedPlansSection457) &&
+        Objects.equals(this.nonqualifiedPlansNotSection457, form1099W2.nonqualifiedPlansNotSection457) &&
+        Objects.equals(this.code12a, form1099W2.code12a) &&
+        Objects.equals(this.amount12a, form1099W2.amount12a) &&
+        Objects.equals(this.code12b, form1099W2.code12b) &&
+        Objects.equals(this.amount12b, form1099W2.amount12b) &&
+        Objects.equals(this.code12c, form1099W2.code12c) &&
+        Objects.equals(this.amount12c, form1099W2.amount12c) &&
+        Objects.equals(this.code12d, form1099W2.code12d) &&
+        Objects.equals(this.amount12d, form1099W2.amount12d) &&
+        Objects.equals(this.statutoryEmployeeIndicator, form1099W2.statutoryEmployeeIndicator) &&
+        Objects.equals(this.retirementPlanIndicator, form1099W2.retirementPlanIndicator) &&
+        Objects.equals(this.thirdPartySickPayIndicator, form1099W2.thirdPartySickPayIndicator) &&
+        Objects.equals(this.thirdPartySickPayWithholding, form1099W2.thirdPartySickPayWithholding) &&
+        Objects.equals(this.other14a, form1099W2.other14a) &&
+        Objects.equals(this.other14b, form1099W2.other14b) &&
+        Objects.equals(this.other14c, form1099W2.other14c) &&
+        Objects.equals(this.stateAndLocalWithholdingSecondary, form1099W2.stateAndLocalWithholdingSecondary) &&
+        Objects.equals(this.type, form1099W2.type) &&
+        Objects.equals(this.id, form1099W2.id) &&
+        Objects.equals(this.issuerId, form1099W2.issuerId) &&
+        Objects.equals(this.issuerReferenceId, form1099W2.issuerReferenceId) &&
+        Objects.equals(this.issuerTin, form1099W2.issuerTin) &&
+        Objects.equals(this.taxYear, form1099W2.taxYear) &&
+        Objects.equals(this.referenceId, form1099W2.referenceId) &&
+        Objects.equals(this.tin, form1099W2.tin) &&
+        Objects.equals(this.recipientName, form1099W2.recipientName) &&
+        Objects.equals(this.tinType, form1099W2.tinType) &&
+        Objects.equals(this.recipientSecondName, form1099W2.recipientSecondName) &&
+        Objects.equals(this.address, form1099W2.address) &&
+        Objects.equals(this.address2, form1099W2.address2) &&
+        Objects.equals(this.city, form1099W2.city) &&
+        Objects.equals(this.state, form1099W2.state) &&
+        Objects.equals(this.zip, form1099W2.zip) &&
+        Objects.equals(this.email, form1099W2.email) &&
+        Objects.equals(this.accountNumber, form1099W2.accountNumber) &&
+        Objects.equals(this.officeCode, form1099W2.officeCode) &&
+        Objects.equals(this.nonUsProvince, form1099W2.nonUsProvince) &&
+        Objects.equals(this.countryCode, form1099W2.countryCode) &&
+        Objects.equals(this.federalEfileDate, form1099W2.federalEfileDate) &&
+        Objects.equals(this.postalMail, form1099W2.postalMail) &&
+        Objects.equals(this.stateEfileDate, form1099W2.stateEfileDate) &&
+        Objects.equals(this.recipientEdeliveryDate, form1099W2.recipientEdeliveryDate) &&
+        Objects.equals(this.tinMatch, form1099W2.tinMatch) &&
+        Objects.equals(this.noTin, form1099W2.noTin) &&
+        Objects.equals(this.addressVerification, form1099W2.addressVerification) &&
+        Objects.equals(this.stateAndLocalWithholding, form1099W2.stateAndLocalWithholding) &&
+        Objects.equals(this.secondTinNotice, form1099W2.secondTinNotice) &&
+        Objects.equals(this.federalEfileStatus, form1099W2.federalEfileStatus) &&
+        Objects.equals(this.stateEfileStatus, form1099W2.stateEfileStatus) &&
+        Objects.equals(this.postalMailStatus, form1099W2.postalMailStatus) &&
+        Objects.equals(this.tinMatchStatus, form1099W2.tinMatchStatus) &&
+        Objects.equals(this.addressVerificationStatus, form1099W2.addressVerificationStatus) &&
+        Objects.equals(this.eDeliveryStatus, form1099W2.eDeliveryStatus) &&
+        Objects.equals(this.validationErrors, form1099W2.validationErrors) &&
+        Objects.equals(this.createdAt, form1099W2.createdAt) &&
+        Objects.equals(this.updatedAt, form1099W2.updatedAt)&&
+        Objects.equals(this.additionalProperties, form1099W2.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1497,7 +1881,7 @@ public class Form1099Misc {
 
   @Override
   public int hashCode() {
-    return Objects.hash(rents, royalties, otherIncome, federalIncomeTaxWithheld, fishingBoatProceeds, medicalAndHealthCarePayments, directSalesIndicator, substitutePayments, cropInsuranceProceeds, grossProceedsPaidToAttorney, fishPurchasedForResale, section409ADeferrals, excessGoldenParachutePayments, nonqualifiedDeferredCompensation, fatcaFilingRequirement, type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, tinType, recipientSecondName, address, address2, city, state, zip, email, accountNumber, officeCode, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, noTin, addressVerification, stateAndLocalWithholding, secondTinNotice, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt, additionalProperties);
+    return Objects.hash(employeeFirstName, employeeMiddleName, employeeLastName, employeeNameSuffix, wages, federalIncomeTaxWithheld, socialSecurityWages, socialSecurityTaxWithheld, medicareWages, medicareTaxWithheld, socialSecurityTips, allocatedTips, dependentCareBenefits, nonqualifiedPlansSection457, nonqualifiedPlansNotSection457, code12a, amount12a, code12b, amount12b, code12c, amount12c, code12d, amount12d, statutoryEmployeeIndicator, retirementPlanIndicator, thirdPartySickPayIndicator, thirdPartySickPayWithholding, other14a, other14b, other14c, stateAndLocalWithholdingSecondary, type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, tinType, recipientSecondName, address, address2, city, state, zip, email, accountNumber, officeCode, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, noTin, addressVerification, stateAndLocalWithholding, secondTinNotice, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1510,22 +1894,38 @@ public class Form1099Misc {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Form1099Misc {\n");
-    sb.append("    rents: ").append(toIndentedString(rents)).append("\n");
-    sb.append("    royalties: ").append(toIndentedString(royalties)).append("\n");
-    sb.append("    otherIncome: ").append(toIndentedString(otherIncome)).append("\n");
+    sb.append("class Form1099W2 {\n");
+    sb.append("    employeeFirstName: ").append(toIndentedString(employeeFirstName)).append("\n");
+    sb.append("    employeeMiddleName: ").append(toIndentedString(employeeMiddleName)).append("\n");
+    sb.append("    employeeLastName: ").append(toIndentedString(employeeLastName)).append("\n");
+    sb.append("    employeeNameSuffix: ").append(toIndentedString(employeeNameSuffix)).append("\n");
+    sb.append("    wages: ").append(toIndentedString(wages)).append("\n");
     sb.append("    federalIncomeTaxWithheld: ").append(toIndentedString(federalIncomeTaxWithheld)).append("\n");
-    sb.append("    fishingBoatProceeds: ").append(toIndentedString(fishingBoatProceeds)).append("\n");
-    sb.append("    medicalAndHealthCarePayments: ").append(toIndentedString(medicalAndHealthCarePayments)).append("\n");
-    sb.append("    directSalesIndicator: ").append(toIndentedString(directSalesIndicator)).append("\n");
-    sb.append("    substitutePayments: ").append(toIndentedString(substitutePayments)).append("\n");
-    sb.append("    cropInsuranceProceeds: ").append(toIndentedString(cropInsuranceProceeds)).append("\n");
-    sb.append("    grossProceedsPaidToAttorney: ").append(toIndentedString(grossProceedsPaidToAttorney)).append("\n");
-    sb.append("    fishPurchasedForResale: ").append(toIndentedString(fishPurchasedForResale)).append("\n");
-    sb.append("    section409ADeferrals: ").append(toIndentedString(section409ADeferrals)).append("\n");
-    sb.append("    excessGoldenParachutePayments: ").append(toIndentedString(excessGoldenParachutePayments)).append("\n");
-    sb.append("    nonqualifiedDeferredCompensation: ").append(toIndentedString(nonqualifiedDeferredCompensation)).append("\n");
-    sb.append("    fatcaFilingRequirement: ").append(toIndentedString(fatcaFilingRequirement)).append("\n");
+    sb.append("    socialSecurityWages: ").append(toIndentedString(socialSecurityWages)).append("\n");
+    sb.append("    socialSecurityTaxWithheld: ").append(toIndentedString(socialSecurityTaxWithheld)).append("\n");
+    sb.append("    medicareWages: ").append(toIndentedString(medicareWages)).append("\n");
+    sb.append("    medicareTaxWithheld: ").append(toIndentedString(medicareTaxWithheld)).append("\n");
+    sb.append("    socialSecurityTips: ").append(toIndentedString(socialSecurityTips)).append("\n");
+    sb.append("    allocatedTips: ").append(toIndentedString(allocatedTips)).append("\n");
+    sb.append("    dependentCareBenefits: ").append(toIndentedString(dependentCareBenefits)).append("\n");
+    sb.append("    nonqualifiedPlansSection457: ").append(toIndentedString(nonqualifiedPlansSection457)).append("\n");
+    sb.append("    nonqualifiedPlansNotSection457: ").append(toIndentedString(nonqualifiedPlansNotSection457)).append("\n");
+    sb.append("    code12a: ").append(toIndentedString(code12a)).append("\n");
+    sb.append("    amount12a: ").append(toIndentedString(amount12a)).append("\n");
+    sb.append("    code12b: ").append(toIndentedString(code12b)).append("\n");
+    sb.append("    amount12b: ").append(toIndentedString(amount12b)).append("\n");
+    sb.append("    code12c: ").append(toIndentedString(code12c)).append("\n");
+    sb.append("    amount12c: ").append(toIndentedString(amount12c)).append("\n");
+    sb.append("    code12d: ").append(toIndentedString(code12d)).append("\n");
+    sb.append("    amount12d: ").append(toIndentedString(amount12d)).append("\n");
+    sb.append("    statutoryEmployeeIndicator: ").append(toIndentedString(statutoryEmployeeIndicator)).append("\n");
+    sb.append("    retirementPlanIndicator: ").append(toIndentedString(retirementPlanIndicator)).append("\n");
+    sb.append("    thirdPartySickPayIndicator: ").append(toIndentedString(thirdPartySickPayIndicator)).append("\n");
+    sb.append("    thirdPartySickPayWithholding: ").append(toIndentedString(thirdPartySickPayWithholding)).append("\n");
+    sb.append("    other14a: ").append(toIndentedString(other14a)).append("\n");
+    sb.append("    other14b: ").append(toIndentedString(other14b)).append("\n");
+    sb.append("    other14c: ").append(toIndentedString(other14c)).append("\n");
+    sb.append("    stateAndLocalWithholdingSecondary: ").append(toIndentedString(stateAndLocalWithholdingSecondary)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    issuerId: ").append(toIndentedString(issuerId)).append("\n");
@@ -1641,22 +2041,59 @@ public class Form1099Misc {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Form1099Misc
+   * @throws IOException if the JSON Element is invalid with respect to Form1099W2
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!Form1099Misc.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Form1099Misc is not found in the empty JSON string", Form1099Misc.openapiRequiredFields.toString()));
+        if (!Form1099W2.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Form1099W2 is not found in the empty JSON string", Form1099W2.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Form1099Misc.openapiRequiredFields) {
+      for (String requiredField : Form1099W2.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("employeeFirstName") != null && !jsonObj.get("employeeFirstName").isJsonNull()) && !jsonObj.get("employeeFirstName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `employeeFirstName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("employeeFirstName").toString()));
+      }
+      if ((jsonObj.get("employeeMiddleName") != null && !jsonObj.get("employeeMiddleName").isJsonNull()) && !jsonObj.get("employeeMiddleName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `employeeMiddleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("employeeMiddleName").toString()));
+      }
+      if ((jsonObj.get("employeeLastName") != null && !jsonObj.get("employeeLastName").isJsonNull()) && !jsonObj.get("employeeLastName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `employeeLastName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("employeeLastName").toString()));
+      }
+      if ((jsonObj.get("employeeNameSuffix") != null && !jsonObj.get("employeeNameSuffix").isJsonNull()) && !jsonObj.get("employeeNameSuffix").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `employeeNameSuffix` to be a primitive type in the JSON string but got `%s`", jsonObj.get("employeeNameSuffix").toString()));
+      }
+      if ((jsonObj.get("code12a") != null && !jsonObj.get("code12a").isJsonNull()) && !jsonObj.get("code12a").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `code12a` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code12a").toString()));
+      }
+      if ((jsonObj.get("code12b") != null && !jsonObj.get("code12b").isJsonNull()) && !jsonObj.get("code12b").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `code12b` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code12b").toString()));
+      }
+      if ((jsonObj.get("code12c") != null && !jsonObj.get("code12c").isJsonNull()) && !jsonObj.get("code12c").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `code12c` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code12c").toString()));
+      }
+      if ((jsonObj.get("code12d") != null && !jsonObj.get("code12d").isJsonNull()) && !jsonObj.get("code12d").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `code12d` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code12d").toString()));
+      }
+      if ((jsonObj.get("other14a") != null && !jsonObj.get("other14a").isJsonNull()) && !jsonObj.get("other14a").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `other14a` to be a primitive type in the JSON string but got `%s`", jsonObj.get("other14a").toString()));
+      }
+      if ((jsonObj.get("other14b") != null && !jsonObj.get("other14b").isJsonNull()) && !jsonObj.get("other14b").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `other14b` to be a primitive type in the JSON string but got `%s`", jsonObj.get("other14b").toString()));
+      }
+      if ((jsonObj.get("other14c") != null && !jsonObj.get("other14c").isJsonNull()) && !jsonObj.get("other14c").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `other14c` to be a primitive type in the JSON string but got `%s`", jsonObj.get("other14c").toString()));
+      }
+      // validate the optional field `stateAndLocalWithholdingSecondary`
+      if (jsonObj.get("stateAndLocalWithholdingSecondary") != null && !jsonObj.get("stateAndLocalWithholdingSecondary").isJsonNull()) {
+        StateAndLocalWithholding.validateJsonElement(jsonObj.get("stateAndLocalWithholdingSecondary"));
+      }
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
@@ -1781,16 +2218,16 @@ public class Form1099Misc {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Form1099Misc.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Form1099Misc' and its subtypes
+       if (!Form1099W2.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'Form1099W2' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Form1099Misc> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Form1099Misc.class));
+       final TypeAdapter<Form1099W2> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(Form1099W2.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Form1099Misc>() {
+       return (TypeAdapter<T>) new TypeAdapter<Form1099W2>() {
            @Override
-           public void write(JsonWriter out, Form1099Misc value) throws IOException {
+           public void write(JsonWriter out, Form1099W2 value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -1818,12 +2255,12 @@ public class Form1099Misc {
            }
 
            @Override
-           public Form1099Misc read(JsonReader in) throws IOException {
+           public Form1099W2 read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             Form1099Misc instance = thisAdapter.fromJsonTree(jsonObj);
+             Form1099W2 instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -1850,18 +2287,18 @@ public class Form1099Misc {
   }
 
   /**
-   * Create an instance of Form1099Misc given an JSON string
+   * Create an instance of Form1099W2 given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Form1099Misc
-   * @throws IOException if the JSON string is invalid with respect to Form1099Misc
+   * @return An instance of Form1099W2
+   * @throws IOException if the JSON string is invalid with respect to Form1099W2
    */
-  public static Form1099Misc fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Form1099Misc.class);
+  public static Form1099W2 fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Form1099W2.class);
   }
 
   /**
-   * Convert an instance of Form1099Misc to an JSON string
+   * Convert an instance of Form1099W2 to an JSON string
    *
    * @return JSON string
    */

@@ -521,7 +521,7 @@ public class MandatesApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("26.4.0");
+        this.localVarApiClient.setSdkVersion("26.5.0");
     }
 }
 
