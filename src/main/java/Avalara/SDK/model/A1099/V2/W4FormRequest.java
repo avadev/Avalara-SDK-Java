@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## Authentication  #### Step 1: Generate API Credentials  Generate a *client ID* and *client secret* from your [Avalara1099 account](https://sbx.track1099.com/api_tokens): *Your Profile → API*.  #### Step 2: Get an Identity Token  Send a `POST` request to the **Identity Token URL** with your *client ID* and *client secret* from Step 1 as form-encoded parameters:  ```http POST https://identity.avalara.com/connect/token Content-Type: application/x-www-form-urlencoded  grant_type=client_credentials client_id=<your client ID> client_secret=<your client secret> ```  **Body parameters** - `grant_type` — Always `client_credentials` - `client_id` — Your *client ID* from Step 1 - `client_secret` — Your *client secret* from Step 1  **Successful response**  ```json {   \"access_token\": \"eyJhbGci...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\" } ```  Use the `access_token` as a bearer token in the `Authorization` header on every A1099 API request:  ```http Authorization: Bearer <access_token> ```  ---  For more on authenticating requests, see the [A1099 authentication guide](https://developer.avalara.com/1099-and-w-9/kny2997001535374/).  ---  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -153,181 +153,9 @@ public class W4FormRequest {
   @SerializedName(SERIALIZED_NAME_CITY)
   private String city;
 
-  /**
-   * The state of residence of the employee. Required unless exempt.
-   */
-  @JsonAdapter(StateEnum.Adapter.class)
-  public enum StateEnum {
-    AA("AA"),
-    
-    AE("AE"),
-    
-    AK("AK"),
-    
-    AL("AL"),
-    
-    AP("AP"),
-    
-    AR("AR"),
-    
-    AS("AS"),
-    
-    AZ("AZ"),
-    
-    CA("CA"),
-    
-    CO("CO"),
-    
-    CT("CT"),
-    
-    DC("DC"),
-    
-    DE("DE"),
-    
-    FL("FL"),
-    
-    FM("FM"),
-    
-    GA("GA"),
-    
-    GU("GU"),
-    
-    HI("HI"),
-    
-    IA("IA"),
-    
-    ID("ID"),
-    
-    IL("IL"),
-    
-    IN("IN"),
-    
-    KS("KS"),
-    
-    KY("KY"),
-    
-    LA("LA"),
-    
-    MA("MA"),
-    
-    MD("MD"),
-    
-    ME("ME"),
-    
-    MH("MH"),
-    
-    MI("MI"),
-    
-    MN("MN"),
-    
-    MO("MO"),
-    
-    MP("MP"),
-    
-    MS("MS"),
-    
-    MT("MT"),
-    
-    NC("NC"),
-    
-    ND("ND"),
-    
-    NE("NE"),
-    
-    NH("NH"),
-    
-    NJ("NJ"),
-    
-    NM("NM"),
-    
-    NV("NV"),
-    
-    NY("NY"),
-    
-    OH("OH"),
-    
-    OK("OK"),
-    
-    OR("OR"),
-    
-    PA("PA"),
-    
-    PR("PR"),
-    
-    PW("PW"),
-    
-    RI("RI"),
-    
-    SC("SC"),
-    
-    SD("SD"),
-    
-    TN("TN"),
-    
-    TX("TX"),
-    
-    UT("UT"),
-    
-    VA("VA"),
-    
-    VI("VI"),
-    
-    VT("VT"),
-    
-    WA("WA"),
-    
-    WI("WI"),
-    
-    WV("WV"),
-    
-    WY("WY");
-
-    private String value;
-
-    StateEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static StateEnum fromValue(String value) {
-      for (StateEnum b : StateEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<StateEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StateEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StateEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StateEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      StateEnum.fromValue(value);
-    }
-  }
-
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
-  private StateEnum state;
+  private String state;
 
   public static final String SERIALIZED_NAME_ZIP = "zip";
   @SerializedName(SERIALIZED_NAME_ZIP)
@@ -616,7 +444,7 @@ public class W4FormRequest {
   }
 
 
-  public W4FormRequest state(StateEnum state) {
+  public W4FormRequest state(String state) {
     this.state = state;
     return this;
   }
@@ -626,11 +454,11 @@ public class W4FormRequest {
    * @return state
    */
   @javax.annotation.Nullable
-  public StateEnum getState() {
+  public String getState() {
     return state;
   }
 
-  public void setState(StateEnum state) {
+  public void setState(String state) {
     this.state = state;
   }
 
@@ -1100,10 +928,6 @@ public class W4FormRequest {
       }
       if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
-      }
-      // validate the optional field `state`
-      if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) {
-        StateEnum.validateJsonElement(jsonObj.get("state"));
       }
       if ((jsonObj.get("zip") != null && !jsonObj.get("zip").isJsonNull()) && !jsonObj.get("zip").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `zip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zip").toString()));

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**type** | [**TypeEnum**](#TypeEnum) | Available form types: * &#x60;1042-S&#x60; * &#x60;1095-B&#x60; * &#x60;1095-C&#x60; * &#x60;1099-DIV&#x60; * &#x60;1099-INT&#x60; * &#x60;1099-K&#x60; * &#x60;1099-MISC&#x60; * &#x60;1099-NEC&#x60; * &#x60;1099-R&#x60;  |  [optional] |
+|**type** | [**TypeEnum**](#TypeEnum) | Available form types: * &#x60;1042-S&#x60; * &#x60;1095-B&#x60; * &#x60;1095-C&#x60; * &#x60;1099-DIV&#x60; * &#x60;1099-INT&#x60; * &#x60;1099-K&#x60; * &#x60;1099-MISC&#x60; * &#x60;1099-NEC&#x60; * &#x60;1099-R&#x60; * &#x60;W-2&#x60;  |  [optional] |
 |**forms** | [**List&lt;Get1099Form200Response&gt;**](Get1099Form200Response.md) |  |  [optional] |
 
 
@@ -25,6 +25,7 @@
 | _1099_MISC | &quot;1099-MISC&quot; |
 | _1099_NEC | &quot;1099-NEC&quot; |
 | _1099_R | &quot;1099-R&quot; |
+| W_2 | &quot;W-2&quot; |
 
 
 

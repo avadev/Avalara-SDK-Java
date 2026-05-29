@@ -19,7 +19,7 @@
 |**address** | **String** | The address of the employee. Required unless exempt. |  |
 |**foreignAddress** | **String** | The foreign address of the individual or entity. |  [optional] |
 |**city** | **String** | The city of residence of the employee. Required unless exempt. |  |
-|**state** | [**StateEnum**](#StateEnum) | The state of residence of the employee. Required unless exempt. |  |
+|**state** | **String** | The state of residence of the employee. Required unless exempt. |  |
 |**zip** | **String** | The ZIP code of residence of the employee. Required unless exempt. |  |
 |**accountNumber** | **String** | The account number associated with the form. |  [optional] |
 |**tinType** | **String** | Tax Identification Number (TIN) type. |  |
@@ -52,7 +52,7 @@
 |**disregardedEntityFatcaStatus** | [**DisregardedEntityFatcaStatusEnum**](#DisregardedEntityFatcaStatusEnum) | The FATCA status of disregarded entity or branch receiving payment.  Available values:  - 1: Branch treated as nonparticipating FFI  - 2: U.S. Branch  - 3: Participating FFI  - 4: Reporting Model 1 FFI  - 5: Reporting Model 2 FFI |  [optional] |
 |**disregardedAddress** | **String** | The address for disregarded entities. |  [optional] |
 |**disregardedCity** | **String** | The city for disregarded entities. |  [optional] |
-|**disregardedState** | [**DisregardedStateEnum**](#DisregardedStateEnum) | The state for disregarded entities. |  [optional] |
+|**disregardedState** | [**DisregardedStateEnum**](#DisregardedStateEnum) | The state for disregarded entities.. Allowed values: AA, AE, AK, AL, AP, AR, AS, AZ, CA, CO (and 65 more) |  [optional] |
 |**disregardedZip** | **String** | The ZIP code for disregarded entities. |  [optional] |
 |**disregardedCountry** | **String** | The country for disregarded entities. |  [optional] |
 |**disregardedEntityGiin** | **String** | The GIIN for disregarded entities. |  [optional] |
@@ -205,75 +205,6 @@
 | LLC_S | &quot;LlcS&quot; |
 | LLC_P | &quot;LlcP&quot; |
 | OTHER | &quot;Other&quot; |
-
-
-
-## Enum: StateEnum
-
-| Name | Value |
-|---- | -----|
-| AA | &quot;AA&quot; |
-| AE | &quot;AE&quot; |
-| AK | &quot;AK&quot; |
-| AL | &quot;AL&quot; |
-| AP | &quot;AP&quot; |
-| AR | &quot;AR&quot; |
-| AS | &quot;AS&quot; |
-| AZ | &quot;AZ&quot; |
-| CA | &quot;CA&quot; |
-| CO | &quot;CO&quot; |
-| CT | &quot;CT&quot; |
-| DC | &quot;DC&quot; |
-| DE | &quot;DE&quot; |
-| FL | &quot;FL&quot; |
-| FM | &quot;FM&quot; |
-| GA | &quot;GA&quot; |
-| GU | &quot;GU&quot; |
-| HI | &quot;HI&quot; |
-| IA | &quot;IA&quot; |
-| ID | &quot;ID&quot; |
-| IL | &quot;IL&quot; |
-| IN | &quot;IN&quot; |
-| KS | &quot;KS&quot; |
-| KY | &quot;KY&quot; |
-| LA | &quot;LA&quot; |
-| MA | &quot;MA&quot; |
-| MD | &quot;MD&quot; |
-| ME | &quot;ME&quot; |
-| MH | &quot;MH&quot; |
-| MI | &quot;MI&quot; |
-| MN | &quot;MN&quot; |
-| MO | &quot;MO&quot; |
-| MP | &quot;MP&quot; |
-| MS | &quot;MS&quot; |
-| MT | &quot;MT&quot; |
-| NC | &quot;NC&quot; |
-| ND | &quot;ND&quot; |
-| NE | &quot;NE&quot; |
-| NH | &quot;NH&quot; |
-| NJ | &quot;NJ&quot; |
-| NM | &quot;NM&quot; |
-| NV | &quot;NV&quot; |
-| NY | &quot;NY&quot; |
-| OH | &quot;OH&quot; |
-| OK | &quot;OK&quot; |
-| OR | &quot;OR&quot; |
-| PA | &quot;PA&quot; |
-| PR | &quot;PR&quot; |
-| PW | &quot;PW&quot; |
-| RI | &quot;RI&quot; |
-| SC | &quot;SC&quot; |
-| SD | &quot;SD&quot; |
-| TN | &quot;TN&quot; |
-| TX | &quot;TX&quot; |
-| UT | &quot;UT&quot; |
-| VA | &quot;VA&quot; |
-| VI | &quot;VI&quot; |
-| VT | &quot;VT&quot; |
-| WA | &quot;WA&quot; |
-| WI | &quot;WI&quot; |
-| WV | &quot;WV&quot; |
-| WY | &quot;WY&quot; |
 
 
 
@@ -1373,6 +1304,19 @@
 | WI | &quot;WI&quot; |
 | WV | &quot;WV&quot; |
 | WY | &quot;WY&quot; |
+| AB | &quot;AB&quot; |
+| BC | &quot;BC&quot; |
+| MB | &quot;MB&quot; |
+| NB | &quot;NB&quot; |
+| NL | &quot;NL&quot; |
+| NS | &quot;NS&quot; |
+| NT | &quot;NT&quot; |
+| NU | &quot;NU&quot; |
+| ON | &quot;ON&quot; |
+| PE | &quot;PE&quot; |
+| QC | &quot;QC&quot; |
+| SK | &quot;SK&quot; |
+| YT | &quot;YT&quot; |
 
 
 

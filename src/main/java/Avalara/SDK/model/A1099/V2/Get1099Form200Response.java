@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk--the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## Authentication  #### Step 1: Generate API Credentials  Generate a *client ID* and *client secret* from your [Avalara1099 account](https://sbx.track1099.com/api_tokens): *Your Profile → API*.  #### Step 2: Get an Identity Token  Send a `POST` request to the **Identity Token URL** with your *client ID* and *client secret* from Step 1 as form-encoded parameters:  ```http POST https://identity.avalara.com/connect/token Content-Type: application/x-www-form-urlencoded  grant_type=client_credentials client_id=<your client ID> client_secret=<your client secret> ```  **Body parameters** - `grant_type` — Always `client_credentials` - `client_id` — Your *client ID* from Step 1 - `client_secret` — Your *client secret* from Step 1  **Successful response**  ```json {   \"access_token\": \"eyJhbGci...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\" } ```  Use the `access_token` as a bearer token in the `Authorization` header on every A1099 API request:  ```http Authorization: Bearer <access_token> ```  ---  For more on authenticating requests, see the [A1099 authentication guide](https://developer.avalara.com/1099-and-w-9/kny2997001535374/).  ---  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -31,6 +31,7 @@ import Avalara.SDK.model.A1099.V2.Form1099Misc;
 import Avalara.SDK.model.A1099.V2.Form1099Nec;
 import Avalara.SDK.model.A1099.V2.Form1099R;
 import Avalara.SDK.model.A1099.V2.Form1099StatusDetail;
+import Avalara.SDK.model.A1099.V2.Form1099W2;
 import Avalara.SDK.model.A1099.V2.IntermediaryOrFlowThrough;
 import Avalara.SDK.model.A1099.V2.OfferAndCoverage;
 import Avalara.SDK.model.A1099.V2.PrimaryWithholdingAgent;
@@ -106,6 +107,7 @@ public class Get1099Form200Response extends AbstractOpenApiSchema {
             final TypeAdapter<Form1099Misc> adapterForm1099Misc = gson.getDelegateAdapter(this, TypeToken.get(Form1099Misc.class));
             final TypeAdapter<Form1099Nec> adapterForm1099Nec = gson.getDelegateAdapter(this, TypeToken.get(Form1099Nec.class));
             final TypeAdapter<Form1099R> adapterForm1099R = gson.getDelegateAdapter(this, TypeToken.get(Form1099R.class));
+            final TypeAdapter<Form1099W2> adapterForm1099W2 = gson.getDelegateAdapter(this, TypeToken.get(Form1099W2.class));
 
             return (TypeAdapter<T>) new TypeAdapter<Get1099Form200Response>() {
                 @Override
@@ -169,7 +171,13 @@ public class Get1099Form200Response extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: Form1042S, Form1095B, Form1095C, Form1099Div, Form1099Int, Form1099K, Form1099Misc, Form1099Nec, Form1099R");
+                    // check if the actual instance is of the type `Form1099W2`
+                    if (value.getActualInstance() instanceof Form1099W2) {
+                        JsonElement element = adapterForm1099W2.toJsonTree((Form1099W2)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: Form1042S, Form1095B, Form1095C, Form1099Div, Form1099Int, Form1099K, Form1099Misc, Form1099Nec, Form1099R, Form1099W2");
                 }
 
                 @Override
@@ -289,6 +297,18 @@ public class Get1099Form200Response extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for Form1099R failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'Form1099R'", e);
                     }
+                    // deserialize Form1099W2
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        Form1099W2.validateJsonElement(jsonElement);
+                        actualAdapter = adapterForm1099W2;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'Form1099W2'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for Form1099W2 failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'Form1099W2'", e);
+                    }
 
                     if (match == 1) {
                         Get1099Form200Response ret = new Get1099Form200Response();
@@ -324,6 +344,7 @@ public class Get1099Form200Response extends AbstractOpenApiSchema {
         schemas.put("Form1099Misc", Form1099Misc.class);
         schemas.put("Form1099Nec", Form1099Nec.class);
         schemas.put("Form1099R", Form1099R.class);
+        schemas.put("Form1099W2", Form1099W2.class);
     }
 
     @Override
@@ -334,7 +355,7 @@ public class Get1099Form200Response extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * Form1042S, Form1095B, Form1095C, Form1099Div, Form1099Int, Form1099K, Form1099Misc, Form1099Nec, Form1099R
+     * Form1042S, Form1095B, Form1095C, Form1099Div, Form1099Int, Form1099K, Form1099Misc, Form1099Nec, Form1099R, Form1099W2
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -385,14 +406,19 @@ public class Get1099Form200Response extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be Form1042S, Form1095B, Form1095C, Form1099Div, Form1099Int, Form1099K, Form1099Misc, Form1099Nec, Form1099R");
+        if (instance instanceof Form1099W2) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be Form1042S, Form1095B, Form1095C, Form1099Div, Form1099Int, Form1099K, Form1099Misc, Form1099Nec, Form1099R, Form1099W2");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * Form1042S, Form1095B, Form1095C, Form1099Div, Form1099Int, Form1099K, Form1099Misc, Form1099Nec, Form1099R
+     * Form1042S, Form1095B, Form1095C, Form1099Div, Form1099Int, Form1099K, Form1099Misc, Form1099Nec, Form1099R, Form1099W2
      *
-     * @return The actual instance (Form1042S, Form1095B, Form1095C, Form1099Div, Form1099Int, Form1099K, Form1099Misc, Form1099Nec, Form1099R)
+     * @return The actual instance (Form1042S, Form1095B, Form1095C, Form1099Div, Form1099Int, Form1099K, Form1099Misc, Form1099Nec, Form1099R, Form1099W2)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -490,6 +516,16 @@ public class Get1099Form200Response extends AbstractOpenApiSchema {
     public Form1099R getForm1099R() throws ClassCastException {
         return (Form1099R)super.getActualInstance();
     }
+    /**
+     * Get the actual instance of `Form1099W2`. If the actual instance is not `Form1099W2`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `Form1099W2`
+     * @throws ClassCastException if the instance is not `Form1099W2`
+     */
+    public Form1099W2 getForm1099W2() throws ClassCastException {
+        return (Form1099W2)super.getActualInstance();
+    }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
@@ -573,8 +609,16 @@ public class Get1099Form200Response extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for Form1099R failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with Form1099W2
+        try {
+            Form1099W2.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for Form1099W2 failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
-            throw new IOException(String.format("The JSON string is invalid for Get1099Form200Response with oneOf schemas: Form1042S, Form1095B, Form1095C, Form1099Div, Form1099Int, Form1099K, Form1099Misc, Form1099Nec, Form1099R. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format("The JSON string is invalid for Get1099Form200Response with oneOf schemas: Form1042S, Form1095B, Form1095C, Form1099Div, Form1099Int, Form1099K, Form1099Misc, Form1099Nec, Form1099R, Form1099W2. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

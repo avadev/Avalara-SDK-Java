@@ -16,13 +16,13 @@
 |**fatcaStatus** | [**FatcaStatusEnum**](#FatcaStatusEnum) | Represents the FATCA status types for tax forms.  Used for W8-BEN-E forms and FATCA compliance validations.  Values correspond to numeric identifiers used in forms.  - 1: Nonparticipating FFI (including a limited FFI or an FFI related to a Reporting IGA FFI other than a deemed-compliant FFI, participating FFI, or exempt beneficial owner)  - 2: Participating FFI  - 3: Reporting Model 1 FFI  - 4: Reporting Model 2 FFI  - 5: Registered deemed-compliant FFI (other than a reporting Model 1 FFI, sponsored FFI, or nonreporting IGA FFI covered in Part XII)  - 6: Sponsored FFI that has not obtained a GIIN  - 7: Certified deemed-compliant nonregistering local bank  - 8: Certified deemed-compliant FFI with only low-value accounts  - 9: Certified deemed-compliant sponsored, closely held investment vehicle  - 10: Certified deemed-compliant limited life debt investment entity  - 11: Certified deemed-compliant investment advisors and investment managers  - 12: Owner-documented FFI  - 13: Restricted distributor  - 14: Nonreporting IGA FFI  - 15: Foreign government, government of a U.S. possession, or foreign central bank of issue  - 16: International organization  - 17: Exempt retirement plans  - 18: Entity wholly owned by exempt beneficial owners  - 19: Territory financial institution  - 20: Nonfinancial group entity  - 21: Excepted nonfinancial start-up company  - 22: Excepted nonfinancial entity in liquidation or bankruptcy  - 23: 501(c) organization  - 24: Nonprofit organization  - 25: Publicly traded NFFE or NFFE affiliate of a publicly traded corporation  - 26: Excepted territory NFFE  - 27: Active NFFE  - 28: Passive NFFE  - 29: Excepted inter-affiliate FFI  - 30: Direct reporting NFFE  - 31: Sponsored direct reporting NFFE  - 32: Account that is not a financial account |  |
 |**residenceAddress** | **String** | The residential address of the individual or entity. |  [optional] |
 |**residenceCity** | **String** | The city of residence. |  [optional] |
-|**residenceState** | [**ResidenceStateEnum**](#ResidenceStateEnum) | The state of residence. |  [optional] |
+|**residenceState** | [**ResidenceStateEnum**](#ResidenceStateEnum) | The state of residence.. Allowed values: AA, AE, AK, AL, AP, AR, AS, AZ, CA, CO (and 65 more) |  [optional] |
 |**residenceZip** | **String** | The ZIP code of the residence. |  [optional] |
 |**residenceCountry** | **String** | The country of residence. |  |
 |**residenceIsMailing** | **Boolean** | Indicates whether the residence address is also the mailing address. |  [optional] |
 |**mailingAddress** | **String** | The mailing address. |  [optional] |
 |**mailingCity** | **String** | The city of the mailing address. |  [optional] |
-|**mailingState** | [**MailingStateEnum**](#MailingStateEnum) | The state of the mailing address. |  [optional] |
+|**mailingState** | [**MailingStateEnum**](#MailingStateEnum) | The state of the mailing address.. Allowed values: AA, AE, AK, AL, AP, AR, AS, AZ, CA, CO (and 65 more) |  [optional] |
 |**mailingZip** | **String** | The ZIP code of the mailing address. |  [optional] |
 |**mailingCountry** | **String** | The country of the mailing address. |  [optional] |
 |**tin** | **String** | The taxpayer identification number (TIN). |  [optional] |
@@ -33,7 +33,7 @@
 |**disregardedEntityFatcaStatus** | [**DisregardedEntityFatcaStatusEnum**](#DisregardedEntityFatcaStatusEnum) | The FATCA status of disregarded entity or branch receiving payment.  Available values:  - 1: Branch treated as nonparticipating FFI  - 2: U.S. Branch  - 3: Participating FFI  - 4: Reporting Model 1 FFI  - 5: Reporting Model 2 FFI |  [optional] |
 |**disregardedAddress** | **String** | The address for disregarded entities. |  [optional] |
 |**disregardedCity** | **String** | The city for disregarded entities. |  [optional] |
-|**disregardedState** | [**DisregardedStateEnum**](#DisregardedStateEnum) | The state for disregarded entities. |  [optional] |
+|**disregardedState** | [**DisregardedStateEnum**](#DisregardedStateEnum) | The state for disregarded entities.. Allowed values: AA, AE, AK, AL, AP, AR, AS, AZ, CA, CO (and 65 more) |  [optional] |
 |**disregardedZip** | **String** | The ZIP code for disregarded entities. |  [optional] |
 |**disregardedCountry** | **String** | The country for disregarded entities. |  [optional] |
 |**disregardedEntityGiin** | **String** | The GIIN for disregarded entities. |  [optional] |
@@ -248,6 +248,19 @@
 | WI | &quot;WI&quot; |
 | WV | &quot;WV&quot; |
 | WY | &quot;WY&quot; |
+| AB | &quot;AB&quot; |
+| BC | &quot;BC&quot; |
+| MB | &quot;MB&quot; |
+| NB | &quot;NB&quot; |
+| NL | &quot;NL&quot; |
+| NS | &quot;NS&quot; |
+| NT | &quot;NT&quot; |
+| NU | &quot;NU&quot; |
+| ON | &quot;ON&quot; |
+| PE | &quot;PE&quot; |
+| QC | &quot;QC&quot; |
+| SK | &quot;SK&quot; |
+| YT | &quot;YT&quot; |
 
 
 
@@ -317,6 +330,19 @@
 | WI | &quot;WI&quot; |
 | WV | &quot;WV&quot; |
 | WY | &quot;WY&quot; |
+| AB | &quot;AB&quot; |
+| BC | &quot;BC&quot; |
+| MB | &quot;MB&quot; |
+| NB | &quot;NB&quot; |
+| NL | &quot;NL&quot; |
+| NS | &quot;NS&quot; |
+| NT | &quot;NT&quot; |
+| NU | &quot;NU&quot; |
+| ON | &quot;ON&quot; |
+| PE | &quot;PE&quot; |
+| QC | &quot;QC&quot; |
+| SK | &quot;SK&quot; |
+| YT | &quot;YT&quot; |
 
 
 
@@ -398,6 +424,19 @@
 | WI | &quot;WI&quot; |
 | WV | &quot;WV&quot; |
 | WY | &quot;WY&quot; |
+| AB | &quot;AB&quot; |
+| BC | &quot;BC&quot; |
+| MB | &quot;MB&quot; |
+| NB | &quot;NB&quot; |
+| NL | &quot;NL&quot; |
+| NS | &quot;NS&quot; |
+| NT | &quot;NT&quot; |
+| NU | &quot;NU&quot; |
+| ON | &quot;ON&quot; |
+| PE | &quot;PE&quot; |
+| QC | &quot;QC&quot; |
+| SK | &quot;SK&quot; |
+| YT | &quot;YT&quot; |
 
 
 

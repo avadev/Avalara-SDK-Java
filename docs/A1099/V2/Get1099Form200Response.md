@@ -13,7 +13,7 @@
 |**recipientGiin** | **String** | Recipient&#39;s Global Intermediary Identification Number (GIIN). A valid GIIN looks like &#39;XXXXXX.XXXXX.XX.XXX&#39;. |  [optional] |
 |**recipientForeignTin** | **String** | Recipient&#39;s foreign TIN. Required if email is specified, must fill either this or Chap3StatusCode. |  [optional] |
 |**lobCode** | [**LobCodeEnum**](#LobCodeEnum) | Limitation on Benefits (LOB) code for tax treaty purposes.  Available values:  - 01: Individual (Deprecated - valid only for tax years prior to 2019)  - 02: Government - contracting state/political subdivision/local authority  - 03: Tax exempt pension trust/Pension fund  - 04: Tax exempt/Charitable organization  - 05: Publicly-traded corporation  - 06: Subsidiary of publicly-traded corporation  - 07: Company that meets the ownership and base erosion test  - 08: Company that meets the derivative benefits test  - 09: Company with an item of income that meets the active trade or business test  - 10: Discretionary determination  - 11: Other  - 12: No LOB article in treaty |  [optional] |
-|**incomeCode** | [**IncomeCodeEnum**](#IncomeCodeEnum) | Income code.  Available values:    Interest:  - 01: Interest paid by US obligors - general  - 02: Interest paid on real property mortgages  - 03: Interest paid to controlling foreign corporations  - 04: Interest paid by foreign corporations  - 05: Interest on tax-free covenant bonds  - 22: Interest paid on deposit with a foreign branch of a domestic corporation or partnership  - 29: Deposit interest  - 30: Original issue discount (OID)  - 31: Short-term OID  - 33: Substitute payment - interest  - 51: Interest paid on certain actively traded or publicly offered securities(1)  - 54: Substitute payments - interest from certain actively traded or publicly offered securities(1)    Dividend:  - 06: Dividends paid by U.S. corporations - general  - 07: Dividends qualifying for direct dividend rate  - 08: Dividends paid by foreign corporations  - 34: Substitute payment - dividends  - 40: Other dividend equivalents under IRC section 871(m) (formerly 871(l))  - 52: Dividends paid on certain actively traded or publicly offered securities(1)  - 53: Substitute payments - dividends from certain actively traded or publicly offered securities(1)  - 56: Dividend equivalents under IRC section 871(m) as a result of applying the combined transaction rules    Other:  - 09: Capital gains  - 10: Industrial royalties  - 11: Motion picture or television copyright royalties  - 12: Other royalties (for example, copyright, software, broadcasting, endorsement payments)  - 13: Royalties paid on certain publicly offered securities(1)  - 14: Real property income and natural resources royalties  - 15: Pensions, annuities, alimony, and/or insurance premiums  - 16: Scholarship or fellowship grants  - 17: Compensation for independent personal services(2)  - 18: Compensation for dependent personal services(2)  - 19: Compensation for teaching(2)  - 20: Compensation during studying and training(2)  - 23: Other income  - 24: Qualified investment entity (QIE) distributions of capital gains  - 25: Trust distributions subject to IRC section 1445  - 26: Unsevered growing crops and timber distributions by a trust subject to IRC section 1445  - 27: Publicly traded partnership distributions subject to IRC section 1446  - 28: Gambling winnings(3)  - 32: Notional principal contract income(4)  - 35: Substitute payment - other  - 36: Capital gains distributions  - 37: Return of capital  - 38: Eligible deferred compensation items subject to IRC section 877A(d)(1)  - 39: Distributions from a nongrantor trust subject to IRC section 877A(f)(1)  - 41: Guarantee of indebtedness  - 42: Earnings as an artist or athlete - no central withholding agreement(5)  - 43: Earnings as an artist or athlete - central withholding agreement(5)  - 44: Specified Federal procurement payments  - 50: Income previously reported under escrow procedure(6)  - 55: Taxable death benefits on life insurance contracts  - 57: Amount realized under IRC section 1446(f)  - 58: Publicly traded partnership distributions-undetermined |  |
+|**incomeCode** | [**IncomeCodeEnum**](#IncomeCodeEnum) | Income code.  Available values:    Interest:  - 01: Interest paid by US obligors - general  - 02: Interest paid on real property mortgages  - 03: Interest paid to controlling foreign corporations  - 04: Interest paid by foreign corporations  - 05: Interest on tax-free covenant bonds  - 22: Interest paid on deposit with a foreign branch of a domestic corporation or partnership  - 29: Deposit interest  - 30: Original issue discount (OID)  - 31: Short-term OID  - 33: Substitute payment - interest  - 51: Interest paid on certain actively traded or publicly offered securities(1)  - 54: Substitute payments - interest from certain actively traded or publicly offered securities(1)    Dividend:  - 06: Dividends paid by U.S. corporations - general  - 07: Dividends qualifying for direct dividend rate  - 08: Dividends paid by foreign corporations  - 34: Substitute payment - dividends  - 40: Other dividend equivalents under IRC section 871(m) (formerly 871(l))  - 52: Dividends paid on certain actively traded or publicly offered securities(1)  - 53: Substitute payments - dividends from certain actively traded or publicly offered securities(1)  - 56: Dividend equivalents under IRC section 871(m) as a result of applying the combined transaction rules    Other:  - 09: Capital gains  - 10: Industrial royalties  - 11: Motion picture or television copyright royalties  - 12: Other royalties (for example, copyright, software, broadcasting, endorsement payments)  - 13: Royalties paid on certain publicly offered securities(1)  - 14: Real property income and natural resources royalties  - 15: Pensions, annuities, alimony, and/or insurance premiums  - 16: Scholarship or fellowship grants  - 17: Compensation for independent personal services(2)  - 18: Compensation for dependent personal services(2)  - 19: Compensation for teaching(2)  - 20: Compensation during studying and training(2)  - 23: Other income  - 24: Qualified investment entity (QIE) distributions of capital gains  - 25: Trust distributions subject to IRC section 1445  - 26: Unsevered growing crops and timber distributions by a trust subject to IRC section 1445  - 27: Publicly traded partnership distributions subject to IRC section 1446  - 28: Gambling winnings(3)  - 32: Notional principal contract income(4)  - 35: Substitute payment - other  - 36: Capital gains distributions  - 37: Return of capital  - 38: Eligible deferred compensation items subject to IRC section 877A(d)(1)  - 39: Distributions from a nongrantor trust subject to IRC section 877A(f)(1)  - 41: Guarantee of indebtedness  - 42: Earnings as an artist or athlete - no central withholding agreement(5)  - 43: Earnings as an artist or athlete - central withholding agreement(5)  - 44: Specified Federal procurement payments  - 50: Income previously reported under escrow procedure(6)  - 55: Taxable death benefits on life insurance contracts  - 57: Amount realized under IRC section 1446(f)  - 58: Publicly traded partnership distributions-undetermined  - 59: Consent fees  - 60: Loan syndication fees  - 61: Settlement payments |  |
 |**grossIncome** | **Double** | Gross income |  |
 |**withholdingIndicator** | [**WithholdingIndicatorEnum**](#WithholdingIndicatorEnum) | Withholding indicator  Available values:  - 3: Chapter 3  - 4: Chapter 4 |  |
 |**taxCountryCode** | **String** | Country code |  |
@@ -24,10 +24,11 @@
 |**federalTaxWithheld** | **Double** | Federal tax withheld |  [optional] |
 |**taxNotDepositedIndicator** | **Boolean** | Tax not deposited indicator |  [optional] |
 |**academicIndicator** | **Boolean** | Academic indicator |  [optional] |
+|**withholdingRatePoolIndicator** | **Boolean** | Box 7d withholding rate pool indicator |  [optional] |
 |**taxWithheldOtherAgents** | **Double** | Tax withheld by other agents |  [optional] |
 |**amountRepaid** | **Double** | Amount repaid to recipient |  [optional] |
 |**taxPaidAgent** | **Double** | Tax paid by withholding agent |  [optional] |
-|**chap3StatusCode** | [**Chap3StatusCodeEnum**](#Chap3StatusCodeEnum) | Chapter 3 status code - Required if WithholdingIndicator is 3 (Chapter 3). Available values: - 01: U.S. Withholding Agent - FI (Deprecated - valid only for tax years prior to 2020) - 02: U.S. Withholding Agent - Other (Deprecated - valid only for tax years prior to 2020) - 03: Territory FI - treated as U.S. Person - 04: Territory FI - not treated as U.S. Person - 05: U.S. branch - treated as U.S. Person - 06: U.S. branch - not treated as U.S. Person - 07: U.S. branch - ECI presumption applied - 08: Partnership other than Withholding Foreign Partnership - 09: Withholding Foreign Partnership - 10: Trust other than Withholding Foreign Trust - 11: Withholding Foreign Trust - 12: Qualified Intermediary - 13: Qualified Securities Lender - Qualified Intermediary - 14: Qualified Securities Lender - Other - 15: Corporation - 16: Individual - 17: Estate - 18: Private Foundation - 19: Government or International Organization - 20: Tax Exempt Organization (Section 501(c) entities) - 21: Unknown Recipient - 22: Artist or Athlete - 23: Pension - 24: Foreign Central Bank of Issue - 25: Nonqualified Intermediary - 26: Hybrid entity making Treaty Claim - 27: Withholding Rate Pool - General - 28: Withholding Rate Pool - Exempt Organization - 29: PAI Withholding Rate Pool - General - 30: PAI Withholding Rate Pool - Exempt Organization - 31: Agency Withholding Rate Pool - General - 32: Agency Withholding Rate Pool - Exempt Organization - 34: U.S. Withholding Agent-Foreign branch of FI (Deprecated - valid only for tax years prior to 2020) - 35: Qualified Derivatives Dealer - 36: Foreign Government - Integral Part - 37: Foreign Government - Controlled Entity - 38: Publicly Traded Partnership - 39: Disclosing Qualified Intermediary |  [optional] |
+|**chap3StatusCode** | [**Chap3StatusCodeEnum**](#Chap3StatusCodeEnum) | Chapter 3 status code - Required if WithholdingIndicator is 3 (Chapter 3). Available values: - 01: U.S. Withholding Agent - FI (Deprecated - valid only for tax years prior to 2020) - 02: U.S. Withholding Agent - Other (Deprecated - valid only for tax years prior to 2020) - 03: Territory FI - treated as U.S. Person - 04: Territory FI - not treated as U.S. Person - 05: U.S. branch - treated as U.S. Person - 06: U.S. branch - not treated as U.S. Person - 07: U.S. branch - ECI presumption applied - 08: Partnership other than Withholding Foreign Partnership - 09: Withholding Foreign Partnership - 10: Trust other than Withholding Foreign Trust - 11: Withholding Foreign Trust - 12: Qualified Intermediary - 13: Qualified Securities Lender - Qualified Intermediary - 14: Qualified Securities Lender - Other - 15: Corporation - 16: Individual - 17: Estate - 18: Private Foundation - 19: Government or International Organization - 20: Tax Exempt Organization (Section 501(c) entities) - 21: Unknown Recipient - 22: Artist or Athlete - 23: Pension - 24: Foreign Central Bank of Issue - 25: Nonqualified Intermediary - 26: Hybrid entity making Treaty Claim - 27: Withholding Rate Pool - General - 28: Withholding Rate Pool - Exempt Organization - 29: PAI Withholding Rate Pool - General - 30: PAI Withholding Rate Pool - Exempt Organization - 31: Agency Withholding Rate Pool - General - 32: Agency Withholding Rate Pool - Exempt Organization - 34: U.S. Withholding Agent-Foreign branch of FI (Deprecated - valid only for tax years prior to 2020) - 35: Qualified Derivatives Dealer - 36: Foreign Government - Integral Part - 37: Foreign Government - Controlled Entity - 38: Publicly Traded Partnership - 39: Disclosing Qualified Intermediary - 40: Partnership QDD - 41: U.S. government entity or tax exempt entity (other than section 501(c) entities) |  [optional] |
 |**chap4StatusCode** | [**Chap4StatusCodeEnum**](#Chap4StatusCodeEnum) | Chapter 4 status code. Required if WithholdingIndicator is 4 (Chapter 4). Required if email is specified, must fill either this or RecipientForeignTin. Available values: - 01: U.S. Withholding Agent - FI - 02: U.S. Withholding Agent - Other - 03: Territory FI - not treated as U.S. Person - 04: Territory FI - treated as U.S. Person - 05: Participating FFI - Other - 06: Participating FFI - Reporting Model 2 FFI - 07: Registered Deemed - Compliant FFI-Reporting Model 1 FFI - 08: Registered Deemed - Compliant FFI-Sponsored Entity - 09: Registered Deemed - Compliant FFI-Other - 10: Certified Deemed - Compliant FFI-Other - 11: Certified Deemed - Compliant FFI-FFI with Low Value Accounts - 12: Certified Deemed - Compliant FFI-Non-Registering Local Bank - 13: Certified Deemed - Compliant FFI-Sponsored Entity - 14: Certified Deemed - Compliant FFI-Investment Advisor or Investment Manager - 15: Nonparticipating FFI - 16: Owner-Documented FFI - 17: U.S. Branch - treated as U.S. person - 18: U.S. Branch - not treated as U.S. person (reporting under section 1471) - 19: Passive NFFE identifying Substantial U.S. Owners - 20: Passive NFFE with no Substantial U.S. Owners - 21: Publicly Traded NFFE or Affiliate of Publicly Traded NFFE - 22: Active NFFE - 23: Individual - 24: Section 501(c) Entities - 25: Excepted Territory NFFE - 26: Excepted NFFE - Other - 27: Exempt Beneficial Owner - 28: Entity Wholly Owned by Exempt Beneficial Owners - 29: Unknown Recipient - 30: Recalcitrant Account Holder - 31: Nonreporting IGA FFI - 32: Direct reporting NFFE - 33: U.S. reportable account - 34: Non-consenting U.S. account - 35: Sponsored direct reporting NFFE - 36: Excepted Inter-affiliate FFI - 37: Undocumented Preexisting Obligation - 38: U.S. Branch - ECI presumption applied - 39: Account Holder of Excluded Financial Account - 40: Passive NFFE reported by FFI - 41: NFFE subject to 1472 withholding - 42: Recalcitrant Pool - No U.S. Indicia - 43: Recalcitrant Pool - U.S. Indicia - 44: Recalcitrant Pool - Dormant Account - 45: Recalcitrant Pool - U.S. Persons - 46: Recalcitrant Pool - Passive NFFEs - 47: Nonparticipating FFI Pool - 48: U.S. Payees Pool - 49: QI - Recalcitrant Pool-General - 50: U.S. Withholding Agent-Foreign branch of FI |  [optional] |
 |**primaryWithholdingAgent** | [**PrimaryWithholdingAgent**](PrimaryWithholdingAgent.md) | Primary withholding agent information |  [optional] |
 |**intermediaryOrFlowThrough** | [**IntermediaryOrFlowThrough**](IntermediaryOrFlowThrough.md) | Intermediary or flow-through entity information |  [optional] |
@@ -69,10 +70,10 @@
 |**validationErrors** | [**List&lt;ValidationError&gt;**](ValidationError.md) | Validation errors |  [optional] [readonly] |
 |**createdAt** | **OffsetDateTime** | Date time when the record was created. |  [optional] [readonly] |
 |**updatedAt** | **OffsetDateTime** | Date time when the record was last updated. |  [optional] [readonly] |
-|**employeeFirstName** | **String** | Employee&#39;s first name |  |
-|**employeeMiddleName** | **String** | Employee&#39;s middle name |  [optional] |
-|**employeeLastName** | **String** | Employee&#39;s last name |  |
-|**employeeNameSuffix** | **String** | Employee&#39;s name suffix |  [optional] |
+|**employeeFirstName** | **String** | Employee first name (max 15 chars). |  |
+|**employeeMiddleName** | **String** | Employee middle name (max 15 chars, optional). |  [optional] |
+|**employeeLastName** | **String** | Employee last name (max 20 chars). |  |
+|**employeeNameSuffix** | **String** | Employee name suffix (Jr, Sr, III, etc — max 4 chars, optional). |  [optional] |
 |**employeeDateOfBirth** | **LocalDate** | Employee&#39;s date of birth |  [optional] |
 |**originOfHealthCoverageCode** | [**OriginOfHealthCoverageCodeEnum**](#OriginOfHealthCoverageCodeEnum) | Origin of health coverage code.    Available values:  - A: Small Business Health Options Program (SHOP)  - B: Employer-sponsored coverage  - C: Government-sponsored program  - D: Individual market insurance  - E: Multiemployer plan  - F: Other designated minimum essential coverage  - G: Employer-sponsored coverage that is an individual coverage HRA (valid for tax years 2020 and later) |  |
 |**coveredIndividuals** | [**List&lt;CoveredIndividual&gt;**](CoveredIndividual.md) | Covered individuals information |  [optional] |
@@ -88,7 +89,7 @@
 |**section897OrdinaryDividends** | **Double** | Section 897 ordinary dividends |  [optional] |
 |**section897CapitalGain** | **Double** | Section 897 capital gain |  [optional] |
 |**nondividendDistributions** | **Double** | Nondividend distributions |  [optional] |
-|**federalIncomeTaxWithheld** | **Double** | Federal income tax withheld |  [optional] |
+|**federalIncomeTaxWithheld** | **Double** | Federal income tax withheld. |  [optional] |
 |**section199ADividends** | **Double** | Section 199A dividends |  [optional] |
 |**investmentExpenses** | **Double** | Investment Expenses |  [optional] |
 |**foreignTaxPaid** | **Double** | Foreign tax paid |  [optional] |
@@ -160,6 +161,32 @@
 |**amountAllocableToIrrWithin5Years** | **Double** | Amount allocable to IRR within 5 years |  [optional] |
 |**firstYearOfDesignatedRothContribution** | **String** | First year of designated Roth contribution |  [optional] |
 |**dateOfPayment** | **LocalDate** | Date of payment |  [optional] |
+|**wages** | **Double** | Wages, tips, other compensation. |  [optional] |
+|**socialSecurityWages** | **Double** | Social security wages. |  [optional] |
+|**socialSecurityTaxWithheld** | **Double** | Social security tax withheld. |  [optional] |
+|**medicareWages** | **Double** | Medicare wages and tips. |  [optional] |
+|**medicareTaxWithheld** | **Double** | Medicare tax withheld. |  [optional] |
+|**socialSecurityTips** | **Double** | Social security tips. |  [optional] |
+|**allocatedTips** | **Double** | Allocated tips. |  [optional] |
+|**dependentCareBenefits** | **Double** | Dependent care benefits. |  [optional] |
+|**nonqualifiedPlansSection457** | **Double** | Non-qualified plan Section 457 distributions or contributions. |  [optional] |
+|**nonqualifiedPlansNotSection457** | **Double** | Non-qualified plan NOT Section 457 distributions or contributions. |  [optional] |
+|**code12a** | **String** | Letter code (A-Z, AA, BB, etc) for slot a. |  [optional] |
+|**amount12a** | **Double** | Amount for slot a. |  [optional] |
+|**code12b** | **String** | Letter code for slot b. |  [optional] |
+|**amount12b** | **Double** | Amount for slot b. |  [optional] |
+|**code12c** | **String** | Letter code for slot c. |  [optional] |
+|**amount12c** | **Double** | Amount for slot c. |  [optional] |
+|**code12d** | **String** | Letter code for slot d. |  [optional] |
+|**amount12d** | **Double** | Amount for slot d. |  [optional] |
+|**statutoryEmployeeIndicator** | **Boolean** | Statutory employee indicator. |  [optional] |
+|**retirementPlanIndicator** | **Boolean** | Retirement plan indicator. |  [optional] |
+|**thirdPartySickPayIndicator** | **Boolean** | Third-party sick pay indicator. |  [optional] |
+|**thirdPartySickPayWithholding** | **Double** | Third-party sick pay federal income tax withheld  (only effective when Avalara1099.Application.Forms1099.Models.Form1099W2.ThirdPartySickPayIndicator is true). |  [optional] |
+|**other14a** | **String** | Other (max 30 chars) for slot a. |  [optional] |
+|**other14b** | **String** | Other (max 30 chars) for slot b. |  [optional] |
+|**other14c** | **String** | Other (max 30 chars) for slot c. |  [optional] |
+|**stateAndLocalWithholdingSecondary** | [**StateAndLocalWithholding**](StateAndLocalWithholding.md) | Secondary state and local withholding slot. |  [optional] |
 
 
 
@@ -249,6 +276,9 @@
 | _55 | &quot;55&quot; |
 | _57 | &quot;57&quot; |
 | _58 | &quot;58&quot; |
+| _59 | &quot;59&quot; |
+| _60 | &quot;60&quot; |
+| _61 | &quot;61&quot; |
 
 
 
@@ -372,6 +402,8 @@
 | _37 | &quot;37&quot; |
 | _38 | &quot;38&quot; |
 | _39 | &quot;39&quot; |
+| _40 | &quot;40&quot; |
+| _41 | &quot;41&quot; |
 
 
 
@@ -445,6 +477,7 @@
 | _1099_MISC | &quot;1099-MISC&quot; |
 | _1099_NEC | &quot;1099-NEC&quot; |
 | _1099_R | &quot;1099-R&quot; |
+| W_2 | &quot;W-2&quot; |
 
 
 

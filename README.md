@@ -288,6 +288,7 @@ Class | Method | HTTP request | Description
  - [Avalara.SDK.model.A1099.V2.Form1099Nec](docs/A1099/V2/Form1099Nec.md)
  - [Avalara.SDK.model.A1099.V2.Form1099R](docs/A1099/V2/Form1099R.md)
  - [Avalara.SDK.model.A1099.V2.Form1099StatusDetail](docs/A1099/V2/Form1099StatusDetail.md)
+ - [Avalara.SDK.model.A1099.V2.Form1099W2](docs/A1099/V2/Form1099W2.md)
  - [Avalara.SDK.model.A1099.V2.Get1099Form200Response](docs/A1099/V2/Get1099Form200Response.md)
  - [Avalara.SDK.model.A1099.V2.IntermediaryOrFlowThrough](docs/A1099/V2/IntermediaryOrFlowThrough.md)
  - [Avalara.SDK.model.A1099.V2.IrsResponse](docs/A1099/V2/IrsResponse.md)
