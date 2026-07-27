@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## Authentication  #### Step 1: Generate API Credentials  Generate a *client ID* and *client secret* from your [Avalara1099 account](https://sbx.track1099.com/api_tokens): *Your Profile → API*.  #### Step 2: Get an Identity Token  Send a `POST` request to the **Identity Token URL** with your *client ID* and *client secret* from Step 1 as form-encoded parameters:  ```http POST https://identity.avalara.com/connect/token Content-Type: application/x-www-form-urlencoded  grant_type=client_credentials client_id=<your client ID> client_secret=<your client secret> ```  **Body parameters** - `grant_type` — Always `client_credentials` - `client_id` — Your *client ID* from Step 1 - `client_secret` — Your *client secret* from Step 1  **Successful response**  ```json {   \"access_token\": \"eyJhbGci...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\" } ```  Use the `access_token` as a bearer token in the `Authorization` header on every A1099 API request:  ```http Authorization: Bearer <access_token> ```  ---  For more on authenticating requests, see the [A1099 authentication guide](https://developer.avalara.com/1099-and-w-9/kny2997001535374/).  ---  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
+ * > **Note:** You must have an active Avalara 1099 & W-9 subscription to authenticate and use these APIs. If you don't have a subscription, please contact our [Sales team](https://www.avalara.com/us/en/products/1099/request-a-demo.html).  ## Authentication  The Avalara 1099 & W-9 API uses **Bearer Token Authentication**. To authenticate, acquire a bearer token using a **Client ID** and **Client Secret** that you generate in the Avalara 1099 & W-9 web application.  The sample cURL commands below use **production** URLs. For **sandbox**, replace them with the sandbox URLs listed in the Sandbox Environment table.  ### Option 1 — Client ID and Client Secret (recommended)  **Step 1: Create API credentials in the Avalara 1099 & W-9 web app**  For a full walkthrough, see the [Avalara 1099 & W-9 integration guide](https://developer.avalara.com/products/avalara-1099-and-w9/integration-guides/1099-and-w-9/siu2796410674799/).  > **Note:** To enable credential creation you must first enter a valid company address in **Account Settings > Account** and enable two-factor authentication in **Account Settings > Security**.  1. In Avalara 1099 & W-9, open **Account Settings** (gear icon, top-right of any page) and select **API**. 2. Click **Create new credentials** (a valid company address and 2FA are required). 3. Copy your **Client Id** and **Client Secret** securely — they will not be shown again after you leave the screen.  **Step 2: Request a bearer token**  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{client_id}}' \\   --data-urlencode 'client_secret={{client_secret}}' ```  ### Option 2 — Account ID and License Key  If your organization already uses other Avalara products (AvaTax, CertCapture) and has access to the logged-in area of Avalara.com, you can generate the bearer token using your **Account ID** and **License Key**.  > **Note:** If you already have a license key for other Avalara products you can reuse it. Generating a new key will reset any previously created key.  1. Log in to Avalara.com. 2. Go to **Settings → License and API Keys**. 3. Click **Generate New Key**. 4. Note your **Account ID** from the Account menu.  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{accountId}}' \\   --data-urlencode 'client_secret={{licenseKey}}' ```  ### Using and renewing the bearer token  Include the token in the `Authorization` header on every request:  ```http Authorization: Bearer {access_token} ```  Tokens expire after the number of seconds in the `expires_in` field of the token response. Your integration must renew the token before it expires.  **Example token response**  ```json {   \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\",   \"scope\": \"avatax_api iam-ds\" } ```  ### Sandbox Environment  Use the same steps as production, replacing the base URLs:  | Purpose | Production | Sandbox | | --- | --- | --- | | Account & License Key management (web) | `https://www.avalara.com` | `https://sandbox.admin.avalara.com` | | Account & License Key management (API) | `https://rest.avatax.com` | `https://sandbox-rest.avatax.com` | | Token generation | `https://identity.avalara.com` | `https://ai-sbx.avlr.sh` |  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -167,70 +167,12 @@ public class Form1099Base {
   private String tin;
 
   public static final String SERIALIZED_NAME_RECIPIENT_NAME = "recipientName";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_RECIPIENT_NAME)
   private String recipientName;
 
-  /**
-   * Tax Identification Number (TIN) type.  Available values: - EIN: Employer Identification Number - SSN: Social Security Number - ITIN: Individual Taxpayer Identification Number - ATIN: Adoption Taxpayer Identification Number
-   */
-  @JsonAdapter(TinTypeEnum.Adapter.class)
-  public enum TinTypeEnum {
-    EIN("EIN"),
-    
-    SSN("SSN"),
-    
-    ITIN("ITIN"),
-    
-    ATIN("ATIN");
-
-    private String value;
-
-    TinTypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static TinTypeEnum fromValue(String value) {
-      for (TinTypeEnum b : TinTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<TinTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TinTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TinTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TinTypeEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      TinTypeEnum.fromValue(value);
-    }
-  }
-
-  public static final String SERIALIZED_NAME_TIN_TYPE = "tinType";
-  @SerializedName(SERIALIZED_NAME_TIN_TYPE)
-  private TinTypeEnum tinType;
-
   public static final String SERIALIZED_NAME_RECIPIENT_SECOND_NAME = "recipientSecondName";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_RECIPIENT_SECOND_NAME)
   private String recipientSecondName;
 
@@ -257,14 +199,6 @@ public class Form1099Base {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
-
-  public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "accountNumber";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
-  private String accountNumber;
-
-  public static final String SERIALIZED_NAME_OFFICE_CODE = "officeCode";
-  @SerializedName(SERIALIZED_NAME_OFFICE_CODE)
-  private String officeCode;
 
   public static final String SERIALIZED_NAME_NON_US_PROVINCE = "nonUsProvince";
   @SerializedName(SERIALIZED_NAME_NON_US_PROVINCE)
@@ -294,10 +228,6 @@ public class Form1099Base {
   @SerializedName(SERIALIZED_NAME_TIN_MATCH)
   private Boolean tinMatch;
 
-  public static final String SERIALIZED_NAME_NO_TIN = "noTin";
-  @SerializedName(SERIALIZED_NAME_NO_TIN)
-  private Boolean noTin;
-
   public static final String SERIALIZED_NAME_ADDRESS_VERIFICATION = "addressVerification";
   @SerializedName(SERIALIZED_NAME_ADDRESS_VERIFICATION)
   private Boolean addressVerification;
@@ -305,10 +235,6 @@ public class Form1099Base {
   public static final String SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING = "stateAndLocalWithholding";
   @SerializedName(SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING)
   private StateAndLocalWithholding stateAndLocalWithholding;
-
-  public static final String SERIALIZED_NAME_SECOND_TIN_NOTICE = "secondTinNotice";
-  @SerializedName(SERIALIZED_NAME_SECOND_TIN_NOTICE)
-  private Boolean secondTinNotice;
 
   public static final String SERIALIZED_NAME_FEDERAL_EFILE_STATUS = "federalEfileStatus";
   @SerializedName(SERIALIZED_NAME_FEDERAL_EFILE_STATUS)
@@ -518,58 +444,47 @@ public class Form1099Base {
   }
 
 
+  @Deprecated
   public Form1099Base recipientName(String recipientName) {
     this.recipientName = recipientName;
     return this;
   }
 
   /**
-   * Recipient name
+   * DEPRECATED: Use &#x60;businessName&#x60; for businesses; use &#x60;firstName&#x60;, &#x60;middleName&#x60;, &#x60;lastName&#x60;, and &#x60;suffixName&#x60; for individuals.
    * @return recipientName
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public String getRecipientName() {
     return recipientName;
   }
 
+  @Deprecated
   public void setRecipientName(String recipientName) {
     this.recipientName = recipientName;
   }
 
 
-  public Form1099Base tinType(TinTypeEnum tinType) {
-    this.tinType = tinType;
-    return this;
-  }
-
-  /**
-   * Tax Identification Number (TIN) type.  Available values: - EIN: Employer Identification Number - SSN: Social Security Number - ITIN: Individual Taxpayer Identification Number - ATIN: Adoption Taxpayer Identification Number
-   * @return tinType
-   */
-  @javax.annotation.Nullable
-  public TinTypeEnum getTinType() {
-    return tinType;
-  }
-
-  public void setTinType(TinTypeEnum tinType) {
-    this.tinType = tinType;
-  }
-
-
+  @Deprecated
   public Form1099Base recipientSecondName(String recipientSecondName) {
     this.recipientSecondName = recipientSecondName;
     return this;
   }
 
   /**
-   * Recipient second name
+   * DEPRECATED: Use &#x60;businessName2&#x60; instead.
    * @return recipientSecondName
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public String getRecipientSecondName() {
     return recipientSecondName;
   }
 
+  @Deprecated
   public void setRecipientSecondName(String recipientSecondName) {
     this.recipientSecondName = recipientSecondName;
   }
@@ -686,44 +601,6 @@ public class Form1099Base {
 
   public void setEmail(String email) {
     this.email = email;
-  }
-
-
-  public Form1099Base accountNumber(String accountNumber) {
-    this.accountNumber = accountNumber;
-    return this;
-  }
-
-  /**
-   * Account number
-   * @return accountNumber
-   */
-  @javax.annotation.Nullable
-  public String getAccountNumber() {
-    return accountNumber;
-  }
-
-  public void setAccountNumber(String accountNumber) {
-    this.accountNumber = accountNumber;
-  }
-
-
-  public Form1099Base officeCode(String officeCode) {
-    this.officeCode = officeCode;
-    return this;
-  }
-
-  /**
-   * Office code
-   * @return officeCode
-   */
-  @javax.annotation.Nullable
-  public String getOfficeCode() {
-    return officeCode;
-  }
-
-  public void setOfficeCode(String officeCode) {
-    this.officeCode = officeCode;
   }
 
 
@@ -860,25 +737,6 @@ public class Form1099Base {
   }
 
 
-  public Form1099Base noTin(Boolean noTin) {
-    this.noTin = noTin;
-    return this;
-  }
-
-  /**
-   * No TIN indicator
-   * @return noTin
-   */
-  @javax.annotation.Nullable
-  public Boolean getNoTin() {
-    return noTin;
-  }
-
-  public void setNoTin(Boolean noTin) {
-    this.noTin = noTin;
-  }
-
-
   public Form1099Base addressVerification(Boolean addressVerification) {
     this.addressVerification = addressVerification;
     return this;
@@ -914,25 +772,6 @@ public class Form1099Base {
 
   public void setStateAndLocalWithholding(StateAndLocalWithholding stateAndLocalWithholding) {
     this.stateAndLocalWithholding = stateAndLocalWithholding;
-  }
-
-
-  public Form1099Base secondTinNotice(Boolean secondTinNotice) {
-    this.secondTinNotice = secondTinNotice;
-    return this;
-  }
-
-  /**
-   * Second TIN notice
-   * @return secondTinNotice
-   */
-  @javax.annotation.Nullable
-  public Boolean getSecondTinNotice() {
-    return secondTinNotice;
-  }
-
-  public void setSecondTinNotice(Boolean secondTinNotice) {
-    this.secondTinNotice = secondTinNotice;
   }
 
 
@@ -1098,7 +937,6 @@ public class Form1099Base {
         Objects.equals(this.referenceId, form1099Base.referenceId) &&
         Objects.equals(this.tin, form1099Base.tin) &&
         Objects.equals(this.recipientName, form1099Base.recipientName) &&
-        Objects.equals(this.tinType, form1099Base.tinType) &&
         Objects.equals(this.recipientSecondName, form1099Base.recipientSecondName) &&
         Objects.equals(this.address, form1099Base.address) &&
         Objects.equals(this.address2, form1099Base.address2) &&
@@ -1106,8 +944,6 @@ public class Form1099Base {
         Objects.equals(this.state, form1099Base.state) &&
         Objects.equals(this.zip, form1099Base.zip) &&
         Objects.equals(this.email, form1099Base.email) &&
-        Objects.equals(this.accountNumber, form1099Base.accountNumber) &&
-        Objects.equals(this.officeCode, form1099Base.officeCode) &&
         Objects.equals(this.nonUsProvince, form1099Base.nonUsProvince) &&
         Objects.equals(this.countryCode, form1099Base.countryCode) &&
         Objects.equals(this.federalEfileDate, form1099Base.federalEfileDate) &&
@@ -1115,10 +951,8 @@ public class Form1099Base {
         Objects.equals(this.stateEfileDate, form1099Base.stateEfileDate) &&
         Objects.equals(this.recipientEdeliveryDate, form1099Base.recipientEdeliveryDate) &&
         Objects.equals(this.tinMatch, form1099Base.tinMatch) &&
-        Objects.equals(this.noTin, form1099Base.noTin) &&
         Objects.equals(this.addressVerification, form1099Base.addressVerification) &&
         Objects.equals(this.stateAndLocalWithholding, form1099Base.stateAndLocalWithholding) &&
-        Objects.equals(this.secondTinNotice, form1099Base.secondTinNotice) &&
         Objects.equals(this.federalEfileStatus, form1099Base.federalEfileStatus) &&
         Objects.equals(this.stateEfileStatus, form1099Base.stateEfileStatus) &&
         Objects.equals(this.postalMailStatus, form1099Base.postalMailStatus) &&
@@ -1137,7 +971,7 @@ public class Form1099Base {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, tinType, recipientSecondName, address, address2, city, state, zip, email, accountNumber, officeCode, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, noTin, addressVerification, stateAndLocalWithholding, secondTinNotice, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt, additionalProperties);
+    return Objects.hash(type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, recipientSecondName, address, address2, city, state, zip, email, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, addressVerification, stateAndLocalWithholding, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1160,7 +994,6 @@ public class Form1099Base {
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    tin: ").append(toIndentedString(tin)).append("\n");
     sb.append("    recipientName: ").append(toIndentedString(recipientName)).append("\n");
-    sb.append("    tinType: ").append(toIndentedString(tinType)).append("\n");
     sb.append("    recipientSecondName: ").append(toIndentedString(recipientSecondName)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    address2: ").append(toIndentedString(address2)).append("\n");
@@ -1168,8 +1001,6 @@ public class Form1099Base {
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    zip: ").append(toIndentedString(zip)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
-    sb.append("    officeCode: ").append(toIndentedString(officeCode)).append("\n");
     sb.append("    nonUsProvince: ").append(toIndentedString(nonUsProvince)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    federalEfileDate: ").append(toIndentedString(federalEfileDate)).append("\n");
@@ -1177,10 +1008,8 @@ public class Form1099Base {
     sb.append("    stateEfileDate: ").append(toIndentedString(stateEfileDate)).append("\n");
     sb.append("    recipientEdeliveryDate: ").append(toIndentedString(recipientEdeliveryDate)).append("\n");
     sb.append("    tinMatch: ").append(toIndentedString(tinMatch)).append("\n");
-    sb.append("    noTin: ").append(toIndentedString(noTin)).append("\n");
     sb.append("    addressVerification: ").append(toIndentedString(addressVerification)).append("\n");
     sb.append("    stateAndLocalWithholding: ").append(toIndentedString(stateAndLocalWithholding)).append("\n");
-    sb.append("    secondTinNotice: ").append(toIndentedString(secondTinNotice)).append("\n");
     sb.append("    federalEfileStatus: ").append(toIndentedString(federalEfileStatus)).append("\n");
     sb.append("    stateEfileStatus: ").append(toIndentedString(stateEfileStatus)).append("\n");
     sb.append("    postalMailStatus: ").append(toIndentedString(postalMailStatus)).append("\n");
@@ -1222,7 +1051,6 @@ public class Form1099Base {
     openapiFields.add("referenceId");
     openapiFields.add("tin");
     openapiFields.add("recipientName");
-    openapiFields.add("tinType");
     openapiFields.add("recipientSecondName");
     openapiFields.add("address");
     openapiFields.add("address2");
@@ -1230,8 +1058,6 @@ public class Form1099Base {
     openapiFields.add("state");
     openapiFields.add("zip");
     openapiFields.add("email");
-    openapiFields.add("accountNumber");
-    openapiFields.add("officeCode");
     openapiFields.add("nonUsProvince");
     openapiFields.add("countryCode");
     openapiFields.add("federalEfileDate");
@@ -1239,10 +1065,8 @@ public class Form1099Base {
     openapiFields.add("stateEfileDate");
     openapiFields.add("recipientEdeliveryDate");
     openapiFields.add("tinMatch");
-    openapiFields.add("noTin");
     openapiFields.add("addressVerification");
     openapiFields.add("stateAndLocalWithholding");
-    openapiFields.add("secondTinNotice");
     openapiFields.add("federalEfileStatus");
     openapiFields.add("stateEfileStatus");
     openapiFields.add("postalMailStatus");
@@ -1256,7 +1080,6 @@ public class Form1099Base {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("type");
-    openapiRequiredFields.add("recipientName");
     openapiRequiredFields.add("address");
     openapiRequiredFields.add("city");
     openapiRequiredFields.add("countryCode");
@@ -1308,13 +1131,6 @@ public class Form1099Base {
       if ((jsonObj.get("recipientName") != null && !jsonObj.get("recipientName").isJsonNull()) && !jsonObj.get("recipientName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientName").toString()));
       }
-      if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tinType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tinType").toString()));
-      }
-      // validate the optional field `tinType`
-      if (jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) {
-        TinTypeEnum.validateJsonElement(jsonObj.get("tinType"));
-      }
       if ((jsonObj.get("recipientSecondName") != null && !jsonObj.get("recipientSecondName").isJsonNull()) && !jsonObj.get("recipientSecondName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientSecondName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientSecondName").toString()));
       }
@@ -1335,12 +1151,6 @@ public class Form1099Base {
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
-      }
-      if ((jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonNull()) && !jsonObj.get("accountNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
-      }
-      if ((jsonObj.get("officeCode") != null && !jsonObj.get("officeCode").isJsonNull()) && !jsonObj.get("officeCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `officeCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("officeCode").toString()));
       }
       if ((jsonObj.get("nonUsProvince") != null && !jsonObj.get("nonUsProvince").isJsonNull()) && !jsonObj.get("nonUsProvince").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `nonUsProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nonUsProvince").toString()));

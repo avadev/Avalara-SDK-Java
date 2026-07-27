@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## Authentication  #### Step 1: Generate API Credentials  Generate a *client ID* and *client secret* from your [Avalara1099 account](https://sbx.track1099.com/api_tokens): *Your Profile → API*.  #### Step 2: Get an Identity Token  Send a `POST` request to the **Identity Token URL** with your *client ID* and *client secret* from Step 1 as form-encoded parameters:  ```http POST https://identity.avalara.com/connect/token Content-Type: application/x-www-form-urlencoded  grant_type=client_credentials client_id=<your client ID> client_secret=<your client secret> ```  **Body parameters** - `grant_type` — Always `client_credentials` - `client_id` — Your *client ID* from Step 1 - `client_secret` — Your *client secret* from Step 1  **Successful response**  ```json {   \"access_token\": \"eyJhbGci...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\" } ```  Use the `access_token` as a bearer token in the `Authorization` header on every A1099 API request:  ```http Authorization: Bearer <access_token> ```  ---  For more on authenticating requests, see the [A1099 authentication guide](https://developer.avalara.com/1099-and-w-9/kny2997001535374/).  ---  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
+ * > **Note:** You must have an active Avalara 1099 & W-9 subscription to authenticate and use these APIs. If you don't have a subscription, please contact our [Sales team](https://www.avalara.com/us/en/products/1099/request-a-demo.html).  ## Authentication  The Avalara 1099 & W-9 API uses **Bearer Token Authentication**. To authenticate, acquire a bearer token using a **Client ID** and **Client Secret** that you generate in the Avalara 1099 & W-9 web application.  The sample cURL commands below use **production** URLs. For **sandbox**, replace them with the sandbox URLs listed in the Sandbox Environment table.  ### Option 1 — Client ID and Client Secret (recommended)  **Step 1: Create API credentials in the Avalara 1099 & W-9 web app**  For a full walkthrough, see the [Avalara 1099 & W-9 integration guide](https://developer.avalara.com/products/avalara-1099-and-w9/integration-guides/1099-and-w-9/siu2796410674799/).  > **Note:** To enable credential creation you must first enter a valid company address in **Account Settings > Account** and enable two-factor authentication in **Account Settings > Security**.  1. In Avalara 1099 & W-9, open **Account Settings** (gear icon, top-right of any page) and select **API**. 2. Click **Create new credentials** (a valid company address and 2FA are required). 3. Copy your **Client Id** and **Client Secret** securely — they will not be shown again after you leave the screen.  **Step 2: Request a bearer token**  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{client_id}}' \\   --data-urlencode 'client_secret={{client_secret}}' ```  ### Option 2 — Account ID and License Key  If your organization already uses other Avalara products (AvaTax, CertCapture) and has access to the logged-in area of Avalara.com, you can generate the bearer token using your **Account ID** and **License Key**.  > **Note:** If you already have a license key for other Avalara products you can reuse it. Generating a new key will reset any previously created key.  1. Log in to Avalara.com. 2. Go to **Settings → License and API Keys**. 3. Click **Generate New Key**. 4. Note your **Account ID** from the Account menu.  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{accountId}}' \\   --data-urlencode 'client_secret={{licenseKey}}' ```  ### Using and renewing the bearer token  Include the token in the `Authorization` header on every request:  ```http Authorization: Bearer {access_token} ```  Tokens expire after the number of seconds in the `expires_in` field of the token response. Your integration must renew the token before it expires.  **Example token response**  ```json {   \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\",   \"scope\": \"avatax_api iam-ds\" } ```  ### Sandbox Environment  Use the same steps as production, replacing the base URLs:  | Purpose | Production | Sandbox | | --- | --- | --- | | Account & License Key management (web) | `https://www.avalara.com` | `https://sandbox.admin.avalara.com` | | Account & License Key management (API) | `https://rest.avatax.com` | `https://sandbox-rest.avatax.com` | | Token generation | `https://identity.avalara.com` | `https://ai-sbx.avlr.sh` |  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -37,8 +37,9 @@ import java.util.*;
 
 
 import Avalara.SDK.model.A1099.V2.ErrorResponse;
+import Avalara.SDK.model.A1099.V2.GetIssuer200Response;
 import Avalara.SDK.model.A1099.V2.IssuerRequest;
-import Avalara.SDK.model.A1099.V2.IssuerResponse;
+import Avalara.SDK.model.A1099.V2.IssuerWriteResponse;
 import Avalara.SDK.model.A1099.V2.PaginatedQueryResultModelIssuerResponse;
 
 import java.lang.reflect.Type;
@@ -169,7 +170,7 @@ public class Issuers1099Api {
      * Create an issuer
      * Create an issuer (also known as a Payer).
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return IssuerResponse
+     * @return IssuerWriteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -179,8 +180,8 @@ public class Issuers1099Api {
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
      */
-    public IssuerResponse createIssuer(CreateIssuerRequest requestParameters) throws ApiException {
-        ApiResponse<IssuerResponse> localVarResp = createIssuerWithHttpInfo(requestParameters);
+    public IssuerWriteResponse createIssuer(CreateIssuerRequest requestParameters) throws ApiException {
+        ApiResponse<IssuerWriteResponse> localVarResp = createIssuerWithHttpInfo(requestParameters);
         return localVarResp.getData();
     }
 
@@ -188,7 +189,7 @@ public class Issuers1099Api {
      * Create an issuer
      * Create an issuer (also known as a Payer).
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return ApiResponse&lt;IssuerResponse&gt;
+     * @return ApiResponse&lt;IssuerWriteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -198,9 +199,9 @@ public class Issuers1099Api {
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IssuerResponse> createIssuerWithHttpInfo(CreateIssuerRequest requestParameters) throws ApiException {
+    public ApiResponse<IssuerWriteResponse> createIssuerWithHttpInfo(CreateIssuerRequest requestParameters) throws ApiException {
         okhttp3.Call localVarCall = createIssuerValidateBeforeCall(requestParameters, null);
-        Type localVarReturnType = new TypeToken<IssuerResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<IssuerWriteResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -219,10 +220,10 @@ public class Issuers1099Api {
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createIssuerAsync(CreateIssuerRequest requestParameters, final ApiCallback<IssuerResponse> _callback) throws ApiException {
+    public okhttp3.Call createIssuerAsync(CreateIssuerRequest requestParameters, final ApiCallback<IssuerWriteResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createIssuerValidateBeforeCall(requestParameters, _callback);
-        Type localVarReturnType = new TypeToken<IssuerResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<IssuerWriteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -545,7 +546,7 @@ public class Issuers1099Api {
      * Retrieve an issuer
      * Retrieve an issuer (also known as a Payer).
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return IssuerResponse
+     * @return GetIssuer200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -555,8 +556,8 @@ public class Issuers1099Api {
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
      */
-    public IssuerResponse getIssuer(GetIssuerRequest requestParameters) throws ApiException {
-        ApiResponse<IssuerResponse> localVarResp = getIssuerWithHttpInfo(requestParameters);
+    public GetIssuer200Response getIssuer(GetIssuerRequest requestParameters) throws ApiException {
+        ApiResponse<GetIssuer200Response> localVarResp = getIssuerWithHttpInfo(requestParameters);
         return localVarResp.getData();
     }
 
@@ -564,7 +565,7 @@ public class Issuers1099Api {
      * Retrieve an issuer
      * Retrieve an issuer (also known as a Payer).
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return ApiResponse&lt;IssuerResponse&gt;
+     * @return ApiResponse&lt;GetIssuer200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -574,9 +575,9 @@ public class Issuers1099Api {
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IssuerResponse> getIssuerWithHttpInfo(GetIssuerRequest requestParameters) throws ApiException {
+    public ApiResponse<GetIssuer200Response> getIssuerWithHttpInfo(GetIssuerRequest requestParameters) throws ApiException {
         okhttp3.Call localVarCall = getIssuerValidateBeforeCall(requestParameters, null);
-        Type localVarReturnType = new TypeToken<IssuerResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetIssuer200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -595,10 +596,10 @@ public class Issuers1099Api {
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getIssuerAsync(GetIssuerRequest requestParameters, final ApiCallback<IssuerResponse> _callback) throws ApiException {
+    public okhttp3.Call getIssuerAsync(GetIssuerRequest requestParameters, final ApiCallback<GetIssuer200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getIssuerValidateBeforeCall(requestParameters, _callback);
-        Type localVarReturnType = new TypeToken<IssuerResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetIssuer200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -753,7 +754,7 @@ public class Issuers1099Api {
 
     /**
      * List issuers
-     * List issuers (also known as Payers). Filterable fields are name, referenceId and taxYear.
+     * List issuers (also known as Payers). Filterable fields are businessName, businessName2, referenceId, taxYear, firstName, and lastName.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return PaginatedQueryResultModelIssuerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -774,7 +775,7 @@ public class Issuers1099Api {
 
     /**
      * List issuers
-     * List issuers (also known as Payers). Filterable fields are name, referenceId and taxYear.
+     * List issuers (also known as Payers). Filterable fields are businessName, businessName2, referenceId, taxYear, firstName, and lastName.
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;PaginatedQueryResultModelIssuerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -796,7 +797,7 @@ public class Issuers1099Api {
 
     /**
      * List issuers (asynchronously)
-     * List issuers (also known as Payers). Filterable fields are name, referenceId and taxYear.
+     * List issuers (also known as Payers). Filterable fields are businessName, businessName2, referenceId, taxYear, firstName, and lastName.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -882,10 +883,11 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Issuer updated </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Issuer updated. Body may contain &#x60;validationErrors[]&#x60; when business rules failed. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid id format, malformed JSON, or identity change rejected for an issuer with scheduled Forms 1099 (TIN, TIN type, or name are immutable in that case). </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource Not Found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Caller does not have access to this issuer. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Issuer not found. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateIssuerCall(UpdateIssuerRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -970,45 +972,50 @@ public class Issuers1099Api {
 
     /**
      * Update an issuer
-     * Update an issuer (also known as a Payer).
+     * Update an issuer (also known as a Payer). When the payload violates field-level business rules, the issuer is still persisted and the response body includes a &#x60;validationErrors[]&#x60; array describing each violation.
      * @param requestOptions Object which represents the options available for a given API/request
+     * @return IssuerWriteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Issuer updated </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Issuer updated. Body may contain &#x60;validationErrors[]&#x60; when business rules failed. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid id format, malformed JSON, or identity change rejected for an issuer with scheduled Forms 1099 (TIN, TIN type, or name are immutable in that case). </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource Not Found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Caller does not have access to this issuer. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Issuer not found. </td><td>  -  </td></tr>
      </table>
      */
-    public void updateIssuer(UpdateIssuerRequest requestParameters) throws ApiException {
-        updateIssuerWithHttpInfo(requestParameters);
+    public IssuerWriteResponse updateIssuer(UpdateIssuerRequest requestParameters) throws ApiException {
+        ApiResponse<IssuerWriteResponse> localVarResp = updateIssuerWithHttpInfo(requestParameters);
+        return localVarResp.getData();
     }
 
     /**
      * Update an issuer
-     * Update an issuer (also known as a Payer).
+     * Update an issuer (also known as a Payer). When the payload violates field-level business rules, the issuer is still persisted and the response body includes a &#x60;validationErrors[]&#x60; array describing each violation.
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;IssuerWriteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Issuer updated </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Issuer updated. Body may contain &#x60;validationErrors[]&#x60; when business rules failed. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid id format, malformed JSON, or identity change rejected for an issuer with scheduled Forms 1099 (TIN, TIN type, or name are immutable in that case). </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource Not Found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Caller does not have access to this issuer. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Issuer not found. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateIssuerWithHttpInfo(UpdateIssuerRequest requestParameters) throws ApiException {
+    public ApiResponse<IssuerWriteResponse> updateIssuerWithHttpInfo(UpdateIssuerRequest requestParameters) throws ApiException {
         okhttp3.Call localVarCall = updateIssuerValidateBeforeCall(requestParameters, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<IssuerWriteResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Update an issuer (asynchronously)
-     * Update an issuer (also known as a Payer).
+     * Update an issuer (also known as a Payer). When the payload violates field-level business rules, the issuer is still persisted and the response body includes a &#x60;validationErrors[]&#x60; array describing each violation.
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1016,16 +1023,18 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Issuer updated </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Issuer updated. Body may contain &#x60;validationErrors[]&#x60; when business rules failed. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid id format, malformed JSON, or identity change rejected for an issuer with scheduled Forms 1099 (TIN, TIN type, or name are immutable in that case). </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource Not Found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Caller does not have access to this issuer. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Issuer not found. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateIssuerAsync(UpdateIssuerRequest requestParameters, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateIssuerAsync(UpdateIssuerRequest requestParameters, final ApiCallback<IssuerWriteResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateIssuerValidateBeforeCall(requestParameters, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<IssuerWriteResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -1069,7 +1078,7 @@ public class Issuers1099Api {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("26.5.0");
+        this.localVarApiClient.setSdkVersion("26.7.0");
     }
 }
 

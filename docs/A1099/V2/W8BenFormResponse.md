@@ -21,7 +21,7 @@
 |**mailingState** | **String** | The state of the mailing address. |  [optional] |
 |**mailingZip** | **String** | The ZIP code of the mailing address. |  [optional] |
 |**mailingCountry** | **String** | The country of the mailing address. |  [optional] |
-|**tinType** | **String** | Tax Identification Number (TIN) type. |  [optional] |
+|**tinType** | **String** | Recipient classification.  The platform is transitioning from tax identifier classifications to recipient entity classifications. New values represent recipient entity types and should be preferred. Deprecated values represent identifier formats and remain supported for backward compatibility only.  Available values: - INDIVIDUAL: Recipient is an individual - BUSINESS: Recipient is a business - UNKNOWN: Recipient classification is unknown - EIN: (Deprecated - use BUSINESS) Employer Identification Number - SSN: (Deprecated - use INDIVIDUAL) Social Security Number - ITIN: (Deprecated - use INDIVIDUAL) Individual Taxpayer Identification Number - ATIN: (Deprecated - use INDIVIDUAL) Adoption Taxpayer Identification Number |  [optional] |
 |**tin** | **String** | The taxpayer identification number (TIN). |  [optional] |
 |**foreignTinNotRequired** | **Boolean** | Indicates whether a foreign TIN is not required. |  [optional] |
 |**foreignTin** | **String** | The foreign taxpayer identification number (TIN). |  [optional] |
