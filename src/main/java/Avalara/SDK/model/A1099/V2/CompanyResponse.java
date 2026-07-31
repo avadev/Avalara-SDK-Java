@@ -59,18 +59,6 @@ import Avalara.SDK.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class CompanyResponse {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-
-  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
-
-  public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
-  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  private OffsetDateTime updatedAt;
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -139,65 +127,20 @@ public class CompanyResponse {
   @SerializedName(SERIALIZED_NAME_MAX_REMINDER_ATTEMPTS)
   private Integer maxReminderAttempts;
 
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
+  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private OffsetDateTime updatedAt;
+
   public CompanyResponse() {
   }
-
-  public CompanyResponse id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Unique identifier set when the record is created.
-   * @return id
-   */
-  @javax.annotation.Nullable
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public CompanyResponse createdAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-  /**
-   * Date time when the record was created.
-   * @return createdAt
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
-  public CompanyResponse updatedAt(OffsetDateTime updatedAt) {
-    this.updatedAt = updatedAt;
-    return this;
-  }
-
-  /**
-   * Date time when the record was last updated.
-   * @return updatedAt
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getUpdatedAt() {
-    return updatedAt;
-  }
-
-  public void setUpdatedAt(OffsetDateTime updatedAt) {
-    this.updatedAt = updatedAt;
-  }
-
 
   public CompanyResponse name(String name) {
     this.name = name;
@@ -522,6 +465,63 @@ public class CompanyResponse {
   }
 
 
+  public CompanyResponse id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Unique identifier set when the record is created.
+   * @return id
+   */
+  @javax.annotation.Nullable
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+
+  public CompanyResponse createdAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+  /**
+   * Date time when the record was created.
+   * @return createdAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public CompanyResponse updatedAt(OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+  /**
+   * Date time when the record was last updated.
+   * @return updatedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -532,10 +532,7 @@ public class CompanyResponse {
       return false;
     }
     CompanyResponse companyResponse = (CompanyResponse) o;
-    return Objects.equals(this.id, companyResponse.id) &&
-        Objects.equals(this.createdAt, companyResponse.createdAt) &&
-        Objects.equals(this.updatedAt, companyResponse.updatedAt) &&
-        Objects.equals(this.name, companyResponse.name) &&
+    return Objects.equals(this.name, companyResponse.name) &&
         Objects.equals(this.dbaName, companyResponse.dbaName) &&
         Objects.equals(this.email, companyResponse.email) &&
         Objects.equals(this.address, companyResponse.address) &&
@@ -551,7 +548,10 @@ public class CompanyResponse {
         Objects.equals(this.countryCode, companyResponse.countryCode) &&
         Objects.equals(this.resendRequests, companyResponse.resendRequests) &&
         Objects.equals(this.resendIntervalDays, companyResponse.resendIntervalDays) &&
-        Objects.equals(this.maxReminderAttempts, companyResponse.maxReminderAttempts);
+        Objects.equals(this.maxReminderAttempts, companyResponse.maxReminderAttempts) &&
+        Objects.equals(this.id, companyResponse.id) &&
+        Objects.equals(this.createdAt, companyResponse.createdAt) &&
+        Objects.equals(this.updatedAt, companyResponse.updatedAt);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -560,7 +560,7 @@ public class CompanyResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, updatedAt, name, dbaName, email, address, city, state, zip, telephone, tin, referenceId, doTinMatch, groupName, foreignProvince, countryCode, resendRequests, resendIntervalDays, maxReminderAttempts);
+    return Objects.hash(name, dbaName, email, address, city, state, zip, telephone, tin, referenceId, doTinMatch, groupName, foreignProvince, countryCode, resendRequests, resendIntervalDays, maxReminderAttempts, id, createdAt, updatedAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -574,9 +574,6 @@ public class CompanyResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CompanyResponse {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    dbaName: ").append(toIndentedString(dbaName)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
@@ -594,6 +591,9 @@ public class CompanyResponse {
     sb.append("    resendRequests: ").append(toIndentedString(resendRequests)).append("\n");
     sb.append("    resendIntervalDays: ").append(toIndentedString(resendIntervalDays)).append("\n");
     sb.append("    maxReminderAttempts: ").append(toIndentedString(maxReminderAttempts)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -633,6 +633,9 @@ public class CompanyResponse {
     openapiFields.add("resendRequests");
     openapiFields.add("resendIntervalDays");
     openapiFields.add("maxReminderAttempts");
+    openapiFields.add("id");
+    openapiFields.add("createdAt");
+    openapiFields.add("updatedAt");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -674,9 +677,6 @@ public class CompanyResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
@@ -715,6 +715,9 @@ public class CompanyResponse {
       }
       if ((jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonNull()) && !jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
   }
 

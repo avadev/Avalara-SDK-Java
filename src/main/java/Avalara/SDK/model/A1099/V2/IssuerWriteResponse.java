@@ -62,22 +62,6 @@ import Avalara.SDK.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class IssuerWriteResponse {
-  public static final String SERIALIZED_NAME_VALIDATION_ERRORS = "validationErrors";
-  @SerializedName(SERIALIZED_NAME_VALIDATION_ERRORS)
-  private List<ValidationError> validationErrors;
-
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-
-  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
-
-  public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
-  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  private OffsetDateTime updatedAt;
-
   public static final String SERIALIZED_NAME_BUSINESS_NAME = "businessName";
   @SerializedName(SERIALIZED_NAME_BUSINESS_NAME)
   private String businessName;
@@ -222,6 +206,22 @@ public class IssuerWriteResponse {
   @SerializedName(SERIALIZED_NAME_LAST_FILING)
   private Boolean lastFiling;
 
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
+  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private OffsetDateTime updatedAt;
+
+  public static final String SERIALIZED_NAME_VALIDATION_ERRORS = "validationErrors";
+  @SerializedName(SERIALIZED_NAME_VALIDATION_ERRORS)
+  private List<ValidationError> validationErrors;
+
   public IssuerWriteResponse() {
   }
 
@@ -231,74 +231,6 @@ public class IssuerWriteResponse {
     this();
     this.validationErrors = validationErrors;
   }
-
-  /**
-   * Field-level validation errors. Populated when a POST or PUT request violated business rules  but the issuer was still persisted. Each entry identifies the affected field and the issue.  Empty array when the payload was fully valid.
-   * @return validationErrors
-   */
-  @javax.annotation.Nullable
-  public List<ValidationError> getValidationErrors() {
-    return validationErrors;
-  }
-
-
-
-  public IssuerWriteResponse id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Unique identifier set when the record is created.
-   * @return id
-   */
-  @javax.annotation.Nullable
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public IssuerWriteResponse createdAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-  /**
-   * Date time when the record was created.
-   * @return createdAt
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
-  public IssuerWriteResponse updatedAt(OffsetDateTime updatedAt) {
-    this.updatedAt = updatedAt;
-    return this;
-  }
-
-  /**
-   * Date time when the record was last updated.
-   * @return updatedAt
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getUpdatedAt() {
-    return updatedAt;
-  }
-
-  public void setUpdatedAt(OffsetDateTime updatedAt) {
-    this.updatedAt = updatedAt;
-  }
-
 
   public IssuerWriteResponse businessName(String businessName) {
     this.businessName = businessName;
@@ -726,6 +658,74 @@ public class IssuerWriteResponse {
   }
 
 
+  public IssuerWriteResponse id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Unique identifier set when the record is created.
+   * @return id
+   */
+  @javax.annotation.Nullable
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+
+  public IssuerWriteResponse createdAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+  /**
+   * Date time when the record was created.
+   * @return createdAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public IssuerWriteResponse updatedAt(OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+  /**
+   * Date time when the record was last updated.
+   * @return updatedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+
+  /**
+   * Field-level validation errors. Populated when a POST or PUT request violated business rules  but the issuer was still persisted. Each entry identifies the affected field and the issue.  Empty array when the payload was fully valid.
+   * @return validationErrors
+   */
+  @javax.annotation.Nullable
+  public List<ValidationError> getValidationErrors() {
+    return validationErrors;
+  }
+
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -736,11 +736,7 @@ public class IssuerWriteResponse {
       return false;
     }
     IssuerWriteResponse issuerWriteResponse = (IssuerWriteResponse) o;
-    return Objects.equals(this.validationErrors, issuerWriteResponse.validationErrors) &&
-        Objects.equals(this.id, issuerWriteResponse.id) &&
-        Objects.equals(this.createdAt, issuerWriteResponse.createdAt) &&
-        Objects.equals(this.updatedAt, issuerWriteResponse.updatedAt) &&
-        Objects.equals(this.businessName, issuerWriteResponse.businessName) &&
+    return Objects.equals(this.businessName, issuerWriteResponse.businessName) &&
         Objects.equals(this.businessName2, issuerWriteResponse.businessName2) &&
         Objects.equals(this.name, issuerWriteResponse.name) &&
         Objects.equals(this.dbaName, issuerWriteResponse.dbaName) &&
@@ -761,7 +757,11 @@ public class IssuerWriteResponse {
         Objects.equals(this.zip, issuerWriteResponse.zip) &&
         Objects.equals(this.foreignProvince, issuerWriteResponse.foreignProvince) &&
         Objects.equals(this.transferAgentName, issuerWriteResponse.transferAgentName) &&
-        Objects.equals(this.lastFiling, issuerWriteResponse.lastFiling);
+        Objects.equals(this.lastFiling, issuerWriteResponse.lastFiling) &&
+        Objects.equals(this.id, issuerWriteResponse.id) &&
+        Objects.equals(this.createdAt, issuerWriteResponse.createdAt) &&
+        Objects.equals(this.updatedAt, issuerWriteResponse.updatedAt) &&
+        Objects.equals(this.validationErrors, issuerWriteResponse.validationErrors);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -770,7 +770,7 @@ public class IssuerWriteResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(validationErrors, id, createdAt, updatedAt, businessName, businessName2, name, dbaName, tinType, firstName, middleName, lastName, suffix, tin, referenceId, telephone, taxYear, countryCode, email, address, city, state, zip, foreignProvince, transferAgentName, lastFiling);
+    return Objects.hash(businessName, businessName2, name, dbaName, tinType, firstName, middleName, lastName, suffix, tin, referenceId, telephone, taxYear, countryCode, email, address, city, state, zip, foreignProvince, transferAgentName, lastFiling, id, createdAt, updatedAt, validationErrors);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -784,10 +784,6 @@ public class IssuerWriteResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IssuerWriteResponse {\n");
-    sb.append("    validationErrors: ").append(toIndentedString(validationErrors)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    businessName: ").append(toIndentedString(businessName)).append("\n");
     sb.append("    businessName2: ").append(toIndentedString(businessName2)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -810,6 +806,10 @@ public class IssuerWriteResponse {
     sb.append("    foreignProvince: ").append(toIndentedString(foreignProvince)).append("\n");
     sb.append("    transferAgentName: ").append(toIndentedString(transferAgentName)).append("\n");
     sb.append("    lastFiling: ").append(toIndentedString(lastFiling)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    validationErrors: ").append(toIndentedString(validationErrors)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -832,9 +832,6 @@ public class IssuerWriteResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("createdAt");
-    openapiFields.add("updatedAt");
     openapiFields.add("businessName");
     openapiFields.add("businessName2");
     openapiFields.add("name");
@@ -857,6 +854,10 @@ public class IssuerWriteResponse {
     openapiFields.add("foreignProvince");
     openapiFields.add("transferAgentName");
     openapiFields.add("lastFiling");
+    openapiFields.add("id");
+    openapiFields.add("createdAt");
+    openapiFields.add("updatedAt");
+    openapiFields.add("validationErrors");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -899,23 +900,6 @@ public class IssuerWriteResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("validationErrors") != null && !jsonObj.get("validationErrors").isJsonNull()) {
-        JsonArray jsonArrayvalidationErrors = jsonObj.getAsJsonArray("validationErrors");
-        if (jsonArrayvalidationErrors != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("validationErrors").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `validationErrors` to be an array in the JSON string but got `%s`", jsonObj.get("validationErrors").toString()));
-          }
-
-          // validate the optional field `validationErrors` (array)
-          for (int i = 0; i < jsonArrayvalidationErrors.size(); i++) {
-            ValidationError.validateJsonElement(jsonArrayvalidationErrors.get(i));
-          };
-        }
-      }
-      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
       if ((jsonObj.get("businessName") != null && !jsonObj.get("businessName").isJsonNull()) && !jsonObj.get("businessName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `businessName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessName").toString()));
       }
@@ -979,6 +963,23 @@ public class IssuerWriteResponse {
       }
       if ((jsonObj.get("transferAgentName") != null && !jsonObj.get("transferAgentName").isJsonNull()) && !jsonObj.get("transferAgentName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `transferAgentName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transferAgentName").toString()));
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (jsonObj.get("validationErrors") != null && !jsonObj.get("validationErrors").isJsonNull()) {
+        JsonArray jsonArrayvalidationErrors = jsonObj.getAsJsonArray("validationErrors");
+        if (jsonArrayvalidationErrors != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("validationErrors").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `validationErrors` to be an array in the JSON string but got `%s`", jsonObj.get("validationErrors").toString()));
+          }
+
+          // validate the optional field `validationErrors` (array)
+          for (int i = 0; i < jsonArrayvalidationErrors.size(); i++) {
+            ValidationError.validateJsonElement(jsonArrayvalidationErrors.get(i));
+          };
+        }
       }
   }
 

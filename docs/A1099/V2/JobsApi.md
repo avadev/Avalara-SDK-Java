@@ -1,6 +1,6 @@
 # JobsApi
 
-All URIs are relative to *https://api.sbx.avalara.com/avalara1099*
+All URIs are relative to *https://api-ava1099.edge.qa.us-east-1.aws.avalara.io/avalara1099*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -46,7 +46,7 @@ public class Example {
         JobsApi apiInstance = new JobsApi(apiClient);
         String id = "id_example"; // String | Job id obtained from other API responses, like `/1099/bulk-upsert`.
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "7caee3cb-0cc1-4834-9e98-f57cd76efcc8"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "010a01be-bbf4-407e-afff-6151b0580377"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             JobResponse result = apiInstance.getJob(id, avalaraVersion, xCorrelationId, xAvalaraClient);

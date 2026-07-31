@@ -20,7 +20,7 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
-import Avalara.SDK.model.A1099.V2.GetIssuer200Response;
+import Avalara.SDK.model.A1099.V2.IssuerResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -67,7 +67,7 @@ public class PaginatedQueryResultModelIssuerResponse {
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  private List<GetIssuer200Response> value;
+  private List<IssuerResponse> value;
 
   public static final String SERIALIZED_NAME_AT_NEXT_LINK = "@nextLink";
   @SerializedName(SERIALIZED_NAME_AT_NEXT_LINK)
@@ -95,12 +95,12 @@ public class PaginatedQueryResultModelIssuerResponse {
   }
 
 
-  public PaginatedQueryResultModelIssuerResponse value(List<GetIssuer200Response> value) {
+  public PaginatedQueryResultModelIssuerResponse value(List<IssuerResponse> value) {
     this.value = value;
     return this;
   }
 
-  public PaginatedQueryResultModelIssuerResponse addValueItem(GetIssuer200Response valueItem) {
+  public PaginatedQueryResultModelIssuerResponse addValueItem(IssuerResponse valueItem) {
     if (this.value == null) {
       this.value = new ArrayList<>();
     }
@@ -113,11 +113,11 @@ public class PaginatedQueryResultModelIssuerResponse {
    * @return value
    */
   @javax.annotation.Nullable
-  public List<GetIssuer200Response> getValue() {
+  public List<IssuerResponse> getValue() {
     return value;
   }
 
-  public void setValue(List<GetIssuer200Response> value) {
+  public void setValue(List<IssuerResponse> value) {
     this.value = value;
   }
 
@@ -240,7 +240,7 @@ public class PaginatedQueryResultModelIssuerResponse {
 
           // validate the optional field `value` (array)
           for (int i = 0; i < jsonArrayvalue.size(); i++) {
-            GetIssuer200Response.validateJsonElement(jsonArrayvalue.get(i));
+            IssuerResponse.validateJsonElement(jsonArrayvalue.get(i));
           };
         }
       }

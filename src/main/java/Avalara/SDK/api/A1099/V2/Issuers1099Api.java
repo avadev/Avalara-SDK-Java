@@ -37,8 +37,8 @@ import java.util.*;
 
 
 import Avalara.SDK.model.A1099.V2.ErrorResponse;
-import Avalara.SDK.model.A1099.V2.GetIssuer200Response;
 import Avalara.SDK.model.A1099.V2.IssuerRequest;
+import Avalara.SDK.model.A1099.V2.IssuerResponse;
 import Avalara.SDK.model.A1099.V2.IssuerWriteResponse;
 import Avalara.SDK.model.A1099.V2.PaginatedQueryResultModelIssuerResponse;
 
@@ -546,7 +546,7 @@ public class Issuers1099Api {
      * Retrieve an issuer
      * Retrieve an issuer (also known as a Payer).
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return GetIssuer200Response
+     * @return IssuerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -556,8 +556,8 @@ public class Issuers1099Api {
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
      */
-    public GetIssuer200Response getIssuer(GetIssuerRequest requestParameters) throws ApiException {
-        ApiResponse<GetIssuer200Response> localVarResp = getIssuerWithHttpInfo(requestParameters);
+    public IssuerResponse getIssuer(GetIssuerRequest requestParameters) throws ApiException {
+        ApiResponse<IssuerResponse> localVarResp = getIssuerWithHttpInfo(requestParameters);
         return localVarResp.getData();
     }
 
@@ -565,7 +565,7 @@ public class Issuers1099Api {
      * Retrieve an issuer
      * Retrieve an issuer (also known as a Payer).
      * @param requestOptions Object which represents the options available for a given API/request
-     * @return ApiResponse&lt;GetIssuer200Response&gt;
+     * @return ApiResponse&lt;IssuerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -575,9 +575,9 @@ public class Issuers1099Api {
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetIssuer200Response> getIssuerWithHttpInfo(GetIssuerRequest requestParameters) throws ApiException {
+    public ApiResponse<IssuerResponse> getIssuerWithHttpInfo(GetIssuerRequest requestParameters) throws ApiException {
         okhttp3.Call localVarCall = getIssuerValidateBeforeCall(requestParameters, null);
-        Type localVarReturnType = new TypeToken<GetIssuer200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<IssuerResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -596,10 +596,10 @@ public class Issuers1099Api {
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getIssuerAsync(GetIssuerRequest requestParameters, final ApiCallback<GetIssuer200Response> _callback) throws ApiException {
+    public okhttp3.Call getIssuerAsync(GetIssuerRequest requestParameters, final ApiCallback<IssuerResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getIssuerValidateBeforeCall(requestParameters, _callback);
-        Type localVarReturnType = new TypeToken<GetIssuer200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<IssuerResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
