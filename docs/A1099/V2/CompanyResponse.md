@@ -7,9 +7,6 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **String** | Unique identifier set when the record is created. |  [optional] |
-|**createdAt** | **OffsetDateTime** | Date time when the record was created. |  [optional] |
-|**updatedAt** | **OffsetDateTime** | Date time when the record was last updated. |  [optional] |
 |**name** | **String** | Legal name. Not the DBA name. |  |
 |**dbaName** | **String** | Doing Business As (DBA) name or continuation of a long legal name. |  [optional] |
 |**email** | **String** | Contact email address. For inquiries by vendors/employees. |  |
@@ -27,6 +24,9 @@
 |**resendRequests** | **Boolean** | Boolean to enable automatic reminder emails (default: false). |  [optional] |
 |**resendIntervalDays** | **Integer** | Days between reminder emails (7-365, required if resendRequests is true). |  [optional] |
 |**maxReminderAttempts** | **Integer** | Maximum number of reminder attempts (1-52, required if resendRequests is true). |  [optional] |
+|**id** | **String** | Unique identifier set when the record is created. |  [optional] |
+|**createdAt** | **OffsetDateTime** | Date time when the record was created. |  [optional] |
+|**updatedAt** | **OffsetDateTime** | Date time when the record was last updated. |  [optional] |
 
 
 

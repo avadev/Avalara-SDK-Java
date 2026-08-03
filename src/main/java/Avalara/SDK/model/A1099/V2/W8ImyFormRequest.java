@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## Authentication  #### Step 1: Generate API Credentials  Generate a *client ID* and *client secret* from your [Avalara1099 account](https://sbx.track1099.com/api_tokens): *Your Profile → API*.  #### Step 2: Get an Identity Token  Send a `POST` request to the **Identity Token URL** with your *client ID* and *client secret* from Step 1 as form-encoded parameters:  ```http POST https://identity.avalara.com/connect/token Content-Type: application/x-www-form-urlencoded  grant_type=client_credentials client_id=<your client ID> client_secret=<your client secret> ```  **Body parameters** - `grant_type` — Always `client_credentials` - `client_id` — Your *client ID* from Step 1 - `client_secret` — Your *client secret* from Step 1  **Successful response**  ```json {   \"access_token\": \"eyJhbGci...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\" } ```  Use the `access_token` as a bearer token in the `Authorization` header on every A1099 API request:  ```http Authorization: Bearer <access_token> ```  ---  For more on authenticating requests, see the [A1099 authentication guide](https://developer.avalara.com/1099-and-w-9/kny2997001535374/).  ---  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
+ * > **Note:** You must have an active Avalara 1099 & W-9 subscription to authenticate and use these APIs. If you don't have a subscription, please contact our [Sales team](https://www.avalara.com/us/en/products/1099/request-a-demo.html).  ## Authentication  The Avalara 1099 & W-9 API uses **Bearer Token Authentication**. To authenticate, acquire a bearer token using a **Client ID** and **Client Secret** that you generate in the Avalara 1099 & W-9 web application.  The sample cURL commands below use **production** URLs. For **sandbox**, replace them with the sandbox URLs listed in the Sandbox Environment table.  ### Option 1 — Client ID and Client Secret (recommended)  **Step 1: Create API credentials in the Avalara 1099 & W-9 web app**  For a full walkthrough, see the [Avalara 1099 & W-9 integration guide](https://developer.avalara.com/products/avalara-1099-and-w9/integration-guides/1099-and-w-9/siu2796410674799/).  > **Note:** To enable credential creation you must first enter a valid company address in **Account Settings > Account** and enable two-factor authentication in **Account Settings > Security**.  1. In Avalara 1099 & W-9, open **Account Settings** (gear icon, top-right of any page) and select **API**. 2. Click **Create new credentials** (a valid company address and 2FA are required). 3. Copy your **Client Id** and **Client Secret** securely — they will not be shown again after you leave the screen.  **Step 2: Request a bearer token**  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{client_id}}' \\   --data-urlencode 'client_secret={{client_secret}}' ```  ### Option 2 — Account ID and License Key  If your organization already uses other Avalara products (AvaTax, CertCapture) and has access to the logged-in area of Avalara.com, you can generate the bearer token using your **Account ID** and **License Key**.  > **Note:** If you already have a license key for other Avalara products you can reuse it. Generating a new key will reset any previously created key.  1. Log in to Avalara.com. 2. Go to **Settings → License and API Keys**. 3. Click **Generate New Key**. 4. Note your **Account ID** from the Account menu.  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{accountId}}' \\   --data-urlencode 'client_secret={{licenseKey}}' ```  ### Using and renewing the bearer token  Include the token in the `Authorization` header on every request:  ```http Authorization: Bearer {access_token} ```  Tokens expire after the number of seconds in the `expires_in` field of the token response. Your integration must renew the token before it expires.  **Example token response**  ```json {   \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\",   \"scope\": \"avatax_api iam-ds\" } ```  ### Sandbox Environment  Use the same steps as production, replacing the base URLs:  | Purpose | Production | Sandbox | | --- | --- | --- | | Account & License Key management (web) | `https://www.avalara.com` | `https://sandbox.admin.avalara.com` | | Account & License Key management (API) | `https://rest.avatax.com` | `https://sandbox-rest.avatax.com` | | Token generation | `https://identity.avalara.com` | `https://ai-sbx.avlr.sh` |  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -842,14 +842,6 @@ public class W8ImyFormRequest {
   @SerializedName(SERIALIZED_NAME_SIGNER_NAME)
   private String signerName;
 
-  public static final String SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT = "eDeliveryConsentedAt";
-  @SerializedName(SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT)
-  private OffsetDateTime eDeliveryConsentedAt;
-
-  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
-  @SerializedName(SERIALIZED_NAME_SIGNATURE)
-  private String signature;
-
   public static final String SERIALIZED_NAME_COMPANY_ID = "companyId";
   @SerializedName(SERIALIZED_NAME_COMPANY_ID)
   private String companyId;
@@ -861,6 +853,14 @@ public class W8ImyFormRequest {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
+
+  public static final String SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT = "eDeliveryConsentedAt";
+  @SerializedName(SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT)
+  private OffsetDateTime eDeliveryConsentedAt;
+
+  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
+  @SerializedName(SERIALIZED_NAME_SIGNATURE)
+  private String signature;
 
   public W8ImyFormRequest() {
   }
@@ -1193,7 +1193,7 @@ public class W8ImyFormRequest {
   }
 
   /**
-   * Tax Identification Number (TIN) type.  Available values: - QI-EIN: Qualified Intermediary EIN - WP-EIN: Withholding Partnership EIN - WT-EIN: Withholding Trust EIN - EIN: Employer Identification Number
+   * Recipient classification.  The platform is transitioning from tax identifier classifications to recipient entity classifications. New values represent recipient entity types and should be preferred. Deprecated values represent identifier formats and remain supported for backward compatibility only.  Available values: - INDIVIDUAL: Recipient is an individual - BUSINESS: Recipient is a business - UNKNOWN: Recipient classification is unknown - EIN: (Deprecated - use BUSINESS) Employer Identification Number - SSN: (Deprecated - use INDIVIDUAL) Social Security Number - ITIN: (Deprecated - use INDIVIDUAL) Individual Taxpayer Identification Number - ATIN: (Deprecated - use INDIVIDUAL) Adoption Taxpayer Identification Number  Available values: - QI-EIN: Qualified Intermediary EIN - WP-EIN: Withholding Partnership EIN - WT-EIN: Withholding Trust EIN - EIN: Employer Identification Number
    * @return tinType
    */
   @javax.annotation.Nullable
@@ -2992,44 +2992,6 @@ public class W8ImyFormRequest {
   }
 
 
-  public W8ImyFormRequest eDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
-    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
-    return this;
-  }
-
-  /**
-   * The date when e-delivery was consented.
-   * @return eDeliveryConsentedAt
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime geteDeliveryConsentedAt() {
-    return eDeliveryConsentedAt;
-  }
-
-  public void seteDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
-    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
-  }
-
-
-  public W8ImyFormRequest signature(String signature) {
-    this.signature = signature;
-    return this;
-  }
-
-  /**
-   * The signature of the form.
-   * @return signature
-   */
-  @javax.annotation.Nullable
-  public String getSignature() {
-    return signature;
-  }
-
-  public void setSignature(String signature) {
-    this.signature = signature;
-  }
-
-
   public W8ImyFormRequest companyId(String companyId) {
     this.companyId = companyId;
     return this;
@@ -3084,6 +3046,44 @@ public class W8ImyFormRequest {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+
+  public W8ImyFormRequest eDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
+    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
+    return this;
+  }
+
+  /**
+   * The date when e-delivery was consented.
+   * @return eDeliveryConsentedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime geteDeliveryConsentedAt() {
+    return eDeliveryConsentedAt;
+  }
+
+  public void seteDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
+    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
+  }
+
+
+  public W8ImyFormRequest signature(String signature) {
+    this.signature = signature;
+    return this;
+  }
+
+  /**
+   * The signature of the form.
+   * @return signature
+   */
+  @javax.annotation.Nullable
+  public String getSignature() {
+    return signature;
+  }
+
+  public void setSignature(String signature) {
+    this.signature = signature;
   }
 
 
@@ -3209,11 +3209,11 @@ public class W8ImyFormRequest {
         Objects.equals(this.sponsoredDirectReportingNffeCertification, w8ImyFormRequest.sponsoredDirectReportingNffeCertification) &&
         Objects.equals(this.directReportingNffeSponsoringEntity, w8ImyFormRequest.directReportingNffeSponsoringEntity) &&
         Objects.equals(this.signerName, w8ImyFormRequest.signerName) &&
-        Objects.equals(this.eDeliveryConsentedAt, w8ImyFormRequest.eDeliveryConsentedAt) &&
-        Objects.equals(this.signature, w8ImyFormRequest.signature) &&
         Objects.equals(this.companyId, w8ImyFormRequest.companyId) &&
         Objects.equals(this.referenceId, w8ImyFormRequest.referenceId) &&
-        Objects.equals(this.email, w8ImyFormRequest.email);
+        Objects.equals(this.email, w8ImyFormRequest.email) &&
+        Objects.equals(this.eDeliveryConsentedAt, w8ImyFormRequest.eDeliveryConsentedAt) &&
+        Objects.equals(this.signature, w8ImyFormRequest.signature);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -3222,7 +3222,7 @@ public class W8ImyFormRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, name, citizenshipCountry, disregardedEntity, entityType, fatcaStatus, residenceAddress, residenceCity, residenceState, residenceZip, residenceCountry, residenceIsMailing, mailingAddress, mailingCity, mailingState, mailingZip, mailingCountry, tinType, tin, giin, foreignTin, referenceNumber, disregardedEntityFatcaStatus, disregardedAddress, disregardedCity, disregardedState, disregardedZip, disregardedCountry, disregardedEntityGiin, qualifiedIntermediaryCertification, qiPrimaryWithholdingResponsibilityCertification, qiWithholdingResponsibilityForPtpSalesCertification, qiNomineeWithholdingResponsibilityForPtpDistributionsCertification, qiSecuritiesLenderSubstituteDividendWithholdingCertification, qiWithholdingAnd1099ReportingResponsibilityCertification, qiForm1099OrFatcaReportingResponsibilityCertification, qiOptOutOfForm1099ReportingCertification, qiWithholdingRatePoolCertification, qiIntermediaryOrFlowThroughEntityDocumentationCertification, qualifiedDerivativesDealerCertification, qddCorporation, qddPartnership, qddDisregardedEntity, nonqualifiedIntermediaryCertification, nqiWithholdingStatementTransmissionCertification, nqiWithholdingRatePoolComplianceCertification, nqiQualifiedSecuritiesLenderCertification, nqiAlternativeWithholdingStatementVerificationCertification, territoryFinancialInstitutionCertification, tfiTreatedAsUsPersonCertification, tfiWithholdingStatementTransmissionCertification, tfiTreatedAsUsPersonForPtpSalesCertification, tfiNomineeUsPersonForPtpDistributionsCertification, tfiNotNomineeForPtpDistributionsCertification, usBranchNonEffectivelyConnectedIncomeCertification, usBranchAgreementToBeTreatedAsUsPersonCertification, usBranchWithholdingStatementAndComplianceCertification, usBranchActingAsUsPersonForPtpSalesCertification, usBranchNomineeForPtpDistributionsCertification, usBranchNotNomineeForPtpDistributionsCertification, withholdingForeignPartnershipOrTrustCertification, nonwithholdingForeignEntityWithholdingStatementCertification, foreignEntityPartnerInLowerTierPartnershipCertification, foreignPartnershipAmountRealizedSection1446FCertification, foreignPartnershipModifiedAmountRealizedCertification, foreignGrantorTrustAmountRealizedAllocationCertification, alternativeWithholdingStatementRelianceCertification, npFfiWithExemptBeneficialOwnersCertification, ffiSponsoringEntity, investmentEntityCertification, controlledForeignCorporationCertification, ownerDocumentedFfiCertification, ownerDocumentedFfiReportingStatementCertification, ownerDocumentedFfiAuditorLetterCertification, compliantNonregisteringLocalBankCertification, compliantFfiLowValueAccountsCertification, sponsoredCloselyHeldEntitySponsoringEntity, sponsoredCloselyHeldInvestmentVehicleCertification, compliantLimitedLifeDebtEntityCertification, investmentEntityNoFinancialAccountsCertification, restrictedDistributorCertification, restrictedDistributorAgreementCertification, restrictedDistributorPreexistingSalesComplianceCertification, foreignCentralBankOfIssueCertification, nonreportingIgaFfiCertification, igaCountry, igaModel, igaLegalStatusTreatment, igaFfiTrusteeOrSponsor, igaFfiTrusteeIsForeign, treatyQualifiedPensionFundCertification, qualifiedRetirementFundCertification, narrowParticipationRetirementFundCertification, section401AEquivalentPensionPlanCertification, investmentEntityForRetirementFundsCertification, exemptBeneficialOwnerSponsoredRetirementFundCertification, exceptedNonfinancialGroupEntityCertification, exceptedNonfinancialStartUpCertification, startupFormationOrResolutionDate, exceptedNonfinancialEntityInLiquidationOrBankruptcyCertification, nonfinancialEntityFilingDate, publiclyTradedNffeCertification, publiclyTradedNffeSecuritiesMarket, nffeAffiliateOfPubliclyTradedEntityCertification, publiclyTradedEntity, nffeAffiliateOfPubliclyTradedEntitySecuritiesMarket, exceptedTerritoryNffeCertification, activeNffeCertification, passiveNffeCertification, sponsoredDirectReportingNffeCertification, directReportingNffeSponsoringEntity, signerName, eDeliveryConsentedAt, signature, companyId, referenceId, email);
+    return Objects.hash(type, name, citizenshipCountry, disregardedEntity, entityType, fatcaStatus, residenceAddress, residenceCity, residenceState, residenceZip, residenceCountry, residenceIsMailing, mailingAddress, mailingCity, mailingState, mailingZip, mailingCountry, tinType, tin, giin, foreignTin, referenceNumber, disregardedEntityFatcaStatus, disregardedAddress, disregardedCity, disregardedState, disregardedZip, disregardedCountry, disregardedEntityGiin, qualifiedIntermediaryCertification, qiPrimaryWithholdingResponsibilityCertification, qiWithholdingResponsibilityForPtpSalesCertification, qiNomineeWithholdingResponsibilityForPtpDistributionsCertification, qiSecuritiesLenderSubstituteDividendWithholdingCertification, qiWithholdingAnd1099ReportingResponsibilityCertification, qiForm1099OrFatcaReportingResponsibilityCertification, qiOptOutOfForm1099ReportingCertification, qiWithholdingRatePoolCertification, qiIntermediaryOrFlowThroughEntityDocumentationCertification, qualifiedDerivativesDealerCertification, qddCorporation, qddPartnership, qddDisregardedEntity, nonqualifiedIntermediaryCertification, nqiWithholdingStatementTransmissionCertification, nqiWithholdingRatePoolComplianceCertification, nqiQualifiedSecuritiesLenderCertification, nqiAlternativeWithholdingStatementVerificationCertification, territoryFinancialInstitutionCertification, tfiTreatedAsUsPersonCertification, tfiWithholdingStatementTransmissionCertification, tfiTreatedAsUsPersonForPtpSalesCertification, tfiNomineeUsPersonForPtpDistributionsCertification, tfiNotNomineeForPtpDistributionsCertification, usBranchNonEffectivelyConnectedIncomeCertification, usBranchAgreementToBeTreatedAsUsPersonCertification, usBranchWithholdingStatementAndComplianceCertification, usBranchActingAsUsPersonForPtpSalesCertification, usBranchNomineeForPtpDistributionsCertification, usBranchNotNomineeForPtpDistributionsCertification, withholdingForeignPartnershipOrTrustCertification, nonwithholdingForeignEntityWithholdingStatementCertification, foreignEntityPartnerInLowerTierPartnershipCertification, foreignPartnershipAmountRealizedSection1446FCertification, foreignPartnershipModifiedAmountRealizedCertification, foreignGrantorTrustAmountRealizedAllocationCertification, alternativeWithholdingStatementRelianceCertification, npFfiWithExemptBeneficialOwnersCertification, ffiSponsoringEntity, investmentEntityCertification, controlledForeignCorporationCertification, ownerDocumentedFfiCertification, ownerDocumentedFfiReportingStatementCertification, ownerDocumentedFfiAuditorLetterCertification, compliantNonregisteringLocalBankCertification, compliantFfiLowValueAccountsCertification, sponsoredCloselyHeldEntitySponsoringEntity, sponsoredCloselyHeldInvestmentVehicleCertification, compliantLimitedLifeDebtEntityCertification, investmentEntityNoFinancialAccountsCertification, restrictedDistributorCertification, restrictedDistributorAgreementCertification, restrictedDistributorPreexistingSalesComplianceCertification, foreignCentralBankOfIssueCertification, nonreportingIgaFfiCertification, igaCountry, igaModel, igaLegalStatusTreatment, igaFfiTrusteeOrSponsor, igaFfiTrusteeIsForeign, treatyQualifiedPensionFundCertification, qualifiedRetirementFundCertification, narrowParticipationRetirementFundCertification, section401AEquivalentPensionPlanCertification, investmentEntityForRetirementFundsCertification, exemptBeneficialOwnerSponsoredRetirementFundCertification, exceptedNonfinancialGroupEntityCertification, exceptedNonfinancialStartUpCertification, startupFormationOrResolutionDate, exceptedNonfinancialEntityInLiquidationOrBankruptcyCertification, nonfinancialEntityFilingDate, publiclyTradedNffeCertification, publiclyTradedNffeSecuritiesMarket, nffeAffiliateOfPubliclyTradedEntityCertification, publiclyTradedEntity, nffeAffiliateOfPubliclyTradedEntitySecuritiesMarket, exceptedTerritoryNffeCertification, activeNffeCertification, passiveNffeCertification, sponsoredDirectReportingNffeCertification, directReportingNffeSponsoringEntity, signerName, companyId, referenceId, email, eDeliveryConsentedAt, signature);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -3348,11 +3348,11 @@ public class W8ImyFormRequest {
     sb.append("    sponsoredDirectReportingNffeCertification: ").append(toIndentedString(sponsoredDirectReportingNffeCertification)).append("\n");
     sb.append("    directReportingNffeSponsoringEntity: ").append(toIndentedString(directReportingNffeSponsoringEntity)).append("\n");
     sb.append("    signerName: ").append(toIndentedString(signerName)).append("\n");
-    sb.append("    eDeliveryConsentedAt: ").append(toIndentedString(eDeliveryConsentedAt)).append("\n");
-    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    eDeliveryConsentedAt: ").append(toIndentedString(eDeliveryConsentedAt)).append("\n");
+    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -3375,12 +3375,12 @@ public class W8ImyFormRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("eDeliveryConsentedAt");
-    openapiFields.add("signature");
     openapiFields.add("type");
     openapiFields.add("companyId");
     openapiFields.add("referenceId");
     openapiFields.add("email");
+    openapiFields.add("eDeliveryConsentedAt");
+    openapiFields.add("signature");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -3553,9 +3553,6 @@ public class W8ImyFormRequest {
       if ((jsonObj.get("signerName") != null && !jsonObj.get("signerName").isJsonNull()) && !jsonObj.get("signerName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `signerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signerName").toString()));
       }
-      if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
-      }
       if ((jsonObj.get("companyId") != null && !jsonObj.get("companyId").isJsonNull()) && !jsonObj.get("companyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `companyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyId").toString()));
       }
@@ -3564,6 +3561,9 @@ public class W8ImyFormRequest {
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      }
+      if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
       }
   }
 

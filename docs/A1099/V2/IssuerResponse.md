@@ -7,11 +7,15 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **String** | Unique identifier set when the record is created. |  [optional] |
-|**createdAt** | **OffsetDateTime** | Date time when the record was created. |  [optional] |
-|**updatedAt** | **OffsetDateTime** | Date time when the record was last updated. |  [optional] |
-|**name** | **String** | Legal name. Not the DBA name. |  |
-|**dbaName** | **String** | Doing Business As (DBA) name or continuation of a long legal name. Use either this or &#39;transferAgentName&#39;. |  [optional] |
+|**businessName** | **String** | Business name. Required when the recipient of the form is a business; should only be used for businesses. |  |
+|**businessName2** | **String** | Business name line 2. Should only be used for businesses. Use either this or &#39;transferAgentName&#39;. |  [optional] |
+|**name** | **String** | Legal name. Not the DBA name. Deprecated alias for &#39;businessName&#39;. |  [optional] |
+|**dbaName** | **String** | Doing Business As (DBA) name or continuation of a long legal name. Deprecated alias for &#39;businessName2&#39;. Use either this or &#39;transferAgentName&#39;. |  [optional] |
+|**tinType** | [**TinTypeEnum**](#TinTypeEnum) | Recipient classification.  The platform is transitioning from tax identifier classifications to recipient entity classifications. New values represent recipient entity types and should be preferred. Deprecated values represent identifier formats and remain supported for backward compatibility only.  Available values: - INDIVIDUAL: Recipient is an individual - BUSINESS: Recipient is a business - UNKNOWN: Recipient classification is unknown - EIN: (Deprecated - use BUSINESS) Employer Identification Number - SSN: (Deprecated - use INDIVIDUAL) Social Security Number - ITIN: (Deprecated - use INDIVIDUAL) Individual Taxpayer Identification Number - ATIN: (Deprecated - use INDIVIDUAL) Adoption Taxpayer Identification Number |  [optional] |
+|**firstName** | **String** | First name. Required when the recipient of the form is an individual; should only be used for individuals. |  [optional] |
+|**middleName** | **String** | Middle name. Should only be used for individuals. |  [optional] |
+|**lastName** | **String** | Last name. Required when the recipient of the form is an individual; should only be used for individuals. |  [optional] |
+|**suffix** | **String** | Suffix name. Should only be used for individuals. |  [optional] |
 |**tin** | **String** | Federal Tax Identification Number (TIN). |  [optional] |
 |**referenceId** | **String** | Internal reference ID. Never shown to any agency or recipient. If present, it will prefix download filenames. Allowed characters: letters, numbers, dashes, underscores, and spaces. |  [optional] |
 |**telephone** | **String** | Contact phone number (must contain at least 10 digits, max 15 characters). For recipient inquiries. |  |
@@ -25,6 +29,19 @@
 |**foreignProvince** | **String** | Province or region for non-US/CA addresses. |  [optional] |
 |**transferAgentName** | **String** | Name of the transfer agent, if applicable — optional; use either this or &#39;dbaName&#39;. |  [optional] |
 |**lastFiling** | **Boolean** | Indicates if this is the issuer&#39;s final year filing. |  |
+|**id** | **String** | Unique identifier set when the record is created. |  [optional] |
+|**createdAt** | **OffsetDateTime** | Date time when the record was created. |  [optional] |
+|**updatedAt** | **OffsetDateTime** | Date time when the record was last updated. |  [optional] |
+
+
+
+## Enum: TinTypeEnum
+
+| Name | Value |
+|---- | -----|
+| UNKNOWN | &quot;UNKNOWN&quot; |
+| INDIVIDUAL | &quot;INDIVIDUAL&quot; |
+| BUSINESS | &quot;BUSINESS&quot; |
 
 
 

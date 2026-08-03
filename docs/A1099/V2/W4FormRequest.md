@@ -12,7 +12,7 @@
 |**employeeMiddleName** | **String** | The middle name of the employee. |  [optional] |
 |**employeeLastName** | **String** | The last name of the employee. |  |
 |**employeeNameSuffix** | **String** | The name suffix of the employee. |  [optional] |
-|**tinType** | **String** | Tax Identification Number (TIN) type. |  |
+|**tinType** | **String** | Recipient classification.  The platform is transitioning from tax identifier classifications to recipient entity classifications. New values represent recipient entity types and should be preferred. Deprecated values represent identifier formats and remain supported for backward compatibility only.  Available values: - INDIVIDUAL: Recipient is an individual - BUSINESS: Recipient is a business - UNKNOWN: Recipient classification is unknown - EIN: (Deprecated - use BUSINESS) Employer Identification Number - SSN: (Deprecated - use INDIVIDUAL) Social Security Number - ITIN: (Deprecated - use INDIVIDUAL) Individual Taxpayer Identification Number - ATIN: (Deprecated - use INDIVIDUAL) Adoption Taxpayer Identification Number |  |
 |**tin** | **String** | The taxpayer identification number (TIN). |  |
 |**address** | **String** | The address of the employee. Required unless exempt. |  [optional] |
 |**city** | **String** | The city of residence of the employee. Required unless exempt. |  [optional] |
@@ -27,11 +27,11 @@
 |**additionalWithheld** | **Float** | The additional amount withheld. |  [optional] |
 |**exemptFromWithholding** | **Boolean** | Indicates whether the employee is exempt from withholding. |  [optional] |
 |**officeCode** | **String** | The office code associated with the form. |  [optional] |
-|**eDeliveryConsentedAt** | **OffsetDateTime** | The date when e-delivery was consented. |  [optional] |
-|**signature** | **String** | The signature of the form. |  [optional] |
 |**companyId** | **String** | The ID of the associated company. Required when creating a form. |  [optional] |
 |**referenceId** | **String** | A reference identifier for the form. |  [optional] |
 |**email** | **String** | The email address of the individual associated with the form. |  [optional] |
+|**eDeliveryConsentedAt** | **OffsetDateTime** | The date when e-delivery was consented. |  [optional] |
+|**signature** | **String** | The signature of the form. |  [optional] |
 
 
 

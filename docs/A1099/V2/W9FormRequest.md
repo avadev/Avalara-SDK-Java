@@ -22,15 +22,15 @@
 |**state** | **String** | The state of the address. |  |
 |**zip** | **String** | The ZIP code of the address. |  |
 |**accountNumber** | **String** | The account number associated with the form. |  [optional] |
-|**tinType** | **String** | Tax Identification Number (TIN) type. SSN/ITIN (for individuals) and EIN (for businesses). |  |
+|**tinType** | **String** | Recipient classification.  The platform is transitioning from tax identifier classifications to recipient entity classifications. New values represent recipient entity types and should be preferred. Deprecated values represent identifier formats and remain supported for backward compatibility only.  Available values: - INDIVIDUAL: Recipient is an individual - BUSINESS: Recipient is a business - UNKNOWN: Recipient classification is unknown - EIN: (Deprecated - use BUSINESS) Employer Identification Number - SSN: (Deprecated - use INDIVIDUAL) Social Security Number - ITIN: (Deprecated - use INDIVIDUAL) Individual Taxpayer Identification Number - ATIN: (Deprecated - use INDIVIDUAL) Adoption Taxpayer Identification Number SSN/ITIN (for individuals) and EIN (for businesses). |  |
 |**tin** | **String** | The taxpayer identification number (TIN). |  |
 |**backupWithholding** | **Boolean** | Indicates whether backup withholding applies. |  [optional] |
 |**is1099able** | **Boolean** | Indicates whether the individual or entity should be issued a 1099 form. |  [optional] |
-|**eDeliveryConsentedAt** | **OffsetDateTime** | The date when e-delivery was consented. |  [optional] |
-|**signature** | **String** | The signature of the form. |  [optional] |
 |**companyId** | **String** | The ID of the associated company. Required when creating a form. |  [optional] |
 |**referenceId** | **String** | A reference identifier for the form. |  [optional] |
 |**email** | **String** | The email address of the individual associated with the form. |  [optional] |
+|**eDeliveryConsentedAt** | **OffsetDateTime** | The date when e-delivery was consented. |  [optional] |
+|**signature** | **String** | The signature of the form. |  [optional] |
 
 
 

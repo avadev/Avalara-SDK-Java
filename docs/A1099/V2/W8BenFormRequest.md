@@ -32,11 +32,11 @@
 |**withholdingRate** | [**WithholdingRateEnum**](#WithholdingRateEnum) | The withholding rate applied as per the treaty. Must be a percentage with up to two decimals (e.g., 12.50, 0).. Allowed values: 0, 0.0, 0.00, 5, 5.5, 10, 12.50, 15, 20, 25 (and 1 more) |  [optional] |
 |**incomeType** | **String** | The type of income covered by the treaty. |  [optional] |
 |**signerName** | **String** | The name of the signer of the form. |  [optional] |
-|**eDeliveryConsentedAt** | **OffsetDateTime** | The date when e-delivery was consented. |  [optional] |
-|**signature** | **String** | The signature of the form. |  [optional] |
 |**companyId** | **String** | The ID of the associated company. Required when creating a form. |  [optional] |
 |**referenceId** | **String** | A reference identifier for the form. |  [optional] |
 |**email** | **String** | The email address of the individual associated with the form. |  [optional] |
+|**eDeliveryConsentedAt** | **OffsetDateTime** | The date when e-delivery was consented. |  [optional] |
+|**signature** | **String** | The signature of the form. |  [optional] |
 
 
 

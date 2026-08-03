@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## Authentication  #### Step 1: Generate API Credentials  Generate a *client ID* and *client secret* from your [Avalara1099 account](https://sbx.track1099.com/api_tokens): *Your Profile → API*.  #### Step 2: Get an Identity Token  Send a `POST` request to the **Identity Token URL** with your *client ID* and *client secret* from Step 1 as form-encoded parameters:  ```http POST https://identity.avalara.com/connect/token Content-Type: application/x-www-form-urlencoded  grant_type=client_credentials client_id=<your client ID> client_secret=<your client secret> ```  **Body parameters** - `grant_type` — Always `client_credentials` - `client_id` — Your *client ID* from Step 1 - `client_secret` — Your *client secret* from Step 1  **Successful response**  ```json {   \"access_token\": \"eyJhbGci...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\" } ```  Use the `access_token` as a bearer token in the `Authorization` header on every A1099 API request:  ```http Authorization: Bearer <access_token> ```  ---  For more on authenticating requests, see the [A1099 authentication guide](https://developer.avalara.com/1099-and-w-9/kny2997001535374/).  ---  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
+ * > **Note:** You must have an active Avalara 1099 & W-9 subscription to authenticate and use these APIs. If you don't have a subscription, please contact our [Sales team](https://www.avalara.com/us/en/products/1099/request-a-demo.html).  ## Authentication  The Avalara 1099 & W-9 API uses **Bearer Token Authentication**. To authenticate, acquire a bearer token using a **Client ID** and **Client Secret** that you generate in the Avalara 1099 & W-9 web application.  The sample cURL commands below use **production** URLs. For **sandbox**, replace them with the sandbox URLs listed in the Sandbox Environment table.  ### Option 1 — Client ID and Client Secret (recommended)  **Step 1: Create API credentials in the Avalara 1099 & W-9 web app**  For a full walkthrough, see the [Avalara 1099 & W-9 integration guide](https://developer.avalara.com/products/avalara-1099-and-w9/integration-guides/1099-and-w-9/siu2796410674799/).  > **Note:** To enable credential creation you must first enter a valid company address in **Account Settings > Account** and enable two-factor authentication in **Account Settings > Security**.  1. In Avalara 1099 & W-9, open **Account Settings** (gear icon, top-right of any page) and select **API**. 2. Click **Create new credentials** (a valid company address and 2FA are required). 3. Copy your **Client Id** and **Client Secret** securely — they will not be shown again after you leave the screen.  **Step 2: Request a bearer token**  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{client_id}}' \\   --data-urlencode 'client_secret={{client_secret}}' ```  ### Option 2 — Account ID and License Key  If your organization already uses other Avalara products (AvaTax, CertCapture) and has access to the logged-in area of Avalara.com, you can generate the bearer token using your **Account ID** and **License Key**.  > **Note:** If you already have a license key for other Avalara products you can reuse it. Generating a new key will reset any previously created key.  1. Log in to Avalara.com. 2. Go to **Settings → License and API Keys**. 3. Click **Generate New Key**. 4. Note your **Account ID** from the Account menu.  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{accountId}}' \\   --data-urlencode 'client_secret={{licenseKey}}' ```  ### Using and renewing the bearer token  Include the token in the `Authorization` header on every request:  ```http Authorization: Bearer {access_token} ```  Tokens expire after the number of seconds in the `expires_in` field of the token response. Your integration must renew the token before it expires.  **Example token response**  ```json {   \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\",   \"scope\": \"avatax_api iam-ds\" } ```  ### Sandbox Environment  Use the same steps as production, replacing the base URLs:  | Purpose | Production | Sandbox | | --- | --- | --- | | Account & License Key management (web) | `https://www.avalara.com` | `https://sandbox.admin.avalara.com` | | Account & License Key management (API) | `https://rest.avatax.com` | `https://sandbox-rest.avatax.com` | | Token generation | `https://identity.avalara.com` | `https://ai-sbx.avlr.sh` |  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -259,14 +259,6 @@ public class W9FormRequest {
   @SerializedName(SERIALIZED_NAME_IS1099ABLE)
   private Boolean is1099able;
 
-  public static final String SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT = "eDeliveryConsentedAt";
-  @SerializedName(SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT)
-  private OffsetDateTime eDeliveryConsentedAt;
-
-  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
-  @SerializedName(SERIALIZED_NAME_SIGNATURE)
-  private String signature;
-
   public static final String SERIALIZED_NAME_COMPANY_ID = "companyId";
   @SerializedName(SERIALIZED_NAME_COMPANY_ID)
   private String companyId;
@@ -278,6 +270,14 @@ public class W9FormRequest {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
+
+  public static final String SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT = "eDeliveryConsentedAt";
+  @SerializedName(SERIALIZED_NAME_E_DELIVERY_CONSENTED_AT)
+  private OffsetDateTime eDeliveryConsentedAt;
+
+  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
+  @SerializedName(SERIALIZED_NAME_SIGNATURE)
+  private String signature;
 
   public W9FormRequest() {
   }
@@ -572,7 +572,7 @@ public class W9FormRequest {
   }
 
   /**
-   * Tax Identification Number (TIN) type. SSN/ITIN (for individuals) and EIN (for businesses).
+   * Recipient classification.  The platform is transitioning from tax identifier classifications to recipient entity classifications. New values represent recipient entity types and should be preferred. Deprecated values represent identifier formats and remain supported for backward compatibility only.  Available values: - INDIVIDUAL: Recipient is an individual - BUSINESS: Recipient is a business - UNKNOWN: Recipient classification is unknown - EIN: (Deprecated - use BUSINESS) Employer Identification Number - SSN: (Deprecated - use INDIVIDUAL) Social Security Number - ITIN: (Deprecated - use INDIVIDUAL) Individual Taxpayer Identification Number - ATIN: (Deprecated - use INDIVIDUAL) Adoption Taxpayer Identification Number SSN/ITIN (for individuals) and EIN (for businesses).
    * @return tinType
    */
   @javax.annotation.Nonnull
@@ -642,44 +642,6 @@ public class W9FormRequest {
   }
 
 
-  public W9FormRequest eDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
-    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
-    return this;
-  }
-
-  /**
-   * The date when e-delivery was consented.
-   * @return eDeliveryConsentedAt
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime geteDeliveryConsentedAt() {
-    return eDeliveryConsentedAt;
-  }
-
-  public void seteDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
-    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
-  }
-
-
-  public W9FormRequest signature(String signature) {
-    this.signature = signature;
-    return this;
-  }
-
-  /**
-   * The signature of the form.
-   * @return signature
-   */
-  @javax.annotation.Nullable
-  public String getSignature() {
-    return signature;
-  }
-
-  public void setSignature(String signature) {
-    this.signature = signature;
-  }
-
-
   public W9FormRequest companyId(String companyId) {
     this.companyId = companyId;
     return this;
@@ -737,6 +699,44 @@ public class W9FormRequest {
   }
 
 
+  public W9FormRequest eDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
+    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
+    return this;
+  }
+
+  /**
+   * The date when e-delivery was consented.
+   * @return eDeliveryConsentedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime geteDeliveryConsentedAt() {
+    return eDeliveryConsentedAt;
+  }
+
+  public void seteDeliveryConsentedAt(OffsetDateTime eDeliveryConsentedAt) {
+    this.eDeliveryConsentedAt = eDeliveryConsentedAt;
+  }
+
+
+  public W9FormRequest signature(String signature) {
+    this.signature = signature;
+    return this;
+  }
+
+  /**
+   * The signature of the form.
+   * @return signature
+   */
+  @javax.annotation.Nullable
+  public String getSignature() {
+    return signature;
+  }
+
+  public void setSignature(String signature) {
+    this.signature = signature;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -766,11 +766,11 @@ public class W9FormRequest {
         Objects.equals(this.tin, w9FormRequest.tin) &&
         Objects.equals(this.backupWithholding, w9FormRequest.backupWithholding) &&
         Objects.equals(this.is1099able, w9FormRequest.is1099able) &&
-        Objects.equals(this.eDeliveryConsentedAt, w9FormRequest.eDeliveryConsentedAt) &&
-        Objects.equals(this.signature, w9FormRequest.signature) &&
         Objects.equals(this.companyId, w9FormRequest.companyId) &&
         Objects.equals(this.referenceId, w9FormRequest.referenceId) &&
-        Objects.equals(this.email, w9FormRequest.email);
+        Objects.equals(this.email, w9FormRequest.email) &&
+        Objects.equals(this.eDeliveryConsentedAt, w9FormRequest.eDeliveryConsentedAt) &&
+        Objects.equals(this.signature, w9FormRequest.signature);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -779,7 +779,7 @@ public class W9FormRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, name, businessName, businessClassification, businessOther, foreignPartnerOwnerOrBeneficiary, exemptPayeeCode, exemptFatcaCode, foreignCountryIndicator, address, foreignAddress, city, state, zip, accountNumber, tinType, tin, backupWithholding, is1099able, eDeliveryConsentedAt, signature, companyId, referenceId, email);
+    return Objects.hash(type, name, businessName, businessClassification, businessOther, foreignPartnerOwnerOrBeneficiary, exemptPayeeCode, exemptFatcaCode, foreignCountryIndicator, address, foreignAddress, city, state, zip, accountNumber, tinType, tin, backupWithholding, is1099able, companyId, referenceId, email, eDeliveryConsentedAt, signature);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -812,11 +812,11 @@ public class W9FormRequest {
     sb.append("    tin: ").append(toIndentedString(tin)).append("\n");
     sb.append("    backupWithholding: ").append(toIndentedString(backupWithholding)).append("\n");
     sb.append("    is1099able: ").append(toIndentedString(is1099able)).append("\n");
-    sb.append("    eDeliveryConsentedAt: ").append(toIndentedString(eDeliveryConsentedAt)).append("\n");
-    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    eDeliveryConsentedAt: ").append(toIndentedString(eDeliveryConsentedAt)).append("\n");
+    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -839,12 +839,12 @@ public class W9FormRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("eDeliveryConsentedAt");
-    openapiFields.add("signature");
     openapiFields.add("type");
     openapiFields.add("companyId");
     openapiFields.add("referenceId");
     openapiFields.add("email");
+    openapiFields.add("eDeliveryConsentedAt");
+    openapiFields.add("signature");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -937,9 +937,6 @@ public class W9FormRequest {
       if (!jsonObj.get("tin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tin").toString()));
       }
-      if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
-      }
       if ((jsonObj.get("companyId") != null && !jsonObj.get("companyId").isJsonNull()) && !jsonObj.get("companyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `companyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("companyId").toString()));
       }
@@ -948,6 +945,9 @@ public class W9FormRequest {
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      }
+      if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
       }
   }
 

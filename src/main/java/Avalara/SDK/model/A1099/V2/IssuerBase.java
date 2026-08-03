@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## Authentication  #### Step 1: Generate API Credentials  Generate a *client ID* and *client secret* from your [Avalara1099 account](https://sbx.track1099.com/api_tokens): *Your Profile → API*.  #### Step 2: Get an Identity Token  Send a `POST` request to the **Identity Token URL** with your *client ID* and *client secret* from Step 1 as form-encoded parameters:  ```http POST https://identity.avalara.com/connect/token Content-Type: application/x-www-form-urlencoded  grant_type=client_credentials client_id=<your client ID> client_secret=<your client secret> ```  **Body parameters** - `grant_type` — Always `client_credentials` - `client_id` — Your *client ID* from Step 1 - `client_secret` — Your *client secret* from Step 1  **Successful response**  ```json {   \"access_token\": \"eyJhbGci...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\" } ```  Use the `access_token` as a bearer token in the `Authorization` header on every A1099 API request:  ```http Authorization: Bearer <access_token> ```  ---  For more on authenticating requests, see the [A1099 authentication guide](https://developer.avalara.com/1099-and-w-9/kny2997001535374/).  ---  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
+ * > **Note:** You must have an active Avalara 1099 & W-9 subscription to authenticate and use these APIs. If you don't have a subscription, please contact our [Sales team](https://www.avalara.com/us/en/products/1099/request-a-demo.html).  ## Authentication  The Avalara 1099 & W-9 API uses **Bearer Token Authentication**. To authenticate, acquire a bearer token using a **Client ID** and **Client Secret** that you generate in the Avalara 1099 & W-9 web application.  The sample cURL commands below use **production** URLs. For **sandbox**, replace them with the sandbox URLs listed in the Sandbox Environment table.  ### Option 1 — Client ID and Client Secret (recommended)  **Step 1: Create API credentials in the Avalara 1099 & W-9 web app**  For a full walkthrough, see the [Avalara 1099 & W-9 integration guide](https://developer.avalara.com/products/avalara-1099-and-w9/integration-guides/1099-and-w-9/siu2796410674799/).  > **Note:** To enable credential creation you must first enter a valid company address in **Account Settings > Account** and enable two-factor authentication in **Account Settings > Security**.  1. In Avalara 1099 & W-9, open **Account Settings** (gear icon, top-right of any page) and select **API**. 2. Click **Create new credentials** (a valid company address and 2FA are required). 3. Copy your **Client Id** and **Client Secret** securely — they will not be shown again after you leave the screen.  **Step 2: Request a bearer token**  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{client_id}}' \\   --data-urlencode 'client_secret={{client_secret}}' ```  ### Option 2 — Account ID and License Key  If your organization already uses other Avalara products (AvaTax, CertCapture) and has access to the logged-in area of Avalara.com, you can generate the bearer token using your **Account ID** and **License Key**.  > **Note:** If you already have a license key for other Avalara products you can reuse it. Generating a new key will reset any previously created key.  1. Log in to Avalara.com. 2. Go to **Settings → License and API Keys**. 3. Click **Generate New Key**. 4. Note your **Account ID** from the Account menu.  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{accountId}}' \\   --data-urlencode 'client_secret={{licenseKey}}' ```  ### Using and renewing the bearer token  Include the token in the `Authorization` header on every request:  ```http Authorization: Bearer {access_token} ```  Tokens expire after the number of seconds in the `expires_in` field of the token response. Your integration must renew the token before it expires.  **Example token response**  ```json {   \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\",   \"scope\": \"avatax_api iam-ds\" } ```  ### Sandbox Environment  Use the same steps as production, replacing the base URLs:  | Purpose | Production | Sandbox | | --- | --- | --- | | Account & License Key management (web) | `https://www.avalara.com` | `https://sandbox.admin.avalara.com` | | Account & License Key management (API) | `https://rest.avatax.com` | `https://sandbox-rest.avatax.com` | | Token generation | `https://identity.avalara.com` | `https://ai-sbx.avlr.sh` |  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -58,13 +58,97 @@ import Avalara.SDK.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class IssuerBase {
+  public static final String SERIALIZED_NAME_BUSINESS_NAME = "businessName";
+  @SerializedName(SERIALIZED_NAME_BUSINESS_NAME)
+  private String businessName;
+
+  public static final String SERIALIZED_NAME_BUSINESS_NAME2 = "businessName2";
+  @SerializedName(SERIALIZED_NAME_BUSINESS_NAME2)
+  private String businessName2;
+
   public static final String SERIALIZED_NAME_NAME = "name";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
   public static final String SERIALIZED_NAME_DBA_NAME = "dbaName";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_DBA_NAME)
   private String dbaName;
+
+  /**
+   * Recipient classification.  The platform is transitioning from tax identifier classifications to recipient entity classifications. New values represent recipient entity types and should be preferred. Deprecated values represent identifier formats and remain supported for backward compatibility only.  Available values: - INDIVIDUAL: Recipient is an individual - BUSINESS: Recipient is a business - UNKNOWN: Recipient classification is unknown - EIN: (Deprecated - use BUSINESS) Employer Identification Number - SSN: (Deprecated - use INDIVIDUAL) Social Security Number - ITIN: (Deprecated - use INDIVIDUAL) Individual Taxpayer Identification Number - ATIN: (Deprecated - use INDIVIDUAL) Adoption Taxpayer Identification Number
+   */
+  @JsonAdapter(TinTypeEnum.Adapter.class)
+  public enum TinTypeEnum {
+    UNKNOWN("UNKNOWN"),
+    
+    INDIVIDUAL("INDIVIDUAL"),
+    
+    BUSINESS("BUSINESS");
+
+    private String value;
+
+    TinTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TinTypeEnum fromValue(String value) {
+      for (TinTypeEnum b : TinTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TinTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TinTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TinTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TinTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      TinTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_TIN_TYPE = "tinType";
+  @SerializedName(SERIALIZED_NAME_TIN_TYPE)
+  private TinTypeEnum tinType;
+
+  public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
+  @SerializedName(SERIALIZED_NAME_FIRST_NAME)
+  private String firstName;
+
+  public static final String SERIALIZED_NAME_MIDDLE_NAME = "middleName";
+  @SerializedName(SERIALIZED_NAME_MIDDLE_NAME)
+  private String middleName;
+
+  public static final String SERIALIZED_NAME_LAST_NAME = "lastName";
+  @SerializedName(SERIALIZED_NAME_LAST_NAME)
+  private String lastName;
+
+  public static final String SERIALIZED_NAME_SUFFIX = "suffix";
+  @SerializedName(SERIALIZED_NAME_SUFFIX)
+  private String suffix;
 
   public static final String SERIALIZED_NAME_TIN = "tin";
   @SerializedName(SERIALIZED_NAME_TIN)
@@ -121,41 +205,182 @@ public class IssuerBase {
   public IssuerBase() {
   }
 
+  public IssuerBase businessName(String businessName) {
+    this.businessName = businessName;
+    return this;
+  }
+
+  /**
+   * Business name. Required when the recipient of the form is a business; should only be used for businesses.
+   * @return businessName
+   */
+  @javax.annotation.Nullable
+  public String getBusinessName() {
+    return businessName;
+  }
+
+  public void setBusinessName(String businessName) {
+    this.businessName = businessName;
+  }
+
+
+  public IssuerBase businessName2(String businessName2) {
+    this.businessName2 = businessName2;
+    return this;
+  }
+
+  /**
+   * Business name line 2. Should only be used for businesses. Use either this or &#39;transferAgentName&#39;.
+   * @return businessName2
+   */
+  @javax.annotation.Nullable
+  public String getBusinessName2() {
+    return businessName2;
+  }
+
+  public void setBusinessName2(String businessName2) {
+    this.businessName2 = businessName2;
+  }
+
+
+  @Deprecated
   public IssuerBase name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Legal name. Not the DBA name.
+   * Legal name. Not the DBA name. Deprecated alias for &#39;businessName&#39;.
    * @return name
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
+  @Deprecated
   public void setName(String name) {
     this.name = name;
   }
 
 
+  @Deprecated
   public IssuerBase dbaName(String dbaName) {
     this.dbaName = dbaName;
     return this;
   }
 
   /**
-   * Doing Business As (DBA) name or continuation of a long legal name. Use either this or &#39;transferAgentName&#39;.
+   * Doing Business As (DBA) name or continuation of a long legal name. Deprecated alias for &#39;businessName2&#39;. Use either this or &#39;transferAgentName&#39;.
    * @return dbaName
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public String getDbaName() {
     return dbaName;
   }
 
+  @Deprecated
   public void setDbaName(String dbaName) {
     this.dbaName = dbaName;
+  }
+
+
+  public IssuerBase tinType(TinTypeEnum tinType) {
+    this.tinType = tinType;
+    return this;
+  }
+
+  /**
+   * Recipient classification.  The platform is transitioning from tax identifier classifications to recipient entity classifications. New values represent recipient entity types and should be preferred. Deprecated values represent identifier formats and remain supported for backward compatibility only.  Available values: - INDIVIDUAL: Recipient is an individual - BUSINESS: Recipient is a business - UNKNOWN: Recipient classification is unknown - EIN: (Deprecated - use BUSINESS) Employer Identification Number - SSN: (Deprecated - use INDIVIDUAL) Social Security Number - ITIN: (Deprecated - use INDIVIDUAL) Individual Taxpayer Identification Number - ATIN: (Deprecated - use INDIVIDUAL) Adoption Taxpayer Identification Number
+   * @return tinType
+   */
+  @javax.annotation.Nullable
+  public TinTypeEnum getTinType() {
+    return tinType;
+  }
+
+  public void setTinType(TinTypeEnum tinType) {
+    this.tinType = tinType;
+  }
+
+
+  public IssuerBase firstName(String firstName) {
+    this.firstName = firstName;
+    return this;
+  }
+
+  /**
+   * First name. Required when the recipient of the form is an individual; should only be used for individuals.
+   * @return firstName
+   */
+  @javax.annotation.Nullable
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+
+  public IssuerBase middleName(String middleName) {
+    this.middleName = middleName;
+    return this;
+  }
+
+  /**
+   * Middle name. Should only be used for individuals.
+   * @return middleName
+   */
+  @javax.annotation.Nullable
+  public String getMiddleName() {
+    return middleName;
+  }
+
+  public void setMiddleName(String middleName) {
+    this.middleName = middleName;
+  }
+
+
+  public IssuerBase lastName(String lastName) {
+    this.lastName = lastName;
+    return this;
+  }
+
+  /**
+   * Last name. Required when the recipient of the form is an individual; should only be used for individuals.
+   * @return lastName
+   */
+  @javax.annotation.Nullable
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+
+  public IssuerBase suffix(String suffix) {
+    this.suffix = suffix;
+    return this;
+  }
+
+  /**
+   * Suffix name. Should only be used for individuals.
+   * @return suffix
+   */
+  @javax.annotation.Nullable
+  public String getSuffix() {
+    return suffix;
+  }
+
+  public void setSuffix(String suffix) {
+    this.suffix = suffix;
   }
 
 
@@ -416,8 +641,15 @@ public class IssuerBase {
       return false;
     }
     IssuerBase issuerBase = (IssuerBase) o;
-    return Objects.equals(this.name, issuerBase.name) &&
+    return Objects.equals(this.businessName, issuerBase.businessName) &&
+        Objects.equals(this.businessName2, issuerBase.businessName2) &&
+        Objects.equals(this.name, issuerBase.name) &&
         Objects.equals(this.dbaName, issuerBase.dbaName) &&
+        Objects.equals(this.tinType, issuerBase.tinType) &&
+        Objects.equals(this.firstName, issuerBase.firstName) &&
+        Objects.equals(this.middleName, issuerBase.middleName) &&
+        Objects.equals(this.lastName, issuerBase.lastName) &&
+        Objects.equals(this.suffix, issuerBase.suffix) &&
         Objects.equals(this.tin, issuerBase.tin) &&
         Objects.equals(this.referenceId, issuerBase.referenceId) &&
         Objects.equals(this.telephone, issuerBase.telephone) &&
@@ -439,7 +671,7 @@ public class IssuerBase {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, dbaName, tin, referenceId, telephone, taxYear, countryCode, email, address, city, state, zip, foreignProvince, transferAgentName, lastFiling);
+    return Objects.hash(businessName, businessName2, name, dbaName, tinType, firstName, middleName, lastName, suffix, tin, referenceId, telephone, taxYear, countryCode, email, address, city, state, zip, foreignProvince, transferAgentName, lastFiling);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -453,8 +685,15 @@ public class IssuerBase {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IssuerBase {\n");
+    sb.append("    businessName: ").append(toIndentedString(businessName)).append("\n");
+    sb.append("    businessName2: ").append(toIndentedString(businessName2)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    dbaName: ").append(toIndentedString(dbaName)).append("\n");
+    sb.append("    tinType: ").append(toIndentedString(tinType)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    suffix: ").append(toIndentedString(suffix)).append("\n");
     sb.append("    tin: ").append(toIndentedString(tin)).append("\n");
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    telephone: ").append(toIndentedString(telephone)).append("\n");
@@ -490,8 +729,15 @@ public class IssuerBase {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("businessName");
+    openapiFields.add("businessName2");
     openapiFields.add("name");
     openapiFields.add("dbaName");
+    openapiFields.add("tinType");
+    openapiFields.add("firstName");
+    openapiFields.add("middleName");
+    openapiFields.add("lastName");
+    openapiFields.add("suffix");
     openapiFields.add("tin");
     openapiFields.add("referenceId");
     openapiFields.add("telephone");
@@ -508,7 +754,7 @@ public class IssuerBase {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("businessName");
     openapiRequiredFields.add("telephone");
     openapiRequiredFields.add("taxYear");
     openapiRequiredFields.add("countryCode");
@@ -547,11 +793,36 @@ public class IssuerBase {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("businessName") != null && !jsonObj.get("businessName").isJsonNull()) && !jsonObj.get("businessName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `businessName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessName").toString()));
+      }
+      if ((jsonObj.get("businessName2") != null && !jsonObj.get("businessName2").isJsonNull()) && !jsonObj.get("businessName2").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `businessName2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessName2").toString()));
+      }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("dbaName") != null && !jsonObj.get("dbaName").isJsonNull()) && !jsonObj.get("dbaName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `dbaName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dbaName").toString()));
+      }
+      if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tinType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tinType").toString()));
+      }
+      // validate the optional field `tinType`
+      if (jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) {
+        TinTypeEnum.validateJsonElement(jsonObj.get("tinType"));
+      }
+      if ((jsonObj.get("firstName") != null && !jsonObj.get("firstName").isJsonNull()) && !jsonObj.get("firstName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `firstName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firstName").toString()));
+      }
+      if ((jsonObj.get("middleName") != null && !jsonObj.get("middleName").isJsonNull()) && !jsonObj.get("middleName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `middleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("middleName").toString()));
+      }
+      if ((jsonObj.get("lastName") != null && !jsonObj.get("lastName").isJsonNull()) && !jsonObj.get("lastName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `lastName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastName").toString()));
+      }
+      if ((jsonObj.get("suffix") != null && !jsonObj.get("suffix").isJsonNull()) && !jsonObj.get("suffix").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `suffix` to be a primitive type in the JSON string but got `%s`", jsonObj.get("suffix").toString()));
       }
       if ((jsonObj.get("tin") != null && !jsonObj.get("tin").isJsonNull()) && !jsonObj.get("tin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tin").toString()));

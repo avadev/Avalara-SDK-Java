@@ -1,6 +1,6 @@
 # CompaniesW9Api
 
-All URIs are relative to *https://api.sbx.avalara.com/avalara1099*
+All URIs are relative to *https://api-ava1099.edge.qa.us-east-1.aws.avalara.io/avalara1099*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -49,7 +49,7 @@ public class Example {
 
         CompaniesW9Api apiInstance = new CompaniesW9Api(apiClient);
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "d8a91153-a928-4bb1-9bdf-3108ec7a303d"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "445307e1-57a7-46d0-93bd-99c9cc698790"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         CompanyRequest companyRequest = new CompanyRequest(); // CompanyRequest | The company to create
         try {
@@ -136,7 +136,7 @@ public class Example {
         CompaniesW9Api apiInstance = new CompaniesW9Api(apiClient);
         String id = "id_example"; // String | The company to delete
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "0f8143df-fd6a-47a4-9612-f0b1def1d6b0"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "983bdd19-d944-400f-a332-6dbed9977702"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             apiInstance.deleteCompany(id, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -228,7 +228,7 @@ public class Example {
         String $orderBy = "$orderBy_example"; // String | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
         Boolean count = true; // Boolean | If true, return the global count of elements in the collection.
         Boolean countOnly = true; // Boolean | If true, return ONLY the global count of elements in the collection.  It only applies when count=true.
-        String xCorrelationId = "0f6ead76-1245-4eb9-9f7c-925733e9d4a7"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "c02a5d8b-6916-4d0c-9d97-e31bfc2020e1"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             PaginatedQueryResultModelCompanyResponse result = apiInstance.getCompanies(avalaraVersion, $filter, $top, $skip, $orderBy, count, countOnly, xCorrelationId, xAvalaraClient);
@@ -321,7 +321,7 @@ public class Example {
         CompaniesW9Api apiInstance = new CompaniesW9Api(apiClient);
         String id = "id_example"; // String | Id of the company
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "5d11a039-7f81-4ec9-b32f-b665ffe488e5"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "ccf63d6b-d313-44b9-bc14-86486a6c1b19"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             CompanyResponse result = apiInstance.getCompany(id, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -409,7 +409,7 @@ public class Example {
         CompaniesW9Api apiInstance = new CompaniesW9Api(apiClient);
         String id = "id_example"; // String | The ID of the company to update
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "8e190a86-7ec8-4984-9126-c2d48e2ccdfc"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "57991ce4-31f7-41c8-8517-e363058bc302"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         CompanyRequest companyRequest = new CompanyRequest(); // CompanyRequest | The updated company data
         try {

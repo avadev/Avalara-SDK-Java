@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## Authentication  #### Step 1: Generate API Credentials  Generate a *client ID* and *client secret* from your [Avalara1099 account](https://sbx.track1099.com/api_tokens): *Your Profile → API*.  #### Step 2: Get an Identity Token  Send a `POST` request to the **Identity Token URL** with your *client ID* and *client secret* from Step 1 as form-encoded parameters:  ```http POST https://identity.avalara.com/connect/token Content-Type: application/x-www-form-urlencoded  grant_type=client_credentials client_id=<your client ID> client_secret=<your client secret> ```  **Body parameters** - `grant_type` — Always `client_credentials` - `client_id` — Your *client ID* from Step 1 - `client_secret` — Your *client secret* from Step 1  **Successful response**  ```json {   \"access_token\": \"eyJhbGci...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\" } ```  Use the `access_token` as a bearer token in the `Authorization` header on every A1099 API request:  ```http Authorization: Bearer <access_token> ```  ---  For more on authenticating requests, see the [A1099 authentication guide](https://developer.avalara.com/1099-and-w-9/kny2997001535374/).  ---  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
+ * > **Note:** You must have an active Avalara 1099 & W-9 subscription to authenticate and use these APIs. If you don't have a subscription, please contact our [Sales team](https://www.avalara.com/us/en/products/1099/request-a-demo.html).  ## Authentication  The Avalara 1099 & W-9 API uses **Bearer Token Authentication**. To authenticate, acquire a bearer token using a **Client ID** and **Client Secret** that you generate in the Avalara 1099 & W-9 web application.  The sample cURL commands below use **production** URLs. For **sandbox**, replace them with the sandbox URLs listed in the Sandbox Environment table.  ### Option 1 — Client ID and Client Secret (recommended)  **Step 1: Create API credentials in the Avalara 1099 & W-9 web app**  For a full walkthrough, see the [Avalara 1099 & W-9 integration guide](https://developer.avalara.com/products/avalara-1099-and-w9/integration-guides/1099-and-w-9/siu2796410674799/).  > **Note:** To enable credential creation you must first enter a valid company address in **Account Settings > Account** and enable two-factor authentication in **Account Settings > Security**.  1. In Avalara 1099 & W-9, open **Account Settings** (gear icon, top-right of any page) and select **API**. 2. Click **Create new credentials** (a valid company address and 2FA are required). 3. Copy your **Client Id** and **Client Secret** securely — they will not be shown again after you leave the screen.  **Step 2: Request a bearer token**  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{client_id}}' \\   --data-urlencode 'client_secret={{client_secret}}' ```  ### Option 2 — Account ID and License Key  If your organization already uses other Avalara products (AvaTax, CertCapture) and has access to the logged-in area of Avalara.com, you can generate the bearer token using your **Account ID** and **License Key**.  > **Note:** If you already have a license key for other Avalara products you can reuse it. Generating a new key will reset any previously created key.  1. Log in to Avalara.com. 2. Go to **Settings → License and API Keys**. 3. Click **Generate New Key**. 4. Note your **Account ID** from the Account menu.  ```bash curl -X POST 'https://identity.avalara.com/connect/token' \\   --header 'Content-Type: application/x-www-form-urlencoded' \\   --data-urlencode 'grant_type=client_credentials' \\   --data-urlencode 'client_id={{accountId}}' \\   --data-urlencode 'client_secret={{licenseKey}}' ```  ### Using and renewing the bearer token  Include the token in the `Authorization` header on every request:  ```http Authorization: Bearer {access_token} ```  Tokens expire after the number of seconds in the `expires_in` field of the token response. Your integration must renew the token before it expires.  **Example token response**  ```json {   \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI...\",   \"expires_in\": 3600,   \"token_type\": \"Bearer\",   \"scope\": \"avatax_api iam-ds\" } ```  ### Sandbox Environment  Use the same steps as production, replacing the base URLs:  | Purpose | Production | Sandbox | | --- | --- | --- | | Account & License Key management (web) | `https://www.avalara.com` | `https://sandbox.admin.avalara.com` | | Account & License Key management (API) | `https://rest.avatax.com` | `https://sandbox-rest.avatax.com` | | Token generation | `https://identity.avalara.com` | `https://ai-sbx.avlr.sh` |  ## Environments  #### Production - **Avalara 1099 API URL:** [`https://api.avalara.com/avalara1099`](https://api.avalara.com/avalara1099) - **Identity Token URL:** [`https://identity.avalara.com/connect/token`](https://identity.avalara.com/connect/token)  #### Sandbox - **Avalara 1099 API URL:** [`https://api.sbx.avalara.com/avalara1099`](https://api.sbx.avalara.com/avalara1099) - **Identity Token URL:** [`https://ai-sbx.avlr.sh/connect/token`](https://ai-sbx.avlr.sh/connect/token)  ---  ## API & SDK Documentation  [Avalara 1099 API Reference](https://developer.avalara.com/api-reference/avalara1099/avalara1099/)  [Avalara SDKs](https://developer.avalara.com/sdk/)  [Swagger](https://api.avalara.com/avalara1099/swagger/index.html?api-version=2.0)
  *
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
  * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
@@ -227,11 +227,108 @@ public class Form1099Misc {
   private String tin;
 
   public static final String SERIALIZED_NAME_RECIPIENT_NAME = "recipientName";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_RECIPIENT_NAME)
   private String recipientName;
 
+  public static final String SERIALIZED_NAME_ADDRESS = "address";
+  @SerializedName(SERIALIZED_NAME_ADDRESS)
+  private String address;
+
+  public static final String SERIALIZED_NAME_ADDRESS2 = "address2";
+  @SerializedName(SERIALIZED_NAME_ADDRESS2)
+  private String address2;
+
+  public static final String SERIALIZED_NAME_CITY = "city";
+  @SerializedName(SERIALIZED_NAME_CITY)
+  private String city;
+
+  public static final String SERIALIZED_NAME_STATE = "state";
+  @SerializedName(SERIALIZED_NAME_STATE)
+  private String state;
+
+  public static final String SERIALIZED_NAME_ZIP = "zip";
+  @SerializedName(SERIALIZED_NAME_ZIP)
+  private String zip;
+
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
+
+  public static final String SERIALIZED_NAME_NON_US_PROVINCE = "nonUsProvince";
+  @SerializedName(SERIALIZED_NAME_NON_US_PROVINCE)
+  private String nonUsProvince;
+
+  public static final String SERIALIZED_NAME_COUNTRY_CODE = "countryCode";
+  @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
+  private String countryCode;
+
+  public static final String SERIALIZED_NAME_FEDERAL_EFILE_DATE = "federalEfileDate";
+  @SerializedName(SERIALIZED_NAME_FEDERAL_EFILE_DATE)
+  private LocalDate federalEfileDate;
+
+  public static final String SERIALIZED_NAME_POSTAL_MAIL = "postalMail";
+  @SerializedName(SERIALIZED_NAME_POSTAL_MAIL)
+  private Boolean postalMail;
+
+  public static final String SERIALIZED_NAME_STATE_EFILE_DATE = "stateEfileDate";
+  @SerializedName(SERIALIZED_NAME_STATE_EFILE_DATE)
+  private LocalDate stateEfileDate;
+
+  public static final String SERIALIZED_NAME_RECIPIENT_EDELIVERY_DATE = "recipientEdeliveryDate";
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_EDELIVERY_DATE)
+  private LocalDate recipientEdeliveryDate;
+
+  public static final String SERIALIZED_NAME_TIN_MATCH = "tinMatch";
+  @SerializedName(SERIALIZED_NAME_TIN_MATCH)
+  private Boolean tinMatch;
+
+  public static final String SERIALIZED_NAME_ADDRESS_VERIFICATION = "addressVerification";
+  @SerializedName(SERIALIZED_NAME_ADDRESS_VERIFICATION)
+  private Boolean addressVerification;
+
+  public static final String SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING = "stateAndLocalWithholding";
+  @SerializedName(SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING)
+  private StateAndLocalWithholding stateAndLocalWithholding;
+
+  public static final String SERIALIZED_NAME_FEDERAL_EFILE_STATUS = "federalEfileStatus";
+  @SerializedName(SERIALIZED_NAME_FEDERAL_EFILE_STATUS)
+  private Form1099StatusDetail federalEfileStatus;
+
+  public static final String SERIALIZED_NAME_STATE_EFILE_STATUS = "stateEfileStatus";
+  @SerializedName(SERIALIZED_NAME_STATE_EFILE_STATUS)
+  private List<StateEfileStatusDetail> stateEfileStatus;
+
+  public static final String SERIALIZED_NAME_POSTAL_MAIL_STATUS = "postalMailStatus";
+  @SerializedName(SERIALIZED_NAME_POSTAL_MAIL_STATUS)
+  private Form1099StatusDetail postalMailStatus;
+
+  public static final String SERIALIZED_NAME_TIN_MATCH_STATUS = "tinMatchStatus";
+  @SerializedName(SERIALIZED_NAME_TIN_MATCH_STATUS)
+  private Form1099StatusDetail tinMatchStatus;
+
+  public static final String SERIALIZED_NAME_ADDRESS_VERIFICATION_STATUS = "addressVerificationStatus";
+  @SerializedName(SERIALIZED_NAME_ADDRESS_VERIFICATION_STATUS)
+  private Form1099StatusDetail addressVerificationStatus;
+
+  public static final String SERIALIZED_NAME_E_DELIVERY_STATUS = "eDeliveryStatus";
+  @SerializedName(SERIALIZED_NAME_E_DELIVERY_STATUS)
+  private Form1099StatusDetail eDeliveryStatus;
+
+  public static final String SERIALIZED_NAME_VALIDATION_ERRORS = "validationErrors";
+  @SerializedName(SERIALIZED_NAME_VALIDATION_ERRORS)
+  private List<ValidationError> validationErrors;
+
+  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private OffsetDateTime updatedAt;
+
   /**
-   * Tax Identification Number (TIN) type.  Available values: - EIN: Employer Identification Number - SSN: Social Security Number - ITIN: Individual Taxpayer Identification Number - ATIN: Adoption Taxpayer Identification Number
+   * Recipient classification.  The platform is transitioning from tax identifier classifications to recipient entity classifications. New values represent recipient entity types and should be preferred. Deprecated values represent identifier formats and remain supported for backward compatibility only.  Available values: - INDIVIDUAL: Recipient is an individual - BUSINESS: Recipient is a business - UNKNOWN: Recipient classification is unknown - EIN: (Deprecated - use BUSINESS) Employer Identification Number - SSN: (Deprecated - use INDIVIDUAL) Social Security Number - ITIN: (Deprecated - use INDIVIDUAL) Individual Taxpayer Identification Number - ATIN: (Deprecated - use INDIVIDUAL) Adoption Taxpayer Identification Number
    */
   @JsonAdapter(TinTypeEnum.Adapter.class)
   public enum TinTypeEnum {
@@ -241,7 +338,13 @@ public class Form1099Misc {
     
     ITIN("ITIN"),
     
-    ATIN("ATIN");
+    ATIN("ATIN"),
+    
+    INDIVIDUAL("INDIVIDUAL"),
+    
+    BUSINESS("BUSINESS"),
+    
+    UNKNOWN("UNKNOWN");
 
     private String value;
 
@@ -290,33 +393,34 @@ public class Form1099Misc {
   @SerializedName(SERIALIZED_NAME_TIN_TYPE)
   private TinTypeEnum tinType;
 
+  public static final String SERIALIZED_NAME_BUSINESS_NAME = "businessName";
+  @SerializedName(SERIALIZED_NAME_BUSINESS_NAME)
+  private String businessName;
+
+  public static final String SERIALIZED_NAME_BUSINESS_NAME2 = "businessName2";
+  @SerializedName(SERIALIZED_NAME_BUSINESS_NAME2)
+  private String businessName2;
+
+  public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
+  @SerializedName(SERIALIZED_NAME_FIRST_NAME)
+  private String firstName;
+
+  public static final String SERIALIZED_NAME_MIDDLE_NAME = "middleName";
+  @SerializedName(SERIALIZED_NAME_MIDDLE_NAME)
+  private String middleName;
+
+  public static final String SERIALIZED_NAME_LAST_NAME = "lastName";
+  @SerializedName(SERIALIZED_NAME_LAST_NAME)
+  private String lastName;
+
+  public static final String SERIALIZED_NAME_SUFFIX_NAME = "suffixName";
+  @SerializedName(SERIALIZED_NAME_SUFFIX_NAME)
+  private String suffixName;
+
   public static final String SERIALIZED_NAME_RECIPIENT_SECOND_NAME = "recipientSecondName";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_RECIPIENT_SECOND_NAME)
   private String recipientSecondName;
-
-  public static final String SERIALIZED_NAME_ADDRESS = "address";
-  @SerializedName(SERIALIZED_NAME_ADDRESS)
-  private String address;
-
-  public static final String SERIALIZED_NAME_ADDRESS2 = "address2";
-  @SerializedName(SERIALIZED_NAME_ADDRESS2)
-  private String address2;
-
-  public static final String SERIALIZED_NAME_CITY = "city";
-  @SerializedName(SERIALIZED_NAME_CITY)
-  private String city;
-
-  public static final String SERIALIZED_NAME_STATE = "state";
-  @SerializedName(SERIALIZED_NAME_STATE)
-  private String state;
-
-  public static final String SERIALIZED_NAME_ZIP = "zip";
-  @SerializedName(SERIALIZED_NAME_ZIP)
-  private String zip;
-
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
-  private String email;
 
   public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "accountNumber";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
@@ -326,85 +430,13 @@ public class Form1099Misc {
   @SerializedName(SERIALIZED_NAME_OFFICE_CODE)
   private String officeCode;
 
-  public static final String SERIALIZED_NAME_NON_US_PROVINCE = "nonUsProvince";
-  @SerializedName(SERIALIZED_NAME_NON_US_PROVINCE)
-  private String nonUsProvince;
-
-  public static final String SERIALIZED_NAME_COUNTRY_CODE = "countryCode";
-  @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
-  private String countryCode;
-
-  public static final String SERIALIZED_NAME_FEDERAL_EFILE_DATE = "federalEfileDate";
-  @SerializedName(SERIALIZED_NAME_FEDERAL_EFILE_DATE)
-  private LocalDate federalEfileDate;
-
-  public static final String SERIALIZED_NAME_POSTAL_MAIL = "postalMail";
-  @SerializedName(SERIALIZED_NAME_POSTAL_MAIL)
-  private Boolean postalMail;
-
-  public static final String SERIALIZED_NAME_STATE_EFILE_DATE = "stateEfileDate";
-  @SerializedName(SERIALIZED_NAME_STATE_EFILE_DATE)
-  private LocalDate stateEfileDate;
-
-  public static final String SERIALIZED_NAME_RECIPIENT_EDELIVERY_DATE = "recipientEdeliveryDate";
-  @SerializedName(SERIALIZED_NAME_RECIPIENT_EDELIVERY_DATE)
-  private LocalDate recipientEdeliveryDate;
-
-  public static final String SERIALIZED_NAME_TIN_MATCH = "tinMatch";
-  @SerializedName(SERIALIZED_NAME_TIN_MATCH)
-  private Boolean tinMatch;
-
   public static final String SERIALIZED_NAME_NO_TIN = "noTin";
   @SerializedName(SERIALIZED_NAME_NO_TIN)
   private Boolean noTin;
 
-  public static final String SERIALIZED_NAME_ADDRESS_VERIFICATION = "addressVerification";
-  @SerializedName(SERIALIZED_NAME_ADDRESS_VERIFICATION)
-  private Boolean addressVerification;
-
-  public static final String SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING = "stateAndLocalWithholding";
-  @SerializedName(SERIALIZED_NAME_STATE_AND_LOCAL_WITHHOLDING)
-  private StateAndLocalWithholding stateAndLocalWithholding;
-
   public static final String SERIALIZED_NAME_SECOND_TIN_NOTICE = "secondTinNotice";
   @SerializedName(SERIALIZED_NAME_SECOND_TIN_NOTICE)
   private Boolean secondTinNotice;
-
-  public static final String SERIALIZED_NAME_FEDERAL_EFILE_STATUS = "federalEfileStatus";
-  @SerializedName(SERIALIZED_NAME_FEDERAL_EFILE_STATUS)
-  private Form1099StatusDetail federalEfileStatus;
-
-  public static final String SERIALIZED_NAME_STATE_EFILE_STATUS = "stateEfileStatus";
-  @SerializedName(SERIALIZED_NAME_STATE_EFILE_STATUS)
-  private List<StateEfileStatusDetail> stateEfileStatus;
-
-  public static final String SERIALIZED_NAME_POSTAL_MAIL_STATUS = "postalMailStatus";
-  @SerializedName(SERIALIZED_NAME_POSTAL_MAIL_STATUS)
-  private Form1099StatusDetail postalMailStatus;
-
-  public static final String SERIALIZED_NAME_TIN_MATCH_STATUS = "tinMatchStatus";
-  @SerializedName(SERIALIZED_NAME_TIN_MATCH_STATUS)
-  private Form1099StatusDetail tinMatchStatus;
-
-  public static final String SERIALIZED_NAME_ADDRESS_VERIFICATION_STATUS = "addressVerificationStatus";
-  @SerializedName(SERIALIZED_NAME_ADDRESS_VERIFICATION_STATUS)
-  private Form1099StatusDetail addressVerificationStatus;
-
-  public static final String SERIALIZED_NAME_E_DELIVERY_STATUS = "eDeliveryStatus";
-  @SerializedName(SERIALIZED_NAME_E_DELIVERY_STATUS)
-  private Form1099StatusDetail eDeliveryStatus;
-
-  public static final String SERIALIZED_NAME_VALIDATION_ERRORS = "validationErrors";
-  @SerializedName(SERIALIZED_NAME_VALIDATION_ERRORS)
-  private List<ValidationError> validationErrors;
-
-  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
-
-  public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
-  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  private OffsetDateTime updatedAt;
 
   public Form1099Misc() {
   }
@@ -863,60 +895,26 @@ public class Form1099Misc {
   }
 
 
+  @Deprecated
   public Form1099Misc recipientName(String recipientName) {
     this.recipientName = recipientName;
     return this;
   }
 
   /**
-   * Recipient name
+   * DEPRECATED: Use &#x60;businessName&#x60; for businesses; use &#x60;firstName&#x60;, &#x60;middleName&#x60;, &#x60;lastName&#x60;, and &#x60;suffixName&#x60; for individuals.
    * @return recipientName
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public String getRecipientName() {
     return recipientName;
   }
 
+  @Deprecated
   public void setRecipientName(String recipientName) {
     this.recipientName = recipientName;
-  }
-
-
-  public Form1099Misc tinType(TinTypeEnum tinType) {
-    this.tinType = tinType;
-    return this;
-  }
-
-  /**
-   * Tax Identification Number (TIN) type.  Available values: - EIN: Employer Identification Number - SSN: Social Security Number - ITIN: Individual Taxpayer Identification Number - ATIN: Adoption Taxpayer Identification Number
-   * @return tinType
-   */
-  @javax.annotation.Nullable
-  public TinTypeEnum getTinType() {
-    return tinType;
-  }
-
-  public void setTinType(TinTypeEnum tinType) {
-    this.tinType = tinType;
-  }
-
-
-  public Form1099Misc recipientSecondName(String recipientSecondName) {
-    this.recipientSecondName = recipientSecondName;
-    return this;
-  }
-
-  /**
-   * Recipient second name
-   * @return recipientSecondName
-   */
-  @javax.annotation.Nullable
-  public String getRecipientSecondName() {
-    return recipientSecondName;
-  }
-
-  public void setRecipientSecondName(String recipientSecondName) {
-    this.recipientSecondName = recipientSecondName;
   }
 
 
@@ -1031,44 +1029,6 @@ public class Form1099Misc {
 
   public void setEmail(String email) {
     this.email = email;
-  }
-
-
-  public Form1099Misc accountNumber(String accountNumber) {
-    this.accountNumber = accountNumber;
-    return this;
-  }
-
-  /**
-   * Account number
-   * @return accountNumber
-   */
-  @javax.annotation.Nullable
-  public String getAccountNumber() {
-    return accountNumber;
-  }
-
-  public void setAccountNumber(String accountNumber) {
-    this.accountNumber = accountNumber;
-  }
-
-
-  public Form1099Misc officeCode(String officeCode) {
-    this.officeCode = officeCode;
-    return this;
-  }
-
-  /**
-   * Office code
-   * @return officeCode
-   */
-  @javax.annotation.Nullable
-  public String getOfficeCode() {
-    return officeCode;
-  }
-
-  public void setOfficeCode(String officeCode) {
-    this.officeCode = officeCode;
   }
 
 
@@ -1205,25 +1165,6 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc noTin(Boolean noTin) {
-    this.noTin = noTin;
-    return this;
-  }
-
-  /**
-   * No TIN indicator
-   * @return noTin
-   */
-  @javax.annotation.Nullable
-  public Boolean getNoTin() {
-    return noTin;
-  }
-
-  public void setNoTin(Boolean noTin) {
-    this.noTin = noTin;
-  }
-
-
   public Form1099Misc addressVerification(Boolean addressVerification) {
     this.addressVerification = addressVerification;
     return this;
@@ -1259,25 +1200,6 @@ public class Form1099Misc {
 
   public void setStateAndLocalWithholding(StateAndLocalWithholding stateAndLocalWithholding) {
     this.stateAndLocalWithholding = stateAndLocalWithholding;
-  }
-
-
-  public Form1099Misc secondTinNotice(Boolean secondTinNotice) {
-    this.secondTinNotice = secondTinNotice;
-    return this;
-  }
-
-  /**
-   * Second TIN notice
-   * @return secondTinNotice
-   */
-  @javax.annotation.Nullable
-  public Boolean getSecondTinNotice() {
-    return secondTinNotice;
-  }
-
-  public void setSecondTinNotice(Boolean secondTinNotice) {
-    this.secondTinNotice = secondTinNotice;
   }
 
 
@@ -1379,6 +1301,238 @@ public class Form1099Misc {
   }
 
 
+
+  public Form1099Misc tinType(TinTypeEnum tinType) {
+    this.tinType = tinType;
+    return this;
+  }
+
+  /**
+   * Recipient classification.  The platform is transitioning from tax identifier classifications to recipient entity classifications. New values represent recipient entity types and should be preferred. Deprecated values represent identifier formats and remain supported for backward compatibility only.  Available values: - INDIVIDUAL: Recipient is an individual - BUSINESS: Recipient is a business - UNKNOWN: Recipient classification is unknown - EIN: (Deprecated - use BUSINESS) Employer Identification Number - SSN: (Deprecated - use INDIVIDUAL) Social Security Number - ITIN: (Deprecated - use INDIVIDUAL) Individual Taxpayer Identification Number - ATIN: (Deprecated - use INDIVIDUAL) Adoption Taxpayer Identification Number
+   * @return tinType
+   */
+  @javax.annotation.Nullable
+  public TinTypeEnum getTinType() {
+    return tinType;
+  }
+
+  public void setTinType(TinTypeEnum tinType) {
+    this.tinType = tinType;
+  }
+
+
+  public Form1099Misc businessName(String businessName) {
+    this.businessName = businessName;
+    return this;
+  }
+
+  /**
+   * Business name. Required when the recipient of the form is a business; should only be used for businesses.
+   * @return businessName
+   */
+  @javax.annotation.Nullable
+  public String getBusinessName() {
+    return businessName;
+  }
+
+  public void setBusinessName(String businessName) {
+    this.businessName = businessName;
+  }
+
+
+  public Form1099Misc businessName2(String businessName2) {
+    this.businessName2 = businessName2;
+    return this;
+  }
+
+  /**
+   * Business name line 2. Should only be used for businesses.
+   * @return businessName2
+   */
+  @javax.annotation.Nullable
+  public String getBusinessName2() {
+    return businessName2;
+  }
+
+  public void setBusinessName2(String businessName2) {
+    this.businessName2 = businessName2;
+  }
+
+
+  public Form1099Misc firstName(String firstName) {
+    this.firstName = firstName;
+    return this;
+  }
+
+  /**
+   * First name. Required when the recipient of the form is an individual; should only be used for individuals.
+   * @return firstName
+   */
+  @javax.annotation.Nullable
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+
+  public Form1099Misc middleName(String middleName) {
+    this.middleName = middleName;
+    return this;
+  }
+
+  /**
+   * Middle name. Should only be used for individuals.
+   * @return middleName
+   */
+  @javax.annotation.Nullable
+  public String getMiddleName() {
+    return middleName;
+  }
+
+  public void setMiddleName(String middleName) {
+    this.middleName = middleName;
+  }
+
+
+  public Form1099Misc lastName(String lastName) {
+    this.lastName = lastName;
+    return this;
+  }
+
+  /**
+   * Last name. Required when the recipient of the form is an individual; should only be used for individuals.
+   * @return lastName
+   */
+  @javax.annotation.Nullable
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+
+  public Form1099Misc suffixName(String suffixName) {
+    this.suffixName = suffixName;
+    return this;
+  }
+
+  /**
+   * Suffix name. Should only be used for individuals.
+   * @return suffixName
+   */
+  @javax.annotation.Nullable
+  public String getSuffixName() {
+    return suffixName;
+  }
+
+  public void setSuffixName(String suffixName) {
+    this.suffixName = suffixName;
+  }
+
+
+  @Deprecated
+  public Form1099Misc recipientSecondName(String recipientSecondName) {
+    this.recipientSecondName = recipientSecondName;
+    return this;
+  }
+
+  /**
+   * DEPRECATED: Use &#x60;businessName2&#x60; instead.
+   * @return recipientSecondName
+   * @deprecated
+   */
+  @Deprecated
+  @javax.annotation.Nullable
+  public String getRecipientSecondName() {
+    return recipientSecondName;
+  }
+
+  @Deprecated
+  public void setRecipientSecondName(String recipientSecondName) {
+    this.recipientSecondName = recipientSecondName;
+  }
+
+
+  public Form1099Misc accountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+    return this;
+  }
+
+  /**
+   * Account number
+   * @return accountNumber
+   */
+  @javax.annotation.Nullable
+  public String getAccountNumber() {
+    return accountNumber;
+  }
+
+  public void setAccountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+  }
+
+
+  public Form1099Misc officeCode(String officeCode) {
+    this.officeCode = officeCode;
+    return this;
+  }
+
+  /**
+   * Office code
+   * @return officeCode
+   */
+  @javax.annotation.Nullable
+  public String getOfficeCode() {
+    return officeCode;
+  }
+
+  public void setOfficeCode(String officeCode) {
+    this.officeCode = officeCode;
+  }
+
+
+  public Form1099Misc noTin(Boolean noTin) {
+    this.noTin = noTin;
+    return this;
+  }
+
+  /**
+   * No TIN indicator
+   * @return noTin
+   */
+  @javax.annotation.Nullable
+  public Boolean getNoTin() {
+    return noTin;
+  }
+
+  public void setNoTin(Boolean noTin) {
+    this.noTin = noTin;
+  }
+
+
+  public Form1099Misc secondTinNotice(Boolean secondTinNotice) {
+    this.secondTinNotice = secondTinNotice;
+    return this;
+  }
+
+  /**
+   * Second TIN notice
+   * @return secondTinNotice
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecondTinNotice() {
+    return secondTinNotice;
+  }
+
+  public void setSecondTinNotice(Boolean secondTinNotice) {
+    this.secondTinNotice = secondTinNotice;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -1458,16 +1612,12 @@ public class Form1099Misc {
         Objects.equals(this.referenceId, form1099Misc.referenceId) &&
         Objects.equals(this.tin, form1099Misc.tin) &&
         Objects.equals(this.recipientName, form1099Misc.recipientName) &&
-        Objects.equals(this.tinType, form1099Misc.tinType) &&
-        Objects.equals(this.recipientSecondName, form1099Misc.recipientSecondName) &&
         Objects.equals(this.address, form1099Misc.address) &&
         Objects.equals(this.address2, form1099Misc.address2) &&
         Objects.equals(this.city, form1099Misc.city) &&
         Objects.equals(this.state, form1099Misc.state) &&
         Objects.equals(this.zip, form1099Misc.zip) &&
         Objects.equals(this.email, form1099Misc.email) &&
-        Objects.equals(this.accountNumber, form1099Misc.accountNumber) &&
-        Objects.equals(this.officeCode, form1099Misc.officeCode) &&
         Objects.equals(this.nonUsProvince, form1099Misc.nonUsProvince) &&
         Objects.equals(this.countryCode, form1099Misc.countryCode) &&
         Objects.equals(this.federalEfileDate, form1099Misc.federalEfileDate) &&
@@ -1475,10 +1625,8 @@ public class Form1099Misc {
         Objects.equals(this.stateEfileDate, form1099Misc.stateEfileDate) &&
         Objects.equals(this.recipientEdeliveryDate, form1099Misc.recipientEdeliveryDate) &&
         Objects.equals(this.tinMatch, form1099Misc.tinMatch) &&
-        Objects.equals(this.noTin, form1099Misc.noTin) &&
         Objects.equals(this.addressVerification, form1099Misc.addressVerification) &&
         Objects.equals(this.stateAndLocalWithholding, form1099Misc.stateAndLocalWithholding) &&
-        Objects.equals(this.secondTinNotice, form1099Misc.secondTinNotice) &&
         Objects.equals(this.federalEfileStatus, form1099Misc.federalEfileStatus) &&
         Objects.equals(this.stateEfileStatus, form1099Misc.stateEfileStatus) &&
         Objects.equals(this.postalMailStatus, form1099Misc.postalMailStatus) &&
@@ -1487,7 +1635,19 @@ public class Form1099Misc {
         Objects.equals(this.eDeliveryStatus, form1099Misc.eDeliveryStatus) &&
         Objects.equals(this.validationErrors, form1099Misc.validationErrors) &&
         Objects.equals(this.createdAt, form1099Misc.createdAt) &&
-        Objects.equals(this.updatedAt, form1099Misc.updatedAt)&&
+        Objects.equals(this.updatedAt, form1099Misc.updatedAt) &&
+        Objects.equals(this.tinType, form1099Misc.tinType) &&
+        Objects.equals(this.businessName, form1099Misc.businessName) &&
+        Objects.equals(this.businessName2, form1099Misc.businessName2) &&
+        Objects.equals(this.firstName, form1099Misc.firstName) &&
+        Objects.equals(this.middleName, form1099Misc.middleName) &&
+        Objects.equals(this.lastName, form1099Misc.lastName) &&
+        Objects.equals(this.suffixName, form1099Misc.suffixName) &&
+        Objects.equals(this.recipientSecondName, form1099Misc.recipientSecondName) &&
+        Objects.equals(this.accountNumber, form1099Misc.accountNumber) &&
+        Objects.equals(this.officeCode, form1099Misc.officeCode) &&
+        Objects.equals(this.noTin, form1099Misc.noTin) &&
+        Objects.equals(this.secondTinNotice, form1099Misc.secondTinNotice)&&
         Objects.equals(this.additionalProperties, form1099Misc.additionalProperties);
   }
 
@@ -1497,7 +1657,7 @@ public class Form1099Misc {
 
   @Override
   public int hashCode() {
-    return Objects.hash(rents, royalties, otherIncome, federalIncomeTaxWithheld, fishingBoatProceeds, medicalAndHealthCarePayments, directSalesIndicator, substitutePayments, cropInsuranceProceeds, grossProceedsPaidToAttorney, fishPurchasedForResale, section409ADeferrals, excessGoldenParachutePayments, nonqualifiedDeferredCompensation, fatcaFilingRequirement, type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, tinType, recipientSecondName, address, address2, city, state, zip, email, accountNumber, officeCode, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, noTin, addressVerification, stateAndLocalWithholding, secondTinNotice, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt, additionalProperties);
+    return Objects.hash(rents, royalties, otherIncome, federalIncomeTaxWithheld, fishingBoatProceeds, medicalAndHealthCarePayments, directSalesIndicator, substitutePayments, cropInsuranceProceeds, grossProceedsPaidToAttorney, fishPurchasedForResale, section409ADeferrals, excessGoldenParachutePayments, nonqualifiedDeferredCompensation, fatcaFilingRequirement, type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, address, address2, city, state, zip, email, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, addressVerification, stateAndLocalWithholding, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt, tinType, businessName, businessName2, firstName, middleName, lastName, suffixName, recipientSecondName, accountNumber, officeCode, noTin, secondTinNotice, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1535,16 +1695,12 @@ public class Form1099Misc {
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    tin: ").append(toIndentedString(tin)).append("\n");
     sb.append("    recipientName: ").append(toIndentedString(recipientName)).append("\n");
-    sb.append("    tinType: ").append(toIndentedString(tinType)).append("\n");
-    sb.append("    recipientSecondName: ").append(toIndentedString(recipientSecondName)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    address2: ").append(toIndentedString(address2)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    zip: ").append(toIndentedString(zip)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
-    sb.append("    officeCode: ").append(toIndentedString(officeCode)).append("\n");
     sb.append("    nonUsProvince: ").append(toIndentedString(nonUsProvince)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    federalEfileDate: ").append(toIndentedString(federalEfileDate)).append("\n");
@@ -1552,10 +1708,8 @@ public class Form1099Misc {
     sb.append("    stateEfileDate: ").append(toIndentedString(stateEfileDate)).append("\n");
     sb.append("    recipientEdeliveryDate: ").append(toIndentedString(recipientEdeliveryDate)).append("\n");
     sb.append("    tinMatch: ").append(toIndentedString(tinMatch)).append("\n");
-    sb.append("    noTin: ").append(toIndentedString(noTin)).append("\n");
     sb.append("    addressVerification: ").append(toIndentedString(addressVerification)).append("\n");
     sb.append("    stateAndLocalWithholding: ").append(toIndentedString(stateAndLocalWithholding)).append("\n");
-    sb.append("    secondTinNotice: ").append(toIndentedString(secondTinNotice)).append("\n");
     sb.append("    federalEfileStatus: ").append(toIndentedString(federalEfileStatus)).append("\n");
     sb.append("    stateEfileStatus: ").append(toIndentedString(stateEfileStatus)).append("\n");
     sb.append("    postalMailStatus: ").append(toIndentedString(postalMailStatus)).append("\n");
@@ -1565,6 +1719,18 @@ public class Form1099Misc {
     sb.append("    validationErrors: ").append(toIndentedString(validationErrors)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    tinType: ").append(toIndentedString(tinType)).append("\n");
+    sb.append("    businessName: ").append(toIndentedString(businessName)).append("\n");
+    sb.append("    businessName2: ").append(toIndentedString(businessName2)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    suffixName: ").append(toIndentedString(suffixName)).append("\n");
+    sb.append("    recipientSecondName: ").append(toIndentedString(recipientSecondName)).append("\n");
+    sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
+    sb.append("    officeCode: ").append(toIndentedString(officeCode)).append("\n");
+    sb.append("    noTin: ").append(toIndentedString(noTin)).append("\n");
+    sb.append("    secondTinNotice: ").append(toIndentedString(secondTinNotice)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1597,16 +1763,12 @@ public class Form1099Misc {
     openapiFields.add("referenceId");
     openapiFields.add("tin");
     openapiFields.add("recipientName");
-    openapiFields.add("tinType");
-    openapiFields.add("recipientSecondName");
     openapiFields.add("address");
     openapiFields.add("address2");
     openapiFields.add("city");
     openapiFields.add("state");
     openapiFields.add("zip");
     openapiFields.add("email");
-    openapiFields.add("accountNumber");
-    openapiFields.add("officeCode");
     openapiFields.add("nonUsProvince");
     openapiFields.add("countryCode");
     openapiFields.add("federalEfileDate");
@@ -1614,10 +1776,8 @@ public class Form1099Misc {
     openapiFields.add("stateEfileDate");
     openapiFields.add("recipientEdeliveryDate");
     openapiFields.add("tinMatch");
-    openapiFields.add("noTin");
     openapiFields.add("addressVerification");
     openapiFields.add("stateAndLocalWithholding");
-    openapiFields.add("secondTinNotice");
     openapiFields.add("federalEfileStatus");
     openapiFields.add("stateEfileStatus");
     openapiFields.add("postalMailStatus");
@@ -1627,11 +1787,22 @@ public class Form1099Misc {
     openapiFields.add("validationErrors");
     openapiFields.add("createdAt");
     openapiFields.add("updatedAt");
+    openapiFields.add("tinType");
+    openapiFields.add("businessName");
+    openapiFields.add("businessName2");
+    openapiFields.add("firstName");
+    openapiFields.add("middleName");
+    openapiFields.add("lastName");
+    openapiFields.add("suffixName");
+    openapiFields.add("recipientSecondName");
+    openapiFields.add("accountNumber");
+    openapiFields.add("officeCode");
+    openapiFields.add("noTin");
+    openapiFields.add("secondTinNotice");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("type");
-    openapiRequiredFields.add("recipientName");
     openapiRequiredFields.add("address");
     openapiRequiredFields.add("city");
     openapiRequiredFields.add("countryCode");
@@ -1683,16 +1854,6 @@ public class Form1099Misc {
       if ((jsonObj.get("recipientName") != null && !jsonObj.get("recipientName").isJsonNull()) && !jsonObj.get("recipientName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientName").toString()));
       }
-      if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tinType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tinType").toString()));
-      }
-      // validate the optional field `tinType`
-      if (jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) {
-        TinTypeEnum.validateJsonElement(jsonObj.get("tinType"));
-      }
-      if ((jsonObj.get("recipientSecondName") != null && !jsonObj.get("recipientSecondName").isJsonNull()) && !jsonObj.get("recipientSecondName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recipientSecondName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientSecondName").toString()));
-      }
       if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
       }
@@ -1710,12 +1871,6 @@ public class Form1099Misc {
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
-      }
-      if ((jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonNull()) && !jsonObj.get("accountNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
-      }
-      if ((jsonObj.get("officeCode") != null && !jsonObj.get("officeCode").isJsonNull()) && !jsonObj.get("officeCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `officeCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("officeCode").toString()));
       }
       if ((jsonObj.get("nonUsProvince") != null && !jsonObj.get("nonUsProvince").isJsonNull()) && !jsonObj.get("nonUsProvince").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `nonUsProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nonUsProvince").toString()));
@@ -1774,6 +1929,40 @@ public class Form1099Misc {
             ValidationError.validateJsonElement(jsonArrayvalidationErrors.get(i));
           };
         }
+      }
+      if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tinType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tinType").toString()));
+      }
+      // validate the optional field `tinType`
+      if (jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) {
+        TinTypeEnum.validateJsonElement(jsonObj.get("tinType"));
+      }
+      if ((jsonObj.get("businessName") != null && !jsonObj.get("businessName").isJsonNull()) && !jsonObj.get("businessName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `businessName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessName").toString()));
+      }
+      if ((jsonObj.get("businessName2") != null && !jsonObj.get("businessName2").isJsonNull()) && !jsonObj.get("businessName2").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `businessName2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessName2").toString()));
+      }
+      if ((jsonObj.get("firstName") != null && !jsonObj.get("firstName").isJsonNull()) && !jsonObj.get("firstName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `firstName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firstName").toString()));
+      }
+      if ((jsonObj.get("middleName") != null && !jsonObj.get("middleName").isJsonNull()) && !jsonObj.get("middleName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `middleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("middleName").toString()));
+      }
+      if ((jsonObj.get("lastName") != null && !jsonObj.get("lastName").isJsonNull()) && !jsonObj.get("lastName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `lastName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastName").toString()));
+      }
+      if ((jsonObj.get("suffixName") != null && !jsonObj.get("suffixName").isJsonNull()) && !jsonObj.get("suffixName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `suffixName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("suffixName").toString()));
+      }
+      if ((jsonObj.get("recipientSecondName") != null && !jsonObj.get("recipientSecondName").isJsonNull()) && !jsonObj.get("recipientSecondName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `recipientSecondName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientSecondName").toString()));
+      }
+      if ((jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonNull()) && !jsonObj.get("accountNumber").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
+      }
+      if ((jsonObj.get("officeCode") != null && !jsonObj.get("officeCode").isJsonNull()) && !jsonObj.get("officeCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `officeCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("officeCode").toString()));
       }
   }
 
