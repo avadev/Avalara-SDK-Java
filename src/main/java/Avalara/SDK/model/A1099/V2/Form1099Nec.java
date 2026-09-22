@@ -103,6 +103,8 @@ public class Form1099Nec {
     
     _1099_NEC("1099-NEC"),
     
+    _1099_PATR("1099-PATR"),
+    
     _1099_R("1099-R"),
     
     W_2("W-2");

@@ -20,7 +20,6 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
-import Avalara.SDK.model.A1099.V2.CoveredIndividual;
 import Avalara.SDK.model.A1099.V2.Form1099StatusDetail;
 import Avalara.SDK.model.A1099.V2.StateAndLocalWithholding;
 import Avalara.SDK.model.A1099.V2.StateEfileStatusDetail;
@@ -63,99 +62,61 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * Form 1095-B: Health Coverage
+ * Form 1099-PATR: Taxable Distributions Received From Cooperatives                *At least one of the following amounts must be greater than zero:*  Patronage Dividends, Nonpatronage Distributions, Per-Unit Retain Allocations, or Redeemed Nonqualified Notices.                Federal Income Tax Withheld, when provided, must be less than the total of those four amounts.                Specified Cooperative may only be set when at least one of Qualified Payments,  Section 199A(a) Qualified Items, or Section 199A(a) SSTB Items is provided.                Form 1099-PATR has no state or local withholding boxes. &#x60;stateAndLocalWithholding&#x60; is not supported for this  form type on any endpoint: a supplied value is discarded rather than stored, and the field always reads back  as &#x60;null&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
-public class Form1095B {
-  public static final String SERIALIZED_NAME_EMPLOYEE_FIRST_NAME = "employeeFirstName";
-  @SerializedName(SERIALIZED_NAME_EMPLOYEE_FIRST_NAME)
-  private String employeeFirstName;
+public class Form1099Patr {
+  public static final String SERIALIZED_NAME_PATRONAGE_DIVIDENDS = "patronageDividends";
+  @SerializedName(SERIALIZED_NAME_PATRONAGE_DIVIDENDS)
+  private Double patronageDividends;
 
-  public static final String SERIALIZED_NAME_EMPLOYEE_MIDDLE_NAME = "employeeMiddleName";
-  @SerializedName(SERIALIZED_NAME_EMPLOYEE_MIDDLE_NAME)
-  private String employeeMiddleName;
+  public static final String SERIALIZED_NAME_NONPATRONAGE_DISTRIBUTIONS = "nonpatronageDistributions";
+  @SerializedName(SERIALIZED_NAME_NONPATRONAGE_DISTRIBUTIONS)
+  private Double nonpatronageDistributions;
 
-  public static final String SERIALIZED_NAME_EMPLOYEE_LAST_NAME = "employeeLastName";
-  @SerializedName(SERIALIZED_NAME_EMPLOYEE_LAST_NAME)
-  private String employeeLastName;
+  public static final String SERIALIZED_NAME_PER_UNIT_RETAIN_ALLOCATIONS = "perUnitRetainAllocations";
+  @SerializedName(SERIALIZED_NAME_PER_UNIT_RETAIN_ALLOCATIONS)
+  private Double perUnitRetainAllocations;
 
-  public static final String SERIALIZED_NAME_EMPLOYEE_NAME_SUFFIX = "employeeNameSuffix";
-  @SerializedName(SERIALIZED_NAME_EMPLOYEE_NAME_SUFFIX)
-  private String employeeNameSuffix;
+  public static final String SERIALIZED_NAME_FEDERAL_INCOME_TAX_WITHHELD = "federalIncomeTaxWithheld";
+  @SerializedName(SERIALIZED_NAME_FEDERAL_INCOME_TAX_WITHHELD)
+  private Double federalIncomeTaxWithheld;
 
-  public static final String SERIALIZED_NAME_EMPLOYEE_DATE_OF_BIRTH = "employeeDateOfBirth";
-  @SerializedName(SERIALIZED_NAME_EMPLOYEE_DATE_OF_BIRTH)
-  private LocalDate employeeDateOfBirth;
+  public static final String SERIALIZED_NAME_REDEEMED_NONQUALIFIED_NOTICES = "redeemedNonqualifiedNotices";
+  @SerializedName(SERIALIZED_NAME_REDEEMED_NONQUALIFIED_NOTICES)
+  private Double redeemedNonqualifiedNotices;
 
-  /**
-   * Origin of health coverage code.    Available values:  - A: Small Business Health Options Program (SHOP)  - B: Employer-sponsored coverage  - C: Government-sponsored program  - D: Individual market insurance  - E: Multiemployer plan  - F: Other designated minimum essential coverage  - G: Employer-sponsored coverage that is an individual coverage HRA (valid for tax years 2020 and later)
-   */
-  @JsonAdapter(OriginOfHealthCoverageCodeEnum.Adapter.class)
-  public enum OriginOfHealthCoverageCodeEnum {
-    A("A"),
-    
-    B("B"),
-    
-    C("C"),
-    
-    D("D"),
-    
-    E("E"),
-    
-    F("F"),
-    
-    G("G");
+  public static final String SERIALIZED_NAME_SECTION199_AG_DEDUCTION = "section199AgDeduction";
+  @SerializedName(SERIALIZED_NAME_SECTION199_AG_DEDUCTION)
+  private Double section199AgDeduction;
 
-    private String value;
+  public static final String SERIALIZED_NAME_QUALIFIED_PAYMENTS = "qualifiedPayments";
+  @SerializedName(SERIALIZED_NAME_QUALIFIED_PAYMENTS)
+  private Double qualifiedPayments;
 
-    OriginOfHealthCoverageCodeEnum(String value) {
-      this.value = value;
-    }
+  public static final String SERIALIZED_NAME_SECTION199_AA_QUALIFIED_ITEMS = "section199AaQualifiedItems";
+  @SerializedName(SERIALIZED_NAME_SECTION199_AA_QUALIFIED_ITEMS)
+  private Double section199AaQualifiedItems;
 
-    public String getValue() {
-      return value;
-    }
+  public static final String SERIALIZED_NAME_SECTION199_AA_SSTB_ITEMS = "section199AaSstbItems";
+  @SerializedName(SERIALIZED_NAME_SECTION199_AA_SSTB_ITEMS)
+  private Double section199AaSstbItems;
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+  public static final String SERIALIZED_NAME_INVESTMENT_CREDIT = "investmentCredit";
+  @SerializedName(SERIALIZED_NAME_INVESTMENT_CREDIT)
+  private Double investmentCredit;
 
-    public static OriginOfHealthCoverageCodeEnum fromValue(String value) {
-      for (OriginOfHealthCoverageCodeEnum b : OriginOfHealthCoverageCodeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      return null;
-    }
+  public static final String SERIALIZED_NAME_WORK_OPPORTUNITY_CREDIT = "workOpportunityCredit";
+  @SerializedName(SERIALIZED_NAME_WORK_OPPORTUNITY_CREDIT)
+  private Double workOpportunityCredit;
 
-    public static class Adapter extends TypeAdapter<OriginOfHealthCoverageCodeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final OriginOfHealthCoverageCodeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
+  public static final String SERIALIZED_NAME_OTHER_CREDITS_AND_DEDUCTIONS = "otherCreditsAndDeductions";
+  @SerializedName(SERIALIZED_NAME_OTHER_CREDITS_AND_DEDUCTIONS)
+  private Double otherCreditsAndDeductions;
 
-      @Override
-      public OriginOfHealthCoverageCodeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return OriginOfHealthCoverageCodeEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      OriginOfHealthCoverageCodeEnum.fromValue(value);
-    }
-  }
-
-  public static final String SERIALIZED_NAME_ORIGIN_OF_HEALTH_COVERAGE_CODE = "originOfHealthCoverageCode";
-  @SerializedName(SERIALIZED_NAME_ORIGIN_OF_HEALTH_COVERAGE_CODE)
-  private OriginOfHealthCoverageCodeEnum originOfHealthCoverageCode;
-
-  public static final String SERIALIZED_NAME_COVERED_INDIVIDUALS = "coveredIndividuals";
-  @SerializedName(SERIALIZED_NAME_COVERED_INDIVIDUALS)
-  private List<CoveredIndividual> coveredIndividuals;
+  public static final String SERIALIZED_NAME_SPECIFIED_COOPERATIVE_INDICATOR = "specifiedCooperativeIndicator";
+  @SerializedName(SERIALIZED_NAME_SPECIFIED_COOPERATIVE_INDICATOR)
+  private Boolean specifiedCooperativeIndicator;
 
   /**
    * Form type.
@@ -264,11 +225,6 @@ public class Form1095B {
   @SerializedName(SERIALIZED_NAME_RECIPIENT_NAME)
   private String recipientName;
 
-  public static final String SERIALIZED_NAME_RECIPIENT_SECOND_NAME = "recipientSecondName";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_RECIPIENT_SECOND_NAME)
-  private String recipientSecondName;
-
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
   private String address;
@@ -365,10 +321,121 @@ public class Form1095B {
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
 
-  public Form1095B() {
+  /**
+   * Recipient classification.  The platform is transitioning from tax identifier classifications to recipient entity classifications. New values represent recipient entity types and should be preferred. Deprecated values represent identifier formats and remain supported for backward compatibility only.  Available values: - INDIVIDUAL: Recipient is an individual - BUSINESS: Recipient is a business - UNKNOWN: Recipient classification is unknown - EIN: (Deprecated - use BUSINESS) Employer Identification Number - SSN: (Deprecated - use INDIVIDUAL) Social Security Number - ITIN: (Deprecated - use INDIVIDUAL) Individual Taxpayer Identification Number - ATIN: (Deprecated - use INDIVIDUAL) Adoption Taxpayer Identification Number
+   */
+  @JsonAdapter(TinTypeEnum.Adapter.class)
+  public enum TinTypeEnum {
+    EIN("EIN"),
+    
+    SSN("SSN"),
+    
+    ITIN("ITIN"),
+    
+    ATIN("ATIN"),
+    
+    INDIVIDUAL("INDIVIDUAL"),
+    
+    BUSINESS("BUSINESS"),
+    
+    UNKNOWN("UNKNOWN");
+
+    private String value;
+
+    TinTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TinTypeEnum fromValue(String value) {
+      for (TinTypeEnum b : TinTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TinTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TinTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TinTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TinTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      TinTypeEnum.fromValue(value);
+    }
   }
 
-  public Form1095B(
+  public static final String SERIALIZED_NAME_TIN_TYPE = "tinType";
+  @SerializedName(SERIALIZED_NAME_TIN_TYPE)
+  private TinTypeEnum tinType;
+
+  public static final String SERIALIZED_NAME_BUSINESS_NAME = "businessName";
+  @SerializedName(SERIALIZED_NAME_BUSINESS_NAME)
+  private String businessName;
+
+  public static final String SERIALIZED_NAME_BUSINESS_NAME2 = "businessName2";
+  @SerializedName(SERIALIZED_NAME_BUSINESS_NAME2)
+  private String businessName2;
+
+  public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
+  @SerializedName(SERIALIZED_NAME_FIRST_NAME)
+  private String firstName;
+
+  public static final String SERIALIZED_NAME_MIDDLE_NAME = "middleName";
+  @SerializedName(SERIALIZED_NAME_MIDDLE_NAME)
+  private String middleName;
+
+  public static final String SERIALIZED_NAME_LAST_NAME = "lastName";
+  @SerializedName(SERIALIZED_NAME_LAST_NAME)
+  private String lastName;
+
+  public static final String SERIALIZED_NAME_SUFFIX_NAME = "suffixName";
+  @SerializedName(SERIALIZED_NAME_SUFFIX_NAME)
+  private String suffixName;
+
+  public static final String SERIALIZED_NAME_RECIPIENT_SECOND_NAME = "recipientSecondName";
+  @Deprecated
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_SECOND_NAME)
+  private String recipientSecondName;
+
+  public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "accountNumber";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
+  private String accountNumber;
+
+  public static final String SERIALIZED_NAME_OFFICE_CODE = "officeCode";
+  @SerializedName(SERIALIZED_NAME_OFFICE_CODE)
+  private String officeCode;
+
+  public static final String SERIALIZED_NAME_NO_TIN = "noTin";
+  @SerializedName(SERIALIZED_NAME_NO_TIN)
+  private Boolean noTin;
+
+  public static final String SERIALIZED_NAME_SECOND_TIN_NOTICE = "secondTinNotice";
+  @SerializedName(SERIALIZED_NAME_SECOND_TIN_NOTICE)
+  private Boolean secondTinNotice;
+
+  public Form1099Patr() {
+  }
+
+  public Form1099Patr(
      String id, 
      Form1099StatusDetail federalEfileStatus, 
      List<StateEfileStatusDetail> stateEfileStatus, 
@@ -393,148 +460,254 @@ public class Form1095B {
     this.updatedAt = updatedAt;
   }
 
-  public Form1095B employeeFirstName(String employeeFirstName) {
-    this.employeeFirstName = employeeFirstName;
+  public Form1099Patr patronageDividends(Double patronageDividends) {
+    this.patronageDividends = patronageDividends;
     return this;
   }
 
   /**
-   * Employee&#39;s first name
-   * @return employeeFirstName
+   * Patronage dividends
+   * @return patronageDividends
    */
   @javax.annotation.Nullable
-  public String getEmployeeFirstName() {
-    return employeeFirstName;
+  public Double getPatronageDividends() {
+    return patronageDividends;
   }
 
-  public void setEmployeeFirstName(String employeeFirstName) {
-    this.employeeFirstName = employeeFirstName;
+  public void setPatronageDividends(Double patronageDividends) {
+    this.patronageDividends = patronageDividends;
   }
 
 
-  public Form1095B employeeMiddleName(String employeeMiddleName) {
-    this.employeeMiddleName = employeeMiddleName;
+  public Form1099Patr nonpatronageDistributions(Double nonpatronageDistributions) {
+    this.nonpatronageDistributions = nonpatronageDistributions;
     return this;
   }
 
   /**
-   * Employee&#39;s middle name
-   * @return employeeMiddleName
+   * Nonpatronage distributions
+   * @return nonpatronageDistributions
    */
   @javax.annotation.Nullable
-  public String getEmployeeMiddleName() {
-    return employeeMiddleName;
+  public Double getNonpatronageDistributions() {
+    return nonpatronageDistributions;
   }
 
-  public void setEmployeeMiddleName(String employeeMiddleName) {
-    this.employeeMiddleName = employeeMiddleName;
+  public void setNonpatronageDistributions(Double nonpatronageDistributions) {
+    this.nonpatronageDistributions = nonpatronageDistributions;
   }
 
 
-  public Form1095B employeeLastName(String employeeLastName) {
-    this.employeeLastName = employeeLastName;
+  public Form1099Patr perUnitRetainAllocations(Double perUnitRetainAllocations) {
+    this.perUnitRetainAllocations = perUnitRetainAllocations;
     return this;
   }
 
   /**
-   * Employee&#39;s last name
-   * @return employeeLastName
+   * Per-unit retain allocations
+   * @return perUnitRetainAllocations
    */
   @javax.annotation.Nullable
-  public String getEmployeeLastName() {
-    return employeeLastName;
+  public Double getPerUnitRetainAllocations() {
+    return perUnitRetainAllocations;
   }
 
-  public void setEmployeeLastName(String employeeLastName) {
-    this.employeeLastName = employeeLastName;
+  public void setPerUnitRetainAllocations(Double perUnitRetainAllocations) {
+    this.perUnitRetainAllocations = perUnitRetainAllocations;
   }
 
 
-  public Form1095B employeeNameSuffix(String employeeNameSuffix) {
-    this.employeeNameSuffix = employeeNameSuffix;
+  public Form1099Patr federalIncomeTaxWithheld(Double federalIncomeTaxWithheld) {
+    this.federalIncomeTaxWithheld = federalIncomeTaxWithheld;
     return this;
   }
 
   /**
-   * Employee&#39;s name suffix
-   * @return employeeNameSuffix
+   * Federal income tax withheld
+   * @return federalIncomeTaxWithheld
    */
   @javax.annotation.Nullable
-  public String getEmployeeNameSuffix() {
-    return employeeNameSuffix;
+  public Double getFederalIncomeTaxWithheld() {
+    return federalIncomeTaxWithheld;
   }
 
-  public void setEmployeeNameSuffix(String employeeNameSuffix) {
-    this.employeeNameSuffix = employeeNameSuffix;
+  public void setFederalIncomeTaxWithheld(Double federalIncomeTaxWithheld) {
+    this.federalIncomeTaxWithheld = federalIncomeTaxWithheld;
   }
 
 
-  public Form1095B employeeDateOfBirth(LocalDate employeeDateOfBirth) {
-    this.employeeDateOfBirth = employeeDateOfBirth;
+  public Form1099Patr redeemedNonqualifiedNotices(Double redeemedNonqualifiedNotices) {
+    this.redeemedNonqualifiedNotices = redeemedNonqualifiedNotices;
     return this;
   }
 
   /**
-   * Employee&#39;s date of birth
-   * @return employeeDateOfBirth
+   * Redeemed nonqualified notices
+   * @return redeemedNonqualifiedNotices
    */
   @javax.annotation.Nullable
-  public LocalDate getEmployeeDateOfBirth() {
-    return employeeDateOfBirth;
+  public Double getRedeemedNonqualifiedNotices() {
+    return redeemedNonqualifiedNotices;
   }
 
-  public void setEmployeeDateOfBirth(LocalDate employeeDateOfBirth) {
-    this.employeeDateOfBirth = employeeDateOfBirth;
+  public void setRedeemedNonqualifiedNotices(Double redeemedNonqualifiedNotices) {
+    this.redeemedNonqualifiedNotices = redeemedNonqualifiedNotices;
   }
 
 
-  public Form1095B originOfHealthCoverageCode(OriginOfHealthCoverageCodeEnum originOfHealthCoverageCode) {
-    this.originOfHealthCoverageCode = originOfHealthCoverageCode;
+  public Form1099Patr section199AgDeduction(Double section199AgDeduction) {
+    this.section199AgDeduction = section199AgDeduction;
     return this;
   }
 
   /**
-   * Origin of health coverage code.    Available values:  - A: Small Business Health Options Program (SHOP)  - B: Employer-sponsored coverage  - C: Government-sponsored program  - D: Individual market insurance  - E: Multiemployer plan  - F: Other designated minimum essential coverage  - G: Employer-sponsored coverage that is an individual coverage HRA (valid for tax years 2020 and later)
-   * @return originOfHealthCoverageCode
+   * Section 199A(g) deduction
+   * @return section199AgDeduction
    */
   @javax.annotation.Nullable
-  public OriginOfHealthCoverageCodeEnum getOriginOfHealthCoverageCode() {
-    return originOfHealthCoverageCode;
+  public Double getSection199AgDeduction() {
+    return section199AgDeduction;
   }
 
-  public void setOriginOfHealthCoverageCode(OriginOfHealthCoverageCodeEnum originOfHealthCoverageCode) {
-    this.originOfHealthCoverageCode = originOfHealthCoverageCode;
+  public void setSection199AgDeduction(Double section199AgDeduction) {
+    this.section199AgDeduction = section199AgDeduction;
   }
 
 
-  public Form1095B coveredIndividuals(List<CoveredIndividual> coveredIndividuals) {
-    this.coveredIndividuals = coveredIndividuals;
-    return this;
-  }
-
-  public Form1095B addCoveredIndividualsItem(CoveredIndividual coveredIndividualsItem) {
-    if (this.coveredIndividuals == null) {
-      this.coveredIndividuals = new ArrayList<>();
-    }
-    this.coveredIndividuals.add(coveredIndividualsItem);
+  public Form1099Patr qualifiedPayments(Double qualifiedPayments) {
+    this.qualifiedPayments = qualifiedPayments;
     return this;
   }
 
   /**
-   * Covered individuals information - At least one month of coverage must be entered if it&#39;s not a correction.
-   * @return coveredIndividuals
+   * Qualified payments (Section 199A(b)(7))
+   * @return qualifiedPayments
    */
   @javax.annotation.Nullable
-  public List<CoveredIndividual> getCoveredIndividuals() {
-    return coveredIndividuals;
+  public Double getQualifiedPayments() {
+    return qualifiedPayments;
   }
 
-  public void setCoveredIndividuals(List<CoveredIndividual> coveredIndividuals) {
-    this.coveredIndividuals = coveredIndividuals;
+  public void setQualifiedPayments(Double qualifiedPayments) {
+    this.qualifiedPayments = qualifiedPayments;
   }
 
 
-  public Form1095B type(TypeEnum type) {
+  public Form1099Patr section199AaQualifiedItems(Double section199AaQualifiedItems) {
+    this.section199AaQualifiedItems = section199AaQualifiedItems;
+    return this;
+  }
+
+  /**
+   * Section 199A(a) qualified items
+   * @return section199AaQualifiedItems
+   */
+  @javax.annotation.Nullable
+  public Double getSection199AaQualifiedItems() {
+    return section199AaQualifiedItems;
+  }
+
+  public void setSection199AaQualifiedItems(Double section199AaQualifiedItems) {
+    this.section199AaQualifiedItems = section199AaQualifiedItems;
+  }
+
+
+  public Form1099Patr section199AaSstbItems(Double section199AaSstbItems) {
+    this.section199AaSstbItems = section199AaSstbItems;
+    return this;
+  }
+
+  /**
+   * Section 199A(a) SSTB items
+   * @return section199AaSstbItems
+   */
+  @javax.annotation.Nullable
+  public Double getSection199AaSstbItems() {
+    return section199AaSstbItems;
+  }
+
+  public void setSection199AaSstbItems(Double section199AaSstbItems) {
+    this.section199AaSstbItems = section199AaSstbItems;
+  }
+
+
+  public Form1099Patr investmentCredit(Double investmentCredit) {
+    this.investmentCredit = investmentCredit;
+    return this;
+  }
+
+  /**
+   * Investment credit
+   * @return investmentCredit
+   */
+  @javax.annotation.Nullable
+  public Double getInvestmentCredit() {
+    return investmentCredit;
+  }
+
+  public void setInvestmentCredit(Double investmentCredit) {
+    this.investmentCredit = investmentCredit;
+  }
+
+
+  public Form1099Patr workOpportunityCredit(Double workOpportunityCredit) {
+    this.workOpportunityCredit = workOpportunityCredit;
+    return this;
+  }
+
+  /**
+   * Work opportunity credit
+   * @return workOpportunityCredit
+   */
+  @javax.annotation.Nullable
+  public Double getWorkOpportunityCredit() {
+    return workOpportunityCredit;
+  }
+
+  public void setWorkOpportunityCredit(Double workOpportunityCredit) {
+    this.workOpportunityCredit = workOpportunityCredit;
+  }
+
+
+  public Form1099Patr otherCreditsAndDeductions(Double otherCreditsAndDeductions) {
+    this.otherCreditsAndDeductions = otherCreditsAndDeductions;
+    return this;
+  }
+
+  /**
+   * Other credits and deductions
+   * @return otherCreditsAndDeductions
+   */
+  @javax.annotation.Nullable
+  public Double getOtherCreditsAndDeductions() {
+    return otherCreditsAndDeductions;
+  }
+
+  public void setOtherCreditsAndDeductions(Double otherCreditsAndDeductions) {
+    this.otherCreditsAndDeductions = otherCreditsAndDeductions;
+  }
+
+
+  public Form1099Patr specifiedCooperativeIndicator(Boolean specifiedCooperativeIndicator) {
+    this.specifiedCooperativeIndicator = specifiedCooperativeIndicator;
+    return this;
+  }
+
+  /**
+   * Indicates the payer is a specified agricultural or horticultural cooperative
+   * @return specifiedCooperativeIndicator
+   */
+  @javax.annotation.Nullable
+  public Boolean getSpecifiedCooperativeIndicator() {
+    return specifiedCooperativeIndicator;
+  }
+
+  public void setSpecifiedCooperativeIndicator(Boolean specifiedCooperativeIndicator) {
+    this.specifiedCooperativeIndicator = specifiedCooperativeIndicator;
+  }
+
+
+  public Form1099Patr type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -564,7 +737,7 @@ public class Form1095B {
 
 
 
-  public Form1095B issuerId(String issuerId) {
+  public Form1099Patr issuerId(String issuerId) {
     this.issuerId = issuerId;
     return this;
   }
@@ -583,7 +756,7 @@ public class Form1095B {
   }
 
 
-  public Form1095B issuerReferenceId(String issuerReferenceId) {
+  public Form1099Patr issuerReferenceId(String issuerReferenceId) {
     this.issuerReferenceId = issuerReferenceId;
     return this;
   }
@@ -602,7 +775,7 @@ public class Form1095B {
   }
 
 
-  public Form1095B issuerTin(String issuerTin) {
+  public Form1099Patr issuerTin(String issuerTin) {
     this.issuerTin = issuerTin;
     return this;
   }
@@ -621,7 +794,7 @@ public class Form1095B {
   }
 
 
-  public Form1095B taxYear(Integer taxYear) {
+  public Form1099Patr taxYear(Integer taxYear) {
     this.taxYear = taxYear;
     return this;
   }
@@ -640,7 +813,7 @@ public class Form1095B {
   }
 
 
-  public Form1095B referenceId(String referenceId) {
+  public Form1099Patr referenceId(String referenceId) {
     this.referenceId = referenceId;
     return this;
   }
@@ -659,7 +832,7 @@ public class Form1095B {
   }
 
 
-  public Form1095B tin(String tin) {
+  public Form1099Patr tin(String tin) {
     this.tin = tin;
     return this;
   }
@@ -679,7 +852,7 @@ public class Form1095B {
 
 
   @Deprecated
-  public Form1095B recipientName(String recipientName) {
+  public Form1099Patr recipientName(String recipientName) {
     this.recipientName = recipientName;
     return this;
   }
@@ -701,30 +874,7 @@ public class Form1095B {
   }
 
 
-  @Deprecated
-  public Form1095B recipientSecondName(String recipientSecondName) {
-    this.recipientSecondName = recipientSecondName;
-    return this;
-  }
-
-  /**
-   * DEPRECATED: Use &#x60;businessName2&#x60; instead.
-   * @return recipientSecondName
-   * @deprecated
-   */
-  @Deprecated
-  @javax.annotation.Nullable
-  public String getRecipientSecondName() {
-    return recipientSecondName;
-  }
-
-  @Deprecated
-  public void setRecipientSecondName(String recipientSecondName) {
-    this.recipientSecondName = recipientSecondName;
-  }
-
-
-  public Form1095B address(String address) {
+  public Form1099Patr address(String address) {
     this.address = address;
     return this;
   }
@@ -743,7 +893,7 @@ public class Form1095B {
   }
 
 
-  public Form1095B address2(String address2) {
+  public Form1099Patr address2(String address2) {
     this.address2 = address2;
     return this;
   }
@@ -762,7 +912,7 @@ public class Form1095B {
   }
 
 
-  public Form1095B city(String city) {
+  public Form1099Patr city(String city) {
     this.city = city;
     return this;
   }
@@ -781,7 +931,7 @@ public class Form1095B {
   }
 
 
-  public Form1095B state(String state) {
+  public Form1099Patr state(String state) {
     this.state = state;
     return this;
   }
@@ -800,7 +950,7 @@ public class Form1095B {
   }
 
 
-  public Form1095B zip(String zip) {
+  public Form1099Patr zip(String zip) {
     this.zip = zip;
     return this;
   }
@@ -819,7 +969,7 @@ public class Form1095B {
   }
 
 
-  public Form1095B email(String email) {
+  public Form1099Patr email(String email) {
     this.email = email;
     return this;
   }
@@ -838,7 +988,7 @@ public class Form1095B {
   }
 
 
-  public Form1095B nonUsProvince(String nonUsProvince) {
+  public Form1099Patr nonUsProvince(String nonUsProvince) {
     this.nonUsProvince = nonUsProvince;
     return this;
   }
@@ -857,7 +1007,7 @@ public class Form1095B {
   }
 
 
-  public Form1095B countryCode(String countryCode) {
+  public Form1099Patr countryCode(String countryCode) {
     this.countryCode = countryCode;
     return this;
   }
@@ -876,7 +1026,7 @@ public class Form1095B {
   }
 
 
-  public Form1095B federalEfileDate(LocalDate federalEfileDate) {
+  public Form1099Patr federalEfileDate(LocalDate federalEfileDate) {
     this.federalEfileDate = federalEfileDate;
     return this;
   }
@@ -895,7 +1045,7 @@ public class Form1095B {
   }
 
 
-  public Form1095B postalMail(Boolean postalMail) {
+  public Form1099Patr postalMail(Boolean postalMail) {
     this.postalMail = postalMail;
     return this;
   }
@@ -914,7 +1064,7 @@ public class Form1095B {
   }
 
 
-  public Form1095B stateEfileDate(LocalDate stateEfileDate) {
+  public Form1099Patr stateEfileDate(LocalDate stateEfileDate) {
     this.stateEfileDate = stateEfileDate;
     return this;
   }
@@ -933,7 +1083,7 @@ public class Form1095B {
   }
 
 
-  public Form1095B recipientEdeliveryDate(LocalDate recipientEdeliveryDate) {
+  public Form1099Patr recipientEdeliveryDate(LocalDate recipientEdeliveryDate) {
     this.recipientEdeliveryDate = recipientEdeliveryDate;
     return this;
   }
@@ -952,7 +1102,7 @@ public class Form1095B {
   }
 
 
-  public Form1095B tinMatch(Boolean tinMatch) {
+  public Form1099Patr tinMatch(Boolean tinMatch) {
     this.tinMatch = tinMatch;
     return this;
   }
@@ -971,7 +1121,7 @@ public class Form1095B {
   }
 
 
-  public Form1095B addressVerification(Boolean addressVerification) {
+  public Form1099Patr addressVerification(Boolean addressVerification) {
     this.addressVerification = addressVerification;
     return this;
   }
@@ -990,7 +1140,7 @@ public class Form1095B {
   }
 
 
-  public Form1095B stateAndLocalWithholding(StateAndLocalWithholding stateAndLocalWithholding) {
+  public Form1099Patr stateAndLocalWithholding(StateAndLocalWithholding stateAndLocalWithholding) {
     this.stateAndLocalWithholding = stateAndLocalWithholding;
     return this;
   }
@@ -1107,6 +1257,238 @@ public class Form1095B {
   }
 
 
+
+  public Form1099Patr tinType(TinTypeEnum tinType) {
+    this.tinType = tinType;
+    return this;
+  }
+
+  /**
+   * Recipient classification.  The platform is transitioning from tax identifier classifications to recipient entity classifications. New values represent recipient entity types and should be preferred. Deprecated values represent identifier formats and remain supported for backward compatibility only.  Available values: - INDIVIDUAL: Recipient is an individual - BUSINESS: Recipient is a business - UNKNOWN: Recipient classification is unknown - EIN: (Deprecated - use BUSINESS) Employer Identification Number - SSN: (Deprecated - use INDIVIDUAL) Social Security Number - ITIN: (Deprecated - use INDIVIDUAL) Individual Taxpayer Identification Number - ATIN: (Deprecated - use INDIVIDUAL) Adoption Taxpayer Identification Number
+   * @return tinType
+   */
+  @javax.annotation.Nullable
+  public TinTypeEnum getTinType() {
+    return tinType;
+  }
+
+  public void setTinType(TinTypeEnum tinType) {
+    this.tinType = tinType;
+  }
+
+
+  public Form1099Patr businessName(String businessName) {
+    this.businessName = businessName;
+    return this;
+  }
+
+  /**
+   * Business name. Required when the recipient of the form is a business; should only be used for businesses.
+   * @return businessName
+   */
+  @javax.annotation.Nullable
+  public String getBusinessName() {
+    return businessName;
+  }
+
+  public void setBusinessName(String businessName) {
+    this.businessName = businessName;
+  }
+
+
+  public Form1099Patr businessName2(String businessName2) {
+    this.businessName2 = businessName2;
+    return this;
+  }
+
+  /**
+   * Business name line 2. Should only be used for businesses.
+   * @return businessName2
+   */
+  @javax.annotation.Nullable
+  public String getBusinessName2() {
+    return businessName2;
+  }
+
+  public void setBusinessName2(String businessName2) {
+    this.businessName2 = businessName2;
+  }
+
+
+  public Form1099Patr firstName(String firstName) {
+    this.firstName = firstName;
+    return this;
+  }
+
+  /**
+   * First name. Required when the recipient of the form is an individual; should only be used for individuals.
+   * @return firstName
+   */
+  @javax.annotation.Nullable
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+
+  public Form1099Patr middleName(String middleName) {
+    this.middleName = middleName;
+    return this;
+  }
+
+  /**
+   * Middle name. Should only be used for individuals.
+   * @return middleName
+   */
+  @javax.annotation.Nullable
+  public String getMiddleName() {
+    return middleName;
+  }
+
+  public void setMiddleName(String middleName) {
+    this.middleName = middleName;
+  }
+
+
+  public Form1099Patr lastName(String lastName) {
+    this.lastName = lastName;
+    return this;
+  }
+
+  /**
+   * Last name. Required when the recipient of the form is an individual; should only be used for individuals.
+   * @return lastName
+   */
+  @javax.annotation.Nullable
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+
+  public Form1099Patr suffixName(String suffixName) {
+    this.suffixName = suffixName;
+    return this;
+  }
+
+  /**
+   * Suffix name. Should only be used for individuals.
+   * @return suffixName
+   */
+  @javax.annotation.Nullable
+  public String getSuffixName() {
+    return suffixName;
+  }
+
+  public void setSuffixName(String suffixName) {
+    this.suffixName = suffixName;
+  }
+
+
+  @Deprecated
+  public Form1099Patr recipientSecondName(String recipientSecondName) {
+    this.recipientSecondName = recipientSecondName;
+    return this;
+  }
+
+  /**
+   * DEPRECATED: Use &#x60;businessName2&#x60; instead.
+   * @return recipientSecondName
+   * @deprecated
+   */
+  @Deprecated
+  @javax.annotation.Nullable
+  public String getRecipientSecondName() {
+    return recipientSecondName;
+  }
+
+  @Deprecated
+  public void setRecipientSecondName(String recipientSecondName) {
+    this.recipientSecondName = recipientSecondName;
+  }
+
+
+  public Form1099Patr accountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+    return this;
+  }
+
+  /**
+   * Account number
+   * @return accountNumber
+   */
+  @javax.annotation.Nullable
+  public String getAccountNumber() {
+    return accountNumber;
+  }
+
+  public void setAccountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+  }
+
+
+  public Form1099Patr officeCode(String officeCode) {
+    this.officeCode = officeCode;
+    return this;
+  }
+
+  /**
+   * Office code
+   * @return officeCode
+   */
+  @javax.annotation.Nullable
+  public String getOfficeCode() {
+    return officeCode;
+  }
+
+  public void setOfficeCode(String officeCode) {
+    this.officeCode = officeCode;
+  }
+
+
+  public Form1099Patr noTin(Boolean noTin) {
+    this.noTin = noTin;
+    return this;
+  }
+
+  /**
+   * No TIN indicator
+   * @return noTin
+   */
+  @javax.annotation.Nullable
+  public Boolean getNoTin() {
+    return noTin;
+  }
+
+  public void setNoTin(Boolean noTin) {
+    this.noTin = noTin;
+  }
+
+
+  public Form1099Patr secondTinNotice(Boolean secondTinNotice) {
+    this.secondTinNotice = secondTinNotice;
+    return this;
+  }
+
+  /**
+   * Second TIN notice
+   * @return secondTinNotice
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecondTinNotice() {
+    return secondTinNotice;
+  }
+
+  public void setSecondTinNotice(Boolean secondTinNotice) {
+    this.secondTinNotice = secondTinNotice;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -1120,9 +1502,9 @@ public class Form1095B {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the Form1095B instance itself
+   * @return the Form1099Patr instance itself
    */
-  public Form1095B putAdditionalProperty(String key, Object value) {
+  public Form1099Patr putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -1161,49 +1543,66 @@ public class Form1095B {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Form1095B form1095B = (Form1095B) o;
-    return Objects.equals(this.employeeFirstName, form1095B.employeeFirstName) &&
-        Objects.equals(this.employeeMiddleName, form1095B.employeeMiddleName) &&
-        Objects.equals(this.employeeLastName, form1095B.employeeLastName) &&
-        Objects.equals(this.employeeNameSuffix, form1095B.employeeNameSuffix) &&
-        Objects.equals(this.employeeDateOfBirth, form1095B.employeeDateOfBirth) &&
-        Objects.equals(this.originOfHealthCoverageCode, form1095B.originOfHealthCoverageCode) &&
-        Objects.equals(this.coveredIndividuals, form1095B.coveredIndividuals) &&
-        Objects.equals(this.type, form1095B.type) &&
-        Objects.equals(this.id, form1095B.id) &&
-        Objects.equals(this.issuerId, form1095B.issuerId) &&
-        Objects.equals(this.issuerReferenceId, form1095B.issuerReferenceId) &&
-        Objects.equals(this.issuerTin, form1095B.issuerTin) &&
-        Objects.equals(this.taxYear, form1095B.taxYear) &&
-        Objects.equals(this.referenceId, form1095B.referenceId) &&
-        Objects.equals(this.tin, form1095B.tin) &&
-        Objects.equals(this.recipientName, form1095B.recipientName) &&
-        Objects.equals(this.recipientSecondName, form1095B.recipientSecondName) &&
-        Objects.equals(this.address, form1095B.address) &&
-        Objects.equals(this.address2, form1095B.address2) &&
-        Objects.equals(this.city, form1095B.city) &&
-        Objects.equals(this.state, form1095B.state) &&
-        Objects.equals(this.zip, form1095B.zip) &&
-        Objects.equals(this.email, form1095B.email) &&
-        Objects.equals(this.nonUsProvince, form1095B.nonUsProvince) &&
-        Objects.equals(this.countryCode, form1095B.countryCode) &&
-        Objects.equals(this.federalEfileDate, form1095B.federalEfileDate) &&
-        Objects.equals(this.postalMail, form1095B.postalMail) &&
-        Objects.equals(this.stateEfileDate, form1095B.stateEfileDate) &&
-        Objects.equals(this.recipientEdeliveryDate, form1095B.recipientEdeliveryDate) &&
-        Objects.equals(this.tinMatch, form1095B.tinMatch) &&
-        Objects.equals(this.addressVerification, form1095B.addressVerification) &&
-        Objects.equals(this.stateAndLocalWithholding, form1095B.stateAndLocalWithholding) &&
-        Objects.equals(this.federalEfileStatus, form1095B.federalEfileStatus) &&
-        Objects.equals(this.stateEfileStatus, form1095B.stateEfileStatus) &&
-        Objects.equals(this.postalMailStatus, form1095B.postalMailStatus) &&
-        Objects.equals(this.tinMatchStatus, form1095B.tinMatchStatus) &&
-        Objects.equals(this.addressVerificationStatus, form1095B.addressVerificationStatus) &&
-        Objects.equals(this.eDeliveryStatus, form1095B.eDeliveryStatus) &&
-        Objects.equals(this.validationErrors, form1095B.validationErrors) &&
-        Objects.equals(this.createdAt, form1095B.createdAt) &&
-        Objects.equals(this.updatedAt, form1095B.updatedAt)&&
-        Objects.equals(this.additionalProperties, form1095B.additionalProperties);
+    Form1099Patr form1099Patr = (Form1099Patr) o;
+    return Objects.equals(this.patronageDividends, form1099Patr.patronageDividends) &&
+        Objects.equals(this.nonpatronageDistributions, form1099Patr.nonpatronageDistributions) &&
+        Objects.equals(this.perUnitRetainAllocations, form1099Patr.perUnitRetainAllocations) &&
+        Objects.equals(this.federalIncomeTaxWithheld, form1099Patr.federalIncomeTaxWithheld) &&
+        Objects.equals(this.redeemedNonqualifiedNotices, form1099Patr.redeemedNonqualifiedNotices) &&
+        Objects.equals(this.section199AgDeduction, form1099Patr.section199AgDeduction) &&
+        Objects.equals(this.qualifiedPayments, form1099Patr.qualifiedPayments) &&
+        Objects.equals(this.section199AaQualifiedItems, form1099Patr.section199AaQualifiedItems) &&
+        Objects.equals(this.section199AaSstbItems, form1099Patr.section199AaSstbItems) &&
+        Objects.equals(this.investmentCredit, form1099Patr.investmentCredit) &&
+        Objects.equals(this.workOpportunityCredit, form1099Patr.workOpportunityCredit) &&
+        Objects.equals(this.otherCreditsAndDeductions, form1099Patr.otherCreditsAndDeductions) &&
+        Objects.equals(this.specifiedCooperativeIndicator, form1099Patr.specifiedCooperativeIndicator) &&
+        Objects.equals(this.type, form1099Patr.type) &&
+        Objects.equals(this.id, form1099Patr.id) &&
+        Objects.equals(this.issuerId, form1099Patr.issuerId) &&
+        Objects.equals(this.issuerReferenceId, form1099Patr.issuerReferenceId) &&
+        Objects.equals(this.issuerTin, form1099Patr.issuerTin) &&
+        Objects.equals(this.taxYear, form1099Patr.taxYear) &&
+        Objects.equals(this.referenceId, form1099Patr.referenceId) &&
+        Objects.equals(this.tin, form1099Patr.tin) &&
+        Objects.equals(this.recipientName, form1099Patr.recipientName) &&
+        Objects.equals(this.address, form1099Patr.address) &&
+        Objects.equals(this.address2, form1099Patr.address2) &&
+        Objects.equals(this.city, form1099Patr.city) &&
+        Objects.equals(this.state, form1099Patr.state) &&
+        Objects.equals(this.zip, form1099Patr.zip) &&
+        Objects.equals(this.email, form1099Patr.email) &&
+        Objects.equals(this.nonUsProvince, form1099Patr.nonUsProvince) &&
+        Objects.equals(this.countryCode, form1099Patr.countryCode) &&
+        Objects.equals(this.federalEfileDate, form1099Patr.federalEfileDate) &&
+        Objects.equals(this.postalMail, form1099Patr.postalMail) &&
+        Objects.equals(this.stateEfileDate, form1099Patr.stateEfileDate) &&
+        Objects.equals(this.recipientEdeliveryDate, form1099Patr.recipientEdeliveryDate) &&
+        Objects.equals(this.tinMatch, form1099Patr.tinMatch) &&
+        Objects.equals(this.addressVerification, form1099Patr.addressVerification) &&
+        Objects.equals(this.stateAndLocalWithholding, form1099Patr.stateAndLocalWithholding) &&
+        Objects.equals(this.federalEfileStatus, form1099Patr.federalEfileStatus) &&
+        Objects.equals(this.stateEfileStatus, form1099Patr.stateEfileStatus) &&
+        Objects.equals(this.postalMailStatus, form1099Patr.postalMailStatus) &&
+        Objects.equals(this.tinMatchStatus, form1099Patr.tinMatchStatus) &&
+        Objects.equals(this.addressVerificationStatus, form1099Patr.addressVerificationStatus) &&
+        Objects.equals(this.eDeliveryStatus, form1099Patr.eDeliveryStatus) &&
+        Objects.equals(this.validationErrors, form1099Patr.validationErrors) &&
+        Objects.equals(this.createdAt, form1099Patr.createdAt) &&
+        Objects.equals(this.updatedAt, form1099Patr.updatedAt) &&
+        Objects.equals(this.tinType, form1099Patr.tinType) &&
+        Objects.equals(this.businessName, form1099Patr.businessName) &&
+        Objects.equals(this.businessName2, form1099Patr.businessName2) &&
+        Objects.equals(this.firstName, form1099Patr.firstName) &&
+        Objects.equals(this.middleName, form1099Patr.middleName) &&
+        Objects.equals(this.lastName, form1099Patr.lastName) &&
+        Objects.equals(this.suffixName, form1099Patr.suffixName) &&
+        Objects.equals(this.recipientSecondName, form1099Patr.recipientSecondName) &&
+        Objects.equals(this.accountNumber, form1099Patr.accountNumber) &&
+        Objects.equals(this.officeCode, form1099Patr.officeCode) &&
+        Objects.equals(this.noTin, form1099Patr.noTin) &&
+        Objects.equals(this.secondTinNotice, form1099Patr.secondTinNotice)&&
+        Objects.equals(this.additionalProperties, form1099Patr.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1212,7 +1611,7 @@ public class Form1095B {
 
   @Override
   public int hashCode() {
-    return Objects.hash(employeeFirstName, employeeMiddleName, employeeLastName, employeeNameSuffix, employeeDateOfBirth, originOfHealthCoverageCode, coveredIndividuals, type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, recipientSecondName, address, address2, city, state, zip, email, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, addressVerification, stateAndLocalWithholding, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt, additionalProperties);
+    return Objects.hash(patronageDividends, nonpatronageDistributions, perUnitRetainAllocations, federalIncomeTaxWithheld, redeemedNonqualifiedNotices, section199AgDeduction, qualifiedPayments, section199AaQualifiedItems, section199AaSstbItems, investmentCredit, workOpportunityCredit, otherCreditsAndDeductions, specifiedCooperativeIndicator, type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, address, address2, city, state, zip, email, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, addressVerification, stateAndLocalWithholding, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt, tinType, businessName, businessName2, firstName, middleName, lastName, suffixName, recipientSecondName, accountNumber, officeCode, noTin, secondTinNotice, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1225,14 +1624,20 @@ public class Form1095B {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Form1095B {\n");
-    sb.append("    employeeFirstName: ").append(toIndentedString(employeeFirstName)).append("\n");
-    sb.append("    employeeMiddleName: ").append(toIndentedString(employeeMiddleName)).append("\n");
-    sb.append("    employeeLastName: ").append(toIndentedString(employeeLastName)).append("\n");
-    sb.append("    employeeNameSuffix: ").append(toIndentedString(employeeNameSuffix)).append("\n");
-    sb.append("    employeeDateOfBirth: ").append(toIndentedString(employeeDateOfBirth)).append("\n");
-    sb.append("    originOfHealthCoverageCode: ").append(toIndentedString(originOfHealthCoverageCode)).append("\n");
-    sb.append("    coveredIndividuals: ").append(toIndentedString(coveredIndividuals)).append("\n");
+    sb.append("class Form1099Patr {\n");
+    sb.append("    patronageDividends: ").append(toIndentedString(patronageDividends)).append("\n");
+    sb.append("    nonpatronageDistributions: ").append(toIndentedString(nonpatronageDistributions)).append("\n");
+    sb.append("    perUnitRetainAllocations: ").append(toIndentedString(perUnitRetainAllocations)).append("\n");
+    sb.append("    federalIncomeTaxWithheld: ").append(toIndentedString(federalIncomeTaxWithheld)).append("\n");
+    sb.append("    redeemedNonqualifiedNotices: ").append(toIndentedString(redeemedNonqualifiedNotices)).append("\n");
+    sb.append("    section199AgDeduction: ").append(toIndentedString(section199AgDeduction)).append("\n");
+    sb.append("    qualifiedPayments: ").append(toIndentedString(qualifiedPayments)).append("\n");
+    sb.append("    section199AaQualifiedItems: ").append(toIndentedString(section199AaQualifiedItems)).append("\n");
+    sb.append("    section199AaSstbItems: ").append(toIndentedString(section199AaSstbItems)).append("\n");
+    sb.append("    investmentCredit: ").append(toIndentedString(investmentCredit)).append("\n");
+    sb.append("    workOpportunityCredit: ").append(toIndentedString(workOpportunityCredit)).append("\n");
+    sb.append("    otherCreditsAndDeductions: ").append(toIndentedString(otherCreditsAndDeductions)).append("\n");
+    sb.append("    specifiedCooperativeIndicator: ").append(toIndentedString(specifiedCooperativeIndicator)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    issuerId: ").append(toIndentedString(issuerId)).append("\n");
@@ -1242,7 +1647,6 @@ public class Form1095B {
     sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
     sb.append("    tin: ").append(toIndentedString(tin)).append("\n");
     sb.append("    recipientName: ").append(toIndentedString(recipientName)).append("\n");
-    sb.append("    recipientSecondName: ").append(toIndentedString(recipientSecondName)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    address2: ").append(toIndentedString(address2)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
@@ -1267,6 +1671,18 @@ public class Form1095B {
     sb.append("    validationErrors: ").append(toIndentedString(validationErrors)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    tinType: ").append(toIndentedString(tinType)).append("\n");
+    sb.append("    businessName: ").append(toIndentedString(businessName)).append("\n");
+    sb.append("    businessName2: ").append(toIndentedString(businessName2)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    suffixName: ").append(toIndentedString(suffixName)).append("\n");
+    sb.append("    recipientSecondName: ").append(toIndentedString(recipientSecondName)).append("\n");
+    sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
+    sb.append("    officeCode: ").append(toIndentedString(officeCode)).append("\n");
+    sb.append("    noTin: ").append(toIndentedString(noTin)).append("\n");
+    sb.append("    secondTinNotice: ").append(toIndentedString(secondTinNotice)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1299,7 +1715,6 @@ public class Form1095B {
     openapiFields.add("referenceId");
     openapiFields.add("tin");
     openapiFields.add("recipientName");
-    openapiFields.add("recipientSecondName");
     openapiFields.add("address");
     openapiFields.add("address2");
     openapiFields.add("city");
@@ -1324,12 +1739,21 @@ public class Form1095B {
     openapiFields.add("validationErrors");
     openapiFields.add("createdAt");
     openapiFields.add("updatedAt");
+    openapiFields.add("tinType");
+    openapiFields.add("businessName");
+    openapiFields.add("businessName2");
+    openapiFields.add("firstName");
+    openapiFields.add("middleName");
+    openapiFields.add("lastName");
+    openapiFields.add("suffixName");
+    openapiFields.add("recipientSecondName");
+    openapiFields.add("accountNumber");
+    openapiFields.add("officeCode");
+    openapiFields.add("noTin");
+    openapiFields.add("secondTinNotice");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("employeeFirstName");
-    openapiRequiredFields.add("employeeLastName");
-    openapiRequiredFields.add("originOfHealthCoverageCode");
     openapiRequiredFields.add("type");
     openapiRequiredFields.add("address");
     openapiRequiredFields.add("city");
@@ -1340,53 +1764,22 @@ public class Form1095B {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Form1095B
+   * @throws IOException if the JSON Element is invalid with respect to Form1099Patr
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!Form1095B.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Form1095B is not found in the empty JSON string", Form1095B.openapiRequiredFields.toString()));
+        if (!Form1099Patr.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Form1099Patr is not found in the empty JSON string", Form1099Patr.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Form1095B.openapiRequiredFields) {
+      for (String requiredField : Form1099Patr.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("employeeFirstName") != null && !jsonObj.get("employeeFirstName").isJsonNull()) && !jsonObj.get("employeeFirstName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `employeeFirstName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("employeeFirstName").toString()));
-      }
-      if ((jsonObj.get("employeeMiddleName") != null && !jsonObj.get("employeeMiddleName").isJsonNull()) && !jsonObj.get("employeeMiddleName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `employeeMiddleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("employeeMiddleName").toString()));
-      }
-      if ((jsonObj.get("employeeLastName") != null && !jsonObj.get("employeeLastName").isJsonNull()) && !jsonObj.get("employeeLastName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `employeeLastName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("employeeLastName").toString()));
-      }
-      if ((jsonObj.get("employeeNameSuffix") != null && !jsonObj.get("employeeNameSuffix").isJsonNull()) && !jsonObj.get("employeeNameSuffix").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `employeeNameSuffix` to be a primitive type in the JSON string but got `%s`", jsonObj.get("employeeNameSuffix").toString()));
-      }
-      if ((jsonObj.get("originOfHealthCoverageCode") != null && !jsonObj.get("originOfHealthCoverageCode").isJsonNull()) && !jsonObj.get("originOfHealthCoverageCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `originOfHealthCoverageCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("originOfHealthCoverageCode").toString()));
-      }
-      // validate the required field `originOfHealthCoverageCode`
-      OriginOfHealthCoverageCodeEnum.validateJsonElement(jsonObj.get("originOfHealthCoverageCode"));
-      if (jsonObj.get("coveredIndividuals") != null && !jsonObj.get("coveredIndividuals").isJsonNull()) {
-        JsonArray jsonArraycoveredIndividuals = jsonObj.getAsJsonArray("coveredIndividuals");
-        if (jsonArraycoveredIndividuals != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("coveredIndividuals").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `coveredIndividuals` to be an array in the JSON string but got `%s`", jsonObj.get("coveredIndividuals").toString()));
-          }
-
-          // validate the optional field `coveredIndividuals` (array)
-          for (int i = 0; i < jsonArraycoveredIndividuals.size(); i++) {
-            CoveredIndividual.validateJsonElement(jsonArraycoveredIndividuals.get(i));
-          };
-        }
-      }
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
@@ -1412,9 +1805,6 @@ public class Form1095B {
       }
       if ((jsonObj.get("recipientName") != null && !jsonObj.get("recipientName").isJsonNull()) && !jsonObj.get("recipientName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipientName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientName").toString()));
-      }
-      if ((jsonObj.get("recipientSecondName") != null && !jsonObj.get("recipientSecondName").isJsonNull()) && !jsonObj.get("recipientSecondName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recipientSecondName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientSecondName").toString()));
       }
       if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
@@ -1492,22 +1882,56 @@ public class Form1095B {
           };
         }
       }
+      if ((jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) && !jsonObj.get("tinType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tinType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tinType").toString()));
+      }
+      // validate the optional field `tinType`
+      if (jsonObj.get("tinType") != null && !jsonObj.get("tinType").isJsonNull()) {
+        TinTypeEnum.validateJsonElement(jsonObj.get("tinType"));
+      }
+      if ((jsonObj.get("businessName") != null && !jsonObj.get("businessName").isJsonNull()) && !jsonObj.get("businessName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `businessName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessName").toString()));
+      }
+      if ((jsonObj.get("businessName2") != null && !jsonObj.get("businessName2").isJsonNull()) && !jsonObj.get("businessName2").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `businessName2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessName2").toString()));
+      }
+      if ((jsonObj.get("firstName") != null && !jsonObj.get("firstName").isJsonNull()) && !jsonObj.get("firstName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `firstName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firstName").toString()));
+      }
+      if ((jsonObj.get("middleName") != null && !jsonObj.get("middleName").isJsonNull()) && !jsonObj.get("middleName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `middleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("middleName").toString()));
+      }
+      if ((jsonObj.get("lastName") != null && !jsonObj.get("lastName").isJsonNull()) && !jsonObj.get("lastName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `lastName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastName").toString()));
+      }
+      if ((jsonObj.get("suffixName") != null && !jsonObj.get("suffixName").isJsonNull()) && !jsonObj.get("suffixName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `suffixName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("suffixName").toString()));
+      }
+      if ((jsonObj.get("recipientSecondName") != null && !jsonObj.get("recipientSecondName").isJsonNull()) && !jsonObj.get("recipientSecondName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `recipientSecondName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientSecondName").toString()));
+      }
+      if ((jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonNull()) && !jsonObj.get("accountNumber").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
+      }
+      if ((jsonObj.get("officeCode") != null && !jsonObj.get("officeCode").isJsonNull()) && !jsonObj.get("officeCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `officeCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("officeCode").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Form1095B.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Form1095B' and its subtypes
+       if (!Form1099Patr.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'Form1099Patr' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Form1095B> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Form1095B.class));
+       final TypeAdapter<Form1099Patr> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(Form1099Patr.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Form1095B>() {
+       return (TypeAdapter<T>) new TypeAdapter<Form1099Patr>() {
            @Override
-           public void write(JsonWriter out, Form1095B value) throws IOException {
+           public void write(JsonWriter out, Form1099Patr value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -1535,12 +1959,12 @@ public class Form1095B {
            }
 
            @Override
-           public Form1095B read(JsonReader in) throws IOException {
+           public Form1099Patr read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             Form1095B instance = thisAdapter.fromJsonTree(jsonObj);
+             Form1099Patr instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -1567,18 +1991,18 @@ public class Form1095B {
   }
 
   /**
-   * Create an instance of Form1095B given an JSON string
+   * Create an instance of Form1099Patr given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Form1095B
-   * @throws IOException if the JSON string is invalid with respect to Form1095B
+   * @return An instance of Form1099Patr
+   * @throws IOException if the JSON string is invalid with respect to Form1099Patr
    */
-  public static Form1095B fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Form1095B.class);
+  public static Form1099Patr fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Form1099Patr.class);
   }
 
   /**
-   * Convert an instance of Form1095B to an JSON string
+   * Convert an instance of Form1099Patr to an JSON string
    *
    * @return JSON string
    */

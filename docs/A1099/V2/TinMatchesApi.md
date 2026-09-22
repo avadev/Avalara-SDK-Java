@@ -1,6 +1,6 @@
 # TinMatchesApi
 
-All URIs are relative to *https://api-ava1099.edge.qa.us-east-1.aws.avalara.io/avalara1099*
+All URIs are relative to *https://api.sbx.avalara.com/avalara1099*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -45,7 +45,7 @@ public class Example {
 
         TinMatchesApi apiInstance = new TinMatchesApi(apiClient);
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "86993e01-0897-4667-b8f3-bac8c0081c4c"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "a4f97e62-2087-4274-b92f-39377f73fb20"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         RealTimeTinMatchRequest realTimeTinMatchRequest = new RealTimeTinMatchRequest(); // RealTimeTinMatchRequest | Required data to perform TIN match
         try {
