@@ -1,32 +1,26 @@
 
 
-# Form1099Div
+# Form1099Patr
 
-Form 1099-DIV: Dividends and Distributions                *At least one of the following dividend or distribution amounts must be provided:*   Total ordinary dividends, Total capital gain distributions, Nondividend distributions,   Cash liquidation distributions, Noncash liquidation distributions, or Exempt-interest dividends.
+Form 1099-PATR: Taxable Distributions Received From Cooperatives                *At least one of the following amounts must be greater than zero:*  Patronage Dividends, Nonpatronage Distributions, Per-Unit Retain Allocations, or Redeemed Nonqualified Notices.                Federal Income Tax Withheld, when provided, must be less than the total of those four amounts.                Specified Cooperative may only be set when at least one of Qualified Payments,  Section 199A(a) Qualified Items, or Section 199A(a) SSTB Items is provided.                Form 1099-PATR has no state or local withholding boxes. `stateAndLocalWithholding` is not supported for this  form type on any endpoint: a supplied value is discarded rather than stored, and the field always reads back  as `null`.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**totalOrdinaryDividends** | **Double** | Total ordinary dividends |  [optional] |
-|**qualifiedDividends** | **Double** | Qualified dividends |  [optional] |
-|**totalCapitalGainDistributions** | **Double** | Total capital gain distributions |  [optional] |
-|**unrecapturedSection1250Gain** | **Double** | Unrecaptured Section 1250 gain |  [optional] |
-|**section1202Gain** | **Double** | Section 1202 gain |  [optional] |
-|**collectiblesGain** | **Double** | Collectibles (28%) gain |  [optional] |
-|**section897OrdinaryDividends** | **Double** | Section 897 ordinary dividends |  [optional] |
-|**section897CapitalGain** | **Double** | Section 897 capital gain |  [optional] |
-|**nondividendDistributions** | **Double** | Nondividend distributions |  [optional] |
+|**patronageDividends** | **Double** | Patronage dividends |  [optional] |
+|**nonpatronageDistributions** | **Double** | Nonpatronage distributions |  [optional] |
+|**perUnitRetainAllocations** | **Double** | Per-unit retain allocations |  [optional] |
 |**federalIncomeTaxWithheld** | **Double** | Federal income tax withheld |  [optional] |
-|**section199ADividends** | **Double** | Section 199A dividends |  [optional] |
-|**investmentExpenses** | **Double** | Investment expenses |  [optional] |
-|**foreignTaxPaid** | **Double** | Foreign tax paid |  [optional] |
-|**foreignCountryOrUSPossession** | **String** | Foreign country or U.S. possession |  [optional] |
-|**cashLiquidationDistributions** | **Double** | Cash liquidation distributions |  [optional] |
-|**noncashLiquidationDistributions** | **Double** | Noncash liquidation distributions |  [optional] |
-|**exemptInterestDividends** | **Double** | Exempt-interest dividends |  [optional] |
-|**specifiedPrivateActivityBondInterestDividends** | **Double** | Specified private activity bond interest dividends |  [optional] |
-|**fatcaFilingRequirement** | **Boolean** | FATCA filing requirement. |  [optional] |
+|**redeemedNonqualifiedNotices** | **Double** | Redeemed nonqualified notices |  [optional] |
+|**section199AgDeduction** | **Double** | Section 199A(g) deduction |  [optional] |
+|**qualifiedPayments** | **Double** | Qualified payments (Section 199A(b)(7)) |  [optional] |
+|**section199AaQualifiedItems** | **Double** | Section 199A(a) qualified items |  [optional] |
+|**section199AaSstbItems** | **Double** | Section 199A(a) SSTB items |  [optional] |
+|**investmentCredit** | **Double** | Investment credit |  [optional] |
+|**workOpportunityCredit** | **Double** | Work opportunity credit |  [optional] |
+|**otherCreditsAndDeductions** | **Double** | Other credits and deductions |  [optional] |
+|**specifiedCooperativeIndicator** | **Boolean** | Indicates the payer is a specified agricultural or horticultural cooperative |  [optional] |
 |**type** | [**TypeEnum**](#TypeEnum) | Form type. |  |
 |**id** | **String** | Form ID. Unique identifier set when the record is created. |  [optional] [readonly] |
 |**issuerId** | **String** | Issuer ID - only required when creating forms |  [optional] |

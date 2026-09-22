@@ -149,6 +149,18 @@
 |**excessGoldenParachutePayments** | **Double** | Excess golden parachute payments - Available only for tax year 2025 and later |  [optional] |
 |**nonqualifiedDeferredCompensation** | **Double** | Nonqualified deferred compensation |  [optional] |
 |**nonemployeeCompensation** | **Double** | Nonemployee compensation. Required if DirectSalesIndicator is false. |  |
+|**patronageDividends** | **Double** | Patronage dividends |  [optional] |
+|**nonpatronageDistributions** | **Double** | Nonpatronage distributions |  [optional] |
+|**perUnitRetainAllocations** | **Double** | Per-unit retain allocations |  [optional] |
+|**redeemedNonqualifiedNotices** | **Double** | Redeemed nonqualified notices |  [optional] |
+|**section199AgDeduction** | **Double** | Section 199A(g) deduction |  [optional] |
+|**qualifiedPayments** | **Double** | Qualified payments (Section 199A(b)(7)) |  [optional] |
+|**section199AaQualifiedItems** | **Double** | Section 199A(a) qualified items |  [optional] |
+|**section199AaSstbItems** | **Double** | Section 199A(a) SSTB items |  [optional] |
+|**investmentCredit** | **Double** | Investment credit |  [optional] |
+|**workOpportunityCredit** | **Double** | Work opportunity credit |  [optional] |
+|**otherCreditsAndDeductions** | **Double** | Other credits and deductions |  [optional] |
+|**specifiedCooperativeIndicator** | **Boolean** | Indicates the payer is a specified agricultural or horticultural cooperative |  [optional] |
 |**grossDistribution** | **Double** | Gross distribution |  [optional] |
 |**taxableAmount** | **Double** | Taxable amount |  [optional] |
 |**taxableAmountNotDetermined** | **Boolean** | Taxable amount not determined |  [optional] |
@@ -471,6 +483,7 @@
 | _1099_K | &quot;1099-K&quot; |
 | _1099_MISC | &quot;1099-MISC&quot; |
 | _1099_NEC | &quot;1099-NEC&quot; |
+| _1099_PATR | &quot;1099-PATR&quot; |
 | _1099_R | &quot;1099-R&quot; |
 | W_2 | &quot;W-2&quot; |
 
