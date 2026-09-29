@@ -5,7 +5,7 @@
     <artifactId>avalara-sdk</artifactId>
     <packaging>jar</packaging>
     <name>avalara-sdk</name>
-    <version>26.9.0</version>
+    <version>26.9.1</version>
     <url>https://github.com/avadev/Avalara-SDK-Java</url>
     <description>OpenAPI Java</description>
     <scm>

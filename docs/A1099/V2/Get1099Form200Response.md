@@ -86,6 +86,24 @@
 |**planStartMonth** | [**PlanStartMonthEnum**](#PlanStartMonthEnum) | Plan start month.  The calendar month during which the plan year begins of the health plan in which the employee is offered coverage (or would be offered coverage if the employee were eligible to participate in the plan).  Available values:  - 00: None  - 01: January  - 02: February  - 03: March  - 04: April  - 05: May  - 06: June  - 07: July  - 08: August  - 09: September  - 10: October  - 11: November  - 12: December |  |
 |**employerProvidedSiCoverage** | **Boolean** | Employer provided self-insured coverage |  [optional] |
 |**offerAndCoverages** | [**List&lt;OfferAndCoverage&gt;**](OfferAndCoverage.md) | Offer and coverage information |  |
+|**mortgageInterestReceived** | **Double** | Mortgage interest received from payer(s)/borrower(s) |  [optional] |
+|**outstandingMortgagePrincipal** | **Double** | Outstanding mortgage principal |  [optional] |
+|**mortgageOriginationDate** | **LocalDate** | Mortgage origination date |  [optional] |
+|**refundOfOverpaidInterest** | **Double** | Refund of overpaid interest |  [optional] |
+|**mortgageInsurancePremiums** | **Double** | Mortgage insurance premiums |  [optional] |
+|**pointsPaidOnPurchaseOfPrincipalResidence** | **Double** | Points paid on purchase of principal residence |  [optional] |
+|**propertyAddressSameAsBorrowerIndicator** | **Boolean** | If checked, the property securing the mortgage is at the borrower&#39;s address |  [optional] |
+|**propertyAddressOrDescription** | **String** | Address or description of property securing mortgage (up to 39 characters) |  [optional] |
+|**numberOfPropertiesSecuringMortgage** | **Integer** | Number of properties securing the mortgage, if more than one |  [optional] |
+|**otherInformation** | **String** | Other (up to 39 characters), such as real estate taxes or insurance paid from escrow |  [optional] |
+|**mortgageAcquisitionDate** | **LocalDate** | Mortgage acquisition date, if the mortgage was acquired during the tax year |  [optional] |
+|**dateOfIdentifiableEvent** | **LocalDate** | Date of identifiable event |  |
+|**amountOfDebtDischarged** | **Double** | Amount of debt discharged |  |
+|**interestIncludedInDebtDischarged** | **Double** | Interest, if included in the amount of debt discharged |  [optional] |
+|**debtDescription** | **String** | Debt description (up to 39 characters) |  |
+|**debtorPersonallyLiableIndicator** | **Boolean** | If checked, the debtor was personally liable for repayment of the debt |  [optional] |
+|**identifiableEventCode** | [**IdentifiableEventCodeEnum**](#IdentifiableEventCodeEnum) | Identifiable event code.                * &#x60;A&#x60; - Bankruptcy  * &#x60;B&#x60; - Other judicial debt relief  * &#x60;C&#x60; - Statute of limitations or expiration of deficiency period  * &#x60;D&#x60; - Foreclosure election  * &#x60;E&#x60; - Debt relief from probate or similar proceeding  * &#x60;F&#x60; - By agreement  * &#x60;G&#x60; - Decision or policy to discontinue collection  * &#x60;H&#x60; - Other actual discharge before identifiable event  * &#x60;I&#x60; - Deprecated; retired by the IRS in 2016 and folded into &#x60;H&#x60;. Only valid for prior tax years. |  |
+|**fairMarketValueOfProperty** | **Double** | Fair market value of property |  [optional] |
 |**totalOrdinaryDividends** | **Double** | Total ordinary dividends |  [optional] |
 |**qualifiedDividends** | **Double** | Qualified dividends |  [optional] |
 |**totalCapitalGainDistributions** | **Double** | Total capital gain distributions |  [optional] |
@@ -179,6 +197,12 @@
 |**amountAllocableToIrrWithin5Years** | **Double** | Amount allocable to IRR within 5 years |  [optional] |
 |**firstYearOfDesignatedRothContribution** | **String** | First year of designated Roth contribution |  [optional] |
 |**dateOfPayment** | **LocalDate** | Date of payment |  [optional] |
+|**dateOfClosing** | **LocalDate** | Date of closing |  |
+|**grossProceeds** | **Double** | Gross proceeds (the total gross proceeds, from tax year 2026 labeled Box 2a) |  [optional] |
+|**propertyAddressOrLegalDescription** | **String** | Address or legal description of the property, including city, state and ZIP code (up to 39 characters) |  |
+|**transferorReceivedPropertyOrServicesIndicator** | **Boolean** | If checked, the transferor received or will receive property or services as part of the consideration |  [optional] |
+|**transferorIsForeignPersonIndicator** | **Boolean** | If checked, the transferor is a foreign person (nonresident alien, foreign partnership, foreign estate or foreign trust) |  [optional] |
+|**buyersPartOfRealEstateTax** | **Double** | Buyer&#39;s part of real estate tax |  [optional] |
 |**wages** | **Double** | Wages, tips, other compensation. |  [optional] |
 |**socialSecurityWages** | **Double** | Social security wages. |  [optional] |
 |**socialSecurityTaxWithheld** | **Double** | Social security tax withheld. |  [optional] |
@@ -478,6 +502,8 @@
 | _1042_S | &quot;1042-S&quot; |
 | _1095_B | &quot;1095-B&quot; |
 | _1095_C | &quot;1095-C&quot; |
+| _1098 | &quot;1098&quot; |
+| _1099_C | &quot;1099-C&quot; |
 | _1099_DIV | &quot;1099-DIV&quot; |
 | _1099_INT | &quot;1099-INT&quot; |
 | _1099_K | &quot;1099-K&quot; |
@@ -485,6 +511,7 @@
 | _1099_NEC | &quot;1099-NEC&quot; |
 | _1099_PATR | &quot;1099-PATR&quot; |
 | _1099_R | &quot;1099-R&quot; |
+| _1099_S | &quot;1099-S&quot; |
 | W_2 | &quot;W-2&quot; |
 
 
@@ -534,6 +561,22 @@
 | _10 | &quot;10&quot; |
 | _11 | &quot;11&quot; |
 | _12 | &quot;12&quot; |
+
+
+
+## Enum: IdentifiableEventCodeEnum
+
+| Name | Value |
+|---- | -----|
+| A | &quot;A&quot; |
+| B | &quot;B&quot; |
+| C | &quot;C&quot; |
+| D | &quot;D&quot; |
+| E | &quot;E&quot; |
+| F | &quot;F&quot; |
+| G | &quot;G&quot; |
+| H | &quot;H&quot; |
+| I | &quot;I&quot; |
 
 
 

@@ -73,6 +73,8 @@ Form 1095-B: Health Coverage
 | _1042_S | &quot;1042-S&quot; |
 | _1095_B | &quot;1095-B&quot; |
 | _1095_C | &quot;1095-C&quot; |
+| _1098 | &quot;1098&quot; |
+| _1099_C | &quot;1099-C&quot; |
 | _1099_DIV | &quot;1099-DIV&quot; |
 | _1099_INT | &quot;1099-INT&quot; |
 | _1099_K | &quot;1099-K&quot; |
@@ -80,6 +82,7 @@ Form 1095-B: Health Coverage
 | _1099_NEC | &quot;1099-NEC&quot; |
 | _1099_PATR | &quot;1099-PATR&quot; |
 | _1099_R | &quot;1099-R&quot; |
+| _1099_S | &quot;1099-S&quot; |
 | W_2 | &quot;W-2&quot; |
 
 
