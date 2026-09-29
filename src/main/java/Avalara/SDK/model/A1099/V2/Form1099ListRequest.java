@@ -61,7 +61,7 @@ import Avalara.SDK.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Form1099ListRequest {
   /**
-   * Available form types: * &#x60;1042-S&#x60; * &#x60;1095-B&#x60; * &#x60;1095-C&#x60; * &#x60;1099-DIV&#x60; * &#x60;1099-INT&#x60; * &#x60;1099-K&#x60; * &#x60;1099-MISC&#x60; * &#x60;1099-NEC&#x60; * &#x60;1099-PATR&#x60; * &#x60;1099-R&#x60; * &#x60;W-2&#x60; 
+   * Available form types: * &#x60;1042-S&#x60; * &#x60;1095-B&#x60; * &#x60;1095-C&#x60; * &#x60;1098&#x60; * &#x60;1099-C&#x60; * &#x60;1099-DIV&#x60; * &#x60;1099-INT&#x60; * &#x60;1099-K&#x60; * &#x60;1099-MISC&#x60; * &#x60;1099-NEC&#x60; * &#x60;1099-PATR&#x60; * &#x60;1099-R&#x60; * &#x60;1099-S&#x60; * &#x60;W-2&#x60; 
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -70,6 +70,10 @@ public class Form1099ListRequest {
     _1095_B("1095-B"),
     
     _1095_C("1095-C"),
+    
+    _1098("1098"),
+    
+    _1099_C("1099-C"),
     
     _1099_DIV("1099-DIV"),
     
@@ -84,6 +88,8 @@ public class Form1099ListRequest {
     _1099_PATR("1099-PATR"),
     
     _1099_R("1099-R"),
+    
+    _1099_S("1099-S"),
     
     W_2("W-2");
 
@@ -147,7 +153,7 @@ public class Form1099ListRequest {
   }
 
   /**
-   * Available form types: * &#x60;1042-S&#x60; * &#x60;1095-B&#x60; * &#x60;1095-C&#x60; * &#x60;1099-DIV&#x60; * &#x60;1099-INT&#x60; * &#x60;1099-K&#x60; * &#x60;1099-MISC&#x60; * &#x60;1099-NEC&#x60; * &#x60;1099-PATR&#x60; * &#x60;1099-R&#x60; * &#x60;W-2&#x60; 
+   * Available form types: * &#x60;1042-S&#x60; * &#x60;1095-B&#x60; * &#x60;1095-C&#x60; * &#x60;1098&#x60; * &#x60;1099-C&#x60; * &#x60;1099-DIV&#x60; * &#x60;1099-INT&#x60; * &#x60;1099-K&#x60; * &#x60;1099-MISC&#x60; * &#x60;1099-NEC&#x60; * &#x60;1099-PATR&#x60; * &#x60;1099-R&#x60; * &#x60;1099-S&#x60; * &#x60;W-2&#x60; 
    * @return type
    */
   @javax.annotation.Nullable

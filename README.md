@@ -171,7 +171,10 @@ Class | Method | HTTP request | Description
 *Issuers1099Api* | [**getIssuers**](docs/A1099/V2/Issuers1099Api.md#getissuers) | **GET** /1099/issuers | List issuers
 *Issuers1099Api* | [**updateIssuer**](docs/A1099/V2/Issuers1099Api.md#updateissuer) | **PUT** /1099/issuers/{id} | Update an issuer
 *JobsApi* | [**getJob**](docs/A1099/V2/JobsApi.md#getjob) | **GET** /jobs/{id} | Retrieves information about the job
+*TinMatchesApi* | [**getBulkTinMatch**](docs/A1099/V2/TinMatchesApi.md#getbulktinmatch) | **GET** /tin-matches/$bulk/{id} | Get bulk TIN match details
+*TinMatchesApi* | [**getBulkTinMatchResults**](docs/A1099/V2/TinMatchesApi.md#getbulktinmatchresults) | **GET** /tin-matches/$bulk/{id}/results | List bulk TIN match results
 *TinMatchesApi* | [**performRealTimeTinMatch**](docs/A1099/V2/TinMatchesApi.md#performrealtimetinmatch) | **POST** /tin-matches/$real-time | Perform real time TIN Match
+*TinMatchesApi* | [**submitBulkTinMatch**](docs/A1099/V2/TinMatchesApi.md#submitbulktinmatch) | **POST** /tin-matches/$bulk | Submit bulk TIN match
 
 <a name="documentation-for-models"></a>
 ## Documentation for Models
@@ -267,6 +270,12 @@ Class | Method | HTTP request | Description
 <a name="documentation-for-A1099-V2-models"></a>
 ### A1099 V2 Model Documentation
 
+ - [Avalara.SDK.model.A1099.V2.BulkTinMatchAcceptedResponse](docs/A1099/V2/BulkTinMatchAcceptedResponse.md)
+ - [Avalara.SDK.model.A1099.V2.BulkTinMatchIrsResponse](docs/A1099/V2/BulkTinMatchIrsResponse.md)
+ - [Avalara.SDK.model.A1099.V2.BulkTinMatchRequest](docs/A1099/V2/BulkTinMatchRequest.md)
+ - [Avalara.SDK.model.A1099.V2.BulkTinMatchRequestItem](docs/A1099/V2/BulkTinMatchRequestItem.md)
+ - [Avalara.SDK.model.A1099.V2.BulkTinMatchResponse](docs/A1099/V2/BulkTinMatchResponse.md)
+ - [Avalara.SDK.model.A1099.V2.BulkTinMatchResultItemResponse](docs/A1099/V2/BulkTinMatchResultItemResponse.md)
  - [Avalara.SDK.model.A1099.V2.CompanyRequest](docs/A1099/V2/CompanyRequest.md)
  - [Avalara.SDK.model.A1099.V2.CompanyResponse](docs/A1099/V2/CompanyResponse.md)
  - [Avalara.SDK.model.A1099.V2.CoveredIndividual](docs/A1099/V2/CoveredIndividual.md)
@@ -279,7 +288,9 @@ Class | Method | HTTP request | Description
  - [Avalara.SDK.model.A1099.V2.Form1042S](docs/A1099/V2/Form1042S.md)
  - [Avalara.SDK.model.A1099.V2.Form1095B](docs/A1099/V2/Form1095B.md)
  - [Avalara.SDK.model.A1099.V2.Form1095C](docs/A1099/V2/Form1095C.md)
+ - [Avalara.SDK.model.A1099.V2.Form1098](docs/A1099/V2/Form1098.md)
  - [Avalara.SDK.model.A1099.V2.Form1099Base](docs/A1099/V2/Form1099Base.md)
+ - [Avalara.SDK.model.A1099.V2.Form1099C](docs/A1099/V2/Form1099C.md)
  - [Avalara.SDK.model.A1099.V2.Form1099Div](docs/A1099/V2/Form1099Div.md)
  - [Avalara.SDK.model.A1099.V2.Form1099Int](docs/A1099/V2/Form1099Int.md)
  - [Avalara.SDK.model.A1099.V2.Form1099K](docs/A1099/V2/Form1099K.md)
@@ -288,6 +299,7 @@ Class | Method | HTTP request | Description
  - [Avalara.SDK.model.A1099.V2.Form1099Nec](docs/A1099/V2/Form1099Nec.md)
  - [Avalara.SDK.model.A1099.V2.Form1099Patr](docs/A1099/V2/Form1099Patr.md)
  - [Avalara.SDK.model.A1099.V2.Form1099R](docs/A1099/V2/Form1099R.md)
+ - [Avalara.SDK.model.A1099.V2.Form1099S](docs/A1099/V2/Form1099S.md)
  - [Avalara.SDK.model.A1099.V2.Form1099StatusDetail](docs/A1099/V2/Form1099StatusDetail.md)
  - [Avalara.SDK.model.A1099.V2.Form1099W2](docs/A1099/V2/Form1099W2.md)
  - [Avalara.SDK.model.A1099.V2.Get1099Form200Response](docs/A1099/V2/Get1099Form200Response.md)
@@ -299,6 +311,7 @@ Class | Method | HTTP request | Description
  - [Avalara.SDK.model.A1099.V2.IssuerWriteResponse](docs/A1099/V2/IssuerWriteResponse.md)
  - [Avalara.SDK.model.A1099.V2.JobResponse](docs/A1099/V2/JobResponse.md)
  - [Avalara.SDK.model.A1099.V2.OfferAndCoverage](docs/A1099/V2/OfferAndCoverage.md)
+ - [Avalara.SDK.model.A1099.V2.PaginatedQueryResultModelBulkTinMatchResultItemResponse](docs/A1099/V2/PaginatedQueryResultModelBulkTinMatchResultItemResponse.md)
  - [Avalara.SDK.model.A1099.V2.PaginatedQueryResultModelCompanyResponse](docs/A1099/V2/PaginatedQueryResultModelCompanyResponse.md)
  - [Avalara.SDK.model.A1099.V2.PaginatedQueryResultModelForm1099Base](docs/A1099/V2/PaginatedQueryResultModelForm1099Base.md)
  - [Avalara.SDK.model.A1099.V2.PaginatedQueryResultModelIssuerResponse](docs/A1099/V2/PaginatedQueryResultModelIssuerResponse.md)

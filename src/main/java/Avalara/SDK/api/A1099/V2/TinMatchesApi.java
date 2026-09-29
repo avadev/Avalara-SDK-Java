@@ -36,7 +36,11 @@ import java.io.IOException;
 import java.util.*;
 
 
+import Avalara.SDK.model.A1099.V2.BulkTinMatchAcceptedResponse;
+import Avalara.SDK.model.A1099.V2.BulkTinMatchRequest;
+import Avalara.SDK.model.A1099.V2.BulkTinMatchResponse;
 import Avalara.SDK.model.A1099.V2.ErrorResponse;
+import Avalara.SDK.model.A1099.V2.PaginatedQueryResultModelBulkTinMatchResultItemResponse;
 import Avalara.SDK.model.A1099.V2.RealTimeTinMatchRequest;
 import Avalara.SDK.model.A1099.V2.RealTimeTinMatchResponse;
 
@@ -74,6 +78,438 @@ public class TinMatchesApi {
 
     public void setCustomBaseUrl(String customBaseUrl) {
         this.localCustomBaseUrl = customBaseUrl;
+    }
+
+    /**
+     * Build call for getBulkTinMatch
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Bulk TIN match details </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Bulk not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getBulkTinMatchCall(GetBulkTinMatchRequest requestParameters, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        //OAuth2 Scopes
+        String requiredScopes = "";
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/tin-matches/$bulk/{id}"
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(requestParameters.id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (requestParameters.getAvalaraVersion() != null) {
+            localVarHeaderParams.put("avalara-version", localVarApiClient.parameterToString(requestParameters.getAvalaraVersion()));
+        }
+
+        if (requestParameters.getXCorrelationId() != null) {
+            localVarHeaderParams.put("X-Correlation-Id", localVarApiClient.parameterToString(requestParameters.getXCorrelationId()));
+        }
+
+        if (requestParameters.getXAvalaraClient() != null) {
+            localVarHeaderParams.put("X-Avalara-Client", localVarApiClient.parameterToString(requestParameters.getXAvalaraClient()));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+        String[] localVarAuthNames = new String[] { "OAuth", "bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes, AvalaraMicroservice.A1099);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getBulkTinMatchValidateBeforeCall(GetBulkTinMatchRequest requestParameters, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'requestParameters.id' is set
+        if (requestParameters.getId() == null) {
+            throw new ApiException("Missing the required parameter 'requestParameters.id' when calling getBulkTinMatch(Async)");
+        }
+        
+        // verify the required parameter 'requestParameters.avalaraVersion' is set
+        if (requestParameters.getAvalaraVersion() == null) {
+            throw new ApiException("Missing the required parameter 'requestParameters.avalaraVersion' when calling getBulkTinMatch(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getBulkTinMatchCall(requestParameters, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get bulk TIN match details
+     * 
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @return BulkTinMatchResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Bulk TIN match details </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Bulk not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public BulkTinMatchResponse getBulkTinMatch(GetBulkTinMatchRequest requestParameters) throws ApiException {
+        ApiResponse<BulkTinMatchResponse> localVarResp = getBulkTinMatchWithHttpInfo(requestParameters);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get bulk TIN match details
+     * 
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @return ApiResponse&lt;BulkTinMatchResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Bulk TIN match details </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Bulk not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BulkTinMatchResponse> getBulkTinMatchWithHttpInfo(GetBulkTinMatchRequest requestParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBulkTinMatchValidateBeforeCall(requestParameters, null);
+        Type localVarReturnType = new TypeToken<BulkTinMatchResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get bulk TIN match details (asynchronously)
+     * 
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Bulk TIN match details </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Bulk not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getBulkTinMatchAsync(GetBulkTinMatchRequest requestParameters, final ApiCallback<BulkTinMatchResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getBulkTinMatchValidateBeforeCall(requestParameters, _callback);
+        Type localVarReturnType = new TypeToken<BulkTinMatchResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+    * Represents the Request object for the GetBulkTinMatch API
+    *
+    * @param id The bulk ID</param>
+    * @param avalaraVersion API version</param>
+    * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
+    * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
+    */
+    public class GetBulkTinMatchRequest {
+        private String id;
+        private String avalaraVersion;
+        private String xCorrelationId;
+        private String xAvalaraClient;
+
+        public GetBulkTinMatchRequest () {
+        }
+
+        public String getId() { return id; }
+        public void setId(String id) { this.id = id; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "2.0"; }
+        public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
+        public String getXCorrelationId() { return xCorrelationId; }
+        public void setXCorrelationId(String xCorrelationId) { this.xCorrelationId = xCorrelationId; }
+        public String getXAvalaraClient() { return xAvalaraClient; }
+        public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
+    }
+
+    /**
+    * Getter function to instantiate Request class
+    * @returns GetBulkTinMatchRequest
+    */
+    public GetBulkTinMatchRequest getGetBulkTinMatchRequest() {
+        return this.new GetBulkTinMatchRequest();
+    }
+
+    /**
+     * Build call for getBulkTinMatchResults
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of TIN match responses </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Bulk not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getBulkTinMatchResultsCall(GetBulkTinMatchResultsRequest requestParameters, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        //OAuth2 Scopes
+        String requiredScopes = "";
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/tin-matches/$bulk/{id}/results"
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(requestParameters.id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (requestParameters.get$filter() != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$filter", requestParameters.get$filter()));
+        }
+
+        if (requestParameters.get$top() != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$top", requestParameters.get$top()));
+        }
+
+        if (requestParameters.get$skip() != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$skip", requestParameters.get$skip()));
+        }
+
+        if (requestParameters.get$orderBy() != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$orderBy", requestParameters.get$orderBy()));
+        }
+
+        if (requestParameters.getCount() != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("count", requestParameters.getCount()));
+        }
+
+        if (requestParameters.getCountOnly() != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("countOnly", requestParameters.getCountOnly()));
+        }
+
+        if (requestParameters.getAvalaraVersion() != null) {
+            localVarHeaderParams.put("avalara-version", localVarApiClient.parameterToString(requestParameters.getAvalaraVersion()));
+        }
+
+        if (requestParameters.getXCorrelationId() != null) {
+            localVarHeaderParams.put("X-Correlation-Id", localVarApiClient.parameterToString(requestParameters.getXCorrelationId()));
+        }
+
+        if (requestParameters.getXAvalaraClient() != null) {
+            localVarHeaderParams.put("X-Avalara-Client", localVarApiClient.parameterToString(requestParameters.getXAvalaraClient()));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+        String[] localVarAuthNames = new String[] { "OAuth", "bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes, AvalaraMicroservice.A1099);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getBulkTinMatchResultsValidateBeforeCall(GetBulkTinMatchResultsRequest requestParameters, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'requestParameters.id' is set
+        if (requestParameters.getId() == null) {
+            throw new ApiException("Missing the required parameter 'requestParameters.id' when calling getBulkTinMatchResults(Async)");
+        }
+        
+        // verify the required parameter 'requestParameters.avalaraVersion' is set
+        if (requestParameters.getAvalaraVersion() == null) {
+            throw new ApiException("Missing the required parameter 'requestParameters.avalaraVersion' when calling getBulkTinMatchResults(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getBulkTinMatchResultsCall(requestParameters, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List bulk TIN match results
+     * 
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @return PaginatedQueryResultModelBulkTinMatchResultItemResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of TIN match responses </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Bulk not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public PaginatedQueryResultModelBulkTinMatchResultItemResponse getBulkTinMatchResults(GetBulkTinMatchResultsRequest requestParameters) throws ApiException {
+        ApiResponse<PaginatedQueryResultModelBulkTinMatchResultItemResponse> localVarResp = getBulkTinMatchResultsWithHttpInfo(requestParameters);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List bulk TIN match results
+     * 
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @return ApiResponse&lt;PaginatedQueryResultModelBulkTinMatchResultItemResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of TIN match responses </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Bulk not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<PaginatedQueryResultModelBulkTinMatchResultItemResponse> getBulkTinMatchResultsWithHttpInfo(GetBulkTinMatchResultsRequest requestParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBulkTinMatchResultsValidateBeforeCall(requestParameters, null);
+        Type localVarReturnType = new TypeToken<PaginatedQueryResultModelBulkTinMatchResultItemResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List bulk TIN match results (asynchronously)
+     * 
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of TIN match responses </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Bulk not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getBulkTinMatchResultsAsync(GetBulkTinMatchResultsRequest requestParameters, final ApiCallback<PaginatedQueryResultModelBulkTinMatchResultItemResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getBulkTinMatchResultsValidateBeforeCall(requestParameters, _callback);
+        Type localVarReturnType = new TypeToken<PaginatedQueryResultModelBulkTinMatchResultItemResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+    * Represents the Request object for the GetBulkTinMatchResults API
+    *
+    * @param id The bulk ID</param>
+    * @param avalaraVersion API version</param>
+    * @param $filter A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>. (optional)</param>
+    * @param $top If zero or greater than 1000, return at most 1000 results.  Otherwise, return this number of results.  Used with skip to provide pagination for large datasets. (optional)</param>
+    * @param $skip If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional)</param>
+    * @param $orderBy A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC. (optional)</param>
+    * @param count If true, return the global count of elements in the collection. (optional)</param>
+    * @param countOnly If true, return ONLY the global count of elements in the collection.  It only applies when count=true. (optional)</param>
+    * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
+    * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
+    */
+    public class GetBulkTinMatchResultsRequest {
+        private String id;
+        private String avalaraVersion;
+        private String $filter;
+        private Integer $top;
+        private Integer $skip;
+        private String $orderBy;
+        private Boolean count;
+        private Boolean countOnly;
+        private String xCorrelationId;
+        private String xAvalaraClient;
+
+        public GetBulkTinMatchResultsRequest () {
+        }
+
+        public String getId() { return id; }
+        public void setId(String id) { this.id = id; }
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "2.0"; }
+        public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
+        public String get$filter() { return $filter; }
+        public void set$filter(String $filter) { this.$filter = $filter; }
+        public Integer get$top() { return $top; }
+        public void set$top(Integer $top) { this.$top = $top; }
+        public Integer get$skip() { return $skip; }
+        public void set$skip(Integer $skip) { this.$skip = $skip; }
+        public String get$orderBy() { return $orderBy; }
+        public void set$orderBy(String $orderBy) { this.$orderBy = $orderBy; }
+        public Boolean getCount() { return count; }
+        public void setCount(Boolean count) { this.count = count; }
+        public Boolean getCountOnly() { return countOnly; }
+        public void setCountOnly(Boolean countOnly) { this.countOnly = countOnly; }
+        public String getXCorrelationId() { return xCorrelationId; }
+        public void setXCorrelationId(String xCorrelationId) { this.xCorrelationId = xCorrelationId; }
+        public String getXAvalaraClient() { return xAvalaraClient; }
+        public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
+    }
+
+    /**
+    * Getter function to instantiate Request class
+    * @returns GetBulkTinMatchResultsRequest
+    */
+    public GetBulkTinMatchResultsRequest getGetBulkTinMatchResultsRequest() {
+        return this.new GetBulkTinMatchResultsRequest();
     }
 
     /**
@@ -272,9 +708,193 @@ public class TinMatchesApi {
         return this.new PerformRealTimeTinMatchRequest();
     }
 
+    /**
+     * Build call for submitBulkTinMatch
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Accepted submission, indicating it will be processed later and where to get results from </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g. invalid field values) </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call submitBulkTinMatchCall(SubmitBulkTinMatchRequest requestParameters, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        //OAuth2 Scopes
+        String requiredScopes = "";
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = requestParameters.getBulkTinMatchRequest();
+
+        // create path and map variables
+        String localVarPath = "/tin-matches/$bulk";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (requestParameters.getAvalaraVersion() != null) {
+            localVarHeaderParams.put("avalara-version", localVarApiClient.parameterToString(requestParameters.getAvalaraVersion()));
+        }
+
+        if (requestParameters.getXCorrelationId() != null) {
+            localVarHeaderParams.put("X-Correlation-Id", localVarApiClient.parameterToString(requestParameters.getXCorrelationId()));
+        }
+
+        if (requestParameters.getXAvalaraClient() != null) {
+            localVarHeaderParams.put("X-Avalara-Client", localVarApiClient.parameterToString(requestParameters.getXAvalaraClient()));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/*+json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+        String[] localVarAuthNames = new String[] { "OAuth", "bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, requiredScopes, AvalaraMicroservice.A1099);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call submitBulkTinMatchValidateBeforeCall(SubmitBulkTinMatchRequest requestParameters, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'requestParameters.avalaraVersion' is set
+        if (requestParameters.getAvalaraVersion() == null) {
+            throw new ApiException("Missing the required parameter 'requestParameters.avalaraVersion' when calling submitBulkTinMatch(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = submitBulkTinMatchCall(requestParameters, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Submit bulk TIN match
+     * 
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @return BulkTinMatchAcceptedResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Accepted submission, indicating it will be processed later and where to get results from </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g. invalid field values) </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public BulkTinMatchAcceptedResponse submitBulkTinMatch(SubmitBulkTinMatchRequest requestParameters) throws ApiException {
+        ApiResponse<BulkTinMatchAcceptedResponse> localVarResp = submitBulkTinMatchWithHttpInfo(requestParameters);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Submit bulk TIN match
+     * 
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @return ApiResponse&lt;BulkTinMatchAcceptedResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Accepted submission, indicating it will be processed later and where to get results from </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g. invalid field values) </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BulkTinMatchAcceptedResponse> submitBulkTinMatchWithHttpInfo(SubmitBulkTinMatchRequest requestParameters) throws ApiException {
+        okhttp3.Call localVarCall = submitBulkTinMatchValidateBeforeCall(requestParameters, null);
+        Type localVarReturnType = new TypeToken<BulkTinMatchAcceptedResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Submit bulk TIN match (asynchronously)
+     * 
+     * @param requestOptions Object which represents the options available for a given API/request
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Accepted submission, indicating it will be processed later and where to get results from </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request (e.g. invalid field values) </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call submitBulkTinMatchAsync(SubmitBulkTinMatchRequest requestParameters, final ApiCallback<BulkTinMatchAcceptedResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = submitBulkTinMatchValidateBeforeCall(requestParameters, _callback);
+        Type localVarReturnType = new TypeToken<BulkTinMatchAcceptedResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+    * Represents the Request object for the SubmitBulkTinMatch API
+    *
+    * @param avalaraVersion API version</param>
+    * @param xCorrelationId Unique correlation Id in a GUID format (optional)</param>
+    * @param xAvalaraClient Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)</param>
+    * @param bulkTinMatchRequest Required TIN collection to perform bulk TIN match (optional)</param>
+    */
+    public class SubmitBulkTinMatchRequest {
+        private String avalaraVersion;
+        private String xCorrelationId;
+        private String xAvalaraClient;
+        private BulkTinMatchRequest bulkTinMatchRequest;
+
+        public SubmitBulkTinMatchRequest () {
+        }
+
+        public String getAvalaraVersion() { return (avalaraVersion != null) ? avalaraVersion : "2.0"; }
+        public void setAvalaraVersion(String avalaraVersion) { this.avalaraVersion = avalaraVersion; }
+        public String getXCorrelationId() { return xCorrelationId; }
+        public void setXCorrelationId(String xCorrelationId) { this.xCorrelationId = xCorrelationId; }
+        public String getXAvalaraClient() { return xAvalaraClient; }
+        public void setXAvalaraClient(String xAvalaraClient) { this.xAvalaraClient = xAvalaraClient; }
+        public BulkTinMatchRequest getBulkTinMatchRequest() { return bulkTinMatchRequest; }
+        public void setBulkTinMatchRequest(BulkTinMatchRequest bulkTinMatchRequest) { this.bulkTinMatchRequest = bulkTinMatchRequest; }
+    }
+
+    /**
+    * Getter function to instantiate Request class
+    * @returns SubmitBulkTinMatchRequest
+    */
+    public SubmitBulkTinMatchRequest getSubmitBulkTinMatchRequest() {
+        return this.new SubmitBulkTinMatchRequest();
+    }
+
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("26.9.0");
+        this.localVarApiClient.setSdkVersion("26.9.1");
     }
 }
 
