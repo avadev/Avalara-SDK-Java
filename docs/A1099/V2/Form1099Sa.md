@@ -1,20 +1,20 @@
 
 
-# Form1099C
+# Form1099Sa
 
-Form 1099-C: Cancellation of Debt                *Required:* Date of Identifiable Event, Amount of Debt Discharged and Debt Description. The IRS also requires the  Identifiable Event Code.                The Debt Description is limited to 39 characters.                Form 1099-C has no state or local boxes, so `stateAndLocalWithholding` is discarded and reads back as `null`.
+Form 1099-SA: Distributions From an HSA, Archer MSA, or Medicare Advantage MSA                The recipient is the account holder and the issuer is the trustee (payer).                *Required:* Gross Distribution, Distribution Code, and exactly one of the three account type indicators  (HSA, Archer MSA, Medicare Advantage MSA).                Form 1099-SA has no state or local boxes, so `stateAndLocalWithholding` is discarded and reads back as `null`.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**dateOfIdentifiableEvent** | **LocalDate** | Date of identifiable event |  |
-|**amountOfDebtDischarged** | **Double** | Amount of debt discharged |  |
-|**interestIncludedInDebtDischarged** | **Double** | Interest, if included in the amount of debt discharged |  [optional] |
-|**debtDescription** | **String** | Debt description (up to 39 characters) |  |
-|**debtorPersonallyLiableIndicator** | **Boolean** | If checked, the debtor was personally liable for repayment of the debt |  [optional] |
-|**identifiableEventCode** | [**IdentifiableEventCodeEnum**](#IdentifiableEventCodeEnum) | Identifiable event code.                * &#x60;A&#x60; - Bankruptcy  * &#x60;B&#x60; - Other judicial debt relief  * &#x60;C&#x60; - Statute of limitations or expiration of deficiency period  * &#x60;D&#x60; - Foreclosure election  * &#x60;E&#x60; - Debt relief from probate or similar proceeding  * &#x60;F&#x60; - By agreement  * &#x60;G&#x60; - Decision or policy to discontinue collection  * &#x60;H&#x60; - Other actual discharge before identifiable event  * &#x60;I&#x60; - Deprecated; retired by the IRS in 2016 and folded into &#x60;H&#x60;. Only valid for prior tax years. |  |
-|**fairMarketValueOfProperty** | **Double** | Fair market value of property |  [optional] |
+|**grossDistribution** | **Double** | Gross distribution |  |
+|**earningsOnExcessContributions** | **Double** | Earnings on excess contributions |  [optional] |
+|**distributionCode** | [**DistributionCodeEnum**](#DistributionCodeEnum) | Distribution code.                * &#x60;1&#x60; - Normal distributions  * &#x60;2&#x60; - Excess contributions  * &#x60;3&#x60; - Disability  * &#x60;4&#x60; - Death distribution other than code 6  * &#x60;5&#x60; - Prohibited transaction  * &#x60;6&#x60; - Death distribution after year of death to a nonspouse beneficiary |  |
+|**fairMarketValueOnDateOfDeath** | **Double** | Fair market value (FMV) of the account on the date of death |  [optional] |
+|**hsaIndicator** | **Boolean** | If checked, the account is a health savings account (HSA). Exactly one account type indicator must be checked. |  [optional] |
+|**archerMsaIndicator** | **Boolean** | If checked, the account is an Archer medical savings account (MSA). Exactly one account type indicator must be checked. |  [optional] |
+|**medicareAdvantageMsaIndicator** | **Boolean** | If checked, the account is a Medicare Advantage MSA. Exactly one account type indicator must be checked. |  [optional] |
 |**type** | [**TypeEnum**](#TypeEnum) | Form type. |  |
 |**id** | **String** | Form ID. Unique identifier set when the record is created. |  [optional] [readonly] |
 |**issuerId** | **String** | Issuer ID - only required when creating forms |  [optional] |
@@ -63,19 +63,16 @@ Form 1099-C: Cancellation of Debt                *Required:* Date of Identifiabl
 
 
 
-## Enum: IdentifiableEventCodeEnum
+## Enum: DistributionCodeEnum
 
 | Name | Value |
 |---- | -----|
-| A | &quot;A&quot; |
-| B | &quot;B&quot; |
-| C | &quot;C&quot; |
-| D | &quot;D&quot; |
-| E | &quot;E&quot; |
-| F | &quot;F&quot; |
-| G | &quot;G&quot; |
-| H | &quot;H&quot; |
-| I | &quot;I&quot; |
+| _1 | &quot;1&quot; |
+| _2 | &quot;2&quot; |
+| _3 | &quot;3&quot; |
+| _4 | &quot;4&quot; |
+| _5 | &quot;5&quot; |
+| _6 | &quot;6&quot; |
 
 
 

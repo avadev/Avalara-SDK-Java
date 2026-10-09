@@ -20,16 +20,13 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
-import Avalara.SDK.model.A1099.V2.Get1099Form200Response;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -56,144 +53,33 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * Form1099ListRequest
+ * ResubmitRejectedFormsResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
-public class Form1099ListRequest {
-  /**
-   * Available form types: * &#x60;1042-S&#x60; * &#x60;1095-B&#x60; * &#x60;1095-C&#x60; * &#x60;1098&#x60; * &#x60;1098-T&#x60; * &#x60;1099-C&#x60; * &#x60;1099-DIV&#x60; * &#x60;1099-INT&#x60; * &#x60;1099-K&#x60; * &#x60;1099-MISC&#x60; * &#x60;1099-NEC&#x60; * &#x60;1099-PATR&#x60; * &#x60;1099-R&#x60; * &#x60;1099-S&#x60; * &#x60;1099-SA&#x60; * &#x60;W-2&#x60; 
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    _1042_S("1042-S"),
-    
-    _1095_B("1095-B"),
-    
-    _1095_C("1095-C"),
-    
-    _1098("1098"),
-    
-    _1098_T("1098-T"),
-    
-    _1099_C("1099-C"),
-    
-    _1099_DIV("1099-DIV"),
-    
-    _1099_INT("1099-INT"),
-    
-    _1099_K("1099-K"),
-    
-    _1099_MISC("1099-MISC"),
-    
-    _1099_NEC("1099-NEC"),
-    
-    _1099_PATR("1099-PATR"),
-    
-    _1099_R("1099-R"),
-    
-    _1099_S("1099-S"),
-    
-    _1099_SA("1099-SA"),
-    
-    W_2("W-2");
+public class ResubmitRejectedFormsResponse {
+  public static final String SERIALIZED_NAME_RESUBMITTED_FORMS_COUNT = "resubmittedFormsCount";
+  @SerializedName(SERIALIZED_NAME_RESUBMITTED_FORMS_COUNT)
+  private Integer resubmittedFormsCount;
 
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      TypeEnum.fromValue(value);
-    }
+  public ResubmitRejectedFormsResponse() {
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private TypeEnum type;
-
-  public static final String SERIALIZED_NAME_FORMS = "forms";
-  @SerializedName(SERIALIZED_NAME_FORMS)
-  private List<Get1099Form200Response> forms;
-
-  public Form1099ListRequest() {
-  }
-
-  public Form1099ListRequest type(TypeEnum type) {
-    this.type = type;
+  public ResubmitRejectedFormsResponse resubmittedFormsCount(Integer resubmittedFormsCount) {
+    this.resubmittedFormsCount = resubmittedFormsCount;
     return this;
   }
 
   /**
-   * Available form types: * &#x60;1042-S&#x60; * &#x60;1095-B&#x60; * &#x60;1095-C&#x60; * &#x60;1098&#x60; * &#x60;1098-T&#x60; * &#x60;1099-C&#x60; * &#x60;1099-DIV&#x60; * &#x60;1099-INT&#x60; * &#x60;1099-K&#x60; * &#x60;1099-MISC&#x60; * &#x60;1099-NEC&#x60; * &#x60;1099-PATR&#x60; * &#x60;1099-R&#x60; * &#x60;1099-S&#x60; * &#x60;1099-SA&#x60; * &#x60;W-2&#x60; 
-   * @return type
+   * Number of forms scheduled for replacement submission.
+   * @return resubmittedFormsCount
    */
   @javax.annotation.Nullable
-  public TypeEnum getType() {
-    return type;
+  public Integer getResubmittedFormsCount() {
+    return resubmittedFormsCount;
   }
 
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
-
-  public Form1099ListRequest forms(List<Get1099Form200Response> forms) {
-    this.forms = forms;
-    return this;
-  }
-
-  public Form1099ListRequest addFormsItem(Get1099Form200Response formsItem) {
-    if (this.forms == null) {
-      this.forms = new ArrayList<>();
-    }
-    this.forms.add(formsItem);
-    return this;
-  }
-
-  /**
-   * Get forms
-   * @return forms
-   */
-  @javax.annotation.Nullable
-  public List<Get1099Form200Response> getForms() {
-    return forms;
-  }
-
-  public void setForms(List<Get1099Form200Response> forms) {
-    this.forms = forms;
+  public void setResubmittedFormsCount(Integer resubmittedFormsCount) {
+    this.resubmittedFormsCount = resubmittedFormsCount;
   }
 
 
@@ -206,22 +92,20 @@ public class Form1099ListRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Form1099ListRequest form1099ListRequest = (Form1099ListRequest) o;
-    return Objects.equals(this.type, form1099ListRequest.type) &&
-        Objects.equals(this.forms, form1099ListRequest.forms);
+    ResubmitRejectedFormsResponse resubmitRejectedFormsResponse = (ResubmitRejectedFormsResponse) o;
+    return Objects.equals(this.resubmittedFormsCount, resubmitRejectedFormsResponse.resubmittedFormsCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, forms);
+    return Objects.hash(resubmittedFormsCount);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Form1099ListRequest {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    forms: ").append(toIndentedString(forms)).append("\n");
+    sb.append("class ResubmitRejectedFormsResponse {\n");
+    sb.append("    resubmittedFormsCount: ").append(toIndentedString(resubmittedFormsCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -244,8 +128,7 @@ public class Form1099ListRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("type");
-    openapiFields.add("forms");
+    openapiFields.add("resubmittedFormsCount");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -255,66 +138,45 @@ public class Form1099ListRequest {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Form1099ListRequest
+   * @throws IOException if the JSON Element is invalid with respect to ResubmitRejectedFormsResponse
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!Form1099ListRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Form1099ListRequest is not found in the empty JSON string", Form1099ListRequest.openapiRequiredFields.toString()));
+        if (!ResubmitRejectedFormsResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ResubmitRejectedFormsResponse is not found in the empty JSON string", ResubmitRejectedFormsResponse.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!Form1099ListRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Form1099ListRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!ResubmitRejectedFormsResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResubmitRejectedFormsResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      // validate the optional field `type`
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
-        TypeEnum.validateJsonElement(jsonObj.get("type"));
-      }
-      if (jsonObj.get("forms") != null && !jsonObj.get("forms").isJsonNull()) {
-        JsonArray jsonArrayforms = jsonObj.getAsJsonArray("forms");
-        if (jsonArrayforms != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("forms").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `forms` to be an array in the JSON string but got `%s`", jsonObj.get("forms").toString()));
-          }
-
-          // validate the optional field `forms` (array)
-          for (int i = 0; i < jsonArrayforms.size(); i++) {
-            Get1099Form200Response.validateJsonElement(jsonArrayforms.get(i));
-          };
-        }
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Form1099ListRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Form1099ListRequest' and its subtypes
+       if (!ResubmitRejectedFormsResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ResubmitRejectedFormsResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Form1099ListRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Form1099ListRequest.class));
+       final TypeAdapter<ResubmitRejectedFormsResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ResubmitRejectedFormsResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Form1099ListRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<ResubmitRejectedFormsResponse>() {
            @Override
-           public void write(JsonWriter out, Form1099ListRequest value) throws IOException {
+           public void write(JsonWriter out, ResubmitRejectedFormsResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public Form1099ListRequest read(JsonReader in) throws IOException {
+           public ResubmitRejectedFormsResponse read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -325,18 +187,18 @@ public class Form1099ListRequest {
   }
 
   /**
-   * Create an instance of Form1099ListRequest given an JSON string
+   * Create an instance of ResubmitRejectedFormsResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Form1099ListRequest
-   * @throws IOException if the JSON string is invalid with respect to Form1099ListRequest
+   * @return An instance of ResubmitRejectedFormsResponse
+   * @throws IOException if the JSON string is invalid with respect to ResubmitRejectedFormsResponse
    */
-  public static Form1099ListRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Form1099ListRequest.class);
+  public static ResubmitRejectedFormsResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ResubmitRejectedFormsResponse.class);
   }
 
   /**
-   * Convert an instance of Form1099ListRequest to an JSON string
+   * Convert an instance of ResubmitRejectedFormsResponse to an JSON string
    *
    * @return JSON string
    */
