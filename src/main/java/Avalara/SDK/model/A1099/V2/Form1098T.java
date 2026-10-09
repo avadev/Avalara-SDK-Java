@@ -62,69 +62,41 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * Form 1099-MISC: Miscellaneous Income    *At least one of the following amounts must be provided:*   Rents, Royalties, Other income, Fishing boat proceeds, Medical and health care payments,  Substitute payments in lieu of dividends or interest, Crop insurance proceeds, Gross proceeds paid to an attorney,  Fish purchased for resale, Section 409A deferrals, Excess golden parachute payments, Nonqualified deferred compensation,  Payer made direct sales totaling $5,000 or more of consumer products to recipient for resale
+ * Form 1098-T: Tuition Statement                The recipient is the student and the issuer is the filer (eligible educational institution or insurer).                *Required:* at least one amount above zero (Boxes 1, 4, 5, 6 or 10). Amounts can&#39;t be negative; Boxes 4 and 6 are  reductions of prior-year amounts, entered as positive numbers. Boxes 2 and 3 are reserved by the IRS.                Form 1098-T has no state or local boxes, so &#x60;stateAndLocalWithholding&#x60; is discarded and reads back as &#x60;null&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
-public class Form1099Misc {
-  public static final String SERIALIZED_NAME_RENTS = "rents";
-  @SerializedName(SERIALIZED_NAME_RENTS)
-  private Double rents;
+public class Form1098T {
+  public static final String SERIALIZED_NAME_PAYMENTS_RECEIVED_FOR_QUALIFIED_TUITION_AND_RELATED_EXPENSES = "paymentsReceivedForQualifiedTuitionAndRelatedExpenses";
+  @SerializedName(SERIALIZED_NAME_PAYMENTS_RECEIVED_FOR_QUALIFIED_TUITION_AND_RELATED_EXPENSES)
+  private Double paymentsReceivedForQualifiedTuitionAndRelatedExpenses;
 
-  public static final String SERIALIZED_NAME_ROYALTIES = "royalties";
-  @SerializedName(SERIALIZED_NAME_ROYALTIES)
-  private Double royalties;
+  public static final String SERIALIZED_NAME_ADJUSTMENTS_MADE_FOR_PRIOR_YEAR = "adjustmentsMadeForPriorYear";
+  @SerializedName(SERIALIZED_NAME_ADJUSTMENTS_MADE_FOR_PRIOR_YEAR)
+  private Double adjustmentsMadeForPriorYear;
 
-  public static final String SERIALIZED_NAME_OTHER_INCOME = "otherIncome";
-  @SerializedName(SERIALIZED_NAME_OTHER_INCOME)
-  private Double otherIncome;
+  public static final String SERIALIZED_NAME_SCHOLARSHIPS_OR_GRANTS = "scholarshipsOrGrants";
+  @SerializedName(SERIALIZED_NAME_SCHOLARSHIPS_OR_GRANTS)
+  private Double scholarshipsOrGrants;
 
-  public static final String SERIALIZED_NAME_FEDERAL_INCOME_TAX_WITHHELD = "federalIncomeTaxWithheld";
-  @SerializedName(SERIALIZED_NAME_FEDERAL_INCOME_TAX_WITHHELD)
-  private Double federalIncomeTaxWithheld;
+  public static final String SERIALIZED_NAME_ADJUSTMENTS_TO_SCHOLARSHIPS_OR_GRANTS_FOR_PRIOR_YEAR = "adjustmentsToScholarshipsOrGrantsForPriorYear";
+  @SerializedName(SERIALIZED_NAME_ADJUSTMENTS_TO_SCHOLARSHIPS_OR_GRANTS_FOR_PRIOR_YEAR)
+  private Double adjustmentsToScholarshipsOrGrantsForPriorYear;
 
-  public static final String SERIALIZED_NAME_FISHING_BOAT_PROCEEDS = "fishingBoatProceeds";
-  @SerializedName(SERIALIZED_NAME_FISHING_BOAT_PROCEEDS)
-  private Double fishingBoatProceeds;
+  public static final String SERIALIZED_NAME_INCLUDES_AMOUNTS_FOR_ACADEMIC_PERIOD_BEGINNING_NEXT_YEAR_INDICATOR = "includesAmountsForAcademicPeriodBeginningNextYearIndicator";
+  @SerializedName(SERIALIZED_NAME_INCLUDES_AMOUNTS_FOR_ACADEMIC_PERIOD_BEGINNING_NEXT_YEAR_INDICATOR)
+  private Boolean includesAmountsForAcademicPeriodBeginningNextYearIndicator;
 
-  public static final String SERIALIZED_NAME_MEDICAL_AND_HEALTH_CARE_PAYMENTS = "medicalAndHealthCarePayments";
-  @SerializedName(SERIALIZED_NAME_MEDICAL_AND_HEALTH_CARE_PAYMENTS)
-  private Double medicalAndHealthCarePayments;
+  public static final String SERIALIZED_NAME_AT_LEAST_HALF_TIME_STUDENT_INDICATOR = "atLeastHalfTimeStudentIndicator";
+  @SerializedName(SERIALIZED_NAME_AT_LEAST_HALF_TIME_STUDENT_INDICATOR)
+  private Boolean atLeastHalfTimeStudentIndicator;
 
-  public static final String SERIALIZED_NAME_DIRECT_SALES_INDICATOR = "directSalesIndicator";
-  @SerializedName(SERIALIZED_NAME_DIRECT_SALES_INDICATOR)
-  private Boolean directSalesIndicator;
+  public static final String SERIALIZED_NAME_GRADUATE_STUDENT_INDICATOR = "graduateStudentIndicator";
+  @SerializedName(SERIALIZED_NAME_GRADUATE_STUDENT_INDICATOR)
+  private Boolean graduateStudentIndicator;
 
-  public static final String SERIALIZED_NAME_SUBSTITUTE_PAYMENTS = "substitutePayments";
-  @SerializedName(SERIALIZED_NAME_SUBSTITUTE_PAYMENTS)
-  private Double substitutePayments;
-
-  public static final String SERIALIZED_NAME_CROP_INSURANCE_PROCEEDS = "cropInsuranceProceeds";
-  @SerializedName(SERIALIZED_NAME_CROP_INSURANCE_PROCEEDS)
-  private Double cropInsuranceProceeds;
-
-  public static final String SERIALIZED_NAME_GROSS_PROCEEDS_PAID_TO_ATTORNEY = "grossProceedsPaidToAttorney";
-  @SerializedName(SERIALIZED_NAME_GROSS_PROCEEDS_PAID_TO_ATTORNEY)
-  private Double grossProceedsPaidToAttorney;
-
-  public static final String SERIALIZED_NAME_FISH_PURCHASED_FOR_RESALE = "fishPurchasedForResale";
-  @SerializedName(SERIALIZED_NAME_FISH_PURCHASED_FOR_RESALE)
-  private Double fishPurchasedForResale;
-
-  public static final String SERIALIZED_NAME_SECTION409_A_DEFERRALS = "section409ADeferrals";
-  @SerializedName(SERIALIZED_NAME_SECTION409_A_DEFERRALS)
-  private Double section409ADeferrals;
-
-  public static final String SERIALIZED_NAME_EXCESS_GOLDEN_PARACHUTE_PAYMENTS = "excessGoldenParachutePayments";
-  @SerializedName(SERIALIZED_NAME_EXCESS_GOLDEN_PARACHUTE_PAYMENTS)
-  private Double excessGoldenParachutePayments;
-
-  public static final String SERIALIZED_NAME_NONQUALIFIED_DEFERRED_COMPENSATION = "nonqualifiedDeferredCompensation";
-  @SerializedName(SERIALIZED_NAME_NONQUALIFIED_DEFERRED_COMPENSATION)
-  private Double nonqualifiedDeferredCompensation;
-
-  public static final String SERIALIZED_NAME_FATCA_FILING_REQUIREMENT = "fatcaFilingRequirement";
-  @SerializedName(SERIALIZED_NAME_FATCA_FILING_REQUIREMENT)
-  private Boolean fatcaFilingRequirement;
+  public static final String SERIALIZED_NAME_INSURANCE_CONTRACT_REIMBURSEMENTS_OR_REFUNDS = "insuranceContractReimbursementsOrRefunds";
+  @SerializedName(SERIALIZED_NAME_INSURANCE_CONTRACT_REIMBURSEMENTS_OR_REFUNDS)
+  private Double insuranceContractReimbursementsOrRefunds;
 
   /**
    * Form type.
@@ -450,10 +422,10 @@ public class Form1099Misc {
   @SerializedName(SERIALIZED_NAME_SECOND_TIN_NOTICE)
   private Boolean secondTinNotice;
 
-  public Form1099Misc() {
+  public Form1098T() {
   }
 
-  public Form1099Misc(
+  public Form1098T(
      String id, 
      Form1099StatusDetail federalEfileStatus, 
      List<StateEfileStatusDetail> stateEfileStatus, 
@@ -478,292 +450,159 @@ public class Form1099Misc {
     this.updatedAt = updatedAt;
   }
 
-  public Form1099Misc rents(Double rents) {
-    this.rents = rents;
+  public Form1098T paymentsReceivedForQualifiedTuitionAndRelatedExpenses(Double paymentsReceivedForQualifiedTuitionAndRelatedExpenses) {
+    this.paymentsReceivedForQualifiedTuitionAndRelatedExpenses = paymentsReceivedForQualifiedTuitionAndRelatedExpenses;
     return this;
   }
 
   /**
-   * Rents
-   * @return rents
+   * Payments received for qualified tuition and related expenses
+   * @return paymentsReceivedForQualifiedTuitionAndRelatedExpenses
    */
   @javax.annotation.Nullable
-  public Double getRents() {
-    return rents;
+  public Double getPaymentsReceivedForQualifiedTuitionAndRelatedExpenses() {
+    return paymentsReceivedForQualifiedTuitionAndRelatedExpenses;
   }
 
-  public void setRents(Double rents) {
-    this.rents = rents;
+  public void setPaymentsReceivedForQualifiedTuitionAndRelatedExpenses(Double paymentsReceivedForQualifiedTuitionAndRelatedExpenses) {
+    this.paymentsReceivedForQualifiedTuitionAndRelatedExpenses = paymentsReceivedForQualifiedTuitionAndRelatedExpenses;
   }
 
 
-  public Form1099Misc royalties(Double royalties) {
-    this.royalties = royalties;
+  public Form1098T adjustmentsMadeForPriorYear(Double adjustmentsMadeForPriorYear) {
+    this.adjustmentsMadeForPriorYear = adjustmentsMadeForPriorYear;
     return this;
   }
 
   /**
-   * Royalties
-   * @return royalties
+   * Adjustments made for a prior year
+   * @return adjustmentsMadeForPriorYear
    */
   @javax.annotation.Nullable
-  public Double getRoyalties() {
-    return royalties;
+  public Double getAdjustmentsMadeForPriorYear() {
+    return adjustmentsMadeForPriorYear;
   }
 
-  public void setRoyalties(Double royalties) {
-    this.royalties = royalties;
+  public void setAdjustmentsMadeForPriorYear(Double adjustmentsMadeForPriorYear) {
+    this.adjustmentsMadeForPriorYear = adjustmentsMadeForPriorYear;
   }
 
 
-  public Form1099Misc otherIncome(Double otherIncome) {
-    this.otherIncome = otherIncome;
+  public Form1098T scholarshipsOrGrants(Double scholarshipsOrGrants) {
+    this.scholarshipsOrGrants = scholarshipsOrGrants;
     return this;
   }
 
   /**
-   * Other income
-   * @return otherIncome
+   * Scholarships or grants
+   * @return scholarshipsOrGrants
    */
   @javax.annotation.Nullable
-  public Double getOtherIncome() {
-    return otherIncome;
+  public Double getScholarshipsOrGrants() {
+    return scholarshipsOrGrants;
   }
 
-  public void setOtherIncome(Double otherIncome) {
-    this.otherIncome = otherIncome;
+  public void setScholarshipsOrGrants(Double scholarshipsOrGrants) {
+    this.scholarshipsOrGrants = scholarshipsOrGrants;
   }
 
 
-  public Form1099Misc federalIncomeTaxWithheld(Double federalIncomeTaxWithheld) {
-    this.federalIncomeTaxWithheld = federalIncomeTaxWithheld;
+  public Form1098T adjustmentsToScholarshipsOrGrantsForPriorYear(Double adjustmentsToScholarshipsOrGrantsForPriorYear) {
+    this.adjustmentsToScholarshipsOrGrantsForPriorYear = adjustmentsToScholarshipsOrGrantsForPriorYear;
     return this;
   }
 
   /**
-   * Federal income tax withheld
-   * @return federalIncomeTaxWithheld
+   * Adjustments to scholarships or grants for a prior year
+   * @return adjustmentsToScholarshipsOrGrantsForPriorYear
    */
   @javax.annotation.Nullable
-  public Double getFederalIncomeTaxWithheld() {
-    return federalIncomeTaxWithheld;
+  public Double getAdjustmentsToScholarshipsOrGrantsForPriorYear() {
+    return adjustmentsToScholarshipsOrGrantsForPriorYear;
   }
 
-  public void setFederalIncomeTaxWithheld(Double federalIncomeTaxWithheld) {
-    this.federalIncomeTaxWithheld = federalIncomeTaxWithheld;
+  public void setAdjustmentsToScholarshipsOrGrantsForPriorYear(Double adjustmentsToScholarshipsOrGrantsForPriorYear) {
+    this.adjustmentsToScholarshipsOrGrantsForPriorYear = adjustmentsToScholarshipsOrGrantsForPriorYear;
   }
 
 
-  public Form1099Misc fishingBoatProceeds(Double fishingBoatProceeds) {
-    this.fishingBoatProceeds = fishingBoatProceeds;
+  public Form1098T includesAmountsForAcademicPeriodBeginningNextYearIndicator(Boolean includesAmountsForAcademicPeriodBeginningNextYearIndicator) {
+    this.includesAmountsForAcademicPeriodBeginningNextYearIndicator = includesAmountsForAcademicPeriodBeginningNextYearIndicator;
     return this;
   }
 
   /**
-   * Fishing boat proceeds
-   * @return fishingBoatProceeds
+   * If checked, the amount in Box 1 includes amounts for an academic period beginning January through March of the  next year
+   * @return includesAmountsForAcademicPeriodBeginningNextYearIndicator
    */
   @javax.annotation.Nullable
-  public Double getFishingBoatProceeds() {
-    return fishingBoatProceeds;
+  public Boolean getIncludesAmountsForAcademicPeriodBeginningNextYearIndicator() {
+    return includesAmountsForAcademicPeriodBeginningNextYearIndicator;
   }
 
-  public void setFishingBoatProceeds(Double fishingBoatProceeds) {
-    this.fishingBoatProceeds = fishingBoatProceeds;
+  public void setIncludesAmountsForAcademicPeriodBeginningNextYearIndicator(Boolean includesAmountsForAcademicPeriodBeginningNextYearIndicator) {
+    this.includesAmountsForAcademicPeriodBeginningNextYearIndicator = includesAmountsForAcademicPeriodBeginningNextYearIndicator;
   }
 
 
-  public Form1099Misc medicalAndHealthCarePayments(Double medicalAndHealthCarePayments) {
-    this.medicalAndHealthCarePayments = medicalAndHealthCarePayments;
+  public Form1098T atLeastHalfTimeStudentIndicator(Boolean atLeastHalfTimeStudentIndicator) {
+    this.atLeastHalfTimeStudentIndicator = atLeastHalfTimeStudentIndicator;
     return this;
   }
 
   /**
-   * Medical and health care payments
-   * @return medicalAndHealthCarePayments
+   * If checked, the student was at least a half-time student during any academic period that began in the tax year
+   * @return atLeastHalfTimeStudentIndicator
    */
   @javax.annotation.Nullable
-  public Double getMedicalAndHealthCarePayments() {
-    return medicalAndHealthCarePayments;
+  public Boolean getAtLeastHalfTimeStudentIndicator() {
+    return atLeastHalfTimeStudentIndicator;
   }
 
-  public void setMedicalAndHealthCarePayments(Double medicalAndHealthCarePayments) {
-    this.medicalAndHealthCarePayments = medicalAndHealthCarePayments;
+  public void setAtLeastHalfTimeStudentIndicator(Boolean atLeastHalfTimeStudentIndicator) {
+    this.atLeastHalfTimeStudentIndicator = atLeastHalfTimeStudentIndicator;
   }
 
 
-  public Form1099Misc directSalesIndicator(Boolean directSalesIndicator) {
-    this.directSalesIndicator = directSalesIndicator;
+  public Form1098T graduateStudentIndicator(Boolean graduateStudentIndicator) {
+    this.graduateStudentIndicator = graduateStudentIndicator;
     return this;
   }
 
   /**
-   * Payer made direct sales totaling $5,000 or more of consumer products to recipient for resale
-   * @return directSalesIndicator
+   * If checked, the student was enrolled in a program leading to a graduate degree, certificate or credential
+   * @return graduateStudentIndicator
    */
   @javax.annotation.Nullable
-  public Boolean getDirectSalesIndicator() {
-    return directSalesIndicator;
+  public Boolean getGraduateStudentIndicator() {
+    return graduateStudentIndicator;
   }
 
-  public void setDirectSalesIndicator(Boolean directSalesIndicator) {
-    this.directSalesIndicator = directSalesIndicator;
+  public void setGraduateStudentIndicator(Boolean graduateStudentIndicator) {
+    this.graduateStudentIndicator = graduateStudentIndicator;
   }
 
 
-  public Form1099Misc substitutePayments(Double substitutePayments) {
-    this.substitutePayments = substitutePayments;
+  public Form1098T insuranceContractReimbursementsOrRefunds(Double insuranceContractReimbursementsOrRefunds) {
+    this.insuranceContractReimbursementsOrRefunds = insuranceContractReimbursementsOrRefunds;
     return this;
   }
 
   /**
-   * Substitute payments in lieu of dividends or interest
-   * @return substitutePayments
+   * Insurance contract reimbursements or refunds (insurers only)
+   * @return insuranceContractReimbursementsOrRefunds
    */
   @javax.annotation.Nullable
-  public Double getSubstitutePayments() {
-    return substitutePayments;
+  public Double getInsuranceContractReimbursementsOrRefunds() {
+    return insuranceContractReimbursementsOrRefunds;
   }
 
-  public void setSubstitutePayments(Double substitutePayments) {
-    this.substitutePayments = substitutePayments;
-  }
-
-
-  public Form1099Misc cropInsuranceProceeds(Double cropInsuranceProceeds) {
-    this.cropInsuranceProceeds = cropInsuranceProceeds;
-    return this;
-  }
-
-  /**
-   * Crop insurance proceeds
-   * @return cropInsuranceProceeds
-   */
-  @javax.annotation.Nullable
-  public Double getCropInsuranceProceeds() {
-    return cropInsuranceProceeds;
-  }
-
-  public void setCropInsuranceProceeds(Double cropInsuranceProceeds) {
-    this.cropInsuranceProceeds = cropInsuranceProceeds;
+  public void setInsuranceContractReimbursementsOrRefunds(Double insuranceContractReimbursementsOrRefunds) {
+    this.insuranceContractReimbursementsOrRefunds = insuranceContractReimbursementsOrRefunds;
   }
 
 
-  public Form1099Misc grossProceedsPaidToAttorney(Double grossProceedsPaidToAttorney) {
-    this.grossProceedsPaidToAttorney = grossProceedsPaidToAttorney;
-    return this;
-  }
-
-  /**
-   * Gross proceeds paid to an attorney
-   * @return grossProceedsPaidToAttorney
-   */
-  @javax.annotation.Nullable
-  public Double getGrossProceedsPaidToAttorney() {
-    return grossProceedsPaidToAttorney;
-  }
-
-  public void setGrossProceedsPaidToAttorney(Double grossProceedsPaidToAttorney) {
-    this.grossProceedsPaidToAttorney = grossProceedsPaidToAttorney;
-  }
-
-
-  public Form1099Misc fishPurchasedForResale(Double fishPurchasedForResale) {
-    this.fishPurchasedForResale = fishPurchasedForResale;
-    return this;
-  }
-
-  /**
-   * Fish purchased for resale
-   * @return fishPurchasedForResale
-   */
-  @javax.annotation.Nullable
-  public Double getFishPurchasedForResale() {
-    return fishPurchasedForResale;
-  }
-
-  public void setFishPurchasedForResale(Double fishPurchasedForResale) {
-    this.fishPurchasedForResale = fishPurchasedForResale;
-  }
-
-
-  public Form1099Misc section409ADeferrals(Double section409ADeferrals) {
-    this.section409ADeferrals = section409ADeferrals;
-    return this;
-  }
-
-  /**
-   * Section 409A deferrals
-   * @return section409ADeferrals
-   */
-  @javax.annotation.Nullable
-  public Double getSection409ADeferrals() {
-    return section409ADeferrals;
-  }
-
-  public void setSection409ADeferrals(Double section409ADeferrals) {
-    this.section409ADeferrals = section409ADeferrals;
-  }
-
-
-  public Form1099Misc excessGoldenParachutePayments(Double excessGoldenParachutePayments) {
-    this.excessGoldenParachutePayments = excessGoldenParachutePayments;
-    return this;
-  }
-
-  /**
-   * Excess golden parachute payments - Available only for tax year 2024 and earlier
-   * @return excessGoldenParachutePayments
-   */
-  @javax.annotation.Nullable
-  public Double getExcessGoldenParachutePayments() {
-    return excessGoldenParachutePayments;
-  }
-
-  public void setExcessGoldenParachutePayments(Double excessGoldenParachutePayments) {
-    this.excessGoldenParachutePayments = excessGoldenParachutePayments;
-  }
-
-
-  public Form1099Misc nonqualifiedDeferredCompensation(Double nonqualifiedDeferredCompensation) {
-    this.nonqualifiedDeferredCompensation = nonqualifiedDeferredCompensation;
-    return this;
-  }
-
-  /**
-   * Nonqualified deferred compensation
-   * @return nonqualifiedDeferredCompensation
-   */
-  @javax.annotation.Nullable
-  public Double getNonqualifiedDeferredCompensation() {
-    return nonqualifiedDeferredCompensation;
-  }
-
-  public void setNonqualifiedDeferredCompensation(Double nonqualifiedDeferredCompensation) {
-    this.nonqualifiedDeferredCompensation = nonqualifiedDeferredCompensation;
-  }
-
-
-  public Form1099Misc fatcaFilingRequirement(Boolean fatcaFilingRequirement) {
-    this.fatcaFilingRequirement = fatcaFilingRequirement;
-    return this;
-  }
-
-  /**
-   * FATCA filing requirement.
-   * @return fatcaFilingRequirement
-   */
-  @javax.annotation.Nullable
-  public Boolean getFatcaFilingRequirement() {
-    return fatcaFilingRequirement;
-  }
-
-  public void setFatcaFilingRequirement(Boolean fatcaFilingRequirement) {
-    this.fatcaFilingRequirement = fatcaFilingRequirement;
-  }
-
-
-  public Form1099Misc type(TypeEnum type) {
+  public Form1098T type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -793,7 +632,7 @@ public class Form1099Misc {
 
 
 
-  public Form1099Misc issuerId(String issuerId) {
+  public Form1098T issuerId(String issuerId) {
     this.issuerId = issuerId;
     return this;
   }
@@ -812,7 +651,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc issuerReferenceId(String issuerReferenceId) {
+  public Form1098T issuerReferenceId(String issuerReferenceId) {
     this.issuerReferenceId = issuerReferenceId;
     return this;
   }
@@ -831,7 +670,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc issuerTin(String issuerTin) {
+  public Form1098T issuerTin(String issuerTin) {
     this.issuerTin = issuerTin;
     return this;
   }
@@ -850,7 +689,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc taxYear(Integer taxYear) {
+  public Form1098T taxYear(Integer taxYear) {
     this.taxYear = taxYear;
     return this;
   }
@@ -869,7 +708,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc referenceId(String referenceId) {
+  public Form1098T referenceId(String referenceId) {
     this.referenceId = referenceId;
     return this;
   }
@@ -888,7 +727,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc tin(String tin) {
+  public Form1098T tin(String tin) {
     this.tin = tin;
     return this;
   }
@@ -908,7 +747,7 @@ public class Form1099Misc {
 
 
   @Deprecated
-  public Form1099Misc recipientName(String recipientName) {
+  public Form1098T recipientName(String recipientName) {
     this.recipientName = recipientName;
     return this;
   }
@@ -930,7 +769,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc address(String address) {
+  public Form1098T address(String address) {
     this.address = address;
     return this;
   }
@@ -949,7 +788,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc address2(String address2) {
+  public Form1098T address2(String address2) {
     this.address2 = address2;
     return this;
   }
@@ -968,7 +807,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc city(String city) {
+  public Form1098T city(String city) {
     this.city = city;
     return this;
   }
@@ -987,7 +826,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc state(String state) {
+  public Form1098T state(String state) {
     this.state = state;
     return this;
   }
@@ -1006,7 +845,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc zip(String zip) {
+  public Form1098T zip(String zip) {
     this.zip = zip;
     return this;
   }
@@ -1025,7 +864,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc email(String email) {
+  public Form1098T email(String email) {
     this.email = email;
     return this;
   }
@@ -1044,7 +883,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc nonUsProvince(String nonUsProvince) {
+  public Form1098T nonUsProvince(String nonUsProvince) {
     this.nonUsProvince = nonUsProvince;
     return this;
   }
@@ -1063,7 +902,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc countryCode(String countryCode) {
+  public Form1098T countryCode(String countryCode) {
     this.countryCode = countryCode;
     return this;
   }
@@ -1082,7 +921,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc federalEfileDate(LocalDate federalEfileDate) {
+  public Form1098T federalEfileDate(LocalDate federalEfileDate) {
     this.federalEfileDate = federalEfileDate;
     return this;
   }
@@ -1101,7 +940,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc postalMail(Boolean postalMail) {
+  public Form1098T postalMail(Boolean postalMail) {
     this.postalMail = postalMail;
     return this;
   }
@@ -1120,7 +959,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc stateEfileDate(LocalDate stateEfileDate) {
+  public Form1098T stateEfileDate(LocalDate stateEfileDate) {
     this.stateEfileDate = stateEfileDate;
     return this;
   }
@@ -1139,7 +978,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc recipientEdeliveryDate(LocalDate recipientEdeliveryDate) {
+  public Form1098T recipientEdeliveryDate(LocalDate recipientEdeliveryDate) {
     this.recipientEdeliveryDate = recipientEdeliveryDate;
     return this;
   }
@@ -1158,7 +997,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc tinMatch(Boolean tinMatch) {
+  public Form1098T tinMatch(Boolean tinMatch) {
     this.tinMatch = tinMatch;
     return this;
   }
@@ -1177,7 +1016,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc addressVerification(Boolean addressVerification) {
+  public Form1098T addressVerification(Boolean addressVerification) {
     this.addressVerification = addressVerification;
     return this;
   }
@@ -1196,7 +1035,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc stateAndLocalWithholding(StateAndLocalWithholding stateAndLocalWithholding) {
+  public Form1098T stateAndLocalWithholding(StateAndLocalWithholding stateAndLocalWithholding) {
     this.stateAndLocalWithholding = stateAndLocalWithholding;
     return this;
   }
@@ -1314,7 +1153,7 @@ public class Form1099Misc {
 
 
 
-  public Form1099Misc tinType(TinTypeEnum tinType) {
+  public Form1098T tinType(TinTypeEnum tinType) {
     this.tinType = tinType;
     return this;
   }
@@ -1333,7 +1172,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc businessName(String businessName) {
+  public Form1098T businessName(String businessName) {
     this.businessName = businessName;
     return this;
   }
@@ -1352,7 +1191,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc businessName2(String businessName2) {
+  public Form1098T businessName2(String businessName2) {
     this.businessName2 = businessName2;
     return this;
   }
@@ -1371,7 +1210,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc firstName(String firstName) {
+  public Form1098T firstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
@@ -1390,7 +1229,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc middleName(String middleName) {
+  public Form1098T middleName(String middleName) {
     this.middleName = middleName;
     return this;
   }
@@ -1409,7 +1248,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc lastName(String lastName) {
+  public Form1098T lastName(String lastName) {
     this.lastName = lastName;
     return this;
   }
@@ -1428,7 +1267,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc suffixName(String suffixName) {
+  public Form1098T suffixName(String suffixName) {
     this.suffixName = suffixName;
     return this;
   }
@@ -1448,7 +1287,7 @@ public class Form1099Misc {
 
 
   @Deprecated
-  public Form1099Misc recipientSecondName(String recipientSecondName) {
+  public Form1098T recipientSecondName(String recipientSecondName) {
     this.recipientSecondName = recipientSecondName;
     return this;
   }
@@ -1470,7 +1309,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc accountNumber(String accountNumber) {
+  public Form1098T accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
@@ -1489,7 +1328,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc officeCode(String officeCode) {
+  public Form1098T officeCode(String officeCode) {
     this.officeCode = officeCode;
     return this;
   }
@@ -1508,7 +1347,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc noTin(Boolean noTin) {
+  public Form1098T noTin(Boolean noTin) {
     this.noTin = noTin;
     return this;
   }
@@ -1527,7 +1366,7 @@ public class Form1099Misc {
   }
 
 
-  public Form1099Misc secondTinNotice(Boolean secondTinNotice) {
+  public Form1098T secondTinNotice(Boolean secondTinNotice) {
     this.secondTinNotice = secondTinNotice;
     return this;
   }
@@ -1558,9 +1397,9 @@ public class Form1099Misc {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the Form1099Misc instance itself
+   * @return the Form1098T instance itself
    */
-  public Form1099Misc putAdditionalProperty(String key, Object value) {
+  public Form1098T putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -1599,68 +1438,61 @@ public class Form1099Misc {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Form1099Misc form1099Misc = (Form1099Misc) o;
-    return Objects.equals(this.rents, form1099Misc.rents) &&
-        Objects.equals(this.royalties, form1099Misc.royalties) &&
-        Objects.equals(this.otherIncome, form1099Misc.otherIncome) &&
-        Objects.equals(this.federalIncomeTaxWithheld, form1099Misc.federalIncomeTaxWithheld) &&
-        Objects.equals(this.fishingBoatProceeds, form1099Misc.fishingBoatProceeds) &&
-        Objects.equals(this.medicalAndHealthCarePayments, form1099Misc.medicalAndHealthCarePayments) &&
-        Objects.equals(this.directSalesIndicator, form1099Misc.directSalesIndicator) &&
-        Objects.equals(this.substitutePayments, form1099Misc.substitutePayments) &&
-        Objects.equals(this.cropInsuranceProceeds, form1099Misc.cropInsuranceProceeds) &&
-        Objects.equals(this.grossProceedsPaidToAttorney, form1099Misc.grossProceedsPaidToAttorney) &&
-        Objects.equals(this.fishPurchasedForResale, form1099Misc.fishPurchasedForResale) &&
-        Objects.equals(this.section409ADeferrals, form1099Misc.section409ADeferrals) &&
-        Objects.equals(this.excessGoldenParachutePayments, form1099Misc.excessGoldenParachutePayments) &&
-        Objects.equals(this.nonqualifiedDeferredCompensation, form1099Misc.nonqualifiedDeferredCompensation) &&
-        Objects.equals(this.fatcaFilingRequirement, form1099Misc.fatcaFilingRequirement) &&
-        Objects.equals(this.type, form1099Misc.type) &&
-        Objects.equals(this.id, form1099Misc.id) &&
-        Objects.equals(this.issuerId, form1099Misc.issuerId) &&
-        Objects.equals(this.issuerReferenceId, form1099Misc.issuerReferenceId) &&
-        Objects.equals(this.issuerTin, form1099Misc.issuerTin) &&
-        Objects.equals(this.taxYear, form1099Misc.taxYear) &&
-        Objects.equals(this.referenceId, form1099Misc.referenceId) &&
-        Objects.equals(this.tin, form1099Misc.tin) &&
-        Objects.equals(this.recipientName, form1099Misc.recipientName) &&
-        Objects.equals(this.address, form1099Misc.address) &&
-        Objects.equals(this.address2, form1099Misc.address2) &&
-        Objects.equals(this.city, form1099Misc.city) &&
-        Objects.equals(this.state, form1099Misc.state) &&
-        Objects.equals(this.zip, form1099Misc.zip) &&
-        Objects.equals(this.email, form1099Misc.email) &&
-        Objects.equals(this.nonUsProvince, form1099Misc.nonUsProvince) &&
-        Objects.equals(this.countryCode, form1099Misc.countryCode) &&
-        Objects.equals(this.federalEfileDate, form1099Misc.federalEfileDate) &&
-        Objects.equals(this.postalMail, form1099Misc.postalMail) &&
-        Objects.equals(this.stateEfileDate, form1099Misc.stateEfileDate) &&
-        Objects.equals(this.recipientEdeliveryDate, form1099Misc.recipientEdeliveryDate) &&
-        Objects.equals(this.tinMatch, form1099Misc.tinMatch) &&
-        Objects.equals(this.addressVerification, form1099Misc.addressVerification) &&
-        Objects.equals(this.stateAndLocalWithholding, form1099Misc.stateAndLocalWithholding) &&
-        Objects.equals(this.federalEfileStatus, form1099Misc.federalEfileStatus) &&
-        Objects.equals(this.stateEfileStatus, form1099Misc.stateEfileStatus) &&
-        Objects.equals(this.postalMailStatus, form1099Misc.postalMailStatus) &&
-        Objects.equals(this.tinMatchStatus, form1099Misc.tinMatchStatus) &&
-        Objects.equals(this.addressVerificationStatus, form1099Misc.addressVerificationStatus) &&
-        Objects.equals(this.eDeliveryStatus, form1099Misc.eDeliveryStatus) &&
-        Objects.equals(this.validationErrors, form1099Misc.validationErrors) &&
-        Objects.equals(this.createdAt, form1099Misc.createdAt) &&
-        Objects.equals(this.updatedAt, form1099Misc.updatedAt) &&
-        Objects.equals(this.tinType, form1099Misc.tinType) &&
-        Objects.equals(this.businessName, form1099Misc.businessName) &&
-        Objects.equals(this.businessName2, form1099Misc.businessName2) &&
-        Objects.equals(this.firstName, form1099Misc.firstName) &&
-        Objects.equals(this.middleName, form1099Misc.middleName) &&
-        Objects.equals(this.lastName, form1099Misc.lastName) &&
-        Objects.equals(this.suffixName, form1099Misc.suffixName) &&
-        Objects.equals(this.recipientSecondName, form1099Misc.recipientSecondName) &&
-        Objects.equals(this.accountNumber, form1099Misc.accountNumber) &&
-        Objects.equals(this.officeCode, form1099Misc.officeCode) &&
-        Objects.equals(this.noTin, form1099Misc.noTin) &&
-        Objects.equals(this.secondTinNotice, form1099Misc.secondTinNotice)&&
-        Objects.equals(this.additionalProperties, form1099Misc.additionalProperties);
+    Form1098T form1098T = (Form1098T) o;
+    return Objects.equals(this.paymentsReceivedForQualifiedTuitionAndRelatedExpenses, form1098T.paymentsReceivedForQualifiedTuitionAndRelatedExpenses) &&
+        Objects.equals(this.adjustmentsMadeForPriorYear, form1098T.adjustmentsMadeForPriorYear) &&
+        Objects.equals(this.scholarshipsOrGrants, form1098T.scholarshipsOrGrants) &&
+        Objects.equals(this.adjustmentsToScholarshipsOrGrantsForPriorYear, form1098T.adjustmentsToScholarshipsOrGrantsForPriorYear) &&
+        Objects.equals(this.includesAmountsForAcademicPeriodBeginningNextYearIndicator, form1098T.includesAmountsForAcademicPeriodBeginningNextYearIndicator) &&
+        Objects.equals(this.atLeastHalfTimeStudentIndicator, form1098T.atLeastHalfTimeStudentIndicator) &&
+        Objects.equals(this.graduateStudentIndicator, form1098T.graduateStudentIndicator) &&
+        Objects.equals(this.insuranceContractReimbursementsOrRefunds, form1098T.insuranceContractReimbursementsOrRefunds) &&
+        Objects.equals(this.type, form1098T.type) &&
+        Objects.equals(this.id, form1098T.id) &&
+        Objects.equals(this.issuerId, form1098T.issuerId) &&
+        Objects.equals(this.issuerReferenceId, form1098T.issuerReferenceId) &&
+        Objects.equals(this.issuerTin, form1098T.issuerTin) &&
+        Objects.equals(this.taxYear, form1098T.taxYear) &&
+        Objects.equals(this.referenceId, form1098T.referenceId) &&
+        Objects.equals(this.tin, form1098T.tin) &&
+        Objects.equals(this.recipientName, form1098T.recipientName) &&
+        Objects.equals(this.address, form1098T.address) &&
+        Objects.equals(this.address2, form1098T.address2) &&
+        Objects.equals(this.city, form1098T.city) &&
+        Objects.equals(this.state, form1098T.state) &&
+        Objects.equals(this.zip, form1098T.zip) &&
+        Objects.equals(this.email, form1098T.email) &&
+        Objects.equals(this.nonUsProvince, form1098T.nonUsProvince) &&
+        Objects.equals(this.countryCode, form1098T.countryCode) &&
+        Objects.equals(this.federalEfileDate, form1098T.federalEfileDate) &&
+        Objects.equals(this.postalMail, form1098T.postalMail) &&
+        Objects.equals(this.stateEfileDate, form1098T.stateEfileDate) &&
+        Objects.equals(this.recipientEdeliveryDate, form1098T.recipientEdeliveryDate) &&
+        Objects.equals(this.tinMatch, form1098T.tinMatch) &&
+        Objects.equals(this.addressVerification, form1098T.addressVerification) &&
+        Objects.equals(this.stateAndLocalWithholding, form1098T.stateAndLocalWithholding) &&
+        Objects.equals(this.federalEfileStatus, form1098T.federalEfileStatus) &&
+        Objects.equals(this.stateEfileStatus, form1098T.stateEfileStatus) &&
+        Objects.equals(this.postalMailStatus, form1098T.postalMailStatus) &&
+        Objects.equals(this.tinMatchStatus, form1098T.tinMatchStatus) &&
+        Objects.equals(this.addressVerificationStatus, form1098T.addressVerificationStatus) &&
+        Objects.equals(this.eDeliveryStatus, form1098T.eDeliveryStatus) &&
+        Objects.equals(this.validationErrors, form1098T.validationErrors) &&
+        Objects.equals(this.createdAt, form1098T.createdAt) &&
+        Objects.equals(this.updatedAt, form1098T.updatedAt) &&
+        Objects.equals(this.tinType, form1098T.tinType) &&
+        Objects.equals(this.businessName, form1098T.businessName) &&
+        Objects.equals(this.businessName2, form1098T.businessName2) &&
+        Objects.equals(this.firstName, form1098T.firstName) &&
+        Objects.equals(this.middleName, form1098T.middleName) &&
+        Objects.equals(this.lastName, form1098T.lastName) &&
+        Objects.equals(this.suffixName, form1098T.suffixName) &&
+        Objects.equals(this.recipientSecondName, form1098T.recipientSecondName) &&
+        Objects.equals(this.accountNumber, form1098T.accountNumber) &&
+        Objects.equals(this.officeCode, form1098T.officeCode) &&
+        Objects.equals(this.noTin, form1098T.noTin) &&
+        Objects.equals(this.secondTinNotice, form1098T.secondTinNotice)&&
+        Objects.equals(this.additionalProperties, form1098T.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1669,7 +1501,7 @@ public class Form1099Misc {
 
   @Override
   public int hashCode() {
-    return Objects.hash(rents, royalties, otherIncome, federalIncomeTaxWithheld, fishingBoatProceeds, medicalAndHealthCarePayments, directSalesIndicator, substitutePayments, cropInsuranceProceeds, grossProceedsPaidToAttorney, fishPurchasedForResale, section409ADeferrals, excessGoldenParachutePayments, nonqualifiedDeferredCompensation, fatcaFilingRequirement, type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, address, address2, city, state, zip, email, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, addressVerification, stateAndLocalWithholding, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt, tinType, businessName, businessName2, firstName, middleName, lastName, suffixName, recipientSecondName, accountNumber, officeCode, noTin, secondTinNotice, additionalProperties);
+    return Objects.hash(paymentsReceivedForQualifiedTuitionAndRelatedExpenses, adjustmentsMadeForPriorYear, scholarshipsOrGrants, adjustmentsToScholarshipsOrGrantsForPriorYear, includesAmountsForAcademicPeriodBeginningNextYearIndicator, atLeastHalfTimeStudentIndicator, graduateStudentIndicator, insuranceContractReimbursementsOrRefunds, type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, address, address2, city, state, zip, email, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, addressVerification, stateAndLocalWithholding, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt, tinType, businessName, businessName2, firstName, middleName, lastName, suffixName, recipientSecondName, accountNumber, officeCode, noTin, secondTinNotice, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1682,22 +1514,15 @@ public class Form1099Misc {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Form1099Misc {\n");
-    sb.append("    rents: ").append(toIndentedString(rents)).append("\n");
-    sb.append("    royalties: ").append(toIndentedString(royalties)).append("\n");
-    sb.append("    otherIncome: ").append(toIndentedString(otherIncome)).append("\n");
-    sb.append("    federalIncomeTaxWithheld: ").append(toIndentedString(federalIncomeTaxWithheld)).append("\n");
-    sb.append("    fishingBoatProceeds: ").append(toIndentedString(fishingBoatProceeds)).append("\n");
-    sb.append("    medicalAndHealthCarePayments: ").append(toIndentedString(medicalAndHealthCarePayments)).append("\n");
-    sb.append("    directSalesIndicator: ").append(toIndentedString(directSalesIndicator)).append("\n");
-    sb.append("    substitutePayments: ").append(toIndentedString(substitutePayments)).append("\n");
-    sb.append("    cropInsuranceProceeds: ").append(toIndentedString(cropInsuranceProceeds)).append("\n");
-    sb.append("    grossProceedsPaidToAttorney: ").append(toIndentedString(grossProceedsPaidToAttorney)).append("\n");
-    sb.append("    fishPurchasedForResale: ").append(toIndentedString(fishPurchasedForResale)).append("\n");
-    sb.append("    section409ADeferrals: ").append(toIndentedString(section409ADeferrals)).append("\n");
-    sb.append("    excessGoldenParachutePayments: ").append(toIndentedString(excessGoldenParachutePayments)).append("\n");
-    sb.append("    nonqualifiedDeferredCompensation: ").append(toIndentedString(nonqualifiedDeferredCompensation)).append("\n");
-    sb.append("    fatcaFilingRequirement: ").append(toIndentedString(fatcaFilingRequirement)).append("\n");
+    sb.append("class Form1098T {\n");
+    sb.append("    paymentsReceivedForQualifiedTuitionAndRelatedExpenses: ").append(toIndentedString(paymentsReceivedForQualifiedTuitionAndRelatedExpenses)).append("\n");
+    sb.append("    adjustmentsMadeForPriorYear: ").append(toIndentedString(adjustmentsMadeForPriorYear)).append("\n");
+    sb.append("    scholarshipsOrGrants: ").append(toIndentedString(scholarshipsOrGrants)).append("\n");
+    sb.append("    adjustmentsToScholarshipsOrGrantsForPriorYear: ").append(toIndentedString(adjustmentsToScholarshipsOrGrantsForPriorYear)).append("\n");
+    sb.append("    includesAmountsForAcademicPeriodBeginningNextYearIndicator: ").append(toIndentedString(includesAmountsForAcademicPeriodBeginningNextYearIndicator)).append("\n");
+    sb.append("    atLeastHalfTimeStudentIndicator: ").append(toIndentedString(atLeastHalfTimeStudentIndicator)).append("\n");
+    sb.append("    graduateStudentIndicator: ").append(toIndentedString(graduateStudentIndicator)).append("\n");
+    sb.append("    insuranceContractReimbursementsOrRefunds: ").append(toIndentedString(insuranceContractReimbursementsOrRefunds)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    issuerId: ").append(toIndentedString(issuerId)).append("\n");
@@ -1824,17 +1649,17 @@ public class Form1099Misc {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Form1099Misc
+   * @throws IOException if the JSON Element is invalid with respect to Form1098T
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!Form1099Misc.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Form1099Misc is not found in the empty JSON string", Form1099Misc.openapiRequiredFields.toString()));
+        if (!Form1098T.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Form1098T is not found in the empty JSON string", Form1098T.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Form1099Misc.openapiRequiredFields) {
+      for (String requiredField : Form1098T.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -1982,16 +1807,16 @@ public class Form1099Misc {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Form1099Misc.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Form1099Misc' and its subtypes
+       if (!Form1098T.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'Form1098T' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Form1099Misc> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Form1099Misc.class));
+       final TypeAdapter<Form1098T> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(Form1098T.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Form1099Misc>() {
+       return (TypeAdapter<T>) new TypeAdapter<Form1098T>() {
            @Override
-           public void write(JsonWriter out, Form1099Misc value) throws IOException {
+           public void write(JsonWriter out, Form1098T value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -2019,12 +1844,12 @@ public class Form1099Misc {
            }
 
            @Override
-           public Form1099Misc read(JsonReader in) throws IOException {
+           public Form1098T read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             Form1099Misc instance = thisAdapter.fromJsonTree(jsonObj);
+             Form1098T instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -2051,18 +1876,18 @@ public class Form1099Misc {
   }
 
   /**
-   * Create an instance of Form1099Misc given an JSON string
+   * Create an instance of Form1098T given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Form1099Misc
-   * @throws IOException if the JSON string is invalid with respect to Form1099Misc
+   * @return An instance of Form1098T
+   * @throws IOException if the JSON string is invalid with respect to Form1098T
    */
-  public static Form1099Misc fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Form1099Misc.class);
+  public static Form1098T fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Form1098T.class);
   }
 
   /**
-   * Convert an instance of Form1099Misc to an JSON string
+   * Convert an instance of Form1098T to an JSON string
    *
    * @return JSON string
    */

@@ -1131,7 +1131,7 @@ public class FormsW9Api {
 
     /**
      * List W9/W4/W8 forms
-     * List W9/W4/W8 forms. Filterable/Sortable fields are: \&quot;companyId\&quot;, \&quot;type\&quot;, \&quot;displayName\&quot;, \&quot;entryStatus\&quot;, \&quot;email\&quot;, \&quot;archived\&quot; and \&quot;referenceId\&quot;.
+     * List W9/W4/W8 forms.  Filterable/Sortable fields are: \&quot;companyId\&quot;, \&quot;type\&quot;, \&quot;displayName\&quot;, \&quot;entryStatus\&quot;, \&quot;email\&quot;, \&quot;archived\&quot;, \&quot;referenceId\&quot;, \&quot;createdAt\&quot;  and \&quot;updatedAt\&quot;.                \&quot;createdAt\&quot; and \&quot;updatedAt\&quot; accept ISO 8601 values and are stored in UTC. Values without an offset are treated as UTC,  and a date-only value means midnight (00:00:00) of that day.                Examples:  &lt;ul&gt;&lt;li&gt;Forms updated on a given day (2026-09-03): updatedAt ge &#39;2026-09-03&#39; and updatedAt lt &#39;2026-09-04&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Forms updated since a given moment (UTC): updatedAt ge &#39;2026-09-03T15:49:35Z&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Forms updated within an interval, with a time zone offset:    updatedAt ge &#39;2026-09-03T08:00:00-05:00&#39; and updatedAt le &#39;2026-09-03T18:00:00-05:00&#39;&lt;/li&gt;&lt;/ul&gt;
      * @param requestOptions Object which represents the options available for a given API/request
      * @return PaginatedQueryResultModelW9FormBaseResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1150,7 +1150,7 @@ public class FormsW9Api {
 
     /**
      * List W9/W4/W8 forms
-     * List W9/W4/W8 forms. Filterable/Sortable fields are: \&quot;companyId\&quot;, \&quot;type\&quot;, \&quot;displayName\&quot;, \&quot;entryStatus\&quot;, \&quot;email\&quot;, \&quot;archived\&quot; and \&quot;referenceId\&quot;.
+     * List W9/W4/W8 forms.  Filterable/Sortable fields are: \&quot;companyId\&quot;, \&quot;type\&quot;, \&quot;displayName\&quot;, \&quot;entryStatus\&quot;, \&quot;email\&quot;, \&quot;archived\&quot;, \&quot;referenceId\&quot;, \&quot;createdAt\&quot;  and \&quot;updatedAt\&quot;.                \&quot;createdAt\&quot; and \&quot;updatedAt\&quot; accept ISO 8601 values and are stored in UTC. Values without an offset are treated as UTC,  and a date-only value means midnight (00:00:00) of that day.                Examples:  &lt;ul&gt;&lt;li&gt;Forms updated on a given day (2026-09-03): updatedAt ge &#39;2026-09-03&#39; and updatedAt lt &#39;2026-09-04&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Forms updated since a given moment (UTC): updatedAt ge &#39;2026-09-03T15:49:35Z&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Forms updated within an interval, with a time zone offset:    updatedAt ge &#39;2026-09-03T08:00:00-05:00&#39; and updatedAt le &#39;2026-09-03T18:00:00-05:00&#39;&lt;/li&gt;&lt;/ul&gt;
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;PaginatedQueryResultModelW9FormBaseResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1170,7 +1170,7 @@ public class FormsW9Api {
 
     /**
      * List W9/W4/W8 forms (asynchronously)
-     * List W9/W4/W8 forms. Filterable/Sortable fields are: \&quot;companyId\&quot;, \&quot;type\&quot;, \&quot;displayName\&quot;, \&quot;entryStatus\&quot;, \&quot;email\&quot;, \&quot;archived\&quot; and \&quot;referenceId\&quot;.
+     * List W9/W4/W8 forms.  Filterable/Sortable fields are: \&quot;companyId\&quot;, \&quot;type\&quot;, \&quot;displayName\&quot;, \&quot;entryStatus\&quot;, \&quot;email\&quot;, \&quot;archived\&quot;, \&quot;referenceId\&quot;, \&quot;createdAt\&quot;  and \&quot;updatedAt\&quot;.                \&quot;createdAt\&quot; and \&quot;updatedAt\&quot; accept ISO 8601 values and are stored in UTC. Values without an offset are treated as UTC,  and a date-only value means midnight (00:00:00) of that day.                Examples:  &lt;ul&gt;&lt;li&gt;Forms updated on a given day (2026-09-03): updatedAt ge &#39;2026-09-03&#39; and updatedAt lt &#39;2026-09-04&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Forms updated since a given moment (UTC): updatedAt ge &#39;2026-09-03T15:49:35Z&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Forms updated within an interval, with a time zone offset:    updatedAt ge &#39;2026-09-03T08:00:00-05:00&#39; and updatedAt le &#39;2026-09-03T18:00:00-05:00&#39;&lt;/li&gt;&lt;/ul&gt;
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1841,7 +1841,7 @@ public class FormsW9Api {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("26.9.1");
+        this.localVarApiClient.setSdkVersion("26.10.0");
     }
 }
 

@@ -1,20 +1,21 @@
 
 
-# Form1099C
+# Form1098T
 
-Form 1099-C: Cancellation of Debt                *Required:* Date of Identifiable Event, Amount of Debt Discharged and Debt Description. The IRS also requires the  Identifiable Event Code.                The Debt Description is limited to 39 characters.                Form 1099-C has no state or local boxes, so `stateAndLocalWithholding` is discarded and reads back as `null`.
+Form 1098-T: Tuition Statement                The recipient is the student and the issuer is the filer (eligible educational institution or insurer).                *Required:* at least one amount above zero (Boxes 1, 4, 5, 6 or 10). Amounts can't be negative; Boxes 4 and 6 are  reductions of prior-year amounts, entered as positive numbers. Boxes 2 and 3 are reserved by the IRS.                Form 1098-T has no state or local boxes, so `stateAndLocalWithholding` is discarded and reads back as `null`.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**dateOfIdentifiableEvent** | **LocalDate** | Date of identifiable event |  |
-|**amountOfDebtDischarged** | **Double** | Amount of debt discharged |  |
-|**interestIncludedInDebtDischarged** | **Double** | Interest, if included in the amount of debt discharged |  [optional] |
-|**debtDescription** | **String** | Debt description (up to 39 characters) |  |
-|**debtorPersonallyLiableIndicator** | **Boolean** | If checked, the debtor was personally liable for repayment of the debt |  [optional] |
-|**identifiableEventCode** | [**IdentifiableEventCodeEnum**](#IdentifiableEventCodeEnum) | Identifiable event code.                * &#x60;A&#x60; - Bankruptcy  * &#x60;B&#x60; - Other judicial debt relief  * &#x60;C&#x60; - Statute of limitations or expiration of deficiency period  * &#x60;D&#x60; - Foreclosure election  * &#x60;E&#x60; - Debt relief from probate or similar proceeding  * &#x60;F&#x60; - By agreement  * &#x60;G&#x60; - Decision or policy to discontinue collection  * &#x60;H&#x60; - Other actual discharge before identifiable event  * &#x60;I&#x60; - Deprecated; retired by the IRS in 2016 and folded into &#x60;H&#x60;. Only valid for prior tax years. |  |
-|**fairMarketValueOfProperty** | **Double** | Fair market value of property |  [optional] |
+|**paymentsReceivedForQualifiedTuitionAndRelatedExpenses** | **Double** | Payments received for qualified tuition and related expenses |  [optional] |
+|**adjustmentsMadeForPriorYear** | **Double** | Adjustments made for a prior year |  [optional] |
+|**scholarshipsOrGrants** | **Double** | Scholarships or grants |  [optional] |
+|**adjustmentsToScholarshipsOrGrantsForPriorYear** | **Double** | Adjustments to scholarships or grants for a prior year |  [optional] |
+|**includesAmountsForAcademicPeriodBeginningNextYearIndicator** | **Boolean** | If checked, the amount in Box 1 includes amounts for an academic period beginning January through March of the  next year |  [optional] |
+|**atLeastHalfTimeStudentIndicator** | **Boolean** | If checked, the student was at least a half-time student during any academic period that began in the tax year |  [optional] |
+|**graduateStudentIndicator** | **Boolean** | If checked, the student was enrolled in a program leading to a graduate degree, certificate or credential |  [optional] |
+|**insuranceContractReimbursementsOrRefunds** | **Double** | Insurance contract reimbursements or refunds (insurers only) |  [optional] |
 |**type** | [**TypeEnum**](#TypeEnum) | Form type. |  |
 |**id** | **String** | Form ID. Unique identifier set when the record is created. |  [optional] [readonly] |
 |**issuerId** | **String** | Issuer ID - only required when creating forms |  [optional] |
@@ -60,22 +61,6 @@ Form 1099-C: Cancellation of Debt                *Required:* Date of Identifiabl
 |**officeCode** | **String** | Office code |  [optional] |
 |**noTin** | **Boolean** | No TIN indicator |  [optional] |
 |**secondTinNotice** | **Boolean** | Second TIN notice |  [optional] |
-
-
-
-## Enum: IdentifiableEventCodeEnum
-
-| Name | Value |
-|---- | -----|
-| A | &quot;A&quot; |
-| B | &quot;B&quot; |
-| C | &quot;C&quot; |
-| D | &quot;D&quot; |
-| E | &quot;E&quot; |
-| F | &quot;F&quot; |
-| G | &quot;G&quot; |
-| H | &quot;H&quot; |
-| I | &quot;I&quot; |
 
 
 

@@ -47,7 +47,7 @@ public class Example {
         TinMatchesApi apiInstance = new TinMatchesApi(apiClient);
         String id = "id_example"; // String | The bulk ID
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "df30781a-da37-45b3-be01-d835e5d0ad8b"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "77d79db6-e884-4ef0-a76d-0c10c41f5993"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             BulkTinMatchResponse result = apiInstance.getBulkTinMatch(id, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -137,7 +137,7 @@ public class Example {
         String $orderBy = "$orderBy_example"; // String | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
         Boolean count = true; // Boolean | If true, return the global count of elements in the collection.
         Boolean countOnly = true; // Boolean | If true, return ONLY the global count of elements in the collection.  It only applies when count=true.
-        String xCorrelationId = "98367ed4-44bb-4254-a388-ec2e63ac293e"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "8bd78a31-95dc-4091-9f0e-fd0647ecc6f5"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             PaginatedQueryResultModelBulkTinMatchResultItemResponse result = apiInstance.getBulkTinMatchResults(id, avalaraVersion, $filter, $top, $skip, $orderBy, count, countOnly, xCorrelationId, xAvalaraClient);
@@ -229,7 +229,7 @@ public class Example {
 
         TinMatchesApi apiInstance = new TinMatchesApi(apiClient);
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "7d625954-787a-4153-8365-45cef8288be1"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "7f2a23f6-59ed-4fb9-95fd-7937e99952f5"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         RealTimeTinMatchRequest realTimeTinMatchRequest = new RealTimeTinMatchRequest(); // RealTimeTinMatchRequest | Required data to perform TIN match
         try {
@@ -316,7 +316,7 @@ public class Example {
 
         TinMatchesApi apiInstance = new TinMatchesApi(apiClient);
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "3f051c64-117a-46f1-b9b5-324064394c6a"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "88b0e4e3-1fd9-437c-9744-753f89dfef9f"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         BulkTinMatchRequest bulkTinMatchRequest = new BulkTinMatchRequest(); // BulkTinMatchRequest | Required TIN collection to perform bulk TIN match
         try {

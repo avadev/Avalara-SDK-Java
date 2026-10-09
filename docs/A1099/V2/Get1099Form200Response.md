@@ -97,6 +97,14 @@
 |**numberOfPropertiesSecuringMortgage** | **Integer** | Number of properties securing the mortgage, if more than one |  [optional] |
 |**otherInformation** | **String** | Other (up to 39 characters), such as real estate taxes or insurance paid from escrow |  [optional] |
 |**mortgageAcquisitionDate** | **LocalDate** | Mortgage acquisition date, if the mortgage was acquired during the tax year |  [optional] |
+|**paymentsReceivedForQualifiedTuitionAndRelatedExpenses** | **Double** | Payments received for qualified tuition and related expenses |  [optional] |
+|**adjustmentsMadeForPriorYear** | **Double** | Adjustments made for a prior year |  [optional] |
+|**scholarshipsOrGrants** | **Double** | Scholarships or grants |  [optional] |
+|**adjustmentsToScholarshipsOrGrantsForPriorYear** | **Double** | Adjustments to scholarships or grants for a prior year |  [optional] |
+|**includesAmountsForAcademicPeriodBeginningNextYearIndicator** | **Boolean** | If checked, the amount in Box 1 includes amounts for an academic period beginning January through March of the  next year |  [optional] |
+|**atLeastHalfTimeStudentIndicator** | **Boolean** | If checked, the student was at least a half-time student during any academic period that began in the tax year |  [optional] |
+|**graduateStudentIndicator** | **Boolean** | If checked, the student was enrolled in a program leading to a graduate degree, certificate or credential |  [optional] |
+|**insuranceContractReimbursementsOrRefunds** | **Double** | Insurance contract reimbursements or refunds (insurers only) |  [optional] |
 |**dateOfIdentifiableEvent** | **LocalDate** | Date of identifiable event |  |
 |**amountOfDebtDischarged** | **Double** | Amount of debt discharged |  |
 |**interestIncludedInDebtDischarged** | **Double** | Interest, if included in the amount of debt discharged |  [optional] |
@@ -179,14 +187,14 @@
 |**workOpportunityCredit** | **Double** | Work opportunity credit |  [optional] |
 |**otherCreditsAndDeductions** | **Double** | Other credits and deductions |  [optional] |
 |**specifiedCooperativeIndicator** | **Boolean** | Indicates the payer is a specified agricultural or horticultural cooperative |  [optional] |
-|**grossDistribution** | **Double** | Gross distribution |  [optional] |
+|**grossDistribution** | **Double** | Gross distribution |  |
 |**taxableAmount** | **Double** | Taxable amount |  [optional] |
 |**taxableAmountNotDetermined** | **Boolean** | Taxable amount not determined |  [optional] |
 |**totalDistributionDetermined** | **Boolean** | Total distribution |  [optional] |
 |**capitalGain** | **Double** | Capital gain (included in Box 2a) |  [optional] |
 |**employeeContributionsOrDesignatedRothOrInsurancePremiums** | **Double** | Employee contributions/Designated Roth contributions or insurance premiums |  [optional] |
 |**netUnrealizedAppreciationInEmployerSecurities** | **Double** | Net unrealized appreciation in employer&#39;s securities |  [optional] |
-|**distributionCode** | [**DistributionCodeEnum**](#DistributionCodeEnum) | Distribution code.    Available values:  - 1: Early distribution, no known exception (in most cases, under age 59½)  - 2: Early distribution, exception applies (under age 59½)  - 3: Disability  - 4: Death  - 5: Prohibited transaction  - 6: Section 1035 exchange (a tax-free exchange of life insurance, annuity, qualified long-term care insurance, or endowment contracts)  - 7: Normal distribution  - 8: Excess contributions plus earnings/excess deferrals (and/or earnings) taxable in payment year  - 9: Cost of current life insurance protection (premiums paid by a trustee or custodian for current insurance protection)  - A: May be eligible for 10-year tax option  - B: Designated Roth account distribution  - C: Reportable Death Benefits Under Section 6050Y(c)  - D: Annuity payments from nonqualified annuity payments and distributions from life insurance contracts that may be subject to tax under section 1411  - E: Distribution under Employee Plans Compliance Resolution System (EPCRS)  - F: Charitable gift annuity  - G: Direct rollover and rollover contribution  - H: Direct rollover of distribution from a designated Roth account to a Roth IRA  - J: Early distribution from a Roth IRA (This code may be used with a Code 8 or P)  - K: Distribution of IRA Assets Not Having A Readily Available FMV  - L: Loans treated as deemed distributions under section 72(p)  - M: Qualified Plan Loan Offsets  - N: Recharacterized IRA contribution made for year following payment year  - P: Excess contributions plus earnings/excess deferrals taxable for year prior to payment year  - Q: Qualified distribution from a Roth IRA (Distribution from a Roth IRA when the 5-year holding period has been met, and the recipient has reached 59½, has died, or is disabled)  - R: Recharacterized IRA contribution made for year prior to payment year  - S: Early distribution from a SIMPLE IRA in first 2 years no known exceptions  - T: Roth IRA distribution exception applies because participant has reached 59½, died or is disabled, but it is unknown if the 5-year period has been met  - U: Distribution from ESOP under Section 404(k)  - W: Charges or payments for purchasing qualified long-term care insurance contracts under combined arrangements  - Y: Qualified charitable distribution (QCD) claimed under section 408(d)(8) (Available for 2025 on) |  |
+|**distributionCode** | [**DistributionCodeEnum**](#DistributionCodeEnum) | Distribution code.                * &#x60;1&#x60; - Normal distributions  * &#x60;2&#x60; - Excess contributions  * &#x60;3&#x60; - Disability  * &#x60;4&#x60; - Death distribution other than code 6  * &#x60;5&#x60; - Prohibited transaction  * &#x60;6&#x60; - Death distribution after year of death to a nonspouse beneficiary |  |
 |**secondDistributionCode** | [**SecondDistributionCodeEnum**](#SecondDistributionCodeEnum) | Second distribution code. Must be a valid combination with the first distribution code.  See DistributionCode property documentation for code descriptions.    Valid combinations based on first distribution code:  - 1: _, 8, B, D, K, L, M, P  - 2: _, 8, B, D, K, L, M, P  - 3: _, D  - 4: _, 8, A, B, D, G, H, K, L, M, P  - 5: _  - 6: _, W  - 7: _, A, B, D, K, L, M  - 8: _, 1, 2, 4, B, J, K  - 9: _  - A: 4, 7  - B: _, 1, 2, 4, 7, 8, G, L, M, P, U  - C: _, D  - D: 1, 2, 3, 4, 7, C  - E: _  - F: _  - G: _, 4, B, K  - H: _, 4  - J: _, 8, P  - K: 1, 2, 4, 7, 8, G  - L: _, 1, 2, 4, 7, B  - M: _, 1, 2, 4, 7, B  - N: _  - P: _, 1, 2, 4, B, J  - Q: _  - R: _  - S: _  - T: _  - U: _, B  - W: _, 6  - Y: 4, 7, K                (_ indicates no second distribution code)    (format: firstDistributionCode: availableSecondDistributionCodes) |  [optional] |
 |**iraSepSimple** | **Boolean** | IRA/SEP/SIMPLE |  [optional] |
 |**traditionalIraSepSimpleOrRothConversionAmount** | **Double** | Traditional IRA/SEP/SIMPLE or Roth conversion amount |  [optional] |
@@ -203,6 +211,11 @@
 |**transferorReceivedPropertyOrServicesIndicator** | **Boolean** | If checked, the transferor received or will receive property or services as part of the consideration |  [optional] |
 |**transferorIsForeignPersonIndicator** | **Boolean** | If checked, the transferor is a foreign person (nonresident alien, foreign partnership, foreign estate or foreign trust) |  [optional] |
 |**buyersPartOfRealEstateTax** | **Double** | Buyer&#39;s part of real estate tax |  [optional] |
+|**earningsOnExcessContributions** | **Double** | Earnings on excess contributions |  [optional] |
+|**fairMarketValueOnDateOfDeath** | **Double** | Fair market value (FMV) of the account on the date of death |  [optional] |
+|**hsaIndicator** | **Boolean** | If checked, the account is a health savings account (HSA). Exactly one account type indicator must be checked. |  [optional] |
+|**archerMsaIndicator** | **Boolean** | If checked, the account is an Archer medical savings account (MSA). Exactly one account type indicator must be checked. |  [optional] |
+|**medicareAdvantageMsaIndicator** | **Boolean** | If checked, the account is a Medicare Advantage MSA. Exactly one account type indicator must be checked. |  [optional] |
 |**wages** | **Double** | Wages, tips, other compensation. |  [optional] |
 |**socialSecurityWages** | **Double** | Social security wages. |  [optional] |
 |**socialSecurityTaxWithheld** | **Double** | Social security tax withheld. |  [optional] |
@@ -503,6 +516,7 @@
 | _1095_B | &quot;1095-B&quot; |
 | _1095_C | &quot;1095-C&quot; |
 | _1098 | &quot;1098&quot; |
+| _1098_T | &quot;1098-T&quot; |
 | _1099_C | &quot;1099-C&quot; |
 | _1099_DIV | &quot;1099-DIV&quot; |
 | _1099_INT | &quot;1099-INT&quot; |
@@ -512,6 +526,7 @@
 | _1099_PATR | &quot;1099-PATR&quot; |
 | _1099_R | &quot;1099-R&quot; |
 | _1099_S | &quot;1099-S&quot; |
+| _1099_SA | &quot;1099-SA&quot; |
 | W_2 | &quot;W-2&quot; |
 
 
@@ -608,30 +623,6 @@
 | _4 | &quot;4&quot; |
 | _5 | &quot;5&quot; |
 | _6 | &quot;6&quot; |
-| _7 | &quot;7&quot; |
-| _8 | &quot;8&quot; |
-| _9 | &quot;9&quot; |
-| A | &quot;A&quot; |
-| B | &quot;B&quot; |
-| C | &quot;C&quot; |
-| D | &quot;D&quot; |
-| E | &quot;E&quot; |
-| F | &quot;F&quot; |
-| G | &quot;G&quot; |
-| H | &quot;H&quot; |
-| J | &quot;J&quot; |
-| K | &quot;K&quot; |
-| L | &quot;L&quot; |
-| M | &quot;M&quot; |
-| N | &quot;N&quot; |
-| P | &quot;P&quot; |
-| Q | &quot;Q&quot; |
-| R | &quot;R&quot; |
-| S | &quot;S&quot; |
-| T | &quot;T&quot; |
-| U | &quot;U&quot; |
-| W | &quot;W&quot; |
-| Y | &quot;Y&quot; |
 
 
 

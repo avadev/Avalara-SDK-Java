@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**deleteIssuer**](Issuers1099Api.md#deleteIssuer) | **DELETE** /1099/issuers/{id} | Delete an issuer
 [**getIssuer**](Issuers1099Api.md#getIssuer) | **GET** /1099/issuers/{id} | Retrieve an issuer
 [**getIssuers**](Issuers1099Api.md#getIssuers) | **GET** /1099/issuers | List issuers
+[**resubmitRejectedForms**](Issuers1099Api.md#resubmitRejectedForms) | **POST** /1099/issuers/{issuerId}/$resubmit-rejected-forms | Request a replacement submission for an issuer&#39;s rejected forms
 [**updateIssuer**](Issuers1099Api.md#updateIssuer) | **PUT** /1099/issuers/{id} | Update an issuer
 
 
@@ -49,7 +50,7 @@ public class Example {
 
         Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "020085b2-ced8-4d4e-8d8e-aac8901ba664"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "5ae71043-1efc-47f3-931c-194f239999b9"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         IssuerRequest issuerRequest = new IssuerRequest(); // IssuerRequest | The issuer to create
         try {
@@ -136,7 +137,7 @@ public class Example {
         Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
         String id = "id_example"; // String | Id of the issuer to delete
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "eeca9729-5b2f-4ba1-a3c7-bf49c3705b52"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "f7a15738-d958-4708-aad8-eac25b686d81"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             apiInstance.deleteIssuer(id, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -221,7 +222,7 @@ public class Example {
         Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
         String id = "id_example"; // String | Id of the issuer to retrieve
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "1ba68926-014a-4e57-ac33-5120f7d67ad5"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "27ab9711-3475-41e4-b82a-2b7ce52ca884"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             IssuerResponse result = apiInstance.getIssuer(id, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -312,7 +313,7 @@ public class Example {
         String $orderBy = "$orderBy_example"; // String | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
         Boolean count = true; // Boolean | If true, return the global count of elements in the collection.
         Boolean countOnly = true; // Boolean | If true, return ONLY the global count of elements in the collection.  It only applies when count=true.
-        String xCorrelationId = "0b7d8a8b-c34a-48e3-bf9e-86c475547496"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "1dbcdaf4-7ea0-46e9-b83c-b663e6178568"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             PaginatedQueryResultModelIssuerResponse result = apiInstance.getIssuers(avalaraVersion, $filter, $top, $skip, $orderBy, count, countOnly, xCorrelationId, xAvalaraClient);
@@ -367,6 +368,93 @@ Name | Type | Description  | Notes
 | **401** | Authentication failed |  -  |
 
 
+## resubmitRejectedForms
+
+> ResubmitRejectedFormsResponse resubmitRejectedForms(issuerId, avalaraVersion, xCorrelationId, xAvalaraClient)
+
+Request a replacement submission for an issuer&#39;s rejected forms
+
+Mirrors the UI&#39;s \&quot;Resubmit Rejected Forms\&quot; action: schedules a replacement submission for every one  of the issuer&#39;s forms currently in Rejected or RejectedWithErrors status, in a single action. There  is no per-form or per-submission selection. This call only schedules the resubmission — actual  transmission to the IRS remains asynchronous and batch-driven.
+
+### Example
+
+```java
+// Import classes:
+import Avalara.SDK.ApiClient;
+import Avalara.SDK.ApiException;
+import Avalara.SDK.Configuration;
+import Avalara.SDK.auth.*;
+import Avalara.SDK.models.*;
+import Avalara.SDK.api.A1099.V2.Issuers1099Api;
+
+public class Example {
+    public static void main(String[] args) {
+        Configuration configuration = new Configuration();
+        configuration.setAppName("Test");
+        configuration.setAppVersion("1.0");
+        configuration.setMachineName("LocalBox");
+        configuration.setTimeout(5000);
+        configuration.setEnvironment(AvaTaxEnvironment.Sandbox);
+        // Configure HTTP basic authorization
+        configuration.setUsername("YOUR USERNAME");
+        configuration.setPassword("YOUR PASSWORD");
+        // Configure OAuth2 access token for authorization
+        configuration.setBearerToken("YOUR ACCESS TOKEN");
+        
+        ApiClient apiClient = new ApiClient(configuration);
+
+        Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
+        Long issuerId = 56L; // Long | Id of the issuer whose rejected forms should be resubmitted
+        String avalaraVersion = "2.0.0"; // String | API version
+        String xCorrelationId = "0520f85b-11b0-4246-953f-e06f87029486"; // String | Unique correlation Id in a GUID format
+        String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
+        try {
+            ResubmitRejectedFormsResponse result = apiInstance.resubmitRejectedForms(issuerId, avalaraVersion, xCorrelationId, xAvalaraClient);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling Issuers1099Api#resubmitRejectedForms");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **issuerId** | **Long**| Id of the issuer whose rejected forms should be resubmitted |
+ **avalaraVersion** | **String**| API version |
+ **xCorrelationId** | **String**| Unique correlation Id in a GUID format | [optional]
+ **xAvalaraClient** | **String**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional]
+
+### Return type
+
+[**ResubmitRejectedFormsResponse**](ResubmitRejectedFormsResponse.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Rejected forms scheduled for replacement submission |  -  |
+| **401** | Authentication failed |  -  |
+| **403** | Caller does not have access to this issuer |  -  |
+| **404** | Issuer has no forms in Rejected or RejectedWithErrors status |  -  |
+
+
 ## updateIssuer
 
 > IssuerWriteResponse updateIssuer(id, avalaraVersion, xCorrelationId, xAvalaraClient, issuerRequest)
@@ -405,7 +493,7 @@ public class Example {
         Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
         String id = "id_example"; // String | Id of the issuer to update
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "5dcb2f2c-e12d-4e11-aeaa-dfbd23bbe954"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "542fb8dd-e4ec-49c2-aef5-f9159dd46aaf"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         IssuerRequest issuerRequest = new IssuerRequest(); // IssuerRequest | The issuer to update
         try {
