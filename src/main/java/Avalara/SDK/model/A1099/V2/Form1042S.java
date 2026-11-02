@@ -20,6 +20,7 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
+import Avalara.SDK.model.A1099.V2.FederalEfileStatusDetail;
 import Avalara.SDK.model.A1099.V2.Form1099StatusDetail;
 import Avalara.SDK.model.A1099.V2.IntermediaryOrFlowThrough;
 import Avalara.SDK.model.A1099.V2.PrimaryWithholdingAgent;
@@ -975,11 +976,17 @@ public class Form1042S {
     
     _1098("1098"),
     
+    _1098_E("1098-E"),
+    
     _1098_T("1098-T"),
+    
+    _1099_B("1099-B"),
     
     _1099_C("1099-C"),
     
     _1099_DIV("1099-DIV"),
+    
+    _1099_G("1099-G"),
     
     _1099_INT("1099-INT"),
     
@@ -997,7 +1004,11 @@ public class Form1042S {
     
     _1099_SA("1099-SA"),
     
-    W_2("W-2");
+    _5498("5498"),
+    
+    W_2("W-2"),
+    
+    W_2_G("W-2G");
 
     private String value;
 
@@ -1141,7 +1152,7 @@ public class Form1042S {
 
   public static final String SERIALIZED_NAME_FEDERAL_EFILE_STATUS = "federalEfileStatus";
   @SerializedName(SERIALIZED_NAME_FEDERAL_EFILE_STATUS)
-  private Form1099StatusDetail federalEfileStatus;
+  private FederalEfileStatusDetail federalEfileStatus;
 
   public static final String SERIALIZED_NAME_STATE_EFILE_STATUS = "stateEfileStatus";
   @SerializedName(SERIALIZED_NAME_STATE_EFILE_STATUS)
@@ -1291,7 +1302,7 @@ public class Form1042S {
 
   public Form1042S(
      String id, 
-     Form1099StatusDetail federalEfileStatus, 
+     FederalEfileStatusDetail federalEfileStatus, 
      List<StateEfileStatusDetail> stateEfileStatus, 
      Form1099StatusDetail postalMailStatus, 
      Form1099StatusDetail tinMatchStatus, 
@@ -2223,11 +2234,11 @@ public class Form1042S {
 
 
   /**
-   * Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states)
+   * Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states)  When the form&#39;s most recent IRIS filing was rejected or accepted with errors, &#x60;errors&#x60; lists what the IRS reported.
    * @return federalEfileStatus
    */
   @javax.annotation.Nullable
-  public Form1099StatusDetail getFederalEfileStatus() {
+  public FederalEfileStatusDetail getFederalEfileStatus() {
     return federalEfileStatus;
   }
 
@@ -2998,7 +3009,7 @@ public class Form1042S {
       }
       // validate the optional field `federalEfileStatus`
       if (jsonObj.get("federalEfileStatus") != null && !jsonObj.get("federalEfileStatus").isJsonNull()) {
-        Form1099StatusDetail.validateJsonElement(jsonObj.get("federalEfileStatus"));
+        FederalEfileStatusDetail.validateJsonElement(jsonObj.get("federalEfileStatus"));
       }
       if (jsonObj.get("stateEfileStatus") != null && !jsonObj.get("stateEfileStatus").isJsonNull()) {
         JsonArray jsonArraystateEfileStatus = jsonObj.getAsJsonArray("stateEfileStatus");

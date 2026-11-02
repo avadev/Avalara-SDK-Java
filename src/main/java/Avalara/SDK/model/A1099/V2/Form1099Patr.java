@@ -20,6 +20,7 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
+import Avalara.SDK.model.A1099.V2.FederalEfileStatusDetail;
 import Avalara.SDK.model.A1099.V2.Form1099StatusDetail;
 import Avalara.SDK.model.A1099.V2.StateAndLocalWithholding;
 import Avalara.SDK.model.A1099.V2.StateEfileStatusDetail;
@@ -62,7 +63,7 @@ import java.util.Set;
 import Avalara.SDK.JSON;
 
 /**
- * Form 1099-PATR: Taxable Distributions Received From Cooperatives                *At least one of the following amounts must be greater than zero:*  Patronage Dividends, Nonpatronage Distributions, Per-Unit Retain Allocations, or Redeemed Nonqualified Notices.                Federal Income Tax Withheld, when provided, must be less than the total of those four amounts.                Specified Cooperative may only be set when at least one of Qualified Payments,  Section 199A(a) Qualified Items, or Section 199A(a) SSTB Items is provided.                Form 1099-PATR has no state or local withholding boxes. &#x60;stateAndLocalWithholding&#x60; is not supported for this  form type on any endpoint: a supplied value is discarded rather than stored, and the field always reads back  as &#x60;null&#x60;.
+ * Form 1099-PATR: Taxable Distributions Received From Cooperatives                *At least one of the following amounts must be greater than zero:*  Patronage Dividends, Nonpatronage Distributions, Per-Unit Retain Allocations, or Redeemed Nonqualified Notices.                Federal Income Tax Withheld, when provided, must be less than the total of those four amounts.  The Section 199A(g) deduction cannot exceed 9% of Qualified Payments.  Other credits and deductions (Box 12), when greater than zero, must be itemized under the  specific credit or deduction. This API does not expose those itemized fields, so a non-zero  Box 12 is rejected downstream.                Specified Cooperative may only be set when at least one of Qualified Payments,  Section 199A(a) Qualified Items, or Section 199A(a) SSTB Items is provided.                Form 1099-PATR has no state or local withholding boxes. &#x60;stateAndLocalWithholding&#x60; is not supported for this  form type on any endpoint: a supplied value is discarded rather than stored, and the field always reads back  as &#x60;null&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Form1099Patr {
@@ -131,11 +132,17 @@ public class Form1099Patr {
     
     _1098("1098"),
     
+    _1098_E("1098-E"),
+    
     _1098_T("1098-T"),
+    
+    _1099_B("1099-B"),
     
     _1099_C("1099-C"),
     
     _1099_DIV("1099-DIV"),
+    
+    _1099_G("1099-G"),
     
     _1099_INT("1099-INT"),
     
@@ -153,7 +160,11 @@ public class Form1099Patr {
     
     _1099_SA("1099-SA"),
     
-    W_2("W-2");
+    _5498("5498"),
+    
+    W_2("W-2"),
+    
+    W_2_G("W-2G");
 
     private String value;
 
@@ -297,7 +308,7 @@ public class Form1099Patr {
 
   public static final String SERIALIZED_NAME_FEDERAL_EFILE_STATUS = "federalEfileStatus";
   @SerializedName(SERIALIZED_NAME_FEDERAL_EFILE_STATUS)
-  private Form1099StatusDetail federalEfileStatus;
+  private FederalEfileStatusDetail federalEfileStatus;
 
   public static final String SERIALIZED_NAME_STATE_EFILE_STATUS = "stateEfileStatus";
   @SerializedName(SERIALIZED_NAME_STATE_EFILE_STATUS)
@@ -447,7 +458,7 @@ public class Form1099Patr {
 
   public Form1099Patr(
      String id, 
-     Form1099StatusDetail federalEfileStatus, 
+     FederalEfileStatusDetail federalEfileStatus, 
      List<StateEfileStatusDetail> stateEfileStatus, 
      Form1099StatusDetail postalMailStatus, 
      Form1099StatusDetail tinMatchStatus, 
@@ -685,7 +696,7 @@ public class Form1099Patr {
   }
 
   /**
-   * Other credits and deductions
+   * Other credits and deductions (Box 12). Leave at zero unless the amount is itemized  downstream under the specific credit or deduction it belongs to.
    * @return otherCreditsAndDeductions
    */
   @javax.annotation.Nullable
@@ -1170,11 +1181,11 @@ public class Form1099Patr {
 
 
   /**
-   * Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states)
+   * Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states)  When the form&#39;s most recent IRIS filing was rejected or accepted with errors, &#x60;errors&#x60; lists what the IRS reported.
    * @return federalEfileStatus
    */
   @javax.annotation.Nullable
-  public Form1099StatusDetail getFederalEfileStatus() {
+  public FederalEfileStatusDetail getFederalEfileStatus() {
     return federalEfileStatus;
   }
 
@@ -1846,7 +1857,7 @@ public class Form1099Patr {
       }
       // validate the optional field `federalEfileStatus`
       if (jsonObj.get("federalEfileStatus") != null && !jsonObj.get("federalEfileStatus").isJsonNull()) {
-        Form1099StatusDetail.validateJsonElement(jsonObj.get("federalEfileStatus"));
+        FederalEfileStatusDetail.validateJsonElement(jsonObj.get("federalEfileStatus"));
       }
       if (jsonObj.get("stateEfileStatus") != null && !jsonObj.get("stateEfileStatus").isJsonNull()) {
         JsonArray jsonArraystateEfileStatus = jsonObj.getAsJsonArray("stateEfileStatus");

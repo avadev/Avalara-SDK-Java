@@ -88,6 +88,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created issuer </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -176,6 +177,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created issuer </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -195,6 +197,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created issuer </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -216,6 +219,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created issuer </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -272,6 +276,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Empty response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -365,6 +370,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Empty response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -383,6 +389,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Empty response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -403,6 +410,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Empty response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -458,6 +466,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Single issuer </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -552,6 +561,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Single issuer </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -571,6 +581,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Single issuer </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -592,6 +603,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Single issuer </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -648,6 +660,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> List of issuers </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -755,13 +768,14 @@ public class Issuers1099Api {
 
     /**
      * List issuers
-     * List issuers (also known as Payers). Filterable fields are businessName, businessName2, referenceId, taxYear, firstName, and lastName.
+     * List issuers (also known as Payers).  Filterable fields are businessName, businessName2, referenceId, taxYear, firstName, lastName, createdAt and updatedAt.                \&quot;createdAt\&quot; and \&quot;updatedAt\&quot; accept ISO 8601 values and are stored in UTC. Values without an offset are treated as UTC,  and a date-only value means midnight (00:00:00) of that day.                Examples:  &lt;ul&gt;&lt;li&gt;Issuers updated on a given day (2026-09-03): updatedAt ge &#39;2026-09-03&#39; and updatedAt lt &#39;2026-09-04&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Issuers updated since a given moment (UTC): updatedAt ge &#39;2026-09-03T15:49:35Z&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Issuers updated within an interval, with a time zone offset:    updatedAt ge &#39;2026-09-03T08:00:00-05:00&#39; and updatedAt le &#39;2026-09-03T18:00:00-05:00&#39;&lt;/li&gt;&lt;/ul&gt;
      * @param requestOptions Object which represents the options available for a given API/request
      * @return PaginatedQueryResultModelIssuerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> List of issuers </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -776,13 +790,14 @@ public class Issuers1099Api {
 
     /**
      * List issuers
-     * List issuers (also known as Payers). Filterable fields are businessName, businessName2, referenceId, taxYear, firstName, and lastName.
+     * List issuers (also known as Payers).  Filterable fields are businessName, businessName2, referenceId, taxYear, firstName, lastName, createdAt and updatedAt.                \&quot;createdAt\&quot; and \&quot;updatedAt\&quot; accept ISO 8601 values and are stored in UTC. Values without an offset are treated as UTC,  and a date-only value means midnight (00:00:00) of that day.                Examples:  &lt;ul&gt;&lt;li&gt;Issuers updated on a given day (2026-09-03): updatedAt ge &#39;2026-09-03&#39; and updatedAt lt &#39;2026-09-04&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Issuers updated since a given moment (UTC): updatedAt ge &#39;2026-09-03T15:49:35Z&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Issuers updated within an interval, with a time zone offset:    updatedAt ge &#39;2026-09-03T08:00:00-05:00&#39; and updatedAt le &#39;2026-09-03T18:00:00-05:00&#39;&lt;/li&gt;&lt;/ul&gt;
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;PaginatedQueryResultModelIssuerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> List of issuers </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -798,7 +813,7 @@ public class Issuers1099Api {
 
     /**
      * List issuers (asynchronously)
-     * List issuers (also known as Payers). Filterable fields are businessName, businessName2, referenceId, taxYear, firstName, and lastName.
+     * List issuers (also known as Payers).  Filterable fields are businessName, businessName2, referenceId, taxYear, firstName, lastName, createdAt and updatedAt.                \&quot;createdAt\&quot; and \&quot;updatedAt\&quot; accept ISO 8601 values and are stored in UTC. Values without an offset are treated as UTC,  and a date-only value means midnight (00:00:00) of that day.                Examples:  &lt;ul&gt;&lt;li&gt;Issuers updated on a given day (2026-09-03): updatedAt ge &#39;2026-09-03&#39; and updatedAt lt &#39;2026-09-04&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Issuers updated since a given moment (UTC): updatedAt ge &#39;2026-09-03T15:49:35Z&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Issuers updated within an interval, with a time zone offset:    updatedAt ge &#39;2026-09-03T08:00:00-05:00&#39; and updatedAt le &#39;2026-09-03T18:00:00-05:00&#39;&lt;/li&gt;&lt;/ul&gt;
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -806,6 +821,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> List of issuers </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -884,6 +900,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Rejected forms scheduled for replacement submission </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Caller does not have access to this issuer </td><td>  -  </td></tr>
@@ -979,6 +996,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Rejected forms scheduled for replacement submission </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Caller does not have access to this issuer </td><td>  -  </td></tr>
@@ -999,6 +1017,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Rejected forms scheduled for replacement submission </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Caller does not have access to this issuer </td><td>  -  </td></tr>
@@ -1021,6 +1040,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Rejected forms scheduled for replacement submission </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Caller does not have access to this issuer </td><td>  -  </td></tr>
@@ -1078,6 +1098,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Issuer updated. Body may contain &#x60;validationErrors[]&#x60; when business rules failed. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Invalid id format, malformed JSON, or identity change rejected for an issuer with scheduled Forms 1099 (TIN, TIN type, or name are immutable in that case). </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1174,6 +1195,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Issuer updated. Body may contain &#x60;validationErrors[]&#x60; when business rules failed. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Invalid id format, malformed JSON, or identity change rejected for an issuer with scheduled Forms 1099 (TIN, TIN type, or name are immutable in that case). </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1195,6 +1217,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Issuer updated. Body may contain &#x60;validationErrors[]&#x60; when business rules failed. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Invalid id format, malformed JSON, or identity change rejected for an issuer with scheduled Forms 1099 (TIN, TIN type, or name are immutable in that case). </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1218,6 +1241,7 @@ public class Issuers1099Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Issuer updated. Body may contain &#x60;validationErrors[]&#x60; when business rules failed. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Invalid id format, malformed JSON, or identity change rejected for an issuer with scheduled Forms 1099 (TIN, TIN type, or name are immutable in that case). </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1273,7 +1297,7 @@ public class Issuers1099Api {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("26.10.0");
+        this.localVarApiClient.setSdkVersion("26.11.0");
     }
 }
 

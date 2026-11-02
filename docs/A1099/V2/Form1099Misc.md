@@ -20,7 +20,11 @@ Form 1099-MISC: Miscellaneous Income    *At least one of the following amounts m
 |**grossProceedsPaidToAttorney** | **Double** | Gross proceeds paid to an attorney |  [optional] |
 |**fishPurchasedForResale** | **Double** | Fish purchased for resale |  [optional] |
 |**section409ADeferrals** | **Double** | Section 409A deferrals |  [optional] |
-|**excessGoldenParachutePayments** | **Double** | Excess golden parachute payments - Available only for tax year 2024 and earlier |  [optional] |
+|**cashTips** | **Double** | Box 13a. Cash tips, including tips paid in cash or charged by customers - Available only for tax year 2026 and later. |  [optional] |
+|**treasuryTippedOccupationCode** | **String** | Box 13b. Treasury Tipped Occupation Code (TTOC) for the recipient&#39;s tipped occupation - Available only for tax year 2026 and later.  A three-digit, zero-padded code from the IRS enumeration: 000 (tips received in a nonqualifying occupation), 101-110, 201-211, 301-304,  401-409, 501-508, 601-611, 701-706, or 801-809. The form accepts up to two codes - see TreasuryTippedOccupationCode2 for the second.  Send the code exactly as three characters (\&quot;001\&quot;, not \&quot;1\&quot;); leading zeros are not restored for you. Watch for spreadsheet software  that strips leading zeros when a code is exported to CSV and re-imported. |  [optional] |
+|**treasuryTippedOccupationCode2** | **String** | Box 13b. Second Treasury Tipped Occupation Code (TTOC) - Available only for tax year 2026 and later.  Same three-digit code list and formatting rules as TreasuryTippedOccupationCode, and must differ from it. |  [optional] |
+|**overtimeCompensation** | **Double** | Box 14. Qualified overtime compensation - Available only for tax year 2026 and later. Named \&quot;Box 14 Excess golden parachute  payments\&quot; on revisions of the form before the December 2026 revision - see ExcessGoldenParachutePayments for that field. |  [optional] |
+|**excessGoldenParachutePayments** | **Double** | Excess golden parachute payments - Available only for tax year 2024 and earlier. Was \&quot;Box 14\&quot; on those earlier revisions;  the December 2026 revision reassigns Box 14 to OvertimeCompensation. |  [optional] |
 |**nonqualifiedDeferredCompensation** | **Double** | Nonqualified deferred compensation |  [optional] |
 |**fatcaFilingRequirement** | **Boolean** | FATCA filing requirement. |  [optional] |
 |**type** | [**TypeEnum**](#TypeEnum) | Form type. |  |
@@ -47,7 +51,7 @@ Form 1099-MISC: Miscellaneous Income    *At least one of the following amounts m
 |**tinMatch** | **Boolean** | Boolean indicating that TIN Matching should be scheduled for this form |  [optional] |
 |**addressVerification** | **Boolean** | Boolean indicating that address verification should be scheduled for this form |  [optional] |
 |**stateAndLocalWithholding** | [**StateAndLocalWithholding**](StateAndLocalWithholding.md) | State and local withholding information |  [optional] |
-|**federalEfileStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states) |  [optional] [readonly] |
+|**federalEfileStatus** | [**FederalEfileStatusDetail**](FederalEfileStatusDetail.md) | Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states)  When the form&#39;s most recent IRIS filing was rejected or accepted with errors, &#x60;errors&#x60; lists what the IRS reported. |  [optional] [readonly] |
 |**stateEfileStatus** | [**List&lt;StateEfileStatusDetail&gt;**](StateEfileStatusDetail.md) | State e-file status.  Available values:  - unscheduled: Form has not been scheduled for state e-filing  - scheduled: Form is scheduled for state e-filing  - airlocked: Form is in process of being uploaded to the state  - sent: Form has been sent to the state  - rejected: Form was rejected by the state  - accepted: Form was accepted by the state  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlocked: Correction is in process of being uploaded to the state  - corrected_sent: Correction has been sent to the state  - corrected_rejected: Correction was rejected by the state  - corrected_accepted: Correction was accepted by the state |  [optional] [readonly] |
 |**postalMailStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | Postal mail to recipient status.  Available values:  - unscheduled: Postal mail has not been scheduled  - pending: Postal mail is pending to be sent  - sent: Postal mail has been sent  - delivered: Postal mail has been delivered |  [optional] [readonly] |
 |**tinMatchStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | TIN Match status.  Available values:  - none: TIN matching has not been performed  - pending: TIN matching request is pending  - matched: Name/TIN combination matches IRS records  - unknown: TIN is missing, invalid, or request contains errors  - rejected: Name/TIN combination does not match IRS records or TIN not currently issued |  [optional] [readonly] |
@@ -79,9 +83,12 @@ Form 1099-MISC: Miscellaneous Income    *At least one of the following amounts m
 | _1095_B | &quot;1095-B&quot; |
 | _1095_C | &quot;1095-C&quot; |
 | _1098 | &quot;1098&quot; |
+| _1098_E | &quot;1098-E&quot; |
 | _1098_T | &quot;1098-T&quot; |
+| _1099_B | &quot;1099-B&quot; |
 | _1099_C | &quot;1099-C&quot; |
 | _1099_DIV | &quot;1099-DIV&quot; |
+| _1099_G | &quot;1099-G&quot; |
 | _1099_INT | &quot;1099-INT&quot; |
 | _1099_K | &quot;1099-K&quot; |
 | _1099_MISC | &quot;1099-MISC&quot; |
@@ -90,7 +97,9 @@ Form 1099-MISC: Miscellaneous Income    *At least one of the following amounts m
 | _1099_R | &quot;1099-R&quot; |
 | _1099_S | &quot;1099-S&quot; |
 | _1099_SA | &quot;1099-SA&quot; |
+| _5498 | &quot;5498&quot; |
 | W_2 | &quot;W-2&quot; |
+| W_2_G | &quot;W-2G&quot; |
 
 
 

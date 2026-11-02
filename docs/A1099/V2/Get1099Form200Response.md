@@ -55,7 +55,7 @@
 |**tinMatch** | **Boolean** | Boolean indicating that TIN Matching should be scheduled for this form |  [optional] |
 |**addressVerification** | **Boolean** | Boolean indicating that address verification should be scheduled for this form |  [optional] |
 |**stateAndLocalWithholding** | [**StateAndLocalWithholding**](StateAndLocalWithholding.md) | State and local withholding information |  [optional] |
-|**federalEfileStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states) |  [optional] [readonly] |
+|**federalEfileStatus** | [**FederalEfileStatusDetail**](FederalEfileStatusDetail.md) | Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states)  When the form&#39;s most recent IRIS filing was rejected or accepted with errors, &#x60;errors&#x60; lists what the IRS reported. |  [optional] [readonly] |
 |**stateEfileStatus** | [**List&lt;StateEfileStatusDetail&gt;**](StateEfileStatusDetail.md) | State e-file status.  Available values:  - unscheduled: Form has not been scheduled for state e-filing  - scheduled: Form is scheduled for state e-filing  - airlocked: Form is in process of being uploaded to the state  - sent: Form has been sent to the state  - rejected: Form was rejected by the state  - accepted: Form was accepted by the state  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlocked: Correction is in process of being uploaded to the state  - corrected_sent: Correction has been sent to the state  - corrected_rejected: Correction was rejected by the state  - corrected_accepted: Correction was accepted by the state |  [optional] [readonly] |
 |**postalMailStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | Postal mail to recipient status.  Available values:  - unscheduled: Postal mail has not been scheduled  - pending: Postal mail is pending to be sent  - sent: Postal mail has been sent  - delivered: Postal mail has been delivered |  [optional] [readonly] |
 |**tinMatchStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) | TIN Match status.  Available values:  - none: TIN matching has not been performed  - pending: TIN matching request is pending  - matched: Name/TIN combination matches IRS records  - unknown: TIN is missing, invalid, or request contains errors  - rejected: Name/TIN combination does not match IRS records or TIN not currently issued |  [optional] [readonly] |
@@ -97,6 +97,8 @@
 |**numberOfPropertiesSecuringMortgage** | **Integer** | Number of properties securing the mortgage, if more than one |  [optional] |
 |**otherInformation** | **String** | Other (up to 39 characters), such as real estate taxes or insurance paid from escrow |  [optional] |
 |**mortgageAcquisitionDate** | **LocalDate** | Mortgage acquisition date, if the mortgage was acquired during the tax year |  [optional] |
+|**studentLoanInterestReceivedByLender** | **Double** | Student loan interest received by lender |  [optional] |
+|**excludesLoanOriginationFeesOrCapitalizedInterestIndicator** | **Boolean** | If checked, the student loan interest received by lender does not include loan origination fees and/or  capitalized interest for loans made before September 1, 2004 |  [optional] |
 |**paymentsReceivedForQualifiedTuitionAndRelatedExpenses** | **Double** | Payments received for qualified tuition and related expenses |  [optional] |
 |**adjustmentsMadeForPriorYear** | **Double** | Adjustments made for a prior year |  [optional] |
 |**scholarshipsOrGrants** | **Double** | Scholarships or grants |  [optional] |
@@ -105,6 +107,28 @@
 |**atLeastHalfTimeStudentIndicator** | **Boolean** | If checked, the student was at least a half-time student during any academic period that began in the tax year |  [optional] |
 |**graduateStudentIndicator** | **Boolean** | If checked, the student was enrolled in a program leading to a graduate degree, certificate or credential |  [optional] |
 |**insuranceContractReimbursementsOrRefunds** | **Double** | Insurance contract reimbursements or refunds (insurers only) |  [optional] |
+|**applicableCheckboxOnForm8949** | [**ApplicableCheckboxOnForm8949Enum**](#ApplicableCheckboxOnForm8949Enum) | Applicable checkbox on Form 8949.                * &#x60;A&#x60; - Short-term transaction, basis reported to the IRS  * &#x60;B&#x60; - Short-term transaction, basis not reported to the IRS  * &#x60;D&#x60; - Long-term transaction, basis reported to the IRS  * &#x60;E&#x60; - Long-term transaction, basis not reported to the IRS  * &#x60;X&#x60; - Basis not reported to the IRS and the holding period is unknown |  |
+|**cusipNumber** | **String** | CUSIP number (up to 13 letters or digits) |  [optional] |
+|**descriptionOfProperty** | **String** | Description of property, such as the number of shares and the name of the stock |  |
+|**dateAcquired** | **LocalDate** | Date acquired. Can&#39;t be after the tax year or before January 1 of the year 50 years before the current  filing year (for example, 1975-01-01 when filing for 2025), whatever the form&#39;s tax year. |  [optional] |
+|**dateSoldOrDisposed** | **LocalDate** | Date sold or disposed. Must fall in the tax year. |  [optional] |
+|**proceeds** | **Double** | Proceeds. Can be zero, or negative for a loss. |  |
+|**costOrOtherBasis** | **Double** | Cost or other basis |  [optional] |
+|**accruedMarketDiscount** | **Double** | Accrued market discount |  [optional] |
+|**washSaleLossDisallowed** | **Double** | Wash sale loss disallowed |  [optional] |
+|**typeOfGainOrLoss** | [**TypeOfGainOrLossEnum**](#TypeOfGainOrLossEnum) | Type of gain or loss. Required unless &#x60;noncoveredSecurity&#x60; is &#x60;true&#x60;.                * &#x60;SHORT_TERM&#x60; - Short-term gain or loss  * &#x60;LONG_TERM&#x60; - Long-term gain or loss  * &#x60;ORDINARY_SHORT_TERM&#x60; - Ordinary, short-term  * &#x60;ORDINARY_LONG_TERM&#x60; - Ordinary, long-term |  [optional] |
+|**proceedsFrom** | [**ProceedsFromEnum**](#ProceedsFromEnum) | Source of the proceeds, if they are from collectibles or a Qualified Opportunity Fund.                * &#x60;COLLECTIBLES&#x60; - Collectibles  * &#x60;QOF&#x60; - Qualified Opportunity Fund (QOF) |  [optional] |
+|**federalIncomeTaxWithheld** | **Double** | Federal income tax withheld |  [optional] |
+|**noncoveredSecurity** | **Boolean** | If checked, the security is noncovered |  [optional] |
+|**proceedsReportedToIrs** | [**ProceedsReportedToIrsEnum**](#ProceedsReportedToIrsEnum) | Whether gross or net proceeds are reported to the IRS.                * &#x60;GROSS&#x60; - Gross proceeds  * &#x60;NET&#x60; - Net proceeds |  |
+|**lossNotAllowed** | **Boolean** | If checked, the loss is not allowed based on the amount in &#x60;proceeds&#x60; |  [optional] |
+|**profitOrLossRealizedOnClosedContracts** | **Double** | Profit or (loss) realized in the tax year on closed contracts |  [optional] |
+|**unrealizedProfitOrLossOnOpenContractsPriorYear** | **Double** | Unrealized profit or (loss) on open contracts at the end of the prior tax year |  [optional] |
+|**unrealizedProfitOrLossOnOpenContractsCurrentYear** | **Double** | Unrealized profit or (loss) on open contracts at the end of the tax year |  [optional] |
+|**aggregateProfitOrLossOnContracts** | **Double** | Aggregate profit or (loss) on contracts |  [optional] |
+|**basisReportedToIrs** | **Boolean** | If checked, the basis is reported to the IRS. Only takes effect when &#x60;noncoveredSecurity&#x60; is also checked:  otherwise it isn&#39;t sent to the IRS, and changing it doesn&#39;t trigger a correction. |  [optional] |
+|**bartering** | **Double** | Bartering |  [optional] |
+|**fatcaFilingRequirement** | **Boolean** | FATCA filing requirement. |  [optional] |
 |**dateOfIdentifiableEvent** | **LocalDate** | Date of identifiable event |  |
 |**amountOfDebtDischarged** | **Double** | Amount of debt discharged |  |
 |**interestIncludedInDebtDischarged** | **Double** | Interest, if included in the amount of debt discharged |  [optional] |
@@ -121,7 +145,6 @@
 |**section897OrdinaryDividends** | **Double** | Section 897 ordinary dividends |  [optional] |
 |**section897CapitalGain** | **Double** | Section 897 capital gain |  [optional] |
 |**nondividendDistributions** | **Double** | Nondividend distributions |  [optional] |
-|**federalIncomeTaxWithheld** | **Double** | Federal income tax withheld. |  [optional] |
 |**section199ADividends** | **Double** | Section 199A dividends |  [optional] |
 |**investmentExpenses** | **Double** | Investment Expenses |  [optional] |
 |**foreignTaxPaid** | **Double** | Foreign tax paid |  [optional] |
@@ -130,7 +153,15 @@
 |**noncashLiquidationDistributions** | **Double** | Noncash liquidation distributions |  [optional] |
 |**exemptInterestDividends** | **Double** | Exempt-interest dividends |  [optional] |
 |**specifiedPrivateActivityBondInterestDividends** | **Double** | Specified private activity bond interest dividends |  [optional] |
-|**fatcaFilingRequirement** | **Boolean** | FATCA filing requirement. |  [optional] |
+|**unemploymentCompensation** | **Double** | Box 1. Unemployment compensation |  [optional] |
+|**stateOrLocalIncomeTaxRefund** | **Double** | Box 2. State or local income tax refunds, credits, or offsets.  Must be greater than zero when TradeOrBusinessIncomeIndicator is true, and requires TaxYearOfRefund. |  [optional] |
+|**taxYearOfRefund** | **String** | Box 3. Tax year (YYYY) that the Box 2 amount is for. Required when StateOrLocalIncomeTaxRefund is greater than zero.  Must be a four-digit year no later than the form&#39;s tax year and no more than ten years before it. |  [optional] |
+|**rtaaPayments** | **Double** | Box 5. Reemployment trade adjustment assistance (RTAA) payments |  [optional] |
+|**taxableGrants** | **Double** | Box 6. Taxable grants |  [optional] |
+|**agriculturePayments** | **Double** | Box 7. Agriculture payments |  [optional] |
+|**tradeOrBusinessIncomeIndicator** | **Boolean** | Box 8. If checked, the amount in Box 2 (StateOrLocalIncomeTaxRefund) is attributable to income tax that applies  exclusively to income from a trade or business. |  [optional] |
+|**marketGain** | **Double** | Box 9. Market gain |  [optional] |
+|**familyLeaveBenefits** | **Double** | Box 10. Family leave benefits paid under a state paid family leave program - Available only for tax year 2026 and later.  Report the benefits before any withholding; federal income tax withheld from them goes in Box 4 (FederalIncomeTaxWithheld). |  [optional] |
 |**interestIncome** | **Double** | Interest Income |  [optional] |
 |**earlyWithdrawalPenalty** | **Double** | Early Withdrawal Penalty |  [optional] |
 |**usSavingsBondsInterest** | **Double** | Interest on U.S. Savings Bonds and Treasury obligations |  [optional] |
@@ -144,9 +175,14 @@
 |**taxExemptBondCusipNumber** | **String** | Tax exempt bond CUSIP no.   Enter VARIOUS if the tax-exempt interest is reported in the aggregate for multiple bonds or accounts. |  [optional] |
 |**filerType** | [**FilerTypeEnum**](#FilerTypeEnum) | Filer type for tax reporting purposes.  Available values:  - PSE: Payment Settlement Entity  - EPF: Electronic Payment Facilitator or other third party |  |
 |**paymentType** | [**PaymentTypeEnum**](#PaymentTypeEnum) | Payment type for transaction classification.  Available values:  - PaymentCard: Payment card transactions  - ThirdPartyNetwork: Third party network transactions |  |
-|**paymentSettlementEntityNamePhoneNumber** | **String** | Payment settlement entity name and phone number, if different from Filer&#39;s |  [optional] |
+|**paymentSettlementEntityNamePhoneNumber** | **String** | Payment settlement entity name and phone number, if different from Filer&#39;s.  Deprecated: the IRS reports the name and phone number as separate fields (PSENm and PSEPhoneNum).  Use Avalara1099.Application.Forms1099.Models.Form1099K.PaymentSettlementEntityName and Avalara1099.Application.Forms1099.Models.Form1099K.PaymentSettlementEntityPhoneNumber instead.  Kept for backward compatibility with existing integrations. |  [optional] |
+|**paymentSettlementEntityName** | **String** | Payment settlement entity name, if different from Filer&#39;s |  [optional] |
+|**paymentSettlementEntityPhoneNumber** | **String** | Payment settlement entity phone number, if different from Filer&#39;s |  [optional] |
 |**grossAmountPaymentCard** | **Double** | Gross amount of payment card/third party network transactions. This value must equal the total of all monthly payment amounts (January through December). |  |
 |**cardNotPresentTransactions** | **Double** | Card not present transactions |  [optional] |
+|**cashTips** | **Double** | Box 1b. Cash tips, including tips paid in cash or charged by customers - Available only for tax year 2026 and later.  This amount is already included in NonemployeeCompensation (Box 1a) and is not added to it, so it may not exceed NonemployeeCompensation. |  [optional] |
+|**treasuryTippedOccupationCode** | **String** | Box 1c. Treasury Tipped Occupation Code (TTOC) for the recipient&#39;s tipped occupation - Available only for tax year 2026 and later.  A three-digit, zero-padded code from the IRS enumeration: 000 (tips received in a nonqualifying occupation), 101-110, 201-211, 301-304,  401-409, 501-508, 601-611, 701-706, or 801-809. The form accepts up to two codes - see TreasuryTippedOccupationCode2 for the second.  Send the code exactly as three characters (\&quot;001\&quot;, not \&quot;1\&quot;); leading zeros are not restored for you. Watch for spreadsheet software  that strips leading zeros when a code is exported to CSV and re-imported. |  [optional] |
+|**treasuryTippedOccupationCode2** | **String** | Box 1c. Second Treasury Tipped Occupation Code (TTOC) - Available only for tax year 2026 and later.  Same three-digit code list and formatting rules as TreasuryTippedOccupationCode, and must differ from it. |  [optional] |
 |**merchantCategoryCode** | **String** | Merchant category code (4 numbers) |  [optional] |
 |**paymentTransactionNumber** | **Double** | Number of payment transactions |  |
 |**january** | **Double** | January gross payments |  [optional] |
@@ -172,9 +208,10 @@
 |**grossProceedsPaidToAttorney** | **Double** | Gross proceeds paid to an attorney |  [optional] |
 |**fishPurchasedForResale** | **Double** | Fish purchased for resale |  [optional] |
 |**section409ADeferrals** | **Double** | Section 409A deferrals |  [optional] |
+|**overtimeCompensation** | **Double** | Box 1d. Qualified overtime compensation - Available only for tax year 2026 and later.  This amount is already included in NonemployeeCompensation (Box 1a) and is not added to it, so it may not exceed NonemployeeCompensation. |  [optional] |
 |**excessGoldenParachutePayments** | **Double** | Excess golden parachute payments - Available only for tax year 2025 and later |  [optional] |
 |**nonqualifiedDeferredCompensation** | **Double** | Nonqualified deferred compensation |  [optional] |
-|**nonemployeeCompensation** | **Double** | Nonemployee compensation. Required if DirectSalesIndicator is false. |  |
+|**nonemployeeCompensation** | **Double** | Box 1a. Nonemployee compensation. Required if DirectSalesIndicator is false. Named \&quot;Box 1\&quot; on revisions of the form before the December 2026 revision. |  |
 |**patronageDividends** | **Double** | Patronage dividends |  [optional] |
 |**nonpatronageDistributions** | **Double** | Nonpatronage distributions |  [optional] |
 |**perUnitRetainAllocations** | **Double** | Per-unit retain allocations |  [optional] |
@@ -185,7 +222,7 @@
 |**section199AaSstbItems** | **Double** | Section 199A(a) SSTB items |  [optional] |
 |**investmentCredit** | **Double** | Investment credit |  [optional] |
 |**workOpportunityCredit** | **Double** | Work opportunity credit |  [optional] |
-|**otherCreditsAndDeductions** | **Double** | Other credits and deductions |  [optional] |
+|**otherCreditsAndDeductions** | **Double** | Other credits and deductions (Box 12). Leave at zero unless the amount is itemized  downstream under the specific credit or deduction it belongs to. |  [optional] |
 |**specifiedCooperativeIndicator** | **Boolean** | Indicates the payer is a specified agricultural or horticultural cooperative |  [optional] |
 |**grossDistribution** | **Double** | Gross distribution |  |
 |**taxableAmount** | **Double** | Taxable amount |  [optional] |
@@ -195,11 +232,13 @@
 |**employeeContributionsOrDesignatedRothOrInsurancePremiums** | **Double** | Employee contributions/Designated Roth contributions or insurance premiums |  [optional] |
 |**netUnrealizedAppreciationInEmployerSecurities** | **Double** | Net unrealized appreciation in employer&#39;s securities |  [optional] |
 |**distributionCode** | [**DistributionCodeEnum**](#DistributionCodeEnum) | Distribution code.                * &#x60;1&#x60; - Normal distributions  * &#x60;2&#x60; - Excess contributions  * &#x60;3&#x60; - Disability  * &#x60;4&#x60; - Death distribution other than code 6  * &#x60;5&#x60; - Prohibited transaction  * &#x60;6&#x60; - Death distribution after year of death to a nonspouse beneficiary |  |
-|**secondDistributionCode** | [**SecondDistributionCodeEnum**](#SecondDistributionCodeEnum) | Second distribution code. Must be a valid combination with the first distribution code.  See DistributionCode property documentation for code descriptions.    Valid combinations based on first distribution code:  - 1: _, 8, B, D, K, L, M, P  - 2: _, 8, B, D, K, L, M, P  - 3: _, D  - 4: _, 8, A, B, D, G, H, K, L, M, P  - 5: _  - 6: _, W  - 7: _, A, B, D, K, L, M  - 8: _, 1, 2, 4, B, J, K  - 9: _  - A: 4, 7  - B: _, 1, 2, 4, 7, 8, G, L, M, P, U  - C: _, D  - D: 1, 2, 3, 4, 7, C  - E: _  - F: _  - G: _, 4, B, K  - H: _, 4  - J: _, 8, P  - K: 1, 2, 4, 7, 8, G  - L: _, 1, 2, 4, 7, B  - M: _, 1, 2, 4, 7, B  - N: _  - P: _, 1, 2, 4, B, J  - Q: _  - R: _  - S: _  - T: _  - U: _, B  - W: _, 6  - Y: 4, 7, K                (_ indicates no second distribution code)    (format: firstDistributionCode: availableSecondDistributionCodes) |  [optional] |
-|**iraSepSimple** | **Boolean** | IRA/SEP/SIMPLE |  [optional] |
+|**secondDistributionCode** | [**SecondDistributionCodeEnum**](#SecondDistributionCodeEnum) | Box 7a. Second distribution code. Must be a valid combination with the first distribution code.  See DistributionCode property documentation for code descriptions.    Valid combinations based on first distribution code:  - 1: _, 8, B, D, K, L, M, P  - 2: _, 8, B, D, K, L, M, P  - 3: _, D  - 4: _, 8, A, B, D, G, H, K, L, M, P  - 5: _  - 6: _, W  - 7: _, A, B, D, K, L, M  - 8: _, 1, 2, 4, B, J, K  - 9: _  - A: 4, 7  - B: _, 1, 2, 4, 7, 8, G, L, M, P, U  - C: _, D  - D: 1, 2, 3, 4, 7, C  - E: _  - F: _  - G: _, 4, B, K  - H: _, 4  - J: _, 8, P  - K: 1, 2, 4, 7, 8, G  - L: _, 1, 2, 4, 7, B  - M: _, 1, 2, 4, 7, B  - N: _  - P: _, 1, 2, 4, B, J  - Q: _  - R: _  - S: _  - T: _  - U: _, B  - W: _, 6  - Y: 4, 7, K                (_ indicates no second distribution code)    (format: firstDistributionCode: availableSecondDistributionCodes) |  [optional] |
+|**iraSepSimple** | **Boolean** | Box 7b. IRA/SEP/SIMPLE |  [optional] |
+|**trumpAccountIndicator** | **Boolean** | Box 7c. Trump account checkbox - Available only for tax year 2026 and later. |  [optional] |
+|**excessContributionsEarnings** | **Double** | Box 7d. Earnings on excess contributions - Available only for tax year 2026 and later.  Enter 0 when the excess contributions had losses. |  [optional] |
 |**traditionalIraSepSimpleOrRothConversionAmount** | **Double** | Traditional IRA/SEP/SIMPLE or Roth conversion amount |  [optional] |
-|**otherAmount** | **Double** | Other amount |  [optional] |
-|**otherPercentage** | **String** | Other percentage |  [optional] |
+|**otherAmount** | **Double** | Box 8a. Other amount |  [optional] |
+|**otherPercentage** | **String** | Box 8b. Other percentage |  [optional] |
 |**totalDistributionPercentage** | **String** | Total distribution percentage |  [optional] |
 |**totalEmployeeContributions** | **Double** | Total employee contributions |  [optional] |
 |**amountAllocableToIrrWithin5Years** | **Double** | Amount allocable to IRR within 5 years |  [optional] |
@@ -242,6 +281,38 @@
 |**other14b** | **String** | Other (max 30 chars) for slot b. |  [optional] |
 |**other14c** | **String** | Other (max 30 chars) for slot c. |  [optional] |
 |**stateAndLocalWithholdingSecondary** | [**StateAndLocalWithholding**](StateAndLocalWithholding.md) | Secondary state and local withholding slot. |  [optional] |
+|**iraContributions** | **Double** | IRA contributions (other than amounts in Boxes 2-4, 8-10, 13a, and 14a) |  [optional] |
+|**rolloverContributions** | **Double** | Rollover contributions |  [optional] |
+|**rothIraConversionAmount** | **Double** | Roth IRA conversion amount |  [optional] |
+|**recharacterizedContributions** | **Double** | Recharacterized contributions |  [optional] |
+|**fairMarketValueOfAccount** | **Double** | Fair market value (FMV) of the account |  [optional] |
+|**lifeInsuranceCostIncludedInIraContributions** | **Double** | Life insurance cost included in the IRA contributions (Box 1). Can&#39;t be more than Box 1. |  [optional] |
+|**iraType** | [**IraTypeEnum**](#IraTypeEnum) | Type of IRA. Required when Box 2 or Box 5 has an amount.                * &#x60;IRA&#x60; - Traditional IRA  * &#x60;SEP&#x60; - SEP IRA  * &#x60;SIMPLE&#x60; - SIMPLE IRA  * &#x60;ROTH&#x60; - Roth IRA |  [optional] |
+|**sepContributions** | **Double** | SEP contributions. Only allowed when &#x60;iraType&#x60; is &#x60;SEP&#x60;. |  [optional] |
+|**simpleContributions** | **Double** | SIMPLE contributions. Only allowed when &#x60;iraType&#x60; is &#x60;SIMPLE&#x60;. |  [optional] |
+|**rothIraContributions** | **Double** | Roth IRA contributions. Only allowed when &#x60;iraType&#x60; is &#x60;ROTH&#x60;. |  [optional] |
+|**requiredMinimumDistributionIndicator** | **Boolean** | If checked, a required minimum distribution (RMD) is due for the year after the tax year |  [optional] |
+|**requiredMinimumDistributionDate** | **LocalDate** | RMD date, in the year after the tax year. Required when &#x60;requiredMinimumDistributionIndicator&#x60; is &#x60;true&#x60;. |  [optional] |
+|**requiredMinimumDistributionAmount** | **Double** | RMD amount. Required when &#x60;requiredMinimumDistributionIndicator&#x60; is &#x60;true&#x60;. |  [optional] |
+|**postponedLateContribution** | **Double** | Postponed or late contribution |  [optional] |
+|**postponedLateContributionYear** | **Integer** | Year the postponed or late contribution was for (four digits, from 1998 to the tax year). Required when  &#x60;postponedLateContribution&#x60; has an amount. |  [optional] |
+|**postponedLateContributionCode** | [**PostponedLateContributionCodeEnum**](#PostponedLateContributionCodeEnum) | Postponed or late contribution code. Required when &#x60;postponedLateContribution&#x60; has an amount.                * &#x60;FD&#x60; - Federally designated disaster area  * &#x60;PL&#x60; - Public law  * &#x60;EO&#x60; - Executive order  * &#x60;PO&#x60; - Rollover of a qualified plan loan offset amount  * &#x60;SC&#x60; - Late rollover under the self-certification procedure |  [optional] |
+|**postponedLateContributionReason** | **String** | Postponed or late contribution reason, such as the public law or executive order number (up to 6 characters) |  [optional] |
+|**repayments** | **Double** | Repayments |  [optional] |
+|**repaymentCode** | [**RepaymentCodeEnum**](#RepaymentCodeEnum) | Repayment code. Required when &#x60;repayments&#x60; has an amount.                * &#x60;QR&#x60; - Qualified reservist distribution  * &#x60;DD&#x60; - Federally designated disaster distribution  * &#x60;BA&#x60; - Qualified birth or adoption distribution  * &#x60;EP&#x60; - Emergency personal expense distribution  * &#x60;DA&#x60; - Domestic abuse victim distribution  * &#x60;TI&#x60; - Terminally ill individual distribution |  [optional] |
+|**fairMarketValueOfCertainSpecifiedAssets** | **Double** | FMV of certain specified assets |  [optional] |
+|**specifiedAssetCode** | [**SpecifiedAssetCodeEnum**](#SpecifiedAssetCodeEnum) | Specified asset code. Required when &#x60;fairMarketValueOfCertainSpecifiedAssets&#x60; has an amount.                * &#x60;A&#x60; - Stock or other ownership interest in a corporation that is not readily tradable on an established  securities market  * &#x60;B&#x60; - Short- or long-term debt obligation that is not traded on an established securities market  * &#x60;C&#x60; - Ownership interest in a limited liability company or similar entity (unless the interest is traded on  an established securities market)  * &#x60;D&#x60; - Real estate  * &#x60;E&#x60; - Ownership interest in a partnership, trust, or similar entity (unless the interest is traded on an  established securities market)  * &#x60;F&#x60; - Option contract or similar product that is not offered for trade on an established option exchange  * &#x60;G&#x60; - Other asset that does not have a readily available FMV  * &#x60;H&#x60; - More than two types of assets (listed in &#x60;A&#x60; through &#x60;G&#x60;) are held in this IRA |  [optional] |
+|**secondSpecifiedAssetCode** | [**SecondSpecifiedAssetCodeEnum**](#SecondSpecifiedAssetCodeEnum) | Second specified asset code, when the IRA holds two types of specified assets. Takes the codes &#x60;A&#x60; through &#x60;G&#x60;;  it can&#39;t repeat &#x60;specifiedAssetCode&#x60;, and isn&#39;t allowed when &#x60;specifiedAssetCode&#x60; is &#x60;H&#x60;. |  [optional] |
+|**reportableWinnings** | **Double** | Reportable winnings |  |
+|**dateWon** | **LocalDate** | Date won. Must fall in the tax year. |  |
+|**typeOfWager** | [**TypeOfWagerEnum**](#TypeOfWagerEnum) | Type of wager.                * &#x60;1&#x60; - Horse race track (or off-track betting of a horse track nature)  * &#x60;2&#x60; - Dog race track (or off-track betting of a dog track nature)  * &#x60;3&#x60; - Jai-alai  * &#x60;4&#x60; - State-conducted lottery  * &#x60;5&#x60; - Keno  * &#x60;6&#x60; - Bingo  * &#x60;7&#x60; - Slot machines  * &#x60;8&#x60; - Poker winnings  * &#x60;9&#x60; - Any other type of gambling winnings                Any other code is treated as missing, so the form is saved with a \&quot;can&#39;t be blank\&quot; error on  &#x60;#/box_3_type_wager&#x60;. |  |
+|**transaction** | **String** | Transaction, such as the ticket or card number |  [optional] |
+|**race** | **String** | Race, such as the race or game number |  [optional] |
+|**winningsFromIdenticalWagers** | **Double** | Winnings from identical wagers |  [optional] |
+|**cashier** | **String** | Cashier |  [optional] |
+|**window** | **String** | Window |  [optional] |
+|**firstId** | **String** | First identification of the winner, such as a driver&#39;s license number |  [optional] |
+|**secondId** | **String** | Second identification of the winner |  [optional] |
 
 
 
@@ -516,9 +587,12 @@
 | _1095_B | &quot;1095-B&quot; |
 | _1095_C | &quot;1095-C&quot; |
 | _1098 | &quot;1098&quot; |
+| _1098_E | &quot;1098-E&quot; |
 | _1098_T | &quot;1098-T&quot; |
+| _1099_B | &quot;1099-B&quot; |
 | _1099_C | &quot;1099-C&quot; |
 | _1099_DIV | &quot;1099-DIV&quot; |
+| _1099_G | &quot;1099-G&quot; |
 | _1099_INT | &quot;1099-INT&quot; |
 | _1099_K | &quot;1099-K&quot; |
 | _1099_MISC | &quot;1099-MISC&quot; |
@@ -527,7 +601,9 @@
 | _1099_R | &quot;1099-R&quot; |
 | _1099_S | &quot;1099-S&quot; |
 | _1099_SA | &quot;1099-SA&quot; |
+| _5498 | &quot;5498&quot; |
 | W_2 | &quot;W-2&quot; |
+| W_2_G | &quot;W-2G&quot; |
 
 
 
@@ -576,6 +652,47 @@
 | _10 | &quot;10&quot; |
 | _11 | &quot;11&quot; |
 | _12 | &quot;12&quot; |
+
+
+
+## Enum: ApplicableCheckboxOnForm8949Enum
+
+| Name | Value |
+|---- | -----|
+| A | &quot;A&quot; |
+| B | &quot;B&quot; |
+| D | &quot;D&quot; |
+| E | &quot;E&quot; |
+| X | &quot;X&quot; |
+
+
+
+## Enum: TypeOfGainOrLossEnum
+
+| Name | Value |
+|---- | -----|
+| SHORT_TERM | &quot;SHORT_TERM&quot; |
+| LONG_TERM | &quot;LONG_TERM&quot; |
+| ORDINARY_SHORT_TERM | &quot;ORDINARY_SHORT_TERM&quot; |
+| ORDINARY_LONG_TERM | &quot;ORDINARY_LONG_TERM&quot; |
+
+
+
+## Enum: ProceedsFromEnum
+
+| Name | Value |
+|---- | -----|
+| COLLECTIBLES | &quot;COLLECTIBLES&quot; |
+| QOF | &quot;QOF&quot; |
+
+
+
+## Enum: ProceedsReportedToIrsEnum
+
+| Name | Value |
+|---- | -----|
+| GROSS | &quot;GROSS&quot; |
+| NET | &quot;NET&quot; |
 
 
 
@@ -659,6 +776,88 @@
 | T | &quot;T&quot; |
 | U | &quot;U&quot; |
 | W | &quot;W&quot; |
+
+
+
+## Enum: IraTypeEnum
+
+| Name | Value |
+|---- | -----|
+| IRA | &quot;IRA&quot; |
+| SEP | &quot;SEP&quot; |
+| SIMPLE | &quot;SIMPLE&quot; |
+| ROTH | &quot;ROTH&quot; |
+
+
+
+## Enum: PostponedLateContributionCodeEnum
+
+| Name | Value |
+|---- | -----|
+| FD | &quot;FD&quot; |
+| PL | &quot;PL&quot; |
+| EO | &quot;EO&quot; |
+| PO | &quot;PO&quot; |
+| SC | &quot;SC&quot; |
+
+
+
+## Enum: RepaymentCodeEnum
+
+| Name | Value |
+|---- | -----|
+| QR | &quot;QR&quot; |
+| DD | &quot;DD&quot; |
+| BA | &quot;BA&quot; |
+| EP | &quot;EP&quot; |
+| DA | &quot;DA&quot; |
+| TI | &quot;TI&quot; |
+
+
+
+## Enum: SpecifiedAssetCodeEnum
+
+| Name | Value |
+|---- | -----|
+| A | &quot;A&quot; |
+| B | &quot;B&quot; |
+| C | &quot;C&quot; |
+| D | &quot;D&quot; |
+| E | &quot;E&quot; |
+| F | &quot;F&quot; |
+| G | &quot;G&quot; |
+| H | &quot;H&quot; |
+
+
+
+## Enum: SecondSpecifiedAssetCodeEnum
+
+| Name | Value |
+|---- | -----|
+| A | &quot;A&quot; |
+| B | &quot;B&quot; |
+| C | &quot;C&quot; |
+| D | &quot;D&quot; |
+| E | &quot;E&quot; |
+| F | &quot;F&quot; |
+| G | &quot;G&quot; |
+| H | &quot;H&quot; |
+
+
+
+## Enum: TypeOfWagerEnum
+
+| Name | Value |
+|---- | -----|
+| _1 | &quot;1&quot; |
+| _2 | &quot;2&quot; |
+| _3 | &quot;3&quot; |
+| _4 | &quot;4&quot; |
+| _5 | &quot;5&quot; |
+| _6 | &quot;6&quot; |
+| _7 | &quot;7&quot; |
+| _8 | &quot;8&quot; |
+| _9 | &quot;9&quot; |
 
 
 

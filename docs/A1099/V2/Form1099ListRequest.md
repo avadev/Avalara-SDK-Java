@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**type** | [**TypeEnum**](#TypeEnum) | Available form types: * &#x60;1042-S&#x60; * &#x60;1095-B&#x60; * &#x60;1095-C&#x60; * &#x60;1098&#x60; * &#x60;1098-T&#x60; * &#x60;1099-C&#x60; * &#x60;1099-DIV&#x60; * &#x60;1099-INT&#x60; * &#x60;1099-K&#x60; * &#x60;1099-MISC&#x60; * &#x60;1099-NEC&#x60; * &#x60;1099-PATR&#x60; * &#x60;1099-R&#x60; * &#x60;1099-S&#x60; * &#x60;1099-SA&#x60; * &#x60;W-2&#x60;  |  [optional] |
+|**type** | [**TypeEnum**](#TypeEnum) | Available form types: * &#x60;1042-S&#x60; * &#x60;1095-B&#x60; * &#x60;1095-C&#x60; * &#x60;1098&#x60; * &#x60;1098-E&#x60; * &#x60;1098-T&#x60; * &#x60;1099-B&#x60; * &#x60;1099-C&#x60; * &#x60;1099-DIV&#x60; * &#x60;1099-G&#x60; * &#x60;1099-INT&#x60; * &#x60;1099-K&#x60; * &#x60;1099-MISC&#x60; * &#x60;1099-NEC&#x60; * &#x60;1099-PATR&#x60; * &#x60;1099-R&#x60; * &#x60;1099-S&#x60; * &#x60;1099-SA&#x60; * &#x60;5498&#x60; * &#x60;W-2&#x60; * &#x60;W-2G&#x60;  |  [optional] |
 |**forms** | [**List&lt;Get1099Form200Response&gt;**](Get1099Form200Response.md) |  |  [optional] |
 
 
@@ -20,9 +20,12 @@
 | _1095_B | &quot;1095-B&quot; |
 | _1095_C | &quot;1095-C&quot; |
 | _1098 | &quot;1098&quot; |
+| _1098_E | &quot;1098-E&quot; |
 | _1098_T | &quot;1098-T&quot; |
+| _1099_B | &quot;1099-B&quot; |
 | _1099_C | &quot;1099-C&quot; |
 | _1099_DIV | &quot;1099-DIV&quot; |
+| _1099_G | &quot;1099-G&quot; |
 | _1099_INT | &quot;1099-INT&quot; |
 | _1099_K | &quot;1099-K&quot; |
 | _1099_MISC | &quot;1099-MISC&quot; |
@@ -31,7 +34,9 @@
 | _1099_R | &quot;1099-R&quot; |
 | _1099_S | &quot;1099-S&quot; |
 | _1099_SA | &quot;1099-SA&quot; |
+| _5498 | &quot;5498&quot; |
 | W_2 | &quot;W-2&quot; |
+| W_2_G | &quot;W-2G&quot; |
 
 
 

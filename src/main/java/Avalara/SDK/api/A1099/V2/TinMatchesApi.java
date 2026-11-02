@@ -89,6 +89,7 @@ public class TinMatchesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Bulk TIN match details </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Bulk not found </td><td>  -  </td></tr>
@@ -183,6 +184,7 @@ public class TinMatchesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Bulk TIN match details </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Bulk not found </td><td>  -  </td></tr>
@@ -202,6 +204,7 @@ public class TinMatchesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Bulk TIN match details </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Bulk not found </td><td>  -  </td></tr>
@@ -223,6 +226,7 @@ public class TinMatchesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Bulk TIN match details </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Bulk not found </td><td>  -  </td></tr>
@@ -279,6 +283,7 @@ public class TinMatchesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> List of TIN match responses </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -398,6 +403,7 @@ public class TinMatchesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> List of TIN match responses </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -418,6 +424,7 @@ public class TinMatchesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> List of TIN match responses </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -440,6 +447,7 @@ public class TinMatchesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> List of TIN match responses </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -521,12 +529,12 @@ public class TinMatchesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> IRS Service is not available. Client should retry later. </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> TIN match result (matched or rejected) </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g. invalid field values) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Usage limit exceeded (10,000 successful calls per 24 hours) </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authorization failed (lack of permissions or product not purchased) </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> IRS Service is not available. Client should retry later. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call performRealTimeTinMatchCall(PerformRealTimeTinMatchRequest requestParameters, final ApiCallback _callback) throws ApiException {
@@ -612,12 +620,12 @@ public class TinMatchesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> IRS Service is not available. Client should retry later. </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> TIN match result (matched or rejected) </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g. invalid field values) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Usage limit exceeded (10,000 successful calls per 24 hours) </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authorization failed (lack of permissions or product not purchased) </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> IRS Service is not available. Client should retry later. </td><td>  -  </td></tr>
      </table>
      */
     public RealTimeTinMatchResponse performRealTimeTinMatch(PerformRealTimeTinMatchRequest requestParameters) throws ApiException {
@@ -634,12 +642,12 @@ public class TinMatchesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> IRS Service is not available. Client should retry later. </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> TIN match result (matched or rejected) </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g. invalid field values) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Usage limit exceeded (10,000 successful calls per 24 hours) </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authorization failed (lack of permissions or product not purchased) </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> IRS Service is not available. Client should retry later. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<RealTimeTinMatchResponse> performRealTimeTinMatchWithHttpInfo(PerformRealTimeTinMatchRequest requestParameters) throws ApiException {
@@ -658,12 +666,12 @@ public class TinMatchesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> IRS Service is not available. Client should retry later. </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> TIN match result (matched or rejected) </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g. invalid field values) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Usage limit exceeded (10,000 successful calls per 24 hours) </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authorization failed (lack of permissions or product not purchased) </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> IRS Service is not available. Client should retry later. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call performRealTimeTinMatchAsync(PerformRealTimeTinMatchRequest requestParameters, final ApiCallback<RealTimeTinMatchResponse> _callback) throws ApiException {
@@ -717,6 +725,7 @@ public class TinMatchesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 202 </td><td> Accepted submission, indicating it will be processed later and where to get results from </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g. invalid field values) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -805,6 +814,7 @@ public class TinMatchesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 202 </td><td> Accepted submission, indicating it will be processed later and where to get results from </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g. invalid field values) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -824,6 +834,7 @@ public class TinMatchesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 202 </td><td> Accepted submission, indicating it will be processed later and where to get results from </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g. invalid field values) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -845,6 +856,7 @@ public class TinMatchesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 202 </td><td> Accepted submission, indicating it will be processed later and where to get results from </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g. invalid field values) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -894,7 +906,7 @@ public class TinMatchesApi {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("26.10.0");
+        this.localVarApiClient.setSdkVersion("26.11.0");
     }
 }
 

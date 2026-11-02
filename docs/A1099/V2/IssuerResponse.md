@@ -32,6 +32,7 @@
 |**id** | **String** | Unique identifier set when the record is created. |  [optional] |
 |**createdAt** | **OffsetDateTime** | Date time when the record was created. |  [optional] |
 |**updatedAt** | **OffsetDateTime** | Date time when the record was last updated. |  [optional] |
+|**federalEfileErrors** | [**List&lt;FederalEfileErrorResponse&gt;**](FederalEfileErrorResponse.md) | Issuer-level IRS/IRIS rejection errors from the federal filing submissions of the issuer&#39;s forms that are still rejected and awaiting resubmission. |  [optional] [readonly] |
 
 
 

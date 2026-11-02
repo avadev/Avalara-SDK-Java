@@ -88,6 +88,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g. Unknown form type: W10\&quot;) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -176,6 +177,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g. Unknown form type: W10\&quot;) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -195,6 +197,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g. Unknown form type: W10\&quot;) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -216,6 +219,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g. Unknown form type: W10\&quot;) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -272,6 +276,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., missing required field) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -360,6 +365,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., missing required field) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -379,6 +385,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., missing required field) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -400,6 +407,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> The created W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., missing required field) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -456,6 +464,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Empty response </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
@@ -549,6 +558,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Empty response </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
@@ -567,6 +577,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Empty response </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
@@ -587,6 +598,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Empty response </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
@@ -642,6 +654,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> W9/W4/W8 form with id </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
@@ -736,6 +749,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> W9/W4/W8 form with id </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
@@ -755,6 +769,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> W9/W4/W8 form with id </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
@@ -776,6 +791,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> W9/W4/W8 form with id </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> W9/W4/W8 form not found </td><td>  -  </td></tr>
@@ -832,6 +848,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -881,7 +898,7 @@ public class FormsW9Api {
         }
 
         final String[] localVarAccepts = {
-            "application/pdf", "application/json"
+            "application/json", "application/pdf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null && !localVarHeaderParams.containsKey("Accept")) {
@@ -927,6 +944,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -947,6 +965,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -969,6 +988,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1026,6 +1046,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> list </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -1138,6 +1159,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> list </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -1157,6 +1179,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> list </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -1178,6 +1201,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> list </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -1254,6 +1278,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Email sent using existing form (form was already in &#39;Requested&#39; status or descendant found) </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Email sent using newly created minimal form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., missing vendor e-mail) </td><td>  -  </td></tr>
@@ -1350,6 +1375,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Email sent using existing form (form was already in &#39;Requested&#39; status or descendant found) </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Email sent using newly created minimal form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., missing vendor e-mail) </td><td>  -  </td></tr>
@@ -1371,6 +1397,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Email sent using existing form (form was already in &#39;Requested&#39; status or descendant found) </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Email sent using newly created minimal form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., missing vendor e-mail) </td><td>  -  </td></tr>
@@ -1394,6 +1421,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Email sent using existing form (form was already in &#39;Requested&#39; status or descendant found) </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Email sent using newly created minimal form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., missing vendor e-mail) </td><td>  -  </td></tr>
@@ -1452,6 +1480,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> The updated W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., missing required field) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -1547,6 +1576,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> The updated W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., missing required field) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -1567,6 +1597,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> The updated W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., missing required field) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -1589,6 +1620,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> The updated W9/W4/W8 form </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., missing required field) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -1650,6 +1682,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., only .pdf files are allowed.) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -1748,6 +1781,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., only .pdf files are allowed.) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -1767,6 +1801,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., only .pdf files are allowed.) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -1788,6 +1823,7 @@ public class FormsW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., only .pdf files are allowed.) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -1841,7 +1877,7 @@ public class FormsW9Api {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("26.10.0");
+        this.localVarApiClient.setSdkVersion("26.11.0");
     }
 }
 
