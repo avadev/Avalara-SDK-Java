@@ -20,6 +20,7 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
+import Avalara.SDK.model.A1099.V2.FederalEfileStatusDetail;
 import Avalara.SDK.model.A1099.V2.Form1099StatusDetail;
 import Avalara.SDK.model.A1099.V2.StateAndLocalWithholding;
 import Avalara.SDK.model.A1099.V2.StateEfileStatusDetail;
@@ -182,6 +183,14 @@ public class Form1099K {
   @SerializedName(SERIALIZED_NAME_PAYMENT_SETTLEMENT_ENTITY_NAME_PHONE_NUMBER)
   private String paymentSettlementEntityNamePhoneNumber;
 
+  public static final String SERIALIZED_NAME_PAYMENT_SETTLEMENT_ENTITY_NAME = "paymentSettlementEntityName";
+  @SerializedName(SERIALIZED_NAME_PAYMENT_SETTLEMENT_ENTITY_NAME)
+  private String paymentSettlementEntityName;
+
+  public static final String SERIALIZED_NAME_PAYMENT_SETTLEMENT_ENTITY_PHONE_NUMBER = "paymentSettlementEntityPhoneNumber";
+  @SerializedName(SERIALIZED_NAME_PAYMENT_SETTLEMENT_ENTITY_PHONE_NUMBER)
+  private String paymentSettlementEntityPhoneNumber;
+
   public static final String SERIALIZED_NAME_GROSS_AMOUNT_PAYMENT_CARD = "grossAmountPaymentCard";
   @SerializedName(SERIALIZED_NAME_GROSS_AMOUNT_PAYMENT_CARD)
   private Double grossAmountPaymentCard;
@@ -189,6 +198,18 @@ public class Form1099K {
   public static final String SERIALIZED_NAME_CARD_NOT_PRESENT_TRANSACTIONS = "cardNotPresentTransactions";
   @SerializedName(SERIALIZED_NAME_CARD_NOT_PRESENT_TRANSACTIONS)
   private Double cardNotPresentTransactions;
+
+  public static final String SERIALIZED_NAME_CASH_TIPS = "cashTips";
+  @SerializedName(SERIALIZED_NAME_CASH_TIPS)
+  private Double cashTips;
+
+  public static final String SERIALIZED_NAME_TREASURY_TIPPED_OCCUPATION_CODE = "treasuryTippedOccupationCode";
+  @SerializedName(SERIALIZED_NAME_TREASURY_TIPPED_OCCUPATION_CODE)
+  private String treasuryTippedOccupationCode;
+
+  public static final String SERIALIZED_NAME_TREASURY_TIPPED_OCCUPATION_CODE2 = "treasuryTippedOccupationCode2";
+  @SerializedName(SERIALIZED_NAME_TREASURY_TIPPED_OCCUPATION_CODE2)
+  private String treasuryTippedOccupationCode2;
 
   public static final String SERIALIZED_NAME_MERCHANT_CATEGORY_CODE = "merchantCategoryCode";
   @SerializedName(SERIALIZED_NAME_MERCHANT_CATEGORY_CODE)
@@ -263,11 +284,17 @@ public class Form1099K {
     
     _1098("1098"),
     
+    _1098_E("1098-E"),
+    
     _1098_T("1098-T"),
+    
+    _1099_B("1099-B"),
     
     _1099_C("1099-C"),
     
     _1099_DIV("1099-DIV"),
+    
+    _1099_G("1099-G"),
     
     _1099_INT("1099-INT"),
     
@@ -285,7 +312,11 @@ public class Form1099K {
     
     _1099_SA("1099-SA"),
     
-    W_2("W-2");
+    _5498("5498"),
+    
+    W_2("W-2"),
+    
+    W_2_G("W-2G");
 
     private String value;
 
@@ -429,7 +460,7 @@ public class Form1099K {
 
   public static final String SERIALIZED_NAME_FEDERAL_EFILE_STATUS = "federalEfileStatus";
   @SerializedName(SERIALIZED_NAME_FEDERAL_EFILE_STATUS)
-  private Form1099StatusDetail federalEfileStatus;
+  private FederalEfileStatusDetail federalEfileStatus;
 
   public static final String SERIALIZED_NAME_STATE_EFILE_STATUS = "stateEfileStatus";
   @SerializedName(SERIALIZED_NAME_STATE_EFILE_STATUS)
@@ -579,7 +610,7 @@ public class Form1099K {
 
   public Form1099K(
      String id, 
-     Form1099StatusDetail federalEfileStatus, 
+     FederalEfileStatusDetail federalEfileStatus, 
      List<StateEfileStatusDetail> stateEfileStatus, 
      Form1099StatusDetail postalMailStatus, 
      Form1099StatusDetail tinMatchStatus, 
@@ -646,7 +677,7 @@ public class Form1099K {
   }
 
   /**
-   * Payment settlement entity name and phone number, if different from Filer&#39;s
+   * Payment settlement entity name and phone number, if different from Filer&#39;s.  Deprecated: the IRS reports the name and phone number as separate fields (PSENm and PSEPhoneNum).  Use Avalara1099.Application.Forms1099.Models.Form1099K.PaymentSettlementEntityName and Avalara1099.Application.Forms1099.Models.Form1099K.PaymentSettlementEntityPhoneNumber instead.  Kept for backward compatibility with existing integrations.
    * @return paymentSettlementEntityNamePhoneNumber
    */
   @javax.annotation.Nullable
@@ -656,6 +687,44 @@ public class Form1099K {
 
   public void setPaymentSettlementEntityNamePhoneNumber(String paymentSettlementEntityNamePhoneNumber) {
     this.paymentSettlementEntityNamePhoneNumber = paymentSettlementEntityNamePhoneNumber;
+  }
+
+
+  public Form1099K paymentSettlementEntityName(String paymentSettlementEntityName) {
+    this.paymentSettlementEntityName = paymentSettlementEntityName;
+    return this;
+  }
+
+  /**
+   * Payment settlement entity name, if different from Filer&#39;s
+   * @return paymentSettlementEntityName
+   */
+  @javax.annotation.Nullable
+  public String getPaymentSettlementEntityName() {
+    return paymentSettlementEntityName;
+  }
+
+  public void setPaymentSettlementEntityName(String paymentSettlementEntityName) {
+    this.paymentSettlementEntityName = paymentSettlementEntityName;
+  }
+
+
+  public Form1099K paymentSettlementEntityPhoneNumber(String paymentSettlementEntityPhoneNumber) {
+    this.paymentSettlementEntityPhoneNumber = paymentSettlementEntityPhoneNumber;
+    return this;
+  }
+
+  /**
+   * Payment settlement entity phone number, if different from Filer&#39;s
+   * @return paymentSettlementEntityPhoneNumber
+   */
+  @javax.annotation.Nullable
+  public String getPaymentSettlementEntityPhoneNumber() {
+    return paymentSettlementEntityPhoneNumber;
+  }
+
+  public void setPaymentSettlementEntityPhoneNumber(String paymentSettlementEntityPhoneNumber) {
+    this.paymentSettlementEntityPhoneNumber = paymentSettlementEntityPhoneNumber;
   }
 
 
@@ -694,6 +763,63 @@ public class Form1099K {
 
   public void setCardNotPresentTransactions(Double cardNotPresentTransactions) {
     this.cardNotPresentTransactions = cardNotPresentTransactions;
+  }
+
+
+  public Form1099K cashTips(Double cashTips) {
+    this.cashTips = cashTips;
+    return this;
+  }
+
+  /**
+   * Box 1c. Cash tips - Available only for tax year 2026 and later.  This amount is already included in GrossAmountPaymentCard (Box 1a) and is not added to it, so it may not exceed GrossAmountPaymentCard.
+   * @return cashTips
+   */
+  @javax.annotation.Nullable
+  public Double getCashTips() {
+    return cashTips;
+  }
+
+  public void setCashTips(Double cashTips) {
+    this.cashTips = cashTips;
+  }
+
+
+  public Form1099K treasuryTippedOccupationCode(String treasuryTippedOccupationCode) {
+    this.treasuryTippedOccupationCode = treasuryTippedOccupationCode;
+    return this;
+  }
+
+  /**
+   * Box 1d. Treasury Tipped Occupation Code (TTOC) for the payee&#39;s tipped occupation - Available only for tax year 2026 and later.  A three-digit, zero-padded code from the IRS enumeration: 000 (tips received in a nonqualifying occupation), 101-110, 201-211, 301-304,  401-409, 501-508, 601-611, 701-706, or 801-809. The form accepts up to two codes - see TreasuryTippedOccupationCode2 for the second.  Send the code exactly as three characters (\&quot;001\&quot;, not \&quot;1\&quot;); leading zeros are not restored for you. Watch for spreadsheet software  that strips leading zeros when a code is exported to CSV and re-imported.
+   * @return treasuryTippedOccupationCode
+   */
+  @javax.annotation.Nullable
+  public String getTreasuryTippedOccupationCode() {
+    return treasuryTippedOccupationCode;
+  }
+
+  public void setTreasuryTippedOccupationCode(String treasuryTippedOccupationCode) {
+    this.treasuryTippedOccupationCode = treasuryTippedOccupationCode;
+  }
+
+
+  public Form1099K treasuryTippedOccupationCode2(String treasuryTippedOccupationCode2) {
+    this.treasuryTippedOccupationCode2 = treasuryTippedOccupationCode2;
+    return this;
+  }
+
+  /**
+   * Box 1d. Second Treasury Tipped Occupation Code (TTOC) - Available only for tax year 2026 and later.  Same three-digit code list and formatting rules as TreasuryTippedOccupationCode, and must differ from it.
+   * @return treasuryTippedOccupationCode2
+   */
+  @javax.annotation.Nullable
+  public String getTreasuryTippedOccupationCode2() {
+    return treasuryTippedOccupationCode2;
+  }
+
+  public void setTreasuryTippedOccupationCode2(String treasuryTippedOccupationCode2) {
+    this.treasuryTippedOccupationCode2 = treasuryTippedOccupationCode2;
   }
 
 
@@ -1435,11 +1561,11 @@ public class Form1099K {
 
 
   /**
-   * Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states)
+   * Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states)  When the form&#39;s most recent IRIS filing was rejected or accepted with errors, &#x60;errors&#x60; lists what the IRS reported.
    * @return federalEfileStatus
    */
   @javax.annotation.Nullable
-  public Form1099StatusDetail getFederalEfileStatus() {
+  public FederalEfileStatusDetail getFederalEfileStatus() {
     return federalEfileStatus;
   }
 
@@ -1822,8 +1948,13 @@ public class Form1099K {
     return Objects.equals(this.filerType, form1099K.filerType) &&
         Objects.equals(this.paymentType, form1099K.paymentType) &&
         Objects.equals(this.paymentSettlementEntityNamePhoneNumber, form1099K.paymentSettlementEntityNamePhoneNumber) &&
+        Objects.equals(this.paymentSettlementEntityName, form1099K.paymentSettlementEntityName) &&
+        Objects.equals(this.paymentSettlementEntityPhoneNumber, form1099K.paymentSettlementEntityPhoneNumber) &&
         Objects.equals(this.grossAmountPaymentCard, form1099K.grossAmountPaymentCard) &&
         Objects.equals(this.cardNotPresentTransactions, form1099K.cardNotPresentTransactions) &&
+        Objects.equals(this.cashTips, form1099K.cashTips) &&
+        Objects.equals(this.treasuryTippedOccupationCode, form1099K.treasuryTippedOccupationCode) &&
+        Objects.equals(this.treasuryTippedOccupationCode2, form1099K.treasuryTippedOccupationCode2) &&
         Objects.equals(this.merchantCategoryCode, form1099K.merchantCategoryCode) &&
         Objects.equals(this.paymentTransactionNumber, form1099K.paymentTransactionNumber) &&
         Objects.equals(this.federalIncomeTaxWithheld, form1099K.federalIncomeTaxWithheld) &&
@@ -1893,7 +2024,7 @@ public class Form1099K {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filerType, paymentType, paymentSettlementEntityNamePhoneNumber, grossAmountPaymentCard, cardNotPresentTransactions, merchantCategoryCode, paymentTransactionNumber, federalIncomeTaxWithheld, january, february, march, april, may, june, july, august, september, october, november, december, type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, address, address2, city, state, zip, email, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, addressVerification, stateAndLocalWithholding, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt, tinType, businessName, businessName2, firstName, middleName, lastName, suffixName, recipientSecondName, accountNumber, officeCode, noTin, secondTinNotice, additionalProperties);
+    return Objects.hash(filerType, paymentType, paymentSettlementEntityNamePhoneNumber, paymentSettlementEntityName, paymentSettlementEntityPhoneNumber, grossAmountPaymentCard, cardNotPresentTransactions, cashTips, treasuryTippedOccupationCode, treasuryTippedOccupationCode2, merchantCategoryCode, paymentTransactionNumber, federalIncomeTaxWithheld, january, february, march, april, may, june, july, august, september, october, november, december, type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, address, address2, city, state, zip, email, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, addressVerification, stateAndLocalWithholding, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt, tinType, businessName, businessName2, firstName, middleName, lastName, suffixName, recipientSecondName, accountNumber, officeCode, noTin, secondTinNotice, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1910,8 +2041,13 @@ public class Form1099K {
     sb.append("    filerType: ").append(toIndentedString(filerType)).append("\n");
     sb.append("    paymentType: ").append(toIndentedString(paymentType)).append("\n");
     sb.append("    paymentSettlementEntityNamePhoneNumber: ").append(toIndentedString(paymentSettlementEntityNamePhoneNumber)).append("\n");
+    sb.append("    paymentSettlementEntityName: ").append(toIndentedString(paymentSettlementEntityName)).append("\n");
+    sb.append("    paymentSettlementEntityPhoneNumber: ").append(toIndentedString(paymentSettlementEntityPhoneNumber)).append("\n");
     sb.append("    grossAmountPaymentCard: ").append(toIndentedString(grossAmountPaymentCard)).append("\n");
     sb.append("    cardNotPresentTransactions: ").append(toIndentedString(cardNotPresentTransactions)).append("\n");
+    sb.append("    cashTips: ").append(toIndentedString(cashTips)).append("\n");
+    sb.append("    treasuryTippedOccupationCode: ").append(toIndentedString(treasuryTippedOccupationCode)).append("\n");
+    sb.append("    treasuryTippedOccupationCode2: ").append(toIndentedString(treasuryTippedOccupationCode2)).append("\n");
     sb.append("    merchantCategoryCode: ").append(toIndentedString(merchantCategoryCode)).append("\n");
     sb.append("    paymentTransactionNumber: ").append(toIndentedString(paymentTransactionNumber)).append("\n");
     sb.append("    federalIncomeTaxWithheld: ").append(toIndentedString(federalIncomeTaxWithheld)).append("\n");
@@ -2086,6 +2222,18 @@ public class Form1099K {
       if ((jsonObj.get("paymentSettlementEntityNamePhoneNumber") != null && !jsonObj.get("paymentSettlementEntityNamePhoneNumber").isJsonNull()) && !jsonObj.get("paymentSettlementEntityNamePhoneNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `paymentSettlementEntityNamePhoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentSettlementEntityNamePhoneNumber").toString()));
       }
+      if ((jsonObj.get("paymentSettlementEntityName") != null && !jsonObj.get("paymentSettlementEntityName").isJsonNull()) && !jsonObj.get("paymentSettlementEntityName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `paymentSettlementEntityName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentSettlementEntityName").toString()));
+      }
+      if ((jsonObj.get("paymentSettlementEntityPhoneNumber") != null && !jsonObj.get("paymentSettlementEntityPhoneNumber").isJsonNull()) && !jsonObj.get("paymentSettlementEntityPhoneNumber").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `paymentSettlementEntityPhoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentSettlementEntityPhoneNumber").toString()));
+      }
+      if ((jsonObj.get("treasuryTippedOccupationCode") != null && !jsonObj.get("treasuryTippedOccupationCode").isJsonNull()) && !jsonObj.get("treasuryTippedOccupationCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `treasuryTippedOccupationCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("treasuryTippedOccupationCode").toString()));
+      }
+      if ((jsonObj.get("treasuryTippedOccupationCode2") != null && !jsonObj.get("treasuryTippedOccupationCode2").isJsonNull()) && !jsonObj.get("treasuryTippedOccupationCode2").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `treasuryTippedOccupationCode2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("treasuryTippedOccupationCode2").toString()));
+      }
       if ((jsonObj.get("merchantCategoryCode") != null && !jsonObj.get("merchantCategoryCode").isJsonNull()) && !jsonObj.get("merchantCategoryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantCategoryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantCategoryCode").toString()));
       }
@@ -2145,7 +2293,7 @@ public class Form1099K {
       }
       // validate the optional field `federalEfileStatus`
       if (jsonObj.get("federalEfileStatus") != null && !jsonObj.get("federalEfileStatus").isJsonNull()) {
-        Form1099StatusDetail.validateJsonElement(jsonObj.get("federalEfileStatus"));
+        FederalEfileStatusDetail.validateJsonElement(jsonObj.get("federalEfileStatus"));
       }
       if (jsonObj.get("stateEfileStatus") != null && !jsonObj.get("stateEfileStatus").isJsonNull()) {
         JsonArray jsonArraystateEfileStatus = jsonObj.getAsJsonArray("stateEfileStatus");

@@ -9,7 +9,12 @@
 |------------ | ------------- | ------------- | -------------|
 |**type** | [**TypeEnum**](#TypeEnum) | The form type (always \&quot;W9\&quot; for this model). |  [optional] [readonly] |
 |**name** | **String** | The name of the individual or entity associated with the form. |  [optional] |
-|**businessName** | **String** | The name of the business associated with the form. |  [optional] |
+|**firstName** | **String** | Individual first name. |  [optional] |
+|**middleName** | **String** | Individual middle name. |  [optional] |
+|**lastName** | **String** | Individual last name. |  [optional] |
+|**suffixName** | **String** | Individual name suffix. |  [optional] |
+|**businessName** | **String** | DEPRECATED: The name of the business associated with the form. Use &#x60;name2&#x60; instead. |  [optional] |
+|**name2** | **String** | The name of the business associated with the form. Replaces the deprecated &#x60;businessName&#x60; field. |  [optional] |
 |**businessClassification** | **String** | The classification of the business. |  [optional] |
 |**businessOther** | **String** | The classification description when \&quot;businessClassification\&quot; is \&quot;Other\&quot;. |  [optional] |
 |**foreignPartnerOwnerOrBeneficiary** | **Boolean** | Indicates whether the individual is a foreign partner, owner, or beneficiary. |  [optional] |

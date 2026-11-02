@@ -86,6 +86,7 @@ public class CompaniesW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created company </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., model validation failed) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -174,6 +175,7 @@ public class CompaniesW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created company </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., model validation failed) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -193,6 +195,7 @@ public class CompaniesW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created company </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., model validation failed) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -214,6 +217,7 @@ public class CompaniesW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 201 </td><td> Created company </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., model validation failed) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -270,6 +274,7 @@ public class CompaniesW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Company deleted </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Company was not found or your user does not have to permission to delete it. </td><td>  -  </td></tr>
@@ -365,6 +370,7 @@ public class CompaniesW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Company deleted </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Company was not found or your user does not have to permission to delete it. </td><td>  -  </td></tr>
@@ -385,6 +391,7 @@ public class CompaniesW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Company deleted </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Company was not found or your user does not have to permission to delete it. </td><td>  -  </td></tr>
@@ -407,6 +414,7 @@ public class CompaniesW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> Company deleted </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Company was not found or your user does not have to permission to delete it. </td><td>  -  </td></tr>
@@ -464,6 +472,7 @@ public class CompaniesW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> List of companies </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -571,13 +580,14 @@ public class CompaniesW9Api {
 
     /**
      * List companies
-     * List existing companies. Filterable/Sortable fields are: \&quot;name\&quot;, \&quot;referenceId\&quot;, \&quot;group.name\&quot;, \&quot;createdAt\&quot; and \&quot;updatedAt\&quot;.
+     * List existing companies.  Filterable/Sortable fields are: \&quot;name\&quot;, \&quot;referenceId\&quot;, \&quot;group.name\&quot;, \&quot;createdAt\&quot; and \&quot;updatedAt\&quot;.                \&quot;createdAt\&quot; and \&quot;updatedAt\&quot; accept ISO 8601 values and are stored in UTC. Values without an offset are treated as UTC,  and a date-only value means midnight (00:00:00) of that day.                Examples:  &lt;ul&gt;&lt;li&gt;Companies updated on a given day (2026-09-03): updatedAt ge &#39;2026-09-03&#39; and updatedAt lt &#39;2026-09-04&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Companies updated since a given moment (UTC): updatedAt ge &#39;2026-09-03T15:49:35Z&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Companies updated within an interval, with a time zone offset:    updatedAt ge &#39;2026-09-03T08:00:00-05:00&#39; and updatedAt le &#39;2026-09-03T18:00:00-05:00&#39;&lt;/li&gt;&lt;/ul&gt;
      * @param requestOptions Object which represents the options available for a given API/request
      * @return PaginatedQueryResultModelCompanyResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> List of companies </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -592,13 +602,14 @@ public class CompaniesW9Api {
 
     /**
      * List companies
-     * List existing companies. Filterable/Sortable fields are: \&quot;name\&quot;, \&quot;referenceId\&quot;, \&quot;group.name\&quot;, \&quot;createdAt\&quot; and \&quot;updatedAt\&quot;.
+     * List existing companies.  Filterable/Sortable fields are: \&quot;name\&quot;, \&quot;referenceId\&quot;, \&quot;group.name\&quot;, \&quot;createdAt\&quot; and \&quot;updatedAt\&quot;.                \&quot;createdAt\&quot; and \&quot;updatedAt\&quot; accept ISO 8601 values and are stored in UTC. Values without an offset are treated as UTC,  and a date-only value means midnight (00:00:00) of that day.                Examples:  &lt;ul&gt;&lt;li&gt;Companies updated on a given day (2026-09-03): updatedAt ge &#39;2026-09-03&#39; and updatedAt lt &#39;2026-09-04&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Companies updated since a given moment (UTC): updatedAt ge &#39;2026-09-03T15:49:35Z&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Companies updated within an interval, with a time zone offset:    updatedAt ge &#39;2026-09-03T08:00:00-05:00&#39; and updatedAt le &#39;2026-09-03T18:00:00-05:00&#39;&lt;/li&gt;&lt;/ul&gt;
      * @param requestOptions Object which represents the options available for a given API/request
      * @return ApiResponse&lt;PaginatedQueryResultModelCompanyResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> List of companies </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -614,7 +625,7 @@ public class CompaniesW9Api {
 
     /**
      * List companies (asynchronously)
-     * List existing companies. Filterable/Sortable fields are: \&quot;name\&quot;, \&quot;referenceId\&quot;, \&quot;group.name\&quot;, \&quot;createdAt\&quot; and \&quot;updatedAt\&quot;.
+     * List existing companies.  Filterable/Sortable fields are: \&quot;name\&quot;, \&quot;referenceId\&quot;, \&quot;group.name\&quot;, \&quot;createdAt\&quot; and \&quot;updatedAt\&quot;.                \&quot;createdAt\&quot; and \&quot;updatedAt\&quot; accept ISO 8601 values and are stored in UTC. Values without an offset are treated as UTC,  and a date-only value means midnight (00:00:00) of that day.                Examples:  &lt;ul&gt;&lt;li&gt;Companies updated on a given day (2026-09-03): updatedAt ge &#39;2026-09-03&#39; and updatedAt lt &#39;2026-09-04&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Companies updated since a given moment (UTC): updatedAt ge &#39;2026-09-03T15:49:35Z&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Companies updated within an interval, with a time zone offset:    updatedAt ge &#39;2026-09-03T08:00:00-05:00&#39; and updatedAt le &#39;2026-09-03T18:00:00-05:00&#39;&lt;/li&gt;&lt;/ul&gt;
      * @param requestOptions Object which represents the options available for a given API/request
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -622,6 +633,7 @@ public class CompaniesW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> List of companies </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -700,6 +712,7 @@ public class CompaniesW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Single company </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Company not found </td><td>  -  </td></tr>
@@ -796,6 +809,7 @@ public class CompaniesW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Single company </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Company not found </td><td>  -  </td></tr>
@@ -817,6 +831,7 @@ public class CompaniesW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Single company </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Company not found </td><td>  -  </td></tr>
@@ -840,6 +855,7 @@ public class CompaniesW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Single company </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., invalid sort key) </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Company not found </td><td>  -  </td></tr>
@@ -898,6 +914,7 @@ public class CompaniesW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Updated company </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., model validation failed) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -993,6 +1010,7 @@ public class CompaniesW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Updated company </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., model validation failed) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -1013,6 +1031,7 @@ public class CompaniesW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Updated company </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., model validation failed) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -1035,6 +1054,7 @@ public class CompaniesW9Api {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 503 </td><td> Server Error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Updated company </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request (e.g., model validation failed) </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
@@ -1089,7 +1109,7 @@ public class CompaniesW9Api {
 
     private void SetConfiguration(ApiClient client) {
         if (client == null) throw new MissingFormatArgumentException("client");
-        this.localVarApiClient.setSdkVersion("26.10.0");
+        this.localVarApiClient.setSdkVersion("26.11.0");
     }
 }
 

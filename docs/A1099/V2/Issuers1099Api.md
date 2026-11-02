@@ -50,7 +50,7 @@ public class Example {
 
         Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "5ae71043-1efc-47f3-931c-194f239999b9"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "4b4a71df-d704-4441-938e-77ebd499ffc0"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         IssuerRequest issuerRequest = new IssuerRequest(); // IssuerRequest | The issuer to create
         try {
@@ -94,6 +94,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **503** | Server Error |  -  |
 | **201** | Created issuer |  -  |
 | **400** | Bad request (e.g., invalid sort key) |  -  |
 | **401** | Authentication failed |  -  |
@@ -137,7 +138,7 @@ public class Example {
         Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
         String id = "id_example"; // String | Id of the issuer to delete
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "f7a15738-d958-4708-aad8-eac25b686d81"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "a41f3692-5fd3-467e-bd69-b6519ff72bf1"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             apiInstance.deleteIssuer(id, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -179,6 +180,7 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **503** | Server Error |  -  |
 | **204** | Empty response |  -  |
 | **400** | Bad request (e.g., invalid sort key) |  -  |
 | **401** | Authentication failed |  -  |
@@ -222,7 +224,7 @@ public class Example {
         Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
         String id = "id_example"; // String | Id of the issuer to retrieve
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "27ab9711-3475-41e4-b82a-2b7ce52ca884"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "d0af6ce1-a2e1-4962-8a8e-e2d10defb317"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             IssuerResponse result = apiInstance.getIssuer(id, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -265,6 +267,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **503** | Server Error |  -  |
 | **200** | Single issuer |  -  |
 | **400** | Bad request (e.g., invalid sort key) |  -  |
 | **401** | Authentication failed |  -  |
@@ -276,7 +279,7 @@ Name | Type | Description  | Notes
 
 List issuers
 
-List issuers (also known as Payers). Filterable fields are businessName, businessName2, referenceId, taxYear, firstName, and lastName.
+List issuers (also known as Payers).  Filterable fields are businessName, businessName2, referenceId, taxYear, firstName, lastName, createdAt and updatedAt.                \&quot;createdAt\&quot; and \&quot;updatedAt\&quot; accept ISO 8601 values and are stored in UTC. Values without an offset are treated as UTC,  and a date-only value means midnight (00:00:00) of that day.                Examples:  &lt;ul&gt;&lt;li&gt;Issuers updated on a given day (2026-09-03): updatedAt ge &#39;2026-09-03&#39; and updatedAt lt &#39;2026-09-04&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Issuers updated since a given moment (UTC): updatedAt ge &#39;2026-09-03T15:49:35Z&#39;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Issuers updated within an interval, with a time zone offset:    updatedAt ge &#39;2026-09-03T08:00:00-05:00&#39; and updatedAt le &#39;2026-09-03T18:00:00-05:00&#39;&lt;/li&gt;&lt;/ul&gt;
 
 ### Example
 
@@ -307,13 +310,13 @@ public class Example {
 
         Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
         String avalaraVersion = "2.0.0"; // String | API version
-        String $filter = "taxYear eq 2025"; // String | A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>.
+        String $filter = "taxYear eq 2026"; // String | A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>.
         Integer $top = 56; // Integer | If zero or greater than 1000, return at most 1000 results.  Otherwise, return this number of results.  Used with skip to provide pagination for large datasets.
         Integer $skip = 56; // Integer | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets.
         String $orderBy = "$orderBy_example"; // String | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
         Boolean count = true; // Boolean | If true, return the global count of elements in the collection.
         Boolean countOnly = true; // Boolean | If true, return ONLY the global count of elements in the collection.  It only applies when count=true.
-        String xCorrelationId = "1dbcdaf4-7ea0-46e9-b83c-b663e6178568"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "b0506838-51c7-442d-b969-853bea835e21"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             PaginatedQueryResultModelIssuerResponse result = apiInstance.getIssuers(avalaraVersion, $filter, $top, $skip, $orderBy, count, countOnly, xCorrelationId, xAvalaraClient);
@@ -361,6 +364,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **503** | Server Error |  -  |
 | **200** | List of issuers |  -  |
 | **400** | Bad request (e.g., invalid sort key) |  -  |
 | **404** | Not Found |  -  |
@@ -406,7 +410,7 @@ public class Example {
         Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
         Long issuerId = 56L; // Long | Id of the issuer whose rejected forms should be resubmitted
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "0520f85b-11b0-4246-953f-e06f87029486"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "35fd001d-2c7f-467f-bd35-3120d85a8317"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             ResubmitRejectedFormsResponse result = apiInstance.resubmitRejectedForms(issuerId, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -449,6 +453,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **503** | Server Error |  -  |
 | **200** | Rejected forms scheduled for replacement submission |  -  |
 | **401** | Authentication failed |  -  |
 | **403** | Caller does not have access to this issuer |  -  |
@@ -493,7 +498,7 @@ public class Example {
         Issuers1099Api apiInstance = new Issuers1099Api(apiClient);
         String id = "id_example"; // String | Id of the issuer to update
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "542fb8dd-e4ec-49c2-aef5-f9159dd46aaf"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "37538a0f-462a-4a58-83c1-b0c8c959f75f"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         IssuerRequest issuerRequest = new IssuerRequest(); // IssuerRequest | The issuer to update
         try {
@@ -538,6 +543,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **503** | Server Error |  -  |
 | **200** | Issuer updated. Body may contain &#x60;validationErrors[]&#x60; when business rules failed. |  -  |
 | **400** | Invalid id format, malformed JSON, or identity change rejected for an issuer with scheduled Forms 1099 (TIN, TIN type, or name are immutable in that case). |  -  |
 | **401** | Unauthorized |  -  |

@@ -20,6 +20,7 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
+import Avalara.SDK.model.A1099.V2.FederalEfileErrorResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -215,7 +218,18 @@ public class IssuerResponse {
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
 
+  public static final String SERIALIZED_NAME_FEDERAL_EFILE_ERRORS = "federalEfileErrors";
+  @SerializedName(SERIALIZED_NAME_FEDERAL_EFILE_ERRORS)
+  private List<FederalEfileErrorResponse> federalEfileErrors;
+
   public IssuerResponse() {
+  }
+
+  public IssuerResponse(
+     List<FederalEfileErrorResponse> federalEfileErrors
+  ) {
+    this();
+    this.federalEfileErrors = federalEfileErrors;
   }
 
   public IssuerResponse businessName(String businessName) {
@@ -701,6 +715,17 @@ public class IssuerResponse {
   }
 
 
+  /**
+   * Issuer-level IRS/IRIS rejection errors from the federal filing submissions of the issuer&#39;s forms that are still rejected and awaiting resubmission.
+   * @return federalEfileErrors
+   */
+  @javax.annotation.Nullable
+  public List<FederalEfileErrorResponse> getFederalEfileErrors() {
+    return federalEfileErrors;
+  }
+
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -735,7 +760,8 @@ public class IssuerResponse {
         Objects.equals(this.lastFiling, issuerResponse.lastFiling) &&
         Objects.equals(this.id, issuerResponse.id) &&
         Objects.equals(this.createdAt, issuerResponse.createdAt) &&
-        Objects.equals(this.updatedAt, issuerResponse.updatedAt);
+        Objects.equals(this.updatedAt, issuerResponse.updatedAt) &&
+        Objects.equals(this.federalEfileErrors, issuerResponse.federalEfileErrors);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -744,7 +770,7 @@ public class IssuerResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessName, businessName2, name, dbaName, tinType, firstName, middleName, lastName, suffix, tin, referenceId, telephone, taxYear, countryCode, email, address, city, state, zip, foreignProvince, transferAgentName, lastFiling, id, createdAt, updatedAt);
+    return Objects.hash(businessName, businessName2, name, dbaName, tinType, firstName, middleName, lastName, suffix, tin, referenceId, telephone, taxYear, countryCode, email, address, city, state, zip, foreignProvince, transferAgentName, lastFiling, id, createdAt, updatedAt, federalEfileErrors);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -783,6 +809,7 @@ public class IssuerResponse {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    federalEfileErrors: ").append(toIndentedString(federalEfileErrors)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -830,6 +857,7 @@ public class IssuerResponse {
     openapiFields.add("id");
     openapiFields.add("createdAt");
     openapiFields.add("updatedAt");
+    openapiFields.add("federalEfileErrors");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -938,6 +966,20 @@ public class IssuerResponse {
       }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (jsonObj.get("federalEfileErrors") != null && !jsonObj.get("federalEfileErrors").isJsonNull()) {
+        JsonArray jsonArrayfederalEfileErrors = jsonObj.getAsJsonArray("federalEfileErrors");
+        if (jsonArrayfederalEfileErrors != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("federalEfileErrors").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `federalEfileErrors` to be an array in the JSON string but got `%s`", jsonObj.get("federalEfileErrors").toString()));
+          }
+
+          // validate the optional field `federalEfileErrors` (array)
+          for (int i = 0; i < jsonArrayfederalEfileErrors.size(); i++) {
+            FederalEfileErrorResponse.validateJsonElement(jsonArrayfederalEfileErrors.get(i));
+          };
+        }
       }
   }
 

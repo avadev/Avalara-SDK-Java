@@ -20,6 +20,7 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
+import Avalara.SDK.model.A1099.V2.FederalEfileErrorResponse;
 import Avalara.SDK.model.A1099.V2.ValidationError;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -218,6 +219,10 @@ public class IssuerWriteResponse {
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
 
+  public static final String SERIALIZED_NAME_FEDERAL_EFILE_ERRORS = "federalEfileErrors";
+  @SerializedName(SERIALIZED_NAME_FEDERAL_EFILE_ERRORS)
+  private List<FederalEfileErrorResponse> federalEfileErrors;
+
   public static final String SERIALIZED_NAME_VALIDATION_ERRORS = "validationErrors";
   @SerializedName(SERIALIZED_NAME_VALIDATION_ERRORS)
   private List<ValidationError> validationErrors;
@@ -226,9 +231,11 @@ public class IssuerWriteResponse {
   }
 
   public IssuerWriteResponse(
+     List<FederalEfileErrorResponse> federalEfileErrors, 
      List<ValidationError> validationErrors
   ) {
     this();
+    this.federalEfileErrors = federalEfileErrors;
     this.validationErrors = validationErrors;
   }
 
@@ -716,6 +723,17 @@ public class IssuerWriteResponse {
 
 
   /**
+   * Issuer-level IRS/IRIS rejection errors from the federal filing submissions of the issuer&#39;s forms that are still rejected and awaiting resubmission.
+   * @return federalEfileErrors
+   */
+  @javax.annotation.Nullable
+  public List<FederalEfileErrorResponse> getFederalEfileErrors() {
+    return federalEfileErrors;
+  }
+
+
+
+  /**
    * Field-level validation errors. Populated when a POST or PUT request violated business rules  but the issuer was still persisted. Each entry identifies the affected field and the issue.  Empty array when the payload was fully valid.
    * @return validationErrors
    */
@@ -761,6 +779,7 @@ public class IssuerWriteResponse {
         Objects.equals(this.id, issuerWriteResponse.id) &&
         Objects.equals(this.createdAt, issuerWriteResponse.createdAt) &&
         Objects.equals(this.updatedAt, issuerWriteResponse.updatedAt) &&
+        Objects.equals(this.federalEfileErrors, issuerWriteResponse.federalEfileErrors) &&
         Objects.equals(this.validationErrors, issuerWriteResponse.validationErrors);
   }
 
@@ -770,7 +789,7 @@ public class IssuerWriteResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessName, businessName2, name, dbaName, tinType, firstName, middleName, lastName, suffix, tin, referenceId, telephone, taxYear, countryCode, email, address, city, state, zip, foreignProvince, transferAgentName, lastFiling, id, createdAt, updatedAt, validationErrors);
+    return Objects.hash(businessName, businessName2, name, dbaName, tinType, firstName, middleName, lastName, suffix, tin, referenceId, telephone, taxYear, countryCode, email, address, city, state, zip, foreignProvince, transferAgentName, lastFiling, id, createdAt, updatedAt, federalEfileErrors, validationErrors);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -809,6 +828,7 @@ public class IssuerWriteResponse {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    federalEfileErrors: ").append(toIndentedString(federalEfileErrors)).append("\n");
     sb.append("    validationErrors: ").append(toIndentedString(validationErrors)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -857,6 +877,7 @@ public class IssuerWriteResponse {
     openapiFields.add("id");
     openapiFields.add("createdAt");
     openapiFields.add("updatedAt");
+    openapiFields.add("federalEfileErrors");
     openapiFields.add("validationErrors");
 
     // a set of required properties/fields (JSON key names)
@@ -966,6 +987,20 @@ public class IssuerWriteResponse {
       }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (jsonObj.get("federalEfileErrors") != null && !jsonObj.get("federalEfileErrors").isJsonNull()) {
+        JsonArray jsonArrayfederalEfileErrors = jsonObj.getAsJsonArray("federalEfileErrors");
+        if (jsonArrayfederalEfileErrors != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("federalEfileErrors").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `federalEfileErrors` to be an array in the JSON string but got `%s`", jsonObj.get("federalEfileErrors").toString()));
+          }
+
+          // validate the optional field `federalEfileErrors` (array)
+          for (int i = 0; i < jsonArrayfederalEfileErrors.size(); i++) {
+            FederalEfileErrorResponse.validateJsonElement(jsonArrayfederalEfileErrors.get(i));
+          };
+        }
       }
       if (jsonObj.get("validationErrors") != null && !jsonObj.get("validationErrors").isJsonNull()) {
         JsonArray jsonArrayvalidationErrors = jsonObj.getAsJsonArray("validationErrors");

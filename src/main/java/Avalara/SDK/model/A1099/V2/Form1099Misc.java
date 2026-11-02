@@ -20,6 +20,7 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
+import Avalara.SDK.model.A1099.V2.FederalEfileStatusDetail;
 import Avalara.SDK.model.A1099.V2.Form1099StatusDetail;
 import Avalara.SDK.model.A1099.V2.StateAndLocalWithholding;
 import Avalara.SDK.model.A1099.V2.StateEfileStatusDetail;
@@ -114,6 +115,22 @@ public class Form1099Misc {
   @SerializedName(SERIALIZED_NAME_SECTION409_A_DEFERRALS)
   private Double section409ADeferrals;
 
+  public static final String SERIALIZED_NAME_CASH_TIPS = "cashTips";
+  @SerializedName(SERIALIZED_NAME_CASH_TIPS)
+  private Double cashTips;
+
+  public static final String SERIALIZED_NAME_TREASURY_TIPPED_OCCUPATION_CODE = "treasuryTippedOccupationCode";
+  @SerializedName(SERIALIZED_NAME_TREASURY_TIPPED_OCCUPATION_CODE)
+  private String treasuryTippedOccupationCode;
+
+  public static final String SERIALIZED_NAME_TREASURY_TIPPED_OCCUPATION_CODE2 = "treasuryTippedOccupationCode2";
+  @SerializedName(SERIALIZED_NAME_TREASURY_TIPPED_OCCUPATION_CODE2)
+  private String treasuryTippedOccupationCode2;
+
+  public static final String SERIALIZED_NAME_OVERTIME_COMPENSATION = "overtimeCompensation";
+  @SerializedName(SERIALIZED_NAME_OVERTIME_COMPENSATION)
+  private Double overtimeCompensation;
+
   public static final String SERIALIZED_NAME_EXCESS_GOLDEN_PARACHUTE_PAYMENTS = "excessGoldenParachutePayments";
   @SerializedName(SERIALIZED_NAME_EXCESS_GOLDEN_PARACHUTE_PAYMENTS)
   private Double excessGoldenParachutePayments;
@@ -139,11 +156,17 @@ public class Form1099Misc {
     
     _1098("1098"),
     
+    _1098_E("1098-E"),
+    
     _1098_T("1098-T"),
+    
+    _1099_B("1099-B"),
     
     _1099_C("1099-C"),
     
     _1099_DIV("1099-DIV"),
+    
+    _1099_G("1099-G"),
     
     _1099_INT("1099-INT"),
     
@@ -161,7 +184,11 @@ public class Form1099Misc {
     
     _1099_SA("1099-SA"),
     
-    W_2("W-2");
+    _5498("5498"),
+    
+    W_2("W-2"),
+    
+    W_2_G("W-2G");
 
     private String value;
 
@@ -305,7 +332,7 @@ public class Form1099Misc {
 
   public static final String SERIALIZED_NAME_FEDERAL_EFILE_STATUS = "federalEfileStatus";
   @SerializedName(SERIALIZED_NAME_FEDERAL_EFILE_STATUS)
-  private Form1099StatusDetail federalEfileStatus;
+  private FederalEfileStatusDetail federalEfileStatus;
 
   public static final String SERIALIZED_NAME_STATE_EFILE_STATUS = "stateEfileStatus";
   @SerializedName(SERIALIZED_NAME_STATE_EFILE_STATUS)
@@ -455,7 +482,7 @@ public class Form1099Misc {
 
   public Form1099Misc(
      String id, 
-     Form1099StatusDetail federalEfileStatus, 
+     FederalEfileStatusDetail federalEfileStatus, 
      List<StateEfileStatusDetail> stateEfileStatus, 
      Form1099StatusDetail postalMailStatus, 
      Form1099StatusDetail tinMatchStatus, 
@@ -706,13 +733,89 @@ public class Form1099Misc {
   }
 
 
+  public Form1099Misc cashTips(Double cashTips) {
+    this.cashTips = cashTips;
+    return this;
+  }
+
+  /**
+   * Box 13a. Cash tips, including tips paid in cash or charged by customers - Available only for tax year 2026 and later.
+   * @return cashTips
+   */
+  @javax.annotation.Nullable
+  public Double getCashTips() {
+    return cashTips;
+  }
+
+  public void setCashTips(Double cashTips) {
+    this.cashTips = cashTips;
+  }
+
+
+  public Form1099Misc treasuryTippedOccupationCode(String treasuryTippedOccupationCode) {
+    this.treasuryTippedOccupationCode = treasuryTippedOccupationCode;
+    return this;
+  }
+
+  /**
+   * Box 13b. Treasury Tipped Occupation Code (TTOC) for the recipient&#39;s tipped occupation - Available only for tax year 2026 and later.  A three-digit, zero-padded code from the IRS enumeration: 000 (tips received in a nonqualifying occupation), 101-110, 201-211, 301-304,  401-409, 501-508, 601-611, 701-706, or 801-809. The form accepts up to two codes - see TreasuryTippedOccupationCode2 for the second.  Send the code exactly as three characters (\&quot;001\&quot;, not \&quot;1\&quot;); leading zeros are not restored for you. Watch for spreadsheet software  that strips leading zeros when a code is exported to CSV and re-imported.
+   * @return treasuryTippedOccupationCode
+   */
+  @javax.annotation.Nullable
+  public String getTreasuryTippedOccupationCode() {
+    return treasuryTippedOccupationCode;
+  }
+
+  public void setTreasuryTippedOccupationCode(String treasuryTippedOccupationCode) {
+    this.treasuryTippedOccupationCode = treasuryTippedOccupationCode;
+  }
+
+
+  public Form1099Misc treasuryTippedOccupationCode2(String treasuryTippedOccupationCode2) {
+    this.treasuryTippedOccupationCode2 = treasuryTippedOccupationCode2;
+    return this;
+  }
+
+  /**
+   * Box 13b. Second Treasury Tipped Occupation Code (TTOC) - Available only for tax year 2026 and later.  Same three-digit code list and formatting rules as TreasuryTippedOccupationCode, and must differ from it.
+   * @return treasuryTippedOccupationCode2
+   */
+  @javax.annotation.Nullable
+  public String getTreasuryTippedOccupationCode2() {
+    return treasuryTippedOccupationCode2;
+  }
+
+  public void setTreasuryTippedOccupationCode2(String treasuryTippedOccupationCode2) {
+    this.treasuryTippedOccupationCode2 = treasuryTippedOccupationCode2;
+  }
+
+
+  public Form1099Misc overtimeCompensation(Double overtimeCompensation) {
+    this.overtimeCompensation = overtimeCompensation;
+    return this;
+  }
+
+  /**
+   * Box 14. Qualified overtime compensation - Available only for tax year 2026 and later. Named \&quot;Box 14 Excess golden parachute  payments\&quot; on revisions of the form before the December 2026 revision - see ExcessGoldenParachutePayments for that field.
+   * @return overtimeCompensation
+   */
+  @javax.annotation.Nullable
+  public Double getOvertimeCompensation() {
+    return overtimeCompensation;
+  }
+
+  public void setOvertimeCompensation(Double overtimeCompensation) {
+    this.overtimeCompensation = overtimeCompensation;
+  }
+
+
   public Form1099Misc excessGoldenParachutePayments(Double excessGoldenParachutePayments) {
     this.excessGoldenParachutePayments = excessGoldenParachutePayments;
     return this;
   }
 
   /**
-   * Excess golden parachute payments - Available only for tax year 2024 and earlier
+   * Excess golden parachute payments - Available only for tax year 2024 and earlier. Was \&quot;Box 14\&quot; on those earlier revisions;  the December 2026 revision reassigns Box 14 to OvertimeCompensation.
    * @return excessGoldenParachutePayments
    */
   @javax.annotation.Nullable
@@ -1216,11 +1319,11 @@ public class Form1099Misc {
 
 
   /**
-   * Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states)
+   * Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states)  When the form&#39;s most recent IRIS filing was rejected or accepted with errors, &#x60;errors&#x60; lists what the IRS reported.
    * @return federalEfileStatus
    */
   @javax.annotation.Nullable
-  public Form1099StatusDetail getFederalEfileStatus() {
+  public FederalEfileStatusDetail getFederalEfileStatus() {
     return federalEfileStatus;
   }
 
@@ -1612,6 +1715,10 @@ public class Form1099Misc {
         Objects.equals(this.grossProceedsPaidToAttorney, form1099Misc.grossProceedsPaidToAttorney) &&
         Objects.equals(this.fishPurchasedForResale, form1099Misc.fishPurchasedForResale) &&
         Objects.equals(this.section409ADeferrals, form1099Misc.section409ADeferrals) &&
+        Objects.equals(this.cashTips, form1099Misc.cashTips) &&
+        Objects.equals(this.treasuryTippedOccupationCode, form1099Misc.treasuryTippedOccupationCode) &&
+        Objects.equals(this.treasuryTippedOccupationCode2, form1099Misc.treasuryTippedOccupationCode2) &&
+        Objects.equals(this.overtimeCompensation, form1099Misc.overtimeCompensation) &&
         Objects.equals(this.excessGoldenParachutePayments, form1099Misc.excessGoldenParachutePayments) &&
         Objects.equals(this.nonqualifiedDeferredCompensation, form1099Misc.nonqualifiedDeferredCompensation) &&
         Objects.equals(this.fatcaFilingRequirement, form1099Misc.fatcaFilingRequirement) &&
@@ -1669,7 +1776,7 @@ public class Form1099Misc {
 
   @Override
   public int hashCode() {
-    return Objects.hash(rents, royalties, otherIncome, federalIncomeTaxWithheld, fishingBoatProceeds, medicalAndHealthCarePayments, directSalesIndicator, substitutePayments, cropInsuranceProceeds, grossProceedsPaidToAttorney, fishPurchasedForResale, section409ADeferrals, excessGoldenParachutePayments, nonqualifiedDeferredCompensation, fatcaFilingRequirement, type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, address, address2, city, state, zip, email, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, addressVerification, stateAndLocalWithholding, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt, tinType, businessName, businessName2, firstName, middleName, lastName, suffixName, recipientSecondName, accountNumber, officeCode, noTin, secondTinNotice, additionalProperties);
+    return Objects.hash(rents, royalties, otherIncome, federalIncomeTaxWithheld, fishingBoatProceeds, medicalAndHealthCarePayments, directSalesIndicator, substitutePayments, cropInsuranceProceeds, grossProceedsPaidToAttorney, fishPurchasedForResale, section409ADeferrals, cashTips, treasuryTippedOccupationCode, treasuryTippedOccupationCode2, overtimeCompensation, excessGoldenParachutePayments, nonqualifiedDeferredCompensation, fatcaFilingRequirement, type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, address, address2, city, state, zip, email, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, addressVerification, stateAndLocalWithholding, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt, tinType, businessName, businessName2, firstName, middleName, lastName, suffixName, recipientSecondName, accountNumber, officeCode, noTin, secondTinNotice, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1695,6 +1802,10 @@ public class Form1099Misc {
     sb.append("    grossProceedsPaidToAttorney: ").append(toIndentedString(grossProceedsPaidToAttorney)).append("\n");
     sb.append("    fishPurchasedForResale: ").append(toIndentedString(fishPurchasedForResale)).append("\n");
     sb.append("    section409ADeferrals: ").append(toIndentedString(section409ADeferrals)).append("\n");
+    sb.append("    cashTips: ").append(toIndentedString(cashTips)).append("\n");
+    sb.append("    treasuryTippedOccupationCode: ").append(toIndentedString(treasuryTippedOccupationCode)).append("\n");
+    sb.append("    treasuryTippedOccupationCode2: ").append(toIndentedString(treasuryTippedOccupationCode2)).append("\n");
+    sb.append("    overtimeCompensation: ").append(toIndentedString(overtimeCompensation)).append("\n");
     sb.append("    excessGoldenParachutePayments: ").append(toIndentedString(excessGoldenParachutePayments)).append("\n");
     sb.append("    nonqualifiedDeferredCompensation: ").append(toIndentedString(nonqualifiedDeferredCompensation)).append("\n");
     sb.append("    fatcaFilingRequirement: ").append(toIndentedString(fatcaFilingRequirement)).append("\n");
@@ -1840,6 +1951,12 @@ public class Form1099Misc {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("treasuryTippedOccupationCode") != null && !jsonObj.get("treasuryTippedOccupationCode").isJsonNull()) && !jsonObj.get("treasuryTippedOccupationCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `treasuryTippedOccupationCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("treasuryTippedOccupationCode").toString()));
+      }
+      if ((jsonObj.get("treasuryTippedOccupationCode2") != null && !jsonObj.get("treasuryTippedOccupationCode2").isJsonNull()) && !jsonObj.get("treasuryTippedOccupationCode2").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `treasuryTippedOccupationCode2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("treasuryTippedOccupationCode2").toString()));
+      }
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
@@ -1896,7 +2013,7 @@ public class Form1099Misc {
       }
       // validate the optional field `federalEfileStatus`
       if (jsonObj.get("federalEfileStatus") != null && !jsonObj.get("federalEfileStatus").isJsonNull()) {
-        Form1099StatusDetail.validateJsonElement(jsonObj.get("federalEfileStatus"));
+        FederalEfileStatusDetail.validateJsonElement(jsonObj.get("federalEfileStatus"));
       }
       if (jsonObj.get("stateEfileStatus") != null && !jsonObj.get("stateEfileStatus").isJsonNull()) {
         JsonArray jsonArraystateEfileStatus = jsonObj.getAsJsonArray("stateEfileStatus");

@@ -175,7 +175,12 @@
 |**alternativeWithholdingStatementRelianceCertification** | **Boolean** | Certifies that the entity may rely on the information in all associated withholding certificates  under the applicable standards of knowledge in sections 1441 or 1471 when providing an alternative withholding statement. |  [optional] |
 |**npFfiWithExemptBeneficialOwnersCertification** | **Boolean** | Certifies that the nonparticipating FFI is transmitting withholding documentation  and providing a statement allocating payment portions to exempt beneficial owners. |  [optional] |
 |**foreignCentralBankOfIssueCertification** | **Boolean** | Certifies that the entity is treated as the beneficial owner of the payment solely  for purposes of chapter 4 under Regulations section 1.1471-6(d)(4). |  [optional] |
-|**businessName** | **String** | The name of the business associated with the form. |  [optional] |
+|**firstName** | **String** | Individual first name. |  [optional] |
+|**middleName** | **String** | Individual middle name. |  [optional] |
+|**lastName** | **String** | Individual last name. |  [optional] |
+|**suffixName** | **String** | Individual name suffix. |  [optional] |
+|**businessName** | **String** | DEPRECATED: The name of the business associated with the form. Use &#x60;name2&#x60; instead. |  [optional] |
+|**name2** | **String** | The name of the business associated with the form. Replaces the deprecated &#x60;businessName&#x60; field. |  [optional] |
 |**businessClassification** | **String** | The classification of the business. |  [optional] |
 |**businessOther** | **String** | The classification description when \&quot;businessClassification\&quot; is \&quot;Other\&quot;. |  [optional] |
 |**foreignPartnerOwnerOrBeneficiary** | **Boolean** | Indicates whether the individual is a foreign partner, owner, or beneficiary. |  [optional] |

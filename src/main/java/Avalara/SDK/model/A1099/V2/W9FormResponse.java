@@ -127,9 +127,30 @@ public class W9FormResponse {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
+  @SerializedName(SERIALIZED_NAME_FIRST_NAME)
+  private String firstName;
+
+  public static final String SERIALIZED_NAME_MIDDLE_NAME = "middleName";
+  @SerializedName(SERIALIZED_NAME_MIDDLE_NAME)
+  private String middleName;
+
+  public static final String SERIALIZED_NAME_LAST_NAME = "lastName";
+  @SerializedName(SERIALIZED_NAME_LAST_NAME)
+  private String lastName;
+
+  public static final String SERIALIZED_NAME_SUFFIX_NAME = "suffixName";
+  @SerializedName(SERIALIZED_NAME_SUFFIX_NAME)
+  private String suffixName;
+
   public static final String SERIALIZED_NAME_BUSINESS_NAME = "businessName";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_BUSINESS_NAME)
   private String businessName;
+
+  public static final String SERIALIZED_NAME_NAME2 = "name2";
+  @SerializedName(SERIALIZED_NAME_NAME2)
+  private String name2;
 
   public static final String SERIALIZED_NAME_BUSINESS_CLASSIFICATION = "businessClassification";
   @SerializedName(SERIALIZED_NAME_BUSINESS_CLASSIFICATION)
@@ -291,22 +312,121 @@ public class W9FormResponse {
   }
 
 
+  public W9FormResponse firstName(String firstName) {
+    this.firstName = firstName;
+    return this;
+  }
+
+  /**
+   * Individual first name.
+   * @return firstName
+   */
+  @javax.annotation.Nullable
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+
+  public W9FormResponse middleName(String middleName) {
+    this.middleName = middleName;
+    return this;
+  }
+
+  /**
+   * Individual middle name.
+   * @return middleName
+   */
+  @javax.annotation.Nullable
+  public String getMiddleName() {
+    return middleName;
+  }
+
+  public void setMiddleName(String middleName) {
+    this.middleName = middleName;
+  }
+
+
+  public W9FormResponse lastName(String lastName) {
+    this.lastName = lastName;
+    return this;
+  }
+
+  /**
+   * Individual last name.
+   * @return lastName
+   */
+  @javax.annotation.Nullable
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+
+  public W9FormResponse suffixName(String suffixName) {
+    this.suffixName = suffixName;
+    return this;
+  }
+
+  /**
+   * Individual name suffix.
+   * @return suffixName
+   */
+  @javax.annotation.Nullable
+  public String getSuffixName() {
+    return suffixName;
+  }
+
+  public void setSuffixName(String suffixName) {
+    this.suffixName = suffixName;
+  }
+
+
+  @Deprecated
   public W9FormResponse businessName(String businessName) {
     this.businessName = businessName;
     return this;
   }
 
   /**
-   * The name of the business associated with the form.
+   * DEPRECATED: The name of the business associated with the form. Use &#x60;name2&#x60; instead.
    * @return businessName
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public String getBusinessName() {
     return businessName;
   }
 
+  @Deprecated
   public void setBusinessName(String businessName) {
     this.businessName = businessName;
+  }
+
+
+  public W9FormResponse name2(String name2) {
+    this.name2 = name2;
+    return this;
+  }
+
+  /**
+   * The name of the business associated with the form. Replaces the deprecated &#x60;businessName&#x60; field.
+   * @return name2
+   */
+  @javax.annotation.Nullable
+  public String getName2() {
+    return name2;
+  }
+
+  public void setName2(String name2) {
+    this.name2 = name2;
   }
 
 
@@ -892,7 +1012,12 @@ public class W9FormResponse {
     W9FormResponse w9FormResponse = (W9FormResponse) o;
     return Objects.equals(this.type, w9FormResponse.type) &&
         Objects.equals(this.name, w9FormResponse.name) &&
+        Objects.equals(this.firstName, w9FormResponse.firstName) &&
+        Objects.equals(this.middleName, w9FormResponse.middleName) &&
+        Objects.equals(this.lastName, w9FormResponse.lastName) &&
+        Objects.equals(this.suffixName, w9FormResponse.suffixName) &&
         Objects.equals(this.businessName, w9FormResponse.businessName) &&
+        Objects.equals(this.name2, w9FormResponse.name2) &&
         Objects.equals(this.businessClassification, w9FormResponse.businessClassification) &&
         Objects.equals(this.businessOther, w9FormResponse.businessOther) &&
         Objects.equals(this.foreignPartnerOwnerOrBeneficiary, w9FormResponse.foreignPartnerOwnerOrBeneficiary) &&
@@ -931,7 +1056,7 @@ public class W9FormResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, name, businessName, businessClassification, businessOther, foreignPartnerOwnerOrBeneficiary, exemptPayeeCode, exemptFatcaCode, foreignCountryIndicator, address, foreignAddress, city, state, zip, accountNumber, tinType, tin, backupWithholding, is1099able, tinMatchStatus, id, entryStatus, referenceId, companyId, displayName, email, archived, ancestorId, signature, signedDate, eDeliveryConsentedAt, createdAt, updatedAt);
+    return Objects.hash(type, name, firstName, middleName, lastName, suffixName, businessName, name2, businessClassification, businessOther, foreignPartnerOwnerOrBeneficiary, exemptPayeeCode, exemptFatcaCode, foreignCountryIndicator, address, foreignAddress, city, state, zip, accountNumber, tinType, tin, backupWithholding, is1099able, tinMatchStatus, id, entryStatus, referenceId, companyId, displayName, email, archived, ancestorId, signature, signedDate, eDeliveryConsentedAt, createdAt, updatedAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -947,7 +1072,12 @@ public class W9FormResponse {
     sb.append("class W9FormResponse {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    suffixName: ").append(toIndentedString(suffixName)).append("\n");
     sb.append("    businessName: ").append(toIndentedString(businessName)).append("\n");
+    sb.append("    name2: ").append(toIndentedString(name2)).append("\n");
     sb.append("    businessClassification: ").append(toIndentedString(businessClassification)).append("\n");
     sb.append("    businessOther: ").append(toIndentedString(businessOther)).append("\n");
     sb.append("    foreignPartnerOwnerOrBeneficiary: ").append(toIndentedString(foreignPartnerOwnerOrBeneficiary)).append("\n");
@@ -1050,8 +1180,23 @@ public class W9FormResponse {
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
+      if ((jsonObj.get("firstName") != null && !jsonObj.get("firstName").isJsonNull()) && !jsonObj.get("firstName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `firstName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firstName").toString()));
+      }
+      if ((jsonObj.get("middleName") != null && !jsonObj.get("middleName").isJsonNull()) && !jsonObj.get("middleName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `middleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("middleName").toString()));
+      }
+      if ((jsonObj.get("lastName") != null && !jsonObj.get("lastName").isJsonNull()) && !jsonObj.get("lastName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `lastName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastName").toString()));
+      }
+      if ((jsonObj.get("suffixName") != null && !jsonObj.get("suffixName").isJsonNull()) && !jsonObj.get("suffixName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `suffixName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("suffixName").toString()));
+      }
       if ((jsonObj.get("businessName") != null && !jsonObj.get("businessName").isJsonNull()) && !jsonObj.get("businessName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `businessName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessName").toString()));
+      }
+      if ((jsonObj.get("name2") != null && !jsonObj.get("name2").isJsonNull()) && !jsonObj.get("name2").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name2").toString()));
       }
       if ((jsonObj.get("businessClassification") != null && !jsonObj.get("businessClassification").isJsonNull()) && !jsonObj.get("businessClassification").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `businessClassification` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessClassification").toString()));

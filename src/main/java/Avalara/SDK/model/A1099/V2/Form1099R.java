@@ -20,6 +20,7 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
+import Avalara.SDK.model.A1099.V2.FederalEfileStatusDetail;
 import Avalara.SDK.model.A1099.V2.Form1099StatusDetail;
 import Avalara.SDK.model.A1099.V2.StateAndLocalWithholding;
 import Avalara.SDK.model.A1099.V2.StateEfileStatusDetail;
@@ -99,7 +100,7 @@ public class Form1099R {
   private Double netUnrealizedAppreciationInEmployerSecurities;
 
   /**
-   * Distribution code.    Available values:  - 1: Early distribution, no known exception (in most cases, under age 59½)  - 2: Early distribution, exception applies (under age 59½)  - 3: Disability  - 4: Death  - 5: Prohibited transaction  - 6: Section 1035 exchange (a tax-free exchange of life insurance, annuity, qualified long-term care insurance, or endowment contracts)  - 7: Normal distribution  - 8: Excess contributions plus earnings/excess deferrals (and/or earnings) taxable in payment year  - 9: Cost of current life insurance protection (premiums paid by a trustee or custodian for current insurance protection)  - A: May be eligible for 10-year tax option  - B: Designated Roth account distribution  - C: Reportable Death Benefits Under Section 6050Y(c)  - D: Annuity payments from nonqualified annuity payments and distributions from life insurance contracts that may be subject to tax under section 1411  - E: Distribution under Employee Plans Compliance Resolution System (EPCRS)  - F: Charitable gift annuity  - G: Direct rollover and rollover contribution  - H: Direct rollover of distribution from a designated Roth account to a Roth IRA  - J: Early distribution from a Roth IRA (This code may be used with a Code 8 or P)  - K: Distribution of IRA Assets Not Having A Readily Available FMV  - L: Loans treated as deemed distributions under section 72(p)  - M: Qualified Plan Loan Offsets  - N: Recharacterized IRA contribution made for year following payment year  - P: Excess contributions plus earnings/excess deferrals taxable for year prior to payment year  - Q: Qualified distribution from a Roth IRA (Distribution from a Roth IRA when the 5-year holding period has been met, and the recipient has reached 59½, has died, or is disabled)  - R: Recharacterized IRA contribution made for year prior to payment year  - S: Early distribution from a SIMPLE IRA in first 2 years no known exceptions  - T: Roth IRA distribution exception applies because participant has reached 59½, died or is disabled, but it is unknown if the 5-year period has been met  - U: Distribution from ESOP under Section 404(k)  - W: Charges or payments for purchasing qualified long-term care insurance contracts under combined arrangements  - Y: Qualified charitable distribution (QCD) claimed under section 408(d)(8) (Available for 2025 on)
+   * Box 7a. Distribution code.    Available values:  - 1: Early distribution, no known exception (in most cases, under age 59½)  - 2: Early distribution, exception applies (under age 59½)  - 3: Disability  - 4: Death  - 5: Prohibited transaction  - 6: Section 1035 exchange (a tax-free exchange of life insurance, annuity, qualified long-term care insurance, or endowment contracts)  - 7: Normal distribution  - 8: Excess contributions plus earnings/excess deferrals (and/or earnings) taxable in payment year  - 9: Cost of current life insurance protection (premiums paid by a trustee or custodian for current insurance protection)  - A: May be eligible for 10-year tax option  - B: Designated Roth account distribution  - C: Reportable Death Benefits Under Section 6050Y(c)  - D: Annuity payments from nonqualified annuity payments and distributions from life insurance contracts that may be subject to tax under section 1411  - E: Distribution under Employee Plans Compliance Resolution System (EPCRS)  - F: Charitable gift annuity  - G: Direct rollover and rollover contribution  - H: Direct rollover of distribution from a designated Roth account to a Roth IRA  - J: Early distribution from a Roth IRA (This code may be used with a Code 8 or P)  - K: Distribution of IRA Assets Not Having A Readily Available FMV  - L: Loans treated as deemed distributions under section 72(p)  - M: Qualified Plan Loan Offsets  - N: Recharacterized IRA contribution made for year following payment year  - P: Excess contributions plus earnings/excess deferrals taxable for year prior to payment year  - Q: Qualified distribution from a Roth IRA (Distribution from a Roth IRA when the 5-year holding period has been met, and the recipient has reached 59½, has died, or is disabled)  - R: Recharacterized IRA contribution made for year prior to payment year  - S: Early distribution from a SIMPLE IRA in first 2 years no known exceptions  - T: Roth IRA distribution exception applies because participant has reached 59½, died or is disabled, but it is unknown if the 5-year period has been met  - U: Distribution from ESOP under Section 404(k)  - W: Charges or payments for purchasing qualified long-term care insurance contracts under combined arrangements  - Y: Qualified charitable distribution (QCD) claimed under section 408(d)(8) (Available for 2025 on)
    */
   @JsonAdapter(DistributionCodeEnum.Adapter.class)
   public enum DistributionCodeEnum {
@@ -211,7 +212,7 @@ public class Form1099R {
   private DistributionCodeEnum distributionCode;
 
   /**
-   * Second distribution code. Must be a valid combination with the first distribution code.  See DistributionCode property documentation for code descriptions.    Valid combinations based on first distribution code:  - 1: _, 8, B, D, K, L, M, P  - 2: _, 8, B, D, K, L, M, P  - 3: _, D  - 4: _, 8, A, B, D, G, H, K, L, M, P  - 5: _  - 6: _, W  - 7: _, A, B, D, K, L, M  - 8: _, 1, 2, 4, B, J, K  - 9: _  - A: 4, 7  - B: _, 1, 2, 4, 7, 8, G, L, M, P, U  - C: _, D  - D: 1, 2, 3, 4, 7, C  - E: _  - F: _  - G: _, 4, B, K  - H: _, 4  - J: _, 8, P  - K: 1, 2, 4, 7, 8, G  - L: _, 1, 2, 4, 7, B  - M: _, 1, 2, 4, 7, B  - N: _  - P: _, 1, 2, 4, B, J  - Q: _  - R: _  - S: _  - T: _  - U: _, B  - W: _, 6  - Y: 4, 7, K                (_ indicates no second distribution code)    (format: firstDistributionCode: availableSecondDistributionCodes)
+   * Box 7a. Second distribution code. Must be a valid combination with the first distribution code.  See DistributionCode property documentation for code descriptions.    Valid combinations based on first distribution code:  - 1: _, 8, B, D, K, L, M, P  - 2: _, 8, B, D, K, L, M, P  - 3: _, D  - 4: _, 8, A, B, D, G, H, K, L, M, P  - 5: _  - 6: _, W  - 7: _, A, B, D, K, L, M  - 8: _, 1, 2, 4, B, J, K  - 9: _  - A: 4, 7  - B: _, 1, 2, 4, 7, 8, G, L, M, P, U  - C: _, D  - D: 1, 2, 3, 4, 7, C  - E: _  - F: _  - G: _, 4, B, K  - H: _, 4  - J: _, 8, P  - K: 1, 2, 4, 7, 8, G  - L: _, 1, 2, 4, 7, B  - M: _, 1, 2, 4, 7, B  - N: _  - P: _, 1, 2, 4, B, J  - Q: _  - R: _  - S: _  - T: _  - U: _, B  - W: _, 6  - Y: 4, 7, K                (_ indicates no second distribution code)    (format: firstDistributionCode: availableSecondDistributionCodes)
    */
   @JsonAdapter(SecondDistributionCodeEnum.Adapter.class)
   public enum SecondDistributionCodeEnum {
@@ -324,6 +325,14 @@ public class Form1099R {
   @SerializedName(SERIALIZED_NAME_IRA_SEP_SIMPLE)
   private Boolean iraSepSimple;
 
+  public static final String SERIALIZED_NAME_TRUMP_ACCOUNT_INDICATOR = "trumpAccountIndicator";
+  @SerializedName(SERIALIZED_NAME_TRUMP_ACCOUNT_INDICATOR)
+  private Boolean trumpAccountIndicator;
+
+  public static final String SERIALIZED_NAME_EXCESS_CONTRIBUTIONS_EARNINGS = "excessContributionsEarnings";
+  @SerializedName(SERIALIZED_NAME_EXCESS_CONTRIBUTIONS_EARNINGS)
+  private Double excessContributionsEarnings;
+
   public static final String SERIALIZED_NAME_TRADITIONAL_IRA_SEP_SIMPLE_OR_ROTH_CONVERSION_AMOUNT = "traditionalIraSepSimpleOrRothConversionAmount";
   @SerializedName(SERIALIZED_NAME_TRADITIONAL_IRA_SEP_SIMPLE_OR_ROTH_CONVERSION_AMOUNT)
   private Double traditionalIraSepSimpleOrRothConversionAmount;
@@ -373,11 +382,17 @@ public class Form1099R {
     
     _1098("1098"),
     
+    _1098_E("1098-E"),
+    
     _1098_T("1098-T"),
+    
+    _1099_B("1099-B"),
     
     _1099_C("1099-C"),
     
     _1099_DIV("1099-DIV"),
+    
+    _1099_G("1099-G"),
     
     _1099_INT("1099-INT"),
     
@@ -395,7 +410,11 @@ public class Form1099R {
     
     _1099_SA("1099-SA"),
     
-    W_2("W-2");
+    _5498("5498"),
+    
+    W_2("W-2"),
+    
+    W_2_G("W-2G");
 
     private String value;
 
@@ -539,7 +558,7 @@ public class Form1099R {
 
   public static final String SERIALIZED_NAME_FEDERAL_EFILE_STATUS = "federalEfileStatus";
   @SerializedName(SERIALIZED_NAME_FEDERAL_EFILE_STATUS)
-  private Form1099StatusDetail federalEfileStatus;
+  private FederalEfileStatusDetail federalEfileStatus;
 
   public static final String SERIALIZED_NAME_STATE_EFILE_STATUS = "stateEfileStatus";
   @SerializedName(SERIALIZED_NAME_STATE_EFILE_STATUS)
@@ -689,7 +708,7 @@ public class Form1099R {
 
   public Form1099R(
      String id, 
-     Form1099StatusDetail federalEfileStatus, 
+     FederalEfileStatusDetail federalEfileStatus, 
      List<StateEfileStatusDetail> stateEfileStatus, 
      Form1099StatusDetail postalMailStatus, 
      Form1099StatusDetail tinMatchStatus, 
@@ -870,7 +889,7 @@ public class Form1099R {
   }
 
   /**
-   * Distribution code.    Available values:  - 1: Early distribution, no known exception (in most cases, under age 59½)  - 2: Early distribution, exception applies (under age 59½)  - 3: Disability  - 4: Death  - 5: Prohibited transaction  - 6: Section 1035 exchange (a tax-free exchange of life insurance, annuity, qualified long-term care insurance, or endowment contracts)  - 7: Normal distribution  - 8: Excess contributions plus earnings/excess deferrals (and/or earnings) taxable in payment year  - 9: Cost of current life insurance protection (premiums paid by a trustee or custodian for current insurance protection)  - A: May be eligible for 10-year tax option  - B: Designated Roth account distribution  - C: Reportable Death Benefits Under Section 6050Y(c)  - D: Annuity payments from nonqualified annuity payments and distributions from life insurance contracts that may be subject to tax under section 1411  - E: Distribution under Employee Plans Compliance Resolution System (EPCRS)  - F: Charitable gift annuity  - G: Direct rollover and rollover contribution  - H: Direct rollover of distribution from a designated Roth account to a Roth IRA  - J: Early distribution from a Roth IRA (This code may be used with a Code 8 or P)  - K: Distribution of IRA Assets Not Having A Readily Available FMV  - L: Loans treated as deemed distributions under section 72(p)  - M: Qualified Plan Loan Offsets  - N: Recharacterized IRA contribution made for year following payment year  - P: Excess contributions plus earnings/excess deferrals taxable for year prior to payment year  - Q: Qualified distribution from a Roth IRA (Distribution from a Roth IRA when the 5-year holding period has been met, and the recipient has reached 59½, has died, or is disabled)  - R: Recharacterized IRA contribution made for year prior to payment year  - S: Early distribution from a SIMPLE IRA in first 2 years no known exceptions  - T: Roth IRA distribution exception applies because participant has reached 59½, died or is disabled, but it is unknown if the 5-year period has been met  - U: Distribution from ESOP under Section 404(k)  - W: Charges or payments for purchasing qualified long-term care insurance contracts under combined arrangements  - Y: Qualified charitable distribution (QCD) claimed under section 408(d)(8) (Available for 2025 on)
+   * Box 7a. Distribution code.    Available values:  - 1: Early distribution, no known exception (in most cases, under age 59½)  - 2: Early distribution, exception applies (under age 59½)  - 3: Disability  - 4: Death  - 5: Prohibited transaction  - 6: Section 1035 exchange (a tax-free exchange of life insurance, annuity, qualified long-term care insurance, or endowment contracts)  - 7: Normal distribution  - 8: Excess contributions plus earnings/excess deferrals (and/or earnings) taxable in payment year  - 9: Cost of current life insurance protection (premiums paid by a trustee or custodian for current insurance protection)  - A: May be eligible for 10-year tax option  - B: Designated Roth account distribution  - C: Reportable Death Benefits Under Section 6050Y(c)  - D: Annuity payments from nonqualified annuity payments and distributions from life insurance contracts that may be subject to tax under section 1411  - E: Distribution under Employee Plans Compliance Resolution System (EPCRS)  - F: Charitable gift annuity  - G: Direct rollover and rollover contribution  - H: Direct rollover of distribution from a designated Roth account to a Roth IRA  - J: Early distribution from a Roth IRA (This code may be used with a Code 8 or P)  - K: Distribution of IRA Assets Not Having A Readily Available FMV  - L: Loans treated as deemed distributions under section 72(p)  - M: Qualified Plan Loan Offsets  - N: Recharacterized IRA contribution made for year following payment year  - P: Excess contributions plus earnings/excess deferrals taxable for year prior to payment year  - Q: Qualified distribution from a Roth IRA (Distribution from a Roth IRA when the 5-year holding period has been met, and the recipient has reached 59½, has died, or is disabled)  - R: Recharacterized IRA contribution made for year prior to payment year  - S: Early distribution from a SIMPLE IRA in first 2 years no known exceptions  - T: Roth IRA distribution exception applies because participant has reached 59½, died or is disabled, but it is unknown if the 5-year period has been met  - U: Distribution from ESOP under Section 404(k)  - W: Charges or payments for purchasing qualified long-term care insurance contracts under combined arrangements  - Y: Qualified charitable distribution (QCD) claimed under section 408(d)(8) (Available for 2025 on)
    * @return distributionCode
    */
   @javax.annotation.Nullable
@@ -889,7 +908,7 @@ public class Form1099R {
   }
 
   /**
-   * Second distribution code. Must be a valid combination with the first distribution code.  See DistributionCode property documentation for code descriptions.    Valid combinations based on first distribution code:  - 1: _, 8, B, D, K, L, M, P  - 2: _, 8, B, D, K, L, M, P  - 3: _, D  - 4: _, 8, A, B, D, G, H, K, L, M, P  - 5: _  - 6: _, W  - 7: _, A, B, D, K, L, M  - 8: _, 1, 2, 4, B, J, K  - 9: _  - A: 4, 7  - B: _, 1, 2, 4, 7, 8, G, L, M, P, U  - C: _, D  - D: 1, 2, 3, 4, 7, C  - E: _  - F: _  - G: _, 4, B, K  - H: _, 4  - J: _, 8, P  - K: 1, 2, 4, 7, 8, G  - L: _, 1, 2, 4, 7, B  - M: _, 1, 2, 4, 7, B  - N: _  - P: _, 1, 2, 4, B, J  - Q: _  - R: _  - S: _  - T: _  - U: _, B  - W: _, 6  - Y: 4, 7, K                (_ indicates no second distribution code)    (format: firstDistributionCode: availableSecondDistributionCodes)
+   * Box 7a. Second distribution code. Must be a valid combination with the first distribution code.  See DistributionCode property documentation for code descriptions.    Valid combinations based on first distribution code:  - 1: _, 8, B, D, K, L, M, P  - 2: _, 8, B, D, K, L, M, P  - 3: _, D  - 4: _, 8, A, B, D, G, H, K, L, M, P  - 5: _  - 6: _, W  - 7: _, A, B, D, K, L, M  - 8: _, 1, 2, 4, B, J, K  - 9: _  - A: 4, 7  - B: _, 1, 2, 4, 7, 8, G, L, M, P, U  - C: _, D  - D: 1, 2, 3, 4, 7, C  - E: _  - F: _  - G: _, 4, B, K  - H: _, 4  - J: _, 8, P  - K: 1, 2, 4, 7, 8, G  - L: _, 1, 2, 4, 7, B  - M: _, 1, 2, 4, 7, B  - N: _  - P: _, 1, 2, 4, B, J  - Q: _  - R: _  - S: _  - T: _  - U: _, B  - W: _, 6  - Y: 4, 7, K                (_ indicates no second distribution code)    (format: firstDistributionCode: availableSecondDistributionCodes)
    * @return secondDistributionCode
    */
   @javax.annotation.Nullable
@@ -908,7 +927,7 @@ public class Form1099R {
   }
 
   /**
-   * IRA/SEP/SIMPLE
+   * Box 7b. IRA/SEP/SIMPLE
    * @return iraSepSimple
    */
   @javax.annotation.Nullable
@@ -918,6 +937,44 @@ public class Form1099R {
 
   public void setIraSepSimple(Boolean iraSepSimple) {
     this.iraSepSimple = iraSepSimple;
+  }
+
+
+  public Form1099R trumpAccountIndicator(Boolean trumpAccountIndicator) {
+    this.trumpAccountIndicator = trumpAccountIndicator;
+    return this;
+  }
+
+  /**
+   * Box 7c. Trump account checkbox - Available only for tax year 2026 and later.
+   * @return trumpAccountIndicator
+   */
+  @javax.annotation.Nullable
+  public Boolean getTrumpAccountIndicator() {
+    return trumpAccountIndicator;
+  }
+
+  public void setTrumpAccountIndicator(Boolean trumpAccountIndicator) {
+    this.trumpAccountIndicator = trumpAccountIndicator;
+  }
+
+
+  public Form1099R excessContributionsEarnings(Double excessContributionsEarnings) {
+    this.excessContributionsEarnings = excessContributionsEarnings;
+    return this;
+  }
+
+  /**
+   * Box 7d. Earnings on excess contributions - Available only for tax year 2026 and later.  Enter 0 when the excess contributions had losses.
+   * @return excessContributionsEarnings
+   */
+  @javax.annotation.Nullable
+  public Double getExcessContributionsEarnings() {
+    return excessContributionsEarnings;
+  }
+
+  public void setExcessContributionsEarnings(Double excessContributionsEarnings) {
+    this.excessContributionsEarnings = excessContributionsEarnings;
   }
 
 
@@ -946,7 +1003,7 @@ public class Form1099R {
   }
 
   /**
-   * Other amount
+   * Box 8a. Other amount
    * @return otherAmount
    */
   @javax.annotation.Nullable
@@ -965,7 +1022,7 @@ public class Form1099R {
   }
 
   /**
-   * Other percentage
+   * Box 8b. Other percentage
    * @return otherPercentage
    */
   @javax.annotation.Nullable
@@ -1545,11 +1602,11 @@ public class Form1099R {
 
 
   /**
-   * Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states)
+   * Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states)  When the form&#39;s most recent IRIS filing was rejected or accepted with errors, &#x60;errors&#x60; lists what the IRS reported.
    * @return federalEfileStatus
    */
   @javax.annotation.Nullable
-  public Form1099StatusDetail getFederalEfileStatus() {
+  public FederalEfileStatusDetail getFederalEfileStatus() {
     return federalEfileStatus;
   }
 
@@ -1940,6 +1997,8 @@ public class Form1099R {
         Objects.equals(this.distributionCode, form1099R.distributionCode) &&
         Objects.equals(this.secondDistributionCode, form1099R.secondDistributionCode) &&
         Objects.equals(this.iraSepSimple, form1099R.iraSepSimple) &&
+        Objects.equals(this.trumpAccountIndicator, form1099R.trumpAccountIndicator) &&
+        Objects.equals(this.excessContributionsEarnings, form1099R.excessContributionsEarnings) &&
         Objects.equals(this.traditionalIraSepSimpleOrRothConversionAmount, form1099R.traditionalIraSepSimpleOrRothConversionAmount) &&
         Objects.equals(this.otherAmount, form1099R.otherAmount) &&
         Objects.equals(this.otherPercentage, form1099R.otherPercentage) &&
@@ -2003,7 +2062,7 @@ public class Form1099R {
 
   @Override
   public int hashCode() {
-    return Objects.hash(grossDistribution, taxableAmount, taxableAmountNotDetermined, totalDistributionDetermined, capitalGain, federalIncomeTaxWithheld, employeeContributionsOrDesignatedRothOrInsurancePremiums, netUnrealizedAppreciationInEmployerSecurities, distributionCode, secondDistributionCode, iraSepSimple, traditionalIraSepSimpleOrRothConversionAmount, otherAmount, otherPercentage, totalDistributionPercentage, totalEmployeeContributions, amountAllocableToIrrWithin5Years, firstYearOfDesignatedRothContribution, dateOfPayment, fatcaFilingRequirement, type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, address, address2, city, state, zip, email, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, addressVerification, stateAndLocalWithholding, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt, tinType, businessName, businessName2, firstName, middleName, lastName, suffixName, recipientSecondName, accountNumber, officeCode, noTin, secondTinNotice, additionalProperties);
+    return Objects.hash(grossDistribution, taxableAmount, taxableAmountNotDetermined, totalDistributionDetermined, capitalGain, federalIncomeTaxWithheld, employeeContributionsOrDesignatedRothOrInsurancePremiums, netUnrealizedAppreciationInEmployerSecurities, distributionCode, secondDistributionCode, iraSepSimple, trumpAccountIndicator, excessContributionsEarnings, traditionalIraSepSimpleOrRothConversionAmount, otherAmount, otherPercentage, totalDistributionPercentage, totalEmployeeContributions, amountAllocableToIrrWithin5Years, firstYearOfDesignatedRothContribution, dateOfPayment, fatcaFilingRequirement, type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, address, address2, city, state, zip, email, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, addressVerification, stateAndLocalWithholding, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt, tinType, businessName, businessName2, firstName, middleName, lastName, suffixName, recipientSecondName, accountNumber, officeCode, noTin, secondTinNotice, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -2028,6 +2087,8 @@ public class Form1099R {
     sb.append("    distributionCode: ").append(toIndentedString(distributionCode)).append("\n");
     sb.append("    secondDistributionCode: ").append(toIndentedString(secondDistributionCode)).append("\n");
     sb.append("    iraSepSimple: ").append(toIndentedString(iraSepSimple)).append("\n");
+    sb.append("    trumpAccountIndicator: ").append(toIndentedString(trumpAccountIndicator)).append("\n");
+    sb.append("    excessContributionsEarnings: ").append(toIndentedString(excessContributionsEarnings)).append("\n");
     sb.append("    traditionalIraSepSimpleOrRothConversionAmount: ").append(toIndentedString(traditionalIraSepSimpleOrRothConversionAmount)).append("\n");
     sb.append("    otherAmount: ").append(toIndentedString(otherAmount)).append("\n");
     sb.append("    otherPercentage: ").append(toIndentedString(otherPercentage)).append("\n");
@@ -2257,7 +2318,7 @@ public class Form1099R {
       }
       // validate the optional field `federalEfileStatus`
       if (jsonObj.get("federalEfileStatus") != null && !jsonObj.get("federalEfileStatus").isJsonNull()) {
-        Form1099StatusDetail.validateJsonElement(jsonObj.get("federalEfileStatus"));
+        FederalEfileStatusDetail.validateJsonElement(jsonObj.get("federalEfileStatus"));
       }
       if (jsonObj.get("stateEfileStatus") != null && !jsonObj.get("stateEfileStatus").isJsonNull()) {
         JsonArray jsonArraystateEfileStatus = jsonObj.getAsJsonArray("stateEfileStatus");

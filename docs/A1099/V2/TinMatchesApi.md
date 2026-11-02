@@ -47,7 +47,7 @@ public class Example {
         TinMatchesApi apiInstance = new TinMatchesApi(apiClient);
         String id = "id_example"; // String | The bulk ID
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "77d79db6-e884-4ef0-a76d-0c10c41f5993"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "03374952-7012-4525-9ea0-56e42dabc7d4"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             BulkTinMatchResponse result = apiInstance.getBulkTinMatch(id, avalaraVersion, xCorrelationId, xAvalaraClient);
@@ -90,6 +90,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **503** | Server Error |  -  |
 | **200** | Bulk TIN match details |  -  |
 | **401** | Authentication failed |  -  |
 | **404** | Bulk not found |  -  |
@@ -137,7 +138,7 @@ public class Example {
         String $orderBy = "$orderBy_example"; // String | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
         Boolean count = true; // Boolean | If true, return the global count of elements in the collection.
         Boolean countOnly = true; // Boolean | If true, return ONLY the global count of elements in the collection.  It only applies when count=true.
-        String xCorrelationId = "8bd78a31-95dc-4091-9f0e-fd0647ecc6f5"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "870967bd-fd8e-42ae-8123-2014d0b6acaa"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         try {
             PaginatedQueryResultModelBulkTinMatchResultItemResponse result = apiInstance.getBulkTinMatchResults(id, avalaraVersion, $filter, $top, $skip, $orderBy, count, countOnly, xCorrelationId, xAvalaraClient);
@@ -186,6 +187,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **503** | Server Error |  -  |
 | **200** | List of TIN match responses |  -  |
 | **400** | Bad request (e.g., invalid sort key) |  -  |
 | **401** | Authentication failed |  -  |
@@ -229,7 +231,7 @@ public class Example {
 
         TinMatchesApi apiInstance = new TinMatchesApi(apiClient);
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "7f2a23f6-59ed-4fb9-95fd-7937e99952f5"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "1b37371e-1fec-410e-a43c-5d877903c086"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         RealTimeTinMatchRequest realTimeTinMatchRequest = new RealTimeTinMatchRequest(); // RealTimeTinMatchRequest | Required data to perform TIN match
         try {
@@ -273,12 +275,12 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **503** | IRS Service is not available. Client should retry later. |  -  |
 | **200** | TIN match result (matched or rejected) |  -  |
 | **400** | Bad request (e.g. invalid field values) |  -  |
 | **401** | Authentication failed |  -  |
 | **429** | Usage limit exceeded (10,000 successful calls per 24 hours) |  -  |
 | **403** | Authorization failed (lack of permissions or product not purchased) |  -  |
-| **503** | IRS Service is not available. Client should retry later. |  -  |
 
 
 ## submitBulkTinMatch
@@ -316,7 +318,7 @@ public class Example {
 
         TinMatchesApi apiInstance = new TinMatchesApi(apiClient);
         String avalaraVersion = "2.0.0"; // String | API version
-        String xCorrelationId = "88b0e4e3-1fd9-437c-9744-753f89dfef9f"; // String | Unique correlation Id in a GUID format
+        String xCorrelationId = "a78efa3f-47be-4a5d-a2f4-07b9e16a1257"; // String | Unique correlation Id in a GUID format
         String xAvalaraClient = "Swagger UI; 22.1.0"; // String | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) .
         BulkTinMatchRequest bulkTinMatchRequest = new BulkTinMatchRequest(); // BulkTinMatchRequest | Required TIN collection to perform bulk TIN match
         try {
@@ -360,6 +362,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **503** | Server Error |  -  |
 | **202** | Accepted submission, indicating it will be processed later and where to get results from |  -  |
 | **400** | Bad request (e.g. invalid field values) |  -  |
 | **401** | Authentication failed |  -  |

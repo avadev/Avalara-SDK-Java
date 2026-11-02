@@ -20,6 +20,7 @@
 package Avalara.SDK.model.A1099.V2;
 
 import java.util.Objects;
+import Avalara.SDK.model.A1099.V2.FederalEfileStatusDetail;
 import Avalara.SDK.model.A1099.V2.Form1099StatusDetail;
 import Avalara.SDK.model.A1099.V2.StateAndLocalWithholding;
 import Avalara.SDK.model.A1099.V2.StateEfileStatusDetail;
@@ -70,6 +71,22 @@ public class Form1099Nec {
   @SerializedName(SERIALIZED_NAME_NONEMPLOYEE_COMPENSATION)
   private Double nonemployeeCompensation;
 
+  public static final String SERIALIZED_NAME_CASH_TIPS = "cashTips";
+  @SerializedName(SERIALIZED_NAME_CASH_TIPS)
+  private Double cashTips;
+
+  public static final String SERIALIZED_NAME_TREASURY_TIPPED_OCCUPATION_CODE = "treasuryTippedOccupationCode";
+  @SerializedName(SERIALIZED_NAME_TREASURY_TIPPED_OCCUPATION_CODE)
+  private String treasuryTippedOccupationCode;
+
+  public static final String SERIALIZED_NAME_TREASURY_TIPPED_OCCUPATION_CODE2 = "treasuryTippedOccupationCode2";
+  @SerializedName(SERIALIZED_NAME_TREASURY_TIPPED_OCCUPATION_CODE2)
+  private String treasuryTippedOccupationCode2;
+
+  public static final String SERIALIZED_NAME_OVERTIME_COMPENSATION = "overtimeCompensation";
+  @SerializedName(SERIALIZED_NAME_OVERTIME_COMPENSATION)
+  private Double overtimeCompensation;
+
   public static final String SERIALIZED_NAME_DIRECT_SALES_INDICATOR = "directSalesIndicator";
   @SerializedName(SERIALIZED_NAME_DIRECT_SALES_INDICATOR)
   private Boolean directSalesIndicator;
@@ -95,11 +112,17 @@ public class Form1099Nec {
     
     _1098("1098"),
     
+    _1098_E("1098-E"),
+    
     _1098_T("1098-T"),
+    
+    _1099_B("1099-B"),
     
     _1099_C("1099-C"),
     
     _1099_DIV("1099-DIV"),
+    
+    _1099_G("1099-G"),
     
     _1099_INT("1099-INT"),
     
@@ -117,7 +140,11 @@ public class Form1099Nec {
     
     _1099_SA("1099-SA"),
     
-    W_2("W-2");
+    _5498("5498"),
+    
+    W_2("W-2"),
+    
+    W_2_G("W-2G");
 
     private String value;
 
@@ -261,7 +288,7 @@ public class Form1099Nec {
 
   public static final String SERIALIZED_NAME_FEDERAL_EFILE_STATUS = "federalEfileStatus";
   @SerializedName(SERIALIZED_NAME_FEDERAL_EFILE_STATUS)
-  private Form1099StatusDetail federalEfileStatus;
+  private FederalEfileStatusDetail federalEfileStatus;
 
   public static final String SERIALIZED_NAME_STATE_EFILE_STATUS = "stateEfileStatus";
   @SerializedName(SERIALIZED_NAME_STATE_EFILE_STATUS)
@@ -411,7 +438,7 @@ public class Form1099Nec {
 
   public Form1099Nec(
      String id, 
-     Form1099StatusDetail federalEfileStatus, 
+     FederalEfileStatusDetail federalEfileStatus, 
      List<StateEfileStatusDetail> stateEfileStatus, 
      Form1099StatusDetail postalMailStatus, 
      Form1099StatusDetail tinMatchStatus, 
@@ -440,7 +467,7 @@ public class Form1099Nec {
   }
 
   /**
-   * Nonemployee compensation. Required if DirectSalesIndicator is false.
+   * Box 1a. Nonemployee compensation. Required if DirectSalesIndicator is false. Named \&quot;Box 1\&quot; on revisions of the form before the December 2026 revision.
    * @return nonemployeeCompensation
    */
   @javax.annotation.Nullable
@@ -450,6 +477,82 @@ public class Form1099Nec {
 
   public void setNonemployeeCompensation(Double nonemployeeCompensation) {
     this.nonemployeeCompensation = nonemployeeCompensation;
+  }
+
+
+  public Form1099Nec cashTips(Double cashTips) {
+    this.cashTips = cashTips;
+    return this;
+  }
+
+  /**
+   * Box 1b. Cash tips, including tips paid in cash or charged by customers - Available only for tax year 2026 and later.  This amount is already included in NonemployeeCompensation (Box 1a) and is not added to it, so it may not exceed NonemployeeCompensation.
+   * @return cashTips
+   */
+  @javax.annotation.Nullable
+  public Double getCashTips() {
+    return cashTips;
+  }
+
+  public void setCashTips(Double cashTips) {
+    this.cashTips = cashTips;
+  }
+
+
+  public Form1099Nec treasuryTippedOccupationCode(String treasuryTippedOccupationCode) {
+    this.treasuryTippedOccupationCode = treasuryTippedOccupationCode;
+    return this;
+  }
+
+  /**
+   * Box 1c. Treasury Tipped Occupation Code (TTOC) for the recipient&#39;s tipped occupation - Available only for tax year 2026 and later.  A three-digit, zero-padded code from the IRS enumeration: 000 (tips received in a nonqualifying occupation), 101-110, 201-211, 301-304,  401-409, 501-508, 601-611, 701-706, or 801-809. The form accepts up to two codes - see TreasuryTippedOccupationCode2 for the second.  Send the code exactly as three characters (\&quot;001\&quot;, not \&quot;1\&quot;); leading zeros are not restored for you. Watch for spreadsheet software  that strips leading zeros when a code is exported to CSV and re-imported.
+   * @return treasuryTippedOccupationCode
+   */
+  @javax.annotation.Nullable
+  public String getTreasuryTippedOccupationCode() {
+    return treasuryTippedOccupationCode;
+  }
+
+  public void setTreasuryTippedOccupationCode(String treasuryTippedOccupationCode) {
+    this.treasuryTippedOccupationCode = treasuryTippedOccupationCode;
+  }
+
+
+  public Form1099Nec treasuryTippedOccupationCode2(String treasuryTippedOccupationCode2) {
+    this.treasuryTippedOccupationCode2 = treasuryTippedOccupationCode2;
+    return this;
+  }
+
+  /**
+   * Box 1c. Second Treasury Tipped Occupation Code (TTOC) - Available only for tax year 2026 and later.  Same three-digit code list and formatting rules as TreasuryTippedOccupationCode, and must differ from it.
+   * @return treasuryTippedOccupationCode2
+   */
+  @javax.annotation.Nullable
+  public String getTreasuryTippedOccupationCode2() {
+    return treasuryTippedOccupationCode2;
+  }
+
+  public void setTreasuryTippedOccupationCode2(String treasuryTippedOccupationCode2) {
+    this.treasuryTippedOccupationCode2 = treasuryTippedOccupationCode2;
+  }
+
+
+  public Form1099Nec overtimeCompensation(Double overtimeCompensation) {
+    this.overtimeCompensation = overtimeCompensation;
+    return this;
+  }
+
+  /**
+   * Box 1d. Qualified overtime compensation - Available only for tax year 2026 and later.  This amount is already included in NonemployeeCompensation (Box 1a) and is not added to it, so it may not exceed NonemployeeCompensation.
+   * @return overtimeCompensation
+   */
+  @javax.annotation.Nullable
+  public Double getOvertimeCompensation() {
+    return overtimeCompensation;
+  }
+
+  public void setOvertimeCompensation(Double overtimeCompensation) {
+    this.overtimeCompensation = overtimeCompensation;
   }
 
 
@@ -963,11 +1066,11 @@ public class Form1099Nec {
 
 
   /**
-   * Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states)
+   * Federal e-file status.  Available values:  - unscheduled: Form has not been scheduled for federal e-filing  - scheduled: Form is scheduled for federal e-filing  - airlock: Form is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - sent: Form has been sent to the IRS  - accepted: Form was accepted by the IRS  - corrected_scheduled: Correction is scheduled to be sent  - corrected_airlock: Correction is in process of being uploaded to the IRS (forms exist in this state for a very short period and cannot be updated while in this state)  - corrected: A correction has been sent to the IRS  - corrected_accepted: Correction was accepted by the IRS  - rejected: Form was rejected by the IRS  - corrected_rejected: Correction was rejected by the IRS  - held: Form is held and will not be submitted to IRS (used for certain forms submitted only to states)  When the form&#39;s most recent IRIS filing was rejected or accepted with errors, &#x60;errors&#x60; lists what the IRS reported.
    * @return federalEfileStatus
    */
   @javax.annotation.Nullable
-  public Form1099StatusDetail getFederalEfileStatus() {
+  public FederalEfileStatusDetail getFederalEfileStatus() {
     return federalEfileStatus;
   }
 
@@ -1348,6 +1451,10 @@ public class Form1099Nec {
     }
     Form1099Nec form1099Nec = (Form1099Nec) o;
     return Objects.equals(this.nonemployeeCompensation, form1099Nec.nonemployeeCompensation) &&
+        Objects.equals(this.cashTips, form1099Nec.cashTips) &&
+        Objects.equals(this.treasuryTippedOccupationCode, form1099Nec.treasuryTippedOccupationCode) &&
+        Objects.equals(this.treasuryTippedOccupationCode2, form1099Nec.treasuryTippedOccupationCode2) &&
+        Objects.equals(this.overtimeCompensation, form1099Nec.overtimeCompensation) &&
         Objects.equals(this.directSalesIndicator, form1099Nec.directSalesIndicator) &&
         Objects.equals(this.excessGoldenParachutePayments, form1099Nec.excessGoldenParachutePayments) &&
         Objects.equals(this.federalIncomeTaxWithheld, form1099Nec.federalIncomeTaxWithheld) &&
@@ -1405,7 +1512,7 @@ public class Form1099Nec {
 
   @Override
   public int hashCode() {
-    return Objects.hash(nonemployeeCompensation, directSalesIndicator, excessGoldenParachutePayments, federalIncomeTaxWithheld, type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, address, address2, city, state, zip, email, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, addressVerification, stateAndLocalWithholding, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt, tinType, businessName, businessName2, firstName, middleName, lastName, suffixName, recipientSecondName, accountNumber, officeCode, noTin, secondTinNotice, additionalProperties);
+    return Objects.hash(nonemployeeCompensation, cashTips, treasuryTippedOccupationCode, treasuryTippedOccupationCode2, overtimeCompensation, directSalesIndicator, excessGoldenParachutePayments, federalIncomeTaxWithheld, type, id, issuerId, issuerReferenceId, issuerTin, taxYear, referenceId, tin, recipientName, address, address2, city, state, zip, email, nonUsProvince, countryCode, federalEfileDate, postalMail, stateEfileDate, recipientEdeliveryDate, tinMatch, addressVerification, stateAndLocalWithholding, federalEfileStatus, stateEfileStatus, postalMailStatus, tinMatchStatus, addressVerificationStatus, eDeliveryStatus, validationErrors, createdAt, updatedAt, tinType, businessName, businessName2, firstName, middleName, lastName, suffixName, recipientSecondName, accountNumber, officeCode, noTin, secondTinNotice, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1420,6 +1527,10 @@ public class Form1099Nec {
     StringBuilder sb = new StringBuilder();
     sb.append("class Form1099Nec {\n");
     sb.append("    nonemployeeCompensation: ").append(toIndentedString(nonemployeeCompensation)).append("\n");
+    sb.append("    cashTips: ").append(toIndentedString(cashTips)).append("\n");
+    sb.append("    treasuryTippedOccupationCode: ").append(toIndentedString(treasuryTippedOccupationCode)).append("\n");
+    sb.append("    treasuryTippedOccupationCode2: ").append(toIndentedString(treasuryTippedOccupationCode2)).append("\n");
+    sb.append("    overtimeCompensation: ").append(toIndentedString(overtimeCompensation)).append("\n");
     sb.append("    directSalesIndicator: ").append(toIndentedString(directSalesIndicator)).append("\n");
     sb.append("    excessGoldenParachutePayments: ").append(toIndentedString(excessGoldenParachutePayments)).append("\n");
     sb.append("    federalIncomeTaxWithheld: ").append(toIndentedString(federalIncomeTaxWithheld)).append("\n");
@@ -1566,6 +1677,12 @@ public class Form1099Nec {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("treasuryTippedOccupationCode") != null && !jsonObj.get("treasuryTippedOccupationCode").isJsonNull()) && !jsonObj.get("treasuryTippedOccupationCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `treasuryTippedOccupationCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("treasuryTippedOccupationCode").toString()));
+      }
+      if ((jsonObj.get("treasuryTippedOccupationCode2") != null && !jsonObj.get("treasuryTippedOccupationCode2").isJsonNull()) && !jsonObj.get("treasuryTippedOccupationCode2").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `treasuryTippedOccupationCode2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("treasuryTippedOccupationCode2").toString()));
+      }
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
@@ -1622,7 +1739,7 @@ public class Form1099Nec {
       }
       // validate the optional field `federalEfileStatus`
       if (jsonObj.get("federalEfileStatus") != null && !jsonObj.get("federalEfileStatus").isJsonNull()) {
-        Form1099StatusDetail.validateJsonElement(jsonObj.get("federalEfileStatus"));
+        FederalEfileStatusDetail.validateJsonElement(jsonObj.get("federalEfileStatus"));
       }
       if (jsonObj.get("stateEfileStatus") != null && !jsonObj.get("stateEfileStatus").isJsonNull()) {
         JsonArray jsonArraystateEfileStatus = jsonObj.getAsJsonArray("stateEfileStatus");

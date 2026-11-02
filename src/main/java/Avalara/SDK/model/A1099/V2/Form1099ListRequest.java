@@ -61,7 +61,7 @@ import Avalara.SDK.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Form1099ListRequest {
   /**
-   * Available form types: * &#x60;1042-S&#x60; * &#x60;1095-B&#x60; * &#x60;1095-C&#x60; * &#x60;1098&#x60; * &#x60;1098-T&#x60; * &#x60;1099-C&#x60; * &#x60;1099-DIV&#x60; * &#x60;1099-INT&#x60; * &#x60;1099-K&#x60; * &#x60;1099-MISC&#x60; * &#x60;1099-NEC&#x60; * &#x60;1099-PATR&#x60; * &#x60;1099-R&#x60; * &#x60;1099-S&#x60; * &#x60;1099-SA&#x60; * &#x60;W-2&#x60; 
+   * Available form types: * &#x60;1042-S&#x60; * &#x60;1095-B&#x60; * &#x60;1095-C&#x60; * &#x60;1098&#x60; * &#x60;1098-E&#x60; * &#x60;1098-T&#x60; * &#x60;1099-B&#x60; * &#x60;1099-C&#x60; * &#x60;1099-DIV&#x60; * &#x60;1099-G&#x60; * &#x60;1099-INT&#x60; * &#x60;1099-K&#x60; * &#x60;1099-MISC&#x60; * &#x60;1099-NEC&#x60; * &#x60;1099-PATR&#x60; * &#x60;1099-R&#x60; * &#x60;1099-S&#x60; * &#x60;1099-SA&#x60; * &#x60;5498&#x60; * &#x60;W-2&#x60; * &#x60;W-2G&#x60; 
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -73,11 +73,17 @@ public class Form1099ListRequest {
     
     _1098("1098"),
     
+    _1098_E("1098-E"),
+    
     _1098_T("1098-T"),
+    
+    _1099_B("1099-B"),
     
     _1099_C("1099-C"),
     
     _1099_DIV("1099-DIV"),
+    
+    _1099_G("1099-G"),
     
     _1099_INT("1099-INT"),
     
@@ -95,7 +101,11 @@ public class Form1099ListRequest {
     
     _1099_SA("1099-SA"),
     
-    W_2("W-2");
+    _5498("5498"),
+    
+    W_2("W-2"),
+    
+    W_2_G("W-2G");
 
     private String value;
 
@@ -157,7 +167,7 @@ public class Form1099ListRequest {
   }
 
   /**
-   * Available form types: * &#x60;1042-S&#x60; * &#x60;1095-B&#x60; * &#x60;1095-C&#x60; * &#x60;1098&#x60; * &#x60;1098-T&#x60; * &#x60;1099-C&#x60; * &#x60;1099-DIV&#x60; * &#x60;1099-INT&#x60; * &#x60;1099-K&#x60; * &#x60;1099-MISC&#x60; * &#x60;1099-NEC&#x60; * &#x60;1099-PATR&#x60; * &#x60;1099-R&#x60; * &#x60;1099-S&#x60; * &#x60;1099-SA&#x60; * &#x60;W-2&#x60; 
+   * Available form types: * &#x60;1042-S&#x60; * &#x60;1095-B&#x60; * &#x60;1095-C&#x60; * &#x60;1098&#x60; * &#x60;1098-E&#x60; * &#x60;1098-T&#x60; * &#x60;1099-B&#x60; * &#x60;1099-C&#x60; * &#x60;1099-DIV&#x60; * &#x60;1099-G&#x60; * &#x60;1099-INT&#x60; * &#x60;1099-K&#x60; * &#x60;1099-MISC&#x60; * &#x60;1099-NEC&#x60; * &#x60;1099-PATR&#x60; * &#x60;1099-R&#x60; * &#x60;1099-S&#x60; * &#x60;1099-SA&#x60; * &#x60;5498&#x60; * &#x60;W-2&#x60; * &#x60;W-2G&#x60; 
    * @return type
    */
   @javax.annotation.Nullable
